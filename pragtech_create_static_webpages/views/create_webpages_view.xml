@@ -14,6 +14,9 @@
                             <group>
                                 <field name="state"/>
                                 <field name="type_of_webpage"/>
+                                <field name="type"/>
+                                <field name="target"/>
+                                <field name="href"/>
                             </group>
                         </group>
                         <label for="description" string="Description"/>

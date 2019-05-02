@@ -113,5 +113,97 @@ $(document).ready(function()
 //  = -------------  End of Validations for /listplace/share-house/about-property  ------------- =
 
 
+//  ==========================================================================================
+//  = --------------  Validations for /listplace/share-house/property-images  -------------- =
+//  ==========================================================================================
+//  Note: Check whether this js is not visible on other than two pages mentioned in a
+//  comment above
+
+//  document.getElementById('upload').addEventListener('change', handleFileSelect, false);
+
+//  function handleFileSelect(evt) {
+//    var files = evt.target.files; // FileList object
+//    console.log (files)
+//    // Loop through the FileList and render image files as thumbnails.
+//    for (var i = 0, f; f = files[i]; i++) {
+//        console.log (f)
+//      // Only process image files.
+//      if (!f.type.match('image.*')) {
+//        continue;
+//      }
+//
+//      var reader = new FileReader();
+//
+//      // Closure to capture the file information.
+//      reader.onload = (function(theFile) {
+//        return function(e) {
+//          // Render thumbnail.
+//          console.log ("EEEE",e)
+////          var span = document.createElement('span');
+////          span.innerHTML = ['<img class="thumb" src="', e.target.result,
+////                            '" title="', escape(theFile.name), '"/>'].join('');
+////          document.getElementById('list').insertBefore(span, null);
+//        };
+//      })(f);
+//
+//      // Read in the image file as a data URL.
+//      reader.readAsDataURL(f);
+//    }
+//  }
+
+    //form data of Property and room images Page
+    $('#property_images_form_id').submit(function( event )
+    {
+        var oldArray = JSON.parse(localStorage.getItem('list_place_array'));
+        if (array_of_image)
+            oldArray[0]['property_images'] = array_of_image
+        localStorage.setItem('list_place_array', JSON.stringify(oldArray));
+
+        console.log('hereeeeeeeeeeeeeeeeeeeeeeeeee',array_of_image);
+        console.log('LOCAL STORAGE 33 : ',localStorage.getItem('list_place_array'))
+        alert("dgdgh")
+    });
+
+    if (window_pathname.includes('/property-images'))
+    {
+        var array_of_image = []
+    }
+
+    $("#upload").change(function()
+    {
+
+        var files_rec = document.getElementById('upload');
+//        console.log("-----------------",files_rec.files)
+
+
+        for (var rec = 0; rec < files_rec.files.length; rec++)
+        {
+            var reader = new FileReader();
+
+//            console.log("-----------------",files_rec.files[rec])
+            reader.onload = (function(theFile)
+            {
+                return function(e)
+                {
+                    var file_path = e.target.result
+//                    console.log ("Result 1",file_path)
+                    file_path = file_path.slice(file_path.indexOf(',')+1)
+//                    console.log ("Result 2",file_path)
+                    array_of_image.push(file_path)
+                    $(document).find('#images').append('<img src="data:image/jpeg;base64,'+file_path+'"  width="100" height="100"/>')
+//                    if (array_of_image.length == files_rec.files.length)
+
+                    console.log (array_of_image.length)
+
+                };
+            })(files_rec.files[rec]);
+//            reader.readAsBinaryString(files_rec.files[rec])
+
+            reader.readAsDataURL(files_rec.files[rec])
+        }
+
+    });
+
+//  = --------------  End of Validations for /listplace/share-house/property-images  -------------- =
 });// End of document
 });// End of Odoo Deine

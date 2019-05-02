@@ -9,7 +9,7 @@
 }
 
 body{
-   font-family: 'open_sansregular';
+   font-family: 'open_sansregular' !important;
 }
 
 section{
@@ -935,15 +935,18 @@ width: 10%;
 	min-height: auto;
 }
 
+.how-to-guides h3{
+	font-weight: normal;
+	padding: 0 20px;
+}
 .how-to-guides ul{
 	list-style-type: none;
 	padding-left: 0px;
 }
 
 .how-to-guides ul li{
-	padding: 16px;
+	margin: 0 20px;
 	border-bottom: 1px solid rgba(151,155,163,0.2);
-	color: #979ba3;
 	font-size: 16px;
 }
 
@@ -954,8 +957,9 @@ width: 10%;
 
 .how-to-guides ul li a{
 	display: block;
-	color: #fff;
 	text-decoration: none;
+	padding: 16px;
+	color: #979ba3;
 	
 }
 
@@ -964,7 +968,7 @@ width: 10%;
 	color: #fff;
 }
 
-.how-to-guides ul li a:first-child{
+.how-to-guides .li-border{
 	border-top: 1px solid rgba(151,155,163,0.2);
 }
 
@@ -992,6 +996,7 @@ width: 10%;
 .employment-status .items p{
 	min-height:40px;
 }
+
 
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
@@ -1080,10 +1085,12 @@ width: 10%;
 
 .contact-form h1{
 	font-size: 28px;
+	font-weight: normal;
 }
 
 .contact-form h2{
 	font-size: 24px;
+	font-weight: normal;
 }
 
 .contact-form input{
@@ -1105,4 +1112,44 @@ border-radius: 0px;
 }
 
 
+.live-rent-free .live-rent-free-txt{
+	position: absolute;
+	z-index: 1;
+}
 
+.live-rent-free .live-rent-free-pic{
+	position: relative;
+	margin-top: 20px;
+}
+
+.live-rent-free .btn-block:disabled{
+	background: #333;
+border-color: #333;
+cursor: not-allowed;
+	font-size: 18px;
+font-weight: 600;
+height: 60px;
+	color: #fff;
+	border-radius: 0px;
+}
+
+.live-rent-free p{
+	font-size: 16px;
+	color: #5a5f6b;
+}
+
+.live-rent-free h1{
+	font-weight: normal;
+	font-size: 28px;
+}
+.live-rent-free .disclaimer{
+	font-size: 12px;
+	color: #5a5f6b;
+}
+
+
+.winners img {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}

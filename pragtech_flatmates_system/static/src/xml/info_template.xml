@@ -10,66 +10,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-12 how-to-guides">
 
-                                    <ul id="head_id">
-
-                                        <div>
-                                            <h3 class="mb-3">How to guides</h3>
-                                            <t t-foreach="info_pages" t-as="page_info">
-                                                <t t-if = "page_info.type_of_webpage == 'how_to_guides'" >
-                                                    <a href="#"><li  class="info_item" t-attf-value="#{page_info.id}"> <span t-esc="page_info.name"/></li></a>
-                                                </t>
-                                            </t>
-                                        </div>
-
-                                        <div>
-                                            <h3 class="mb-3">Latest articles</h3>
-                                            <t t-foreach="info_pages" t-as="page_info">
-                                                <t t-if = "page_info.type_of_webpage == 'latest_articles'" >
-                                                    <a href="#"><li  class="info_item" t-attf-value="#{page_info.id}"> <span t-esc="page_info.name"/></li></a>
-                                                </t>
-                                            </t>
-                                        </div>
-
-                                        <div>
-                                            <h3 class="mb-3">Legal guides</h3>
-                                            <t t-foreach="info_pages" t-as="page_info">
-                                                <t t-if = "page_info.type_of_webpage == 'legal_guides'" >
-                                                    <a href="#"><li  class="info_item" t-attf-value="#{page_info.id}"> <span t-esc="page_info.name"/></li></a>
-                                                </t>
-                                            </t>
-                                        </div>
-
-                                        <div>
-                                            <h3 class="mb-3">Social</h3>
-                                            <t t-foreach="info_pages" t-as="page_info">
-                                                <t t-if = "page_info.type_of_webpage == 'social'" >
-                                                    <a href="#"><li  class="info_item" t-attf-value="#{page_info.id}"> <span t-esc="page_info.name"/></li></a>
-                                                </t>
-                                            </t>
-                                        </div>
-
-                                        <div>
-                                            <h3 class="mb-3">About Flatmates.com.au</h3>
-                                            <t t-foreach="info_pages" t-as="page_info">
-                                                <t t-if = "page_info.type_of_webpage == 'about'" >
-                                                    <a href="#"><li  class="info_item" t-attf-value="#{page_info.id}"> <span t-esc="page_info.name"/></li></a>
-                                                </t>
-                                            </t>
-                                        </div>
-
-                                        <div>
-                                            <h3 class="mb-3">Our friends</h3>
-                                            <t t-foreach="info_pages" t-as="page_info">
-                                                <t t-if = "page_info.type_of_webpage == 'our_friends'" >
-                                                    <a href="#"><li  class="info_item" t-attf-value="#{page_info.id}"> <span t-esc="page_info.name"/></li></a>
-                                                </t>
-                                            </t>
-                                        </div>
-
-                                        <!-- <a href="#"><li>Home Share Melbourne</li></a>
-                                        <a href="#"><li>What is response rate and how do we calculate it?</li></a>
-                                        <a href="#"><li>Account Verifications</li></a> -->
-                                    </ul>
+                                    <t t-call="pragtech_flatmates_system.info_li_list"/>
 
                                 </div>
 

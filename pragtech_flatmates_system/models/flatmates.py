@@ -22,7 +22,8 @@ class Flatmates(models.Model):
     description_about_property = fields.Text('Property Description')
     description_about_user = fields.Text('About Flatmates')
     property_image_ids = fields.One2many('property.image', 'flat_mates_id', string='Images')
-    partner_id = fields.Many2one('res.partner',string="Customer")
+    # partner_id = fields.Many2one('res.partner',string="Customer")
+    user_id = fields.Many2one('res.users',string="User")
 
     street = fields.Char()
     street2 = fields.Char()
@@ -90,4 +91,7 @@ class PropertyImage(models.Model):
     image = fields.Binary('Image', attachment=True)
     flat_mates_id = fields.Many2one('flat.mates', 'Related Property', copy=True)
 
-
+    # @api.model
+    # def create(self,vals):
+    #     print ("\n\n\nIn create",vals)
+    #     return super(PropertyImage,self).create(vals)

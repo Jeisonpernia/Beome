@@ -138,6 +138,8 @@ $(document).ready(function() {
 $(document).ready(function() {
 	"use strict";
 
+
+
   $(".bedroom-btn > input:radio").click(function() {
 console.log("Notttttt")
     $(this).parent()

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_resolving_disputes" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_flatmates_system.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Resolving disputes</h1>
+                                                <h2 class="mt-5">When money, share accommodation and different personalities come together, disagreements can sometimes arise. It is therefore important to understand your rights and responsibilities.</h2>
+                                                <img src="/pragtech_flatmates_system/static/src/img/resolving-disputes.jpg" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-4">Here are a few simple steps to consider when you are faced with a disagreement with your flatmates or landlord.</p>
+                                                <h2 class="mt-4">1. Discuss</h2>
+                                                <p class="mt-4">If a problem or issue has arisen, or you think it is likely to arise in the future, the first step should always be to have an informal discussion with the other person.<br/>
+                                                    <br/>
+                                                    This may involve a face to face conversation, emails, a telephone call or even just a text message. The vast majority of problems can be solved this way and end with an informal understanding between the parties. If a resolution is reached, it maybe helpful to note, in writing, how the issue was resolved.</p>
+                                                <h2 class="mt-4">2. Negotiate</h2>
+                                                <p class="mt-4">If the issue can’t be resolved by an informal discussion, it may be necessary to enter a more in-depth dialogue. This will allow each person to be more aware of the other’s concerns and therefore better able to understand how the problem can be solved.<br/>
+                                                    <br/>
+                                                    Often once each party realises how the problem affects the other person, not only will they be willing to come to an agreed solution, but will be better able to suggest different ways the problem can be solved.</p>
+                                                <h2 class="mt-4">3. Legal Advice</h2>
+                                                <p class="mt-4">If the problem can’t be solved just between the affected people, the next step may be for you to seek legal advice. For some issues, this may be as simple as reading the relevant legal guide provided here to better understand your and the other person’s mutual rights and obligations.<br/>
+                                                    <br/>
+                                                    In other more serious or complicated situations, this may involve contacting a legal service provider for advice specific to your situation. Most tenancy problems are relatively simple, and useful advice can be gained from free community legal centres. Here is a list of <a href="http://www.naclc.org.au/clc_directory.php">Community Legal Centres</a> around Australia.<br/>
+                                                    <br/>
+                                                    More complex and serious issues may require dedicated advice from a solicitor or lawyer. </p>
+                                                <h2 class="mt-4">4. Mediate</h2>
+                                                <p class="mt-4"> With a legal representative to advise and act on your behalf, resolving the problem can be made easier. Use your legal representative to conduct further negotiations with the other person.<br/>
+                                                    <br/>
+                                                    They can also set up a mediation session between you and the other person and act on your behalf. By removing yourself from the discussion, you may also remove any emotional attachment to the issue.</p>
+                                                <h2 class="mt-4">5. Legal Action</h2>
+                                                <p class="mt-4">Formal legal action in a tribunal or court should generally be a last resort. All states and territories have a Tribunal, Commissioner or court which can hear disputes and make decisions about tenancy agreements. In most cases, this will be the forum where tenancy disputes can be resolved.<br/>
+                                                    <br/>
+                                                    Tribunal and Commissioner hearings are deliberately designed to be unlike a formal courtroom - the process is more relaxed and you can represent yourself without a solicitor. Disputes are usually resolved quickly and practically. You should read the information provided by your state or territory government linked above to learn more about going to the Tribunal, Commissioner, or court.<br/>
+                                                    <br/>
+                                                    The relevant Tribunals, Commissioners, and courts for your state or territory are linked below:</p>
+                                                <p class="mt-4"><strong>New South Wales</strong></p>
+                                                <ul class="mt-4">
+                                                    <li><a href="http://www.ncat.nsw.gov.au/Pages/cc/Divisions/Tenancy/tenancy.aspx" target="_blank">NSW Civil and Administrative Tribunal - Consumer and Commercial Division</a></li>
+                                                </ul>
+                                                <p class="mt-4"><strong>Victoria</strong></p>
+                                                <ul class="mt-4">
+                                                    <li><a href="https://www.vcat.vic.gov.au/adv/disputes/residential-tenancies" target="_blank">Victorian Civil and Administrative Tribunal</a></li>
+                                                </ul>
+                                                <p class="mt-4"><strong>Queensland</strong></p>
+                                                <ul class="mt-4">
+                                                    <li><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution" target="_blank">Queensland Residential Tenancies Authority - Dispute Resolution Service</a>
+                                                        <ul>
+                                                            <li>Using the Dispute Resolution Service should be a cheaper and quicker way to solve your dispute</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="http://www.qcat.qld.gov.au/matter-types/residential-tenancy-disputes/application-process" target="_blank">Queensland Civil and Administrative Tribunal</a>
+                                                        <ul>
+                                                            <li>The Tribunal can hear disputes regardless of whether there has been dispute resolution beforehand.</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <p class="mt-4"><strong>South Australia</strong></p>
+                                                <ul class="mt-4">
+                                                    <li><a href="http://www.sacat.sa.gov.au" target="_blank">South Australian Civil and Administrative Tribunal</a></li>
+                                                </ul>
+                                                <p class="mt-4"><strong>Western Australia</strong></p>
+                                                <ul class="mt-4">
+                                                    <li>Department of Commerce, Consumer Protection - <a href="https://www.commerce.wa.gov.au/consumer-protection/applying-court-hearing-rental-disputes" target="_blank">Applying for a Court Hearing</a>
+                                                        <ul>
+                                                            <li>Read this information about applying to the Magistrate’s Court</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="http://www.magistratescourt.wa.gov.au/C/civil_matters.aspx?uid=1226-6994-1097-9582" target="_blank">Magistrate’s Court of Western Australia</a>
+                                                        <ul>
+                                                            <li>For information about the Magistrate’s Court</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <p class="mt-4"><strong>Tasmania</strong></p>
+                                                <ul class="mt-4">
+                                                    <li><a href="http://www.consumer.tas.gov.au/renting/bond_disputes" target="_blank">Residential Tenancy Commissioner</a>
+                                                        <ul>
+                                                            <li>The Residential Tenancy Commissioner deals with disputes about bonds, rent increases, and repairs</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="http://www.magistratescourt.tas.gov.au/divisions/civil/residential_tenancy" target="_blank">Magistrate’s Court of Tasmania</a>
+                                                        <ul>
+                                                            <li>The Magistrate’s Court deals with all other issues and problems the Commissioner cannot resolve</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <p class="mt-4"><strong>Australian Capital Territory</strong></p>
+                                                <ul class="mt-4">
+                                                    <li><a href="http://www.acat.act.gov.au/residential_tenancy/applicationsforms" target="_blank">ACT Civil and Administrative Tribunal</a></li>
+                                                </ul>
+                                                <p class="mt-4"><strong>Northern Territory</strong></p>
+                                                <ul class="mt-4">
+                                                    <li><a href="http://www.consumeraffairs.nt.gov.au/ForConsumers/ResidentialTenencies/Pages/default.aspx" target="_blank">Northern Territory Consumer Affairs</a>
+                                                        <ul>
+                                                            <li>For general information about residential tenancies and solving problems - Consumer Affairs cannot assist with applications to the Tribunal</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="http://www.ntcat.nt.gov.au/applications.shtml" target="_blank">NT Civil and Administrative Tribunal</a>
+                                                        <ul>
+                                                            <li>To apply directly to the Tribunal</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <hr class="mt-4 mb-4"/>
+                                                <p class="mt-4"><strong><em>These legal guides provide a brief summary and introduction of the laws and regulations affecting share accommodation. They do not cover all cases in all legal jurisdictions and might not apply in your specific share accommodation situation. It is important that you use this information as a guide only and seek independent Legal Advice or consult the <a href="https://info.flatmates.com.au/tenancy-acts">Relevant Acts</a>. We do not accept any liability that may arise from the use of this information.</em></strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

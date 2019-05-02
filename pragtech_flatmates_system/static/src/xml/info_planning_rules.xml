@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_planning_rules" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_flatmates_system.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Planning Laws affecting Rental Accommodation</h1>
+                                                <h2 class="mt-5">Planning laws and strata by-laws can affect whether and how you can provide rental accommodation. You should check your local planning laws and strata by-laws (if applicable) before offering accommodation.</h2>
+                                                <h2 class="mt-4">How do planning laws affect rental accommodation providers?</h2>
+                                                <p class="mt-4">State and Territory governments have the power to regulate how people can use their property. This means there are planning restrictions which require government approval before certain types of rental accommodation can be offered.<br/>
+                                                    <br/>
+                                                    Local councils generally have responsibility for giving planning approval where it is required. Therefore, before a landlord offers rental accommodation they should check with their local council to see if they need approval. The exact rules and restrictions vary between each local council area, but generally long-term residential accommodation will not require planning approval.</p>
+                                                <h2 class="mt-4">What type of restrictions can planning laws impose?</h2>
+                                                <p class="mt-4">As the planning rules are different between every local council in Australia, it is difficult to give any specific advice. You will need to check with your local council (see below) for the specific rules for your area.<br/>
+                                                    <br/>
+                                                    However, there are some general principles that apply in most cases which may help indicate whether you will require planning permission:</p>
+                                                <p class="mt-4"><strong>Planning approval usually required:</strong></p>
+                                                <ul class="mt-4">
+                                                    <li>short-term holiday letting</li>
+                                                    <li>boarding houses or rooming houses</li>
+                                                    <li>student-specific accommodation</li>
+                                                    <li>commercial-scale accommodation providers</li>
+                                                </ul>
+                                                <p class="mt-4"><strong>Planning approval NOT usually required:</strong></p>
+                                                <ul class="mt-4">
+                                                    <li><strong>long-term residential arrangements</strong> — if you are using a Residential Tenancy agreement and/or providing long term residential accommodation you do not usually require planning permission. It is nonetheless advisable to check that your specific occupancy arrangement is acceptable.</li>
+                                                </ul>
+                                                <h2 class="mt-4">What about strata by-laws?</h2>
+                                                <p class="mt-4">If you live in a strata scheme or own property in a strata scheme, then you will be subject to the strata by-laws of the owners’ corporation. The by-laws may restrict whether and how you can rent out your property. You should seek a copy of the strata by-laws from your owners’ corporation to check if your premises is affected.</p>
+                                                <h2 class="mt-4">What should accommodation providers do to protect themselves?</h2>
+                                                <p class="mt-4">Before offering rental accommodation, providers should check their local council’s planning restrictions and guidelines, as well as any strata by-laws (if applicable). Your local council (or other planning authority) should have information and an advice service about any restrictions on how you can use your property.<br/>
+                                                    <br/>
+                                                    If you do not comply with planning restrictions or by-laws, you may face fines under state or territory laws.</p>
+                                                <h2 class="mt-4">Finding your local council</h2>
+                                                <p class="mt-4">Local councils are generally responsible for regulating what home owners and land owners can and cannot do with their property. Use the links provided below to find your local council:</p>
+                                                <ul class="mt-4">
+                                                    <li><strong>New South Wales</strong> — <a href="https://www.olg.nsw.gov.au/find-my-council" target="_blank">Local Council Directory</a></li>
+                                                    <li><strong>Victoria</strong> — <a href="https://knowyourcouncil.vic.gov.au" target="_blank">‘Know Your Council’</a></li>
+                                                    <li><strong>Queensland</strong> — <a href="http://www.bettercouncils.net.au/find-your-council" target="_blank">‘Better Councils’: Find Your Council</a></li>
+                                                    <li><strong>South Australia</strong> — <a href="http://www.lga.sa.gov.au/councils" target="_blank">Local Government Association: Council Directory</a></li>
+                                                    <li><strong>Western Australia</strong> — <a href="http://www.walga.asn.au" target="_blank">WA Local Government Association</a></li>
+                                                    <li><strong>Tasmania</strong> — <a href="http://www.iplan.tas.gov.au/Pages/XC.Home/Home.aspx" target="_blank">iPlan: Planning Resource for all of Tasmania</a></li>
+                                                    <li><strong>ACT</strong> — <a href="http://www.planning.act.gov.au" target="_blank">ACT Planning and Environment Directorate</a></li>
+                                                    <li><strong>Northern Territory</strong> — <a href="http://www.dlgcs.nt.gov.au/local-government/council_boundaries" target="_blank">Department of Local Government: Local Government Maps</a></li>
+                                                </ul>
+                                                <hr class="mt-4 mb-4"/>
+                                                <p class="mt-4"><strong><em>These legal guides provide a brief summary and introduction of the laws and regulations affecting share accommodation. They do not cover all cases in all legal jurisdictions and might not apply in your specific share accommodation situation. It is important that you use this information as a guide only and seek independent Legal Advice or consult the <a href="https://info.flatmates.com.au/tenancy-acts">Relevant Acts</a>. We do not accept any liability that may arise from the use of this information.</em></strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

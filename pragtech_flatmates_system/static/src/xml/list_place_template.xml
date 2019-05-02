@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
 
-                                <input type="text" id="type_of_accomodation" name="type_of_accomodation" value=""/>
+                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" value=""/>
 
 
                                 <div class="row">
@@ -130,7 +130,7 @@
 
                                         <div class="property-type mt-2">
                                             <label class="radio-inline btn bedroom-btn">
-                                                <input type="radio"  name="property_type_input" value="house"/>
+                                                <input type="radio" name="property_type_input" value="house"/>
                                                 House
                                             </label>
                                             <label class="radio-inline btn bedroom-btn">
@@ -162,7 +162,8 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <a href="/listplace">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back</button>
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
                                         </a>
                                     </div>
                                 </div>
@@ -190,32 +191,38 @@
 
                     <section>
                         <div class="container">
-                            <form action="/listplace/whole-property/about" id="whole_property_type_form_id" method="POST">
+                            <form action="/listplace/whole-property/about" id="whole_property_type_form_id"
+                                  method="POST">
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place">
-                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" value="whole-property"/>
+                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                               value="whole-property"/>
                                         <div class="form-group">
                                             <div class="total-bedrooms 2_bedrooms_property mt-2">
                                                 <label class="radio-inline btn bedroom-btn 2-bedrooms">
-                                                    <input type="radio" name="whole_property_property_type" value="2_bedrooms"/>
+                                                    <input type="radio" name="whole_property_property_type"
+                                                           value="2_bedrooms"/>
                                                     2+ Bedrooms
                                                 </label>
                                             </div>
                                             <div class="total-bedrooms 1_bedrooms_property mt-2">
                                                 <label class="radio-inline btn bedroom-btn 1-bedrooms">
-                                                    <input type="radio" name="whole_property_property_type" value="1_bedrooms"/>
+                                                    <input type="radio" name="whole_property_property_type"
+                                                           value="1_bedrooms"/>
                                                     1 Bedroom
                                                 </label>
                                             </div>
                                             <div class="total-bedrooms studio_property mt-2">
                                                 <label class="radio-inline btn bedroom-btn studio">
-                                                    <input type="radio" name="whole_property_property_type" value="studio"/>
+                                                    <input type="radio" name="whole_property_property_type"
+                                                           value="studio"/>
                                                     Studio
                                                 </label>
                                             </div>
                                             <div class="total-bedrooms granny_flat_property mt-2">
                                                 <label class="radio-inline btn bedroom-btn granny-flat">
-                                                    <input type="radio" name="whole_property_property_type" value="granny_flat"/>
+                                                    <input type="radio" name="whole_property_property_type"
+                                                           value="granny_flat"/>
                                                     Granny flat
                                                 </label>
                                             </div>
@@ -223,7 +230,9 @@
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="listplace/share-house/describe-your-flatmate">-->
-                                                <button type="submit" class="btn btn-primary btn-green whole-property-type-next-btn" disabled="disabled" >Next
+                                                <button type="submit"
+                                                        class="btn btn-primary btn-green whole-property-type-next-btn"
+                                                        disabled="disabled">Next
                                                 </button>
                                                 <!--</a>-->
                                             </div>
@@ -265,12 +274,57 @@
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place list_about_property">
                                         <t t-if="type_of_accomodation">
-                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
+                                            <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                                   t-attf-value="#{type_of_accomodation}"/>
                                         </t>
                                         <div class="form-group">
                                             <span>Property Address</span>
-                                            <input type="text" class="form-control mt-2" id="prop_addr"
-                                                   name="property_address"/>
+                                            <div id="locationField">
+                                                <input class="form-control mt-2 loc-field"
+                                                       id="autocomplete"
+                                                       placeholder="Enter your address"
+                                                       type="text" name="property_address"/>
+                                            </div>
+
+                                            <table id="address" style="display:none;">
+                                                <tr>
+                                                    <td class="label">Street address</td>
+                                                    <td class="slimField">
+                                                        <input class="field" id="street_number" disabled="true"/>
+                                                    </td>
+                                                    <td class="slimField">
+                                                        <input class="field" id="sublocality_level_2" disabled="true"/>
+                                                    </td>
+                                                    <td class="wideField" colspan="2">
+                                                        <input class="field" id="route" disabled="true"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">City</td>
+                                                    <td class="wideField" colspan="3">
+                                                        <input class="field" id="locality" disabled="true"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">State</td>
+                                                    <td class="slimField">
+                                                        <input class="field" id="administrative_area_level_1"
+                                                               disabled="true"/>
+                                                    </td>
+                                                    <td class="label">Zip code</td>
+                                                    <td class="wideField">
+                                                        <input class="field" id="postal_code" disabled="true"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">Country</td>
+                                                    <td class="wideField" colspan="3">
+                                                        <input class="field" id="country" disabled="true"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!--<input type="text" class="form-control mt-2" id="prop_addr"-->
+                                            <!--name="property_address"/>-->
                                         </div>
                                         <div class="form-group about_total_bedrooms">
                                             <span class="mb-1">Total bedrooms</span>
@@ -375,7 +429,8 @@
 
                                         </div>
 
-                                        <div class="form-group room_furnishing_in_about" id="room_furnishing_in_about_id">
+                                        <div class="form-group room_furnishing_in_about"
+                                             id="room_furnishing_in_about_id">
                                             <span class="mb-1">Room furnishings</span>
                                             <div class="total-bedrooms mt-2">
 
@@ -439,7 +494,8 @@
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place">
                                         <t t-if="type_of_accomodation">
-                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
+                                            <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                                   t-attf-value="#{type_of_accomodation}"/>
                                         </t>
                                         <div class="form-group">
                                             <span class="mb-1">Total number of flatmates</span>
@@ -568,7 +624,9 @@
                                     <div class="row">
                                         <div class="col-lg-6 mx-auto list-about-room">
                                             <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
+                                                <input type="hidden" id="type_of_accomodation"
+                                                       name="type_of_accomodation"
+                                                       t-attf-value="#{type_of_accomodation}"/>
                                             </t>
                                             <div class="form-group">
                                                 <span class="mb-1">Room type</span>
@@ -651,7 +709,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <button type="button" class="btn btn-primary btn-transparent p16-blue add_another_room">
+                                        <button type="button"
+                                                class="btn btn-primary btn-transparent p16-blue add_another_room">
                                             + Add another room
                                         </button>
                                     </div>
@@ -660,7 +719,8 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/rent-bond-bills">-->
                                         <button type="submit" id="about_rooms_bttn"
-                                                class="btn btn-primary btn-green about_rooms_bttn about-rooms-next-bttn" disabled="disabled">
+                                                class="btn btn-primary btn-green about_rooms_bttn about-rooms-next-bttn"
+                                                disabled="disabled">
                                             Next
                                         </button>
                                         <!--</a>-->
@@ -702,8 +762,9 @@
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place">
                                         <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
-                                            </t>
+                                            <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                                   t-attf-value="#{type_of_accomodation}"/>
+                                        </t>
                                         <div class="form-group">
                                             <span>Weekly rent</span>
                                             <br/>
@@ -803,8 +864,9 @@
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place">
                                         <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
-                                            </t>
+                                            <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                                   t-attf-value="#{type_of_accomodation}"/>
+                                        </t>
                                         <div class="form-group">
                                             <span>Date available</span>
                                             <br/>
@@ -907,21 +969,27 @@
                     </section>
                     <section>
                         <div class="container">
-                            <form action="#" id="property_images_form_id" method="POST">
+                            <form action="#" id="property_images_form_id" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
-                                            </t>
+                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                               t-attf-value="#{type_of_accomodation}"/>
+                                    </t>
                                     <div class="col-lg-6 mx-auto text-center">
                                         <img src="/pragtech_flatmates_system/static/src/img/furniture.svg"
                                              class="img-fluid mb-5"></img>
+                                        <br/>
+
+                                        <div id="images">
+                                        </div>
                                         <br/>
 
                                         <div class="btn btn-outline-primary btn-file">
                                             <i class="fa fa-camera"></i>
                                             Add Photos
                                             <!--<input type="file"/>-->
-                                            <input type="file" name="upload" accept="image/*" multiple="multiple"/>
+                                            <input type="file" name="uploads[]" accept="image/*" multiple="multiple" id="upload"/>
+                                            <!--<input type="file" name="upload" accept="image/*" multiple="multiple"/>-->
                                         </div>
 
 
@@ -933,10 +1001,14 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="listplace/share-house/describe-your-flatmate">-->
-                                        <button type="submit" class="btn btn-primary btn-green property-images-nxt-btn  disabled">Next</button>
+                                        <button type="submit"
+                                                class="btn btn-primary btn-green property-images-nxt-btn ">Next
+                                        </button>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -965,9 +1037,10 @@
                         <div class="container">
                             <form action="#" id="list_place_describe_your_flatmate_form_id" method="POST">
                                 <div class="row">
-                                     <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
-                                            </t>
+                                    <t t-if="type_of_accomodation">
+                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                               t-attf-value="#{type_of_accomodation}"/>
+                                    </t>
                                     <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                         <h4>Let's describe your ideal flatmate(s)
                                         </h4>
@@ -985,14 +1058,17 @@
                                         </div>
                                         <!--<a href="/listplace/describe-your-place/accommodation">-->
                                         <div class="mt-4 text-center">
-                                            <button type="submit" class="btn btn-primary btn-green describe-your-flatmate-nxt-btn disabled">Next
+                                            <button type="submit"
+                                                    class="btn btn-primary btn-green describe-your-flatmate-nxt-btn">
+                                                Next
                                             </button>
                                         </div>
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/property-images">-->
-                                                    <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                                    </button>
+                                                <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                    Back
+                                                </button>
                                                 <!--</a>-->
                                             </div>
                                         </div>
@@ -1026,18 +1102,19 @@
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place">
                                         <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
-                                            </t>
+                                            <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                                   t-attf-value="#{type_of_accomodation}"/>
+                                        </t>
                                         <div class="form-group">
 
                                             <!--<t t-foreach="flatmate_preferences" t-as="flatmate_preference">-->
-                                                <!--<div class="total-bedrooms mt-2">-->
-                                                    <!--<label class="radio-inline btn bedroom-btn flatmate-pref">-->
-                                                        <!--<input type="radio" name="flatmate_Preference_type"-->
-                                                               <!--t-attf-value="#{flatmate_preference.id}"/>-->
-                                                        <!--<span t-esc="flatmate_preference.name"/>-->
-                                                    <!--</label>-->
-                                                <!--</div>-->
+                                            <!--<div class="total-bedrooms mt-2">-->
+                                            <!--<label class="radio-inline btn bedroom-btn flatmate-pref">-->
+                                            <!--<input type="radio" name="flatmate_Preference_type"-->
+                                            <!--t-attf-value="#{flatmate_preference.id}"/>-->
+                                            <!--<span t-esc="flatmate_preference.name"/>-->
+                                            <!--</label>-->
+                                            <!--</div>-->
                                             <!--</t>-->
 
                                             <div class="total-bedrooms mt-2">
@@ -1048,19 +1125,22 @@
                                             </div>
                                             <div class="total-bedrooms mt-2">
                                                 <label class="radio-inline btn bedroom-btn">
-                                                    <input type="radio" name="flatmate_Preference_type" value="females_only"/>
+                                                    <input type="radio" name="flatmate_Preference_type"
+                                                           value="females_only"/>
                                                     Females only
                                                 </label>
                                             </div>
                                             <div class="total-bedrooms mt-2">
                                                 <label class="radio-inline btn bedroom-btn">
-                                                    <input type="radio" name="flatmate_Preference_type" value="males_only"/>
+                                                    <input type="radio" name="flatmate_Preference_type"
+                                                           value="males_only"/>
                                                     Males only
                                                 </label>
                                             </div>
                                             <div class="total-bedrooms mt-2">
                                                 <label class="radio-inline btn bedroom-btn">
-                                                    <input type="radio" name="flatmate_Preference_type" value="no_couple"/>
+                                                    <input type="radio" name="flatmate_Preference_type"
+                                                           value="no_couple"/>
                                                     Female or male (no couples)
                                                 </label>
                                             </div>
@@ -1072,51 +1152,53 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group show_females_only d-none " >
+                                        <div class="form-group show_females_only d-none ">
                                             <span class="mb-1">Is this property female only?</span>
                                             <div class="total-bedrooms mt-2">
 
 
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="female_only_state" value="yes"/>
-                                                        Yes
-                                                    </label>
+                                                <label class="radio-inline btn bedroom-btn">
+                                                    <input type="radio" name="female_only_state" value="yes"/>
+                                                    Yes
+                                                </label>
 
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="female_only_state" value="no"/>
-                                                        No
-                                                    </label>
+                                                <label class="radio-inline btn bedroom-btn">
+                                                    <input type="radio" name="female_only_state" value="no"/>
+                                                    No
+                                                </label>
                                             </div>
                                         </div>
                                         <!--<div class="row porerty-type-group">-->
-                                            <!--<div class="col-lg-6 mx-auto">-->
-                                                <!--<p>Type of property</p>-->
+                                        <!--<div class="col-lg-6 mx-auto">-->
+                                        <!--<p>Type of property</p>-->
 
 
-                                                <!--<div class="property-type mt-2">-->
-                                                    <!--<label class="radio-inline btn bedroom-btn">-->
-                                                        <!--<input type="radio" name="property_type_input" value="house"/>-->
-                                                        <!--House-->
-                                                    <!--</label>-->
-                                                    <!--<label class="radio-inline btn bedroom-btn">-->
-                                                        <!--<input type="radio" name="property_type_input" value="flat"/>-->
-                                                        <!--Flat-->
-                                                    <!--</label>-->
-                                                <!--</div>-->
+                                        <!--<div class="property-type mt-2">-->
+                                        <!--<label class="radio-inline btn bedroom-btn">-->
+                                        <!--<input type="radio" name="property_type_input" value="house"/>-->
+                                        <!--House-->
+                                        <!--</label>-->
+                                        <!--<label class="radio-inline btn bedroom-btn">-->
+                                        <!--<input type="radio" name="property_type_input" value="flat"/>-->
+                                        <!--Flat-->
+                                        <!--</label>-->
+                                        <!--</div>-->
 
-                                                <!--&lt;!&ndash;<div class="btn-group property-btn-group">&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<button type="button" class="btn btn-primary house-btn">House</button>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<button type="button" class="btn btn-primary flat-btn">Flat</button>&ndash;&gt;-->
-                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div class="btn-group property-btn-group">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<button type="button" class="btn btn-primary house-btn">House</button>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<button type="button" class="btn btn-primary flat-btn">Flat</button>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-                                            <!--</div>-->
+                                        <!--</div>-->
                                         <!--</div>-->
 
 
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="listplace/share-house/describe-your-flatmate">-->
-                                                <button type="submit" class="btn btn-primary btn-green flatmate-pref-nxt-btn" disabled="disabled">Next
+                                                <button type="submit"
+                                                        class="btn btn-primary btn-green flatmate-pref-nxt-btn"
+                                                        disabled="disabled">Next
                                                 </button>
                                                 <!--</a>-->
                                             </div>
@@ -1124,8 +1206,9 @@
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/describe-your-flatmate">-->
-                                                    <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                                    </button>
+                                                <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                    Back
+                                                </button>
                                                 <!--</a>-->
                                             </div>
                                         </div>
@@ -1149,8 +1232,9 @@
                             <form action="#" id="list_place_accepting_form_id" method="POST">
                                 <div class="row">
                                     <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
-                                            </t>
+                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                               t-attf-value="#{type_of_accomodation}"/>
+                                    </t>
                                     <div class="col-lg-12 col-sm-12 col-xs-12">
                                         <p class="text-uppercase">YOUR IDEAL FLATEMATE(S)</p>
                                     </div>
@@ -1166,7 +1250,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-backpackers">
-													<input type="checkbox" name="list_accept"  value="backpackers" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="backpackers"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="42">
                                                             <path d="M6.217 32.304H2.74c-.96 0-1.739-.779-1.739-1.739V18.391c0-.96.78-1.739 1.74-1.739h3.477v15.652zm29.566 0h3.478c.96 0 1.739-.779 1.739-1.739V18.391c0-.96-.78-1.739-1.74-1.739h-3.477v15.652zM32.304 41H9.696a3.478 3.478 0 0 1-3.479-3.478V7.957A6.958 6.958 0 0 1 13.174 1h15.652a6.958 6.958 0 0 1 6.957 6.957v29.565A3.478 3.478 0 0 1 32.304 41zM6.217 9.887c9.148 2.07 20.418 2.07 29.566 0m-22.61 8.504h3.48v-3.478h-3.48v3.478zm1.74-3.478V9.696m.217 13.913V18.39m10.218 0h3.478v-3.478h-3.478v3.478zm1.739-3.478V9.696m0 13.913V18.39M30.565 41h-19.13v-5.217a3.478 3.478 0 0 1 3.478-3.479h12.174a3.478 3.478 0 0 1 3.478 3.479V41zM1 20.13h5.217M1 28.826h5.217m29.566-8.696H41m-5.217 8.696H41"
@@ -1182,7 +1267,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-students">
-                                                    <input type="checkbox" name="list_accept"  value="students" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="students"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="29">
                                                             <path d="M21 17L1 9l20-8 20 8-20 8zm14.286-5.714v12.57c-5.477 4.573-24.238 4.573-29.715 0v-12.57m34.286-1.143V21.57"
@@ -1198,7 +1284,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-smokers">
-                                                    <input type="checkbox" name="list_accept"  value="smokers" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="smokers"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="40" height="22">
                                                             <path d="M1 21h33.333v-6.667H1V21zm37.778-6.667V21m-26.23-6.667V21m26.23-11.111c-.865-2.456-4.591-2.74-7.07-3.469-2.992-.882-5.406-2.92-6.264-5.42"
@@ -1214,7 +1301,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-lgbt-friendly">
-                                                    <input type="checkbox" name="list_accept"  value="LGBTI" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="LGBTI"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="22">
                                                             <path d="M1 21C1 9.972 9.972 1 21 1s20 8.972 20 20M6.217 21C6.217 12.849 12.85 6.217 21 6.217S35.783 12.85 35.783 21m-24.348 0c0-5.273 4.292-9.565 9.565-9.565s9.565 4.292 9.565 9.565m-13.913 0a4.347 4.347 0 1 1 8.696 0"
@@ -1230,7 +1318,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-over-40">
-                                                    <input type="checkbox" name="list_accept"  value="40_year_old" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="40_year_old"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="19">
                                                             <path d="M15.4 13.033H1L11.42 1v16.8M30.6 9.4c0 4.64-3.045 8.4-6.8 8.4S17 14.04 17 9.4C17 4.76 20.045 1 23.8 1s6.8 3.76 6.8 8.4zM33 9h8m-4-4v8"
@@ -1246,7 +1335,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-children">
-                                                    <input type="checkbox" name="list_accept"  value="children" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="children"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="28">
                                                             <path d="M25.889 5.666c0 2.577-2.188 4.667-4.889 4.667-2.699 0-4.889-2.09-4.889-4.667S18.301 1 21 1c2.7 0 4.889 2.089 4.889 4.666zM39.222 11c0 2.577-2.188 4.666-4.889 4.666-2.698 0-4.889-2.09-4.889-4.666 0-2.577 2.19-4.668 4.89-4.668 2.7 0 4.888 2.09 4.888 4.668zm-26.666 0c0 2.577-2.189 4.666-4.89 4.666-2.698 0-4.888-2.09-4.888-4.666 0-2.577 2.19-4.668 4.889-4.668 2.7 0 4.889 2.09 4.889 4.668zM1 21.622v5.6h13.333v-5.6c0-2.06-1.704-3.733-3.81-3.733H4.81C2.707 17.889 1 19.56 1 21.622zm26.667 0v5.6H41v-5.6c0-2.06-1.705-3.733-3.81-3.733h-5.714c-2.103 0-3.81 1.672-3.81 3.733zM14.333 15.97v11.253h13.334V15.97c0-2.132-1.705-3.858-3.81-3.858h-5.714c-2.103 0-3.81 1.726-3.81 3.858z"
@@ -1262,7 +1352,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-pets">
-                                                    <input type="checkbox" name="list_accept"  value="pets" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="pets"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="41">
                                                             <path d="M36.896 16.535c1.495 2.43 2.365 5.25 2.365 8.243 0 9.248-8.174 14.972-18.261 14.972S2.74 34.026 2.74 24.778c0-2.994.869-5.812 2.364-8.243a13.924 13.924 0 0 1-.626-4.086c0-4.685 2.383-8.842 6.087-11.449 2.661 1.885 4.644 4.562 5.548 7.662A19.26 19.26 0 0 1 21 8.045c1.704 0 3.34.212 4.887.617.904-3.1 2.887-5.777 5.548-7.662 3.704 2.607 6.087 6.764 6.087 11.449 0 1.409-.226 2.783-.626 4.086zm-8.07-6.104c.46-1.51 1.286-2.928 2.404-4.147 1.812 1.97 2.813 4.431 2.813 7.046m-26.086 0c0-2.614 1-5.076 2.813-7.046 1.118 1.221 1.945 2.636 2.404 4.148m1.739 22.273c1.922 2.348 5.035 2.348 6.957 0 1.922 2.348 5.034 2.348 6.956 0m-17.391-12.33c0-1.947 1.167-3.523 2.608-3.523 1.44 0 2.61 1.576 2.61 3.523m8.695 0c0-1.947 1.167-3.523 2.609-3.523 1.44 0 2.608 1.576 2.608 3.523M21 30.943l-2.49-3.563c-.37-.79.168-1.72.995-1.72h2.991c.825 0 1.364.93.993 1.72L21 30.943zm-9.565-5.284L1 22.136m6.957 5.284L1 29.182m29.565-3.523L41 22.136m-6.957 5.284L41 29.182"
@@ -1278,7 +1369,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-retirees">
-                                                    <input type="checkbox" name="list_accept"  value="retirees" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="retirees"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="35">
                                                             <path d="M17 26.143a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm24 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM10.143 6.202v-.867C10.143 2.941 8.096 1 5.57 1 3.047 1 1 2.94 1 5.335v20.808M31.857 6.202v-.867C31.857 2.941 33.904 1 36.43 1 38.953 1 41 2.94 41 5.335v20.808m-16 1.143h-8"
@@ -1294,7 +1386,8 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-benefits">
-                                                    <input type="checkbox" name="list_accept"  value="on_welfare" class="d-none"/>
+                                                    <input type="checkbox" name="list_accept" value="on_welfare"
+                                                           class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="40">
                                                             <path d="M37.522 38.949v-20.7H41l-6.957-6V6.174h-5.217V7.75L21 1 1 18.25h3.478v20.699h33.044zM21 23.564c0-2.834 2.179-5.128 4.872-5.128s4.872 2.294 4.872 5.128c0 5.668-4.872 4.36-9.744 10.257-4.872-5.898-9.744-4.589-9.744-10.257 0-2.834 2.18-5.128 4.872-5.128 2.693 0 4.872 2.294 4.872 5.128z"
@@ -1325,7 +1418,8 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/flatmate-preference">-->
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back</button>
+                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                        </button>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -1345,8 +1439,9 @@
                             <form action="#" id="list_place_describe_yourself_form_id" method="POST">
                                 <div class="row">
                                     <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
-                                            </t>
+                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                               t-attf-value="#{type_of_accomodation}"/>
+                                    </t>
                                     <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                         <h4>Describe yourself and your property
                                         </h4>
@@ -1365,14 +1460,17 @@
                                         </div>
                                         <!--<a href="/listplace/describe-your-place/accommodation">-->
                                         <div class="mt-4 text-center">
-                                            <button type="submit" class="btn btn-primary btn-green describe-yourself-and-property-nxt-btn">Next
+                                            <button type="submit"
+                                                    class="btn btn-primary btn-green describe-yourself-and-property-nxt-btn">
+                                                Next
                                             </button>
                                         </div>
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/accepting">-->
-                                                    <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                                    </button>
+                                                <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                    Back
+                                                </button>
                                                 <!--</a>-->
                                             </div>
                                         </div>
@@ -1407,8 +1505,9 @@
                             <form action="#" id="list_place_about_others_form_id" method="POST">
                                 <div class="row">
                                     <t t-if="type_of_accomodation">
-                                                <input type="hidden" id="type_of_accomodation" name="type_of_accomodation" t-attf-value="#{type_of_accomodation}"/>
-                                            </t>
+                                        <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
+                                               t-attf-value="#{type_of_accomodation}"/>
+                                    </t>
                                     <div class="col-lg-6 mx-auto">
                                         <div class="form-group">
                                             <textarea class="form-control" rows="4" id="comment"
@@ -1430,7 +1529,8 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <button type="submit" class="btn btn-primary btn-green about-others-nxt-btn" disabled="disabled">Next
+                                        <button type="submit" class="btn btn-primary btn-green about-others-nxt-btn"
+                                                disabled="disabled">Next
                                         </button>
                                     </div>
                                 </div>
@@ -1438,8 +1538,8 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/introduce-yourself">-->
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                            </button>
+                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                        </button>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -1488,7 +1588,8 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <button type="submit" class="btn btn-primary btn-green about-property-nxt-btn" disabled="disabled">Publish
+                                        <button type="submit" class="btn btn-primary btn-green about-property-nxt-btn"
+                                                disabled="disabled">Publish
                                         </button>
                                     </div>
                                 </div>
@@ -1496,8 +1597,8 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/about-others">-->
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                            </button>
+                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                        </button>
                                         <!--</a>-->
                                     </div>
                                 </div>

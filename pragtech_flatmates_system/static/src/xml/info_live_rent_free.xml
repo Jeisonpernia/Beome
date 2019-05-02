@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <template id="info_live_rent_free" name="Live Rent Free">
+      <t t-call="website.layout">
+        <div class="oe_structure oe_empty">
+          <section class="live-rent-free">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <img src="/pragtech_flatmates_system/static/src/img/live-rent-free-txt.svg" class="img-fluid live-rent-free-txt" alt=""/>
+                  <img src="/pragtech_flatmates_system/static/src/img/live-rent-free-pic.svg" class="img-fluid live-rent-free-pic" alt=""/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-2 mx-auto mt-4">
+                  <input type="submit" disabled="" class="btn-block btn" value="Enter the draw!"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                  <p class="mt-3">Competition now closed, thanks for entering!</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-10 mx-auto">
+                  <h1 class="mt-4">What would you do with the money you’d save if you didn’t have to pay your rent this month?</h1>
+                  <p class="mt-4">Save it? Go on a holiday? Go on a shopping spree? Well, that could be a reality thanks to Flatmates.com.au's Live Rent Free competition. All you have to do is click the button to enter and be in the draw.
+                    <br/>
+                    <br/>
+                    Each month we’re giving one lucky member the equivalent of their suburb's average room rent for the month.* Be sure to enter each month for your chance to win a month rent free!</p>
+                  <p class="mt-4 disclaimer">Not yet a Flatmates member? To enter this competition you need to have a verified flatmates.com.au account with a valid Australian mobile phone number and email address so that we can notify you if you have won.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-10 mx-auto mt-4">
+                  <div class="legal">
+                    <p>Terms and conditions</p>
+                    <ol>
+                      <li>Information on how to enter and the prize(s) form part of these<!-- -->
+                        <a href="/live-rent-free/terms">Terms and Conditions</a>
+                        . Participation in this promotion is deemed acceptance of these<!-- -->
+                        <a href="/live-rent-free/terms">Terms and Conditions</a>
+                        . All times are AEST/AEDST as the case requires.</li>
+                      <li>The Promoter is flatmates.com.au Pty Ltd (ABN 78 168 397 582) of Level 17, 309 Kent Street, Sydney NSW 2000.</li>
+                      <li>NSW Permit No. LTPS/17/15172. ACT Permit No. TP17/01169. SA Permit No. T17/1125</li>
+                      <li>*The first valid entry drawn in each Monthly Draw will each win one month’s worth of rent (which will equate to 4.3 weeks) based on the average rent for a private room in their residing suburb (as confirmed at the time of winner notification). The amount awarded will be based on the www.flatmates.com.au<!-- -->
+                        <a href="/value-my-room">Value My Room</a>
+                        calculator and is up to the maximum value of $2,000. If there is no average rent for the residing suburb in the<!-- -->
+                        <a href="/value-my-room">Value My Room</a>
+                        calculator then the state average for the residing suburb will be used. For example, if the winner resides in Chippendale, NSW the average private room rent is $342 (as per the<!-- -->
+                        <a href="/value-my-room">Value My Room</a>
+                        Calculator as at 20/06/2017) multiplied by 4.3 weeks equates to $1,482.</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+				
+				
+				
+              <div class="row">
+                <div class="col-lg-10 mx-auto">
+					
+                  
+    <div id="carouselExample" class="carouselPrograms carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+            <div class="carousel-item col-md-4  active">
+               <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 1" class="thumb">
+                      <img class="img-fluid mx-auto d-block" src="/pragtech_flatmates_system/static/src/img/flatmates-author.jpg" alt="slide 1"/>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4 ">
+               <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 3" class="thumb">
+                     <img class="img-fluid mx-auto d-block" src="/pragtech_flatmates_system/static/src/img/flatmates-author.jpg" alt="slide 2"/>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4 ">
+               <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 4" class="thumb">
+                     <img class="img-fluid mx-auto d-block" src="/pragtech_flatmates_system/static/src/img/flatmates-author.jpg" alt="slide 3"/>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4 ">
+                <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 5" class="thumb">
+                     <img class="img-fluid mx-auto d-block" src="/pragtech_flatmates_system/static/src/img/flatmates-author.jpg" alt="slide 4"/>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4 ">
+              <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 6" class="thumb">
+                      <img class="img-fluid mx-auto d-block" src="/pragtech_flatmates_system/static/src/img/flatmates-author.jpg" alt="slide 5"/>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4 ">
+               <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 7" class="thumb">
+                      <img class="img-fluid mx-auto d-block" src="/pragtech_flatmates_system/static/src/img/flatmates-author.jpg" alt="slide 6"/>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4 ">
+               <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 8" class="thumb">
+                      <img class="img-fluid mx-auto d-block" src="/pragtech_flatmates_system/static/src/img/flatmates-author.jpg" alt="slide 7"/>
+                    </a>
+                  </div>
+                </div>
+            </div>
+             <div class="carousel-item col-md-4  ">
+                <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 2" class="thumb">
+                     <img class="img-fluid mx-auto d-block" src="/pragtech_flatmates_system/static/src/img/flatmates-author.jpg" alt="slide 8"/>
+                    </a>
+                  </div>
+                  
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+					
+					
+                </div>
+              </div>
+				
+				
+				
+				
+            </div>
+          </section>
+        </div>
+      </t>
+    </template>
+  </data>
+</odoo>

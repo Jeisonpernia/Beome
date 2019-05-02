@@ -66,7 +66,14 @@ $(document).ready(function() {
         $( "#list_place_about_property_form_id" ).submit(function( event ) {
 
             var oldArray = JSON.parse(localStorage.getItem('list_place_array'));
-            var property_address = $('#prop_addr').val()
+            var property_address = $('.loc-field').val()
+            var street_number = $("#street_number").val()
+            var street_addrss = $("#sublocality_level_2").val()
+            var route = $("#route").val()
+            var city = $("#locality").val()
+            var state = $("#administrative_area_level_1").val()
+            var zip_code = $("#postal_code").val()
+            var country = $ ("#country").val()
             var total_bedrooms = $("input[name='bed_rooms']:checked").val();
             var total_bathrooms = $("input[name='bath_rooms']:checked").val();
             var parking = $('#parking').val();
@@ -75,6 +82,27 @@ $(document).ready(function() {
 
             if (property_address){
                 oldArray[0]['property_address'] = property_address;
+            }
+            if(street_number){
+                oldArray[0]['street_number'] = street_number;
+            }
+            if (street_addrss){
+                oldArray[0]['street1'] = street_addrss;
+            }
+            if (route){
+                oldArray[0]['street2'] = route;
+            }
+            if (city){
+                oldArray[0]['city'] = city;
+            }
+            if (state){
+                oldArray[0]['state'] = state;
+            }
+            if (zip_code){
+                oldArray[0]['zip_code'] = zip_code;
+            }
+            if (country){
+                oldArray[0]['country'] = country;
             }
             if (total_bedrooms){
                 oldArray[0]['total_bedrooms'] = total_bedrooms;
@@ -95,12 +123,21 @@ $(document).ready(function() {
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
             console.log('property_address ',property_address);
+            console.log('--------------------------------------------')
+            console.log('Street : ',street_addrss)
+            console.log('Route : ',route)
+            console.log('City : ',city)
+            console.log('State : ',state)
+            console.log('zip code : ',zip_code)
+            console.log('Country : ',country)
+            console.log('----------------------------------------------')
             console.log('total_bedrooms ', total_bedrooms);
             console.log('total_bathrooms ',total_bathrooms );
             console.log('parking ', parking);
             console.log('internet ',internet);
             console.log('room_furnishing_type ',room_furnishing_type)
             console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
+//            event.preventDefault()
 
         });
 
@@ -174,7 +211,7 @@ $(document).ready(function() {
 
             console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
             console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
-            alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
+//            alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
 
         });
 
@@ -371,7 +408,7 @@ $(document).ready(function() {
                             oldArray[0] = {}
                             localStorage.setItem('list_place_array', JSON.stringify(oldArray))
                             console.log('returnnnnnnnnnnnnnnnnn',localStorage.getItem('list_place_array'))
-                            alert('OOLLLLLLLLLLLLLLLLLL')
+//                            alert('OOLLLLLLLLLLLLLLLLLL')
 	                    },
                 });
 

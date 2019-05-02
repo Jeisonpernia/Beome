@@ -21,7 +21,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                     success: function(data)
                     {
 
-//                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'].length)
+                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'])
                         if (data['result'].length == 0){$("#load_symbol").hide()}
 
                         var div = $("#lazy_load");
@@ -31,7 +31,10 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
                             console.log ("Indexxxxx",data['result'][index]['id'])
                             record_id = data['result'][index]['id']
-                            image = data['result'][index]['image']
+                            if (data['result'][index]['image'] != 'undefined')
+                                image = data['result'][index]['image']
+                            else
+                                image=''
                             street = data['result'][index]['street']
                             city = data['result'][index]['city']
                             description = data['result'][index]['description']

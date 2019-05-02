@@ -15,7 +15,8 @@
                                 <!--<field name="accommodation_type_id" required="1"/>-->
                                 <!--<field name="property_type_id"/>-->
                                 <field name="name" required="0" invisible="1"/>
-                                <field name="partner_id"/>
+                                <!--<field name="partner_id"/>-->
+                                <field name="user_id"/>
                                 <label for="street" string="Address"/>
                                 <div class="o_address_format">
                                     <field name="street" placeholder="Street..." class="o_address_street"/>
