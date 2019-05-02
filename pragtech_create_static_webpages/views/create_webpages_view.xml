@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="flatmates_form_view" model="ir.ui.view">
+            <field name="name">webpage.extension.form</field>
+            <field name="model">webpage.extension</field>
+            <field name="arch" type="xml">
+                <form string="Create Webpages" name="Webpage Extension">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                            </group>
+                            <group>
+                                <field name="state"/>
+                                <field name="type_of_webpage"/>
+                            </group>
+                        </group>
+                        <label for="description" string="Description"/>
+                        <hr/>
+                        <field name="description" required="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="flatmates_tree_view" model="ir.ui.view">
+            <field name="name">webpage.extension.tree</field>
+            <field name="model">webpage.extension</field>
+            <field name="arch" type="xml">
+                <tree string="Create Webpages" name="Webpage Extension">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="type_of_webpage"/>
+                    <!--<field name="description"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_create" model="ir.actions.act_window">
+            <field name="name">Webpage Extension</field>
+            <field name="res_model">webpage.extension</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_main_root_create" name="Create Webpage"
+                  sequence="4"/>
+        <menuitem id="submenu_main_flatmates" name="Add Webpage"
+                  parent="pragtech_create_static_webpages.menu_main_root_create" sequence="1" action="action_create"/>
+        <!--<menuitem id="child_menu_flatmates" name="Property" action="action_flatmates"-->
+                  <!--parent="pragtech_flatmates_system.submenu_main_flatmates" sequence="1"/>-->
+
+
+    </data>
+</odoo>

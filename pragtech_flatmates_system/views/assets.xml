@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="assets_frontend_website" inherit_id="web.assets_frontend" name="Flatmates Frontend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/pragtech_flatmates_system/static/src/css/info.css"/>
+            <link rel="stylesheet" type="text/scss" href="/pragtech_flatmates_system/static/src/css/flatmates.css"/>
+            <link rel="stylesheet" type="text/scss" href="/pragtech_flatmates_system/static/src/css/product_images.css"/>
+            <link rel="stylesheet" type="text/scss" href="/pragtech_flatmates_system/static/src/css/flickity.css"/>
+            <link rel="stylesheet" type="text/scss" href="/pragtech_flatmates_system/static/src/css/flickity-style.css"/>
+
+
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/accommodation_page.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/lazy_load.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/home_page.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/add_another_room.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/whole_property_property_type.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/info_template.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/dynamic_url.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/flickity_min.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/list_place.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/find_place.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/form_data.js"></script>
+        </xpath>
+</template>
+</odoo>

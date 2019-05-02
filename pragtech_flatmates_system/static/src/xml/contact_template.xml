@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <template id="contact_template" name="Contact">
+      <t t-call="website.layout">
+        <div class="oe_structure oe_empty">
+          <section>
+            <div class="container">
+              <div class="col-lg-6 mx-auto contact-form">
+                
+                  
+                    <h1 class="mt-4 text-muted">Need a quick answer? See our <a href="#">FAQ</a></h1>
+                    <h2 class="mt-4 text-muted">We'd love to hear from you, message us</h2>
+                  
+				  
+				   <form class="mt-5" action="#">
+					<div class="form-group">
+					  <textarea class="form-control" rows="4" id="" name="" placeholder="Type your message to Flatmates.com.au..."></textarea>
+					</div>
+					   
+					<div class="form-group">
+					  <input type="text" class="form-control" id="" placeholder="Name"/>
+					</div>
+					   
+					   
+					<div class="form-group">
+					<input type="email" class="form-control" id="email" placeholder="Email"/>
+				  	</div>
+					   
+					<button class="btn btn-block" type="submit">Send Message</button>
+				  </form>
+                
+              </div>
+            </div>
+          </section>
+        </div>
+      </t>
+    </template>
+  </data>
+</odoo>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--<template id="portal.frontend_layout" name="Main Frontend Layout">-->
+    <!--<t t-call="web.layout">-->
+    <!--<t t-set="head_website">-->
+    <!--<script type="text/javascript">-->
+    <!--odoo.session_info = {-->
+    <!--is_admin: <t t-esc="json.dumps(request.env.user._is_admin())"/>,-->
+    <!--is_system: <t t-esc="json.dumps(request.env.user._is_system())"/>,-->
+    <!--is_website_user: <t t-esc="json.dumps(request.env.user._is_public())"/>,-->
+    <!--user_id: <t t-esc="json.dumps(request.env.user.id)" />,-->
+    <!--is_frontend: true,-->
+    <!--translationURL: '/website/translations',-->
+    <!--};-->
+    <!--</script>-->
+
+    <!--<t t-call-assets="web.assets_common" t-js="false"/>-->
+    <!--<t t-call-assets="web.assets_frontend" t-js="false"/>-->
+
+    <!--<t t-call-assets="web.assets_common" t-css="false"/>-->
+    <!--<t t-call-assets="web.assets_frontend" t-css="false"/>-->
+    <!--</t>-->
+    <!--<t t-set="head" t-value="head_website + (head or '')"/>-->
+
+    <!--<t t-set="direction" t-value="request.env['res.lang'].search([('code', '=', request.env.lang)]).direction"/>-->
+    <!--<div id="wrapwrap" t-attf-class="#{pageName or ''} #{direction == 'rtl' and 'o_rtl' or ''} #{'o_portal' if is_portal else ''}">-->
+    <!--<header>-->
+    <!--<nav class="navbar navbar-expand-md navbar-light bg-light">-->
+    <!--<div class="container">-->
+    <!--<a href="/" class="navbar-brand logo">-->
+    <!--<img t-att-src="'/logo.png?company=%s' % res_company.id" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>-->
+    <!--</a>-->
+    <!--<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#top_menu_collapse">-->
+    <!--<span class="navbar-toggler-icon"/>-->
+    <!--</button>-->
+    <!--<div class="collapse navbar-collapse" id="top_menu_collapse">-->
+    <!--&lt;!&ndash; FIXME We want menu to open to the right by default (except cases handled in JS) &ndash;&gt;-->
+    <!--<ul class="nav navbar-nav ml-auto text-right" id="top_menu">-->
+    <!--<li class="nav-item divider" t-ignore="true" t-if="not user_id._is_public()"/>-->
+    <!--<li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">-->
+    <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="modal" data-target='#signup_popup_id'>-->
+    <!--<b>-->
+    <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
+    <!--</b>-->
+    <!--</a>-->
+    <!--<div class="dropdown-menu js_usermenu" role="menu">-->
+    <!--<a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>-->
+    <!--</div>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div role="dialog" id="signup_popup_id" class="modal" tabindex="-1" t-ignore="true">-->
+    <!--<div class="modal-dialog">-->
+    <!--<form role="form">-->
+    <!--<div class="modal-content">-->
+    <!--<header class="modal-header">-->
+    <!--&lt;!&ndash;  <h3 class="modal-title">Reset templates</h3>&ndash;&gt;-->
+    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>-->
+    <!--</header>-->
+    <!--<main class="modal-body">-->
+    <!--&lt;!&ndash; <div class="form-group row mb0">-->
+    <!--<label for="page-name" class="col-md-9 col-form-label">-->
+    <!--<p>The selected templates will be reset to their factory settings.</p>-->
+    <!--<p>Type '<i class="confirm_word">yes</i>' in the box below if you want to confirm.</p>-->
+    <!--</label>-->
+    <!--<div class="col-md-3 mt16">-->
+    <!--<input type="text" class="form-control" required="required" placeholder="yes"/>-->
+    <!--</div>-->
+    <!--</div> &ndash;&gt;-->
+    <!--</main>-->
+    <!--&lt;!&ndash;  <footer class="modal-footer">-->
+    <!--<input type="submit" value="Confirm" class="btn btn-primary"/>-->
+    <!--<button type="button" class="btn" data-dismiss="modal" aria-label="Cancel">Cancel</button> -->
+    <!--</footer> &ndash;&gt;-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</nav>-->
+    <!--</header>-->
+    <!--<main>-->
+    <!--<t t-raw="0"/>-->
+    <!--</main>-->
+    <!--<footer class="bg-light o_footer">-->
+    <!--<div class="container mt16 mb16" id="footer">-->
+    <!--<div class="float-right mb16" t-ignore="true" t-if="not editable">-->
+    <!--Powered by <a target="_blank" href="http://www.odoo.com?utm_source=db&amp;utm_medium=portal">Odoo</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</footer>-->
+    <!--</div>-->
+    <!--</t>-->
+    <!--</template>-->
+
+
+
+    <template id="portal_show_sign_inherited" inherit_id="portal.portal_show_sign_in" name="Show Sign In">
+        <xpath expr="//a[@t-attf-href='/web/login']" position="replace">
+            <div data-toggle="modal" data-target='#signin_popup_id' class="nav-link">
+                <b>Sign in</b>
+            </div>
+
+            <!--<div role="dialog" id="signin_popup_id" class="modal" tabindex="-1" t-ignore="true">-->
+                <!--<form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}"-->
+                      <!--method="post" onsubmit="this.action = this.action + location.hash">-->
+                    <!--<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>-->
+
+                    <!--<div class="form-group field-db" t-if="databases and len(databases) &gt; 1">-->
+                        <!--<label for="db" class="col-form-label">Database</label>-->
+                        <!--<div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">-->
+                            <!--<input type="text" name="db" t-att-value="request.db" id="db"-->
+                                   <!--t-attf-class="form-control #{'form-control-sm' if form_small else ''}"-->
+                                   <!--required="required" readonly="readonly"/>-->
+                            <!--<span class="input-group-append">-->
+                                <!--<a role="button" href="/web/database/selector" class="btn btn-secondary">Select-->
+                                    <!--<i class="fa fa-database" role="img" aria-label="Database" title="Database"></i>-->
+                                <!--</a>-->
+                            <!--</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group field-login">-->
+                        <!--<label for="login">Email</label>-->
+                        <!--<input type="text" placeholder="Email" name="login" t-att-value="login" id="login"-->
+                               <!--t-attf-class="form-control #{'form-control-sm' if form_small else ''}"-->
+                               <!--required="required" autofocus="autofocus" autocapitalize="off"/>-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group field-password">-->
+                        <!--<label for="password">Password</label>-->
+                        <!--<input type="password" placeholder="Password" name="password" id="password"-->
+                               <!--t-attf-class="form-control #{'form-control-sm' if form_small else ''}"-->
+                               <!--required="required" autocomplete="current-password"-->
+                               <!--t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>-->
+                    <!--</div>-->
+
+                    <!--<p class="alert alert-danger" t-if="error" role="alert">-->
+                        <!--<t t-esc="error"/>-->
+                    <!--</p>-->
+                    <!--<p class="alert alert-success" t-if="message" role="status">-->
+                        <!--<t t-esc="message"/>-->
+                    <!--</p>-->
+
+                    <!--<div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">-->
+                        <!--<button type="submit" class="btn btn-primary btn-block">Log in</button>-->
+                        <!--<t t-if="debug">-->
+                            <!--<button type="submit" name="redirect" value="/web/become"-->
+                                    <!--class="btn btn-link btn-sm btn-block">Log in as superuser-->
+                            <!--</button>-->
+                        <!--</t>-->
+                        <!--<div class="o_login_auth">-->
+                            <!--<t t-call="auth_oauth.providers"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<input type="hidden" name="redirect" t-att-value="redirect"/>-->
+                <!--</form>-->
+            <!--</div>-->
+        </xpath>
+    </template>
+
+</odoo>

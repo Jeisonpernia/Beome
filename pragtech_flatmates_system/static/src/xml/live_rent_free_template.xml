@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="live_rent_free_template" name="Live Rent Free">
+            <t t-call="website.layout">
+                <div class="container">
+                    <div class="col-md-12 mt16 mb16 text-center">
+                        <div class="no-shortlist-results">
+                            <div class="no-shortlist-results-message">
+                                <h3 style="color: #6D7580;font-size: 1.25rem;">Your shortlist is empty</h3>
+                                <p style="color: #6D7580;font-size: 1rem;font-weight:normal;">Click on the stars to add
+                                    or remove listings from your shortlist. Make sure you login or
+                                    create a free account before you leave the site and we will save your shortlist for
+                                    next
+                                    time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
+
