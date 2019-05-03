@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_holding_deposits" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_flatmates_system.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Holding Deposits</h1>
+                                                <h2 class="mt-5">‘Holding deposits’ colloquially refers to pre-tenancy payments made by tenants to landlords designed to secure the tenancy and ensure the agreement goes ahead as planned.</h2>
+                                                <p class="mt-4"><strong><em>This guide covers landlords (or head-tenants) and tenants (or sub-tenants) in a Residential Tenancy. This applies to the majority of share accommodation and residential property rental situations. To confirm it covers your situation visit <a href="https://info.flatmates.com.au/share-accommodation-legal-situations">What is my share accommodation situation?</a></em></strong></p>
+                                                <p class="mt-4">Although the exact rules vary between states and territories, ‘holding deposits’ may refer to any of the following specific types of payment:<br/>
+                                                </p>
+                                                <ul class="mt-4">
+                                                    <li>Holding fees / application deposits / option fees / holding deposits, <br/>
+                                                    </li>
+                                                    <li>Rent in advance,<br/>
+                                                    </li>
+                                                    <li>Rental bonds.<br/>
+                                                    </li>
+                                                </ul>
+                                                <p class="mt-3">These payments have two purposes:</p>
+                                                <ul class="mt-3">
+                                                    <li>They secure the agreement and ensure that the premises is held for a tenant by the landlord.<br/>
+                                                    </li>
+                                                    <li>The payments can act as compensation if the agreement is breached.</li>
+                                                </ul>
+                                                <p class="mt-3">Check out our information for each state and territory below.</p>
+                                                <h2 class="mt-4">NSW, Queensland, and South Australia</h2>
+                                                <p class="mt-3">In NSW, Queensland and South Australia there are specific types of pre-tenancy payments known as holding fees, holding deposits, or option fees. The rules regulating these fees and deposits function well in these states and should be considered. You can find out more about these payments in NSW, Queensland and South Australia in our state-specific guides linked below.</p>
+                                                <h2 class="mt-4">Victoria, Western Australia, and Tasmania</h2>
+                                                <p class="mt-3">In Victoria, Western Australia and Tasmania, there are also specific pre-tenancy payments known as application deposits, option fees, or holding fees. The laws around holding deposits in these states are not as rigid as others, so a bond or pre-rent payments may offer more security. You can find out more about these payments in Victoria, Western Australia and Tasmania in our state-specific guides linked below.</p>
+                                                <h2 class="mt-4">ACT and Northern Territory</h2>
+                                                <p class="mt-3">In the ACT and Northern Territory, the only payments allowed before the tenancy begins are rent in advance or a rental bond.<br/>
+                                                    <br/>
+                                                    Holding fees, options fees or similar are prohibited in the ACT and Northern Territory. A bond, tenancy agreement or rent in advance would be the best way to secure the property in these areas. You can find out more about these payments in the ACT and Northern Territory on our state-specific guides linked below.</p>
+                                                <div class="table-responsive-lg">
+                                                    <table class="table">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><strong>State</strong></td>
+                                                                <td><strong>Maximum Deposit or Fee</strong></td>
+                                                                <td><strong>Length of Holding Period</strong></td>
+                                                                <td><strong>Where the fee goes at the end of the holding period</strong></td>
+                                                                <td><strong>Links</strong></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>NSW</strong></td>
+                                                                <td>1 week’s rent</td>
+                                                                <td>7 days (or longer)</td>
+                                                                <td>Goes toward rent when lease is entered</td>
+                                                                <td><a href="https://info.flatmates.com.au/nsw-holding-deposits">NSW Guide</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>VIC</strong></td>
+                                                                <td>No limit</td>
+                                                                <td>14 days</td>
+                                                                <td>Returned to tenant</td>
+                                                                <td><a href="https://info.flatmates.com.au/vic-holding-deposits">VIC Guide</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>QLD</strong></td>
+                                                                <td>No limit</td>
+                                                                <td>48 hours (or longer)</td>
+                                                                <td>Landlord keeps deposit unless tenant notifies of intent not to enter tenancy</td>
+                                                                <td><a href="https://info.flatmates.com.au/qld-holding-deposits">QLD Guide</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>SA</strong></td>
+                                                                <td>No limit</td>
+                                                                <td>By agreement</td>
+                                                                <td>Landlord keeps fee unless they refuse to enter agreement</td>
+                                                                <td><a href="https://info.flatmates.com.au/sa-holding-deposits">SA Guide</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>WA</strong></td>
+                                                                <td>$50-1,200</td>
+                                                                <td>By agreement</td>
+                                                                <td>Landlord generally keeps fee unless there is no agreement entered into</td>
+                                                                <td><a href="https://info.flatmates.com.au/wa-holding-deposits">WA Guide</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>TAS</strong></td>
+                                                                <td>No limit</td>
+                                                                <td>7 days (or longer)</td>
+                                                                <td>Landlord generally keeps fee unless they give premises to another tenant</td>
+                                                                <td><a href="https://info.flatmates.com.au/tas-holding-deposits">TAS Guide</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>ACT</strong></td>
+                                                                <td>Prohibited</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><a href="https://info.flatmates.com.au/act-holding-deposits">ACT Guide</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>NT</strong></td>
+                                                                <td>Prohibited</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><a href="https://info.flatmates.com.au/nt-holding-deposits">NT Guide</a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <h2 class="mt-4">Learn more about pre-tenancy payments in your state</h2>
+                                                <p class="mt-4"><a href="https://info.flatmates.com.au/nsw-holding-deposits">NSW Holding Deposits</a><br/>
+                                                    <a href="https://info.flatmates.com.au/vic-holding-deposits">VIC Holding Deposits</a><br/>
+                                                    <a href="https://info.flatmates.com.au/qld-holding-deposits">QLD Holding Deposits</a><br/>
+                                                    <a href="https://info.flatmates.com.au/sa-holding-deposits">SA Holding Deposits</a><br/>
+                                                    <a href="https://info.flatmates.com.au/wa-holding-deposits">WA Holding Deposits</a><br/>
+                                                    <a href="https://info.flatmates.com.au/tas-holding-deposits">TAS Holding Deposits</a><br/>
+                                                    <a href="https://info.flatmates.com.au/act-holding-deposits">ACT Holding Deposits</a><br/>
+                                                    <a href="https://info.flatmates.com.au/nt-holding-deposits">NT Holding Deposits</a><br/>
+                                                </p>
+                                                <div class="mt-2 gray-bx">
+                                                    <h2><strong><i class="fa fa-usd"></i> Transferring money safely</strong></h2>
+                                                    <p>When paying your deposit, bond or rent by cash make sure you get a receipt. With modern phones this can be as simple as an SMS or email confirming the amount, date and what it is for. Keep a copy of this incase you need it later. <br/>
+                                                        <br/>
+                                                        <strong>Never ever transfer money to a bank account outside of Australia or use a untraceable money transfer system such as WESTERN UNION. If anyone asks you to do this on any website it is likely to be a scam and you are almost guaranteed to lose your money.</strong> <br/>
+                                                        <br/>
+                                                        If this ever happens on Flatmates.com.au report the member immediately so we can investigate and take the appropriate action.</p>
+                                                </div>
+                                                <hr class="mt-4 mb-4"/>
+                                                <p class="mt-4"><strong><em>These legal guides provide a brief summary and introduction of the laws and regulations affecting share accommodation. They do not cover all cases in all legal jurisdictions and might not apply in your specific share accommodation situation. It is important that you use this information as a guide only and seek independent Legal Advice or consult the <a href="https://info.flatmates.com.au/tenancy-acts">Relevant Acts</a>. We do not accept any liability that may arise from the use of this information.</em></strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

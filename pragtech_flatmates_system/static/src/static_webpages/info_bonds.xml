@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_bonds" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+                                    <t t-call="pragtech_flatmates_system.info_li_list"/>
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Bonds &amp; Security Deposits</h1>
+                                                <h2 class="mt-5">Bonds are pre-tenancy payments made by tenants to landlord (or head tenant) to provide security against damage to the property or unpaid rent. In most states you are required by law to lodge or register the bond with the relevant state authority.</h2>
+                                                <p class="mt-4">A bond, can also be referred to as a Security Deposit, Rental Bond or Security Bond depending on your state or territory.<br/>
+                                                    <br/>
+                                                    It is recommended and common in share accommodation to charge a Bond equivalent to <strong>2 or 4 weeks rent,</strong> but in some cases a landlord may choose not to charge any bond. The maximum Bond allowed varies in each state.<br/>
+                                                    <br/>
+                                                    The Bond remains the tenant’s money. While the tenant pays the Bond to the landlord, the money is only held in trust by the landlord for the tenant. As such, at the end of the lease period the tenant is entitled to a refund for the full Bond amount unless the landlord can show that any deductions should be made.<br/>
+                                                    <br/>
+                                                    To ensure that the Bond payment and holding process is conducted safely and securely, nearly all states and territories have a bond deposit authority which holds the Bond for the period of the tenancy and will only release the Bond to the tenant or landlord though a fair and transparent process.<br/>
+                                                    <br/>
+                                                    <strong>In these states and territories, the Bond must be deposited with the relevant government authority.</strong></p>
+                                                <h2 class="mt-4">Reasons why you should lodge the Bond:</h2>
+                                                <ul class="mt-4">
+                                                    <li><strong>Penalties</strong> - For both tenants and landlords, there are severe fines for those who fail to lodge the bond correctly. <br/>
+                                                    </li>
+                                                    <li><strong>Guaranteed Repayment</strong> - For tenants, using the system guarantees the repayment of the Bond if there have been no breaches of the residential tenancy agreement.<br/>
+                                                    </li>
+                                                    <li><strong>Easier to Claim</strong> - For landlords, using the system significantly increases the likelihood of being successful in any claim from the Bond. Courts and Tribunals do not look favourably upon a landlord who makes a claim on a Bond after not complying with the deposit requirements.<br/>
+                                                    </li>
+                                                    <li><strong>No Confusion</strong> - For both tenants and landlords, the deposit system is a clear, well understood and transparent process that reduces confusion and the likelihood of disputes arising.<br/>
+                                                    </li>
+                                                    <li><strong>Efficient</strong> - By not working within this well-defined process, both parties risk a longer and more expensive problem.<br/>
+                                                    </li>
+                                                </ul>
+                                                <h2 class="mt-4">Read more about your state’s Bond laws:</h2>
+                                                <p class="mt-4"><a href="https://info.flatmates.com.au/nsw-bonds">NSW Bonds</a><br/>
+                                                    <a href="https://info.flatmates.com.au/vic-bonds">Victoria Bonds</a><br/>
+                                                    <a href="https://info.flatmates.com.au/qld-bonds">Queensland Bonds</a><br/>
+                                                    <a href="https://info.flatmates.com.au/wa-bonds">Western Australia Bonds</a><br/>
+                                                    <a href="https://info.flatmates.com.au/sa-bonds">South Australia Bonds</a><br/>
+                                                    <a href="https://info.flatmates.com.au/act-bonds">ACT Bonds</a><br/>
+                                                    <a href="https://info.flatmates.com.au/tas-bonds">Tasmania Bonds</a><br/>
+                                                    <a href="https://info.flatmates.com.au/nt-bonds">Northern Territory Bonds</a><br/>
+                                                </p>
+                                                <div class="mt-4 gray-bx">
+                                                    <h2><strong><i class="fa fa-usd"></i> Transferring money safely</strong></h2>
+                                                    <p>When paying your deposit, bond or rent by cash make sure you get a receipt. With modern phones this can be as simple as an SMS or email confirming the amount, date and what it is for. Keep a copy of this incase you need it later. <br/>
+                                                        <br/>
+                                                        <strong>Never ever transfer money to a bank account outside of Australia or use a untraceable money transfer system such as WESTERN UNION. If anyone asks you to do this on any website it is likely to be a scam and you are almost guaranteed to lose your money.</strong> <br/>
+                                                        <br/>
+                                                        If this ever happens on Flatmates.com.au report the member immediately so we can investigate and take the appropriate action.</p>
+                                                </div>
+                                                <hr class="mt-4 mb-4"/>
+                                                <p class="mt-4"><strong><em>These legal guides provide a brief summary and introduction of the laws and regulations affecting share accommodation. They do not cover all cases in all legal jurisdictions and might not apply in your specific share accommodation situation. It is important that you use this information as a guide only and seek independent Legal Advice or consult the <a href="https://info.flatmates.com.au/tenancy-acts">Relevant Acts</a>. We do not accept any liability that may arise from the use of this information.</em></strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

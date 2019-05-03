@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_find_share_accommodation" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+                                    <t t-call="pragtech_flatmates_system.info_li_list"/>
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Tips for finding accommodation</h1>
+                                                <h2 class="mt-5">With thousands of listings across Australia and hundreds more added every day, finding a place is easy on Flatmates.com.au.##</h2>
+                                                <img src="/pragtech_flatmates_system/static/src/img/finding-accommodation.png" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-4"><i class="fa fa-child"></i> <strong>Make yourself be seen</strong><br/>
+                                                    Standing out from the crowd is the fastest way to secure a room and the best way to do that is to create a person listing. Adding a photo of yourself will also increase your responses and will place you at the top end of flatmate searches. <a href="https://flatmates.com.au/room-wanted">Create your person listing here</a>.</p>
+                                                <div class="mt-4 gray-bx">
+                                                    <p><i class="fa fa-lightbulb-o"></i> <strong>Tip</strong><br/>
+                                                        The more suburbs your add to your person listing, the more times you will show up in search results and the more potential matches you will receive. Be sure to add all the suburbs you’re interested in including those neighbouring.</p>
+                                                </div>
+                                                <p class="mt-4"><i class="fa fa-check"></i> <strong>Verify your mobile</strong><br/>
+                                                    To contact listings on the site, you will first need to verify your mobile. Once you have signed up, you will receive the verification security code to enter into the site. Never share this code with anyone, and only enter it directly into the site.</p>
+                                                <p class="mt-3"><i class="fa fa-star"></i> <strong>Upgrade</strong><br/>
+                                                    There is no requirement to upgrade on Flatmates.com.au in order to find a great place. In fact the majority our listings are free to message. If you’re looking to speed up your search, upgrading your account will give you instant access to any Early Bird listings, which are many of our newest listings. Check out all of the upgrade options <a href="https://flatmates.com.au/secure-payment">here</a>.</p>
+                                                <p class="mt-3"><i class="fa fa-comment"></i> <strong>Introduce yourself</strong><br/>
+                                                    Don’t just sit back and wait for the offers flood in, be proactive! Many people offering rooms expect potential candidates to contact them first about the room. Remember that properties will interview multiple flatmate candidates before choosing one. Don’t put all your hopes on the one place, have a few lined up for inspections.</p>
+                                                <p class="mt-3"><i class="fa fa-home"></i> <strong>Ask for a viewing</strong><br/>
+                                                    When enquiring about a property always politely check if and when you can inspect the the place and meet the flatmates. Depending on how many enquiries a property has received may influence when you can view the room, so try to be flexible.</p>
+                                                <div class="mt-4 gray-bx">
+                                                    <p><i class="fa fa-lightbulb-o"></i> <strong>Staying safe</strong><br/>
+                                                        If you’re feeling nervous about the inspection or meeting someone for the first time, there is no problem taking along a friend.</p>
+                                                </div>
+                                                <p class="mt-4"><a href="https://info.flatmates.com.au/how-to-protect-yourself">More information about staying safe.</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

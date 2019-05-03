@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_ending_tenancy" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+                                    <t t-call="pragtech_flatmates_system.info_li_list"/>
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Ending the Tenancy Agreement</h1>
+                                                <h2 class="mt-5">Ending the tenancy is called ‘termination.’ Landlords and tenants can terminate for different reasons in each state and territory. If the tenancy agreement is breached, the other party may be entitled to compensation—e.g. tenants may have to compensate landlords for lost rent for breaking a lease before the end of a fixed term.</h2>
+                                                <h2 class="mt-4">State and Territory guides</h2>
+                                                <p class="mt-4">The exact rules and processes for ending a tenancy agreement vary between each state and territory. For the most specific information relevant to your tenancy agreement, you should read the applicable guide linked below:</p>
+                                                <ul class="mt-4">
+                                                    <li><a href="https://info.flatmates.com.au/nsw-termination">New South Wales</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/vic-ending-tenancy">Victoria</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/qld-ending-tenancy">Queensland</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/sa-ending-tenancy">South Australia</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/wa-ending-tenancy">Western Australia</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/tas-ending-tenancy">Tasmania</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/act-ending-tenancy">Australian Capital Territory</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/nt-ending-tenancy">Northern Territory</a></li>
+                                                </ul>
+                                                <h2 class="mt-4">What topics do the state-specific guides cover?</h2>
+                                                <p class="mt-4">Each of the state and territory guides cover a number of topics, including:</p>
+                                                <ul class="mt-4">
+                                                    <li>
+                                                        <p><strong>Notification of Termination</strong>—every state and territory provides official notification forms that landlords and tenants should use to notify the other party of termination. It is recommended that you use the official forms as they contain all the information required by law.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>Termination in Share Accommodation</strong>—the guides cover termination in co-tenancies and sub-tenancies. Generally, if a co-tenant moves out but the tenancy otherwise continues, they should be removed from the agreement. In sub-tenancies, the general rule is that if the agreement between the landlord and head-tenant is terminated, then the agreement between the head-tenant and sub-tenant will also be terminated.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>When the Landlord can Terminate</strong>—there is a limited number of circumstances where landlords can terminate the tenancy. Landlords should ensure they abide by the applicable notice periods. Generally, landlords cannot lawfully terminate a tenancy before the end of fixed term unless there is a specific reason—e.g. tenant seriously breached the agreement.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>When the Tenant can Terminate</strong>—there is a limited number of circumstances where tenants can terminate the tenancy. Tenants should ensure they abide by the applicable notice periods. Generally, if a tenant terminates the agreement before the end of a fixed term then they will be liable to compensate the landlord for lost rent, unless the termination is legally justified—e.g. the landlord has seriously breached the agreement.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>What happens if the tenant abandons the premises?</strong>—the tenant abandons the premises if they permanently move out and stop paying rent without giving notice and without a lawful reason. Abandonment means that the tenancy is terminated and that the tenant has breached the agreement. As a result, the tenant may be liable to compensate the landlord for any losses, such as lost rent. Tenants who give a termination notice should generally not move out and stop paying rent until the landlord accepts the termination, or the Tribunal in your state/territory makes an order. If you move out and stop paying rent but the landlord rejects the termination and/or the Tribunal does not make an order, then you may be regarded as having abandoned the premises.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>Compensation</strong>—generally, the tenant or landlord will entitled to compensation if they suffer some kind of loss as a result of a breach of the tenancy agreement by the other party. As mentioned above, tenants may be liable to compensate the landlord for lost rent if they terminate the tenancy before the end of the fixed term. Importantly, landlords must take reasonable steps to minimise their losses as much as possible—this means that a landlord must try to rent out the premises to a new tenant if the old tenant terminated before the end of the fixed term.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>Regaining possession after termination</strong>—if the tenant remains at the rented premises even after the tenancy has been terminated, the landlord can seek eviction orders from the Tribunal in their state and territory. Generally, this order will allow a police officer or the sheriff to remove the tenant and their belongings from the premises. Under no circumstances should the landlord attempt to physically remove the tenant and their belongings.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>What happens to goods left behind</strong>—there are specific rules in each state and territory for what landlords must do with any goods the tenant leaves behind. The rules vary depending on the type of good. Generally landlords need to take care of any personal documents—e.g. passports, bank statements—and notify the tenant so they can be returned or collected. Other goods but be held for a certain period but can then be sold at public auctions if the tenant does not claim them. Waste goods or perishable items can generally be disposed of. Landlords should read the specific information for their state or territory.</p>
+                                                    </li>
+                                                </ul>
+                                                <hr class="mt-4 mb-4"/>
+                                                <p class="mt-4"><strong><em>These legal guides provide a brief summary and introduction of the laws and regulations affecting share accommodation. They do not cover all cases in all legal jurisdictions and might not apply in your specific share accommodation situation. It is important that you use this information as a guide only and seek independent Legal Advice or consult the <a href="https://info.flatmates.com.au/tenancy-acts">Relevant Acts</a>. We do not accept any liability that may arise from the use of this information.</em></strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

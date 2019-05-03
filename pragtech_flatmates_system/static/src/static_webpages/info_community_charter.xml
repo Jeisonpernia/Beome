@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_community_charter" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+                                    <t t-call="pragtech_flatmates_system.info_li_list"/>
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Flatmates.com.au Community Charter</h1>
+                                                <h2 class="mt-5">Flatmates.com.au is an inclusive community where all members are expected to treat one another with the utmost respect.</h2>
+                                                <img src="/pragtech_flatmates_system/static/src/img/community-charter.png" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-4">As a member of the Flatmates.com.au community, you are expected to follow these basic guidelines:</p>
+                                                <ol>
+                                                    <li>
+                                                        <h3 class="mt-3">Treat all members equally regardless of race, sex, gender identity, religion, age or sexual orientation.</h3>
+                                                    </li>
+                                                    <li>
+                                                        <h3 class="mt-3">Be respectful and civil towards all members—at all times—when communicating via the site or other means.</h3>
+                                                    </li>
+                                                    <li>
+                                                        <h3 class="mt-3">Only use Flatmates.com.au to offer shared accommodation or to find a home. Never for any other purpose.</h3>
+                                                    </li>
+                                                    <li>
+                                                        <h3 class="mt-3">Only list or offer a property that is fit for living in and that you would want to live in yourself. Living rooms are not bedrooms.</h3>
+                                                    </li>
+                                                    <li>
+                                                        <h3 class="mt-3">Abide by local planning and state tenancy laws.</h3>
+                                                    </li>
+                                                    <li>
+                                                        <h3 class="mt-3">Make your flatmate search a happy and enjoyable experience to meet new people and share life. We’re here to help make that possible so <a href="https://flatmates.com.au/contact">let us know</a> if there is anything we can do to improve.</h3>
+                                                    </li>
+                                                </ol>
+                                                <p class="mt-4"><strong>Members found to be acting in a manner contrary to the charter may have their accounts removed.</strong><br/>
+                                                    <br/>
+                                                    If you would like to report any untoward behaviour or breaches of any guidelines above, to our moderation team, please use the “Concerned about this listing” link located at the bottom of every listing or under “Report Member” at the top any message received.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

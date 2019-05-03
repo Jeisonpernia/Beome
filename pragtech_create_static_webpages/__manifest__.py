@@ -14,5 +14,4 @@
     'views/create_webpages_view.xml',
     ],
     'application': True,
-    'uninstall_hook': 'uninstall_hook',
 }
