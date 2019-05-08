@@ -31,6 +31,8 @@ class Flatmates(models.Model):
     state_id = fields.Many2one('res.country.state')
     zip = fields.Char()
     country_id = fields.Many2one('res.country')
+    latitude = fields.Char()
+    longitude = fields.Char()
 
     bond_id = fields.Many2one('bond.bond',string="Bond")
     bill_id = fields.Many2one('bill.bill', string="Bill")
@@ -63,8 +65,6 @@ class Flatmates(models.Model):
     #                                  ('9months', '9 months'),('12months+', '12 months+')], string="Maximum length of stay")
 
     
-    def _compute_type(self):
-        pass
 
 
 class AboutRooms(models.Model):

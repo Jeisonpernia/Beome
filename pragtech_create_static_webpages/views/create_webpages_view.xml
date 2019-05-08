@@ -52,7 +52,7 @@
         <menuitem id="submenu_main_flatmates" name="Add Webpage"
                   parent="pragtech_create_static_webpages.menu_main_root_create" sequence="1" action="action_create"/>
         <!--<menuitem id="child_menu_flatmates" name="Property" action="action_flatmates"-->
-                  <!--parent="pragtech_flatmates_system.submenu_main_flatmates" sequence="1"/>-->
+                  <!--parent="pragtech_housemates_system.submenu_main_flatmates" sequence="1"/>-->
 
 
     </data>

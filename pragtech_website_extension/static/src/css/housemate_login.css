@@ -1,1 +1,94 @@
-.oe_login_form {background-color:#fff; padding:20px; max-width: 400px!important; text-align:left; }
+.oe_login_form {
+	background-color: #fff;
+	padding: 20px;
+	max-width: 400px!important;
+	text-align: left;
+}
+
+.d-none{
+  display:none;
+}
+
+.top-menu-dropdown{
+	max-width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.top-menu-dropdown .modal-header{
+	border-bottom: 0px;
+}
+
+
+.top-menu-dropdown .modal-body{
+	padding: 0 40px;
+}
+.top-menu-dropdown .modal-content{
+	border-radius: 0px;
+	outline:none;
+	box-shadow: none;
+	background: #00C89F;
+	border:none;
+	text-align: left;
+}
+
+.top-menu-dropdown .modal-content .card-img-top{
+	width: 50%;
+	margin-top: -25%;
+}
+
+.top-menu-dropdown .modal-content h4{
+	color: #fff;
+	font-weight: normal;
+}
+
+.top-menu-dropdown .modal-content .person{
+	  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.top-menu-dropdown .modal-content ul{
+	list-style-type: none;
+	padding: 0px;
+}
+
+.top-menu-dropdown .my-account h4{
+	border-bottom: 1px solid #fff;
+	padding-bottom: 10px;
+	font-weight: normal;
+}
+
+
+.top-menu-dropdown .my-account ul li{
+	padding: 5px;
+}
+
+.top-menu-dropdown .my-account ul li:hover{
+	background: #0f9977;
+}
+
+
+.top-menu-dropdown .my-account ul li a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.top-menu-dropdown .my-account ul li a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+
+.top-menu-dropdown .my-account ul li .icon{
+	width: 16px;
+	height: auto;
+	fill: #fff;
+	margin-right: 5px;
+}
+
+.top-menu-dropdown .close{
+	font-size: 48px;
+	color: #fff;
+	box-shadow: none;
+	opacity: 1;
+}
+

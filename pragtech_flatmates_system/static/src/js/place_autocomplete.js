@@ -16,6 +16,7 @@ $(document).ready(function() {
       postal_code: 'short_name'
     };
 
+
     function initAutocomplete() {
         console.log('INIT AutoCompleteeeeeeeeeeeeeeeeeeeeee ')
       // Create the autocomplete object, restricting the search predictions to
@@ -27,7 +28,7 @@ $(document).ready(function() {
             {'country': ['au']});
       // Avoid paying for data that you don't need by restricting the set of
       // place fields that are returned to just the address components.
-      autocomplete.setFields(['address_component']);
+      autocomplete.setFields(['address_component','geometry']);
 
       // When the user selects an address from the drop-down, populate the
       // address fields in the form.
@@ -39,12 +40,31 @@ $(document).ready(function() {
       // Get the place details from the autocomplete object.
       var place = autocomplete.getPlace();
       console.log('place :',place)
+
+        ////////////////////////////////////////////////////////////////
+                   // Code Added for Longitude and latitude //
+        document.getElementById('latitude').value = '';
+        document.getElementById('latitude').disabled = false;
+
+        document.getElementById('longitude').value = '';
+        document.getElementById('longitude').disabled = false;
+
+        var lati_tude = place.geometry.location.lat()
+        var longi_tude = place.geometry.location.lng()
+
+        document.getElementById('latitude').value = lati_tude;
+        document.getElementById('longitude').value = longi_tude;
+
+        console.log('Lat :',lati_tude)
+        console.log('Long :',longi_tude)
+       ///////////////////////////////////////////////////////////////////
+
       for (var component in componentForm) {
         document.getElementById(component).value = '';
         document.getElementById(component).disabled = false;
       }
 
-      console.log('Address Components ::: ',place.address_components)
+//      console.log('Address Components ::: ',place.address_components)
 
       // Get each component of the address from the place details,
       // and then fill-in the corresponding field on the form.
@@ -55,6 +75,18 @@ $(document).ready(function() {
           document.getElementById(addressType).value = val;
         }
       }
+      console.log('???????????????????????????????????????',$('#street_number').val())
+      if ($('#street_number').val() == ""){
+            console.log('*******************************************')
+//            $('#propert_submit_btn').prop("disabled", true);
+            $(".styles__errorMessage").show()
+      }
+      else{
+            $(".styles__errorMessage").hide()
+//            $('#propert_submit_btn').prop("disabled", false);
+      }
+
+
     }
 
     // Bias the autocomplete object to the user's geographical location,
@@ -77,6 +109,8 @@ $(document).ready(function() {
 
 
     });
+
+
 
 });
 

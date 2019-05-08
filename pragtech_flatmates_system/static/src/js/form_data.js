@@ -74,6 +74,8 @@ $(document).ready(function() {
             var state = $("#administrative_area_level_1").val()
             var zip_code = $("#postal_code").val()
             var country = $ ("#country").val()
+            var latitude = $("#latitude").val()
+            var longitude = $("#longitude").val()
             var total_bedrooms = $("input[name='bed_rooms']:checked").val();
             var total_bathrooms = $("input[name='bath_rooms']:checked").val();
             var parking = $('#parking').val();
@@ -104,6 +106,12 @@ $(document).ready(function() {
             if (country){
                 oldArray[0]['country'] = country;
             }
+            if (latitude){
+                oldArray[0]['latitude'] = latitude;
+            }
+            if (longitude){
+                oldArray[0]['longitude'] = longitude;
+            }
             if (total_bedrooms){
                 oldArray[0]['total_bedrooms'] = total_bedrooms;
             }
@@ -120,6 +128,7 @@ $(document).ready(function() {
                 oldArray[0]['room_furnishing_type'] = room_furnishing_type
             }
 
+
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
             console.log('property_address ',property_address);
@@ -130,6 +139,8 @@ $(document).ready(function() {
             console.log('State : ',state)
             console.log('zip code : ',zip_code)
             console.log('Country : ',country)
+            console.log('Latitude : ',latitude)
+            console.log('Longitude : ',longitude)
             console.log('----------------------------------------------')
             console.log('total_bedrooms ', total_bedrooms);
             console.log('total_bathrooms ',total_bathrooms );

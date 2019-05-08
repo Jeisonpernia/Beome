@@ -78,6 +78,7 @@
 
                                     <div class="items">
                                         <div class="items-cirle items-cirle-hover mb-2 find-wholeproperty find-active-property" id="find-whole-property">
+                                            <input type="checkbox" name="find_place_looking" value="whole_property" class="d-none"/>
                                             <span class="icon">
                                                 <svg width="42" height="31" viewBox="0 0 42 31">
                                                     <path d="M30.5 9.78h5.283L41 29.293H1L6.217 9.78h4.86M21 1L8.317 12.708h2.206v11.707h7.72v-7.026h5.514v7.026h7.72V12.708h2.206L21 1z"
@@ -152,7 +153,7 @@
 							<div class="row find-place-accommodation">
                             <div class="col-lg-6 teamups mx-auto">
 								<div>
-                                <label><input type="checkbox" name="temaups" value="teamups"/> Teamups</label>
+                                <label><input type="checkbox" name="temaups" value="teamups" checked="True"/> Teamups</label>
 								<span class="icon float-right"><svg width="24" height="23"><title>4AC5D9F5-3E60-40CC-AAB8-6263F076C56E</title><path d="M18.254 17.165c.645.222 1.175.98 1.175 1.683v3.194H4.572v-3.194c0-.704.529-1.46 1.174-1.683l3.49-1.2c.733.739 1.718 1.211 2.764 1.211 1.047 0 2.031-.472 2.764-1.211l3.49 1.2zM12 6.708c2.005 0 3.376 1.67 3.046 3.712l-.5 3.091C14.35 14.737 13.204 15.74 12 15.74c-1.204 0-2.348-1.002-2.546-2.228l-.5-3.091C8.622 8.378 9.993 6.708 12 6.708zm11.143 1.198v1.917h-1.857v1.917h-1.858V9.823h-1.857V7.906h1.857V5.99h1.858v1.916h1.857zM8.538 6.87c-.672.819-1.023 1.872-1.019 2.978-.89-.313-1.626-1.126-1.78-2.085l-.5-3.092C4.908 2.628 6.278.958 8.285.958c2.005 0 3.375 1.67 3.046 3.712l-.108.672a4.385 4.385 0 0 0-2.686 1.527zm-3.234 8.932a2.894 2.894 0 0 0-.87.49H.858v-3.193c0-.704.53-1.46 1.176-1.683l3.488-1.2a4.042 4.042 0 0 0 2.172 1.145l.386 2.387c.056.35.173.678.315.993l-3.09 1.061z" fill="#2F3A4A" fill-rule="evenodd"></path></svg></span>
 								</div>
                                 <p>Teamups are when you get together with others who are looking for accommodation and start a new share house together.</p>
@@ -206,7 +207,9 @@
                                         <div class="form-group">
                                             <span>Suburb</span>
                                             <p class="text-muted">We recommend choosing at least 4 suburbs</p>
-                                            <input type="text" class="form-control mt-2" id="find-suburbs" name="suburbs" placeholder="Search for a suburb" />
+                                            <div class="form-control form-control-lg mt-2 p-0">
+                                                <input type="text" class="" id="find-suburbs" name="suburbs" placeholder="Search for a suburb" />
+                                            </div>
                                         </div>
 
                                     </div>
@@ -263,29 +266,25 @@
                                         </div>
                                         <div class="form-group">
                                             <span>Preferred move date</span>
-											<div>
-                                            <input type="text" placeholder="Select a date" class="form-control rent-timings-datepicker mt-2" id="find-preferred-move-date" name="move-date"/>
-											</div>
+                                            <br/>
+                                            <input id="find-txtdate" type="text" name="find_date" placeholder="Select a date" class="span2 find-datepicker room-availability-datepicker mt-2"/>
                                         </div>
                                         <div class="form-group">
                                             <span>Preferred length of stay</span>
                                             <select class="form-control mt-2" id="find-preferred-stay" name="preferred-stay">
-                                                <option>1 week</option>
-                                                <option>2 weeks</option>
-                                                <option>1 month</option>
-                                                <option>2 months</option>
-                                                <option>3 months</option>
-                                                <option>4 months</option>
-                                                <option>6 months</option>
-                                                <option>9 months</option>
-                                                <option>12 months+</option>
+                                                <t t-foreach="max_len_stay_ids" t-as="max_len_stay_id">
+                                                    <option t-attf-value="#{max_len_stay_id.id}">
+                                                        <t t-esc="max_len_stay_id.name"/>
+                                                    </option>
+                                                </t>
                                             </select>
+
                                         </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mt-4 mx-auto">
-                                    <button type="submit" class="btn btn-primary btn-green">Next</button>
+                                    <button type="submit" class="btn btn-primary btn-green submit-rent-timing" disabled="disabled">Next</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -329,76 +328,69 @@
                                             <div class="form-group">
                                                 <span class="mb-1">Room furnishings</span>
                                                 <div class="total-bedrooms mt-2">
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-room_furnishing"/>
-                                                        Flexible
+
+                                                <t t-foreach="room_furnishings" t-as="room_furnishing">
+                                                    <label class="radio-inline btn bedroom-btn property_preferences">
+                                                        <input type="radio" name="find-room_furnishing"
+                                                               t-attf-value="#{room_furnishing.id}"/>
+                                                        <span t-esc="room_furnishing.name"/>
                                                     </label>
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-room_furnishing"/>
-                                                        Not Required
-                                                    </label>
-                                                        <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-room_furnishing"/>
-                                                        Required
-                                                    </label>
+                                                </t>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <span class="mb-1">Internet</span>
                                                 <div class="total-bedrooms mt-2">
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-internet"/>
-                                                        Flexible
-                                                    </label>
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-internet"/>
-                                                        Required
-                                                    </label>
+                                                    <t t-foreach="internet" t-as="internet_type">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-internet_type"
+                                                                   t-attf-value="#{internet_type.id}"/>
+                                                            <span t-esc="internet_type.name"/>
+                                                        </label>
+                                                    </t>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <span class="mb-1">Bathroom type</span>
                                                 <div class="total-bedrooms mt-2">
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-bathroom_types"/>
-                                                        Flexible
-                                                    </label>
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-bathroom_types"/>
-                                                        Ensuite or own required
-                                                    </label>
+                                                    <t t-foreach="bathroom_types" t-as="bathroom_type">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-bathroom_type"
+                                                                   t-attf-value="#{bathroom_type.id}"/>
+                                                            <span t-esc="bathroom_type.name"/>
+                                                        </label>
+                                                    </t>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <span class="mb-1">Parking</span>
                                                 <div class="total-bedrooms mt-2">
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-parking_type"/>
-                                                        Flexible
-                                                    </label>
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-parking_type"/>
-                                                        Off-street required
-                                                    </label>
+                                                    <t t-foreach="parking" t-as="parking_type">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-parking_type"
+                                                                   t-attf-value="#{parking_type.id}"/>
+                                                            <span t-esc="parking_type.name"/>
+                                                        </label>
+                                                    </t>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <span class="mb-1">Max number of flatmates</span>
                                                 <div class="total-bedrooms mt-2">
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-no-of-flatmates"/>
+                                                    <label class="radio-inline btn bedroom-btn property_preferences">
+                                                        <input type="radio" name="find-no-of-flatmates" value="flexible"/>
                                                         Flexible
                                                     </label>
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-no-of-flatmates"/>
+                                                    <label class="radio-inline btn bedroom-btn property_preferences">
+                                                        <input type="radio" name="find-no-of-flatmates" value="1_other"/>
                                                         1 other
                                                     </label>
-                                                    <label class="radio-inline btn bedroom-btn">
-                                                        <input type="radio" name="find-no-of-flatmates"/>
+                                                    <label class="radio-inline btn bedroom-btn property_preferences">
+                                                        <input type="radio" name="find-no-of-flatmates" value="2_others"/>
                                                         2 others
                                                     </label>
                                                 </div>
@@ -409,7 +401,7 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <button type="submit" class="btn btn-primary btn-green about_rooms_bttn">
+                                        <button type="submit" class="btn btn-primary btn-green submit-property-preferences" disabled="disabled">
                                             Next
                                         </button>
                                     </div>

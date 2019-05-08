@@ -4,6 +4,8 @@ $(document).ready(function()
 {// Start of document
 
      "use strict";
+
+     var window_pathname = window.location.pathname
 //  ======================================================
 //  = --------------  General Statements  -------------- =
 //  ======================================================
@@ -13,6 +15,73 @@ $(document).ready(function()
 
 
 //  = --------------  End of General Statements  -------------- =
+
+
+//  =======================================================================================================
+//  = --------------  Validations for /find-place/describe-your-ideal-place/accommodation  -------------- =
+//  =======================================================================================================
+//  Note: Check whether this js is not visible on other pages mentioned in a comment above
+
+  $(".find-active-property").click(function()
+  {
+    var active_state = $(this).hasClass("accommodation-listing-item-active")
+
+    if (active_state == true)
+    {
+        $(this).find(".active_tick_icon").remove()
+        $(this).find("input[name='find_place_looking']").attr("checked",false)
+        $(this).removeClass("accommodation-listing-item-active")
+        $(this).find("path").removeAttr('class','active_svg_icon');
+        $(this).addClass("items-cirle-hover")
+    }
+    else
+    {
+        $('<div class="active_tick_icon"></div>').prependTo($(this))
+        $(this).find("input[name='find_place_looking']").attr("checked","checked")
+        $(this).addClass("accommodation-listing-item-active")
+        $(this).find("path").attr('class', 'active_svg_icon');
+        $(this).removeClass("items-cirle-hover")
+    }
+  });
+
+
+//  = --------------  End of Validations for /list-place/share-house/accommodation  -------------- =
+
+
+$('#find-suburbs').on('keypress',function(e) {
+    if(event.keyCode == 13)
+    {
+       console.log($(this).parent())
+
+       $(this).parent().prepend('<div class="badge badge-pill badge-secondary"><span>Tag 220<i class="close fa fa-times"></i></div>')
+       alert("sfdsd")
+       event.preventDefault();
+      return false;
+    }
+  });
+
+//  /describe-your-ideal-place/rent-timing
+
+
+$("#find-txtdate").datepicker({
+                minDate: 0
+            });
+
+$('#find-budget, #find-txtdate').on('keyup change',function()
+{
+    if ($('#find-budget').val()!='' && $('#find-txtdate').val()!='')
+        $('.submit-rent-timing').prop("disabled", false)
+    else
+        $('.submit-rent-timing').prop("disabled", true)
+});
+
+//  /find-place/describe-your-ideal-place/property-preferences
+  $(".property_preferences > input:radio").click(function() {
+console.log("Righttt")
+    $(this).parent()
+      .addClass("bedroom-btn-active") //Add class wrong to the label
+      .siblings().removeClass("bedroom-btn-active"); // Remove classes from the other labels.
+  });
 
 
 //  =============================================================================================================

@@ -161,7 +161,67 @@ $(document).ready(function()
 
         console.log('hereeeeeeeeeeeeeeeeeeeeeeeeee',array_of_image);
         console.log('LOCAL STORAGE 33 : ',localStorage.getItem('list_place_array'))
-        alert("dgdgh")
+
+    });
+
+    $('.scroll-forward').on('click',function()
+    {
+        $('.scrolling-wrapper').animate( { scrollLeft: '+=360' }, 400 , 'easeOutSine');
+    });
+
+    $('.scroll-backward').on('click',function()
+    {
+        $('.scrolling-wrapper').animate( { scrollLeft: '-=360' }, 400, 'easeOutSine');
+    });
+
+    $( ".scrolling-wrapper" ).scroll(function() {
+
+        console.log ($('.scrolling-wrapper')[0].scrollWidth - $('.scrolling-wrapper')[0].clientWidth)
+        console.log ($('.scrolling-wrapper').scrollLeft())
+//        .scrollLeftMax
+        console.log ($('.scrolling-wrapper').scrollLeft())
+        if (($('.scrolling-wrapper')[0].scrollWidth - $('.scrolling-wrapper')[0].clientWidth) == $('.scrolling-wrapper').scrollLeft())
+            $('.scroll-forward').addClass("d-none")
+        if (($('.scrolling-wrapper')[0].scrollWidth - $('.scrolling-wrapper')[0].clientWidth) != $('.scrolling-wrapper').scrollLeft())
+            $('.scroll-forward').removeClass("d-none")
+        if ($('.scrolling-wrapper').scrollLeft()!=0)
+            $('.scroll-backward').removeClass("d-none")
+        if ($('.scrolling-wrapper').scrollLeft()==0)
+            $('.scroll-backward').addClass("d-none")
+        console.log ("In Scroll Event")
+    });
+
+
+
+
+/* ------------------------------ Temp */
+
+    $('.scroll-property-forward').on('click',function()
+    {
+        $('.property-wrapper').animate( { scrollLeft: '+=360' }, 400 , 'easeOutSine');
+    });
+
+    $('.scroll-property-backward').on('click',function()
+    {
+        $('.property-wrapper').animate( { scrollLeft: '-=360' }, 400, 'easeOutSine');
+    });
+
+    $( ".property-wrapper" ).scroll(function() {
+
+        console.log ($('.property-wrapper')[0].scrollWidth - $('.property-wrapper')[0].clientWidth)
+        console.log ($('.property-wrapper').scrollLeft())
+//        .scrollLeftMax
+        console.log ($('.property-wrapper').scrollLeft())
+        if (($('.property-wrapper')[0].scrollWidth - $('.property-wrapper')[0].clientWidth) == $('.property-wrapper').scrollLeft())
+            $('.scroll-property-forward').addClass("d-none")
+        if (($('.property-wrapper')[0].scrollWidth - $('.property-wrapper')[0].clientWidth) != $('.property-wrapper').scrollLeft())
+            $('.scroll-property-forward').removeClass("d-none")
+        if ($('property-wrapper').scrollLeft()!=0)
+            $('.scroll-property-backward').removeClass("d-none")
+        if ($('.property-wrapper').scrollLeft()==0)
+            $('.scroll-property-backward').addClass("d-none")
+        console.log ("In Scroll Event")
+
     });
 
     if (window_pathname.includes('/property-images'))
@@ -190,11 +250,12 @@ $(document).ready(function()
                     file_path = file_path.slice(file_path.indexOf(',')+1)
 //                    console.log ("Result 2",file_path)
                     array_of_image.push(file_path)
-                    $(document).find('#images').append('<img src="data:image/jpeg;base64,'+file_path+'"  width="100" height="100"/>')
+                    $(document).find('.scrolling-wrapper').append('<img class="card" src="data:image/jpeg;base64,'+file_path+'"  width="290" height="290"/>')
 //                    if (array_of_image.length == files_rec.files.length)
 
                     console.log (array_of_image.length)
-
+                    if ($('.scroll-forward').hasClass("d-none"))
+                        $('.scroll-forward').removeClass("d-none")
                 };
             })(files_rec.files[rec]);
 //            reader.readAsBinaryString(files_rec.files[rec])

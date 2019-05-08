@@ -4,7 +4,8 @@
         <template id="info_flatmate_inspection" name="Info Share Accommodation">
             <t t-call="website.layout">
 
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_flatmates_system.info_breadcrumb"/>
                     <section>
                         <div class="container">
                             <div class="row">

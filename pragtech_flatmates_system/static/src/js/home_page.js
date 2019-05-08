@@ -2,20 +2,20 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
 $(document).ready(function() {
 
-setTimeout(function() {
-//console.log('Button-------------',$('.property_button'))
-$('.property_button').click(function() {
-//   console.log("111111111111111111",$('#property_id').val())
-   console.log("111111111111111111",$(this).data('button-id'))
+    //console.log('Button-------------',$('.property_button'))
+    $('#lazy_load').on('click','.property_button',function()
+    {
+    console.log("111111111111111111",$(this).data('button-id'))
 
-   var property_id=$(this).data('button-id')
-   var a = "P"+property_id
-   window.open(a)
+    var property_id=$(this).data('button-id')
+    var a = "P"+property_id
+    window.open(a)
 
-});},1000)
+    });
+
 
 });
-});
+
 
 
 
@@ -172,5 +172,13 @@ $(document).ready(function() {
 //  });
 
 
+        $("#view_more_article").click(function(){
+            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>> ::: ',)
+            $('#main_column').removeClass('col-md-8');
+        })
+
+
+
+});
 
 });

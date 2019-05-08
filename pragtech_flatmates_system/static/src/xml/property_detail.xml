@@ -6,6 +6,18 @@
         <section class="">
           <div class="container">
             <div class="row">
+
+				<div class="property-wrapper add-photos-slide">
+					<button type="button" class="scroll-property-backward property-arrow-left"><i class="fas fa-chevron-left"></i></button>
+					<button type="button" class="scroll-property-forward property-arrow-right"><i class="fas fa-chevron-right"></i></button>
+
+
+					<img class="property_card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>
+					<img class="property_card" src="/pragtech_flatmates_system/static/src/img/live-rent-free-pic.svg"  width="" height=""/>
+					<img class="property_card" src="/pragtech_flatmates_system/static/src/img/teamups.jpg"  width="" height=""/>
+					<img class="property_card" src="/pragtech_flatmates_system/static/src/img/flatmates_homePage_vid_2018.jpg"  width="" height=""/>
+				</div>
+
               <div class="column col-md-8" style="background-color:grey">
 
                 <div class="row">

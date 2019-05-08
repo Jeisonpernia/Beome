@@ -9,7 +9,7 @@
     'version': '12.0',
     'description': "",
     'depends': [
-                'website',
+                'website','website_blog'
                 ],
     'installable': True,
     'data': [
@@ -21,6 +21,8 @@
         'views/remove_footer.xml',
         'views/flatmates_view.xml',
         'views/config_master_view.xml',
+        'views/website_blog_view.xml',
+
 
         'static/src/xml/menu_item.xml',
         'static/src/xml/home_view.xml',
@@ -29,8 +31,9 @@
         'static/src/xml/find_place_template.xml',
         'static/src/xml/about_template.xml',
         'static/src/xml/property_detail.xml',
+        'static/src/xml/website_blog_template.xml',
 
-
+        'static/src/static_webpages/info_breadcrumb.xml',
         'static/src/static_webpages/info_li_list.xml',
         'static/src/static_webpages/info_template.xml',
         'static/src/static_webpages/info_flatmate_inspection.xml',

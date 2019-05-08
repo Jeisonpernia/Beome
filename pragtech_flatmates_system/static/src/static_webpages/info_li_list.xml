@@ -22,6 +22,18 @@
 
                 <div>
                     <h3 class="mt-5 mb-4">Latest articles</h3>
+                    <t t-if="blog_posts">
+                        <div t-foreach="blog_posts" t-as="blog_post" name="blog_post">
+                            <li class="info_item">
+                                <a t-attf-href="/info/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }">
+                                    <span t-field="blog_post.name">Untitled Post</span>
+                                </a>
+                            </li>
+                        </div>
+                    </t>
+                    <t t-if="blog_posts">
+                        <li class="info_item" id="view_more_article"><a href="/info/our-blog-1"> <span>+ View more articles</span></a></li>
+                    </t>
                 </div>
 
                 <div>
@@ -49,7 +61,7 @@
 
                 <div>
                     <h3 class="mt-5 mb-4">About Flatmates.com.au</h3>
-					
+
                     <li class="info_item li-border"><a href="/info/about"> <span>About Us</span></a></li>
                     <li class="info_item"><a href="/info/terms"> <span>Terms &amp; Conditions</span></a></li>
                     <li class="info_item"><a href="/live-rent-free"> <span>Live Rent Free Competition</span></a></li>
@@ -64,7 +76,7 @@
 
                 <div>
                     <h3 class="mt-5 mb-4">Our friends</h3>
-					
+
                     <li class="info_item li-border"><a href="https://www.realestate.com.au/home-loans/" target="_blank"> <span>Realestate.com.au Home Loans</span></a></li>
                     <li class="info_item"><a href="https://www.roommates.ca/" target="_blank"> <span>Roommates.ca</span></a></li>
                     <li class="info_item"><a href="https://www.roommates.com.sg/" target="_blank"> <span>Roommates.com.sg</span></a></li>

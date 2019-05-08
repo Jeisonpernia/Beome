@@ -62,16 +62,16 @@
 				<div class="search-mode">
 
 				<div class="search-mode-rooms">
-				<button type="button" class="btn btn-outline-danger btn-block"><span class="fa fa-home"></span> Rooms</button> 
+				<button type="button" class="btn btn-outline-danger btn-block" id="rooms"><span class="fa fa-home"></span> Rooms</button>
 				</div>
 				
 				<div class="search-mode-flatmates">
-				<button type="button" class="btn btn-outline-info btn-block"><span class="fa fa-user">
+				<button type="button" class="btn btn-outline-info btn-block" id="flatmates"><span class="fa fa-user">
                 </span> Flatmates</button> 
 				</div>				
 				
 				<div class="search-mode-teamups">
-				<button type="button" class="btn btn-outline-warning btn-block"><span class="fa fa-users"></span> Teamups</button> 
+				<button type="button" class="btn btn-outline-warning btn-block" id="teamups"><span class="fa fa-users"></span> Teamups</button>
 				</div>	
 				
 				</div>

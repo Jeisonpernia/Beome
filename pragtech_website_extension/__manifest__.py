@@ -9,9 +9,9 @@
     'description': """ Portal Extension """,
     'depends': ['portal','auth_oauth'],
     'data': [
-        # 'views/portal_templates.xml',
-        # 'views/webclient_template.xml',
-        # 'views/assets.xml',
+        'views/portal_templates.xml',
+       # 'views/webclient_template.xml',
+        'views/assets.xml',
         # 'views/auth_oauth_templates.xml'
     ],
     'qweb': [
