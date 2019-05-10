@@ -94,6 +94,52 @@ class Website_Inherit(Website):
 
 class FlatMates(http.Controller):
 
+    @http.route(['/search/records'], type='http', auth="public", website=True, method=['POST'], csrf=False)
+    def search_record(self, **kwargs):
+        flatmate_obj = request.env['flat.mates']
+        if kwargs:
+            if kwargs.get('search_room_button'):
+                if kwargs.get('search_room_button') == "search_room_sumbit":
+                    domain = []
+                    if kwargs.get('min_room_rent'):
+                        minimum_rent = float(kwargs.get('min_room_rent'))
+                        domain.append(('weekly_rent','>=',minimum_rent))
+
+                    if kwargs.get('max_room_rent'):
+                        maximum_rent = float(kwargs.get('max_room_rent'))
+                        domain.append(('weekly_rent', '=<', maximum_rent))
+
+                    if kwargs.get('search_sort'):
+                        search_sort = kwargs.get('search_sort')
+
+                    if kwargs.get('search_room_avail_date'):
+                        room_avail_date = kwargs.get('search_room_avail_date')
+                        domain.append(('avil_date','>=',room_avail_date))
+
+                    if kwargs.get('search_gender'):
+                            prefer = kwargs.get('search_gender')
+                            domain.append(('pref','=',prefer))
+
+                    if kwargs.get('search_room_type'):
+                        if kwargs.get('search_room_type') == 'all_rooms':
+                            pass
+                        else:
+                            room_type = int(kwargs.get('search_room_type'))
+                            room_type_id = request.env['room.types'].browse(room_type)
+                            if room_type_id:
+                                domain.append((''))
+
+
+                    if domain:
+                        flatmate_records = flatmate_obj.search(domain)
+
+                        print('REcordsssssss : ',flatmate_records)
+
+
+        print("\n\n Search Records ::::::::::", kwargs, "\n\n\n")
+
+        return request.render("pragtech_flatmates_system.home", {})
+
     @http.route(['/P<id>'], type='http', auth="public", website=True, csrf=True)
     def property_detail(self, id, **kwargs):
         print("\n\nID -----------------------", id)
@@ -1292,6 +1338,11 @@ class FlatMates(http.Controller):
         # # print ("Recordddddddddddddddddd-------",properties)
         # return properties1
 
+    @http.route(['/blogs_for_login'], type='json', auth="public", website=True)
+    def blogs_for_login(self, **kwargs):
+        BlogPost = request.env['blog.post'].sudo().search_read(fields=['id','name','blog_id'], order='id desc', limit=4)
+        return BlogPost
+
     @http.route('/get_info_webpages', auth='public', type='json', website=True)
     def get_info_webpages(self, record_id):
 
@@ -1300,6 +1351,76 @@ class FlatMates(http.Controller):
         if webpage_data_id:
             return {'html_content': webpage_data_id.description}
 
+    @http.route('/load/search/data', auth='public', type='json', website=True)
+    def load_search_data(self, **post):
+        data = {}
+
+        room_types = request.env['room.types'].sudo().search([])
+        bathroom_types = request.env['bathroom.types'].sudo().search([])
+        room_furnishing_types = request.env['room.furnishing'].sudo().search([])
+        max_len_stay = request.env['maximum.length.stay'].sudo().search([])
+        parking_types = request.env['parking'].sudo().search([])
+        bedrooms = request.env['bedrooms'].sudo().search([])
+
+        data['room_types'] = [[i.id, i.name] for i in room_types]
+        data['bathroom_types'] = [[i.id, i.name] for i in bathroom_types]
+        data['room_furnishing_types'] = [[i.id, i.name] for i in room_furnishing_types]
+        data['max_len_stay'] = [[i.id, i.name] for i in max_len_stay]
+        data['parking_types'] = [[i.id, i.name] for i in parking_types]
+        data['bedrooms'] = [[i.id, i.name] for i in bedrooms]
+
+        print('\n\n\n Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee !!!!!!!!!!!!! ', data, '\n\n\n')
+
+        return data
+
+
+
+    @http.route(['/email_alert_settings'], type='json', auth="public", website=True,)
+    def email_alert_settings(self,**kwargs):
+        res_user=request.env['res.users'].search([('id','=',request.env.user.id)])
+
+        res_user.listing_alerts = kwargs['listing_alerts']
+
+        if kwargs['new_device_alerts'] == 'on':
+            res_user.new_device_alerts = True
+        else:
+            res_user.new_device_alerts =False
+
+        if kwargs['community_notices'] == 'on':
+            res_user.community_notices = True
+        else:
+            res_user.community_notices = False
+
+        if kwargs['special_offers'] == 'on':
+            res_user.special_offers = True
+        else:
+            res_user.special_offers = False
+
+        res_user.message_alerts = True
+
+    @http.route(['/deactivate_account'], type='json', auth="public", website=True, )
+    def deactivate_account(self, **kwargs):
+        res_user = request.env['res.users'].search([('id', '=', request.env.user.id)])
+        if 'deactivate_account' in kwargs and kwargs['deactivate_account'] == True:
+            res_user.sudo().write({'deactivate_account': True})
+            print("\n\ndeactivate_account-----",res_user,kwargs)
+
+    @http.route(['/account_settings'], type='json', auth="public", website=True, )
+    def account_settings(self, **kwargs):
+        print("\n\ndeactivate_account-----",  kwargs)
+
+        res_user = request.env['res.users'].search([('id', '=', request.env.user.id)])
+        if 'name' in kwargs :
+            res_user.sudo().write({'name': kwargs['name']})
+        if 'email' in kwargs:
+            res_user.sudo().write({'login': kwargs['email']})
+
+    @http.route(['/country'], type='json', auth="public", website=True, )
+    def country_code(self, **kwargs):
+        res_country = request.env['res.country'].search([])
+        value = {}
+        value['country'] = [[i.id, i.name+" (+"+str(i.phone_code)+")"] for i in res_country]
+        return value
     ##################################################################
     # --------------  End of Routes for AJAX -------------- #
     ##################################################################

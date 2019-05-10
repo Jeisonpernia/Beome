@@ -43,7 +43,7 @@
                                     <li class="nav-item divider d-none" t-ignore="true" t-if="not user_id._is_public()"/>
 
                                     <li class="nav-item divider" t-ignore="true" t-if="not user_id._is_public()"/>
-                                    <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
+                                    <li class="nav-item dropdown" id="dashboard_user" t-ignore="true" t-if="not user_id._is_public()">
                                         <a href="#" class="nav-link" data-toggle="modal" data-target='#signup_popup_id'>
                                         <!--<a href="#" t-data-target="signup_popup_id" class="nav-link dropdown-toggle" data-toggle="dropdown">-->
                                             <div class="nav-icon mx-auto">
@@ -82,7 +82,7 @@
 												<div class="card" style="width: 18rem;">
   <img class="card-img-top rounded-circle mx-auto" src="/pragtech_flatmates_system/static/src/img/avtar.png" alt=""/>
   <div class="card-body">
-    <h5 class="card-title text-center">Vikas</h5>
+    <h5 class="card-title text-center"><span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/></h5>
     <p class="text-center text-danger">Free Account</p>
     <a href="#" class="btn btn-orange btn-block">Why Upgrade</a>
 	 <p class="text-center text-muted mt-3">Payment history</p>
@@ -94,7 +94,7 @@
 												<div class="col-lg-2">
 													<svg class="person" viewBox="0 0 109 260"><g fill="none" fill-rule="evenodd"><path d="M64.39 146.23c0 3.896-3.15 7.056-7.036 7.056-3.886 0-7.036-3.16-7.036-7.057 0-3.9 3.15-7.058 7.036-7.058 3.885 0 7.035 3.16 7.035 7.057" fill="#4F5A6B"></path><path d="M50.318 146.23h14.07v108.596H50.32V146.23z" fill="#4F5A6B"></path><path d="M36.182 259.917h28.272V248.35h-16.74c-6.37 0-11.532 5.18-11.532 11.567" fill="#2F3A4A"></path><path d="M78.526 146.23c0 3.896-3.15 7.056-7.036 7.056-3.885 0-7.035-3.16-7.035-7.057 0-3.9 3.15-7.058 7.035-7.058 3.886 0 7.036 3.16 7.036 7.057" fill="#666F80"></path><path d="M64.455 146.23h14.07v108.596h-14.07V146.23z" fill="#666F80"></path><path d="M50.266 259.917h28.272V248.35h-16.74c-6.37 0-11.532 5.18-11.532 11.567" fill="#2F3A4A"></path><path d="M39.404 75.744L14.9 49.52C.29 33.886.895 14.208.928 13.378l10.092.403v-.018c0 .042-.118 4.2 1.25 9.86 1.79 7.404 5.155 13.786 10 18.97l24.503 26.224-7.37 6.928" fill="#E9573F"></path><path d="M4.225 10.934l5.362-.08c.917-.015 1.65-.772 1.635-1.692l-.08-5.272C11.11 1.74 9.347.023 7.203.056l-.92.014C4.14.103 2.427 1.872 2.46 4.023l.08 5.27c.014.92.768 1.655 1.685 1.64" fill="#EFB379"></path><path d="M1.518 10.976l2.473-.038c.424-.007.76-.356.755-.78l-.037-2.43c-.015-.993-.83-1.785-1.817-1.77l-.424.006C1.478 5.98.688 6.796.703 7.788l.037 2.43c.007.425.355.764.778.758" fill="#EFB379"></path><path d="M.016 10.74l12.17-.185.05 3.358-12.17.185-.05-3.358" fill="#3BAFDA"></path><path d="M46.52 75.952c2.02-1.9 2.124-5.085.23-7.114-1.896-2.028-5.07-2.13-7.093-.23-2.022 1.9-2.125 5.086-.23 7.114 1.895 2.028 5.07 2.13 7.092.23M97.664 142.542c-.6-7.48-2.534-28.176-4.26-34.007-2.2-7.445-11.32-34.593-11.41-34.866l9.57-3.237c.378 1.124 9.27 27.6 11.524 35.22 2.337 7.9 4.414 33.217 4.643 36.078l-10.066.812" fill="#E9573F"></path><path d="M101.037 145.402l5.34-.49c.913-.083 1.72.59 1.805 1.507l.478 5.25c.195 2.142-1.378 4.036-3.513 4.232l-.915.084c-2.135.196-4.025-1.382-4.22-3.523l-.478-5.25c-.083-.917.59-1.728 1.503-1.81" fill="#EFB379"></path><path d="M98.34 145.65l2.463-.227c.422-.038.794.273.833.695l.22 2.422c.09.988-.635 1.862-1.62 1.952l-.422.04c-.985.09-1.856-.638-1.946-1.626l-.22-2.422c-.04-.423.27-.796.692-.835" fill="#EFB379"></path><path d="M96.872 146.043l12.12-1.11-.304-3.345-12.12 1.11.304 3.345" fill="#3BAFDA"></path><path d="M85.664 67.144c2.702-.617 5.39 1.08 6.007 3.79.616 2.71-1.075 5.406-3.777 6.024-2.702.617-5.39-1.08-6.006-3.79-.616-2.71 1.075-5.407 3.777-6.024" fill="#E9573F"></path><path d="M57.314 65.02h13.32v1.58h-13.32v-1.58z" fill="#1F849B"></path><path d="M43.095 67.606h43.988v66.13H43.095v-66.13z" fill="#E9573F"></path><path d="M64.065 49.874c-3.435 0-6.22 2.792-6.22 6.237v9.47c0 3.443-.147 7.14 3.287 7.14 3.435 0 9.15-3.697 9.15-7.14v-9.47c0-3.444-2.783-6.236-6.217-6.236" fill="#E0A16C"></path><path d="M65.09 155.678c12.056 0 21.927-9.862 21.992-21.94H43.097c.065 12.078 9.936 21.94 21.992 21.94" fill="#666F80"></path><path d="M59.85 79.062l-3.936-3.947 3.935-3.948 3.934 3.948-3.935 3.947" fill="#F7BB42"></path><path d="M59.85 71.167l-2.42 2.428-2.654-6.046 2.538-2.53 2.535 6.147" fill="#3BAFDA"></path><path d="M59.85 71.167l2.88 2.89 10.466-6.508-2.538-2.53-10.81 6.147" fill="#3BAFDA"></path><path d="M59.66 105.242l-5.182-5.11 4.926-25.395c.1-.487.794-.488.896-.002l5.034 25.57-5.673 4.937" fill="#F7BB42"></path><path d="M80.295 20.283C79.59 11.08 71.92 3.83 62.56 3.83c-9.356 0-17.026 7.25-17.732 16.453h-.054V45.18c0 9.853 7.964 17.84 17.787 17.84 9.825 0 17.788-7.987 17.788-17.84V20.282h-.053" fill="#E0A16C"></path><path d="M80.295 20.283C79.59 11.08 71.92 3.83 62.56 3.83c-9.356 0-17.026 7.25-17.732 16.453h-.054V45.18c0 9.853 7.964 17.84 17.787 17.84 9.825 0 14.318-7.987 14.318-17.84V20.282h3.417" fill="#EFB379"></path><path d="M85.9 31.053c0 3.894-3.145 7.05-7.027 7.05-3.88 0-7.028-3.156-7.028-7.05 0-3.893 3.147-7.05 7.028-7.05 3.882 0 7.028 3.157 7.028 7.05" fill="#EFB379"></path><path d="M68.85 18.183H46.632l-.35-2.168C45 8.105 50.304 1.692 58.13 1.692h22.216L80.7 3.86c1.28 7.91-4.025 14.323-11.85 14.323" fill="#2F3A4A"></path><path d="M61.12 18.056H42.434V2.23c0-.297.24-.538.537-.538h18.684v15.826c0 .297-.24.538-.537.538" fill="#2F3A4A"></path><path d="M81.816 31.053c0 1.63-1.318 2.952-2.943 2.952s-2.942-1.322-2.942-2.952 1.318-2.95 2.943-2.95 2.943 1.32 2.943 2.95" fill="#E0A16C"></path><path d="M74.886 8.792h5.46V22.64h-5.46V8.792z" fill="#2F3A4A"></path><path d="M63.574 45.57s-.046 9.105-6.07 9.105c-6.026 0-6.026-9.015-6.026-9.015l12.096-.09" fill="#E9573F"></path><path d="M50.13 32.688c0 .75-.608 1.36-1.356 1.36-.748 0-1.355-.61-1.355-1.36 0-.75.606-1.36 1.354-1.36.748 0 1.355.61 1.355 1.36M64.4 32.688c0 .75-.606 1.36-1.354 1.36-.748 0-1.355-.61-1.355-1.36 0-.75.608-1.36 1.356-1.36.748 0 1.355.61 1.355 1.36" fill="#2F3A4A"></path><path d="M60.388 35.226c0 2.368 1.914 4.287 4.274 4.287 2.36 0 4.274-1.92 4.274-4.287h-8.548M46.116 35.226c0 2.368 1.914 4.287 4.274 4.287 2.36 0 4.274-1.92 4.274-4.287h-8.548" fill="#EFB379"></path><path d="M52.997 28.4H44.55c-.03 0-.053-.025-.053-.055V25.87c0-.03.024-.054.054-.054h8.447c.03 0 .054.024.054.054v2.475c0 .03-.023.055-.053.055M67.27 28.102h-8.447c-.03 0-.054-.024-.054-.054v-2.475c0-.03.023-.055.053-.055h8.446c.03 0 .053.025.053.055v2.475c0 .03-.024.054-.054.054M41.315 9c1.565 3.97 6 5.947 9.973 4.48-.67 2.207-2.302 4.098-4.607 5.012-4.017 1.593-8.56-.383-10.15-4.413-1.587-4.03.382-8.59 4.4-10.182l.177-.067c-.5 1.64-.47 3.453.208 5.17" fill="#2F3A4A"></path></g></svg></div>
 												<div class="col-lg-10">
-												<h4>Hey Vikas,<br/>
+												<h4>Hey <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>,<br/>
 													You don't have a listing!</h4>
 													<ul>
 													<li>- Some members won't contact you without a listing</li>
@@ -102,95 +102,252 @@
 													<li>- Listings will allow you to receive direct enquiries</li>
 													</ul>
 													<br/>
-													
+
 													<div class="row">
 														<div class="col-lg-6">
 													<a class="btn btn-orange btn-block mb-2 list_place_check_login_user" href="/listplace" type="button" id="list_place_check_login_user">List my place</a>
 															</div>
-												
+
 													<div class="col-lg-6">
 													<a class="btn btn-blue btn-block mb-2" href="/find-place/describe-your-ideal-place/start" type="button" id="find_place">Find a place</a>
 													</div>
 
 													</div>
-											
-													
-													
-													
-													
+
+
+
+
+
 												</div>
 													</div>
-												
+
 												</div>
 											<div class="col-lg-3 my-account">
 												<h4>My account</h4>
 
 												<ul>
-												<li><a href="#">
-													<svg class="icon" viewBox="0 0 24 24" width="48" height="48">
-													  <path class="fill" d="M12 0c-1.105 0-2 .895-2 2 0 .042-.003.083 0 .125C7.678 2.43 6 3.42 6 6.03 6 15.945 1 14.035 1 20c0 0 4.006 1 11 1s11-1 11-1c0-5.93-5-3.998-5-13.97 0-2.63-1.658-3.61-4-3.905.003-.042 0-.083 0-.125 0-1.105-.895-2-2-2zM9.156 21.938C9.552 23.13 10.674 24 12 24c1.326 0 2.448-.87 2.844-2.063-.88.035-1.836.063-2.844.063-1.013 0-1.96-.026-2.844-.063z"></path>
-													</svg>
-													Verify mobile phone</a></li>
-														<li><a href="#">
-														<svg class="icon" width="50" height="50" viewBox="0 0 50 50">
-														  <path class="fill" d="M50 28.794v-7.69l-7.343-1.2c-.382-1.324-.91-2.598-1.575-3.8l4.278-6.1-5.438-5.435-6.02 4.327c-1.214-.675-2.498-1.21-3.83-1.593L28.79-.002H21.1L19.913 7.28c-1.344.38-2.63.91-3.837 1.576l-6.005-4.29L4.636 10l4.223 6.038c-.68 1.222-1.22 2.516-1.606 3.86L0 21.11v7.685l7.242 1.283c.385 1.344.923 2.638 1.605 3.86l-4.28 5.986L10 45.362l6.047-4.235c1.218.674 2.506 1.206 3.845 1.588l1.213 7.287h7.685l1.297-7.307c1.338-.39 2.62-.927 3.827-1.603L40 45.362l5.437-5.44-4.347-6.036c.666-1.205 1.192-2.48 1.57-3.805L50 28.795zM25 32c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"></path>
-														</svg>
-														Account settings</a></li>
-												<li><a href="#">
-													<svg class="icon" width="50" height="50" viewBox="0 0 50 50">
-													  <path class="fill" d="M26.18 49.416c-2.984 0-5.962-.473-8.85-1.406-2.934-.947-5.59-2.447-7.896-4.457-2.31-2.018-4.2-4.613-5.62-7.72-1.417-3.108-2.137-6.823-2.137-11.044 0-3.497.65-6.766 1.936-9.72 1.282-2.943 3.06-5.53 5.288-7.69 2.23-2.158 4.86-3.866 7.816-5.076C19.683 1.09 22.866.476 26.18.476c2.994 0 5.856.478 8.508 1.42 2.67.952 5.037 2.333 7.037 4.104 2.012 1.783 3.622 3.982 4.784 6.536 1.163 2.558 1.753 5.44 1.753 8.563 0 2.637-.463 5.143-1.376 7.446-.9 2.27-2.08 4.3-3.51 6.025-1.443 1.743-3.077 3.142-4.858 4.16-1.854 1.056-3.694 1.59-5.473 1.59-1.63 0-2.978-.52-4.004-1.542-.28-.28-.515-.584-.705-.908-.865.71-1.8 1.238-2.795 1.576-3.375 1.156-6.564 1.166-9.078.01-1.235-.568-2.313-1.348-3.205-2.316-.88-.947-1.586-2.086-2.1-3.38-.512-1.29-.77-2.683-.77-4.14 0-2.146.39-4.392 1.158-6.673.764-2.27 1.86-4.403 3.255-6.34 1.418-1.97 3.163-3.61 5.186-4.873 2.097-1.31 4.436-1.975 6.95-1.975 2.297 0 4.39.55 6.226 1.637.886.524 1.644 1.152 2.27 1.878l.483-1.333c.216-.585.773-.974 1.39-.974h1.336c.482 0 .937.237 1.214.634.283.406.345.92.166 1.38l-7.06 18.312c-.365.893-.644 1.72-.837 2.475-.162.624-.217 1.175-.16 1.595.044.318.153.447.254.533.04.035.257.19.95.19 1.046 0 2.185-.36 3.387-1.067 1.287-.757 2.493-1.812 3.586-3.134 1.103-1.336 2.04-2.96 2.786-4.822.732-1.83 1.104-3.84 1.104-5.97 0-2.408-.45-4.646-1.337-6.652-.89-2.005-2.128-3.744-3.684-5.167-1.57-1.43-3.47-2.56-5.647-3.36-2.202-.804-4.62-1.212-7.188-1.212-2.882 0-5.588.527-8.04 1.568-2.465 1.047-4.63 2.492-6.433 4.295-1.808 1.808-3.242 3.95-4.263 6.368-1.02 2.408-1.537 5.05-1.537 7.853 0 3.388.55 6.392 1.63 8.927 1.077 2.53 2.55 4.67 4.382 6.363 1.836 1.7 3.996 2.998 6.422 3.857 2.458.873 5.095 1.316 7.838 1.316 1.8 0 3.544-.24 5.188-.708 1.657-.475 3.248-1.145 4.728-1.992 1.487-.854 2.86-1.865 4.08-3.008 1.236-1.154 2.323-2.402 3.23-3.71.283-.4.735-.632 1.215-.632h1.465c.54 0 1.035.293 1.292.764.257.445.25 1.02-.03 1.48-1.077 1.797-2.425 3.465-4 4.953-1.574 1.48-3.298 2.75-5.126 3.775-1.834 1.027-3.796 1.834-5.832 2.395-2.05.564-4.14.85-6.212.85zm.51-35.426c-1.682 0-3.256.483-4.68 1.435-1.514 1.017-2.827 2.312-3.902 3.85-1.098 1.567-1.963 3.3-2.573 5.148-.605 1.834-.912 3.583-.912 5.196 0 .95.157 1.825.467 2.6.31.778.746 1.468 1.293 2.048.536.568 1.184 1.02 1.927 1.342 1.287.557 2.956.63 4.77.203.736-.172 1.458-.494 2.147-.96.714-.483 1.425-1.173 2.114-2.046.688-.87 1.31-2.018 1.85-3.406l4.33-11.223c-.23-.692-.536-1.276-.914-1.74-.477-.575-1.034-1.047-1.653-1.398-.655-.372-1.352-.64-2.068-.798-.764-.167-1.503-.252-2.194-.252z"></path>
-													</svg>
-													Email alert setting</a></li>
-												<li><a href="#">
-													<svg class="icon" width="50" height="50" viewBox="0 0 26 26">
-													  <path class="fill" d="M13,0.188C5.924,0.188,0.188,5.924,0.188,13S5.924,25.813,13,25.813S25.813,20.076,25.813,13 S20.076,0.188,13,0.188z M18.78,17.394l-1.388,1.387c-0.254,0.255-0.67,0.255-0.924,0L13,15.313L9.533,18.78 c-0.255,0.255-0.67,0.255-0.925-0.002L7.22,17.394c-0.253-0.256-0.253-0.669,0-0.926l3.468-3.467L7.221,9.534 c-0.254-0.256-0.254-0.672,0-0.925l1.388-1.388c0.255-0.257,0.671-0.257,0.925,0L13,10.689l3.468-3.468 c0.255-0.257,0.671-0.257,0.924,0l1.388,1.386c0.254,0.255,0.254,0.671,0.001,0.927l-3.468,3.467l3.468,3.467 C19.033,16.725,19.033,17.138,18.78,17.394z"></path>
-													</svg>
-													Deactivate account</a></li>
-												<li><a href="#">
-													<svg class="icon" viewBox="0 0 26 26 ">
-													  <path class="fill" d="M13,1.188C6.477,1.188,1.188,6.477,1.188,13S6.477,24.813,13,24.813S24.813,19.523,24.813,13 S19.523,1.188,13,1.188z M12.945,20.214c-0.941,0-1.685-0.743-1.685-1.683c0-0.94,0.743-1.684,1.685-1.684 c0.939,0,1.686,0.743,1.686,1.684C14.631,19.471,13.885,20.214,12.945,20.214z M15.426,12.582l-1.098,0.955 c-0.828,0.724-0.686,1.082-0.686,1.525h-1.23v-0.449c0-2.169,2.07-2.542,2.07-5.747c0-1.229-0.404-1.791-1.426-1.791 c-0.942,0-1.363,0.46-1.229,1.57c0.085,0.698-0.62,0.975-1.08,0.975c-0.521,0-0.963-0.517-0.963-1.223 c0-1.189,1.251-2.44,3.428-2.44c2.117,0,3.965,0.956,3.965,3.262C17.178,10.646,16.658,11.506,15.426,12.582z"></path>
-													</svg>
-													Help &amp; FAQ</a></li>
-												<li><a id="o_logout" t-attf-href="/web/session/logout?redirect=/" role="menuitem">
-													<svg class="icon" width="52" height="52" viewBox="0 0 26 26">
-													  <path class="fill" d="M13 0c-1.104 0-2 .896-2 2v10c0 1.104.896 2 2 2s2-.896 2-2V2c0-1.104-.896-2-2-2zM5.844 2.594a1.5 1.5 0 0 0-.782.344C2.09 5.283.188 8.928.188 13 .188 20.058 5.94 25.813 13 25.813c7.06 0 12.813-5.755 12.813-12.813 0-4.073-1.902-7.717-4.875-10.063a1.5 1.5 0 1 0-1.875 2.344c2.28 1.8 3.75 4.583 3.75 7.72 0 5.438-4.375 9.813-9.813 9.813-5.438 0-9.813-4.375-9.813-9.813 0-3.138 1.47-5.92 3.75-7.72a1.5 1.5 0 0 0-1.093-2.686z"></path>
-													</svg>
-													Log me out</a></li>
+                                                    <li id="verify_mobile"><a href="#" data-toggle="modal" data-target="#verify_mobile_popup">
+                                                        <svg class="icon" viewBox="0 0 24 24" width="48" height="48">
+                                                            <path class="fill" d="M12 0c-1.105 0-2 .895-2 2 0 .042-.003.083 0 .125C7.678 2.43 6 3.42 6 6.03 6 15.945 1 14.035 1 20c0 0 4.006 1 11 1s11-1 11-1c0-5.93-5-3.998-5-13.97 0-2.63-1.658-3.61-4-3.905.003-.042 0-.083 0-.125 0-1.105-.895-2-2-2zM9.156 21.938C9.552 23.13 10.674 24 12 24c1.326 0 2.448-.87 2.844-2.063-.88.035-1.836.063-2.844.063-1.013 0-1.96-.026-2.844-.063z"></path>
+                                                        </svg>
+                                                        Verify mobile phone</a></li>
+                                                    <li><a href="#" data-toggle="modal" data-target="#account_settings_popup">
+                                                        <svg class="icon" width="50" height="50" viewBox="0 0 50 50">
+                                                            <path class="fill" d="M50 28.794v-7.69l-7.343-1.2c-.382-1.324-.91-2.598-1.575-3.8l4.278-6.1-5.438-5.435-6.02 4.327c-1.214-.675-2.498-1.21-3.83-1.593L28.79-.002H21.1L19.913 7.28c-1.344.38-2.63.91-3.837 1.576l-6.005-4.29L4.636 10l4.223 6.038c-.68 1.222-1.22 2.516-1.606 3.86L0 21.11v7.685l7.242 1.283c.385 1.344.923 2.638 1.605 3.86l-4.28 5.986L10 45.362l6.047-4.235c1.218.674 2.506 1.206 3.845 1.588l1.213 7.287h7.685l1.297-7.307c1.338-.39 2.62-.927 3.827-1.603L40 45.362l5.437-5.44-4.347-6.036c.666-1.205 1.192-2.48 1.57-3.805L50 28.795zM25 32c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"></path>
+                                                        </svg>
+                                                        Account settings</a></li>
+                                                    <li><a href="#" data-toggle="modal" data-target="#email_alert_popup">
+                                                        <svg class="icon" width="50" height="50" viewBox="0 0 50 50">
+                                                            <path class="fill" d="M26.18 49.416c-2.984 0-5.962-.473-8.85-1.406-2.934-.947-5.59-2.447-7.896-4.457-2.31-2.018-4.2-4.613-5.62-7.72-1.417-3.108-2.137-6.823-2.137-11.044 0-3.497.65-6.766 1.936-9.72 1.282-2.943 3.06-5.53 5.288-7.69 2.23-2.158 4.86-3.866 7.816-5.076C19.683 1.09 22.866.476 26.18.476c2.994 0 5.856.478 8.508 1.42 2.67.952 5.037 2.333 7.037 4.104 2.012 1.783 3.622 3.982 4.784 6.536 1.163 2.558 1.753 5.44 1.753 8.563 0 2.637-.463 5.143-1.376 7.446-.9 2.27-2.08 4.3-3.51 6.025-1.443 1.743-3.077 3.142-4.858 4.16-1.854 1.056-3.694 1.59-5.473 1.59-1.63 0-2.978-.52-4.004-1.542-.28-.28-.515-.584-.705-.908-.865.71-1.8 1.238-2.795 1.576-3.375 1.156-6.564 1.166-9.078.01-1.235-.568-2.313-1.348-3.205-2.316-.88-.947-1.586-2.086-2.1-3.38-.512-1.29-.77-2.683-.77-4.14 0-2.146.39-4.392 1.158-6.673.764-2.27 1.86-4.403 3.255-6.34 1.418-1.97 3.163-3.61 5.186-4.873 2.097-1.31 4.436-1.975 6.95-1.975 2.297 0 4.39.55 6.226 1.637.886.524 1.644 1.152 2.27 1.878l.483-1.333c.216-.585.773-.974 1.39-.974h1.336c.482 0 .937.237 1.214.634.283.406.345.92.166 1.38l-7.06 18.312c-.365.893-.644 1.72-.837 2.475-.162.624-.217 1.175-.16 1.595.044.318.153.447.254.533.04.035.257.19.95.19 1.046 0 2.185-.36 3.387-1.067 1.287-.757 2.493-1.812 3.586-3.134 1.103-1.336 2.04-2.96 2.786-4.822.732-1.83 1.104-3.84 1.104-5.97 0-2.408-.45-4.646-1.337-6.652-.89-2.005-2.128-3.744-3.684-5.167-1.57-1.43-3.47-2.56-5.647-3.36-2.202-.804-4.62-1.212-7.188-1.212-2.882 0-5.588.527-8.04 1.568-2.465 1.047-4.63 2.492-6.433 4.295-1.808 1.808-3.242 3.95-4.263 6.368-1.02 2.408-1.537 5.05-1.537 7.853 0 3.388.55 6.392 1.63 8.927 1.077 2.53 2.55 4.67 4.382 6.363 1.836 1.7 3.996 2.998 6.422 3.857 2.458.873 5.095 1.316 7.838 1.316 1.8 0 3.544-.24 5.188-.708 1.657-.475 3.248-1.145 4.728-1.992 1.487-.854 2.86-1.865 4.08-3.008 1.236-1.154 2.323-2.402 3.23-3.71.283-.4.735-.632 1.215-.632h1.465c.54 0 1.035.293 1.292.764.257.445.25 1.02-.03 1.48-1.077 1.797-2.425 3.465-4 4.953-1.574 1.48-3.298 2.75-5.126 3.775-1.834 1.027-3.796 1.834-5.832 2.395-2.05.564-4.14.85-6.212.85zm.51-35.426c-1.682 0-3.256.483-4.68 1.435-1.514 1.017-2.827 2.312-3.902 3.85-1.098 1.567-1.963 3.3-2.573 5.148-.605 1.834-.912 3.583-.912 5.196 0 .95.157 1.825.467 2.6.31.778.746 1.468 1.293 2.048.536.568 1.184 1.02 1.927 1.342 1.287.557 2.956.63 4.77.203.736-.172 1.458-.494 2.147-.96.714-.483 1.425-1.173 2.114-2.046.688-.87 1.31-2.018 1.85-3.406l4.33-11.223c-.23-.692-.536-1.276-.914-1.74-.477-.575-1.034-1.047-1.653-1.398-.655-.372-1.352-.64-2.068-.798-.764-.167-1.503-.252-2.194-.252z"></path>
+                                                        </svg>
+                                                        Email alert setting</a></li>
+                                                    <li><a href="#" data-toggle="modal" data-target="#deactivate_account_popup">
+                                                        <svg class="icon" width="50" height="50" viewBox="0 0 26 26">
+                                                            <path class="fill" d="M13,0.188C5.924,0.188,0.188,5.924,0.188,13S5.924,25.813,13,25.813S25.813,20.076,25.813,13 S20.076,0.188,13,0.188z M18.78,17.394l-1.388,1.387c-0.254,0.255-0.67,0.255-0.924,0L13,15.313L9.533,18.78 c-0.255,0.255-0.67,0.255-0.925-0.002L7.22,17.394c-0.253-0.256-0.253-0.669,0-0.926l3.468-3.467L7.221,9.534 c-0.254-0.256-0.254-0.672,0-0.925l1.388-1.388c0.255-0.257,0.671-0.257,0.925,0L13,10.689l3.468-3.468 c0.255-0.257,0.671-0.257,0.924,0l1.388,1.386c0.254,0.255,0.254,0.671,0.001,0.927l-3.468,3.467l3.468,3.467 C19.033,16.725,19.033,17.138,18.78,17.394z"></path>
+                                                        </svg>
+                                                        Deactivate account</a></li>
+                                                    <li><a href="/info/frequently-asked-questions">
+                                                        <svg class="icon" viewBox="0 0 26 26 ">
+                                                            <path class="fill" d="M13,1.188C6.477,1.188,1.188,6.477,1.188,13S6.477,24.813,13,24.813S24.813,19.523,24.813,13 S19.523,1.188,13,1.188z M12.945,20.214c-0.941,0-1.685-0.743-1.685-1.683c0-0.94,0.743-1.684,1.685-1.684 c0.939,0,1.686,0.743,1.686,1.684C14.631,19.471,13.885,20.214,12.945,20.214z M15.426,12.582l-1.098,0.955 c-0.828,0.724-0.686,1.082-0.686,1.525h-1.23v-0.449c0-2.169,2.07-2.542,2.07-5.747c0-1.229-0.404-1.791-1.426-1.791 c-0.942,0-1.363,0.46-1.229,1.57c0.085,0.698-0.62,0.975-1.08,0.975c-0.521,0-0.963-0.517-0.963-1.223 c0-1.189,1.251-2.44,3.428-2.44c2.117,0,3.965,0.956,3.965,3.262C17.178,10.646,16.658,11.506,15.426,12.582z"></path>
+                                                        </svg>
+                                                        Help &amp; FAQ</a></li>
+                                                    <li><a id="o_logout" t-attf-href="/web/session/logout?redirect=/" role="menuitem">
+                                                        <svg class="icon" width="52" height="52" viewBox="0 0 26 26">
+                                                            <path class="fill" d="M13 0c-1.104 0-2 .896-2 2v10c0 1.104.896 2 2 2s2-.896 2-2V2c0-1.104-.896-2-2-2zM5.844 2.594a1.5 1.5 0 0 0-.782.344C2.09 5.283.188 8.928.188 13 .188 20.058 5.94 25.813 13 25.813c7.06 0 12.813-5.755 12.813-12.813 0-4.073-1.902-7.717-4.875-10.063a1.5 1.5 0 1 0-1.875 2.344c2.28 1.8 3.75 4.583 3.75 7.72 0 5.438-4.375 9.813-9.813 9.813-5.438 0-9.813-4.375-9.813-9.813 0-3.138 1.47-5.92 3.75-7.72a1.5 1.5 0 0 0-1.093-2.686z"></path>
+                                                        </svg>
+                                                        Log me out</a></li>
 												</ul>
-												
+
 												<h4 class="mt-4">Information &amp; tips</h4>
-												<ul>
-												<li><a href="#">Plant Parenting 101</a></li>
-												<li><a href="#">Reno, Rentals and Return of the Bond</a></li>
-												<li><a href="#">Where to share: Brisbane</a></li>
-												<li><a href="#">Where to share: Sydney</a></li>
-												<li><a href="#">+ View all articles</a></li>
+												<ul class="dashboard_blogs">
 												</ul>
-												
-												
-												
-												
 												</div>
 												</div>
-											
-                                            <!-- <div class="form-group row mb0">
-                                            <label for="page-name" class="col-md-9 col-form-label">
-                                            <p>The selected templates will be reset to their factory settings.</p>
-                                            <p>Type '<i class="confirm_word">yes</i>' in the box below if you want to confirm.</p>
-                                            </label>
-                                            <div class="col-md-3 mt16">
-                                            <input type="text" class="form-control" required="required" placeholder="yes"/>
-                                            </div>
-                                            </div> -->
+
                                         </main>
-                                        <!--  <footer class="modal-footer">
-                                        <input type="submit" value="Confirm" class="btn btn-primary"/>
-                                        <button type="button" class="btn" data-dismiss="modal" aria-label="Cancel">Cancel</button>
-                                        </footer> -->
                                     </div>
                                 </form>
                             </div>
                         </div>
+
+
+
+                        <div class="modal fade" id="verify_mobile_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+									
+									
+									
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+										<div class="container">
+											<div class="row">
+											<div class="col-lg-8 mx-auto">
+										<form action="/action_page.php">
+											<h3 class="text-center mt-4 mb-4">Verify Mobile Number</h3>
+											<p>For the security of our community, all members are required to verify their mobile number</p>
+											
+											<div class="form-group mt-4">
+                                                <select class="form-control" id="country" name="country_list">
+                                                    <option>Select Country</option>
+                                                </select>
+											</div>
+											
+											<div class="form-group mt-2">
+											<input type="text" class="form-control" id="" name="mobile" placeholder="Mobile number"/>
+											</div>
+											
+										<div class="form-group mt-2">
+                                        <input type="checkbox" id="verified_member"/>
+                                        <label for="verified_member" style="color:black;">Allowed Verified members to contact me on my mobile(recommended)</label>
+                                        </div>
+
+											
+										</form>
+												
+												
+										</div>
+												</div>
+											</div>
+                                        
+
+                                        
+
+
+										
+										
+									
+										
+										
+                                    </main>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Save SMS Code</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="account_settings_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Account Settings</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+
+                                        <input name="name" id="name" placeholder="Your Name"/><br/><br/>
+                                        <input name="email" id="email" placeholder="Email Address"/><br/><br/>
+                                        <input name="mobile" placeholder="Mobile"/><br/><br/>
+                                        <div>
+                                        <input type="checkbox" id="verified_member"/>
+                                        <label for="verified_member" style="color:black;">Allowed Verified members to contact me on my mobile(recommended)</label>
+                                        </div>
+
+                                    </main>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" id="account_settings">Save my changes</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="email_alert_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Email Alert</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+                                        <div class="row">
+                                                <h5 class="text-center text-muted mt-3">Listing Alerts</h5>
+                                                <p class="text-center text-muted mt-3">We'll send listing alerts when you have an active listing</p>
+                                                <select name="listing_alerts" id="listing_alerts">
+                                                    <option value="real_time">Real-time</option>
+                                                    <option value="daily">Daily</option>
+                                                    <option value="none">None</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="row">
+                                                <h5 class="text-center text-muted mt-3">New Device alerts</h5>
+                                                <p class="text-center text-muted mt-3">You will be notified when a new device or browser has accessed your account</p>
+                                                <select name="new_device_alerts" id="new_device_alerts">
+                                                    <option value="on">On</option>
+                                                    <option value="off">No thanks</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="row">
+                                                <h5 class="text-center text-muted mt-3">Message alerts</h5>
+                                                <p class="text-center text-muted mt-3">You will only receive new mwssage alerts when you have an active listing</p>
+                                                <b class="text-center text-muted mt-3">Always On</b>
+                                            </div>
+
+                                        <div class="row">
+                                            <h5 class="text-center text-muted mt-3">Community notices</h5>
+                                            <p class="text-center text-muted mt-3">Flatmates.com.au news,events and competitions</p>
+                                            <select name="community_notices" id="community_notices">
+                                                <option value="on">On</option>
+                                                <option value="off">No thanks</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="row">
+                                            <h5 class="text-center text-muted mt-3">Special offers</h5>
+                                            <p class="text-center text-muted mt-3">Exclusive offers from our partners</p>
+                                            <select name="special_offers" id="special_offers">
+                                                <option value="on">On</option>
+                                                <option value="off">No thanks</option>
+                                            </select>
+                                        </div>
+                                    </main>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-default" id="email_settings_button" data-dismiss="modal">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="deactivate_account_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Deactivate or delete your account</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h6>Deactivating your account means your listing will be taken down and your listing alerts will be turned off. You can still access your account but it will remain dorment until you reactivate or create a new listing.  </h6>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" id="deactivate_account">Deactivate My account and listing</button>
+                                    </div>
+                                    <div>
+                                        <h6>Deleting your account means that your account and listing removed from the website.</h6>
+                                    </div>
+                                    <a href="#">Delete My Account </a>
+                                    <p style="color: black">This cannot be undone</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                     </nav>
                 </header>
                 <main>
@@ -280,174 +437,3 @@
         </xpath>
     </template>
 </odoo>
-
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<odoo>-->
-    <!--<template id="portal.frontend_layout" name="Main Frontend Layout">-->
-        <!--<t t-call="web.layout">-->
-            <!--<t t-set="head_website">-->
-                <!--<script type="text/javascript">-->
-                    <!--odoo.session_info = {-->
-                    <!--is_admin:<t t-esc="json.dumps(request.env.user._is_admin())"/>,-->
-                    <!--is_system:<t t-esc="json.dumps(request.env.user._is_system())"/>,-->
-                    <!--is_website_user:<t t-esc="json.dumps(request.env.user._is_public())"/>,-->
-                    <!--user_id:<t t-esc="json.dumps(request.env.user.id)"/>,-->
-                    <!--is_frontend: true,-->
-                    <!--translationURL: '/website/translations',-->
-                    <!--};-->
-                <!--</script>-->
-
-                <!--<t t-call-assets="web.assets_common" t-js="false"/>-->
-                <!--<t t-call-assets="web.assets_frontend" t-js="false"/>-->
-
-                <!--<t t-call-assets="web.assets_common" t-css="false"/>-->
-                <!--<t t-call-assets="web.assets_frontend" t-css="false"/>-->
-            <!--</t>-->
-            <!--<t t-set="head" t-value="head_website + (head or '')"/>-->
-
-            <!--<t t-set="direction" t-value="request.env['res.lang'].search([('code', '=', request.env.lang)]).direction"/>-->
-            <!--<div id="wrapwrap"-->
-                 <!--t-attf-class="#{pageName or ''} #{direction == 'rtl' and 'o_rtl' or ''} #{'o_portal' if is_portal else ''}">-->
-                <!--<header>-->
-                    <!--<nav class="navbar navbar-expand-md navbar-light bg-light">-->
-                        <!--<div class="container">-->
-                            <!--<a href="/" class="navbar-brand logo">-->
-                                <!--<img t-att-src="'/logo.png?company=%s' % res_company.id"-->
-                                     <!--t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>-->
-                            <!--</a>-->
-                            <!--<button type="button" class="navbar-toggler" data-toggle="collapse"-->
-                                    <!--data-target="#top_menu_collapse">-->
-                                <!--<span class="navbar-toggler-icon"/>-->
-                            <!--</button>-->
-                            <!--<div class="collapse navbar-collapse" id="top_menu_collapse">-->
-                                <!--&lt;!&ndash; FIXME We want menu to open to the right by default (except cases handled in JS) &ndash;&gt;-->
-                                <!--<ul class="nav navbar-nav ml-auto text-right" id="top_menu">-->
-                                    <!--<li class="nav-item divider" t-ignore="true" t-if="not user_id._is_public()"/>-->
-                                    <!--<li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">-->
-                                        <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="modal"-->
-                                           <!--data-target='#signup_popup_id'>-->
-                                            <!--<b>-->
-                                                <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
-                                            <!--</b>-->
-                                        <!--</a>-->
-                                        <!--<div class="dropdown-menu js_usermenu" role="menu">-->
-                                            <!--<a id="o_logout" class="dropdown-item"-->
-                                               <!--t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div role="dialog" id="signup_popup_id" class="modal" tabindex="-1" t-ignore="true">-->
-                            <!--<div class="modal-dialog">-->
-                                <!--<form role="form">-->
-                                    <!--<div class="modal-content">-->
-                                        <!--<header class="modal-header">-->
-                                              <!--<h3 class="modal-title">My templates</h3>-->
-                                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                                                <!--×-->
-                                            <!--</button>-->
-                                        <!--</header>-->
-                                        <!--<main class="modal-body">-->
-                                            <!--&lt;!&ndash; <div class="form-group row mb0">-->
-                                            <!--<label for="page-name" class="col-md-9 col-form-label">-->
-                                            <!--<p>The selected templates will be reset to their factory settings.</p>-->
-                                            <!--<p>Type '<i class="confirm_word">yes</i>' in the box below if you want to confirm.</p>-->
-                                            <!--</label>-->
-                                            <!--<div class="col-md-3 mt16">-->
-                                            <!--<input type="text" class="form-control" required="required" placeholder="yes"/>-->
-                                            <!--</div>-->
-                                            <!--</div> &ndash;&gt;-->
-                                        <!--</main>-->
-                                        <!--&lt;!&ndash;  <footer class="modal-footer">-->
-                                        <!--<input type="submit" value="Confirm" class="btn btn-primary"/>-->
-                                        <!--<button type="button" class="btn" data-dismiss="modal" aria-label="Cancel">Cancel</button>-->
-                                        <!--</footer> &ndash;&gt;-->
-                                    <!--</div>-->
-                                <!--</form>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</nav>-->
-                <!--</header>-->
-                <!--<main>-->
-                    <!--<t t-raw="0"/>-->
-                <!--</main>-->
-                <!--<footer class="bg-light o_footer">-->
-                    <!--<div class="container mt16 mb16" id="footer">-->
-                        <!--<div class="float-right mb16" t-ignore="true" t-if="not editable">-->
-                            <!--Powered by-->
-                            <!--<a target="_blank" href="http://www.odoo.com?utm_source=db&amp;utm_medium=portal">Odoo</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</footer>-->
-            <!--</div>-->
-        <!--</t>-->
-    <!--</template>-->
-
-
-    <!--<template id="portal_show_sign_inherited" inherit_id="portal.portal_show_sign_in" name="Show Sign In">-->
-        <!--<xpath expr="//a[@t-attf-href='/web/login']" position="replace">-->
-            <!--<div data-toggle="modal" data-target='#signin_popup_id' class="nav-link">-->
-                <!--<b>Sign in</b>-->
-            <!--</div>-->
-
-            <!--<div role="dialog" id="signin_popup_id" class="modal" tabindex="-1" t-ignore="true">-->
-                <!--<form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}"-->
-                      <!--method="post" onsubmit="this.action = this.action + location.hash">-->
-                    <!--<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>-->
-
-                    <!--<div class="form-group field-db" t-if="databases and len(databases) &gt; 1">-->
-                        <!--<label for="db" class="col-form-label">Database</label>-->
-                        <!--<div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">-->
-                            <!--<input type="text" name="db" t-att-value="request.db" id="db"-->
-                                   <!--t-attf-class="form-control #{'form-control-sm' if form_small else ''}"-->
-                                   <!--required="required" readonly="readonly"/>-->
-                            <!--<span class="input-group-append">-->
-                                <!--<a role="button" href="/web/database/selector" class="btn btn-secondary">Select-->
-                                    <!--<i class="fa fa-database" role="img" aria-label="Database" title="Database"></i>-->
-                                <!--</a>-->
-                            <!--</span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<div class="form-group field-login">-->
-                        <!--<label for="login">Email</label>-->
-                        <!--<input type="text" placeholder="Email" name="login" t-att-value="login" id="login"-->
-                               <!--t-attf-class="form-control #{'form-control-sm' if form_small else ''}"-->
-                               <!--required="required" autofocus="autofocus" autocapitalize="off"/>-->
-                    <!--</div>-->
-
-                    <!--<div class="form-group field-password">-->
-                        <!--<label for="password">Password</label>-->
-                        <!--<input type="password" placeholder="Password" name="password" id="password"-->
-                               <!--t-attf-class="form-control #{'form-control-sm' if form_small else ''}"-->
-                               <!--required="required" autocomplete="current-password"-->
-                               <!--t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>-->
-                    <!--</div>-->
-
-                    <!--<p class="alert alert-danger" t-if="error" role="alert">-->
-                        <!--<t t-esc="error"/>-->
-                    <!--</p>-->
-                    <!--<p class="alert alert-success" t-if="message" role="status">-->
-                        <!--<t t-esc="message"/>-->
-                    <!--</p>-->
-
-                    <!--<div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">-->
-                        <!--<button type="submit" class="btn btn-primary btn-block">Log in</button>-->
-                        <!--<t t-if="debug">-->
-                            <!--<button type="submit" name="redirect" value="/web/become"-->
-                                    <!--class="btn btn-link btn-sm btn-block">Log in as superuser-->
-                            <!--</button>-->
-                        <!--</t>-->
-                        <!--<div class="o_login_auth">-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<input type="hidden" name="redirect" t-att-value="redirect"/>-->
-                <!--</form>-->
-            <!--</div>-->
-        <!--</xpath>-->
-    <!--</template>-->
-
-

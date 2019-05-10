@@ -33,6 +33,17 @@ $(document).ready(function() {
       // When the user selects an address from the drop-down, populate the
       // address fields in the form.
       autocomplete.addListener('place_changed', fillInAddress);
+
+      ////////////////////// On Search Accommodation ///////////////////////////////////////////////////
+      autocomplete2 = new google.maps.places.Autocomplete(
+          document.getElementById('autocomplete2'), {types: ['geocode']});
+
+      autocomplete2.setComponentRestrictions(
+            {'country': ['au']});
+      // Avoid paying for data that you don't need by restricting the set of
+      // place fields that are returned to just the address components.
+      autocomplete2.setFields(['address_component','geometry']);
+
     }
 
     function fillInAddress() {
@@ -101,6 +112,7 @@ $(document).ready(function() {
           };
           var circle = new google.maps.Circle(
               {center: geolocation, radius: position.coords.accuracy});
+
           autocomplete.setBounds(circle.getBounds());
         });
       }

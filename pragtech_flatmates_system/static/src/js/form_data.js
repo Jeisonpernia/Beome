@@ -3,6 +3,131 @@ odoo.define('pragtech_flatmates.form_data', function (require) {
 
 
 $(document).ready(function() {
+        //form data of What type of accommodation are you offering? Page
+        $( "#find_about_flatmates" ).submit(function( event ) {
+            localStorage.setItem('find_place_record','[]')
+
+            var find_property_looking_for = []
+            var find_teamups_status = $("input[name=temaups]").is(":checked")
+
+            var temp_dict  = {}
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+
+
+            $("input[name=find_place_looking]:checked").each(function()
+            {
+            find_property_looking_for.push($(this).val())
+            })
+
+            temp_dict['find_property_looking_for'] = find_property_looking_for
+            temp_dict['find_teamups_status'] = find_teamups_status
+
+            record_array.push(temp_dict)
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+
+        });
+
+        $( "#rent_timing" ).submit(function( event ) {
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            console.log(record_array)
+
+                localStorage.setItem('find_place_record', JSON.stringify(record_array));
+        });
+
+        $( "#find_property_preferences" ).submit(function( event ) {
+            var find_weekly_budget = $("input[name=budget]").val()
+            var find_move_date = $("input[name=find_date]").val()
+            var find_preferred_length_stay = $("#find-preferred-stay").val()
+
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+
+            record_array[0]['find_weekly_budget'] = find_weekly_budget
+            record_array[0]['find_move_date'] = find_move_date
+            record_array[0]['find_preferred_length_stay'] = find_preferred_length_stay
+
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+        });
+
+        $( "#find_introduce_yourself" ).submit(function( event ) {
+
+            var find_room_furnishing = $("input[name=find-room_furnishing]:checked").val()
+            var find_internet_type = $("input[name=find-internet_type]:checked").val()
+            var find_bathroom_type = $("input[name=find-bathroom_type]:checked").val()
+            var find_parking_type = $("input[name=find-parking_type]:checked").val()
+            var find_no_of_flatmates = $("input[name=find-no-of-flatmates]:checked").val()
+
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+
+            record_array[0]['find_room_furnishing'] = find_room_furnishing
+            record_array[0]['find_internet_type'] = find_internet_type
+            record_array[0]['find_bathroom_type'] = find_bathroom_type
+            record_array[0]['find_parking_type'] = find_parking_type
+            record_array[0]['find_no_of_flatmates'] = find_no_of_flatmates
+
+            console.log(find_room_furnishing)
+            console.log(find_internet_type)
+            console.log(find_bathroom_type)
+            console.log(find_parking_type)
+            console.log(find_no_of_flatmates)
+            console.log(record_array)
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+        });
+
+        $( "#introduce_flatmates" ).submit(function( event ) {
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            console.log(record_array)
+
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+        });
+
+        $( "#find_employment" ).submit(function( event ) {
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            console.log(record_array)
+
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+        });
+
+        $( "#find_lifestyle" ).submit(function( event ) {
+            var find_employment_status = []
+
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            console.log(record_array)
+            $("input[name=find_employment_status]:checked").each(function()
+            {
+            find_employment_status.push($(this).val())
+            })
+
+            record_array[0]['find_employment_status'] = find_employment_status
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+        });
+
+        $( "#find_about_yourself" ).submit(function( event ) {
+            var find_lifestyle = []
+
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+
+            $("input[name=lifestyle]:checked").each(function()
+            {
+            find_lifestyle.push($(this).val())
+            })
+
+            record_array[0]['find_lifestyle'] = find_lifestyle
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+        });
+
+
+        $( "#find_pubish" ).submit(function( event ) {
+            var find_comment = $("#find_comment").val()
+            console.log (find_comment)
+            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+
+            record_array[0]['find_comment'] = find_comment
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+            console.log('List Place Array : ',localStorage.getItem('find_place_record'))
+            alert("afaef")
+        });
+
+
 
         //form data of What type of accommodation are you offering? Page
         $( "#list_place_accommodation_form_id" ).submit(function( event ) {

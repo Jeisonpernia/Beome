@@ -9,7 +9,6 @@
             <link rel="stylesheet" type="text/scss" href="/pragtech_flatmates_system/static/src/css/flickity-style.css"/>
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
 
-
             <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/accommodation_page.js"></script>
             <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/lazy_load.js"></script>
             <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/home_page.js"></script>
@@ -26,6 +25,8 @@
 
             <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkJT0sGkvkGimReoi_XXGMmQ70O4_BFBc&amp;libraries=places&amp;callback=initAutocomplete"></script>
 
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tag-it/2.0/css/jquery.tagit.css"/>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tag-it/2.0/js/tag-it.js"/>
 
         </xpath>
 </template>

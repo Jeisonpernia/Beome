@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_user_inherited" model="ir.ui.view">
+            <field name="name">res.user.form.inherited</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//page[@name='access_rights']" position="after">
+                    <page string="Email Alert Settings">
+                     <group>
+                                    <group string="Email Alert Settings Fields" name="preferences">
+                                        <field name="listing_alerts"/>
+                                        <field name="new_device_alerts"/>
+                                        <field name="message_alerts"/>
+                                        <field name="community_notices"/>
+                                        <field name="special_offers"/>
+                                    </group>
+                         <group string="Deactivate Account">
+                             <field name="deactivate_account"/>
+                         </group>
+                     </group>
+                    </page>
+                 </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

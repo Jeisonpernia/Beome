@@ -92,3 +92,32 @@
 	opacity: 1;
 }
 
+
+#verify_mobile_popup {
+	color:#2f3a4a;
+	text-align: left;
+}
+
+
+#verify_mobile_popup .close{
+	font-size: 48px;
+	box-shadow: none;
+	opacity: 1;
+}
+
+#verify_mobile_popup .modal-header{
+	border-bottom: 0px;
+	padding: 0 16px;
+}
+
+#verify_mobile_popup h3{
+	font-weight: normal;
+}
+
+#verify_mobile_popup input{
+	height: 45px;
+}
+
+#verify_mobile_popup select{
+	height: 45px;
+}

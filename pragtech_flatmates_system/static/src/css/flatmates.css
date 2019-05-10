@@ -40,10 +40,12 @@ h1, h2, h3, h4, h5, h6{
    background:#159a7f;
    font-weight: bold;
 	border: none;
+	color: #fff;
 }
 
 .btn-green:hover{
 	background: #11836c;
+	color: #fff;
 }
 
 .btn-green1{
@@ -55,6 +57,20 @@ h1, h2, h3, h4, h5, h6{
 
 .btn-green1:hover{
    	background: #11836c;
+	color: #fff;
+}
+
+
+.btn-green2{
+   padding: 8px;
+   background:#159a7f;
+   font-weight: bold;
+	border: none;
+	color: #fff;
+}
+
+.btn-green2:hover{
+	background: #11836c;
 	color: #fff;
 }
 
@@ -117,6 +133,19 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .btn-outline-primary1:hover{
+   background: #c9f8ee;
+   border: 1px solid #11836c;
+   color: #11836c;
+}
+
+
+.btn-outline-primary2{
+   padding: 8px;
+   background: none;
+   border: 1px solid #11836c;
+}
+
+.btn-outline-primary2:hover{
    background: #c9f8ee;
    border: 1px solid #11836c;
    color: #11836c;
@@ -524,6 +553,7 @@ padding:20px;
 .property-img img{
 	object-fit: cover;
 	height: 150px;
+	width: 100%;
 }
 .propety-ribbon{
 	background: #3baeda;
@@ -1076,6 +1106,19 @@ width: 10%;
 	
 }
 
+.property-detail-left p{
+	font-size: 16px;
+}
+
+.property-detail-left h1{
+	font-size: 32px;
+	font-weight: normal;
+}
+
+.property-detail-left h3, .property-detail-right h3{
+	font-size: 18px;
+}
+
 .property-detail-left .upgrade{
 	font-size: 16px;
 }
@@ -1096,21 +1139,17 @@ width: 10%;
 }
 
 
-.property-detail-left .room-features{
-	display: flex;
-}
-
 .property-detail-left .room-rent{
-    padding: 24px 0 0;
     display: inline-block;
-    float: none;
-    width: auto;
 	text-align: center;
 }
+
 
 .property-detail-left .room-rent .room-value .room-price{
 	font-size: 24px;
 	color: #2e3a4b;
+	vertical-align: middle;
+	margin-left: 10px;
 }
 
 .property-detail-left .room-rent .room-value .room-per-week{
@@ -1121,6 +1160,175 @@ width: 10%;
 	color: #2e3a4b;
 	font-weight: 600;
 }
+
+
+.property-detail-left .room-months{
+    display: inline-block;
+	text-align: center;
+}
+
+.property-detail-left .room-months .room-months-title{
+	font-size: 24px;
+	color: #2e3a4b;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.property-detail-left .room-months .room-txt{
+	color: #2e3a4b;
+	font-weight: 600;
+}
+
+
+.property-detail-left .room-date{
+    display: inline-block;
+	text-align: center;
+}
+
+.property-detail-left .room-date .room-date-title{
+	font-size: 24px;
+	color: #2e3a4b;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+
+.property-detail-left .room-date .room-txt{
+	color: #2e3a4b;
+	font-weight: 600;
+}
+.property-detail-left .about-me{
+	display: flex;
+	width: 100%;
+}
+
+
+.property-detail-left .property-rounded-btn{
+display: inline-block;
+border: 1px solid #e8e9ea;
+border-radius: 30px;
+padding: 10px 15px;
+margin-bottom: 12px;
+margin-right: 10px;
+	width: auto;
+	font-size: 16px;
+}
+
+.property-detail-left .property-preferences{
+	font-size: 16px;
+}
+
+
+.property-detail-left .property-preferences .property-preferences-list .icon{
+	margin-right: 5px;
+}
+
+.property-detail-left .property-preferences ul{
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.property-detail-left .property-preferences-list-title{
+	margin-right: 10px;
+}
+
+.property-detail-left .property-preferences-list-subtitle{
+	font-weight: 600;
+}
+
+
+.property-detail-left .preferred-accommodation-types{
+	display: flex;
+	width: 100%;
+}
+
+.property-detail-left .property-msg-box{
+	padding: 32px;
+border: 1px solid #e3e4e5;
+background-color: #f8f8f9;
+}
+
+
+.property-detail-left .preferred-locations{
+	display: flex;
+	width: 100%;
+}
+
+
+
+.property-detail-right .login-form{
+	background: #f8f8f9;
+	border:1px solid #e3e4e5;
+	padding: 24px 16px;
+}
+
+
+
+.property-detail-right .login-form-rounded-btn{
+display: inline-block;
+color: #2f3a4a;
+background-color: #eaebec;
+border-radius: 14.5px;
+padding: 4px 12px;
+margin-top: 8px;
+	width: auto;
+	font-size: 14px;
+}
+
+
+
+
+.property-detail-right textarea:focus{
+	border: 1px solid #11836c;
+}
+
+
+.property-detail-right .social-media{
+	padding: 24px;
+    padding-bottom: 24px;
+border: 1px solid #e3e4e5;
+text-align: center;
+}
+
+.property-detail-right .social-media-icon{
+	display: flex;
+	padding: 0 40px;
+}
+
+.property-detail-right .social-media-icon .facebook-icon{
+	margin-bottom: 20px;
+	width: 25%;
+	height: auto;
+	display: inline-block;
+}
+
+.property-detail-right .social-media-icon .instagram-icon{
+	margin-bottom: 20px;
+	width: 25%;
+	height: auto;
+	display: inline-block;	
+}
+
+.property-detail-right .social-media-icon .twitter-icon{
+	margin-bottom: 20px;
+	width: 25%;
+	height: auto;
+	display: inline-block;	
+}
+
+.property-detail-right .social-media-icon .linkedin-icon{
+	margin-bottom: 20px;
+	width: 25%;
+	height: auto;
+	display: inline-block;	
+}
+
+
+
+
 
 
 .contact-form{
@@ -1234,7 +1442,7 @@ transform: scaleX(-1);
     display: inline-block;
     object-fit: fill;
 	 border-radius: 0px;
-	 width: 100%;
+	 width: auto;
 	 height: 100%;
   }
 
@@ -1242,7 +1450,7 @@ transform: scaleX(-1);
 	background: #eaebec;
 }
 
-.arrow-left{
+.scrolling-wrapper .arrow-left{
 border: none;
 padding: 5px 12px;
 position: absolute;
@@ -1257,7 +1465,7 @@ box-shadow: 0px;
 outline: none;	
 }
 
-.arrow-right{
+.scrolling-wrapper .arrow-right{
 padding: 5px 12px;
 position: absolute;
 z-index: 1;
@@ -1272,7 +1480,7 @@ box-shadow: 0px;
 outline: none;	
 }
 
-.arrow-left:focus{
+.scrolling-wrapper .arrow-left:focus{
 	background: #11836c;
 	opacity: 1;
 	color: #fff;
@@ -1281,7 +1489,7 @@ outline: none;
 	outline: none;
 }
 
-.arrow-right:focus{
+.scrolling-wrapper .arrow-right:focus{
 	background: #11836c;
 	opacity: 1;
 	color: #fff;
@@ -1290,6 +1498,10 @@ outline: none;
 	outline: none;
 }
 
+.property-slider{
+	position: relative;
+	
+}
 
 .info-page .breadcrumb{
 	background-color: #fff;

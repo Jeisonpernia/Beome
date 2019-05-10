@@ -9,7 +9,7 @@
     'version': '12.0',
     'description': "",
     'depends': [
-                'website','website_blog'
+                'website','website_blog','base'
                 ],
     'installable': True,
     'data': [
@@ -22,6 +22,7 @@
         'views/flatmates_view.xml',
         'views/config_master_view.xml',
         'views/website_blog_view.xml',
+        'views/res_user.xml',
 
 
         'static/src/xml/menu_item.xml',

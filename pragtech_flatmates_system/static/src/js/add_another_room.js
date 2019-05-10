@@ -140,7 +140,7 @@ $(document).ready(function() {
 
 
 
-  $(".bedroom-btn > input:radio").click(function() {
+  $(document).on('click','.bedroom-btn > input:radio',function() {
 console.log("Notttttt")
     $(this).parent()
       .addClass("bedroom-btn-active") //Add class wrong to the label

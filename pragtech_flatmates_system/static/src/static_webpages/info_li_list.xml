@@ -32,7 +32,7 @@
                         </div>
                     </t>
                     <t t-if="blog_posts">
-                        <li class="info_item" id="view_more_article"><a href="/info/our-blog-1"> <span>+ View more articles</span></a></li>
+                        <li class="info_item" id="view_more_article"><a t-attf-href="/info/#{ slug(blog_posts[0].blog_id) }"> <span>+ View more articles</span></a></li>
                     </t>
                 </div>
 
