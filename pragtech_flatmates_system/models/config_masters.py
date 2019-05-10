@@ -85,13 +85,13 @@ class MaximumLengthStay(models.Model):
     _description = 'Maximum length of stay'
 
     name = fields.Char(string='Maximum length of stay')
-    
-class PropertyAccepting(models.Model):
-    
-    _name = 'property.accepting'
-    
-    name = fields.Char('Accepting')
-    flatmate_id = fields.Many2one('flat.mates', string="Flatmates")
+#
+# class PropertyAccepting(models.Model):
+#
+#     _name = 'property.accepting'
+#
+#     name = fields.Char('Accepting')
+#     flatmate_id = fields.Many2one('flat.mates', string="Flatmates")
 
 class BondBond(models.Model):
     _name = 'bond.bond'

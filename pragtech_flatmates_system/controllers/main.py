@@ -22,7 +22,7 @@ from odoo import http, fields
 class Website_Inherit(Website):
     @http.route('/', auth='public', website=True)
     def index(self, **kw):
-        print('\n\n\n ################################################ \n\n')
+        # print('\n\n\n ################################################ \n\n')
         # properties = request.env['product.product'].sudo().search([])
         # print ("Recordddddddddddddddddd-------",properties)
         # data_list = []
@@ -96,6 +96,9 @@ class FlatMates(http.Controller):
 
     @http.route(['/search/records'], type='http', auth="public", website=True, method=['POST'], csrf=False)
     def search_record(self, **kwargs):
+
+        print('\n\n\nKWARGS ::\n',kwargs,'\n\n\n')
+
         flatmate_obj = request.env['flat.mates']
         if kwargs:
             if kwargs.get('search_room_button'):
@@ -107,7 +110,7 @@ class FlatMates(http.Controller):
 
                     if kwargs.get('max_room_rent'):
                         maximum_rent = float(kwargs.get('max_room_rent'))
-                        domain.append(('weekly_rent', '=<', maximum_rent))
+                        domain.append(('weekly_rent', '<=', maximum_rent))
 
                     if kwargs.get('search_sort'):
                         search_sort = kwargs.get('search_sort')
@@ -120,31 +123,158 @@ class FlatMates(http.Controller):
                             prefer = kwargs.get('search_gender')
                             domain.append(('pref','=',prefer))
 
-                    if kwargs.get('search_room_type'):
-                        if kwargs.get('search_room_type') == 'all_rooms':
-                            pass
-                        else:
-                            room_type = int(kwargs.get('search_room_type'))
-                            room_type_id = request.env['room.types'].browse(room_type)
-                            if room_type_id:
-                                domain.append((''))
+                    if kwargs.get('search_stay_len'):
+                        if kwargs.get('search_stay_len') != 'all_stay_len':
+                            stay_len_type = int(kwargs.get('search_stay_len'))
+                            max_len_stay_id = request.env['maximum.length.stay'].browse(stay_len_type)
+                            if max_len_stay_id:
+                                domain.append(('max_len_stay_id','=',max_len_stay_id.id))
 
+                    if kwargs.get('search_room_parking_type'):
+                        if kwargs.get('search_room_parking_type') != 'any_parking':
+                            parking_type = int(kwargs.get('search_room_parking_type'))
+                            parking_id = request.env['parking'].browse(parking_type)
+                            if parking_id:
+                                domain.append(('parking_id','=',parking_id.id))
+
+                    if kwargs.get('search_bedrooms'):
+                        if kwargs.get('search_bedrooms') != 'all_bedrooms':
+                            search_bedroom = int(kwargs.get('search_bedrooms'))
+                            bedrooms_id = request.env['bedrooms'].browse(search_bedroom)
+                            if bedrooms_id:
+                                domain.append(('total_bedrooms_id','=',bedrooms_id.id))
+                    # if kwargs.get(''):
+
+                    # Search in About Rooms Line
+                    room_type = None
+                    bathroom_type = None
+                    room_furnishing_type = None
+
+                    if kwargs.get('search_room_type'):
+                        if kwargs.get('search_room_type') != 'all_rooms':
+                            print('Room Type existttttttttttttttt')
+                            room_type = int(kwargs.get('search_room_type'))
+
+                    if kwargs.get('search_room_bathroom_type'):
+                        if kwargs.get('search_room_bathroom_type') != 'all_bathroom_types':
+                            print('Bathroom type existtttttttttttttttttt')
+                            bathroom_type = int(kwargs.get('search_room_bathroom_type'))
+
+                    if kwargs.get('search_room_furnsh_type'):
+                        if kwargs.get('search_room_furnsh_type') != 'all_furnishing_types':
+                            print('furnishing type existtttttttttttttttt')
+                            room_furnishing_type = int(kwargs.get('search_room_furnsh_type'))
+
+                    #############################
 
                     if domain:
+                        print('\n\n\nDomain :: \n\n',domain,'\n\n\n')
                         flatmate_records = flatmate_obj.search(domain)
 
                         print('REcordsssssss : ',flatmate_records)
+                        result_list = []
+                        if flatmate_records :
+                            if room_type or bathroom_type or room_furnishing_type:
+                                for record in flatmate_records:
+                                    for line in record.rooms_ids:
+                                        if line.room_type_id.id == room_type or\
+                                            line.bath_room_type_id.id == bathroom_type or\
+                                            line.room_furnishing_id.id == room_furnishing_type:
+
+                                            if record not in result_list:
+                                                result_list.append(record)
+
+                            if result_list:
+                                    print('\n\n\nResult List ::\n',result_list,'\n\n\n')
+
+                            else:
+                                print('\n\n\n Result List Without line ::\n',flatmate_records,'\n\n\n')
 
 
-        print("\n\n Search Records ::::::::::", kwargs, "\n\n\n")
+
+
+
+
+        # print("\n\n Result List ::::::::::",result_list, "\n\n\n")
 
         return request.render("pragtech_flatmates_system.home", {})
+
+    # @http.route(['/P<id>'], type='http', auth="public", website=True, csrf=True)
+    # def property_detail(self, id, **kwargs):
+    #     print("\n\nID -----------------------", id)
+    #     property = request.env['flat.mates'].sudo().search([('id', '=', id)], limit=1)
+    #     property_address= property.street+','+property.street2+','+property.city
+    #     values={'property': property,'property_address':property_address}
+    #
+    #     if property.user_id:
+    #         values.update({'user_name':property.user_id.name})
+    #     if property.total_bedrooms_id.name:
+    #         values.update({'total_bedrooms': property.total_bedrooms_id.name})
+    #     if property.total_bathrooms_id.name:
+    #         values.update({'total_bathrooms': property.total_bathrooms_id.name})
+    #     if property.total_no_flatmates_id.name:
+    #         values.update({'total_no_flatmates': property.total_no_flatmates_id.name})
+    #     if property.description_about_property:
+    #         values.update({'description_about_property':property.description_about_property})
+    #     if property.description_about_user:
+    #         values.update({'description_about_user':property.description_about_user})
+    #
+    #
+    #     return request.render("pragtech_flatmates_system.property_detail11", values)
 
     @http.route(['/P<id>'], type='http', auth="public", website=True, csrf=True)
     def property_detail(self, id, **kwargs):
         print("\n\nID -----------------------", id)
+        property = request.env['flat.mates'].sudo().search([('id', '=', id)], limit=1)
+        property_address = property.street + ',' + property.street2 + ',' + property.city
+        values = {'property': property, 'property_address': property_address}
 
-        return request.render("pragtech_flatmates_system.property_detail11", {})
+        if property.user_id:
+            values.update({'user_name': property.user_id.name})
+        if property.total_bedrooms_id.name:
+            values.update({'total_bedrooms': property.total_bedrooms_id.name})
+        if property.total_bathrooms_id.name:
+            values.update({'total_bathrooms': property.total_bathrooms_id.name})
+        if property.total_no_flatmates_id.name:
+            values.update({'total_no_flatmates': property.total_no_flatmates_id.name})
+        if property.description_about_property:
+            values.update({'description_about_property': property.description_about_property})
+        if property.description_about_user:
+            values.update({'description_about_user': property.description_about_user})
+        if property.backpackers == True:
+            values.update(({'backpackers': 'Backpackers'}))
+        if property.smokers == True:
+            values.update({'smokers': 'Smokers'})
+        if property.fourty_year_old == True:
+            values.update({'fourty_year_old': '40+ years olds'})
+        if property.pets == True:
+            values.update({'pets': 'Pets'})
+        if property.on_welfare == True:
+            values.update({'on_welfare': 'On welfare'})
+        if property.students == True:
+            values.update(({'students': 'Students'}))
+        if property.LGBTI == True:
+            values.update({'LGBTI': 'LGBTI'})
+        if property.children == True:
+            values.update({'children': 'Children'})
+        if property.retirees == True:
+            values.update({'retirees': 'Retirees'})
+        if property.min_len_stay_id:
+            values.update({'min_len_stay_id': property.min_len_stay_id.name})
+        if property.avil_date:
+            values.update({'avil_date': property.avil_date})
+        if property.weekly_rent:
+            values.update({'weekly_rent': property.weekly_rent})
+        if property.bond_id:
+            values.update({'bond_id': property.bond_id.name})
+        if property.bill_id:
+            values.update({'bill_id': property.bill_id.name})
+        print(property.parking_id.name)
+        if property.parking_id:
+            values.update({'parking_id': property.parking_id.name})
+        if property.pref:
+            values.update({'pref': property.pref})
+        return request.render("pragtech_flatmates_system.property_detail11", values)
 
     @http.route(['/shortlists'], type='http', auth="public", website=True, csrf=True)
     def short_list(self, **kwargs):
@@ -497,7 +627,7 @@ class FlatMates(http.Controller):
     def list_my_property(self, **kwargs):
         return request.render("pragtech_flatmates_system.list_my_property", )
 
-    # ================== Create Property in Odoo ===================================#
+    # ================== Create listing Property in Odoo ===================================#
     @http.route('/create/list_property', auth='public', type='json', website=True)
     def create_list_property(self, list_place_data):
 
@@ -704,21 +834,41 @@ class FlatMates(http.Controller):
 
             if 'accepting' in list_place_dict and list_place_dict.get('accepting'):
                 print('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFf')
-                values = {}
+                # values = {}
                 accept_list = []
-                accept_obj = request.env['property.accepting']
                 for accept in list_place_dict.get('accepting'):
-                    values.update({
-                        'name':accept.capitalize()
-                    })
+                    if accept == 'backpackers':
+                        vals.update({'backpackers':True})
+                    if accept == 'students':
+                        vals.update({'students': True})
+                    if accept == 'smokers':
+                        vals.update({'smokers': True})
+                    if accept == 'LGBTI':
+                        vals.update({'LGBTI': True})
+                    if accept == '40_year_old':
+                        vals.update({'fourty_year_old': True})
+                    if accept == 'children':
+                        vals.update({'children': True})
+                    if accept == 'pets':
+                        vals.update({'pets': True})
+                    if accept == 'retirees':
+                        vals.update({'retirees': True})
+                    if accept == 'on_welfare':
+                        vals.update({'on_welfare': True})
 
-                    accept_id = accept_obj.sudo().create(values)
-                    accept_list.append(accept_id.id)
-
-                if accept_list:
-                    vals.update({
-                        'accepting_ids': [( 6, 0, accept_list)]
-                    })
+                # accept_obj = request.env['property.accepting']
+                # for accept in list_place_dict.get('accepting'):
+                #     values.update({
+                #         'name':accept.capitalize()
+                #     })
+                #
+                #     accept_id = accept_obj.sudo().create(values)
+                #     accept_list.append(accept_id.id)
+                #
+                # if accept_list:
+                #     vals.update({
+                #         'accepting_ids': [( 6, 0, accept_list)]
+                #     })
 
             if 'about_you_and_your_flatmates' in list_place_dict and list_place_dict.get('about_you_and_your_flatmates'):
                 print('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG')
@@ -825,6 +975,44 @@ class FlatMates(http.Controller):
         print ("\n\n\n Image list ",images_list,'\n\n')
 
         return images_list
+
+    # ================== Create finding Property in Odoo ===================================#
+    @http.route('/create/find_place', auth='public', type='json', website=True)
+    def create_find_property(self, find_place_data):
+        print('\n\n\n\n Find Property \n',find_place_data,'\n\n\n')
+        flat_mates_obj = request.env['flat.mates']
+
+        vals = {}
+
+        if find_place_data:
+            find_place_dict = find_place_data[0]
+
+            if 'find_property_looking_for' in find_place_dict and find_place_dict.get('find_property_looking_for'):
+                vals.update({
+                    'accommodation_type':'rooms_in_an_existing_sharehouse' #need to update ,static accommodation type added
+                })
+
+            if 'find_teamups_status' in find_place_dict and find_place_dict.get('find_teamups_status'):
+                vals.update({
+                    'is_teamups':True
+                })
+
+            if 'find_weekly_budget' in find_place_dict and find_place_dict.get('find_weekly_budget'):
+                vals.update({
+                    'weekly_budget':float(find_place_dict.get('find_weekly_budget'))
+                })
+
+            if 'find_move_date' in find_place_dict and find_place_dict.get('find_move_date'):
+                vals.update({
+                    'prefered_move_date':find_place_dict.get('find_move_date')
+                })
+
+        
+        return True
+
+
+
+
 
 
     ##################################################################
@@ -1414,6 +1602,9 @@ class FlatMates(http.Controller):
             res_user.sudo().write({'name': kwargs['name']})
         if 'email' in kwargs:
             res_user.sudo().write({'login': kwargs['email']})
+            res_user.partner_id.sudo().write({'email':kwargs['email']})
+        if 'mobile' in kwargs:
+            res_user.partner_id.sudo().write({'mobile':kwargs['mobile']})
 
     @http.route(['/country'], type='json', auth="public", website=True, )
     def country_code(self, **kwargs):

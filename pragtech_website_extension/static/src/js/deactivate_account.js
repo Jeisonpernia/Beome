@@ -25,7 +25,7 @@ $("#account_settings").on('click',function()
             {
             var name = $("#name").val()
             var email = $("#email").val()
-
+            var mobile = $('#mobile').val()
             $.ajax({
                     url: '/account_settings',
                     type: "POST",
@@ -33,7 +33,8 @@ $("#account_settings").on('click',function()
                     contentType: 'application/json',
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {
                     'name':name,
-                    'email':email
+                    'email':email,
+                    'mobile':mobile
                     }}),
                     success: function(data)
                     {

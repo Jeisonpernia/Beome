@@ -10,6 +10,9 @@
 
                         <group>
                             <group>
+                                <field name="is_listing"/>
+                                <field name="is_finding"/>
+                                <field name="is_teamups"/>
                                 <field name="accommodation_type" required="1"/>
                                 <field name="type" attrs="{'invisible': [('accommodation_type','!=','rooms_in_an_existing_sharehouse')],'required':[('accommodation_type','=', 'rooms_in_an_existing_sharehouse')]}" />
                                 <!--<field name="accommodation_type_id" required="1"/>-->
@@ -61,6 +64,8 @@
                                     <field name="weekly_rent"/>
                                     <field name="bond_id"/>
                                     <field name="bill_id"/>
+                                    <field name="weekly_budget"/>
+                                    <field name="prefered_move_date"/>
                                 </group>
                             </page>
                             <page name='room aviability' string="Room Avaibility">
@@ -122,18 +127,28 @@
                                 </group>
                             </page>
                             <page name='property_accepting' string="Accepting">
-                            	<group>
-                            		<field name="accepting_ids" widget="many2many_tags"/>
+                                <h3>Accepting</h3>
+                            	<group col="4">
+                                    <field name="backpackers"/>
+                                    <field name="students"/>
+                                    <field name="smokers"/>
+                                    <field name="LGBTI"/>
+                                    <field name="fourty_year_old"/>
+                                    <field name="children"/>
+                                    <field name="pets"/>
+                                    <field name="retirees"/>
+                                    <field name="on_welfare"/>
+                            		<!--<field name="accepting_ids" widget="many2many_tags"/>-->
                             	</group>
                             </page>
                             <page name='property_description' string="Property Description">
                                 <group col="4">
                                     <div>
-                                        <label for="description_about_property" string="About Flatmates"/>
+                                        <label for="description_about_property" string="About Property"/>
                                         <field name="description_about_property"/>
                                     </div>
                                      <div>
-                                        <label for="description_about_user" string="About Property"/>
+                                        <label for="description_about_user" string="About Flatmates"/>
                                         <field name="description_about_user"/>
                                     </div>
                                 </group>

@@ -257,7 +257,23 @@ $(document).on('click','.button_for_add_another_person',function()
 
     var friends_first_name_div = '<div class="form-group"><span class="mb-1">Your friend\'s first name</span><input type="text" class="form-control mt-2" id="find-first-name" name="find_first_name_2'+(group_div_length+1).toString()+'" placeholder="" /></div>'
     var friends_age_div = '<div class="form-group"><span>Your friend\'s age</span><div><input type="text" class="form-control mt-2 weekly-rent-input" id="find-your-age" name="your_age_2'+(group_div_length+1).toString()+'" value=""/></div></div>'
-    var friends_gender_div = '<div class="form-group"><span class="mb-1">The gender your friend identifies with</span><div class="total-bedrooms mt-2"><label class="radio-inline btn bedroom-btn"><input type="radio" name="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>Female</label><label class="radio-inline btn bedroom-btn"><input type="radio" name="find-place-for-gender2'+(group_div_length+1).toString()+'"/>Male</label></div></div>'
+    var friends_gender_div = '<div class="form-group"><span class="mb-1">The gender your friend identifies with</span><div class="total-bedrooms mt-2"><label class="radio-inline btn bedroom-btn"><input type="radio" value="female" name="find-place-for-gender_2'+(group_div_length+1).toString()+'" id="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>Female</label><label class="radio-inline btn bedroom-btn"><input type="radio" value="male" name="find-place-for-gender_2'+(group_div_length+1).toString()+'" id="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>Male</label></div></div>'
+
+//    <div class="form-group">
+//    <span class="mb-1">
+//    The gender your friend identifies with
+//    </span>
+//    <div class="total-bedrooms mt-2">
+//    <label class="radio-inline btn bedroom-btn">
+//    <input type="radio" value="female" name="find-place-for-gender_2'+(group_div_length+1).toString()+'" id="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>
+//    Female
+//    </label>
+//    <label class="radio-inline btn bedroom-btn">
+//    <input type="radio" value="male" name="find-place-for-gender2'+(group_div_length+1).toString()+'" id="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>
+//    Male
+//    </label>
+//    </div>
+//    </div>'
     var remove_btn_div = '<div class="row"><div class="mt-4 mx-auto"><button type="button"class="btn btn-primary btn-transparent p16-blue remove_another_person">Remove</button></div></div>'
 
     var new_div = open_me_group_div+friends_first_name_div+friends_age_div+friends_gender_div+remove_btn_div+close_me_group_div

@@ -9,8 +9,6 @@ class Flatmates(models.Model):
     is_listing = fields.Boolean('Listing')
     is_finding = fields.Boolean('Finding')
 
-    # accommodation_type_id = fields.Many2one('accommodation.type',string="Type of Accommodation")
-    # property_type_id = fields.Many2one('property.type',string="Type of property")
     total_bedrooms_id = fields.Many2one('bedrooms',string="Total Bedrooms")
     total_bathrooms_id = fields.Many2one('bathrooms', string="Total Bathrooms")
     internet_id = fields.Many2one('internet', string="Internet")
@@ -22,9 +20,7 @@ class Flatmates(models.Model):
     description_about_property = fields.Text('Property Description')
     description_about_user = fields.Text('About Flatmates')
     property_image_ids = fields.One2many('property.image', 'flat_mates_id', string='Images')
-    # partner_id = fields.Many2one('res.partner',string="Customer")
     user_id = fields.Many2one('res.users',string="User")
-
     street = fields.Char()
     street2 = fields.Char()
     city = fields.Char()
@@ -33,28 +29,46 @@ class Flatmates(models.Model):
     country_id = fields.Many2one('res.country')
     latitude = fields.Char()
     longitude = fields.Char()
-
     bond_id = fields.Many2one('bond.bond',string="Bond")
     bill_id = fields.Many2one('bill.bill', string="Bill")
-
-
     accommodation_type = fields.Selection([('rooms_in_an_existing_sharehouse','Room(s) in an existing sharehouse'),('whole_property_for_rent','Whole property for rent'),('student_accommodation','Student accommodation'),('homestay','Homestay')], string="Type of Accommodation")
     type = fields.Selection([('house','House'),('flat','Flat')], string="Typs of property")
     pref = fields.Selection([('anyone','Anyone'),('females_only','Females only'),('males_only','Males only'),\
                              ('no_couple','Female or male(no couples)'),('couple','Couple')],string="Flatmate Preference")
+    rooms_ids = fields.One2many('about.rooms','flatmate_id', string="About the room(s)")
+    weekly_rent = fields.Float(string="Weekly rent")
+    avil_date = fields.Date(string="Date available")
+    backpackers = fields.Boolean('Backpackers')
+    students = fields.Boolean('Students')
+    smokers = fields.Boolean('Smokers')
+    LGBTI = fields.Boolean('LGBTI+ ?')
+    fourty_year_old = fields.Boolean('40+ years olds')
+    children = fields.Boolean('Children')
+    pets = fields.Boolean('Pets')
+    retirees = fields.Boolean('Retirees')
+    on_welfare = fields.Boolean('On welfare')
 
+    weekly_budget = fields.Float('Weekly budget')
+    prefered_move_date = fields.Date('Preferred move date')
+    is_teamups = fields.Boolean('Teamups')
+    # max_no_flatmates = fields.Selection([('flexible','Flexible'),('1_others','1 Others'),('2_others','2 Others')], string="")
+    #need to add fields for find my place
+
+
+
+
+
+
+    # accommodation_type_id = fields.Many2one('accommodation.type',string="Type of Accommodation")
+    # property_type_id = fields.Many2one('property.type',string="Type of property")
+    # partner_id = fields.Many2one('res.partner',string="Customer")
     # total_bedrooms = fields.Selection([('2','2'),('3','3'),('4','4'),('5','5'),('6+','6+')], string="Total Bedrooms")
     # total_bathrooms = fields.Selection([('1','1'),('2','2'),('3','3'),('4+','4+')], string="Total Bathrooms")
     # parking = fields.Selection([('no parking','No Parking'),('off parking','Off street parking'),('on parking','On street parking')], string="Parking")
     # internet = fields.Selection([('no internet', 'No Internet'),('no inc', 'Available but not inc in rent'),\
     #                              ('incl rent', 'Included in rent'),('un incl rent', 'Unlimited Included in rent')], string="Internet")
     # total_no_flatmates = fields.Selection([('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7+','7+')], string="Total number of flatmates")
-    rooms_ids = fields.One2many('about.rooms','flatmate_id', string="About the room(s)")
-    weekly_rent = fields.Float(string="Weekly rent")
-    # bond = fields.Selection([('none','None'),('1week','1 Week'),('2week','2 Week'),('3','3 Week'),('4','4 Week')], string="Bond")
-    # bill = fields.Selection([('add to the rent','Additional to the rent'),('some incl.in rent','Some included in the rent'),('included in rent','Included in rent')], string="Bill")
-    avil_date = fields.Date(string="Date available")
-    accepting_ids = fields.Many2many('property.accepting', 'flatmate_id', 'accepting_id', string="Accepting")
+    # accepting_ids = fields.Many2many('property.accepting', 'flatmate_id', 'accepting_id', string="Accepting")
     # min_len_stay = fields.Selection([('no min stay','No minimum stay'),('1week','1 week'),\
     #                                  ('2week','2 week'),('1month','1 month'),('2months','2 months'),\
     #                                  ('3months','3 months'), ('4months','4 months'), ('6months','6 months'),\
@@ -63,8 +77,9 @@ class Flatmates(models.Model):
     #                                  ('2week','2 week'),('1month','1 month'),('2months','2 months'),\
     #                                  ('3months','3 months'), ('4months','4 months'), ('6months','6 months'),\
     #                                  ('9months', '9 months'),('12months+', '12 months+')], string="Maximum length of stay")
+    # bond = fields.Selection([('none','None'),('1week','1 Week'),('2week','2 Week'),('3','3 Week'),('4','4 Week')], string="Bond")
+    # bill = fields.Selection([('add to the rent','Additional to the rent'),('some incl.in rent','Some included in the rent'),('included in rent','Included in rent')], string="Bill")
 
-    
 
 
 class AboutRooms(models.Model):

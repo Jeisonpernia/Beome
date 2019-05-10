@@ -21,10 +21,10 @@
             <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/find_place.js"></script>
             <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/form_data.js"></script>
             <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/place_autocomplete.js"></script>
+            <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/place_search.js"></script>
             <script type="text/javascript" src="/pragtech_flatmates_system/static/src/js/search.js"></script>
 
-            <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkJT0sGkvkGimReoi_XXGMmQ70O4_BFBc&amp;libraries=places&amp;callback=initAutocomplete"></script>
-
+            <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkJT0sGkvkGimReoi_XXGMmQ70O4_BFBc&amp;libraries=places"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tag-it/2.0/css/jquery.tagit.css"/>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tag-it/2.0/js/tag-it.js"/>
 

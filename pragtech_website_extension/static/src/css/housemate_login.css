@@ -99,25 +99,31 @@
 }
 
 
-#verify_mobile_popup .close{
+#verify_mobile_popup .close, #account_settings_popup .close{
 	font-size: 48px;
 	box-shadow: none;
 	opacity: 1;
+	color: #2f3a4a;
 }
 
-#verify_mobile_popup .modal-header{
+#verify_mobile_popup .modal-header, #account_settings_popup .modal-header{
 	border-bottom: 0px;
 	padding: 0 16px;
 }
 
-#verify_mobile_popup h3{
+#verify_mobile_popup h3, #account_settings_popup h3{
 	font-weight: normal;
 }
 
-#verify_mobile_popup input{
+#verify_mobile_popup input, #account_settings_popup input{
 	height: 45px;
 }
 
 #verify_mobile_popup select{
 	height: 45px;
+}
+
+#verify_mobile_popup .modal-dialog, #account_settings_popup .modal-dialog{
+	border:5px solid rgba(47,58,74,0.3);
+	border-radius: 10px;
 }

@@ -6,7 +6,7 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.1',
+    'version': '12.0.3',
     'description': "",
     'depends': [
                 'website','website_blog','base'

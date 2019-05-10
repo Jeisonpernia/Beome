@@ -5,7 +5,7 @@
     'name': 'Website Extensin',
     'summary': 'Customer Portal',
     'sequence': '9001',
-    'version': '12.0.1',
+    'version': '12.0.2',
     'category': 'Hidden',
     'description': """ Portal Extension """,
     'depends': ['portal','auth_oauth'],

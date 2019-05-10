@@ -17,18 +17,22 @@ $(document).ready(function() {
             $("input[name=find_place_looking]:checked").each(function()
             {
             find_property_looking_for.push($(this).val())
+            console.log($(this).val())
             })
-
+            temp_dict['is_finding'] = true
             temp_dict['find_property_looking_for'] = find_property_looking_for
             temp_dict['find_teamups_status'] = find_teamups_status
 
             record_array.push(temp_dict)
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
+            console.log('//////////////////////////////// ',temp_dict)
+            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
 
         });
 
         $( "#rent_timing" ).submit(function( event ) {
-            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
             console.log(record_array)
 
                 localStorage.setItem('find_place_record', JSON.stringify(record_array));
@@ -39,7 +43,7 @@ $(document).ready(function() {
             var find_move_date = $("input[name=find_date]").val()
             var find_preferred_length_stay = $("#find-preferred-stay").val()
 
-            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
 
             record_array[0]['find_weekly_budget'] = find_weekly_budget
             record_array[0]['find_move_date'] = find_move_date
@@ -56,7 +60,7 @@ $(document).ready(function() {
             var find_parking_type = $("input[name=find-parking_type]:checked").val()
             var find_no_of_flatmates = $("input[name=find-no-of-flatmates]:checked").val()
 
-            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
 
             record_array[0]['find_room_furnishing'] = find_room_furnishing
             record_array[0]['find_internet_type'] = find_internet_type
@@ -74,37 +78,98 @@ $(document).ready(function() {
         });
 
         $( "#introduce_flatmates" ).submit(function( event ) {
-            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
             console.log(record_array)
 
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
         });
 
-        $( "#find_employment" ).submit(function( event ) {
-            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
-            console.log(record_array)
+        $( document ).on('submit','#find_employment',function( event ) {
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
+//            console.log(record_array)
 
+            var find_pace_for = $("input[name=find-place-for]:checked").val()
+            console.log(find_pace_for)
+            data = {}
+
+            if (find_pace_for == "me")
+            {
+                data['place_for'] = find_pace_for
+                data['record_1'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                                      'age' : $("input[name=your_age_0]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+                                    }]
+                console.log(data)
+            }
+
+            if (find_pace_for == "couple")
+            {
+                data['place_for'] = find_pace_for
+                data['record_1'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                                      'age' : $("input[name=your_age_0]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+                                    }]
+                data['record_2'] = [{ 'name' : $("input[name=find_first_name_1]").val(),
+                                      'age' : $("input[name=your_age_1]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_1]:checked").val()
+                                    }]
+                console.log(data)
+            }
+
+            if (find_pace_for == "group")
+            {
+                data['place_for'] = find_pace_for
+                data['record_1'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                                      'age' : $("input[name=your_age_0]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+                                    }]
+                data['record_2'] = [{ 'name' : $("input[name=find_first_name_2]").val(),
+                                      'age' : $("input[name=your_age_2]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_2]:checked").val()
+                                    }]
+
+                var record=3;
+                $(".custom_me_group").each(function(index)
+                {
+                    data['record_'+(record).toString()] = [{
+                                      'name' : $("input[name=find_first_name_2"+(index+1).toString()+"]").val(),
+                                      'age' : $("input[name=your_age_2"+(index+1).toString()+"]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_2"+(index+1).toString()+"]:checked").val()
+                                    }]
+                    record+=1
+                })
+                console.log(data)
+                console.log($(".custom_me_group"))
+            }
+
+            record_array[0]['about_you'] = data
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
+            console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
+
         });
 
         $( "#find_lifestyle" ).submit(function( event ) {
             var find_employment_status = []
 
-            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
             console.log(record_array)
-            $("input[name=find_employment_status]:checked").each(function()
+            $("input[name=employment_status]:checked").each(function()
             {
             find_employment_status.push($(this).val())
             })
 
+
             record_array[0]['find_employment_status'] = find_employment_status
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
+            console.log('Employment status :: ',find_employment_status)
+            console.log('LOCAL STORAGE ',localStorage.getItem('find_place_record'))
+//            event.preventDefault()
         });
 
         $( "#find_about_yourself" ).submit(function( event ) {
             var find_lifestyle = []
 
-            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
 
             $("input[name=lifestyle]:checked").each(function()
             {
@@ -119,12 +184,33 @@ $(document).ready(function() {
         $( "#find_pubish" ).submit(function( event ) {
             var find_comment = $("#find_comment").val()
             console.log (find_comment)
-            var record_array = JSON.parse(localStorage.getItem('find_place_record')) || [];
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
 
             record_array[0]['find_comment'] = find_comment
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            console.log('List Place Array : ',localStorage.getItem('find_place_record'))
-            alert("afaef")
+            console.log('List Place Array BY DON  : ',localStorage.getItem('find_place_record'))
+
+            var find_place_data = JSON.parse(localStorage.getItem('find_place_record'));
+
+            console.log('\nFind Place data \n\n',find_place_data)
+
+            if (find_place_data){
+                $.ajax({
+                        url:'/create/find_place',
+                        type:'POST',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'find_place_data': find_place_data}}),
+                        success: function(data){
+//                            oldArray[0] = {}
+//                            localStorage.setItem('find_place_record', JSON.stringify(oldArray))
+                            console.log('returnnnnnnnnnnnnnnnnn from find place all data')
+//                            alert('OOLLLLLLLLLLLLLLLLLL')
+	                    },
+                });
+
+		    }
+
         });
 
 

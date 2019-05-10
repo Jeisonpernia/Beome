@@ -229,16 +229,23 @@ $(document).ready(function()
         var array_of_image = []
     }
 
-    $("#upload").change(function()
+    $(document).on('change','#upload,#upload1',function()
     {
 
-        var files_rec = document.getElementById('upload');
-//        console.log("-----------------",files_rec.files)
+        var files_rec = document.getElementById($(this).attr("id"));
+//        console.log("-----------------",files_rec.files,$(this))
 
+        if (files_rec.files.length != 0)
+        {
+            $(".center-add-photos").addClass("d-none")
+            $(".add-furniture").addClass("d-none")
+            $(".mid-add-photos").removeClass("d-none")
+        }
 
         for (var rec = 0; rec < files_rec.files.length; rec++)
         {
             var reader = new FileReader();
+
 
 //            console.log("-----------------",files_rec.files[rec])
             reader.onload = (function(theFile)
@@ -250,7 +257,7 @@ $(document).ready(function()
                     file_path = file_path.slice(file_path.indexOf(',')+1)
 //                    console.log ("Result 2",file_path)
                     array_of_image.push(file_path)
-                    $(document).find('.scrolling-wrapper').append('<img class="card" src="data:image/jpeg;base64,'+file_path+'"  width="290" height="290"/>')
+                    $(document).find('.scrolling-wrapper').append('<img class="card" src="data:image/jpeg;base64,'+file_path+'"/>')
 //                    if (array_of_image.length == files_rec.files.length)
 
                     console.log (array_of_image.length)

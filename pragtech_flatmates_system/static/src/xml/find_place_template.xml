@@ -132,16 +132,22 @@
                                     </div>
 
                                     <div class="items">
-                                        <input type="checkbox" name="find_place_looking" value="shared_room" class="d-none"/>
-                                        <div class="items-cirle items-cirle-hover mb-2 find-sharedroom find-active-property" id="find-shared-room">
-                                            <span class="icon"><svg width="46" height="24" viewBox="0 0 46 24"><path d="M20.736 20.199v2.157M1.536 20.2v2.157m0-7.802h19.2V20.2h-19.2v-5.645zm16.924-4.529V1H3.78v9.036m3.906 0V6.688a1.073 1.073 0 0 1 1.427-.998 9.025 9.025 0 0 0 3.896 0 1.202 1.202 0 0 1 1.534 1.009v3.337m6.203 4.518H1.547v-.14c0-2.317 1.492-4.356 4.712-4.356h9.765c3.22 0 4.712 2.039 4.712 4.357l.01.14zM44.463 20.2v2.157M25.253 20.2v2.157m.011-7.802h19.2V20.2h-19.2v-5.645zm16.914-4.529V1H27.497v9.036m3.917 0V6.688a1.073 1.073 0 0 1 1.427-.998 9.015 9.015 0 0 0 3.896 0 1.202 1.202 0 0 1 1.534 1.009v3.337m6.192 4.518H25.275v-.14c0-2.317 1.481-4.356 4.711-4.356h9.766c3.22 0 4.711 2.039 4.711 4.357v.14z" stroke="#2F3A4A" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-                                        </div>
+                                        <div class="items-cirle items-cirle-hover mb-2 find-shared-room find-active-property" id="find-shared-room">
+                                        <input type="checkbox" name="find_place_looking" value="student_accommodation" class="d-none"/>
+                                            <span class="icon">
+                                           <input type="checkbox" name="find_place_looking" value="shared_room" class="d-none"/>
+                                                <svg width="46" height="24" viewBox="0 0 46 24">
+                                                    <path d="M20.736 20.199v2.157M1.536 20.2v2.157m0-7.802h19.2V20.2h-19.2v-5.645zm16.924-4.529V1H3.78v9.036m3.906 0V6.688a1.073 1.073 0 0 1 1.427-.998 9.025 9.025 0 0 0 3.896 0 1.202 1.202 0 0 1 1.534 1.009v3.337m6.203 4.518H1.547v-.14c0-2.317 1.492-4.356 4.712-4.356h9.765c3.22 0 4.712 2.039 4.712 4.357l.01.14zM44.463 20.2v2.157M25.253 20.2v2.157m.011-7.802h19.2V20.2h-19.2v-5.645zm16.914-4.529V1H27.497v9.036m3.917 0V6.688a1.073 1.073 0 0 1 1.427-.998 9.015 9.015 0 0 0 3.896 0 1.202 1.202 0 0 1 1.534 1.009v3.337m6.192 4.518H25.275v-.14c0-2.317 1.481-4.356 4.711-4.356h9.766c3.22 0 4.711 2.039 4.711 4.357v.14z" stroke="#2F3A4A" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                            </div>
                                         <p>Shared Room</p>
+
                                     </div>
 
                                     <div class="items">
-                                        <input type="checkbox" name="find_place_looking" value="student_accommodation" class="d-none"/>
                                         <div class="items-cirle items-cirle-hover mb-2 find-studentaccommodation find-active-property" id="find-student-accommodation">
+                                        <input type="checkbox" name="find_place_looking" value="student_accommodation" class="d-none"/>
                                             <span class="icon">
                                                 <svg width="42" height="43" viewBox="0 0 42 43">
                                                     <path d="M1 34.043v-19.13h40v19.13m0-5.217H25.348V14.913m0 6.957H41m-8.696 3.478h1.74m-1.74-6.957h1.74M4.477 11.435H20.13V1H4.478v10.435zm13.732 3.297l-3.298-3.297H9.695l-3.188 3.19"
@@ -538,11 +544,11 @@
                                                     <span class="mb-1">The gender you identify with</span>
                                                     <div class="total-bedrooms mt-2">
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" id="find-place-for-gender" name="find-place-for-gender_0"/>
+                                                            <input type="radio" id="find-place-for-gender_0" name="find-place-for-gender_0" value="female"/>
                                                             Female
                                                         </label>
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" id="find-place-for-gender" name="find-place-for-gender_0"/>
+                                                            <input type="radio" id="find-place-for-gender_0" name="find-place-for-gender_0" value="male"/>
                                                             Male
                                                         </label>
                                                     </div>
@@ -567,11 +573,11 @@
                                                     <span class="mb-1">The gender your partner identifies with</span>
                                                     <div class="total-bedrooms mt-2">
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" name="find-place-for-gender_1"/>
+                                                            <input type="radio" id="find-place-for-gender_1" name="find-place-for-gender_1" value="female"/>
                                                             Female
                                                         </label>
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" name="find-place-for-gender_1"/>
+                                                            <input type="radio" id="find-place-for-gender_1" name="find-place-for-gender_1" value="male"/>
                                                             Male
                                                         </label>
                                                     </div>
@@ -598,11 +604,11 @@
 
 
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" name="find-place-for-gender_2"/>
+                                                            <input type="radio" id="find-place-for-gender_2" name="find-place-for-gender_2" value="female"/>
                                                             Female
                                                         </label>
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" name="find-place-for-gender_2"/>
+                                                            <input type="radio" id="find-place-for-gender_2" name="find-place-for-gender_2" value="female"/>
                                                             Male
                                                         </label>
                                                     </div>

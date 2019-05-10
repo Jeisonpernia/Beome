@@ -175,9 +175,6 @@
                         <div class="modal fade" id="verify_mobile_popup" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-									
-									
-									
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             ×
@@ -201,32 +198,27 @@
 											<input type="text" class="form-control" id="" name="mobile" placeholder="Mobile number"/>
 											</div>
 											
-										<div class="form-group mt-2">
+											
+											<div class="input-group checkbox-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        </div>
+                                                        <input type="text" class="form-control" value=""
+                                                               id="verified_member" name="pets" readonly="true"/>
+														<span class="search-accepting">Allowed Verified members to contact me on my mobile(recommended)</span>
+                                                    </div>
+											<button type="button" class="btn btn-green1 mt-3 mb-4 btn-block" data-dismiss="modal">Send SMS Code</button>
+											
+										<!--<div class="form-group mt-2">
                                         <input type="checkbox" id="verified_member"/>
                                         <label for="verified_member" style="color:black;">Allowed Verified members to contact me on my mobile(recommended)</label>
-                                        </div>
+                                        </div>-->
 
-											
-										</form>
-												
-												
-										</div>
+													</form>
 												</div>
 											</div>
-                                        
-
-                                        
-
-
-										
-										
-									
-										
-										
+										</div>
                                     </main>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Save SMS Code</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -235,26 +227,65 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Account Settings</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             ×
                                         </button>
                                     </div>
                                     <main class="modal-body">
+										<div class="container">
+											<div class="row">
+											<div class="col-lg-12">
+										<form action="/action_page.php">
+											<h3 class="text-center mt-4 mb-4">Edit my account</h3>
+											
+											<div class="row">
+											<div class="col-lg-4 mx-auto">
+												<img class="card-img-top rounded-circle mx-auto" src="/pragtech_flatmates_system/static/src/img/avtar.png" alt=""/>
+													</div>
+											</div>
+											
+											<div class="form-group mt-4">
+											  <input type="text" class="form-control" name="name" id="name" placeholder="Your name"/>
+											</div>
+												
+											
+											<div class="input-group mt-2">
+												<input type="text" class="form-control" name="email" id="email" placeholder="Email address"/>
+											  </div>
+												
+											
+											<div class="form-group mt-2">
+											<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile number"/>
+											</div>
+											
+											
+											<div class="input-group checkbox-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        </div>
+                                                        <input type="text" class="form-control" value="" id="verified_member" name="" readonly="true"/>
+														<span class="search-accepting">Allowed Verified members to contact me on my mobile(recommended)</span>
+												
+												<span class="verify-phone"><a href="#">Verify mobile phone</a></span>
+                                            </div>
+												
+												
+											
+											<button type="button" class="btn btn-green1 mt-3 mb-4 btn-block" data-dismiss="modal" id="account_settings">Save My Changes</button>
 
-                                        <input name="name" id="name" placeholder="Your Name"/><br/><br/>
-                                        <input name="email" id="email" placeholder="Email Address"/><br/><br/>
-                                        <input name="mobile" placeholder="Mobile"/><br/><br/>
-                                        <div>
+													</form>
+												</div>
+											</div>
+										</div>
+
+
+                                        <!--<div>
                                         <input type="checkbox" id="verified_member"/>
                                         <label for="verified_member" style="color:black;">Allowed Verified members to contact me on my mobile(recommended)</label>
-                                        </div>
+                                        </div>-->
 
                                     </main>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal" id="account_settings">Save my changes</button>
-
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
