@@ -3,7 +3,7 @@ odoo.define('pragtech_flatmates.search', function (require) {
 console.log("\nggggg")
 $(document).ready(function() {
 
-$('#dropdownMenuButton').on('click',function(){
+    $('#dropdownMenuButton').on('click',function(){
                 console.log(')))))))))))))))))0')
 
                 $.ajax({

@@ -4,6 +4,7 @@ from odoo import api, fields, models, _
 class Flatmates(models.Model):
     _name = 'flat.mates'
     _description = 'Flatmates Singup History'
+    _rec_name = 'accommodation_type'
 
     name = fields.Char(string="Property Name")
     is_listing = fields.Boolean('Listing')

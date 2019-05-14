@@ -294,13 +294,95 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Email Alert</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             ×
                                         </button>
                                     </div>
                                     <main class="modal-body">
-                                        <div class="row">
+										<div class="container">
+											<div class="row">
+											<div class="col-lg-10 mx-auto">
+											<form action="/action_page.php">
+												<h3 class="text-center mt-4 mb-5">Email Alert Setting</h3>
+												
+												<div class="row">
+												<div class="col-lg-8">
+												<h4>Listing Alerts</h4>
+													<p>We'll send listing alerts when you have an active listing</p>
+												</div>
+												<div class="col-lg-4">
+												<select class="form-control" id="listing_alerts" name="listing_alerts">
+                                                        <option value="real_time">Real-time</option>
+                                                        <option value="daily">Daily</option>
+                                                        <option value="none">None</option>
+                                                    </select>	
+												</div>
+												</div>
+												
+												<div class="row">
+												<div class="col-lg-8">
+												<h4>New Device alerts</h4>
+													<p>You will be notified when a new device or browser has accessed your account</p>
+												</div>
+												<div class="col-lg-4">
+												<select class="form-control" id="new_device_alerts" name="new_device_alerts">
+                                                        <option value="on">On</option>
+                                                        <option value="off">No thanks</option>
+                                                    </select>	
+												</div>
+												</div>
+												
+												<div class="row">
+												<div class="col-lg-8">
+												<h4>Message alerts</h4>
+													<p>You will only receive new mwssage alerts when you have an active listing</p>
+												</div>
+												<div class="col-lg-4">
+												<h4>Always On</h4>	
+												</div>
+												</div>
+												
+												<div class="row">
+												<div class="col-lg-8">
+												<h4>Community notices</h4>
+													<p>Flatmates.com.au news,events and competitions</p>
+												</div>
+												<div class="col-lg-4">
+												<select class="form-control" id="search_sort" name="search_sort">
+                                                        <option value="photos">On</option>
+                                                        <option value="newest">No thanks</option>
+                                                    </select>	
+												</div>
+												</div>
+												
+												<div class="row">
+												<div class="col-lg-8">
+												<h4>Special offers</h4>
+													<p>Exclusive offers from our partners</p>
+												</div>
+												<div class="col-lg-4">
+												<select class="form-control" id="search_sort" name="search_sort">
+                                                        <option value="photos">On</option>
+                                                        <option value="newest">No thanks</option>
+                                                    </select>	
+												</div>
+												</div>
+												
+												<button type="button" class="btn btn-green1 mt-3 mb-4 btn-block" data-dismiss="modal" id="email_settings_button">Update</button>
+
+												</form>
+												</div>
+											</div>
+										</div>
+												
+										
+										
+										
+										
+										
+										
+                                        <!--<div class="row">
+											
                                                 <h5 class="text-center text-muted mt-3">Listing Alerts</h5>
                                                 <p class="text-center text-muted mt-3">We'll send listing alerts when you have an active listing</p>
                                                 <select name="listing_alerts" id="listing_alerts">
@@ -310,7 +392,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="row">
+                                        <div class="row">
                                                 <h5 class="text-center text-muted mt-3">New Device alerts</h5>
                                                 <p class="text-center text-muted mt-3">You will be notified when a new device or browser has accessed your account</p>
                                                 <select name="new_device_alerts" id="new_device_alerts">
@@ -319,7 +401,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="row">
+                                        <div class="row">
                                                 <h5 class="text-center text-muted mt-3">Message alerts</h5>
                                                 <p class="text-center text-muted mt-3">You will only receive new mwssage alerts when you have an active listing</p>
                                                 <b class="text-center text-muted mt-3">Always On</b>
@@ -341,11 +423,11 @@
                                                 <option value="on">On</option>
                                                 <option value="off">No thanks</option>
                                             </select>
-                                        </div>
+                                        </div>-->
                                     </main>
-                                    <div class="modal-footer">
+                                    <!--<div class="modal-footer">
                                         <button type="submit" class="btn btn-default" id="email_settings_button" data-dismiss="modal">Update</button>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -399,7 +481,8 @@
 
     <template id="portal_show_sign_inherited" inherit_id="portal.portal_show_sign_in" name="Show Sign In">
         <xpath expr="//a[@t-attf-href='/web/login']" position="replace">
-            <div data-toggle="modal" data-target='#signin_popup_id' class="nav-link">
+
+                <a t-attf-href="/web/login" class="nav-link">
                 <div class="nav-icon mx-auto">
                     <span class="icon">
 					<svg class="login" viewBox="0 0 26 26"><path class="fill" d="M19 6c0 3.9-2.7 8-6 8S7 9.9 7 6s2.7-6 6-6 6 2.1 6 6z"></path><path class="fill" d="M16 14.2v-2.7h-6v2.7c0 .6-.4 1.1-.9 1.2C5.2 16.6 2 19.2 2 20.7v1.8C2 24.4 6.9 26 13 26s11-1.6 11-3.5v-1.8c0-1.4-3.1-4.1-7.1-5.3-.5-.1-.9-.7-.9-1.2z"></path></svg>
@@ -408,63 +491,51 @@
                 <div class="text-center mt-1">
                     Login
                 </div>
-            </div>
-
-            <div role="dialog" id="signin_popup_id" class="modal" tabindex="-1" t-ignore="true">
-                <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}"
-                      method="post" onsubmit="this.action = this.action + location.hash">
-                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-
-                    <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
-                        <label for="db" class="col-form-label">Database</label>
-                        <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
-                            <input type="text" name="db" t-att-value="request.db" id="db"
-                                   t-attf-class="form-control #{'form-control-sm' if form_small else ''}"
-                                   required="required" readonly="readonly"/>
-                            <span class="input-group-append">
-                                <a role="button" href="/web/database/selector" class="btn btn-secondary">Select
-                                    <i class="fa fa-database" role="img" aria-label="Database" title="Database"></i>
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group field-login">
-                        <label for="login">Email</label>
-                        <input type="text" placeholder="Email" name="login" t-att-value="login" id="login"
-                               t-attf-class="form-control #{'form-control-sm' if form_small else ''}"
-                               required="required" autofocus="autofocus" autocapitalize="off"/>
-                    </div>
-
-                    <div class="form-group field-password">
-                        <label for="password">Password</label>
-                        <input type="password" placeholder="Password" name="password" id="password"
-                               t-attf-class="form-control #{'form-control-sm' if form_small else ''}"
-                               required="required" autocomplete="current-password"
-                               t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
-                    </div>
-
-                    <p class="alert alert-danger" t-if="error" role="alert">
-                        <t t-esc="error"/>
-                    </p>
-                    <p class="alert alert-success" t-if="message" role="status">
-                        <t t-esc="message"/>
-                    </p>
-
-                    <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
-                        <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                        <t t-if="debug">
-                            <button type="submit" name="redirect" value="/web/become"
-                                    class="btn btn-link btn-sm btn-block">Log in as superuser
-                            </button>
-                        </t>
-                        <div class="o_login_auth">
-                        </div>
-                    </div>
-
-                    <input type="hidden" name="redirect" t-att-value="redirect"/>
-                </form>
-            </div>
+                </a>
         </xpath>
     </template>
+
+    <template id="web.login" name="Login">
+            <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
+                    <label for="db" class="col-form-label">Database</label>
+                    <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
+                        <input type="text" name="db" t-att-value="request.db" id="db" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" readonly="readonly"/>
+                        <span class="input-group-append">
+                            <a role="button" href="/web/database/selector" class="btn btn-secondary">Select <i class="fa fa-database" role="img" aria-label="Database" title="Database"></i></a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group field-login">
+                    <label for="login">Email</label>
+                    <input type="text" placeholder="Email" name="login" t-att-value="login" id="login" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autofocus="autofocus" autocapitalize="off"/>
+                </div>
+
+                <div class="form-group field-password">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Password" name="password" id="password" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autocomplete="current-password" t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                </div>
+
+                <p class="alert alert-danger" t-if="error" role="alert">
+                    <t t-esc="error"/>
+                </p>
+                <p class="alert alert-success" t-if="message" role="status">
+                    <t t-esc="message"/>
+                </p>
+
+                <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
+                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                    <t t-if="debug">
+                        <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">Log in as superuser</button>
+                    </t>
+                    <div class="o_login_auth"/>
+                </div>
+
+                <input type="hidden" name="redirect" t-att-value="redirect"/>
+            </form>
+    </template>
+
 </odoo>

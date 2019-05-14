@@ -66,11 +66,39 @@
                             <div class="dropdown-menu search-dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                                 <form class="search-form" action="/search/records" method="POST">
-                                    <div class="form-group">
-                                        <label for="" class="p16-gray text-uppercase">Where are you looking?</label>
+                                    <div class="form-group auto-input">
+                                        <label class="p16-gray text-uppercase">Where are you looking?</label>
                                         <input type="text" class="form-control" id="search_places"
                                                placeholder="Start typing a suburb, city, station or uni"/>
                                     </div>
+									<div class="popular-locations">
+										<div class="locations">
+											<span class="popular-location">
+												<i class="fas fa-map-marker-alt" />
+												<span class="icon-label">Sydney</span>
+											</span>
+											<span class="popular-location">
+												<i class="fas fa-map-marker-alt" />
+												<span class="icon-label">Melbourne</span>
+											</span>
+											<span class="popular-location">
+												<i class="fas fa-map-marker-alt" />
+												<span class="icon-label">Brisbane</span>
+											</span>
+											<span class="popular-location">
+												<i class="fas fa-map-marker-alt"/>
+												<span class="icon-label">Perth</span>
+											</span>
+											<span class="popular-location">
+												<i class="fas fa-map-marker-alt"/>
+												<span class="icon-label">Gold Coast</span>
+											</span>
+											<span class="popular-location">
+												<i class="fas fa-map-marker-alt"/>
+												<span class="icon-label">Adelaide</span>
+											</span>
+										</div>
+									</div>
 
                                     <div class="form-group">
                                         <label for="" class="p16-gray text-uppercase">What are you looking for?</label>

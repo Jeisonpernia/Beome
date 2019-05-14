@@ -627,6 +627,11 @@ class FlatMates(http.Controller):
     def list_my_property(self, **kwargs):
         return request.render("pragtech_flatmates_system.list_my_property", )
 
+    @http.route(['/find/a/property'], type='http', auth="public", website=True, csrf=False,
+                method=['POST'])
+    def find_a_property(self, **kwargs):
+        return request.render("pragtech_flatmates_system.find_a_property", )
+
     # ================== Create listing Property in Odoo ===================================#
     @http.route('/create/list_property', auth='public', type='json', website=True)
     def create_list_property(self, list_place_data):
@@ -634,7 +639,7 @@ class FlatMates(http.Controller):
         print('\n\n\n-----------------------------------  create_list_property  ----------------------------------------------\n\n')
         print('List place data :\n',list_place_data[0],'\n\n\n')
         flat_mates_obj = request.env['flat.mates']
-
+        lisitng_created = False
         vals = {}
 
         if list_place_data:
@@ -883,14 +888,19 @@ class FlatMates(http.Controller):
                 })
 
         vals.update({
-            'user_id':request.env.user.id
+            'user_id':request.env.user.id,
+            'is_listing':True
         })
 
         print('\n\nVals :: \n\n',vals,'\n\n\n')
         if vals:
             flat_mates_id = flat_mates_obj.sudo().create(vals)
 
+            if flat_mates_id:
+                lisitng_created = True
+
             if flat_mates_id and 'rooms_data' in list_place_dict and list_place_dict.get('rooms_data'):
+
                 print('IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII Method call for create line')
                 self.create_about_rooms_lines(list_place_dict.get('rooms_data'),flat_mates_id)
 
@@ -902,8 +912,13 @@ class FlatMates(http.Controller):
                         'property_image_ids': [( 6, 0, images)]
                     })
 
+        if lisitng_created:
+            result = {'new_list_id':flat_mates_id}
 
-        return True
+        else:
+            result={}
+
+        return result
 
     def create_about_rooms_lines(self,rooms_data,flat_mates_id):
         print('JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ')
@@ -981,7 +996,7 @@ class FlatMates(http.Controller):
     def create_find_property(self, find_place_data):
         print('\n\n\n\n Find Property \n',find_place_data,'\n\n\n')
         flat_mates_obj = request.env['flat.mates']
-
+        find_proprty_created = False
         vals = {}
 
         if find_place_data:
@@ -1007,8 +1022,63 @@ class FlatMates(http.Controller):
                     'prefered_move_date':find_place_dict.get('find_move_date')
                 })
 
+            if 'find_preferred_length_stay' in find_place_dict and find_place_dict.get('find_preferred_length_stay'):
+                vals.update({
+                    'max_len_stay_id':int(find_place_dict.get('find_preferred_length_stay'))
+                })
+
+            if 'find_parking_type' in find_place_dict and find_place_dict.get('find_parking_type'):
+                vals.update({
+                    'parking_id': int(find_place_dict.get('find_parking_type'))
+                })
+
+            if 'find_internet_type' in find_place_dict and find_place_dict.get('find_internet_type'):
+                    vals.update({
+                        'internet_id' : int(find_place_dict.get('find_internet_type'))
+                    })
+
+            vals.update({'is_finding':True,
+                         'user_id':request.env.user.id
+                         })
+
+        if vals:
+            print('\n\n\n Final Find Place Vals :',vals,'\n\n')
+            print('--------------------------------------------------------------')
+            new_flat_mate_id =  flat_mates_obj.sudo().create(vals)
+            find_proprty_created = True
+
+            print('Newly Created Object :',new_flat_mate_id)
+
+            flatmate_line_obj = request.env['about.rooms']
+            line_dict = {}
+            if 'find_room_furnishing' in find_place_dict and find_place_dict.get('find_room_furnishing'):
+                line_dict.update({
+                    'room_furnishing_id':int(find_place_dict.get('find_room_furnishing'))
+                })
+            if 'find_bathroom_type' in find_place_dict and find_place_dict.get('find_bathroom_type'):
+                line_dict.update({
+                    'bath_room_type_id':int(find_place_dict.get('find_bathroom_type'))
+                })
+
+            line_dict.update({
+                'flatmate_id':new_flat_mate_id.id
+            })
+
+            if line_dict:
+                print('++++++++++++++++++++ Line Dict ++++++++++++++++\n\n',line_dict)
+                new_line_id = flatmate_line_obj.sudo().create(line_dict)
+                print('+++++++++++++++++ New Line Id ::: ',new_line_id)
+
+
+        if find_proprty_created:
+            result = {'new_flatmate_id':new_flat_mate_id.id}
+        else:
+            result = {}
+
+        return result
+
+
         
-        return True
 
 
 
@@ -1500,7 +1570,8 @@ class FlatMates(http.Controller):
         property_data = {}
 
         properties = request.env['flat.mates'].sudo().search_read(domain=[('id', '>', record_id)],
-                                                                  fields=['id', 'street2', 'city', 'description',
+                                                                  fields=['id', 'street2', 'city', 'description','is_listing','is_finding',
+                                                                          'weekly_rent','weekly_budget',
                                                                           'property_image_ids'], order='id', limit=16)
         # print ("Recordddddddddddddddddd-------",properties)
 
@@ -1514,6 +1585,17 @@ class FlatMates(http.Controller):
             property_data['street'] = rec.get('street2')
             property_data['city'] = rec.get('city')
             property_data['description'] = rec.get('description')
+
+            if rec.get('is_listing'):
+                print('44444444444444444444444444444')
+                property_data['is_listing'] = True
+                property_data['weekly_rent'] = rec.get('weekly_rent')
+            if rec.get('is_finding'):
+                print('5555555555555555555')
+                property_data['is_finding'] = True
+                property_data['weekly_budget'] = rec.get('weekly_budget')
+
+            print('\n\n\nProperty Data : \n',property_data.copy(),'\n\n\n')
             if property_image_main:
                 property_data['image'] = property_image_main[0].get('image')
 

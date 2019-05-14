@@ -7,6 +7,7 @@
             <xpath expr="//div[hasclass('o_login_auth')]" position="inside">
                 <t t-call="auth_oauth.providers"/>
             </xpath>
+
 		<!--<t t-set="form_small" t-value="True" t-if="len(providers) &gt; 2"/>-->
 			  <!--<xpath expr="//form" position="replace">-->
 				     <!--<div role="dialog" id="signin_popup_id" class="modal" tabindex="-1" t-ignore="true">-->

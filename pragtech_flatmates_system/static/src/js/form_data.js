@@ -202,14 +202,25 @@ $(document).ready(function() {
                         contentType: 'application/json',
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'find_place_data': find_place_data}}),
                         success: function(data){
-//                            oldArray[0] = {}
-//                            localStorage.setItem('find_place_record', JSON.stringify(oldArray))
-                            console.log('returnnnnnnnnnnnnnnnnn from find place all data')
-//                            alert('OOLLLLLLLLLLLLLLLLLL')
+                                console.log('Return %%%%%%%%% : ',data)
+                                if(data['result']['new_flatmate_id']){
+                                    console.log('iiiiiiiffffffffiiiiiffff')
+                                    window.location.replace('/find/a/property')
+                                }
+                                else{
+                                    window.location.replace('/')
+                                }
+
+
+                            oldArray[0] = {}
+                            localStorage.setItem('find_place_record', JSON.stringify(oldArray))
+
+
 	                    },
                 });
 
 		    }
+//		    event.preventDefault()
 
         });
 
@@ -627,6 +638,15 @@ $(document).ready(function() {
                         contentType: 'application/json',
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'list_place_data': list_place_data}}),
                         success: function(data){
+                            if(data['result']['new_list_id']){
+                                console.log('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY 333333')
+                                window.location.replace('/list/my/property')
+                            }
+                            else{
+                                console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ 4444444')
+                                window.location.replace('/')
+                            }
+
                             oldArray[0] = {}
                             localStorage.setItem('list_place_array', JSON.stringify(oldArray))
                             console.log('returnnnnnnnnnnnnnnnnn',localStorage.getItem('list_place_array'))
@@ -635,6 +655,7 @@ $(document).ready(function() {
                 });
 
 		    }
+//		    event.preventDefault()
         });
 
 

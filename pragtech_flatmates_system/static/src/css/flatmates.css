@@ -555,7 +555,23 @@ padding:20px;
 	height: 150px;
 	width: 100%;
 }
-.propety-ribbon{
+
+.propety-ribbon-orange{
+	background: #ff5e45;
+
+	bottom: 0px;
+	color: #fff;
+	font-size: 0.875rem;
+	min-width: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: absolute;
+	right: 0;
+	text-align: center;
+}
+
+
+.propety-ribbon-blue{
 	background: #3baeda;
 	bottom: 0px;
 	color: #fff;
@@ -583,7 +599,6 @@ padding:20px;
 
 .listing-tile-stats{
 /*background: #fff;*/
-bottom: 30px;
 color: #979ba3;
 height: 45px;
 line-height: 0;
@@ -591,8 +606,12 @@ padding: 10px 0;
 position: relative;
 text-align: center;
 width: 100%;
+display: flex;
 }
 
+.listing-tile-stats .property-listing-icons{
+	width: 100%;
+}
 
 .listing-tile-stats .listing-icon{
 	display: inline-block;
@@ -600,9 +619,9 @@ width: 100%;
 }
 
 .listing-tile-stats .icon svg{
-	height: 20px;
-    margin-right: 5px;
-    width: 20px;
+	height: 25px;
+    margin-right: 8px;
+    width: 28px;
 }
 
 
@@ -615,24 +634,18 @@ width: 100%;
     /*background: none repeat scroll 0 0 #fff;*/
     bottom: 0;
     color: #000;
-    display: flex;
     font-size: 0.75rem;
     font-weight: normal;
     height: 30px;
     justify-content: center;
-    left: 25%;
-    margin: 0 auto;
-    position: absolute;
     text-align: center;
     text-decoration: none;
-    width: 50%;
+	line-height: 30px;
+	margin: 20px 0;
 }
 
-.listing-tile-contact {
-    color: #000;
-    font-size: 0.75rem;
-    font-weight: normal;
-    text-align: center;
+.listing-tile-contact svg{
+	fill: #979ba3;
 }
 
 .listing-tile-contact .icon svg {
@@ -644,10 +657,44 @@ width: 100%;
     width: 13px;
 }
 
-.icon svg .stroke{
-	stroke: #fff;
+.listing-tile-stats .icon svg .stroke{
+	stroke: #979ba3;
 }
 
+.listing-tile-stats .listing-icon .icon-label {
+    float: right;
+    line-height: 25px;
+	font-size: 16px;
+}
+
+
+.listing-tile-stats .icon .icon-label {
+    white-space: pre;
+}
+
+
+
+.listing-tile-stats .person-listing-icons {
+    padding-top: .6em;
+	display: inline-block;
+	width: 100%;
+}
+
+.listing-tile-stats .person-listing-icons * {
+    margin: 0 6%;
+
+}
+
+.listing-tile-stats .listing-tile-applicant-age-stats {
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+
+.property-content abbr[title]{
+text-decoration: none;
+cursor: auto;
+border-bottom: 0;
+}
 
 .accommodation-listing{
 	display: flex;
@@ -1591,3 +1638,87 @@ color:#2f3a4a;
 .checkbox-group input{
 	display: none
 }
+
+.styles__errorMessage1:before {
+    color: #cb104b;
+    content: "\F071";
+    font-family: FontAwesome;
+    font-size: 1rem;
+    margin-left: .25rem;
+    margin-right: .5rem;
+}
+
+.styles__errorMessage2:before {
+    color: #cb104b;
+    content: "\F071";
+    font-family: FontAwesome;
+    font-size: 1rem;
+    margin-left: .25rem;
+    margin-right: .5rem;
+}
+.popular-locations .popular-location{
+	cursor: pointer;
+}
+.popular-locations .popular-location .icon-label:hover{
+	text-decoration: underline;
+    white-space: nowrap;
+}
+.token {
+    background: #efefef;
+    border-radius: 5px;
+    color: #7c818b;
+    display: inline-block;
+    margin-right: .25em;
+    margin-top: 0.5rem;
+    padding: .25em .5em;
+}
+
+.home-listings .shortlist{
+	position: absolute;
+right: 30px;
+top: 20px;	
+}
+
+.home-listings .shortlist-button {
+    cursor: pointer;
+}
+
+.home-listings .default-shortlist svg, .home-listings .shortlisted svg {
+    height: 18px;
+    width: 18px;
+}
+
+.home-listings .default-shortlist svg .fill {
+    fill: #fff;
+    stroke: #979ba3;
+}
+
+
+.home-listings .default-shortlist svg:hover .fill {
+    fill: #f8ca6c;
+    stroke: #979ba3;
+}
+
+.home-listings .shortlisted svg .fill {
+    fill: #f7bb42;
+    stroke: #979ba3;
+}
+
+.slider{
+	position: relative;
+}
+
+.slider .slider-img{
+	position: relative
+}
+
+
+.slider .delete-slider{
+	position: absolute;
+	z-index: 1;
+}
+
+.slider .delete-slider .fa{
+	padding: 20px;
+}
+

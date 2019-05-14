@@ -54,7 +54,170 @@
 
                 <section>
                     <div class="container">
-                        <div class="row mt-4" id="lazy_load">
+                        <!--<div class="row mt-4" id="lazy_load">-->
+                        <!--</div>-->
+                        <div class="row mt-4 home-listings" id="">
+                            <div class="col-lg-3 col-sm-3 col-xs-12 property-content">
+                                <input field="text" id="property_id" t-att-value='record_id' hidden='false'/>
+                                <div class="property-img">
+                                    <img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'
+                                         class="img-fluid"/>
+                                    <div class="propety-ribbon-orange">New |  $300</div>
+                                </div>
+								
+								
+								<div class="shortlist"><a class="default-shortlist shortlist-button"><svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></a></div>
+
+                                <p class="property-listing-heading mt-2"><a href="">Bronte</a>, <a href="">Sydney</a></p>
+                                <p class="property-listing-subheading">Room in a share house</p>
+                                <p class="property-listing-para">THE LOCATION:
+
+                                    6 minutes walk to Bronte beach through the trees.
+                                    100 steps to the bus stop, corner store and post box.
+                                    The only sound you'll hear is the birds and wind in the trees.
+                                    4 minute walk to famous Italian deli cafe.
+                                    8 minute walk through the park to 9 epic Bronte Beach cafes on the water.
+
+                                    THE HOUSE:
+
+                                    There is a sauna and pool.
+                                    NBN internet with 70mb down and 36mb up (which is very good btw)
+                                    Easy street parking right out front.
+                                    Clean and well furnished house with everything you could need already in the house and at your disposal.
+                                    One main funky bathroom PLUS one extra toilet and one extra shower downstairs next to the sauna.
+                                    Very well furnished kitchen with everything.
+                                    North south facing for great sunlight and views.
+                                    Multiple dining, reading and chilling areas.
+                                    Poolside balcony with good outdoor furniture.
+                                    Great security with code lock on front gate.
+                                    Lot's of plants!
+
+                                    THE ROOMS:
+
+                                    (Room 1, $350pw inc)
+                                    The front room is 2.8m x 4.2m.
+                                    It has a very large wardrobe (additional to dimensions above) that wraps around 1.5 walls.
+                                    Morning sun through front window.
+                                    Exposed floorboards with rugs for winter.
+                                    Dimmer light.
+                                    Queen sized bed and bedside table.
+                                    Plenty of picture hooks for decorating!
+
+                                    (Room 2, $330pw inc)
+                                    The second room is 3.3m x 2.7m.
+                                    It has a large wardrobe in one corner and fits a queen bed, although a double may be a better fit.
+                                    This room is carpeted and in the middle of the house so is quieter for a light sleeper :-)
+                                    Comes with a bed and bedside table.
+                                    It's a smaller room - but the house is huge and there's plenty of spots to spend your time if not in the room.
+
+                                    BILLS:
+
+                                    Internet, gas, electricity and water usage are all included in the rent.
+                                    Internet is the fastest plan possible.
+                                    Courtney and I have discussed having a cleaner once a week to do the common areas. This could work out to be around $15 per week each but it is very worth the money. Bathrooms, kitchen and common areas.
+                                    We are also keen to order all the shared consumables online each month so no one runs out of anything or has to go to the shops. Things like TP, laundry powder, cleaning stuff, shared kitchen stuff etc.
+                                    We are an environmentally aware house.</p>
+
+                                <div class="listing-tile-stats">
+                                    <div class="property-listing-icons">
+                                        <div class="listing-icon">
+                                            <span class="icon"><svg class="bedroom" viewBox="0 0 50 50"><path class="stroke" fill="none" d="M25 11C4.8 11 1 14.7 1 18.4V49h6v-3h36v3h6V42.8 18.4c0-3.7-3.8-7.4-24-7.4zM49 26H1" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10"></path><path class="stroke" fill="none" d="M5 22.4c0-3.6 1.8-5.4 9-5.4s9 1.8 9 5.4V26H5v-3.6zM27 22.4c0-3.6 1.8-5.4 9-5.4s9 1.8 9 5.4V26H27v-3.6z" stroke-width="2.002" stroke-linecap="round" stroke-miterlimit="10"></path></svg><span class="icon-label">5</span></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="property-listing-icons">
+                                        <div class="listing-icon">
+                                            <span class="icon"><svg class="bathroom" viewBox="0 0 50 50"><path class="stroke" fill="none" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M1 22h48v4H1z"></path><path class="stroke" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" d="M49 26c-1.7 0-3 1.3-3 3v5c0 5.5-4.5 10-10 10H14C8.5 44 4 39.5 4 34v-5c0-1.7-1.3-3-3-3M41 47c-1.7 0-3-1.3-3-3M9 47c1.7 0 3-1.3 3-3"></path><path class="stroke" fill="none" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M39 6c0-2.8 2.2-5 5-5s5 2.2 5 5v16"></path><path class="stroke" fill="none" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M43 10h-8c0-2.2 1.8-4 4-4s4 1.8 4 4z"></path><circle class="fill" cx="39" cy="13" r="1"></circle><circle class="fill" cx="39" cy="16" r="1"></circle><circle class="fill" cx="39" cy="19" r="1"></circle><circle class="fill" cx="42" cy="13" r="1"></circle><circle class="fill" cx="43" cy="16" r="1"></circle><circle class="fill" cx="44" cy="19" r="1"></circle><circle class="fill" cx="36" cy="13" r="1"></circle><circle class="fill" cx="35" cy="16" r="1"></circle><circle class="fill" cx="34" cy="19" r="1"></circle></svg><span class="icon-label">3</span></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="property-listing-icons">
+                                        <div class="listing-icon">
+                                            <span class="icon"><svg class="occupant" viewBox="0 0 50 50"><g><path fill="none" class="stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M29.4 30.7c-.1-1.5-.1-2.5-.1-3.8.7-.3 1.8-2.6 2-4.4.5 0 1.3-.6 1.6-2.6.1-1.1-.3-1.8-.7-1.9 1.6-2 1.3-10.2-4.6-10.2L26.8 6c-8.4 0-11.5 6.5-9.1 12-.3.2-.8.8-.7 1.9.2 2 1.1 2.5 1.6 2.6.2 1.9 1.4 4.1 2.1 4.4 0 1.3 0 2.4-.1 3.8C19 34.9 8.4 33.7 7.9 42h34.2c-.5-8.3-11.1-7.1-12.7-11.3z"></path><path fill="none" class="stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.1 12.5c-.3-.1-.7-.1-1-.1l-.7-1.4c-6.4 0-8.8 5-6.9 9.3-.2.1-.6.6-.5 1.5.2 1.6.8 2 1.2 2 .2 1.5 1.1 3.2 1.6 3.5 0 1 0 1.8-.1 3-1.2 3.3-9.3 2.4-9.7 8.8h7M42 39h7c-.4-6.4-8.4-5.5-9.6-8.8-.1-1.1-.1-1.9-.1-3 .5-.3 1.4-2 1.5-3.4.4 0 1-.4 1.2-2 .1-.8-.2-1.4-.5-1.5 1.2-1.6 1-7.9-3.5-7.9l-.6-1.4c-1.6 0-3.3.2-4.7.8"></path></g></svg><span class="icon-label">7</span></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+								
+									<div class="property listing-tile-contact"><span class="icon"><svg class="message-icon" viewBox="0 0 50 50"><g><path fill="none" d="M0 0h50v50H0z"></path><path class="fill" d="M50 12.436L34.885 25.59 50 37.487v-25.05zM21.666 28.642C23.072 29.867 24.466 30 25 30s1.928-.133 3.334-1.358C29.752 27.406 48.046 11.487 50 9.786V7H0v2.78c3.012 2.623 20.3 17.67 21.666 18.862z"></path><path class="fill" d="M33.35 26.928l-3.702 3.222C27.73 31.82 25.758 32 25 32s-2.73-.18-4.648-1.85c-.35-.307-1.76-1.534-3.7-3.224L0 40.076V43h50v-2.97L33.35 26.93zM15.115 25.59L0 12.43v25.095L15.115 25.59z"></path></g></svg><span class="icon-label">Free to message</span></span></div>
+
+                            </div>
+							
+							<div class="col-lg-3 col-sm-3 col-xs-12 property-content">
+                                <input field="text" id="property_id" t-att-value='record_id' hidden='false'/>
+                                <div class="property-img">
+                                    <img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'
+                                         class="img-fluid"/>
+                                    <div class="propety-ribbon-blue">New |  $300</div>
+                                </div>
+								
+								
+								<div class="shortlist"><a class="default-shortlist shortlist-button"><svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></a></div>
+
+                                <p class="property-listing-heading mt-2"><a href="">Bronte</a>, <a href="">Sydney</a></p>
+                                <p class="property-listing-subheading">Room in a share house</p>
+                                <p class="property-listing-para">THE LOCATION:
+
+                                    6 minutes walk to Bronte beach through the trees.
+                                    100 steps to the bus stop, corner store and post box.
+                                    The only sound you'll hear is the birds and wind in the trees.
+                                    4 minute walk to famous Italian deli cafe.
+                                    8 minute walk through the park to 9 epic Bronte Beach cafes on the water.
+
+                                    THE HOUSE:
+
+                                    There is a sauna and pool.
+                                    NBN internet with 70mb down and 36mb up (which is very good btw)
+                                    Easy street parking right out front.
+                                    Clean and well furnished house with everything you could need already in the house and at your disposal.
+                                    One main funky bathroom PLUS one extra toilet and one extra shower downstairs next to the sauna.
+                                    Very well furnished kitchen with everything.
+                                    North south facing for great sunlight and views.
+                                    Multiple dining, reading and chilling areas.
+                                    Poolside balcony with good outdoor furniture.
+                                    Great security with code lock on front gate.
+                                    Lot's of plants!
+
+                                    THE ROOMS:
+
+                                    (Room 1, $350pw inc)
+                                    The front room is 2.8m x 4.2m.
+                                    It has a very large wardrobe (additional to dimensions above) that wraps around 1.5 walls.
+                                    Morning sun through front window.
+                                    Exposed floorboards with rugs for winter.
+                                    Dimmer light.
+                                    Queen sized bed and bedside table.
+                                    Plenty of picture hooks for decorating!
+
+                                    (Room 2, $330pw inc)
+                                    The second room is 3.3m x 2.7m.
+                                    It has a large wardrobe in one corner and fits a queen bed, although a double may be a better fit.
+                                    This room is carpeted and in the middle of the house so is quieter for a light sleeper :-)
+                                    Comes with a bed and bedside table.
+                                    It's a smaller room - but the house is huge and there's plenty of spots to spend your time if not in the room.
+
+                                    BILLS:
+
+                                    Internet, gas, electricity and water usage are all included in the rent.
+                                    Internet is the fastest plan possible.
+                                    Courtney and I have discussed having a cleaner once a week to do the common areas. This could work out to be around $15 per week each but it is very worth the money. Bathrooms, kitchen and common areas.
+                                    We are also keen to order all the shared consumables online each month so no one runs out of anything or has to go to the shops. Things like TP, laundry powder, cleaning stuff, shared kitchen stuff etc.
+                                    We are an environmentally aware house.</p>
+
+                                
+								
+								<div class="listing-tile-stats"><div class="person-listing-icons"><span>Couple</span><span class="listing-tile-applicant-age-stats">20 - 21</span></div></div>
+								
+								<div class="teamup listing-tile-contact"><abbr title="You need to be registered for Early Bird Access"><span class="icon"><svg class="early-bird" viewBox="0 0 24 19"><path class="fill" d="M21.08.79c-.348-.838-3.95-2.19-5.138 3.204L9.66 8.774.264 14.487l.47.165 1.25-.37L0 15.47l.65.228 6.726-2.028s3.034.42 5.398.422l-.334.68c-.112.228.84 2.515 1.19 3.604l-1.778.275c-.212.033-.12.36.09.327l1.872-.29 1.873.29c.21.032.3-.294.088-.326l-1.794-.276-.08-.28-.32-1.096-.594-2.044-.004-.012c.072-.147 2.342-1.197 2.342-1.197h-.002c8.246-3.012 3.704-9.918 5.442-10.99C21.494 2.302 24 1.626 24 1.626c0-.77-2.92-.837-2.92-.837z"></path></svg><span class="icon-label">Early bird</span></span></abbr></div>
+								
+									
+
+                            </div>
+
+
+                            
+
+
                         </div>
 
                         <div class="sk-fading-circle" id="load_symbol">
@@ -118,172 +281,3 @@
 </odoo>
 
 
-        <!--<div class="col-lg-3 col-sm-3 col-xs-12 property-content">-->
-        <!--<input field="text" id="property_id" t-att-value='record_id' hidden='false'/>-->
-        <!--<div class="property-img">-->
-        <!--<img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'-->
-        <!--class="img-fluid"/>-->
-        <!--<div class="propety-ribbon">New |  $300</div>-->
-        <!--</div>-->
-
-        <!--<p class="property-listing-heading mt-2"><a href="">Bronte</a>, <a href="">Sydney</a></p>-->
-        <!--<p class="property-listing-subheading">Room in a share house</p>-->
-        <!--<p class="property-listing-para">THE LOCATION:-->
-
-        <!--6 minutes walk to Bronte beach through the trees.-->
-        <!--100 steps to the bus stop, corner store and post box.-->
-        <!--The only sound you'll hear is the birds and wind in the trees.-->
-        <!--4 minute walk to famous Italian deli cafe.-->
-        <!--8 minute walk through the park to 9 epic Bronte Beach cafes on the water.-->
-
-        <!--THE HOUSE:-->
-
-        <!--There is a sauna and pool.-->
-        <!--NBN internet with 70mb down and 36mb up (which is very good btw)-->
-        <!--Easy street parking right out front.-->
-        <!--Clean and well furnished house with everything you could need already in the house and at your disposal.-->
-        <!--One main funky bathroom PLUS one extra toilet and one extra shower downstairs next to the sauna.-->
-        <!--Very well furnished kitchen with everything.-->
-        <!--North south facing for great sunlight and views.-->
-        <!--Multiple dining, reading and chilling areas.-->
-        <!--Poolside balcony with good outdoor furniture.-->
-        <!--Great security with code lock on front gate.-->
-        <!--Lot's of plants!-->
-
-        <!--THE ROOMS:-->
-
-        <!--(Room 1, $350pw inc)-->
-        <!--The front room is 2.8m x 4.2m.-->
-        <!--It has a very large wardrobe (additional to dimensions above) that wraps around 1.5 walls.-->
-        <!--Morning sun through front window.-->
-        <!--Exposed floorboards with rugs for winter.-->
-        <!--Dimmer light.-->
-        <!--Queen sized bed and bedside table.-->
-        <!--Plenty of picture hooks for decorating!-->
-
-        <!--(Room 2, $330pw inc)-->
-        <!--The second room is 3.3m x 2.7m.-->
-        <!--It has a large wardrobe in one corner and fits a queen bed, although a double may be a better fit.-->
-        <!--This room is carpeted and in the middle of the house so is quieter for a light sleeper :-)-->
-        <!--Comes with a bed and bedside table.-->
-        <!--It's a smaller room - but the house is huge and there's plenty of spots to spend your time if not in the room.-->
-
-        <!--BILLS:-->
-
-        <!--Internet, gas, electricity and water usage are all included in the rent.-->
-        <!--Internet is the fastest plan possible.-->
-        <!--Courtney and I have discussed having a cleaner once a week to do the common areas. This could work out to be around $15 per week each but it is very worth the money. Bathrooms, kitchen and common areas.-->
-        <!--We are also keen to order all the shared consumables online each month so no one runs out of anything or has to go to the shops. Things like TP, laundry powder, cleaning stuff, shared kitchen stuff etc.-->
-        <!--We are an environmentally aware house.</p>-->
-
-        <!--<div class="listing-tile-stats">-->
-        <!--<div class="property-listing-icons">-->
-        <!--<div class="listing-icon">-->
-        <!--<span class="icon"><svg class="bedroom" viewBox="0 0 50 50"><path class="stroke" fill="none" d="M25 11C4.8 11 1 14.7 1 18.4V49h6v-3h36v3h6V42.8 18.4c0-3.7-3.8-7.4-24-7.4zM49 26H1" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10"></path><path class="stroke" fill="none" d="M5 22.4c0-3.6 1.8-5.4 9-5.4s9 1.8 9 5.4V26H5v-3.6zM27 22.4c0-3.6 1.8-5.4 9-5.4s9 1.8 9 5.4V26H27v-3.6z" stroke-width="2.002" stroke-linecap="round" stroke-miterlimit="10"></path></svg><span class="icon-label">5</span></span>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="property-listing-icons">-->
-        <!--<div class="listing-icon">-->
-        <!--<span class="icon"><svg class="bathroom" viewBox="0 0 50 50"><path class="stroke" fill="none" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M1 22h48v4H1z"></path><path class="stroke" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" d="M49 26c-1.7 0-3 1.3-3 3v5c0 5.5-4.5 10-10 10H14C8.5 44 4 39.5 4 34v-5c0-1.7-1.3-3-3-3M41 47c-1.7 0-3-1.3-3-3M9 47c1.7 0 3-1.3 3-3"></path><path class="stroke" fill="none" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M39 6c0-2.8 2.2-5 5-5s5 2.2 5 5v16"></path><path class="stroke" fill="none" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M43 10h-8c0-2.2 1.8-4 4-4s4 1.8 4 4z"></path><circle class="fill" cx="39" cy="13" r="1"></circle><circle class="fill" cx="39" cy="16" r="1"></circle><circle class="fill" cx="39" cy="19" r="1"></circle><circle class="fill" cx="42" cy="13" r="1"></circle><circle class="fill" cx="43" cy="16" r="1"></circle><circle class="fill" cx="44" cy="19" r="1"></circle><circle class="fill" cx="36" cy="13" r="1"></circle><circle class="fill" cx="35" cy="16" r="1"></circle><circle class="fill" cx="34" cy="19" r="1"></circle></svg><span class="icon-label">3</span></span>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="property-listing-icons">-->
-        <!--<div class="listing-icon">-->
-        <!--<span class="icon"><svg class="occupant" viewBox="0 0 50 50"><g><path fill="none" class="stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M29.4 30.7c-.1-1.5-.1-2.5-.1-3.8.7-.3 1.8-2.6 2-4.4.5 0 1.3-.6 1.6-2.6.1-1.1-.3-1.8-.7-1.9 1.6-2 1.3-10.2-4.6-10.2L26.8 6c-8.4 0-11.5 6.5-9.1 12-.3.2-.8.8-.7 1.9.2 2 1.1 2.5 1.6 2.6.2 1.9 1.4 4.1 2.1 4.4 0 1.3 0 2.4-.1 3.8C19 34.9 8.4 33.7 7.9 42h34.2c-.5-8.3-11.1-7.1-12.7-11.3z"></path><path fill="none" class="stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.1 12.5c-.3-.1-.7-.1-1-.1l-.7-1.4c-6.4 0-8.8 5-6.9 9.3-.2.1-.6.6-.5 1.5.2 1.6.8 2 1.2 2 .2 1.5 1.1 3.2 1.6 3.5 0 1 0 1.8-.1 3-1.2 3.3-9.3 2.4-9.7 8.8h7M42 39h7c-.4-6.4-8.4-5.5-9.6-8.8-.1-1.1-.1-1.9-.1-3 .5-.3 1.4-2 1.5-3.4.4 0 1-.4 1.2-2 .1-.8-.2-1.4-.5-1.5 1.2-1.6 1-7.9-3.5-7.9l-.6-1.4c-1.6 0-3.3.2-4.7.8"></path></g></svg><span class="icon-label">7</span></span>-->
-        <!--</div>-->
-        <!--</div>-->
-
-
-        <!--<div class="property listing-tile-contact"><span class="icon"><svg class="message-icon" viewBox="0 0 50 50"><g><path fill="none" d="M0 0h50v50H0z"></path><path class="fill" d="M50 12.436L34.885 25.59 50 37.487v-25.05zM21.666 28.642C23.072 29.867 24.466 30 25 30s1.928-.133 3.334-1.358C29.752 27.406 48.046 11.487 50 9.786V7H0v2.78c3.012 2.623 20.3 17.67 21.666 18.862z"></path><path class="fill" d="M33.35 26.928l-3.702 3.222C27.73 31.82 25.758 32 25 32s-2.73-.18-4.648-1.85c-.35-.307-1.76-1.534-3.7-3.224L0 40.076V43h50v-2.97L33.35 26.93zM15.115 25.59L0 12.43v25.095L15.115 25.59z"></path></g></svg><span class="icon-label">Free to message</span></span></div>-->
-
-        <!--</div>-->
-
-        <!--</div>-->
-
-
-        <!--<div class="col-lg-3 col-sm-3 col-xs-12 property-content">-->
-        <!--<input field="text" id="property_id" t-att-value='record_id' hidden='false'/>-->
-        <!--<div class="property-img">-->
-        <!--<img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'-->
-        <!--class="img-fluid"/>-->
-        <!--<div class="propety-ribbon">New |  $300</div>-->
-        <!--</div>-->
-
-        <!--<p class="property-listing-heading mt-2"><a href="">Bronte</a>, <a href="">Sydney</a></p>-->
-        <!--<p class="property-listing-subheading">Room in a share house</p>-->
-        <!--<p class="property-listing-para">THE LOCATION:-->
-
-        <!--6 minutes walk to Bronte beach through the trees.-->
-        <!--100 steps to the bus stop, corner store and post box.-->
-        <!--The only sound you'll hear is the birds and wind in the trees.-->
-        <!--4 minute walk to famous Italian deli cafe.-->
-        <!--8 minute walk through the park to 9 epic Bronte Beach cafes on the water.-->
-
-        <!--THE HOUSE:-->
-
-        <!--There is a sauna and pool.-->
-        <!--NBN internet with 70mb down and 36mb up (which is very good btw)-->
-        <!--Easy street parking right out front.-->
-        <!--Clean and well furnished house with everything you could need already in the house and at your disposal.-->
-        <!--One main funky bathroom PLUS one extra toilet and one extra shower downstairs next to the sauna.-->
-        <!--Very well furnished kitchen with everything.-->
-        <!--North south facing for great sunlight and views.-->
-        <!--Multiple dining, reading and chilling areas.-->
-        <!--Poolside balcony with good outdoor furniture.-->
-        <!--Great security with code lock on front gate.-->
-        <!--Lot's of plants!-->
-
-        <!--THE ROOMS:-->
-
-        <!--(Room 1, $350pw inc)-->
-        <!--The front room is 2.8m x 4.2m.-->
-        <!--It has a very large wardrobe (additional to dimensions above) that wraps around 1.5 walls.-->
-        <!--Morning sun through front window.-->
-        <!--Exposed floorboards with rugs for winter.-->
-        <!--Dimmer light.-->
-        <!--Queen sized bed and bedside table.-->
-        <!--Plenty of picture hooks for decorating!-->
-
-        <!--(Room 2, $330pw inc)-->
-        <!--The second room is 3.3m x 2.7m.-->
-        <!--It has a large wardrobe in one corner and fits a queen bed, although a double may be a better fit.-->
-        <!--This room is carpeted and in the middle of the house so is quieter for a light sleeper :-)-->
-        <!--Comes with a bed and bedside table.-->
-        <!--It's a smaller room - but the house is huge and there's plenty of spots to spend your time if not in the room.-->
-
-        <!--BILLS:-->
-
-        <!--Internet, gas, electricity and water usage are all included in the rent.-->
-        <!--Internet is the fastest plan possible.-->
-        <!--Courtney and I have discussed having a cleaner once a week to do the common areas. This could work out to be around $15 per week each but it is very worth the money. Bathrooms, kitchen and common areas.-->
-        <!--We are also keen to order all the shared consumables online each month so no one runs out of anything or has to go to the shops. Things like TP, laundry powder, cleaning stuff, shared kitchen stuff etc.-->
-        <!--We are an environmentally aware house.</p>-->
-
-        <!--<div class="listing-tile-stats">-->
-        <!--<div class="property-listing-icons">-->
-        <!--<div class="listing-icon">-->
-
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="property-listing-icons">-->
-        <!--<div class="listing-icon">-->
-
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="property-listing-icons">-->
-        <!--<div class="listing-icon">-->
-
-        <!--</div>-->
-        <!--</div>-->
-
-
-        <!--<div class="property listing-tile-contact"><span class="icon"><svg class="message-icon" viewBox="0 0 50 50"><g><path fill="none" d="M0 0h50v50H0z"></path><path class="fill" d="M50 12.436L34.885 25.59 50 37.487v-25.05zM21.666 28.642C23.072 29.867 24.466 30 25 30s1.928-.133 3.334-1.358C29.752 27.406 48.046 11.487 50 9.786V7H0v2.78c3.012 2.623 20.3 17.67 21.666 18.862z"></path><path class="fill" d="M33.35 26.928l-3.702 3.222C27.73 31.82 25.758 32 25 32s-2.73-.18-4.648-1.85c-.35-.307-1.76-1.534-3.7-3.224L0 40.076V43h50v-2.97L33.35 26.93zM15.115 25.59L0 12.43v25.095L15.115 25.59z"></path></g></svg><span class="icon-label">Free to message</span></span></div>-->
-
-        <!--</div>-->
-
-
-        <!--</div>-->

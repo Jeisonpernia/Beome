@@ -4,6 +4,10 @@ $(document).ready(function()
 {// Start of document
 
      "use strict";
+
+     // For display popup message(tooltip) on Property address field
+    $('[data-toggle="tooltip"]').tooltip();
+    ////////////////////////////////////////////
 //  ======================================================
 //  = --------------  General Statements  -------------- =
 //  ======================================================
@@ -19,12 +23,6 @@ $(document).ready(function()
             $('.about-others-nxt-btn').prop("disabled", true)
     }
 
-    if (window_pathname.includes('about-property'))
-    {
-        console.log ("In general statement if (window_pathname.includes('about-property'))")
-        if ($(this).find("#comment").val().length<10)
-            $('.about-property-nxt-btn').prop("disabled", true)
-    }
 
    if (window.location.pathname == '/listplace/whole-property/about')
     {
@@ -271,6 +269,72 @@ $(document).ready(function()
         }
 
     });
+
+
+    // Need to implement a RED "tell us a little more (10 character minimum)" for INTRODUCE YOURSELF
+        var $input = $('#comment');
+
+        if (window_pathname.includes('about-others'))
+        {
+        console.log ("In general statement if (window_pathname.includes('about-others'))")
+        if ($(this).find("#comment").val().length<10)
+            $('.about-others-nxt-btn').prop("disabled", true)
+
+        if ($input.val().length == 0 )
+            {
+                $('.styles__errorMessage1').hide();
+            }
+        }
+
+
+
+        $input.on('keyup', function (){
+            if ($input.val().length == 0 )
+                {
+                    $('.styles__errorMessage1').hide();
+                }
+
+            if ($input.val().length <= 9 )
+                {
+                    $('.styles__errorMessage1').show();
+                }
+            else
+               {
+                    $('.styles__errorMessage1').hide();
+               }
+
+
+        });
+
+
+
+    var $input1 = $(".property_something");
+        if (window_pathname.includes('about-property'))
+        {
+                     if ($input1.val().length == 0 )
+                    {
+                        $('.styles__errorMessage2').hide();
+                    }
+            console.log ("In general statement if (window_pathname.includes('about-property'))")
+            if ($(this).find("#comment").val().length<10)
+                $('.about-property-nxt-btn').prop("disabled", true)
+        }
+        $input1.on('keyup', function (){
+
+            if ($input1.val().length == 0 )
+                {
+                    $('.styles__errorMessage2').hide();
+                }
+
+            if ($input1.val().length <= 9 )
+                {
+                    $('.styles__errorMessage2').show();
+                }
+            else
+                {
+                    $('.styles__errorMessage2').hide();
+                }
+        });
 
 //  = --------------  End of Validations for /listplace/share-house/property-images  -------------- =
 });// End of document
