@@ -1505,7 +1505,7 @@ z-index: 1;
 font-size: 25px;
 background: #ccc;
 opacity: 0.5;
-top: 50%;
+top: 36%;
 float: left;
 left: 20px;
 box-shadow: 0px;
@@ -1519,7 +1519,7 @@ z-index: 1;
 font-size: 25px;
 background: #ccc;
 opacity: 0.5;
-top: 50%;
+top: 36%;
 float: right;
 right: 20px;
 border: none;
@@ -1546,9 +1546,76 @@ outline: none;
 }
 
 .property-slider{
-	position: relative;
-	
+	position: relative;	
 }
+
+.property-slider .scrolling-wrapper {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  background: #eaebec;
+	height: 400px;
+}
+ .property-slider .scrolling-wrapper .card {
+    display: inline-block;
+    object-fit: fill;
+	 border-radius: 0px;
+	 width: auto;
+	 height: 100%;
+  }
+
+.property-slider .add-photos-slide{
+	background: #eaebec;
+}
+
+.property-slider .scrolling-wrapper .arrow-left{
+border: none;
+padding: 5px 12px;
+position: absolute;
+z-index: 1;
+font-size: 25px;
+background: #ccc;
+opacity: 0.5;
+top: 44%;
+float: left;
+left: 20px;
+box-shadow: 0px;
+outline: none;	
+}
+
+.property-slider .scrolling-wrapper .arrow-right{
+padding: 5px 12px;
+position: absolute;
+z-index: 1;
+font-size: 25px;
+background: #ccc;
+opacity: 0.5;
+top: 44%;
+float: right;
+right: 20px;
+border: none;
+box-shadow: 0px;
+outline: none;	
+}
+
+.property-slider .scrolling-wrapper .arrow-left:focus{
+	background: #11836c;
+	opacity: 1;
+	color: #fff;
+	border: none;
+	box-shadow: 0px;
+	outline: none;
+}
+
+.property-slider .scrolling-wrapper .arrow-right:focus{
+	background: #11836c;
+	opacity: 1;
+	color: #fff;
+	border: none;
+	box-shadow: 0px;	
+	outline: none;
+}
+
 
 .info-page .breadcrumb{
 	background-color: #fff;
@@ -1718,7 +1785,47 @@ top: 20px;
 	z-index: 1;
 }
 
-.slider .delete-slider .fa{
-	padding: 20px;
+.slider .delete-slider .fa-trash{
+background: rgba(47, 58, 74, 0.85);
+margin: 15px;
+width: 60px;
+height: 60px;
+line-height: 60px;
+border-radius: 50%;
+color: #fff;
 }
 
+hr{
+  border-style: solid;
+  border-color:#37bc9b;
+}
+
+.website_blog .o_blog_cover_container > .blog_title{
+	text-align: left;
+	padding: 48px;
+}
+
+.website_blog .o_blog_post_complete.o_sharing_links > a{
+	padding: 0 20px;
+}
+
+
+.about-profilepic-txt{
+	height: 60px;
+	line-height: 60px;
+	font-size: 16px;
+}
+
+.info-page .breadcrumb .breadcrumb-item:last-child a:link{
+	color: #6d7580;
+}
+
+.border-red{
+	border:1px solid #cb104b;
+}
+
+.gray-border{
+	border:10px solid;
+	border-top:0px;
+	border-color:rgba(47,58,74,0.3);
+}

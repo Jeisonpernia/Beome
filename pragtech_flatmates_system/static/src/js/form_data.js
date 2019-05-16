@@ -28,6 +28,7 @@ $(document).ready(function() {
             console.log('//////////////////////////////// ',temp_dict)
             console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
+            alert("Page")
 
         });
 
@@ -36,6 +37,10 @@ $(document).ready(function() {
             console.log(record_array)
 
                 localStorage.setItem('find_place_record', JSON.stringify(record_array));
+            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+            alert("Page")
+
         });
 
         $( "#find_property_preferences" ).submit(function( event ) {
@@ -50,6 +55,11 @@ $(document).ready(function() {
             record_array[0]['find_preferred_length_stay'] = find_preferred_length_stay
 
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
+
+            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+            alert("Page")
+
         });
 
         $( "#find_introduce_yourself" ).submit(function( event ) {
@@ -75,6 +85,10 @@ $(document).ready(function() {
             console.log(find_no_of_flatmates)
             console.log(record_array)
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
+                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+            alert("Page")
+
         });
 
         $( "#introduce_flatmates" ).submit(function( event ) {
@@ -82,6 +96,11 @@ $(document).ready(function() {
             console.log(record_array)
 
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
+
+                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+            alert("Page")
+
         });
 
         $( document ).on('submit','#find_employment',function( event ) {
@@ -146,6 +165,10 @@ $(document).ready(function() {
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
             console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
 
+            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+            alert("Page")
+
         });
 
         $( "#find_lifestyle" ).submit(function( event ) {
@@ -164,6 +187,11 @@ $(document).ready(function() {
             console.log('Employment status :: ',find_employment_status)
             console.log('LOCAL STORAGE ',localStorage.getItem('find_place_record'))
 //            event.preventDefault()
+
+            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+            alert("Page")
+
         });
 
         $( "#find_about_yourself" ).submit(function( event ) {
@@ -178,6 +206,10 @@ $(document).ready(function() {
 
             record_array[0]['find_lifestyle'] = find_lifestyle
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
+                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+            alert("Page")
+
         });
 
 
@@ -220,7 +252,10 @@ $(document).ready(function() {
                 });
 
 		    }
-//		    event.preventDefault()
+		                console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+
+		    event.preventDefault()
 
         });
 

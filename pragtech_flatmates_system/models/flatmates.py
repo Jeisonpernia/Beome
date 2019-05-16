@@ -9,36 +9,6 @@ class Flatmates(models.Model):
     name = fields.Char(string="Property Name")
     is_listing = fields.Boolean('Listing')
     is_finding = fields.Boolean('Finding')
-
-    total_bedrooms_id = fields.Many2one('bedrooms',string="Total Bedrooms")
-    total_bathrooms_id = fields.Many2one('bathrooms', string="Total Bathrooms")
-    internet_id = fields.Many2one('internet', string="Internet")
-    total_no_flatmates_id = fields.Many2one('total.flatmates', string="Total number of flatmates")
-    # flatmate_preference_id = fields.Many2one('flatmate.preference',string="Flatmate Preference")
-    parking_id = fields.Many2one('parking',string="Parking")
-    min_len_stay_id = fields.Many2one('minimum.length.stay',string="Minimum length of stay")
-    max_len_stay_id = fields.Many2one('maximum.length.stay',string="Maximum length of stay")
-    description_about_property = fields.Text('Property Description')
-    description_about_user = fields.Text('About Flatmates')
-    property_image_ids = fields.One2many('property.image', 'flat_mates_id', string='Images')
-    user_id = fields.Many2one('res.users',string="User")
-    street = fields.Char()
-    street2 = fields.Char()
-    city = fields.Char()
-    state_id = fields.Many2one('res.country.state')
-    zip = fields.Char()
-    country_id = fields.Many2one('res.country')
-    latitude = fields.Char()
-    longitude = fields.Char()
-    bond_id = fields.Many2one('bond.bond',string="Bond")
-    bill_id = fields.Many2one('bill.bill', string="Bill")
-    accommodation_type = fields.Selection([('rooms_in_an_existing_sharehouse','Room(s) in an existing sharehouse'),('whole_property_for_rent','Whole property for rent'),('student_accommodation','Student accommodation'),('homestay','Homestay')], string="Type of Accommodation")
-    type = fields.Selection([('house','House'),('flat','Flat')], string="Typs of property")
-    pref = fields.Selection([('anyone','Anyone'),('females_only','Females only'),('males_only','Males only'),\
-                             ('no_couple','Female or male(no couples)'),('couple','Couple')],string="Flatmate Preference")
-    rooms_ids = fields.One2many('about.rooms','flatmate_id', string="About the room(s)")
-    weekly_rent = fields.Float(string="Weekly rent")
-    avil_date = fields.Date(string="Date available")
     backpackers = fields.Boolean('Backpackers')
     students = fields.Boolean('Students')
     smokers = fields.Boolean('Smokers')
@@ -48,9 +18,60 @@ class Flatmates(models.Model):
     pets = fields.Boolean('Pets')
     retirees = fields.Boolean('Retirees')
     on_welfare = fields.Boolean('On welfare')
+    description_about_property = fields.Text('Property Description')
+    description_about_user = fields.Text('About Flatmates')
+    # property_image_ids = fields.One2many('property.image', 'flat_mates_id', string='Images')
+    street = fields.Char()
+    street2 = fields.Char()
+    city = fields.Char()
+    state_id = fields.Many2one('res.country.state')
+    zip = fields.Char()
+    country_id = fields.Many2one('res.country')
+    latitude = fields.Char()
+    longitude = fields.Char()
+    weekly_rent = fields.Float(string="Weekly rent") # Redun
+    prefered_move_date = fields.Date('Preferred move date') # Redun
+    weekly_budget = fields.Float('Weekly budget/Weekly Rent')
+    avil_date = fields.Date(string="Date available/Preferred move date")
+    min_len_stay_id = fields.Many2one('minimum.length.stay',string="Minimum length of stay")
+    max_len_stay_id = fields.Many2one('minimum.length.stay',string="Maximum length of stay")
+    bond_id = fields.Many2one('bond.bond',string="Bond")
+    bill_id = fields.Many2one('bill.bill', string="Bill")
+    total_bedrooms_id = fields.Many2one('bedrooms',string="Total Bedrooms")
+    total_bathrooms_id = fields.Many2one('bathrooms', string="Total Bathrooms")
+    internet_id = fields.Many2one('internet', string="Internet")
+    parking_id = fields.Many2one('parking',string="Parking")
+    user_id = fields.Many2one('res.users',string="User")
+    accommodation_type = fields.Selection([('rooms_in_an_existing_sharehouse', 'Room(s) in an existing sharehouse'),
+                                           ('whole_property_for_rent', 'Whole property for rent'),
+                                           ('student_accommodation', 'Student accommodation'),
+                                           ('homestay', 'Homestay')], string="Type of Accommodation")
+    type = fields.Selection([('house','House'),('flat','Flat')], string="Typs of property")
+    # rooms_ids = fields.One2many('about.rooms','flatmate_id', string="About the room(s)")
+    total_no_flatmates_id = fields.Many2one('total.flatmates', string="Total number of flatmates")
 
-    weekly_budget = fields.Float('Weekly budget')
-    prefered_move_date = fields.Date('Preferred move date')
+
+
+
+    # flatmate_preference_id = fields.Many2one('flatmate.preference',string="Flatmate Preference")
+
+
+
+    pref = fields.Selection([('anyone','Anyone'),('females_only','Females only'),('males_only','Males only'),\
+                             ('no_couple','Female or male(no couples)'),('couple','Couple')],string="Flatmate Preference")
+
+
+
+
+
+
+
+
+
+
+
+
+
     is_teamups = fields.Boolean('Teamups')
     # max_no_flatmates = fields.Selection([('flexible','Flexible'),('1_others','1 Others'),('2_others','2 Others')], string="")
     #need to add fields for find my place
@@ -82,30 +103,32 @@ class Flatmates(models.Model):
     # bill = fields.Selection([('add to the rent','Additional to the rent'),('some incl.in rent','Some included in the rent'),('included in rent','Included in rent')], string="Bill")
 
 
+# class PropertyImage(models.Model):
+#     _name = 'property.image'
+#     _description = 'Property Image'
+#
+#     name = fields.Char('Name')
+#     image = fields.Binary('Image', attachment=True)
+#     flat_mates_id = fields.Many2one('flat.mates', 'Related Property', copy=True)
+#     flat_mates_id = fields.Many2one('flat.mates', 'Related Property', copy=True)
 
-class AboutRooms(models.Model):
-    
-    _name = 'about.rooms'
-    _description = 'Rooms details'
-    
-    
-    flatmate_id = fields.Many2one('flat.mates', string="Flatmates")
-    # name = fields.Selection([('private','Private'),('shared','Shared')], string="Room Type" ,required=True)
-    # room_furnishing = fields.Selection([('flexible','Flexible'),('furnished','Furnished'),('unfurnished','Unfurnished')], string="Room Furnishings",required=True)
-    # bath_room = fields.Selection([('shared','Shared'),('own','Own'),('ensuite','Ensuite')], string="Bathroom",required=True)
-    bath_room_type_id = fields.Many2one('bathroom.types', string='Bathroom')
-    room_furnishing_id = fields.Many2one('room.furnishing', string='Room Furnishings')
-    room_type_id = fields.Many2one('room.types', string='Room Type')
+# class AboutRooms(models.Model):
+#
+#     _name = 'about.rooms'
+#     _description = 'Rooms details'
+#
+#
+#     flatmate_id = fields.Many2one('flat.mates', string="Flatmates")
+#     # name = fields.Selection([('private','Private'),('shared','Shared')], string="Room Type" ,required=True)
+#     # room_furnishing = fields.Selection([('flexible','Flexible'),('furnished','Furnished'),('unfurnished','Unfurnished')], string="Room Furnishings",required=True)
+#     # bath_room = fields.Selection([('shared','Shared'),('own','Own'),('ensuite','Ensuite')], string="Bathroom",required=True)
+#     bath_room_type_id = fields.Many2one('bathroom.types', string='Bathroom')
+#     room_furnishing_id = fields.Many2one('room.furnishing', string='Room Furnishings')
+#     room_type_id = fields.Many2one('room.types', string='Room Type')
 
 
 
-class PropertyImage(models.Model):
-    _name = 'property.image'
-    _description = 'Property Image'
 
-    name = fields.Char('Name')
-    image = fields.Binary('Image', attachment=True)
-    flat_mates_id = fields.Many2one('flat.mates', 'Related Property', copy=True)
 
     # @api.model
     # def create(self,vals):

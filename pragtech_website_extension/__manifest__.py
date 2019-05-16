@@ -13,7 +13,7 @@
         'views/portal_templates.xml',
        # 'views/webclient_template.xml',
         'views/assets.xml',
-        # 'views/auth_oauth_templates.xml'
+        'views/auth_oauth_templates.xml'
     ],
     'qweb': [
     ],

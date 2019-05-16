@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<template id="login_from_auth" inherit_id="pragtech_website_extension.portal_show_sign_inherited" name="OAuth Login buttons">
-		<xpath expr="//form" position="before">
-                <t t-set="form_small" t-value="True" t-if="len(providers) &gt; 2"/>
-            </xpath>
-            <xpath expr="//div[hasclass('o_login_auth')]" position="inside">
-                <t t-call="auth_oauth.providers"/>
-            </xpath>
+    <!--<template id="login_from_auth" inherit_id="pragtech_website_extension.portal_show_sign_inherited" name="OAuth Login buttons">-->
+        <!--<xpath expr="//form" position="before">-->
+            <!--<t t-set="form_small" t-value="True" t-if="len(providers) &gt; 2"/>-->
+        <!--</xpath>-->
+        <!--<xpath expr="//div[hasclass('o_login_auth')]" position="inside">-->
+            <!--<t t-call="auth_oauth.providers"/>-->
+        <!--</xpath>-->
+    <!--</template>-->
+
+        <template id="auth_oauth.providers" name="OAuth Providers">
+            <t t-if="len(providers) &gt; 0">
+                <div class="o_auth_oauth_providers list-group mt-1 mb-1 text-left">
+                    <a t-foreach="providers" t-as="p" class="list-group-item-action py-2 btn-fb" t-att-href="p['auth_link']">
+                            <i class="fa fa-facebook"></i>
+                            <!--<i t-att-class="p['css_class']"/>-->
+                        <t t-esc="p['body']"/>
+                    </a>
+                </div>
+                <em t-attf-class="d-block text-center text-muted  my-#{len(providers) if len(providers) &lt; 3 else 3}">- or -</em>
+            </t>
+        </template>
 
 		<!--<t t-set="form_small" t-value="True" t-if="len(providers) &gt; 2"/>-->
 			  <!--<xpath expr="//form" position="replace">-->
@@ -61,5 +75,5 @@
             <xpath expr="//div[hasclass('o_login_auth')]" position="inside">
                 <t t-call="auth_oauth.providers"/>
             </xpath> -->
-        </template>
+
 </odoo>

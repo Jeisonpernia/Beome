@@ -66,7 +66,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 share-house find-sharehouse find-active-property"
                                                      id="find-share-house">
                                                     <input type="checkbox" name="find_place_looking"
-                                                           value="rooms_in_existing_share_house" class="d-none"/>
+                                                           t-att-value="rooms_in_existing_share_house" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="34" viewBox="0 0 42 34">
                                                             <path d="M39.049 11.732v21.463H2.95V11.732M41 12.707L21 1 1 12.707h40zM7.83 26.366h8.78v-4.878H7.83v4.878zm15.609 6.83V21.487h8.78v11.707"
@@ -77,13 +77,14 @@
                                                     </span>
                                                 </div>
                                                 <p>Room(s) in an existing sharehouse</p>
+                                                <!--<span><t t-esc="rooms_in_existing_share_house"/></span>-->
                                             </div>
 
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-wholeproperty find-active-property"
                                                      id="find-whole-property">
                                                     <input type="checkbox" name="find_place_looking"
-                                                           value="whole_property" class="d-none"/>
+                                                           t-att-value="whole_property" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="31" viewBox="0 0 42 31">
                                                             <path d="M30.5 9.78h5.283L41 29.293H1L6.217 9.78h4.86M21 1L8.317 12.708h2.206v11.707h7.72v-7.026h5.514v7.026h7.72V12.708h2.206L21 1z"
@@ -99,7 +100,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-studio find-active-property"
                                                      id="find-studio">
-                                                    <input type="checkbox" name="find_place_looking" value="studio"
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="studio"
                                                            class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="34" height="34" viewBox="0 0 34 34">
@@ -116,7 +117,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-grannyflats find-active-property"
                                                      id="find-granny-flats">
-                                                    <input type="checkbox" name="find_place_looking" value="granny_flat"
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="granny_flat"
                                                            class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="26" height="35" viewBox="0 0 26 35">
@@ -138,7 +139,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find-onebedflat find-active-property"
                                                      id="find-one-bad-flat">
                                                     <input type="checkbox" name="find_place_looking"
-                                                           value="one_bed_flat" class="d-none"/>
+                                                           t-att-value="one_bed_flat" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="38" height="32" viewBox="0 0 38 32">
                                                             <path d="M37.208 27.917v3.024M.792 27.917v3.024M.792 20h36.416v7.917H.792V20zm33.25-5.02V1H3.958v13.997m17.417-1.33v-4.75a1.314 1.314 0 0 1 1.583-1.41 8.518 8.518 0 0 0 4.497 0 1.425 1.425 0 0 1 1.773 1.41v4.75m-20.52 0v-4.75a1.314 1.314 0 0 1 1.584-1.41 8.518 8.518 0 0 0 4.496 0 1.425 1.425 0 0 1 1.774 1.41v4.75M37.208 20H.808v-.222c0-3.166 3.673-6.111 8.185-6.111h20.045c4.513 0 8.17 2.865 8.17 6.111V20z"
@@ -154,7 +155,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-homestay find-active-property"
                                                      id="find-home-stay">
-                                                    <input type="checkbox" name="find_place_looking" value="homestay"
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="homestay"
                                                            class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="43" viewBox="0 0 42 43">
@@ -171,11 +172,11 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-shared-room find-active-property"
                                                      id="find-shared-room">
+                                                    <!--<input type="checkbox" name="find_place_looking"-->
+                                                           <!--value="student_accommodation" class="d-none"/>-->
                                                     <input type="checkbox" name="find_place_looking"
-                                                           value="student_accommodation" class="d-none"/>
+                                                               t-att-value="shared_room" class="d-none"/>
                                                     <span class="icon">
-                                                        <input type="checkbox" name="find_place_looking"
-                                                               value="shared_room" class="d-none"/>
                                                         <svg width="46" height="24" viewBox="0 0 46 24">
                                                             <path d="M20.736 20.199v2.157M1.536 20.2v2.157m0-7.802h19.2V20.2h-19.2v-5.645zm16.924-4.529V1H3.78v9.036m3.906 0V6.688a1.073 1.073 0 0 1 1.427-.998 9.025 9.025 0 0 0 3.896 0 1.202 1.202 0 0 1 1.534 1.009v3.337m6.203 4.518H1.547v-.14c0-2.317 1.492-4.356 4.712-4.356h9.765c3.22 0 4.712 2.039 4.712 4.357l.01.14zM44.463 20.2v2.157M25.253 20.2v2.157m.011-7.802h19.2V20.2h-19.2v-5.645zm16.914-4.529V1H27.497v9.036m3.917 0V6.688a1.073 1.073 0 0 1 1.427-.998 9.015 9.015 0 0 0 3.896 0 1.202 1.202 0 0 1 1.534 1.009v3.337m6.192 4.518H25.275v-.14c0-2.317 1.481-4.356 4.711-4.356h9.766c3.22 0 4.711 2.039 4.711 4.357v.14z"
                                                                   stroke="#2F3A4A" stroke-width="1.5" fill="none"
@@ -192,7 +193,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find-studentaccommodation find-active-property"
                                                      id="find-student-accommodation">
                                                     <input type="checkbox" name="find_place_looking"
-                                                           value="student_accommodation" class="d-none"/>
+                                                           t-att-value="student_accommodation" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="43" viewBox="0 0 42 43">
                                                             <path d="M1 34.043v-19.13h40v19.13m0-5.217H25.348V14.913m0 6.957H41m-8.696 3.478h1.74m-1.74-6.957h1.74M4.477 11.435H20.13V1H4.478v10.435zm13.732 3.297l-3.298-3.297H9.695l-3.188 3.19"
@@ -460,21 +461,28 @@
                                             <div class="form-group">
                                                 <span class="mb-1">Max number of flatmates</span>
                                                 <div class="total-bedrooms mt-2">
-                                                    <label class="radio-inline btn bedroom-btn property_preferences">
-                                                        <input type="radio" name="find-no-of-flatmates"
-                                                               value="flexible"/>
-                                                        Flexible
-                                                    </label>
-                                                    <label class="radio-inline btn bedroom-btn property_preferences">
-                                                        <input type="radio" name="find-no-of-flatmates"
-                                                               value="1_other"/>
-                                                        1 other
-                                                    </label>
-                                                    <label class="radio-inline btn bedroom-btn property_preferences">
-                                                        <input type="radio" name="find-no-of-flatmates"
-                                                               value="2_others"/>
-                                                        2 others
-                                                    </label>
+                                                    <t t-foreach="no_of_flatmates" t-as="total_flatmates">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-no-of-flatmates"
+                                                                   t-attf-value="#{total_flatmates.id}"/>
+                                                            <span t-esc="total_flatmates.name"/>
+                                                        </label>
+                                                    </t>
+                                                    <!--<label class="radio-inline btn bedroom-btn property_preferences">-->
+
+                                                               <!--value="flexible"/>-->
+                                                        <!--Flexible-->
+                                                    <!--</label>-->
+                                                    <!--<label class="radio-inline btn bedroom-btn property_preferences">-->
+                                                        <!--<input type="radio" name="find-no-of-flatmates"-->
+                                                               <!--value="1_other"/>-->
+                                                        <!--1 other-->
+                                                    <!--</label>-->
+                                                    <!--<label class="radio-inline btn bedroom-btn property_preferences">-->
+                                                        <!--<input type="radio" name="find-no-of-flatmates"-->
+                                                               <!--value="2_others"/>-->
+                                                        <!--2 others-->
+                                                    <!--</label>-->
                                                 </div>
                                             </div>
                                         </div>
@@ -711,70 +719,41 @@
 
                                             <br/>
 
-                                            <div class="form-group">
-                                                <!--<span class="mb-1">Profile picture</span>-->
+              <div class="form-group">
+              <!--<span class="mb-1">Profile picture</span>-->
+				  
+				  
+				 <span class="mt-2 mb-4">Profile picture</span>
+				  </div>
+				  
+				<div class="row">
+					
+					<div class="col-lg-2 text-center">
+						<span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <defs>
+              <circle cx="32" id="prefix__a" cy="32" r="32"></circle>
+			  </defs>
+              <g fill="none" fill-rule="evenodd"><g>
+				<mask id="prefix__b" fill="#fff">
+				<use xlink:href="#prefix__a"></use>
+                </mask>
+                <circle cx="32" fill-rule="nonzero" stroke="#11836C" cy="32" mask="url(#prefix__b)" r="31.25" stroke-width="1.5"></circle>
+				<path stroke-linecap="round" stroke="#11836C" d="M41.788 49.47c2.458-3.615 3.76-6.362 3.904-7.084.145-.723 4.337-5.06 4.337-8.964 0-3.904-1.59-3.904-1.59-3.904 0-7.807.03-19.518-14.804-19.518S18.831 21.71 18.831 29.518c0 0-1.59 0-1.59 3.904 0 3.903 4.192 8.24 4.337 8.964.144.722 1.446 3.47 3.903 7.084-2.747 2.458-12.144 5.494-17.349 8.385-5.205 2.892-9.398 10.7-9.398 17.35 0 6.372 24.868 6.795 34.901 6.795 10.033 0 34.9-.423 34.9-6.795 0-6.65-4.192-14.458-9.397-17.35-5.205-2.891-14.603-5.927-17.35-8.385z" mask="url(#prefix__b)" stroke-linejoin="round" stroke-width="1.5"></path></g>
+				<g transform="translate(40 40)">
+				<circle cx="12" cy="12" fill="#11836C" r="12"></circle>
+				<path d="M19.112 8.688v7.874c0 .365-.128.675-.383.93a1.266 1.266 0 0 1-.93.383H6.425c-.365 0-.675-.128-.93-.383a1.266 1.266 0 0 1-.383-.93V8.688c0-.364.128-.674.383-.93.255-.254.565-.382.93-.382H8.83l.328-.902c.11-.256.273-.46.492-.616.219-.155.465-.232.738-.232h3.446c.273 0 .52.077.738.232.219.155.383.36.492.616l.328.902H17.8c.365 0 .675.128.93.383s.383.565.383.93zm-3.719 3.937a3.23 3.23 0 0 0-.437-1.654 3.237 3.237 0 0 0-1.19-1.19 3.23 3.23 0 0 0-1.654-.437 3.23 3.23 0 0 0-1.654.437 3.237 3.237 0 0 0-1.19 1.19 3.23 3.23 0 0 0-.437 1.654c0 .602.146 1.153.437 1.654.292.502.688.898 1.19 1.19a3.23 3.23 0 0 0 1.654.437 3.23 3.23 0 0 0 1.654-.437 3.237 3.237 0 0 0 1.19-1.19 3.23 3.23 0 0 0 .437-1.654zm-.875 0c0 .656-.237 1.221-.71 1.695-.475.474-1.04.711-1.696.711a2.314 2.314 0 0 1-1.695-.71 2.314 2.314 0 0 1-.711-1.696c0-.656.237-1.221.71-1.695a2.314 2.314 0 0 1 1.696-.711c.656 0 1.221.237 1.695.71.474.475.711 1.04.711 1.696z" fill="#FFF"></path></g></g>
+				</svg>
+                </span></div>
+					<div class="col-lg-10 about-profilepic-txt"><p>You can add or change your profile picture later</p></div>
+				  </div>
+											
 
-                                                <div>
-                                                    <div class="styles__listing-flow-profile-image___x3tdB">
-                                                        <p class="styles__header-text___4iytt">Profile picture</p>
-                                                        <div class="styles__body-wrapper___3dur7">
-                                                            <div class="styles__personimage-container___S_hw_">
-                                                                <div class="person-dropzone img-container styles__person-image-styles___3CgY0">
-                                                                    <div>
-                                                                        <span class="icon">
-                                                                            <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                                                <defs>
-                                                                                    <circle id="prefix__a" cx="32"
-                                                                                            cy="32" r="32"></circle>
-                                                                                </defs>
-                                                                                <g fill="none" fill-rule="evenodd">
-                                                                                    <g>
-                                                                                        <mask id="prefix__b"
-                                                                                              fill="#fff">
-                                                                                            <use xlink:href="#prefix__a"></use>
-                                                                                        </mask>
-                                                                                        <circle stroke="#11836C"
-                                                                                                stroke-width="1.5"
-                                                                                                fill-rule="nonzero"
-                                                                                                mask="url(#prefix__b)"
-                                                                                                cx="32" cy="32"
-                                                                                                r="31.25"></circle>
-                                                                                        <path d="M41.788 49.47c2.458-3.615 3.76-6.362 3.904-7.084.145-.723 4.337-5.06 4.337-8.964 0-3.904-1.59-3.904-1.59-3.904 0-7.807.03-19.518-14.804-19.518S18.831 21.71 18.831 29.518c0 0-1.59 0-1.59 3.904 0 3.903 4.192 8.24 4.337 8.964.144.722 1.446 3.47 3.903 7.084-2.747 2.458-12.144 5.494-17.349 8.385-5.205 2.892-9.398 10.7-9.398 17.35 0 6.372 24.868 6.795 34.901 6.795 10.033 0 34.9-.423 34.9-6.795 0-6.65-4.192-14.458-9.397-17.35-5.205-2.891-14.603-5.927-17.35-8.385z"
-                                                                                              stroke="#11836C"
-                                                                                              stroke-width="1.5"
-                                                                                              stroke-linecap="round"
-                                                                                              stroke-linejoin="round"
-                                                                                              mask="url(#prefix__b)"></path>
-                                                                                    </g>
-                                                                                    <g transform="translate(40 40)">
-                                                                                        <circle fill="#11836C" cx="12"
-                                                                                                cy="12" r="12"></circle>
-                                                                                        <path d="M19.112 8.688v7.874c0 .365-.128.675-.383.93a1.266 1.266 0 0 1-.93.383H6.425c-.365 0-.675-.128-.93-.383a1.266 1.266 0 0 1-.383-.93V8.688c0-.364.128-.674.383-.93.255-.254.565-.382.93-.382H8.83l.328-.902c.11-.256.273-.46.492-.616.219-.155.465-.232.738-.232h3.446c.273 0 .52.077.738.232.219.155.383.36.492.616l.328.902H17.8c.365 0 .675.128.93.383s.383.565.383.93zm-3.719 3.937a3.23 3.23 0 0 0-.437-1.654 3.237 3.237 0 0 0-1.19-1.19 3.23 3.23 0 0 0-1.654-.437 3.23 3.23 0 0 0-1.654.437 3.237 3.237 0 0 0-1.19 1.19 3.23 3.23 0 0 0-.437 1.654c0 .602.146 1.153.437 1.654.292.502.688.898 1.19 1.19a3.23 3.23 0 0 0 1.654.437 3.23 3.23 0 0 0 1.654-.437 3.237 3.237 0 0 0 1.19-1.19 3.23 3.23 0 0 0 .437-1.654zm-.875 0c0 .656-.237 1.221-.71 1.695-.475.474-1.04.711-1.696.711a2.314 2.314 0 0 1-1.695-.71 2.314 2.314 0 0 1-.711-1.696c0-.656.237-1.221.71-1.695a2.314 2.314 0 0 1 1.696-.711c.656 0 1.221.237 1.695.71.474.475.711 1.04.711 1.696z"
-                                                                                              fill="#FFF"></path>
-                                                                                    </g>
-                                                                                </g>
-                                                                            </svg>
-                                                                        </span>
-                                                                    </div>
-                                                                    <input id="picture-field" type="file" name="file"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="styles__hint-wrapper___dQu1O">
-                                                                <span class="styles__hint-text___1c8Jr">You can add or
-                                                                    change your profile picture later
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                </div>
+				</div>
+                </div>
 
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="row">
+                                <div class="row mt-4">
                                     <div class="mt-4 mx-auto">
                                         <button type="submit" class="btn btn-primary btn-green about_rooms_bttn"
                                                 disabled="disabled">

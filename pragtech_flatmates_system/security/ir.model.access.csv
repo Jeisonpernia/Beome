@@ -15,9 +15,13 @@ access_room_types_id,access_room_types,model_room_types,base.group_user,1,1,1,1
 access_minimum_length_stay_id,access_minimum_length_stay,model_minimum_length_stay,base.group_user,1,1,1,1
 access_maximum_length_stay_id,access_maximum_length_stay,model_maximum_length_stay,base.group_user,1,1,1,1
 access_property_image_id,access_property_image,model_property_image,base.group_user,1,1,1,1
-access_property_accepting_id,access_property_accepting,model_property_accepting,base.group_user,1,1,1,1
 access_bond_bond_id,access_bond_bond,model_bond_bond,base.group_user,1,1,1,1
 access_bill_bill_id,access_bill_bill,model_bill_bill,base.group_user,1,1,1,1
-access_property_accepting_id,access_property_accepting,model_property_accepting,base.group_user,1,1,1,1
-
-
+access_house_mates,access_house_mates,model_house_mates,base.group_user,1,1,1,1
+access_property_listing_category,access_property_listing_category,model_property_listing_category,base.group_user,1,1,1,1
+access_bathroom_categories,access_bathroom_categories,model_bathroom_categories,base.group_user,1,1,1,1
+access_room_furnishing_categories,access_room_furnishing_categories,model_room_furnishing_categories,base.group_user,1,1,1,1
+access_internet_categories,access_internet_categories,model_internet_categories,base.group_user,1,1,1,1
+access_parking_categories,access_parking_categories,model_parking_categories,base.group_user,1,1,1,1
+access_total_flatmates_categories,access_total_flatmates_categories,model_total_flatmates_categories,base.group_user,1,1,1,1
+access_about_person,access_about_person,model_about_person,base.group_user,1,1,1,1

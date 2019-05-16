@@ -3,7 +3,7 @@
 <template id="assets_signin_web" inherit_id="web.assets_frontend" name="Flatmates Frontend">
         <xpath expr="link[last()]" position="after">
             <link rel="stylesheet" type="text/scss" href="/pragtech_website_extension/static/src/css/housemate_login.css"/>
-
+            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
             <script type="text/javascript" src="/pragtech_website_extension/static/src/js/login_dashboard.js"></script>
             <script type="text/javascript" src="/pragtech_website_extension/static/src/js/email_alert.js"></script>
             <script type="text/javascript" src="/pragtech_website_extension/static/src/js/deactivate_account.js"></script>

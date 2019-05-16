@@ -2,6 +2,630 @@
 <odoo>
 
     <data>
+        <menuitem id="config_id" name="Configuration"
+                  parent="pragtech_flatmates_system.menu_main_root_flatmates" sequence="2"/>
+
+        <!--Number of BathRooms view-->
+        <record id="bathrooms_form" model="ir.ui.view">
+            <field name="name">bathrooms.form</field>
+            <field name="model">bathrooms</field>
+            <field name="arch" type="xml">
+                <form string="Bathrooms" name="bathrooms">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Bathrooms"/>
+                            <h1>
+                                <field name="name" placeholder="Bathrooms" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bathrooms_tree" model="ir.ui.view">
+            <field name="name">bathrooms.tree</field>
+            <field name="model">bathrooms</field>
+            <field name="arch" type="xml">
+                <tree string="Bathrooms" name="bathrooms">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bathrooms_action" model="ir.actions.act_window">
+            <field name="name">Bathrooms</field>
+            <field name="res_model">bathrooms</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="bathrooms_menu_id" name="Bathrooms" action="bathrooms_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="1"/>
+
+        <!--Bathroom Categories view-->
+        <record id="bathroom_category_form" model="ir.ui.view">
+            <field name="name">bathroom.categories.form</field>
+            <field name="model">bathroom.categories</field>
+            <field name="arch" type="xml">
+                <form string="Bathroom Categories" name="Bathroom Categories">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="bathroom_category" string="Bathroom Categories"/>
+                            <h1>
+                                <field name="bathroom_category" placeholder="Bathroom Categories" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bathroom_category_tree" model="ir.ui.view">
+            <field name="name">bathroom.categories.tree</field>
+            <field name="model">bathroom.categories</field>
+            <field name="arch" type="xml">
+                <tree string="Bathroom Categories" name="Bathroom Categories">
+                    <field name="bathroom_category" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="bathroom_categories_action" model="ir.actions.act_window">
+            <field name="name">Bathroom Categories</field>
+            <field name="res_model">bathroom.categories</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="bathroom_categories_id" name="Bathroom Categories" action="bathroom_categories_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="1"/>
+
+        <!--Bathroom Types view-->
+        <record id="bathroom_types_form" model="ir.ui.view">
+            <field name="name">bathroom.types.form</field>
+            <field name="model">bathroom.types</field>
+            <field name="arch" type="xml">
+                <form string="Bathroom Types" name="Bathroom Types">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Bathroom Types"/>
+                            <h1>
+                                <field name="name" placeholder="Bathroom Types" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="view_for"/>
+                                <field name="bathroom_category" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bathroom_types_tree" model="ir.ui.view">
+            <field name="name">bathroom.types.tree</field>
+            <field name="model">bathroom.types</field>
+            <field name="arch" type="xml">
+                <tree string="Bathroom Types" name="Bathroom Types">
+                    <field name="name"/>
+                    <field name="view_for"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bathroom_types_action" model="ir.actions.act_window">
+            <field name="name">Bathroom Types</field>
+            <field name="res_model">bathroom.types</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="bathroom_types_id" name="Bathroom Types" action="bathroom_types_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="1"/>
+
+        <!--BedRooms view-->
+        <record id="bedrooms_form" model="ir.ui.view">
+            <field name="name">bedrooms.form</field>
+            <field name="model">bedrooms</field>
+            <field name="arch" type="xml">
+                <form string="Bedrooms" name="bedrooms">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Bedrooms"/>
+                            <h1>
+                                <field name="name" placeholder="Bedrooms" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Romm furnishing Categories view-->
+        <record id="bathroom_types_form" model="ir.ui.view">
+            <field name="name">bathroom.categories.form</field>
+            <field name="model">bathroom.categories</field>
+            <field name="arch" type="xml">
+                <form string="Bathroom Categories" name="Bathroom Categories">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="bathroom_category" string="Bathroom Categories"/>
+                            <h1>
+                                <field name="bathroom_category" placeholder="Bathroom Categories" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bathroom_types_tree" model="ir.ui.view">
+            <field name="name">bathroom.categories.tree</field>
+            <field name="model">bathroom.categories</field>
+            <field name="arch" type="xml">
+                <tree string="Bathroom Categories" name="Bathroom Categories">
+                    <field name="bathroom_category" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="bathroom_categories_action" model="ir.actions.act_window">
+            <field name="name">Bathroom Categories</field>
+            <field name="res_model">bathroom.categories</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="bathroom_categories_id" name="Bathroom Categories" action="bathroom_categories_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="1"/>
+
+        <record id="bedrooms_tree" model="ir.ui.view">
+            <field name="name">bedrooms.tree</field>
+            <field name="model">bedrooms</field>
+            <field name="arch" type="xml">
+                <tree string="Bedrooms" name="bedrooms">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bedrooms_action" model="ir.actions.act_window">
+            <field name="name">Bedrooms</field>
+            <field name="res_model">bedrooms</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="bedrooms_menu_id" name="Bedrooms" action="bedrooms_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="2"/>
+
+        <!--Property Type view-->
+        <record id="property_type_form" model="ir.ui.view">
+            <field name="name">property.type.form</field>
+            <field name="model">property.type</field>
+            <field name="arch" type="xml">
+                <form string="Property Type" name="property">
+                    <sheet>
+
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="property_type" string="Property Type"/>
+                            <h1>
+                                <field name="property_type" placeholder="Property Type" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                        <field name="listing_category" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="property_type_tree" model="ir.ui.view">
+            <field name="name">property.type.tree</field>
+            <field name="model">property.type</field>
+            <field name="arch" type="xml">
+                <tree string="Property Type" name="Property">
+                    <field name="property_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_type_action" model="ir.actions.act_window">
+            <field name="name">Property Type</field>
+            <field name="res_model">property.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="property_type_menu_id" name="Property Type" action="property_type_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="3"/>
+
+        <!--Property Listing Category view-->
+        <record id="property_type_form" model="ir.ui.view">
+            <field name="name">property.listing.category.form</field>
+            <field name="model">property.listing.category</field>
+            <field name="arch" type="xml">
+                <form string="Property Listing Category" name="property_listing_category">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="property_listing_category" string="Property Listing Category"/>
+                            <h1>
+                                <field name="property_listing_category" placeholder="Property Listing Category" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="property_type_tree" model="ir.ui.view">
+            <field name="name">property.listing.category.tree</field>
+            <field name="model">property.listing.category</field>
+            <field name="arch" type="xml">
+                <tree string="Property Listing Category" name="property_listing_category">
+                    <field name="property_listing_category"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_listing_category_action" model="ir.actions.act_window">
+            <field name="name">Property Listing Category</field>
+            <field name="res_model">property.listing.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="property_listing_category_menu_id" name="Property Listing Category" action="property_listing_category_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="3"/>
+
+        <!--Room Furnishing view-->
+        <record id="room_furnishing_form" model="ir.ui.view">
+            <field name="name">room.furnishing.form</field>
+            <field name="model">room.furnishing</field>
+            <field name="arch" type="xml">
+                <form string="Room Furnishing" name="Room Furnishing">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Room Furnishing"/>
+                            <h1>
+                                <field name="name" placeholder="Room Furnishing" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="view_for"/>
+                                <field name="room_furnishing_category" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="room_furnishing_tree" model="ir.ui.view">
+            <field name="name">room.furnishing.tree</field>
+            <field name="model">room.furnishing</field>
+            <field name="arch" type="xml">
+                <tree string="Room Furnishing" name="Room Furnishing">
+                    <field name="name"/>
+                    <field name="view_for"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="room_furnishing_action" model="ir.actions.act_window">
+            <field name="name">Room Furnishing</field>
+            <field name="res_model">room.furnishing</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="room_furnishing_id" name="Room Furnishing" action="room_furnishing_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="4"/>
+
+        <!--Bathroom Categories view-->
+        <record id="room_furnishing_categories_form" model="ir.ui.view">
+            <field name="name">room.furnishing.categories.form</field>
+            <field name="model">room.furnishing.categories</field>
+            <field name="arch" type="xml">
+                <form string="Room furnishing Categories" name="Room furnishing Categories">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="room_furnishing_categories" string="Room furnishing Categories"/>
+                            <h1>
+                                <field name="room_furnishing_categories" placeholder="Room furnishing Categories" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="room_furnishing_categories_tree" model="ir.ui.view">
+            <field name="name">room.furnishing.categories.tree</field>
+            <field name="model">room.furnishing.categories</field>
+            <field name="arch" type="xml">
+                <tree string="Room Furnishing Categories" name="Room Furnishing Categories">
+                    <field name="room_furnishing_categories" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="room_furnishing_categories_action" model="ir.actions.act_window">
+            <field name="name">Room furnishing Categories</field>
+            <field name="res_model">room.furnishing.categories</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="room_furnishing_categories_id" name="Room furnishing Categories" action="room_furnishing_categories_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="4"/>
+
+        <!--Internet view-->
+        <record id="internet_form" model="ir.ui.view">
+            <field name="name">internet.form</field>
+            <field name="model">internet</field>
+            <field name="arch" type="xml">
+                <form string="Internet" name="internet">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Internet"/>
+                            <h1>
+                                <field name="name" placeholder="Internet" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="view_for"/>
+                                <field name="internet_category" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="internet_tree" model="ir.ui.view">
+            <field name="name">internet.tree</field>
+            <field name="model">internet</field>
+            <field name="arch" type="xml">
+                <tree string="Internet" name="internet">
+                    <field name="name"/>
+                    <field name="view_for"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="internet_action" model="ir.actions.act_window">
+            <field name="name">Internet</field>
+            <field name="res_model">internet</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="internet_menu_id" name="Internet" action="internet_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="5"/>
+
+        <!--Internet Categories view-->
+        <record id="internet_categories_form" model="ir.ui.view">
+            <field name="name">internet.categories.form</field>
+            <field name="model">internet.categories</field>
+            <field name="arch" type="xml">
+                <form string="Internet Categories" name="Internet Categories">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="internet_category" string="Internet Categories"/>
+                            <h1>
+                                <field name="internet_categories" placeholder="Internet Categories" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="internet_categories_tree" model="ir.ui.view">
+            <field name="name">internet.categories.tree</field>
+            <field name="model">internet.categories</field>
+            <field name="arch" type="xml">
+                <tree string="Internet Categories" name="Internet Categories">
+                    <field name="internet_categories" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="internet_categories_action" model="ir.actions.act_window">
+            <field name="name">Internet Categories</field>
+            <field name="res_model">internet.categories</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="internet_categories_id" name="Internet Categories" action="internet_categories_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="5"/>
+
+        <!--Parking view-->
+        <record id="parking_form" model="ir.ui.view">
+            <field name="name">parking.form</field>
+            <field name="model">parking</field>
+            <field name="arch" type="xml">
+                <form string="Parking" name="parking">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Parking"/>
+                            <h1>
+                                <field name="name" placeholder="Parking" required="1"/>
+                            </h1>
+                            <group>
+                                <field name="view_for"/>
+                                <field name="parking_category" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="parking_tree" model="ir.ui.view">
+            <field name="name">parking.tree</field>
+            <field name="model">parking</field>
+            <field name="arch" type="xml">
+                <tree string="Parking" name="Parking">
+                    <field name="name"/>
+                    <field name="view_for"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="parking_action" model="ir.actions.act_window">
+            <field name="name">Parking</field>
+            <field name="res_model">parking</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="parking_menu_id" name="Parking" action="parking_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="6"/>
+
+        <!--Parking Categories view-->
+        <record id="parking_categories_form" model="ir.ui.view">
+            <field name="name">parking.categories.form</field>
+            <field name="model">parking.categories</field>
+            <field name="arch" type="xml">
+                <form string="Parking Categories" name="Parking Categories">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="parking_category" string="Parking Categories"/>
+                            <h1>
+                                <field name="parking_categories" placeholder="Parking Categories" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="parking_categories_tree" model="ir.ui.view">
+            <field name="name">parking.categories.tree</field>
+            <field name="model">parking.categories</field>
+            <field name="arch" type="xml">
+                <tree string="Parking Categories" name="Parking Categories">
+                    <field name="parking_categories" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="parking_categories_action" model="ir.actions.act_window">
+            <field name="name">Parking Categories</field>
+            <field name="res_model">parking.categories</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="parking_categories_id" name="Parking Categories" action="parking_categories_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="6"/>
+
+        <!--Total number of flatmates view-->
+        <record id="total_flatmates_form" model="ir.ui.view">
+            <field name="name">total.flatmates.form</field>
+            <field name="model">total.flatmates</field>
+            <field name="arch" type="xml">
+                <form string="Total number of flatmates" name="Total number of flatmates">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Total number of flatmates"/>
+                            <h1>
+                                <field name="name" placeholder="Total number of flatmates" required="1"/>
+                            </h1>
+                            <group>
+                                <field name="view_for"/>
+                                <field name="total_flatmate_category" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                            </group>
+                        </div>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="total_flatmates_tree" model="ir.ui.view">
+            <field name="name">total.flatmates.tree</field>
+            <field name="model">total.flatmates</field>
+            <field name="arch" type="xml">
+                <tree string="Total number of flatmates" name="Total number of flatmates">
+                    <field name="name"/>
+                    <field name="view_for"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="total_flatmates_action" model="ir.actions.act_window">
+            <field name="name">Total number of flatmates</field>
+            <field name="res_model">total.flatmates</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="total_flatmates_menu_id" name="Total number of flatmates" action="total_flatmates_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="7"/>
+
+        <!--Total number of flatmates Categories view-->
+        <record id="total_flatmate_categories_form" model="ir.ui.view">
+            <field name="name">total.flatmates.categories.form</field>
+            <field name="model">total.flatmates.categories</field>
+            <field name="arch" type="xml">
+                <form string="Total number of Housemate Categories" name="total flatmates categories">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="total_flatmate_categories" string="Total Number of Housemate Categories"/>
+                            <h1>
+                                <field name="total_flatmate_categories" placeholder="Total Number of Housemate Categories" required="1"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="total_flatmate_categories_tree" model="ir.ui.view">
+            <field name="name">total.flatmates.categories.tree</field>
+            <field name="model">total.flatmates.categories</field>
+            <field name="arch" type="xml">
+                <tree string="Total Number of Housemate Categories" name="total flatmates categories">
+                    <field name="total_flatmate_categories" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="total_flatmate_categories_action" model="ir.actions.act_window">
+            <field name="name">Total number of Housemate Categories</field>
+            <field name="res_model">total.flatmates.categories</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="total_number_of_flatmate_categories_id" name="Total Number of Housemate Categories" action="total_flatmate_categories_action"
+                  parent="pragtech_flatmates_system.config_id" sequence="6"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!--Accommodation Type view-->
         <record id="accommodation_type_form" model="ir.ui.view">
@@ -38,205 +662,20 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="config_id" name="Configuration"
-                  parent="pragtech_flatmates_system.menu_main_root_flatmates" sequence="2"/>
+
 
         <!--<menuitem id="accommodation_type_menu_id" name="Accommodation Type" action="accommodation_type_action"-->
                   <!--parent="pragtech_flatmates_system.config_id" sequence="1"/>-->
 
 
-        <!--Property Type view-->
-        <record id="property_type_form" model="ir.ui.view">
-            <field name="name">property.type.form</field>
-            <field name="model">property.type</field>
-            <field name="arch" type="xml">
-                <form string="Property Type" name="property">
-                    <sheet>
-                        <div class="oe_title">
-                            <label class="oe_edit_only" for="property_type" string="Property Type"/>
-                            <h1>
-                                <field name="property_type" placeholder="Property Type" required="1"/>
-                            </h1>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="property_type_tree" model="ir.ui.view">
-            <field name="name">property.type.tree</field>
-            <field name="model">property.type</field>
-            <field name="arch" type="xml">
-                <tree string="Property Type" name="Property">
-                    <field name="property_type"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="property_type_action" model="ir.actions.act_window">
-            <field name="name">Property Type</field>
-            <field name="res_model">property.type</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <!--<menuitem id="property_type_menu_id" name="Property Type" action="property_type_action"-->
-                  <!--parent="pragtech_flatmates_system.config_id" sequence="2"/>-->
 
 
-        <!--BedRooms view-->
-        <record id="bedrooms_form" model="ir.ui.view">
-            <field name="name">bedrooms.form</field>
-            <field name="model">bedrooms</field>
-            <field name="arch" type="xml">
-                <form string="Bedrooms" name="bedrooms">
-                    <sheet>
-                        <div class="oe_title">
-                            <label class="oe_edit_only" for="name" string="Bedrooms"/>
-                            <h1>
-                                <field name="name" placeholder="Bedrooms" required="1"/>
-                            </h1>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="bedrooms_tree" model="ir.ui.view">
-            <field name="name">bedrooms.tree</field>
-            <field name="model">bedrooms</field>
-            <field name="arch" type="xml">
-                <tree string="Bedrooms" name="bedrooms">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="bedrooms_action" model="ir.actions.act_window">
-            <field name="name">Bedrooms</field>
-            <field name="res_model">bedrooms</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="bedrooms_menu_id" name="Bedrooms" action="bedrooms_action"
-                  parent="pragtech_flatmates_system.config_id" sequence="3"/>
 
 
-        <!--BathRooms view-->
-        <record id="bathrooms_form" model="ir.ui.view">
-            <field name="name">bathrooms.form</field>
-            <field name="model">bathrooms</field>
-            <field name="arch" type="xml">
-                <form string="Bathrooms" name="bathrooms">
-                    <sheet>
-                        <div class="oe_title">
-                            <label class="oe_edit_only" for="name" string="Bathrooms"/>
-                            <h1>
-                                <field name="name" placeholder="Bathrooms" required="1"/>
-                            </h1>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="bathrooms_tree" model="ir.ui.view">
-            <field name="name">bathrooms.tree</field>
-            <field name="model">bathrooms</field>
-            <field name="arch" type="xml">
-                <tree string="Bathrooms" name="bathrooms">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="bathrooms_action" model="ir.actions.act_window">
-            <field name="name">Bathrooms</field>
-            <field name="res_model">bathrooms</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="bathrooms_menu_id" name="Bathrooms" action="bathrooms_action"
-                  parent="pragtech_flatmates_system.config_id" sequence="4"/>
-
-        <!--Total number of flatmates view-->
-        <record id="total_flatmates_form" model="ir.ui.view">
-            <field name="name">total.flatmates.form</field>
-            <field name="model">total.flatmates</field>
-            <field name="arch" type="xml">
-                <form string="Total number of flatmates" name="Total number of flatmates">
-                    <sheet>
-                        <div class="oe_title">
-                            <label class="oe_edit_only" for="name" string="Total number of flatmates"/>
-                            <h1>
-                                <field name="name" placeholder="Total number of flatmates" required="1"/>
-                            </h1>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="total_flatmates_tree" model="ir.ui.view">
-            <field name="name">total.flatmates.tree</field>
-            <field name="model">total.flatmates</field>
-            <field name="arch" type="xml">
-                <tree string="Total number of flatmates" name="Total number of flatmates">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="total_flatmates_action" model="ir.actions.act_window">
-            <field name="name">Total number of flatmates</field>
-            <field name="res_model">total.flatmates</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="total_flatmates_menu_id" name="Total number of flatmates" action="total_flatmates_action"
-                  parent="pragtech_flatmates_system.config_id" sequence="5"/>
 
 
-        <!--Internet view-->
-        <record id="internet_form" model="ir.ui.view">
-            <field name="name">internet.form</field>
-            <field name="model">internet</field>
-            <field name="arch" type="xml">
-                <form string="Internet" name="internet">
-                    <sheet>
-                        <div class="oe_title">
-                            <label class="oe_edit_only" for="name" string="Internet"/>
-                            <h1>
-                                <field name="name" placeholder="Internet" required="1"/>
-                            </h1>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
 
-        <record id="internet_tree" model="ir.ui.view">
-            <field name="name">internet.tree</field>
-            <field name="model">internet</field>
-            <field name="arch" type="xml">
-                <tree string="Internet" name="internet">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
 
-        <record id="internet_action" model="ir.actions.act_window">
-            <field name="name">Internet</field>
-            <field name="res_model">internet</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="internet_menu_id" name="Internet" action="internet_action"
-                  parent="pragtech_flatmates_system.config_id" sequence="6"/>
 
         <!--Flatmate Preference view-->
         <record id="flatmate_preference_form" model="ir.ui.view">
@@ -276,119 +715,7 @@
         <!--<menuitem id="flatmate_preference_menu_id" name="Flatmate Preference" action="flatmate_preference_action"-->
                   <!--parent="pragtech_flatmates_system.config_id" sequence="7"/>-->
 
-        <!--Parking view-->
-        <record id="parking_form" model="ir.ui.view">
-            <field name="name">parking.form</field>
-            <field name="model">parking</field>
-            <field name="arch" type="xml">
-                <form string="Parking" name="parking">
-                    <sheet>
-                        <div class="oe_title">
-                            <label class="oe_edit_only" for="name" string="Parking"/>
-                            <h1>
-                                <field name="name" placeholder="Parking" required="1"/>
-                            </h1>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
 
-        <record id="parking_tree" model="ir.ui.view">
-            <field name="name">parking.tree</field>
-            <field name="model">parking</field>
-            <field name="arch" type="xml">
-                <tree string="Parking" name="Parking">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="parking_action" model="ir.actions.act_window">
-            <field name="name">Parking</field>
-            <field name="res_model">parking</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="parking_menu_id" name="Parking" action="parking_action"
-                  parent="pragtech_flatmates_system.config_id" sequence="8"/>
-
-        <!--Bathroom Types view-->
-        <record id="bathroom_types_form" model="ir.ui.view">
-            <field name="name">bathroom.types.form</field>
-            <field name="model">bathroom.types</field>
-            <field name="arch" type="xml">
-                <form string="Bathroom Types" name="Bathroom Types">
-                    <sheet>
-                        <div class="oe_title">
-                            <label class="oe_edit_only" for="name" string="Bathroom Types"/>
-                            <h1>
-                                <field name="name" placeholder="Bathroom Types" required="1"/>
-                            </h1>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="bathroom_types_tree" model="ir.ui.view">
-            <field name="name">bathroom.types.tree</field>
-            <field name="model">bathroom.types</field>
-            <field name="arch" type="xml">
-                <tree string="Bathroom Types" name="Bathroom Types">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="bathroom_types_action" model="ir.actions.act_window">
-            <field name="name">Bathroom Types</field>
-            <field name="res_model">bathroom.types</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="bathroom_types_id" name="Bathroom Types" action="bathroom_types_action"
-                  parent="pragtech_flatmates_system.config_id" sequence="9"/>
-
-        <!--Room Furnishing view-->
-        <record id="room_furnishing_form" model="ir.ui.view">
-            <field name="name">room.furnishing.form</field>
-            <field name="model">room.furnishing</field>
-            <field name="arch" type="xml">
-                <form string="Room Furnishing" name="Room Furnishing">
-                    <sheet>
-                        <div class="oe_title">
-                            <label class="oe_edit_only" for="name" string="Room Furnishing"/>
-                            <h1>
-                                <field name="name" placeholder="Room Furnishing" required="1"/>
-                            </h1>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="room_furnishing_tree" model="ir.ui.view">
-            <field name="name">room.furnishing.tree</field>
-            <field name="model">room.furnishing</field>
-            <field name="arch" type="xml">
-                <tree string="Room Furnishing" name="Room Furnishing">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="room_furnishing_action" model="ir.actions.act_window">
-            <field name="name">Room Furnishing</field>
-            <field name="res_model">room.furnishing</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="room_furnishing_id" name="Room Furnishing" action="room_furnishing_action"
-                  parent="pragtech_flatmates_system.config_id" sequence="10"/>
 
 
         <!--Room Types view-->
