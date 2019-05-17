@@ -409,13 +409,17 @@
                                         </div>
                                         <div class="form-group">
                                             <span>Parking</span>
+
                                             <!--<select class="form-control mt-2" id="parking" name="select-parking">-->
                                             <!--<option value="">Select</option>-->
                                             <!--<option value="no_parking">No Parking</option>-->
                                             <!--<option value="off_street_parking">Off-street parking</option>-->
                                             <!--<option value="on_street_parking">On-street parking</option>-->
                                             <!--</select>-->
+
+                                            <!--Code added by dhrup-->
                                             <select class="form-control mt-2" id="parking" name="select-parking">
+                                                <option value="Select" selected="selected" disabled="disabled" >Select</option>
                                                 <t t-foreach="parkings" t-as="parking">
                                                     <option t-attf-value="#{parking.id}">
                                                         <t t-esc="parking.name"/>
@@ -435,7 +439,10 @@
                                             <!--<option value="unlimited_included_in_rent">Unlimited included in rent-->
                                             <!--</option>-->
                                             <!--</select>-->
+
+                                            <!--Code added by dhrup-->
                                             <select class="form-control mt-2" id="internet" name="select-internet">
+                                                <option value="Select" selected="selected" disabled="disabled" >Select</option>
                                                 <t t-foreach="internets" t-as="internet">
                                                     <option t-attf-value="#{internet.id}">
                                                         <t t-esc="internet.name"/>

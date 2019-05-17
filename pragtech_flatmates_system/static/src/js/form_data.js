@@ -160,7 +160,7 @@ $(document).ready(function() {
                 console.log(data)
                 console.log($(".custom_me_group"))
             }
-
+            data['record'].push({'user_image':$("#user_image").val()})
             record_array[0]['about_you'] = data
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
             console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))

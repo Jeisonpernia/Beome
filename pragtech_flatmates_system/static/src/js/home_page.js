@@ -19,7 +19,71 @@ $(document).ready(function() {
 
 
 
+ $(document).on('click','.default-shortlist',function()
+	{
+	  var $child1 = ''
+	  if ($(this).hasClass('default-shortlist'))
+		  {
 
+		  $(this).addClass('shortlisted');
+		  $(this).removeClass('default-shortlist');
+
+		  $child1 = this.parentNode.parentNode
+		  $child1 = $child1.childNodes[0].getAttribute('data-button-id')
+
+		  $.ajax({
+	  		url : "/shortlist",   // calls to controller method
+	  		type : "post",
+	  		dataType : 'http',
+	 		data : {
+	  			'data':$child1
+	  			,
+	  			'active' : 'True'
+	  			   // send to controller method arguments
+	  		},
+	  		success : function(result) {    // work after controller method return
+	  			if (result) {
+
+	  			}
+	  		},
+	         });
+
+		  }
+
+
+
+	});
+
+
+
+  $(document).on('click','.shortlisted',function()
+	{
+	          var $child1 = ''
+			  if ($(this).hasClass('shortlisted'))
+				  {
+					  $(this).addClass('default-shortlist');
+					  $(this).removeClass('shortlisted');
+
+					  $child1 = this.parentNode.parentNode
+					  $child1 = $child1.childNodes[0].getAttribute('data-button-id')
+					  $.ajax({
+				  		url : "/shortlist",   // calls to controller method
+				  		type : "post",
+				  		dataType : 'http',
+				 		data : {
+				  			'data':$child1,
+				  			'active' : 'False'
+				  			   // send to controller method arguments
+				  		},
+				  		success : function(result) {    // work after controller method return
+				  			if (result) {
+
+				  			}
+				  		},
+				         });
+
+				  }
+   });
 
 
 

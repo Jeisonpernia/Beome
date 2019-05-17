@@ -78,6 +78,14 @@ $(document).ready(function()
 //  = --------------  End of Validations for /list-place/share-house/flatmate-preference  -------------- =
 
 
+// Room availability
+// Code added  by dhrup
+        $('#txtdate').on('keyup change',function()
+        		{
+        		    $('#txtdate').prop("readonly",true)
+
+        		});
+
 //  =======================================================================================
 //  = --------------  Validations for /listplace/share-house/about-others  -------------- =
 //  = -------------  Validations for /listplace/share-house/about-property  ------------- =
@@ -257,7 +265,7 @@ $(document).ready(function()
     {
 
         var files_rec = document.getElementById($(this).attr("id"));
-//        console.log("-----------------",files_rec.files,$(this))
+        console.log("-----------------",files_rec)
 
         if (files_rec.files.length != 0)
         {
@@ -329,15 +337,21 @@ $(document).ready(function()
             if ($input.val().length == 0 )
                 {
                     $('.styles__errorMessage1').hide();
+                    // Code added by dhrup
+                    $('#comment').removeClass("border-red")
                 }
 
             if ($input.val().length <= 9 )
                 {
                     $('.styles__errorMessage1').show();
+                    // Code added by dhrup
+                    $('#comment').addClass("border-red")
                 }
             else
                {
                     $('.styles__errorMessage1').hide();
+                    // Code added by dhrup
+                    $('#comment').removeClass("border-red")
                }
 
 
@@ -361,15 +375,21 @@ $(document).ready(function()
             if ($input1.val().length == 0 )
                 {
                     $('.styles__errorMessage2').hide();
+                    // Code added by dhrup
+                    $('.property_something').removeClass("border-red");
                 }
 
             if ($input1.val().length <= 9 )
                 {
                     $('.styles__errorMessage2').show();
+                    // Code added by dhrup
+                    $('.property_something').addClass("border-red");
                 }
             else
                 {
                     $('.styles__errorMessage2').hide();
+                    // Code added by dhrup
+                    $('.property_something').removeClass("border-red");
                 }
         });
 

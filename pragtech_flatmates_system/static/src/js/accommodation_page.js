@@ -61,22 +61,46 @@ $(document).ready(function() {
 
     function generic_about_property()
     {
-    if (window.location.pathname == '/listplace/whole-property/about')
-    {
-        var room_type = JSON.parse(localStorage.getItem('list_place_array'));
-        console.log ("5555555555555555555666666666666666666666")
-        if (room_type[0]['whole_property_property_type'] == '1_bedrooms'|| room_type[0]['whole_property_property_type'] == 'studio')
+    // Code added by dhrup
+        if (window.location.pathname == '/listplace/whole-property/about')
+        {
+            var room_type = JSON.parse(localStorage.getItem('list_place_array'));
+            console.log ("5555555555555555555666666666666666666666",$("#parking :selected").text())
+            if (room_type[0]['whole_property_property_type'] == '1_bedrooms'|| room_type[0]['whole_property_property_type'] == 'studio')
             {
-            console.log ("555555555555555555566666666666666666666677777777777777",$("input[name=room_furnishing_types]").is(":checked"))
-            toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("#parking").val() != ""  && $("#internet").val() != "" && $("input[name=room_furnishing_types]").is(":checked") == true)
+                console.log ("555555555555555555566666666666666666666677777777777777",$("input[name=room_furnishing_types]").is(":checked"))
+                toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("#parking").val() != ""  && $("#internet").val() != "" && $("#parking :selected").text() != "Select" &&  $("#internet :selected").text() != "Select" && $("input[name=room_furnishing_types]").is(":checked") == true)
             }
-        else
-            {console.log ("5555555555555555555666666666666666666666777777777777779999999")
-            toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != "" && $("input[name=room_furnishing_types]").is(":checked") == true)}
+            else
+            {
+                console.log ("5555555555555555555666666666666666666666777777777777779999999")
+                toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != "" && $("#parking :selected").text() != "Select" && $("#internet :selected").text() != "Select" && $("input[name=room_furnishing_types]").is(":checked") == true)
+            }
+        }
+            else
+                toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != "" && $("#parking :selected").text() != "Select" && $("#internet :selected").text() != "Select" )
     }
-        else
-            toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != "")
-    }
+// Code commented by himesh
+//    if (window.location.pathname == '/listplace/whole-property/about')
+//    {
+//        var room_type = JSON.parse(localStorage.getItem('list_place_array'));
+//        console.log ("5555555555555555555666666666666666666666")
+//        if (room_type[0]['whole_property_property_type'] == '1_bedrooms'|| room_type[0]['whole_property_property_type'] == 'studio')
+//            {
+//            console.log ("555555555555555555566666666666666666666677777777777777",$("input[name=room_furnishing_types]").is(":checked"))
+//            toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("#parking").val() != ""  && $("#internet").val() != "" && $("input[name=room_furnishing_types]").is(":checked") == true)
+//            }
+//        else
+//            {console.log ("5555555555555555555666666666666666666666777777777777779999999")
+//            toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != "" && $("input[name=room_furnishing_types]").is(":checked") == true)}
+//    }
+//        else
+//            toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != "")
+//    }
+
+
+
+
 
 //        if($("input[id='autocomplete']").val() != "" && $("input[name=bath_rooms]").is(":checked") == true && $("input[name=bed_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != ""){
 //            $('#propert_submit_btn').prop("disabled", false);

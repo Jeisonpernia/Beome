@@ -68,7 +68,7 @@ class AuthSignupHomeChild(AuthSignupHome):
 
                     user.active = True
 
-                    response.qcontext['message'] = _("Your Account has been authenticate Successfully.")
+                    response.qcontext['message'] = _("Your Account has been validated Successfully.")
                 else:
                     response.qcontext['message'] = _("Your Account is already verified ")
                 if request.env.user.id != 4:
@@ -192,6 +192,21 @@ class Website_Inherit(Website):
 
 
 class FlatMates(http.Controller):
+
+    @http.route(['/shortlist'], type='http', auth="public", website=True, csrf=False)
+    def short_listting(self, **kwargs):
+        print("\n\n\n\n\n=====================", kwargs)
+        flatmate_obj = request.env['house.mates'].sudo().search([('id', '=', kwargs['data'])], limit=1)
+        if flatmate_obj and 'data' in kwargs:
+            if kwargs['active'] == 'True':
+                print("\n\n\n\n\n=====================active")
+                flatmate_obj.is_short_list = True
+            else:
+                print("\n\n\n\n\n===================== false")
+                flatmate_obj.is_short_list = False
+
+        list = {}
+        return list
 
     @http.route(['/search/records'], type='http', auth="public", website=True, method=['GET'], csrf=False)
     def search_record(self, **kwargs):
@@ -337,15 +352,24 @@ class FlatMates(http.Controller):
             property_address+= ', ' + property.city
 
         values = {'property': property, 'property_address': property_address}
-
+        if property.listing_type == 'list':
+            values.update({'listing_type':'List'})
+        if property.listing_type == 'find':
+            values.update({'listing_type':'Find'})
         if property.user_id:
             values.update({'user_name': property.user_id.name})
+        if property.user_id:
+            values.update({'user_id': property.user_id})
         if property.total_bedrooms_id.name:
             values.update({'total_bedrooms': property.total_bedrooms_id.name})
         if property.total_bathrooms_id.name:
             values.update({'total_bathrooms': property.total_bathrooms_id.name})
         if property.total_no_flatmates_id.name:
             values.update({'total_no_flatmates': property.total_no_flatmates_id.name})
+        if property.type == 'house':
+            values.update({'listing_type':'House'})
+        if property.type == 'flat':
+            values.update({'listing_type':'Flat'})
         if property.description_about_property:
             values.update({'description_about_property': property.description_about_property})
         if property.description_about_user:
@@ -382,7 +406,43 @@ class FlatMates(http.Controller):
         if property.parking_id:
             values.update({'parking_id': property.parking_id.name})
         if property.pref:
-            values.update({'pref': property.pref})
+            value_key=property.selection_value(property.pref)
+            print("=====kAHSfdjsaD====",value_key)
+            values.update({'pref':property.pref })
+        if property.person_ids:
+            if property.person_ids.age:
+                values.update({'age':property.person_ids.age})
+            if property.person_ids.gender:
+                values.update({'gender': property.person_ids.gender})
+        if property.max_len_stay_id:
+            values.update({'stay_lenget':property.max_len_stay_id.name})
+
+        if property.f_full_time == True:
+            values.update({'f_full_time':'Working Full time'})
+        if property.f_part_time == True:
+            values.update({'f_part_time': 'Working Part Time'})
+        if property.f_working_holiday == True:
+            values.update({'f_working_holiday': 'Working Holiday'})
+        if property.f_retired == True:
+            values.update({'f_retired': 'Retired'})
+        if property.f_unemployed == True:
+            values.update({'f_unemployed': 'Unemployed'})
+        if property.f_backpacker == True:
+            values.update({'f_backpacker': 'Backpacker'})
+        if property.f_student == True:
+            values.update({'f_student': 'Student'})
+
+        if property.rooms_ids:
+            if property.rooms_ids.room_furnishing_id:
+                values.update({'room_furnishing_id':property.rooms_ids.room_furnishing_id.name})
+            if property.rooms_ids.bath_room_type_id:
+                values.update({'bath_room_type_id':property.rooms_ids.bath_room_type_id.name})
+
+        if property.internet_id:
+            values.update({'internet_id':property.internet_id.name})
+        if property.property_type:
+            print("=====ghghghgh====",property.property_type)
+            values.update({'accomodation_type':property.property_type})
         return request.render("pragtech_flatmates_system.property_detail11", values)
 
     @http.route(['/shortlists'], type='http', auth="public", website=True, csrf=True)
@@ -1142,6 +1202,7 @@ class FlatMates(http.Controller):
         if find_place_data:
             find_place_dict = find_place_data[0]
 
+
             if 'find_property_looking_for' in find_place_dict and find_place_dict.get('find_property_looking_for'):
                 accomodation_id_list=[]
                 for accomodation_type in find_place_dict.get('find_property_looking_for'):
@@ -1279,6 +1340,17 @@ class FlatMates(http.Controller):
                 new_line_id = flatmate_line_obj.sudo().create(line_dict)
                 print('+++++++++++++++++ New Line Id ::: ', new_line_id)
 
+            image_line_obj = request.env['property.image']
+            image_dict = {}
+            if 'usre_image' in find_place_data and find_place_data('user_image'):
+                user_data = base64.encodestring(find_place_data.get('user_image').read())
+                image_dict.update({'image': user_data,'flat_mates_id':new_flat_mate_id.id})
+            if image_dict:
+                new_image_id= image_line_obj.sudo().create(image_dict)
+                print("fgfgfgkjdszgbjhfsdgjh",new_image_id)
+
+
+
             if about_you :
                 about_list = about_you.get('record')
                 for data in about_list:
@@ -1303,6 +1375,7 @@ class FlatMates(http.Controller):
                     if person_line_dict:
                         new_line_id = person_line_obj.sudo().create(person_line_dict)
                         print('++++++++person_line_obj+++++++++ New Line Id ::: ', new_line_id)
+
 
         if find_proprty_created:
             result = {'new_flatmate_id':new_flat_mate_id.id}
@@ -1343,7 +1416,8 @@ class FlatMates(http.Controller):
                 csrf=False)
     def find_place_accommodation(self, **kwargs):
         is_user_public = request.env.user.has_group('base.group_public')
-        property_type=request.env['property.type'].search([])
+        property_type=request.env['property.type'].sudo().search([])
+
         values={}
         for property_type in property_type:
             if property_type.property_type=='Rooms in an existing share house':
@@ -1484,6 +1558,9 @@ class FlatMates(http.Controller):
         else:
             return request.render("pragtech_flatmates_system.find_about_yourself", )
 
+    @http.route(['/find_place_preview'], type='http', auth="public", website=True, csrf=False)
+    def find_place_preview(self, **kwargs):
+        return request.render("pragtech_flatmates_system.find_place_preview_template", )
     ##################################################################
     # --------------  End of Routes for find my place -------------- #
     ##################################################################
@@ -1820,16 +1897,115 @@ class FlatMates(http.Controller):
         return data
 
     @http.route('/get_product', auth='public', type='json', website=True)
-    def get_product(self, record_id):
+    def get_product(self, record_id, filters=None) :
         property_list = []
         property_data = {}
+        domain = []
 
-        properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id)],
-                                                                  fields=['id', 'street2', 'city', 'description','listing_type',
-                                                                          'weekly_rent','weekly_budget','description_about_property',
+        print ("\n\n\n",filters[0].get('listing_type'))
+        print ("\n\n\n", filters[0].get('max_age'))
+        if filters[0].get('listing_type') =='home':
+            print ("Homeeeeeeeeeeeeeeee")
+            properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id)],
+                                                                  fields=['id', 'street2', 'city','listing_type',
+                                                                          'weekly_budget','description_about_property',
                                                                           'property_image_ids','total_bathrooms_id','total_bedrooms_id'
-                                                                           ,'total_no_flatmates_id','person_ids'], order='id', limit=16)
-        # print ("Recordddddddddddddddddd-------",properties)
+                                                                           ,'total_no_flatmates_id','person_ids', 'is_short_list'], order='id', limit=16)
+
+        if filters[0].get('listing_type') == 'find':
+            print ("Finddddddddddddddddd",filters[0])
+            domain = [('id', '>', record_id),('listing_type','=','find')]
+            if filters[0].get('find_min_age'):
+                domain.append(('person_ids.age','>=',int(filters[0].get('find_min_age'))))
+            if filters[0].get('find_max_age'):
+                domain.append(('person_ids.age', '<=', int(filters[0].get('find_max_age'))))
+            if filters[0].get('gender_selection'):
+                if filters[0].get('gender_selection') == 'Females':
+                    domain.append(('person_ids.gender', '=', 'female'))
+                if filters[0].get('gender_selection') == 'Males':
+                    domain.append(('person_ids.gender','=','male'))
+                if filters[0].get('gender_selection') == ' Females + % 26 + males + % 28no + couple % 29':
+                    domain.append(('person_ids.gender','=','male'))
+                    domain.append(('person_ids.gender', '=', 'female'))
+
+            if filters[0].get('find_min_rent'):
+                domain.append(('weekly_budget', '>=', int(filters[0].get('find_min_rent'))))
+            if filters[0].get('find_max_rent'):
+                domain.append(('weekly_budget', '<=', int(filters[0].get('find_max_rent'))))
+            if filters[0].get('find_max_stay'):
+                domain.append(('max_len_stay_id', '=', int(filters[0].get('find_max_stay'))))
+            if filters[0].get('flat_avail_date_id'):
+                date_string=filters[0].get('flat_avail_date_id')
+                date=date_string.replace('%2F','/')
+                formated_date=datetime.strptime(date, '%m/%d/%y')
+                domain.append(('avil_date', '<=', formated_date))
+            if filters[0].get('pepole_that_are'):
+                if filters[0].get('pepole_that_are') == 'LGBT':
+                    domain.append(('flgbti','=',True))
+                if filters[0].get('pepole_that_are') == 'No+kids':
+                    domain.append(('fchildern','=',False))
+                if filters[0].get('pepole_that_are') == 'No+Pets':
+                    domain.append(('fpets','=',False))
+                if filters[0].get('pepole_that_are') == 'No-smoker':
+                    domain.append(('fsmoker','=',False))
+                if filters[0].get('pepole_that_are') == 'Smoker':
+                    domain.append(('fsmoker','=',True))
+            if filters[0].get('professions'):
+                if filters[0].get('professions') == 'Working+full-time':
+                    domain.append(('f_full_time','=',True))
+                if filters[0].get('professions') == 'Working Part-time':
+                    domain.append(('f_part_time','=',True))
+                if filters[0].get('professions') == 'Student':
+                    domain.append(('f_student','=',True))
+                if filters[0].get('professions') == 'Backpacker':
+                    domain.append(('f_backpacker','=',True))
+                if filters[0].get('professions') == 'Retired':
+                    domain.append(('f_retired','=',True))
+                if filters[0].get('professions') == 'Unemployed/Welfare':
+                    domain.append(('f_unemployed','=',True))
+                if filters[0].get('professions') == 'Working+Holiday':
+                    domain.append(('f_working_holiday','=',True))
+
+
+
+            print ("Recordddddddddddddddddd-------",domain)
+
+            properties = request.env['house.mates'].sudo().search_read(domain=domain,
+                                                                       fields=['id', 'street2', 'city',
+                                                                               'listing_type',
+                                                                               'weekly_budget',
+                                                                               'description_about_property',
+                                                                               'property_image_ids',
+                                                                               'total_bathrooms_id', 'total_bedrooms_id'
+                                                                           , 'total_no_flatmates_id', 'person_ids', 'is_short_list'],
+                                                                       order='id', limit=16)
+
+        if filters[0].get('listing_type') == 'list':
+            print ("listinggggggggggg--------",filters[0])
+            domain = [('id', '>', record_id),('listing_type','=','list')]
+            if filters[0].get('min_room_rent'):
+                domain.append(('weekly_budget', '>=', int(filters[0].get('min_room_rent'))))
+            if filters[0].get('max_room_rent'):
+                domain.append(('weekly_budget', '<=', int(filters[0].get('max_room_rent'))))
+            if filters[0].get('search_stay_len'):
+                domain.append(('max_len_stay_id', '<=', int(filters[0].get('search_stay_len'))))
+            if filters[0].get('search_bedrooms'):
+                domain.append(('total_bedrooms_id', '=', int(filters[0].get('search_bedrooms'))))
+
+            print ("Recordddddddddddddddddd-------",domain)
+
+            properties = request.env['house.mates'].sudo().search_read(domain=domain,
+                                                                       fields=['id', 'street2', 'city',
+                                                                               'listing_type',
+                                                                               'weekly_budget',
+                                                                               'description_about_property',
+                                                                               'property_image_ids',
+                                                                               'total_bathrooms_id', 'total_bedrooms_id'
+                                                                           , 'total_no_flatmates_id', 'person_ids', 'is_short_list'],
+                                                                       order='id', limit=16)
+
+        print ("Recordddddddddddddddddd----8888888888888888888888---",properties)
+        print("======fgjhdfgkjdfghkjfghugfhfg======",request.env['house.mates'].sudo().search([('person_ids.gender','=','female')]))
 
         for rec in properties:
             print("Streettt---------------------------", rec)
@@ -1839,6 +2015,8 @@ class FlatMates(http.Controller):
             property_data = {}
             property_data['id'] = rec.get('id')
 
+            ## Code added by dhrup
+            property_data['is_short_list'] = rec.get('is_short_list')
             property_data['description'] = rec.get('description_about_property')
             property_data['weekly_budget'] = rec.get('weekly_budget')
             property_data['listing_type'] = rec.get('listing_type')

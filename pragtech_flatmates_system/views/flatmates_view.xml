@@ -209,6 +209,7 @@
                                 <field name="type"/>
                                 <field name="pref"/>
                                 <field name="place_for"/>
+                                <field name="is_short_list"/>
                             </group>
                         </group>
 

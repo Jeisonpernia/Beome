@@ -5,19 +5,53 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 //    console.log ("Document Height",$(document).height());
 //    console.log ("Window Height",$(window).height());
 //    console.log ("Window Scroll Top",$(window).scrollTop());
-
     var record_id = 0;
     var lock_scroll = false;
-    function load_data(last_record_fetched)
+
+
+    function getURLparameters()
+    {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        filters =[]
+        domain = {}
+    //            console.log ("In If loop ----------------------------",sPageURL)
+    //            console.log ("In If loop ----------------------------",sURLVariables)
+        for (var i = 0; i < sURLVariables.length; i++)
+        {
+            var sParameterName = sURLVariables[i].split('=');
+            console.log ("In If loop -------------------11---------",sParameterName[0])
+            console.log ("In If loop -------------------11---------",sParameterName[1])
+            if (sParameterName[1])
+            {
+                domain[sParameterName[0]]=sParameterName[1]
+            }
+        }
+        filters.push(domain)
+        console.log("Filtersssss",filters)
+        return filters
+    }
+
+    function load_data(last_record_fetched, filters, button_name)
     {
 //        console.log ('Execution Time',record_id)
 //        console.log (last_record_fetched)
+
+        if (button_name = 'home')
+        {
+            var data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'record_id' : last_record_fetched, 'filters' : filters}})
+        }
+        if (button_name == 'find' || button_name == 'list')
+        {
+            var data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'record_id' : last_record_fetched, 'filters' : filters}})
+        }
+
         $.ajax({
                     url: '/get_product',
                     type: "POST",
                     dataType: 'json',
                     contentType: 'application/json',
-                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'record_id' : last_record_fetched}}),
+                    data: data,
                     success: function(data)
                     {
 
@@ -45,6 +79,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                             name = data['result'][index]['name']
                             age = data['result'][index]['age']
                             gender = data['result'][index]['gender']
+                            short_list = data['result'][index]['is_short_list']
 
 
 
@@ -52,8 +87,13 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                             link_open_div = '<a href="#" type="button" class="property_button" data-button-id='+record_id+' >'
                             open_image_div = '<div class="property-img"><img src=data:image/jpeg;base64,'+image+' class="img-fluid"/>'
                             close_image_div = '</div>'
-
-                            star_div = '<div class="shortlist"><a href="#222" class="default-shortlist shortlist-button"><svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></a></div>'
+                            // // Code commented by himesh
+                            //star_div = '<div class="shortlist"><a href="#222" class="default-shortlist shortlist-button"><svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></a></div>'
+                            // Code added by dhrup
+                            if (short_list.toString() == 'true')
+                            	star_div = '<div class="shortlist"><a href="#222" class="shortlisted shortlist-button"><svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></a></div>'
+                            else
+                            	star_div = '<div class="shortlist"><a href="#222" class="default-shortlist shortlist-button"><svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></a></div>'
 
                             property_name_div = '<p class="property-listing-subheading">To be added</p>'
                             description_div = '<p class="property-listing-para">'+description+'</p>'
@@ -81,7 +121,8 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
                             if (data['result'][index]['listing_type'] == 'find')
                             {
-                                gender = gender.charAt(0).toUpperCase() + gender.slice(1)
+                                if (gender)
+                                    gender = gender.charAt(0).toUpperCase() + gender.slice(1)
                                 name_div = '<p class="property-listing-heading mt-2">'+name+'</p>'
 
                                 blue_image_ribbion = '<div class="propety-ribbon-blue">New |  $'+weekly_budget+'</div>'
@@ -131,9 +172,21 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
         if (siteurl.attr('pathname') === '/' && record_id == 0)
         {
-//        console.log ("In If loop ----------------------------")
-        load_data(0)
+        filters =[]
+        domain = {}
+
+        domain['listing_type']='home'
+        filters.push(domain)
+        load_data(0, filters, 'home')
         }
+
+        if (siteurl.attr('pathname') === '/search/records')
+        {
+        var filters = getURLparameters()
+
+        load_data(0, filters, filters[0]['listing_type'])
+        }
+
 
         $(window).scroll(function ()
         {
@@ -143,6 +196,11 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 //    console.log ("Difference Scroll Top",$(window).scrollTop(),$(document).height() - $(window).height() - 100)
             if (siteurl.attr('pathname') === '/')
             {
+            filters =[]
+            domain = {}
+
+            domain['listing_type']='home'
+            filters.push(domain)
 //                console.log("Testingggggggggggg")
                 if ($(window).scrollTop()>= $(document).height() - $(window).height() - 270)
                 {
@@ -152,7 +210,28 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 //                    console.log ("------------------- Difference Scroll Top",$(window).scrollTop(),$(document).height() - $(window).height() - 100)
                         lock_scroll = true
                         setTimeout(function() {
-                        load_data(record_id);
+                        load_data(record_id, filters, 'home')
+                        }, 1000)
+
+                    }
+
+
+                }
+            }
+
+            if (siteurl.attr('pathname') === '/search/records')
+            {
+
+                if ($(window).scrollTop()>= $(document).height() - $(window).height() - 270)
+                {
+
+                    if (lock_scroll == false)
+                    {
+//                    console.log ("------------------- Difference Scroll Top",$(window).scrollTop(),$(document).height() - $(window).height() - 100)
+                        lock_scroll = true
+                        setTimeout(function() {
+                        var filters = getURLparameters()
+                        load_data(record_id, filters, filters[0]['listing_type'])
                         }, 1000)
 
                     }
@@ -161,6 +240,26 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                 }
             }
         });
+
+
+
+//
+
+
+
+
+
+
+        $(window).scroll(function ()
+        {
+//    console.log ("Document Height",$(document).height());
+//    console.log ("Window Height",$(window).height());
+//    console.log ("Window Scroll Top",$(window).scrollTop());
+//    console.log ("Difference Scroll Top",$(window).scrollTop(),$(document).height() - $(window).height() - 100)
+
+        });
+
+
 
 
     });

@@ -32,6 +32,8 @@ class Housemates(models.Model):
                             string="Flatmate Preference")
     place_for = fields.Selection([('me', 'Me'), ('couple', 'Couple'), ('group', 'Group')], string="Place For")
     is_teamups = fields.Boolean('Teamups')
+    is_short_list = fields.Boolean('Short List')
+
     ## About the room
     rooms_ids = fields.One2many('about.rooms', 'flatmate_id', string="About the room(s)")
 
@@ -91,6 +93,11 @@ class Housemates(models.Model):
         res = {}
         res['domain'] = {'property_type': [('listing_category', '=', listing_category.id)]}
         return res
+
+    def selection_value(self,key):
+        if self.pref == key:
+            print("\n====key",dict(self._fields['type'].selection).get(self.pref))
+            return dict(self._fields['type'].selection).get(self.pref)
 
 
 

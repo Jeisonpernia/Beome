@@ -146,7 +146,7 @@
 
                                         <div class="search-min-budget mt-3">
                                             <div class="form-group row">
-
+                                            <input type="hidden" name="listing_type" value="list"/>
                                                 <div class="col-lg-3 col-6 btn-padding-right">
                                                     <input type="text" class="form-control" id="min_room_rent_id" name="min_room_rent"
                                                            placeholder="Min rent"/>
@@ -284,7 +284,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="LGBTI"
                                                                id="search_check_lgbt" name="LGBTI" readonly="true"/>
                                                         <span class="search-accepting">LGBT+ friendly</span>
                                                     </div>
@@ -295,7 +295,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="Retirees welcome"
                                                                id="" name="retirees" readonly="true"/>
                                                         <span class="search-accepting">Retirees welcome</span>
                                                     </div>
@@ -307,7 +307,7 @@
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control"
-                                                               value="" id="" name="students" readonly="true"/>
+                                                               value="Students accepted" id="" name="students" readonly="true"/>
                                                         <span class="search-accepting">Students accepted</span>
                                                     </div>
                                                 </div>
@@ -317,7 +317,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="Smokers accepted"
                                                                id="" name="smokers" readonly="true"/>
                                                         <span class="search-accepting">Smokers accepted</span>
                                                     </div>
@@ -328,7 +328,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="Backpackers OK"
                                                                id="" name="backpackers" readonly="true"/>
                                                         <span class="search-accepting">Backpackers OK</span>
                                                     </div>
@@ -339,7 +339,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="Children OK"
                                                                id="" name="children" readonly="true"/>
                                                         <span class="search-accepting">Children OK</span>
                                                     </div>
@@ -350,7 +350,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="40yrs+ welcome"
                                                                id="" name="fourty_year_old" readonly="true"/>
                                                         <span class="search-accepting">40yrs+ welcome</span>
                                                     </div>
@@ -361,7 +361,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="All female flat"
                                                                id="" name="all_female_flat" readonly="true"/>
                                                         <span class="search-accepting">All female flat</span>
                                                     </div>
@@ -372,7 +372,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="Pets considered"
                                                                id="" name="pets" readonly="true"/>
                                                         <span class="search-accepting">Pets considered</span>
                                                     </div>
@@ -402,9 +402,10 @@
                                             <!--<div class="col-lg-3 col-6 btn-padding-left">-->
                                             <!--<input type="text" class="form-control" id="" placeholder="Max Rent" />-->
                                             <!--</div>-->
+                                            <input type="hidden" name="listing_type" value="find"/>
                                             <div class="col-lg-6 col-12 mt-3 btn-padding-right">
-                                                <select class="form-control" id="">
-                                                                                                        <option name="find_all_genders">All genders</option>
+                                                <select class="form-control" id="gender_selection" name="gender_selection">
+                                                    <option name="find_all_genders">All genders</option>
                                                     <option name="find_females">Females</option>
                                                     <option name="find_male">Males</option>
                                                     <option name="find_females">Females &#38; males (no couple)</option>
@@ -415,7 +416,7 @@
 
 
                                             <div class="col-lg-6 col-12 mt-3 btn-padding-left">
-                                                <select class="form-control" id="">
+                                                <select class="form-control" id="photo_first" name="photo_first">
                                                     <option name="find_photos">Photos first</option>
                                                     <option name="find_newest">Newest listings</option>
                                                     <option name="find_most_active">Active most recently</option>
@@ -470,11 +471,11 @@
                                             <div class="form-group row">
                                                 <div class="col-lg-6 col-12 btn-padding-right">
                                                     <input type="text" class="form-control filter-btn"
-                                                           id="flat_avail_date_id" placeholder="Available from"/>
+                                                           id="flat_avail_date_id" name="flat_avail_date_id" placeholder="Available from"/>
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 btn-padding-left">
-                                                    <select class="form-control" id="find_property_type">
+                                                    <select class="form-control" id="find_property_type" name="find_property_type">
                                                     </select>
                                                 </div>
 
@@ -484,17 +485,17 @@
                                                 <div class="form-group row">
 
                                                     <div class="col-lg-3 col-6 btn-padding-right">
-                                                        <select class="form-control" id="find_min_stay">
+                                                        <select class="form-control" id="find_min_stay" name="find_min_stay">
                                                         </select>
                                                     </div>
 
                                                     <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
-                                                        <select class="form-control" id="find_max_stay">
+                                                        <select class="form-control" id="find_max_stay" name="find_max_stay">
                                                         </select>
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 btn-padding-left">
-                                                        <select class="form-control" id="">
+                                                        <select class="form-control" id="pepole_that_are" name="pepole_that_are">
                                                             <option>People that are</option>
                                                             <option>LGBT</option>
                                                             <option>No kids</option>
@@ -505,7 +506,7 @@
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 mt-3 btn-padding-right">
-                                                        <select class="form-control" id="">
+                                                        <select class="form-control" id="professions" name="professions">
                                                             <option>Professions</option>
                                                             <option>Working full-time</option>
                                                             <option>Working Part-time</option>

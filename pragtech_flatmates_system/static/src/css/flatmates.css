@@ -8,6 +8,7 @@
     font-style: normal;
 }
 
+
 body{
    font-family: 'open_sansregular' !important;
 }
@@ -352,6 +353,16 @@ padding:20px;
 .form-control:focus{
    border-color: #2f3a4a;
    box-shadow: none;
+}
+
+.p16{
+	font-size:16px;
+	font-weight:normal;
+}
+
+.p14{
+	font-size:14px;
+	font-weight:normal;
 }
 
 .p16-gray{
@@ -1837,4 +1848,107 @@ hr{
 }
 .popular-locations .popular-location{
 	margin-right: 2px;
+}
+
+.find_place_preview{
+	background: #e8e9ea;
+}
+
+.find_place_preview h2{
+	font-weight: normal;
+	font-size: 32px;
+}
+
+.find_place_preview h3{
+	font-size: 24px;
+	font-weight: normal;
+}
+
+.find_place_preview h4{
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.bg-gray{
+	background: #e8e9ea;
+}
+
+.bg-white{
+	background: #fff;
+	padding: 20px;
+	border-radius: 3px;
+}
+
+
+.find_place_preview .potential-matches{
+	min-height: 350px;
+}
+
+.find_place_preview .listing-views{
+	min-height: 350px;
+}
+
+.find_place_preview .listing-views-header{
+	height: 60px;
+}
+
+.find_place_preview .listing-views-status{
+display: table;
+margin: 0 auto;
+text-align: center;
+margin-top:50px;
+	margin-bottom: 50px;
+
+}
+
+.find_place_preview .listing-views-status svg{
+	width: 44px;
+	height: 40px;
+}
+
+.find_place_preview .listing-views-status .icon{
+	margin-top: 100px;
+}
+
+.green-ribbon{
+	position: absolute;
+	top: 20px;
+	left: -20px;
+}
+
+.green-ribbon-wrapper{
+    position: relative;
+    z-index: 100;
+}
+
+.green-ribbon-bx{
+	border-radius: 0 3px 3px 0;
+box-shadow: 1px 1px 4px 0 rgba(0,0,0,.15);
+background-color: #25e5bf;
+height: 40px;
+width: 134px;
+z-index: 100;
+text-align: center;
+	position: relative;
+	left: -10px;
+}
+
+.green-ribbon .green-ribbon-wrapper .green-ribbon-bx span {
+    line-height: 40px;
+    color: #2e3a4a;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.green-ribbon .green-ribbon-wrapper .green-ribbon-tail{
+	z-index: -100;
+-webkit-transform: translate(-8px,-29px) skewY(30deg);
+transform: translate(-8px,-29px) skewY(30deg);
+background-color: #13d0ab;
+height: 32px;
+width: 8px;
+}
+
+.border-red{
+	border:1px solid red;
 }

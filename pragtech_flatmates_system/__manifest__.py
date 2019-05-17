@@ -6,10 +6,10 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.3',
+    'version': '12.0.4',
     'description': "",
     'depends': [
-                'website','website_blog','base','auth_signup'
+                'website','website_blog','base','auth_signup','pragtech_homepage_login', 'pragtech_website_extension'
                 ],
     'installable': True,
     'data': [
@@ -33,6 +33,7 @@
         'static/src/xml/about_template.xml',
         'static/src/xml/property_detail.xml',
         'static/src/xml/website_blog_template.xml',
+        'static/src/xml/find_place_preview.xml',
 
         'static/src/static_webpages/info_breadcrumb.xml',
         'static/src/static_webpages/info_li_list.xml',

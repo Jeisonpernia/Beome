@@ -91,9 +91,13 @@ $(document).ready(function() {
             console.log('*******************************************')
 //            $('#propert_submit_btn').prop("disabled", true);
             $(".styles__errorMessage").show()
+            // Code added by dhrup
+            $('#autocomplete').addClass("border-red");
       }
       else{
             $(".styles__errorMessage").hide()
+            // Code added by dhrup
+            $('#autocomplete').removeClass("border-red");
 //            $('#propert_submit_btn').prop("disabled", false);
       }
 

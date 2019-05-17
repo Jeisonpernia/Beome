@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data> 
+	 	<template id="homepage_login" name="Login">
+            <form class="oe_login_form" role="form" t-attf-action="/web/access_login" method="post" onsubmit="this.action = this.action + location.hash">
+
+
+
+                <div class="form-group field-password">
+                    <label for="password">Password</label>
+                    <input type="text" placeholder="Enter something" name="validation" id="validation" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required"  t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                </div>
+
+
+                <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
+                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+
+                </div>
+
+            </form>
+
+    </template>
+	 	
+	</data>
+</odoo>

@@ -729,22 +729,44 @@
 				<div class="row">
 					
 					<div class="col-lg-2 text-center">
-						<span class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <defs>
-              <circle cx="32" id="prefix__a" cy="32" r="32"></circle>
-			  </defs>
-              <g fill="none" fill-rule="evenodd"><g>
-				<mask id="prefix__b" fill="#fff">
-				<use xlink:href="#prefix__a"></use>
-                </mask>
-                <circle cx="32" fill-rule="nonzero" stroke="#11836C" cy="32" mask="url(#prefix__b)" r="31.25" stroke-width="1.5"></circle>
-				<path stroke-linecap="round" stroke="#11836C" d="M41.788 49.47c2.458-3.615 3.76-6.362 3.904-7.084.145-.723 4.337-5.06 4.337-8.964 0-3.904-1.59-3.904-1.59-3.904 0-7.807.03-19.518-14.804-19.518S18.831 21.71 18.831 29.518c0 0-1.59 0-1.59 3.904 0 3.903 4.192 8.24 4.337 8.964.144.722 1.446 3.47 3.903 7.084-2.747 2.458-12.144 5.494-17.349 8.385-5.205 2.892-9.398 10.7-9.398 17.35 0 6.372 24.868 6.795 34.901 6.795 10.033 0 34.9-.423 34.9-6.795 0-6.65-4.192-14.458-9.397-17.35-5.205-2.891-14.603-5.927-17.35-8.385z" mask="url(#prefix__b)" stroke-linejoin="round" stroke-width="1.5"></path></g>
-				<g transform="translate(40 40)">
-				<circle cx="12" cy="12" fill="#11836C" r="12"></circle>
-				<path d="M19.112 8.688v7.874c0 .365-.128.675-.383.93a1.266 1.266 0 0 1-.93.383H6.425c-.365 0-.675-.128-.93-.383a1.266 1.266 0 0 1-.383-.93V8.688c0-.364.128-.674.383-.93.255-.254.565-.382.93-.382H8.83l.328-.902c.11-.256.273-.46.492-.616.219-.155.465-.232.738-.232h3.446c.273 0 .52.077.738.232.219.155.383.36.492.616l.328.902H17.8c.365 0 .675.128.93.383s.383.565.383.93zm-3.719 3.937a3.23 3.23 0 0 0-.437-1.654 3.237 3.237 0 0 0-1.19-1.19 3.23 3.23 0 0 0-1.654-.437 3.23 3.23 0 0 0-1.654.437 3.237 3.237 0 0 0-1.19 1.19 3.23 3.23 0 0 0-.437 1.654c0 .602.146 1.153.437 1.654.292.502.688.898 1.19 1.19a3.23 3.23 0 0 0 1.654.437 3.23 3.23 0 0 0 1.654-.437 3.237 3.237 0 0 0 1.19-1.19 3.23 3.23 0 0 0 .437-1.654zm-.875 0c0 .656-.237 1.221-.71 1.695-.475.474-1.04.711-1.696.711a2.314 2.314 0 0 1-1.695-.71 2.314 2.314 0 0 1-.711-1.696c0-.656.237-1.221.71-1.695a2.314 2.314 0 0 1 1.696-.711c.656 0 1.221.237 1.695.71.474.475.711 1.04.711 1.696z" fill="#FFF"></path></g></g>
-				</svg>
-                </span></div>
+
+                        <div class="profile-pic1">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <circle cx="32" id="prefix__a" cy="32" r="32"></circle>
+                                    </defs>
+                                    <g fill="none" fill-rule="evenodd"><g>
+                                        <mask id="prefix__b" fill="#fff">
+                                            <use xlink:href="#prefix__a"></use>
+                                        </mask>
+                                        <circle cx="32" fill-rule="nonzero" stroke="#11836C" cy="32" mask="url(#prefix__b)" r="31.25" stroke-width="1.5"></circle>
+                                        <path stroke-linecap="round" stroke="#11836C" d="M41.788 49.47c2.458-3.615 3.76-6.362 3.904-7.084.145-.723 4.337-5.06 4.337-8.964 0-3.904-1.59-3.904-1.59-3.904 0-7.807.03-19.518-14.804-19.518S18.831 21.71 18.831 29.518c0 0-1.59 0-1.59 3.904 0 3.903 4.192 8.24 4.337 8.964.144.722 1.446 3.47 3.903 7.084-2.747 2.458-12.144 5.494-17.349 8.385-5.205 2.892-9.398 10.7-9.398 17.35 0 6.372 24.868 6.795 34.901 6.795 10.033 0 34.9-.423 34.9-6.795 0-6.65-4.192-14.458-9.397-17.35-5.205-2.891-14.603-5.927-17.35-8.385z" mask="url(#prefix__b)" stroke-linejoin="round" stroke-width="1.5"></path></g>
+                                        <g transform="translate(40 40)">
+                                            <circle cx="12" cy="12" fill="#11836C" r="12"></circle>
+                                            <path d="M19.112 8.688v7.874c0 .365-.128.675-.383.93a1.266 1.266 0 0 1-.93.383H6.425c-.365 0-.675-.128-.93-.383a1.266 1.266 0 0 1-.383-.93V8.688c0-.364.128-.674.383-.93.255-.254.565-.382.93-.382H8.83l.328-.902c.11-.256.273-.46.492-.616.219-.155.465-.232.738-.232h3.446c.273 0 .52.077.738.232.219.155.383.36.492.616l.328.902H17.8c.365 0 .675.128.93.383s.383.565.383.93zm-3.719 3.937a3.23 3.23 0 0 0-.437-1.654 3.237 3.237 0 0 0-1.19-1.19 3.23 3.23 0 0 0-1.654-.437 3.23 3.23 0 0 0-1.654.437 3.237 3.237 0 0 0-1.19 1.19 3.23 3.23 0 0 0-.437 1.654c0 .602.146 1.153.437 1.654.292.502.688.898 1.19 1.19a3.23 3.23 0 0 0 1.654.437 3.23 3.23 0 0 0 1.654-.437 3.237 3.237 0 0 0 1.19-1.19 3.23 3.23 0 0 0 .437-1.654zm-.875 0c0 .656-.237 1.221-.71 1.695-.475.474-1.04.711-1.696.711a2.314 2.314 0 0 1-1.695-.71 2.314 2.314 0 0 1-.711-1.696c0-.656.237-1.221.71-1.695a2.314 2.314 0 0 1 1.696-.711c.656 0 1.221.237 1.695.71.474.475.711 1.04.711 1.696z" fill="#FFF"></path></g></g>
+                                </svg>
+                            </span>
+
+								</div>
+				            		<!--&lt;!&ndash;<div t-field="user_id.partner_id.image" t-options="{'widget': 'image', 'class': 'img-circle',  'style':'background-color:#4b3551;padding: 2px;width:160px;height:160px;margin: auto;'}" />&ndash;&gt;-->
+									<!--<img id="temp_user_img" class="img img-responsive img-circle"  src="#" style="display:none; width:160px;height:160px; background-color:#fff; margin-top: -160px;" />-->
+		  							<!--<div class="profile-pic-overlay">-->
+			  							<!--<a href="#" class="icon" title="User Profile">-->
+			    							<!--<div class="box">-->
+												<!--<input type="file" name="user_image" id="user_image" class="inputfile inputfile-5" data-multiple-caption="{count} files selected"  accept="image/png, image/jpeg"/>-->
+												<!--<label for="user_image">-->
+													<!--<figure>-->
+					                                    <!--<img style="width: 25px;" src="/pragtech_flatmates_system/static/src/img/up-arrow.png" title="Upload Image"></img>-->
+													<!--</figure>-->
+													<!--<span></span>-->
+												<!--</label>-->
+											<!--</div>-->
+									  	<!--</a>-->
+									  <!--</div>-->
+
+
+                    </div>
 					<div class="col-lg-10 about-profilepic-txt"><p>You can add or change your profile picture later</p></div>
 				  </div>
 											
