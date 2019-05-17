@@ -9,7 +9,7 @@
     'version': '12.0.3',
     'description': "",
     'depends': [
-                'website','website_blog','base'
+                'website','website_blog','base','auth_signup'
                 ],
     'installable': True,
     'data': [
@@ -23,7 +23,7 @@
         'views/config_master_view.xml',
         'views/website_blog_view.xml',
         'views/res_user.xml',
-
+        'views/email_template.xml',
 
         'static/src/xml/menu_item.xml',
         'static/src/xml/home_view.xml',

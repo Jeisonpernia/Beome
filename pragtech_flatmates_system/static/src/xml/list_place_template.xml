@@ -992,64 +992,17 @@
                                                t-attf-value="#{type_of_accomodation}"/>
                                     </t>
                                     <div class="col-lg-7 mx-auto text-center">
-                                        <!--<img src="/pragtech_flatmates_system/static/src/img/furniture.svg"-->
-                                             <!--class="img-fluid mb-5 add-furniture"></img>-->
-                                        <!--<br/>-->
+                                        <img src="/pragtech_flatmates_system/static/src/img/furniture.svg"
+                                             class="img-fluid mb-5 add-furniture"></img>
+                                        <br/>
 
-                                        <!--<div class="btn btn-outline-primary btn-file mb-3 center-add-photos">-->
-                                            <!--<i class="fa fa-camera"></i>-->
-                                            <!--Add Photos-->
-                                            <!--&lt;!&ndash;<input type="file"/>&ndash;&gt;-->
-                                            <!--<input type="file" name="uploads[]" accept="image/*" multiple="multiple" id="upload"/>-->
-                                            <!--&lt;!&ndash;<input type="file" name="upload" accept="image/*" multiple="multiple"/>&ndash;&gt;-->
-                                        <!--</div>-->
+                                        <div class="btn btn-outline-primary btn-file mb-3 center-add-photos">
+                                            <i class="fa fa-camera"></i>
+                                            Add Photos
+                                            <input type="file" name="uploads[]" accept="image/*" multiple="multiple" id="upload"/>
+                                        </div>
 
-                                        <!--<div class="scrolling-wrapper add-photos-slide">-->
-                                            <!--<button type="button" class="scroll-backward arrow-left"><i class="fa fa-chevron-left"></i></button>-->
-                                            <!--<button type="button" class="scroll-forward arrow-right"><i class="fa fa-chevron-right"></i></button>-->
-
-
-                                            <!--<div class="btn btn-outline-primary1 btn-file">-->
-                                                <!--<i class="fa fa-camera"></i>-->
-                                                <!--Add Photos-->
-                                                <!--&lt;!&ndash;<input type="file"/>&ndash;&gt;-->
-                                                <!--<input type="file" name="uploads[]" accept="image/*" multiple="multiple"-->
-                                                       <!--id="upload"/>-->
-                                                <!--&lt;!&ndash;<input type="file" name="upload" accept="image/*" multiple="multiple"/>&ndash;&gt;-->
-                                            <!--</div>-->
-
-
-
-
-                                            <!--<div class="card">-->
-                                                <!--<img src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>-->
-                                                <!--&lt;!&ndash;<a href="#" class="w3-display-bottomleft"><i class="fa fa-trash fa-2x"></i></a>&ndash;&gt;-->
-
-                                            <!--</div>-->
-
-                                            <!--<div class="card">-->
-                                                <!--<img src="/pragtech_flatmates_system/static/src/img/live-rent-free-pic.svg"  width="" height=""/>-->
-                                                <!--&lt;!&ndash;<a href="#" class="w3-display-bottomleft"><i class="fa fa-trash fa-2x"></i></a>&ndash;&gt;-->
-                                            <!--</div>-->
-
-
-
-                                            <!--<div class="card">-->
-                                                <!--<img src="/pragtech_flatmates_system/static/src/img/flatmates_homePage_vid_2018.jpg"  width="" height=""/>-->
-                                                <!--&lt;!&ndash;<a href="#" class="w3-display-bottomleft"><i class="fa fa-trash fa-2x"></i></a>&ndash;&gt;-->
-                                            <!--</div>-->
-
-
-
-
-
-
-
-                                        <!--</div>-->
-
-
-
-                                        <div class="scrolling-wrapper add-photos-slide mid-add-photos">
+                                        <div class="scrolling-wrapper add-photos-slide mid-add-photos d-none">
                                             <button type="button" class="scroll-backward arrow-left"><i class="fa fa-chevron-left"></i></button>
                                             <button type="button" class="scroll-forward arrow-right"><i class="fa fa-chevron-right"></i></button>
 
@@ -1066,34 +1019,34 @@
 											
 											
 											
-											<span class="slider">
-											<a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x"></i></span></a>
-											<img class="slider-img card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>
+											<!--<span class="slider">-->
+											<!--<a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x"></i></span></a>-->
+											<!--<img class="slider-img card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>-->
+											<!---->
+											<!--</span>-->
 											
-											</span>
+											<!--<span class="slider">-->
+											<!--<a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x"></i></span></a>-->
+											<!--<img class="slider-img card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>-->
+											<!---->
+											<!--</span>-->
 											
-											<span class="slider">
-											<a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x"></i></span></a>
-											<img class="slider-img card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>
-											
-											</span>
-											
-											
-											
-											
-											
-											
-											
-											
-											
-											
-											
-											
-											
-                                            
-											
-											
-											
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                             <!--<img class="card" src="/pragtech_flatmates_system/static/src/img/live-rent-free-pic.svg"  width="" height=""/>
                                             <img class="card" src="/pragtech_flatmates_system/static/src/img/teamups.jpg"  width="" height=""/>
                                             <img class="card" src="/pragtech_flatmates_system/static/src/img/flatmates_homePage_vid_2018.jpg"  width="" height=""/>-->

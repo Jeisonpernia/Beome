@@ -764,7 +764,7 @@ border-radius: 50%;
     float: left;
     display: block;
     margin-right: 2.3576520234%;
-    width: 55%;
+    width: 60%;
     margin-top: 1.3em;
     position: relative;
     text-align: left;
@@ -1828,4 +1828,13 @@ hr{
 	border:10px solid;
 	border-top:0px;
 	border-color:rgba(47,58,74,0.3);
+}
+
+.locations{
+	margin: 15px 0;
+	font-size: 14px;
+	color: #a5a8ad;
+}
+.popular-locations .popular-location{
+	margin-right: 2px;
 }

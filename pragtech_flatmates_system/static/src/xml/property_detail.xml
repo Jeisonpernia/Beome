@@ -312,7 +312,7 @@
 
 						<div class="room-rent">
 							<div class="room-value">
-								<span class="room-price"><t t-if="weekly_rent"><t t-esc="weekly_rent"></t></t> </span>
+								<span class="room-price"><t t-if="weekly_budget"><t t-esc="weekly_budget"></t></t> </span>
 								<span class="room-per-week text-muted">/wk</span>
 							</div>
 

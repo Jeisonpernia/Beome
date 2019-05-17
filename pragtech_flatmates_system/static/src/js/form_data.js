@@ -114,7 +114,7 @@ $(document).ready(function() {
             if (find_pace_for == "me")
             {
                 data['place_for'] = find_pace_for
-                data['record_1'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
                                       'age' : $("input[name=your_age_0]").val(),
                                       'gender' : $("input[name=find-place-for-gender_0]:checked").val()
                                     }]
@@ -124,37 +124,37 @@ $(document).ready(function() {
             if (find_pace_for == "couple")
             {
                 data['place_for'] = find_pace_for
-                data['record_1'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
                                       'age' : $("input[name=your_age_0]").val(),
                                       'gender' : $("input[name=find-place-for-gender_0]:checked").val()
                                     }]
-                data['record_2'] = [{ 'name' : $("input[name=find_first_name_1]").val(),
+                data['record'].push({ 'name' : $("input[name=find_first_name_1]").val(),
                                       'age' : $("input[name=your_age_1]").val(),
                                       'gender' : $("input[name=find-place-for-gender_1]:checked").val()
-                                    }]
+                                    })
                 console.log(data)
             }
 
             if (find_pace_for == "group")
             {
                 data['place_for'] = find_pace_for
-                data['record_1'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
                                       'age' : $("input[name=your_age_0]").val(),
                                       'gender' : $("input[name=find-place-for-gender_0]:checked").val()
                                     }]
-                data['record_2'] = [{ 'name' : $("input[name=find_first_name_2]").val(),
+                data['record'].push({ 'name' : $("input[name=find_first_name_2]").val(),
                                       'age' : $("input[name=your_age_2]").val(),
                                       'gender' : $("input[name=find-place-for-gender_2]:checked").val()
-                                    }]
+                                    })
 
                 var record=3;
                 $(".custom_me_group").each(function(index)
                 {
-                    data['record_'+(record).toString()] = [{
+                    data['record'].push({
                                       'name' : $("input[name=find_first_name_2"+(index+1).toString()+"]").val(),
                                       'age' : $("input[name=your_age_2"+(index+1).toString()+"]").val(),
                                       'gender' : $("input[name=find-place-for-gender_2"+(index+1).toString()+"]:checked").val()
-                                    }]
+                                    })
                     record+=1
                 })
                 console.log(data)
@@ -225,7 +225,7 @@ $(document).ready(function() {
             var find_place_data = JSON.parse(localStorage.getItem('find_place_record'));
 
             console.log('\nFind Place data \n\n',find_place_data)
-
+            alert("page")
             if (find_place_data){
                 $.ajax({
                         url:'/create/find_place',
@@ -240,6 +240,7 @@ $(document).ready(function() {
                                     window.location.replace('/find/a/property')
                                 }
                                 else{
+
                                     window.location.replace('/')
                                 }
 
@@ -673,6 +674,8 @@ $(document).ready(function() {
                         contentType: 'application/json',
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'list_place_data': list_place_data}}),
                         success: function(data){
+                            console.log('YYYYYYYYYYYYYYYYYYYYYYYYYY---',data['result']['new_list_id'])
+
                             if(data['result']['new_list_id']){
                                 console.log('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY 333333')
                                 window.location.replace('/list/my/property')

@@ -54,20 +54,22 @@
 
                 <section>
                     <div class="container">
-                        <div class="row mt-4" id="lazy_load">
+                        <div class="row mt-4 home-listings" id="lazy_load">
                         </div>
                         <!--<div class="row mt-4 home-listings" id="">-->
                             <!--<div class="col-lg-3 col-sm-3 col-xs-12 property-content">-->
                                 <!--<input field="text" id="property_id" t-att-value='record_id' hidden='false'/>-->
                                 <!--<div class="property-img">-->
+									<!--<a href="https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp" target="_blank">-->
                                     <!--<img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'-->
                                          <!--class="img-fluid"/>-->
-                                    <!--<div class="propety-ribbon-orange">New |  $300</div>-->
+                                    <!--<div class="propety-ribbon-orange">New |  $300</div></a>-->
                                 <!--</div>-->
 
 
                                 <!--<div class="shortlist"><a class="default-shortlist shortlist-button"><svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></a></div>-->
-
+								<!---->
+								<!--<a href="https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp" target="_blank">-->
                                 <!--<p class="property-listing-heading mt-2"><a href="">Bronte</a>, <a href="">Sydney</a></p>-->
                                 <!--<p class="property-listing-subheading">Room in a share house</p>-->
                                 <!--<p class="property-listing-para">THE LOCATION:-->
@@ -116,7 +118,7 @@
                                     <!--Internet is the fastest plan possible.-->
                                     <!--Courtney and I have discussed having a cleaner once a week to do the common areas. This could work out to be around $15 per week each but it is very worth the money. Bathrooms, kitchen and common areas.-->
                                     <!--We are also keen to order all the shared consumables online each month so no one runs out of anything or has to go to the shops. Things like TP, laundry powder, cleaning stuff, shared kitchen stuff etc.-->
-                                    <!--We are an environmentally aware house.</p>-->
+									<!--We are an environmentally aware house.</p></a>-->
 
                                 <!--<div class="listing-tile-stats">-->
                                     <!--<div class="property-listing-icons">-->

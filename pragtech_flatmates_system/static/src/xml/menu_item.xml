@@ -237,15 +237,15 @@
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-right">
-                                                    <select class="form-control" id="" name="accommodation_type">
-                                                        <option>Accommodation Type</option>
-                                                        <option>Room(s) in share houses</option>
-                                                        <option>Whole properties for sharing</option>
-                                                        <option>Studios</option>
-                                                        <option>1 bed flats</option>
-                                                        <option>Granny flats</option>
-                                                        <option>Student accommodation</option>
-                                                        <option>Homestays</option>
+                                                    <select class="form-control" id="search_list_accomodation" name="accommodation_type">
+                                                        <option>Accommodation Type</option>		
+                                                        <!--<option>Room(s) in share houses</option>-->
+                                                        <!--<option>Whole properties for sharing</option>-->
+                                                        <!--<option>Studios</option>-->
+                                                        <!--<option>1 bed flats</option>-->
+                                                        <!--<option>Granny flats</option>-->
+                                                        <!--<option>Student accommodation</option>-->
+                                                        <!--<option>Homestays</option>-->
                                                     </select>
                                                 </div>
 
@@ -403,22 +403,24 @@
                                             <!--</div>-->
                                             <div class="col-lg-6 col-12 mt-3 btn-padding-right">
                                                 <select class="form-control" id="">
-                                                    <option>All genders</option>
-                                                    <option>Females</option>
-                                                    <option>Males</option>
-                                                    <option>Females &#38; males (no couple)</option>
-                                                    <option>Couples</option>
+                                                                                                        <option name="find_all_genders">All genders</option>
+                                                    <option name="find_females">Females</option>
+                                                    <option name="find_male">Males</option>
+                                                    <option name="find_females">Females &#38; males (no couple)</option>
+                                                    <option name="find_couple">Couples</option>
+
                                                 </select>
                                             </div>
 
 
                                             <div class="col-lg-6 col-12 mt-3 btn-padding-left">
                                                 <select class="form-control" id="">
-                                                    <option>Photos first</option>
-                                                    <option>Newest listings</option>
-                                                    <option>Active most recently</option>
-                                                    <option>Budget (lowest to highest)</option>
-                                                    <option>Move date soonest</option>
+                                                    <option name="find_photos">Photos first</option>
+                                                    <option name="find_newest">Newest listings</option>
+                                                    <option name="find_most_active">Active most recently</option>
+                                                    <option name="find_low_to_hight">Budget (lowest to highest)</option>
+                                                    <option name="find_move_date_soonest">Move date soonest</option>
+
                                                 </select>
                                             </div>
 
@@ -438,23 +440,25 @@
                                             <div class="form-group row">
 
                                                 <div class="col-lg-3 col-6 btn-padding-right">
-                                                    <input type="text" class="form-control" id=""
+                                                    <input type="text" class="form-control" id="" name="find_min_age"
                                                            placeholder="Min age"/>
                                                 </div>
 
                                                 <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
-                                                    <input type="text" class="form-control" id=""
+                                                    <input type="text" class="form-control" id="" name="find_max_age"
                                                            placeholder="Max age"/>
                                                 </div>
                                                 <div class="col-lg-3 col-6 btn-padding-right">
-                                                    <input type="text" class="form-control" id=""
+                                                    <input type="text" class="form-control" id="" name="find_min_rent"
                                                            placeholder="Min rent"/>
                                                 </div>
 
                                                 <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
-                                                    <input type="text" class="form-control" id=""
+                                                    <input type="text" class="form-control" id="" name="find_max_rent"
                                                            placeholder="Max rent"/>
                                                 </div>
+
+
 
 
                                             </div>
@@ -469,16 +473,7 @@
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 btn-padding-left">
-                                                    <select class="form-control" id="">
-                                                        <option>People looking for</option>
-                                                        <option>Room(s) in share houses</option>
-                                                        <option>Whole properties for sharing</option>
-                                                        <option>Studios</option>
-                                                        <option>1 bed flats</option>
-                                                        <option>Granny flats</option>
-                                                        <option>Student accommodation</option>
-                                                        <option>Homestays</option>
-                                                        <option>Shared rooms</option>
+                                                    <select class="form-control" id="find_property_type">
                                                     </select>
                                                 </div>
 
@@ -488,35 +483,12 @@
                                                 <div class="form-group row">
 
                                                     <div class="col-lg-3 col-6 btn-padding-right">
-                                                        <select class="form-control" id="">
-                                                            <option>Min stay</option>
-                                                            <option>1 week</option>
-                                                            <option>2 weeks</option>
-                                                            <option>4 weeks</option>
-                                                            <option>6 weeks</option>
-                                                            <option>2 months</option>
-                                                            <option>3 months</option>
-                                                            <option>4 months</option>
-                                                            <option>6 months</option>
-                                                            <option>9 months</option>
-                                                            <option>1 year</option>
+                                                        <select class="form-control" id="find_min_stay">
                                                         </select>
                                                     </div>
 
                                                     <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
-                                                        <select class="form-control" id="">
-                                                            <option>Max stay</option>
-                                                            <option>1 week</option>
-                                                            <option>2 weeks</option>
-                                                            <option>4 weeks</option>
-                                                            <option>6 weeks</option>
-                                                            <option>2 months</option>
-                                                            <option>3 months</option>
-                                                            <option>4 months</option>
-                                                            <option>6 months</option>
-                                                            <option>9 months</option>
-                                                            <option>1 year</option>
-                                                            <option>Open-ended stay</option>
+                                                        <select class="form-control" id="find_max_stay">
                                                         </select>
                                                     </div>
 
@@ -528,12 +500,6 @@
                                                             <option>No Pets</option>
                                                             <option>No-smoker</option>
                                                             <option>Smoker</option>
-                                                            <option></option>
-                                                            <option></option>
-                                                            <option></option>
-                                                            <option></option>
-                                                            <option></option>
-                                                            <option></option>
                                                         </select>
                                                     </div>
 
@@ -547,10 +513,6 @@
                                                             <option>Retired</option>
                                                             <option>Unemployed/Welfare</option>
                                                             <option>Working Holiday</option>
-                                                            <option></option>
-                                                            <option></option>
-                                                            <option></option>
-                                                            <option></option>
                                                         </select>
                                                     </div>
 
@@ -653,21 +615,21 @@
 
                                             <div class="form-group row">
                                                 <div class="col-lg-6 col-12 btn-padding-right">
-                                                    <input type="text" class="form-control filter-btn"
+                                                    <input type="text" class="form-control filter-btn" name="find_date"
                                                            id="teamups_avail_date_id" placeholder="Available from"/>
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 btn-padding-left">
                                                     <select class="form-control" id="">
                                                         <option>People looking for</option>
-                                                        <option>Room(s) in share houses</option>
-                                                        <option>Whole properties for sharing</option>
-                                                        <option>Studios</option>
-                                                        <option>1 bed flats</option>
-                                                        <option>Granny flats</option>
-                                                        <option>Student accommodation</option>
-                                                        <option>Homestays</option>
-                                                        <option>Shared rooms</option>
+                                                        <option name="find_share_house">Room(s) in share houses</option>
+                                                        <option name="find_whole_property">Whole properties for sharing</option>
+                                                        <option name="find_studios">Studios</option>
+                                                        <option name="find_one_bed_flat">1 bed flats</option>
+                                                        <option name="find_granny_flat">Granny flats</option>
+                                                        <option name="find_student_accommodation">Student accommodation</option>
+                                                        <option name="find_homestay">Homestays</option>
+                                                        <option name="find_shared_room">Shared rooms</option>
                                                     </select>
                                                 </div>
 
@@ -766,8 +728,11 @@
                                     </div>
                                     <!--end of teamups-->
                                 </form>
-
+								
+								
+							
                             </div>
+							
 
                         </div>
                     </div>

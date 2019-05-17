@@ -4,6 +4,10 @@ import logging
 import werkzeug
 from io import StringIO, BytesIO
 from werkzeug.utils import redirect
+from datetime import date, datetime, timedelta
+from odoo.exceptions import AccessError, UserError
+from odoo.addons.auth_signup.models.res_users import SignupError
+from odoo.addons.web.controllers.main import ensure_db, Home
 
 import odoo
 from odoo.http import request
@@ -14,9 +18,104 @@ from odoo.addons.website_blog.controllers.main import WebsiteBlog
 from odoo.addons.website.controllers.main import QueryURL
 from odoo.addons.http_routing.models.ir_http import slug, unslug
 from odoo import http, fields
+from odoo.addons.auth_signup.controllers.main import AuthSignupHome
+_logger = logging.getLogger(__name__)
 
 
+class AuthSignupHomeChild(AuthSignupHome):
+    def do_signup(self, qcontext):
+        """ Shared helper that creates a res.partner out of a token """
+        values = {key: qcontext.get(key) for key in ('login', 'name', 'password', 'unique_code')}
+        if not values:
+            raise UserError(_("The form was not properly filled in."))
+        if values.get('password') != qcontext.get('confirm_password'):
+            raise UserError(_("Passwords do not match; please retype them."))
+        supported_langs = [lang['code'] for lang in request.env['res.lang'].sudo().search_read([], ['code'])]
+        if request.lang in supported_langs:
+            values['lang'] = request.lang
+        values.update({'unique_id': qcontext.get('unique_code')})
+        self._signup_with_values(qcontext.get('token'), values)
+        request.env.cr.commit()
 
+    @http.route()
+    def web_login(self, *args, **kw):
+        values = request.params.copy()
+        ensure_db()
+
+        response = super(AuthSignupHomeChild, self).web_login(*args, **kw)
+        # if request.httprequest.method == 'POST':
+        #     old_uid = request.uid
+        #     uid = request.session.authenticate(request.session.db, request.params['login'], request.params['password'])
+        #     if uid is not False:
+        #         request.params['login_success'] = True
+        #         return http.redirect_with_hash(self._login_redirect(uid, redirect=None))
+        #     request.uid = old_uid
+        #     response.qcontext['error'] = _("Wrong login/password or your account is not active account.Please check")
+
+        context = request.env.context
+        qcontext = self.get_auth_signup_qcontext()
+
+
+        if kw.get('verify_token', False):
+            verify_token = kw.get('verify_token', False)
+            partner = request.env['res.partner'].sudo().search([('verify_token', '=', verify_token)], limit=1)
+            if partner:
+
+                user = request.env['res.users'].sudo().search([('partner_id', '=', partner.id), ('active', '=', False)],
+                                                              limit=1)
+
+                if user:
+
+                    user.active = True
+
+                    response.qcontext['message'] = _("Your Account has been authenticate Successfully.")
+                else:
+                    response.qcontext['message'] = _("Your Account is already verified ")
+                if request.env.user.id != 4:
+
+                    response.qcontext['message'] = "Your active session has expired. " + response.qcontext['message']
+                    request.session.logout(keep_db=True)
+                    return werkzeug.utils.redirect('/web/login?message=Your active session has expired. Please Login',
+                                                   303)
+
+                # response= request.render('web.login', values)
+        if kw.get('redirect', False):
+            if kw.get('redirect') == '/account_confirmation_message':
+                response.qcontext['message'] = _(
+                    "Verification link has been sent to your registered email ID. Please click on 'Confirm My Account' for account verification\n\n\nئیمهیڵێک ناردرا بۆ ئیمهڵهکهت، تکایه کلیک لهسهر دوگمهی'Verify Account' بکه لهناو ئیمهڵهکه")
+                # response = request.render('web.login', values)
+
+        return response
+
+    @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False,)
+    def web_auth_signup(self, *args, **kw):
+        res = super(AuthSignupHomeChild, self).web_auth_signup(*args,**kw)
+        qcontext = self.get_auth_signup_qcontext()
+
+        user_sudo = request.env['res.users'].sudo().search([('login', '=', qcontext.get('login'))])
+
+        if user_sudo:
+            user_sudo.with_context(create_user=True).send_account_verify_email()
+            user_sudo.active = False
+            request.session.logout(keep_db=True)
+            '''instead of automatic login redirect it to login_message page'''
+            return request.redirect('/web/login_message')
+        return res
+
+    def _signup_with_values(self, token, values):
+        # print("values==in _signup_with_values======================",values,token)
+        db, login, password = request.env['res.users'].sudo().signup(values, token)
+
+        request.env.cr.commit()  # as authenticate will use its own cursor we need to commit the current transaction
+        uid = request.session.authenticate(db, login, password)
+        if not uid:
+            raise SignupError(_('Authentication Failed.'))
+
+    @http.route('/web/login_message', type='http', auth='public', website=True, sitemap=False)
+    def web_login_message(self, *args, **kw):
+        values = {}
+        values['message'] = _("Verification link has been sent to your registered email ID. Please click on 'Verify account' for account verification")
+        return request.render('pragtech_flatmates_system.login_message', values)
 
 
 class Website_Inherit(Website):
@@ -58,7 +157,7 @@ class Website_Inherit(Website):
         # return http.request.render('pragtech_flatmates_system.home',
         #                             {'length' : data_list })
         return http.request.render('pragtech_flatmates_system.home')
-
+    #
     @http.route(website=True, auth="public")
     def web_login(self, redirect=None, *args, **kw):
         response = super(Website_Inherit, self).web_login(redirect=redirect, *args, **kw)
@@ -197,7 +296,7 @@ class FlatMates(http.Controller):
 
         # print("\n\n Result List ::::::::::",result_list, "\n\n\n")
 
-        return request.render("pragtech_flatmates_system.home", {})
+        return request.render("pragtech_flatmates_system.home", {'house_mates_ids':result_list})
 
     # @http.route(['/P<id>'], type='http', auth="public", website=True, csrf=True)
     # def property_detail(self, id, **kwargs):
@@ -226,7 +325,17 @@ class FlatMates(http.Controller):
     def property_detail(self, id, **kwargs):
         print("\n\nID -----------------------", id)
         property = request.env['house.mates'].sudo().search([('id', '=', id)], limit=1)
-        property_address = property.street + ',' + property.street2 + ',' + property.city
+        print (property.street,property.street2,property.city)
+        if property.street:
+            property_address = property.street
+        else:
+            property_address = ''
+
+        if property.street2:
+                property_address= property.street2
+        if property.city:
+            property_address+= ', ' + property.city
+
         values = {'property': property, 'property_address': property_address}
 
         if property.user_id:
@@ -263,8 +372,8 @@ class FlatMates(http.Controller):
             values.update({'min_len_stay_id': property.min_len_stay_id.name})
         if property.avil_date:
             values.update({'avil_date': property.avil_date})
-        if property.weekly_rent:
-            values.update({'weekly_rent': property.weekly_rent})
+        if property.weekly_budget:
+            values.update({'weekly_budget': property.weekly_budget})
         if property.bond_id:
             values.update({'bond_id': property.bond_id.name})
         if property.bill_id:
@@ -637,32 +746,63 @@ class FlatMates(http.Controller):
     def create_list_property(self, list_place_data):
 
         print('\n\n\n-----------------------------------  create_list_property  ----------------------------------------------\n\n')
-        print('List place data :\n',list_place_data[0],'\n\n\n')
+        print('List place data :\n',list_place_data,'\n\n\n')
         flat_mates_obj = request.env['house.mates']
         lisitng_created = False
         vals = {}
 
         if list_place_data:
             list_place_dict = list_place_data[0]
-
             if 'accommodation_type' in list_place_dict and list_place_dict.get('accommodation_type'):
                 print('1111111111111111111111111111111111111111')
                 if list_place_dict.get('accommodation_type') == 'sharehouse':
+                    accomodation_id= request.env['property.type'].sudo().search([('property_type','=','Rooms in an existing share house')])
                     vals.update({
-                        'accommodation_type': 'rooms_in_an_existing_sharehouse'
+                        'property_type': [(6,0,[accomodation_id.id])]
                     })
-                elif list_place_dict.get('accommodation_type') == 'whole-property':
+                elif list_place_dict.get('accommodation_type') == 'whole-property' :
+                    accomodation_id_list=[]
+                    accomodation_id = request.env['property.type'].sudo().search(
+                        [('property_type', '=', 'Whole property for rent')])
+                    accomodation_id_list.append(accomodation_id.id)
+                    if 'whole_property_property_type' in list_place_dict and list_place_dict.get('whole_property_property_type'):
+                        if list_place_dict.get('whole_property_property_type') == '2_bedrooms':
+                            accomodation_id = request.env['property.type'].sudo().search(
+                                [('property_type', '=', '2+ bedrooms')])
+                            accomodation_id_list.append(accomodation_id.id)
+
+                        elif list_place_dict.get('whole_property_property_type') == '1_bedrooms':
+                            accomodation_id = request.env['property.type'].sudo().search(
+                                [('property_type', '=', 'One Bed Flat')])
+                            accomodation_id_list.append(accomodation_id.id)
+
+                        elif list_place_dict.get('whole_property_property_type') == 'studio':
+                            accomodation_id = request.env['property.type'].sudo().search(
+                                [('property_type', '=', 'Studio')])
+                            accomodation_id_list.append(accomodation_id.id)
+
+                        elif list_place_dict.get('whole_property_property_type') == 'granny_flat':
+                            accomodation_id = request.env['property.type'].sudo().search(
+                                [('property_type', '=', 'Granny Flats')])
+                            accomodation_id_list.append(accomodation_id.id)
+
                     vals.update({
-                        'accommodation_type': 'whole_property_for_rent'
+                        'property_type': [(6, 0, accomodation_id_list)]
                     })
                 elif list_place_dict.get('accommodation_type') == 'student-accomodation':
+                    accomodation_id = request.env['property.type'].sudo().search(
+                        [('property_type', '=', 'Student accommodation')])
                     vals.update({
-                        'accommodation_type': 'student_accommodation'
+                        'property_type': [(6, 0, [accomodation_id.id])]
                     })
                 elif list_place_dict.get('accommodation_type') == 'homestay':
+                    accomodation_id = request.env['property.type'].sudo().search(
+                        [('property_type', '=', 'Homestay')])
                     vals.update({
-                        'accommodation_type': 'homestay'
+                        'property_type': [(6, 0, [accomodation_id.id])]
                     })
+
+
 
             if 'property_type' in list_place_dict and list_place_dict.get('property_type'):
                 print('222222222222222222222222222222222222222')
@@ -782,7 +922,7 @@ class FlatMates(http.Controller):
             if 'weekly_rent' in list_place_dict and list_place_dict.get('weekly_rent'):
                 print('999999999999999999999999999999999999')
                 vals.update({
-                    'weekly_rent': float(list_place_dict.get('weekly_rent'))
+                    'weekly_budget': float(list_place_dict.get('weekly_rent'))
                 })
 
             if 'bond' in list_place_dict and list_place_dict.get('bond'):
@@ -889,7 +1029,7 @@ class FlatMates(http.Controller):
 
         vals.update({
             'user_id':request.env.user.id,
-            'is_listing':True
+            'listing_type':'list'
         })
 
         print('\n\nVals :: \n\n',vals,'\n\n\n')
@@ -1003,10 +1143,15 @@ class FlatMates(http.Controller):
             find_place_dict = find_place_data[0]
 
             if 'find_property_looking_for' in find_place_dict and find_place_dict.get('find_property_looking_for'):
-                vals.update({
-                    'accommodation_type':'rooms_in_an_existing_sharehouse' #need to update ,static accommodation type added
-                })
-
+                accomodation_id_list=[]
+                for accomodation_type in find_place_dict.get('find_property_looking_for'):
+                    accomodation_id= request.env['property.type'].sudo().search([('property_type','=',accomodation_type)])
+                    accomodation_id_list.append(accomodation_id.id)
+                if accomodation_id_list:
+                        vals.update({
+                            'property_type': [(6,0,accomodation_id_list)] #need to update ,static accommodation type added
+                        })
+                print("====accomodation_id_list====",accomodation_id_list)
             if 'find_teamups_status' in find_place_dict and find_place_dict.get('find_teamups_status'):
                 vals.update({
                     'is_teamups':True
@@ -1019,7 +1164,7 @@ class FlatMates(http.Controller):
 
             if 'find_move_date' in find_place_dict and find_place_dict.get('find_move_date'):
                 vals.update({
-                    'prefered_move_date':find_place_dict.get('find_move_date')
+                    'avil_date':find_place_dict.get('find_move_date')
                 })
 
             if 'find_preferred_length_stay' in find_place_dict and find_place_dict.get('find_preferred_length_stay'):
@@ -1037,7 +1182,73 @@ class FlatMates(http.Controller):
                         'internet_id' : int(find_place_dict.get('find_internet_type'))
                     })
 
-            vals.update({'is_finding':True,
+            if 'find_comment' in find_place_dict and find_place_dict.get('find_comment'):
+                    vals.update({
+                        'description_about_property' : find_place_dict.get('find_comment')
+                    })
+            if 'find_no_of_flatmates' in find_place_dict and find_place_dict.get('find_no_of_flatmates'):
+                vals.update({
+                    'total_no_flatmates_id': int(find_place_dict.get('find_no_of_flatmates'))
+                })
+
+            if 'find_employment_status' in find_place_dict and find_place_dict.get('find_employment_status'):
+                for status in find_place_dict.get('find_employment_status'):
+                    if status == 'working_full_time':
+                        vals.update({
+                            'f_full_time' : True
+                        })
+                    if status == 'working_part_time':
+                        vals.update({
+                            'f_part_time': True
+                        })
+                    if status == 'working_holiday':
+                        vals.update({
+                            'f_working_holiday': True
+                        })
+                    if status == 'retired':
+                        vals.update({
+                            'f_retired': True
+                        })
+                    if status == 'unemployed':
+                        vals.update({
+                            'f_unemployed': True
+                        })
+                    if status == 'backpacker':
+                        vals.update({
+                            'f_backpacker': True
+                        })
+                    if status == 'student':
+                        vals.update({
+                            'f_student': True
+                        })
+            if 'find_lifestyle' in find_place_dict and find_place_dict.get('find_lifestyle'):
+                for lifestyle_status in find_place_dict.get('find_lifestyle'):
+                    if lifestyle_status == 'pets':
+                        vals.update({
+                            'fpets' : True
+                        })
+                    if lifestyle_status == 'smoker':
+                        vals.update({
+                            'fsmoker': True
+                        })
+                    if lifestyle_status == 'lgbti':
+                        vals.update({
+                            'flgbti': True
+                        })
+                    if lifestyle_status == 'children':
+                        vals.update({
+                            'fchildren': True
+                        })
+
+            if 'about_you' in find_place_dict and find_place_dict.get('about_you'):
+                about_you=find_place_dict.get('about_you')
+                if 'place_for' in about_you and about_you.get('place_for'):
+                        vals.update({
+                            'place_for' : about_you.get('place_for')
+                        })
+
+
+            vals.update({'listing_type':'find',
                          'user_id':request.env.user.id
                          })
 
@@ -1059,16 +1270,39 @@ class FlatMates(http.Controller):
                 line_dict.update({
                     'bath_room_type_id':int(find_place_dict.get('find_bathroom_type'))
                 })
-
             line_dict.update({
-                'flatmate_id':new_flat_mate_id.id
+                'flatmate_id': new_flat_mate_id.id
             })
 
             if line_dict:
-                print('++++++++++++++++++++ Line Dict ++++++++++++++++\n\n',line_dict)
+                print('++++++++++++++++++++ Line Dict ++++++++++++++++\n\n', line_dict)
                 new_line_id = flatmate_line_obj.sudo().create(line_dict)
-                print('+++++++++++++++++ New Line Id ::: ',new_line_id)
+                print('+++++++++++++++++ New Line Id ::: ', new_line_id)
 
+            if about_you :
+                about_list = about_you.get('record')
+                for data in about_list:
+                    person_line_obj = request.env['about.person']
+                    person_line_dict = {}
+                    if 'name' in data and data.get('name'):
+                        person_line_dict.update({
+                            'name': data.get('name')
+                        })
+                    if 'age' in data and data.get('age'):
+                        person_line_dict.update({
+                            'age': int(data.get('age'))
+                        })
+                    if 'gender' in data and data.get('gender'):
+                        person_line_dict.update({
+                            'gender': data.get('gender')
+                        })
+                    person_line_dict.update({
+                        'housemate_id': new_flat_mate_id.id
+                    })
+
+                    if person_line_dict:
+                        new_line_id = person_line_obj.sudo().create(person_line_dict)
+                        print('++++++++person_line_obj+++++++++ New Line Id ::: ', new_line_id)
 
         if find_proprty_created:
             result = {'new_flatmate_id':new_flat_mate_id.id}
@@ -1110,13 +1344,14 @@ class FlatMates(http.Controller):
     def find_place_accommodation(self, **kwargs):
         is_user_public = request.env.user.has_group('base.group_public')
         property_type=request.env['property.type'].search([])
+        values={}
         for property_type in property_type:
             if property_type.property_type=='Rooms in an existing share house':
-                values={'rooms_in_existing_share_house':'Rooms in an existing share house'}
-            if property_type.property_type=='Whole property for rent	':
+                values.update({'rooms_in_existing_share_house':'Rooms in an existing share house'})
+            if property_type.property_type=='Whole property for rent':
                 values.update({'whole_property':'Whole property for rent'})
-            if property_type.property_type == 'Student accommodation	':
-                values.update({'student_accommodation': 'Student accommodation	'})
+            if property_type.property_type == 'Student accommodation':
+                values.update({'student_accommodation': 'Student accommodation'})
             if property_type.property_type == 'Homestay':
                 values.update({'homestay': 'Homestay'})
             if property_type.property_type == 'Shared Room':
@@ -1129,7 +1364,6 @@ class FlatMates(http.Controller):
                 values.update({'studio': 'Studio'})
             if property_type.property_type == 'Granny Flats':
                 values.update({'granny_flat': 'Granny Flats'})
-        print (values,"===================")
         if is_user_public:
             request.session.update({'find_place': True})
 
@@ -1593,22 +1827,48 @@ class FlatMates(http.Controller):
         properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id)],
                                                                   fields=['id', 'street2', 'city', 'description','listing_type',
                                                                           'weekly_rent','weekly_budget','description_about_property',
-                                                                          'property_image_ids'], order='id', limit=16)
+                                                                          'property_image_ids','total_bathrooms_id','total_bedrooms_id'
+                                                                           ,'total_no_flatmates_id','person_ids'], order='id', limit=16)
         # print ("Recordddddddddddddddddd-------",properties)
 
         for rec in properties:
-            # print("Streettt---------------------------", rec.get('street2'))
+            print("Streettt---------------------------", rec)
             property_image_main = request.env['property.image'].sudo().search_read(
                 domain=[('flat_mates_id','=',rec.get('id')),('id', 'in', rec.get('property_image_ids'))], fields=['image'], order='id', limit=1)
             # print ("-----------------------------",property_image_main)
             property_data = {}
             property_data['id'] = rec.get('id')
-            property_data['street'] = rec.get('street2')
-            property_data['city'] = rec.get('city')
+
             property_data['description'] = rec.get('description_about_property')
             property_data['weekly_budget'] = rec.get('weekly_budget')
             property_data['listing_type'] = rec.get('listing_type')
 
+            if rec.get('listing_type') == 'list':
+                property_data['street'] = rec.get('street2')
+                property_data['city'] = rec.get('city')
+
+                if rec.get('total_bathrooms_id'):
+                    property_data['bathrooms'] = rec.get('total_bathrooms_id')[1]
+                if rec.get('total_bedrooms_id'):
+                    property_data['bedrooms'] = rec.get('total_bedrooms_id')[1]
+                if rec.get('total_no_flatmates_id'):
+                    property_data['flatmates'] = rec.get('total_no_flatmates_id')[1]
+
+            if rec.get('listing_type') == 'find':
+                if rec.get('person_ids'):
+                    print("Personnnnnnnnnnnnnnnn",rec.get('person_ids')[0])
+                    about_person = request.env['about.person'].sudo().search([('id','=',rec.get('person_ids')[0])])
+                    property_data['name'] = about_person.name
+                    property_data['age'] = about_person.age
+                    property_data['gender'] = about_person.gender
+
+
+
+
+
+
+
+            #
             # if rec.get('is_listing'):
             #     print('44444444444444444444444444444')
             #     property_data['is_listing'] = True
@@ -1645,22 +1905,40 @@ class FlatMates(http.Controller):
             return {'html_content': webpage_data_id.description}
 
     @http.route('/load/search/data', auth='public', type='json', website=True)
-    def load_search_data(self, **post):
+    def load_search_data(self, type ,**post):
         data = {}
 
-        room_types = request.env['room.types'].sudo().search([])
-        bathroom_types = request.env['bathroom.types'].sudo().search([])
-        room_furnishing_types = request.env['room.furnishing'].sudo().search([])
-        max_len_stay = request.env['maximum.length.stay'].sudo().search([])
-        parking_types = request.env['parking'].sudo().search([])
-        bedrooms = request.env['bedrooms'].sudo().search([])
 
-        data['room_types'] = [[i.id, i.name] for i in room_types]
-        data['bathroom_types'] = [[i.id, i.name] for i in bathroom_types]
-        data['room_furnishing_types'] = [[i.id, i.name] for i in room_furnishing_types]
-        data['max_len_stay'] = [[i.id, i.name] for i in max_len_stay]
-        data['parking_types'] = [[i.id, i.name] for i in parking_types]
-        data['bedrooms'] = [[i.id, i.name] for i in bedrooms]
+        if type == 'search-mode-rooms':
+            listing_category = request.env['property.listing.category'].search([('property_listing_category', '=', 'List')])
+            property_types = request.env['property.type'].sudo().search([('listing_category', '=', listing_category.id)])
+            room_types = request.env['room.types'].sudo().search([])
+            bathroom_types = request.env['bathroom.types'].sudo().search([('view_for','=','List')])
+            room_furnishing_types = request.env['room.furnishing'].sudo().search([('view_for','=','List')])
+            max_len_stay = request.env['maximum.length.stay'].sudo().search([])
+            parking_types = request.env['parking'].sudo().search([('view_for','=','List')])
+            bedrooms = request.env['bedrooms'].sudo().search([])
+
+            data['property_types'] = [[i.id, i.property_type] for i in property_types]
+            data['room_types'] = [[i.id, i.name] for i in room_types]
+            data['bathroom_types'] = [[i.id, i.name] for i in bathroom_types]
+            data['room_furnishing_types'] = [[i.id, i.name] for i in room_furnishing_types]
+            data['max_len_stay'] = [[i.id, i.name] for i in max_len_stay]
+            data['parking_types'] = [[i.id, i.name] for i in parking_types]
+            data['bedrooms'] = [[i.id, i.name] for i in bedrooms]
+
+        if type=='search-mode-flatmates':
+            listing_category = request.env['property.listing.category'].search([('property_listing_category', '=', 'Find')])
+            property_types = request.env['property.type'].sudo().search([('listing_category', '=', listing_category.id)])
+            min_stay = request.env['minimum.length.stay'].sudo().search([])
+            max_stay = request.env['maximum.length.stay'].sudo().search([])
+
+            data['property_types'] = [[i.id, i.property_type] for i in property_types]
+            data['min_stay'] = [[i.id, i.name] for i in min_stay]
+            data['max_stay'] = [[i.id, i.name] for i in max_stay]
+
+
+
 
         print('\n\n\n Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee !!!!!!!!!!!!! ', data, '\n\n\n')
 
@@ -1672,24 +1950,23 @@ class FlatMates(http.Controller):
     def email_alert_settings(self,**kwargs):
         res_user=request.env['res.users'].search([('id','=',request.env.user.id)])
 
-        res_user.listing_alerts = kwargs['listing_alerts']
-
+        res_user.sudo().write({'listing_alerts': kwargs['listing_alerts']})
         if kwargs['new_device_alerts'] == 'on':
-            res_user.new_device_alerts = True
+            res_user.sudo().write({'new_device_alerts': True})
         else:
-            res_user.new_device_alerts =False
+            res_user.sudo().write({'new_device_alerts':False})
 
         if kwargs['community_notices'] == 'on':
-            res_user.community_notices = True
+            res_user.sudo().write({'community_notices': True})
         else:
-            res_user.community_notices = False
+            res_user.sudo().write({'community_notices': False})
 
         if kwargs['special_offers'] == 'on':
-            res_user.special_offers = True
+            res_user.sudo().write({'special_offers': True})
         else:
-            res_user.special_offers = False
+            res_user.sudo().write({'special_offers': False})
 
-        res_user.message_alerts = True
+        res_user.sudo().write({'message_alerts': True})
 
     @http.route(['/deactivate_account'], type='json', auth="public", website=True, )
     def deactivate_account(self, **kwargs):

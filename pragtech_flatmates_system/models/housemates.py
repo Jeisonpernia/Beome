@@ -9,7 +9,7 @@ class Housemates(models.Model):
 
 
     ## Main
-    listing_type = fields.Selection([('List', 'List'), ('Find', 'Find')], string="Listing type", default='Find')
+    listing_type = fields.Selection([('list', 'List'), ('find', 'Find')], string="Listing type", default='find')
     name = fields.Char(string="Property Name")
     property_type = fields.Many2many('property.type', string="Property type")
     user_id = fields.Many2one('res.users', string="User")
@@ -30,7 +30,7 @@ class Housemates(models.Model):
     pref = fields.Selection([('anyone', 'Anyone'), ('females_only', 'Females only'), ('males_only', 'Males only'), \
                              ('no_couple', 'Female or male(no couples)'), ('couple', 'Couple')],
                             string="Flatmate Preference")
-    place_for = fields.Selection([('Me', 'Me'), ('Couple', 'Couple'), ('Group', 'Group')], string="Place For")
+    place_for = fields.Selection([('me', 'Me'), ('couple', 'Couple'), ('group', 'Group')], string="Place For")
     is_teamups = fields.Boolean('Teamups')
     ## About the room
     rooms_ids = fields.One2many('about.rooms', 'flatmate_id', string="About the room(s)")
@@ -48,7 +48,7 @@ class Housemates(models.Model):
     bond_id = fields.Many2one('bond.bond', string="Bond")
     bill_id = fields.Many2one('bill.bill', string="Bill")
     min_len_stay_id = fields.Many2one('minimum.length.stay',string="Minimum length of stay")
-    max_len_stay_id = fields.Many2one('minimum.length.stay',string="Maximum length of stay")
+    max_len_stay_id = fields.Many2one('maximum.length.stay',string="Maximum length of stay")
 
     ## Accepting, Employment Status & Lifestyle
     backpackers = fields.Boolean('Backpackers')
@@ -84,7 +84,8 @@ class Housemates(models.Model):
     @api.onchange('listing_type')
     def load_dropdown_data(self):
         print ("\n\n\nIn Onchange",self.listing_type)
-        listing_category = self.env['property.listing.category'].search([('property_listing_category','=',self.listing_type)])
+
+        listing_category = self.env['property.listing.category'].search([('property_listing_category','=',self.listing_type.capitalize() )])
         print ("\n\n\nIn Onchange", listing_category)
 
         res = {}

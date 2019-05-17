@@ -227,6 +227,32 @@ $(document).ready(function()
         var array_of_image = []
     }
 
+    $(document).on('click','.delete-image',function()
+    {
+    console.log("Deletteeeeeeeeeeeeeee",$(this).parents('.slider'))
+    var find_current_image = $(this).parents('.slider')
+    var img_path = find_current_image.find('img').attr('src')
+    var img_to_remove = img_path.replace('data:image/jpeg;base64,','')
+
+
+    for (var i=array_of_image.length-1; i>=0; i--) {
+        if (array_of_image[i] === img_to_remove) {
+            array_of_image.splice(i, 1);
+            // break;       //<-- Uncomment  if only the first term has to be removed
+        }
+    }
+
+    if (array_of_image.length == 0)
+    {
+        $(".center-add-photos").removeClass("d-none")
+        $(".add-furniture").removeClass("d-none")
+        $(".mid-add-photos").addClass("d-none")
+    }
+    console.log("Deletteeeeeeeeeeeeeee",array_of_image.length)
+    console.log("Deletteeeeeeeeeeeeeee",array_of_image.length)
+    find_current_image.remove()
+
+    })
     $(document).on('change','#upload,#upload1',function()
     {
 
@@ -255,7 +281,18 @@ $(document).ready(function()
                     file_path = file_path.slice(file_path.indexOf(',')+1)
 //                    console.log ("Result 2",file_path)
                     array_of_image.push(file_path)
-                    $(document).find('.scrolling-wrapper').append('<img class="card" src="data:image/jpeg;base64,'+file_path+'"/>')
+//<span class="slider">
+//<a href="#">
+//<span class="delete-slider">
+//<i class="fa fa-trash fa-2x">
+//</i>
+//</span>
+//</a>
+//<img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/>
+
+
+
+                    $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
 //                    if (array_of_image.length == files_rec.files.length)
 
                     console.log (array_of_image.length)

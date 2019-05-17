@@ -3,18 +3,52 @@ odoo.define('pragtech_flatmates.search', function (require) {
 console.log("\nggggg")
 $(document).ready(function() {
 
-    $('#dropdownMenuButton').on('click',function(){
-                console.log(')))))))))))))))))0')
+    $('.dropdown').on('click','.search-mode-rooms,.search-mode-flatmates',function(){
+                console.log(')))))))))))))))))',$(this).attr('class'))
+                var class_name= $(this).attr('class')
 
                 $.ajax({
                         url:'/load/search/data',
                         type:'POST',
                         dataType: 'json',
                         contentType: 'application/json',
-                        data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                        data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'type':$(this).attr('class')}}),
                         success: function(data){
                             console.log('88888888888888888888888 ',data)
                             //room types
+
+
+
+                        if (class_name == 'search-mode-flatmates')
+                        {
+
+                            property_types = data['result']['property_types']
+                            for(var i=0;i<property_types.length;i++)
+                            {
+                                var property_type = property_types[i]
+                                console.log('property_types :',property_type)
+                                $('#find_property_type').append('<option value='+property_type[0]+'>'+property_type[1]+'</option>')
+                            }
+
+                            min_stay = data['result']['min_stay']
+                            for(var i=0;i<min_stay.length;i++)
+                            {
+                                var minstay = min_stay[i]
+                                console.log('min_stay :',minstay)
+                                $('#find_min_stay').append('<option value='+minstay[0]+'>'+minstay[1]+'</option>')
+                            }
+
+                            max_stay = data['result']['max_stay']
+                            for(var i=0;i<max_stay.length;i++)
+                            {
+                                var maxstay = max_stay[i]
+                                console.log('min_stay :',max_stay)
+                                $('#find_max_stay').append('<option value='+maxstay[0]+'>'+maxstay[1]+'</option>')
+                            }
+                        }
+
+                        if (class_name == 'search-mode-rooms')
+                        {
                             room_types = data['result']['room_types']
                             for(var i=0;i<room_types.length;i++){
                                 var room = room_types[i]
@@ -62,6 +96,13 @@ $(document).ready(function() {
                                 $('#search_avail_bedrooms_id').append('<option value='+bedroom[0]+'>'+bedroom[1]+'</option>')
                             }
 
+                            property_types = data['result']['property_types']
+                            for(var i=0;i<property_types.length;i++){
+                                var property_type = property_types[i]
+                                console.log('property_types :',property_type)
+                                $('#search_list_accomodation').append('<option value='+property_type[0]+'>'+property_type[1]+'</option>')
+                            }
+                        }
 
 	                    },
                 });

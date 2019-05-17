@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <template id="pragtech_flatmates_system.login_message" name="login_message"
+			customize_show="True">
+			<t t-call="website.layout">
+
+				<div class="card card-image" style="background-image: url('/koya_hostel/static/src/img/backgrounds-blank-blue-953214.jpg');height:100%">
+
+				    <!-- Content -->
+				    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4" style="width: 50%;margin-left:25%;">
+				        <div>
+				            <h3 class="card-title pt-2"><strong><t t-esc="message" /></strong></h3>
+				        </div>
+				    </div>
+				    <!-- Content -->
+				</div>
+			</t>
+		</template>
+
+</odoo>
