@@ -189,6 +189,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-left">
                                                     <select class="form-control" id="search_gender" name="search_gender">
+                                                        <option>select gender</option>
                                                         <option value="anyone">Any gender</option>
                                                         <option value="females_only">Places accepting females</option>
                                                         <option value="males_only">Places accepting males</option>
@@ -198,7 +199,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-right">
                                                     <select class="form-control search-room-types" id="search_room_type_id" name="search_room_type">
-                                                        <option value="all_rooms">All rooms</option>
+                                                        <option value="">All rooms</option>
                                                         <!--<option>Private room</option>-->
                                                         <!--<option>Room shared with others</option>-->
                                                     </select>
@@ -206,7 +207,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-left">
                                                     <select class="form-control" id="search_room_bathroom_type_id" name="search_room_bathroom_type">
-                                                        <option value="all_bathroom_types">All bathroom types</option>
+                                                        <option value="">All bathroom types</option>
                                                         <!--<option>Ensuite bathroom</option>-->
                                                         <!--<option>Own bathroom</option>-->
                                                     </select>
@@ -214,7 +215,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-right">
                                                     <select class="form-control" id="search_room_furnsh_type_id" name="search_room_furnsh_type">
-                                                        <option value="all_furnishing_types">Any furnishing</option>
+                                                        <option value="">Any furnishing</option>
                                                         <!--<option>Furnished Room</option>-->
                                                         <!--<option>Unfurnished Room</option>-->
                                                     </select>
@@ -222,7 +223,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-left">
                                                     <select class="form-control" id="search_stay_len_id" name="search_stay_len">
-                                                        <option value="all_stay_len">All stay lengths</option>
+                                                        <option value="">All stay lengths</option>
                                                         <!--<option>1 week</option>-->
                                                         <!--<option>2 weeks</option>-->
                                                         <!--<option>4 weeks</option>-->
@@ -238,7 +239,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-right">
                                                     <select class="form-control" id="search_list_accomodation" name="accommodation_type">
-                                                        <option>Accommodation Type</option>
+                                                        <option value="">Accommodation Type</option>
                                                         <!--<option>Room(s) in share houses</option>-->
                                                         <!--<option>Whole properties for sharing</option>-->
                                                         <!--<option>Studios</option>-->
@@ -252,7 +253,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-left">
                                                     <select class="form-control" id="search_room_parking_type_id" name="search_room_parking_type">
-                                                        <option value="any_parking">Any parking</option>
+                                                        <option value="">Any parking</option>
                                                         <!--<option>No parking</option>-->
                                                         <!--<option>Off-street parking</option>-->
                                                         <!--<option>On-street parking</option>-->
@@ -261,7 +262,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-right">
                                                     <select class="form-control" id="search_avail_bedrooms_id" name="search_bedrooms">
-                                                        <option value="all_bedrooms">Available bedrooms</option>
+                                                        <option value="">Available bedrooms</option>
                                                         <!--<option>1 bedroom</option>-->
                                                         <!--<option>2 bedrooms</option>-->
                                                         <!--<option>3 bedrooms</option>-->

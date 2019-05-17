@@ -220,11 +220,11 @@ class FlatMates(http.Controller):
                     domain = []
                     if kwargs.get('min_room_rent'):
                         minimum_rent = float(kwargs.get('min_room_rent'))
-                        domain.append(('weekly_rent','>=',minimum_rent))
+                        domain.append(('weekly_budget','>=',minimum_rent))
 
                     if kwargs.get('max_room_rent'):
                         maximum_rent = float(kwargs.get('max_room_rent'))
-                        domain.append(('weekly_rent', '<=', maximum_rent))
+                        domain.append(('weekly_budget', '<=', maximum_rent))
 
                     if kwargs.get('search_sort'):
                         search_sort = kwargs.get('search_sort')
@@ -1924,7 +1924,7 @@ class FlatMates(http.Controller):
                     domain.append(('person_ids.gender', '=', 'female'))
                 if filters[0].get('gender_selection') == 'Males':
                     domain.append(('person_ids.gender','=','male'))
-                if filters[0].get('gender_selection') == ' Females + % 26 + males + % 28no + couple % 29':
+                if filters[0].get('gender_selection') == 'Females + % 26 + males + % 28no + couple % 29':
                     domain.append(('person_ids.gender','=','male'))
                     domain.append(('person_ids.gender', '=', 'female'))
 
@@ -1988,9 +1988,32 @@ class FlatMates(http.Controller):
             if filters[0].get('max_room_rent'):
                 domain.append(('weekly_budget', '<=', int(filters[0].get('max_room_rent'))))
             if filters[0].get('search_stay_len'):
-                domain.append(('max_len_stay_id', '<=', int(filters[0].get('search_stay_len'))))
+                domain.append(('max_len_stay_id', '=', int(filters[0].get('search_stay_len'))))
             if filters[0].get('search_bedrooms'):
                 domain.append(('total_bedrooms_id', '=', int(filters[0].get('search_bedrooms'))))
+            if filters[0].get('search_gender'):
+                if filters[0].get('search_gender') == 'females_only':
+                    domain.append(('person_ids.gender', '=', 'female'))
+                if filters[0].get('search_gender') == 'males_only':
+                    domain.append(('person_ids.gender', '=', 'male'))
+                if filters[0].get('search_gender') == 'anyone':
+                    domain.append(('person_ids.gender', '=', 'male'))
+                    domain.append(('person_ids.gender', '=', 'female'))
+            if filters[0].get('search_room_type'):
+                domain.append(('rooms_ids.room_type_id', '=', int(filters[0].get('search_room_type'))))
+            if filters[0].get('search_room_parking_type'):
+                domain.append(('parking_id', '=', int(filters[0].get('search_room_parking_type'))))
+            if filters[0].get('search_room_bathroom_type'):
+                domain.append(('total_bathrooms_id', '=', int(filters[0].get('search_room_bathroom_type'))))
+            if filters[0].get('search_room_avail_date'):
+                date_string = filters[0].get('search_room_avail_date')
+                date = date_string.replace('%2F', '/')
+                formated_date = datetime.strptime(date, '%m/%d/%y')
+                domain.append(('avil_date', '<=', formated_date))
+            if filters[0].get('search_room_furnsh_type'):
+                domain.append(('rooms_ids.room_furnishing_id', '=', int(filters[0].get('search_room_furnsh_type'))))
+            if filters[0].get('accommodation_type'):
+                domain.append(('property_type', '=', int(filters[0].get('accommodation_type'))))
 
             print ("Recordddddddddddddddddd-------",domain)
 
