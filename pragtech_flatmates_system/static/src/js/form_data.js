@@ -28,7 +28,7 @@ $(document).ready(function() {
             console.log('//////////////////////////////// ',temp_dict)
             console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
                 localStorage.setItem('find_place_record', JSON.stringify(record_array));
             console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
 
             console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -87,7 +87,7 @@ $(document).ready(function() {
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
                         console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -99,7 +99,7 @@ $(document).ready(function() {
 
                         console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -167,7 +167,7 @@ $(document).ready(function() {
 
             console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -190,7 +190,7 @@ $(document).ready(function() {
 
             console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -208,7 +208,7 @@ $(document).ready(function() {
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
                         console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -225,7 +225,7 @@ $(document).ready(function() {
             var find_place_data = JSON.parse(localStorage.getItem('find_place_record'));
 
             console.log('\nFind Place data \n\n',find_place_data)
-            alert("page")
+//            alert("page")
             if (find_place_data){
                 $.ajax({
                         url:'/create/find_place',
@@ -256,7 +256,7 @@ $(document).ready(function() {
 		                console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 
-		    event.preventDefault()
+//		    event.preventDefault()
 
         });
 

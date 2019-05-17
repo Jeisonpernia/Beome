@@ -65,7 +65,7 @@
                             </button>
                             <div class="dropdown-menu search-dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                <form class="search-form" action="/search/records" method="POST">
+                                <form class="search-form" action="/search/records" method="GET">
                                     <div class="form-group auto-input">
                                         <label class="p16-gray text-uppercase">Where are you looking?</label>
                                         <input type="text" class="form-control" id="search_places"
@@ -138,10 +138,10 @@
                                             </div>
 
                                     </div>
+                                </form>
 
 
-
-
+                                <form class="search-form" action="/search/records" method="GET">
                                     <div class="rooms-btn">
 
                                         <div class="search-min-budget mt-3">
@@ -238,7 +238,7 @@
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-right">
                                                     <select class="form-control" id="search_list_accomodation" name="accommodation_type">
-                                                        <option>Accommodation Type</option>		
+                                                        <option>Accommodation Type</option>
                                                         <!--<option>Room(s) in share houses</option>-->
                                                         <!--<option>Whole properties for sharing</option>-->
                                                         <!--<option>Studios</option>-->
@@ -286,7 +286,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" value=""
                                                                id="search_check_lgbt" name="LGBTI" readonly="true"/>
-														<span class="search-accepting">LGBT+ friendly</span>
+                                                        <span class="search-accepting">LGBT+ friendly</span>
                                                     </div>
                                                 </div>
 
@@ -297,7 +297,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" value=""
                                                                id="" name="retirees" readonly="true"/>
-														<span class="search-accepting">Retirees welcome</span>
+                                                        <span class="search-accepting">Retirees welcome</span>
                                                     </div>
                                                 </div>
 
@@ -308,7 +308,7 @@
                                                         </div>
                                                         <input type="text" class="form-control"
                                                                value="" id="" name="students" readonly="true"/>
-														<span class="search-accepting">Students accepted</span>
+                                                        <span class="search-accepting">Students accepted</span>
                                                     </div>
                                                 </div>
 
@@ -319,7 +319,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" value=""
                                                                id="" name="smokers" readonly="true"/>
-														<span class="search-accepting">Smokers accepted</span>
+                                                        <span class="search-accepting">Smokers accepted</span>
                                                     </div>
                                                 </div>
 
@@ -330,7 +330,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" value=""
                                                                id="" name="backpackers" readonly="true"/>
-														<span class="search-accepting">Backpackers OK</span>
+                                                        <span class="search-accepting">Backpackers OK</span>
                                                     </div>
                                                 </div>
 
@@ -341,7 +341,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" value=""
                                                                id="" name="children" readonly="true"/>
-														<span class="search-accepting">Children OK</span>
+                                                        <span class="search-accepting">Children OK</span>
                                                     </div>
                                                 </div>
 
@@ -352,7 +352,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" value=""
                                                                id="" name="fourty_year_old" readonly="true"/>
-														<span class="search-accepting">40yrs+ welcome</span>
+                                                        <span class="search-accepting">40yrs+ welcome</span>
                                                     </div>
                                                 </div>
 
@@ -363,7 +363,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" value=""
                                                                id="" name="all_female_flat" readonly="true"/>
-														<span class="search-accepting">All female flat</span>
+                                                        <span class="search-accepting">All female flat</span>
                                                     </div>
                                                 </div>
 
@@ -374,7 +374,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" value=""
                                                                id="" name="pets" readonly="true"/>
-														<span class="search-accepting">Pets considered</span>
+                                                        <span class="search-accepting">Pets considered</span>
                                                     </div>
                                                 </div>
 
@@ -383,14 +383,15 @@
 
                                         </div>
                                         <div class="col-lg-12 mt-3 pl-0 pr-0">
-                                                <button class="btn search-room-btn btn-block" id="search-submit" name="search_room_button"
-                                                        type="submit" value="search_room_sumbit">Search Rooms
-                                                </button>
-                                            </div>
+                                            <button class="btn search-room-btn btn-block" id="search-submit" name="search_room_button"
+                                                    type="submit" value="search_room_sumbit">Search Rooms
+                                            </button>
+                                        </div>
 
                                     </div>
+                                </form>
 
-
+                                <form class="search-form" action="/search/records" method="GET">
                                     <div class="flatmates-btn">
 
                                         <div class="form-group row">
@@ -538,8 +539,9 @@
                                             </div>
 
                                     </div><!--flatmates-btn close-->
+                                </form>
 
-
+                                <form class="search-form" action="/search/records" method="GET">
                                     <div class="teamups-btn">
 
                                         <div class="form-group row">

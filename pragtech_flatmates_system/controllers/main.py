@@ -193,12 +193,12 @@ class Website_Inherit(Website):
 
 class FlatMates(http.Controller):
 
-    @http.route(['/search/records'], type='http', auth="public", website=True, method=['POST'], csrf=False)
+    @http.route(['/search/records'], type='http', auth="public", website=True, method=['GET'], csrf=False)
     def search_record(self, **kwargs):
 
         print('\n\n\nKWARGS ::\n',kwargs,'\n\n\n')
 
-        flatmate_obj = request.env['house.mates']
+        flatmate_obj = request.env['house.mates'].sudo()
         if kwargs:
             if kwargs.get('search_room_button'):
                 if kwargs.get('search_room_button') == "search_room_sumbit":
@@ -271,23 +271,23 @@ class FlatMates(http.Controller):
                         flatmate_records = flatmate_obj.search(domain)
 
                         print('REcordsssssss : ',flatmate_records)
-                        result_list = []
-                        if flatmate_records :
-                            if room_type or bathroom_type or room_furnishing_type:
-                                for record in flatmate_records:
-                                    for line in record.rooms_ids:
-                                        if line.room_type_id.id == room_type or\
-                                            line.bath_room_type_id.id == bathroom_type or\
-                                            line.room_furnishing_id.id == room_furnishing_type:
-
-                                            if record not in result_list:
-                                                result_list.append(record)
-
-                            if result_list:
-                                    print('\n\n\nResult List ::\n',result_list,'\n\n\n')
-
-                            else:
-                                print('\n\n\n Result List Without line ::\n',flatmate_records,'\n\n\n')
+                        # result_list = []
+                        # if flatmate_records :
+                        #     if room_type or bathroom_type or room_furnishing_type:
+                        #         for record in flatmate_records:
+                        #             for line in record.rooms_ids:
+                        #                 if line.room_type_id.id == room_type or\
+                        #                     line.bath_room_type_id.id == bathroom_type or\
+                        #                     line.room_furnishing_id.id == room_furnishing_type:
+                        #
+                        #                     if record not in result_list:
+                        #                         result_list.append(record)
+                        #
+                        #     if result_list:
+                        #             print('\n\n\nResult List ::\n',result_list,'\n\n\n')
+                        #
+                        #     else:
+                        #         print('\n\n\n Result List Without line ::\n',flatmate_records,'\n\n\n')
 
 
 
@@ -296,7 +296,7 @@ class FlatMates(http.Controller):
 
         # print("\n\n Result List ::::::::::",result_list, "\n\n\n")
 
-        return request.render("pragtech_flatmates_system.home", {'house_mates_ids':result_list})
+        return request.render("pragtech_flatmates_system.home")
 
     # @http.route(['/P<id>'], type='http', auth="public", website=True, csrf=True)
     # def property_detail(self, id, **kwargs):
