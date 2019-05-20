@@ -129,6 +129,129 @@ console.log("Righttt")
 //  =============================================================================================================
 //  Note: Check whether this js is not visible on other pages mentioned in a comment above
 
+    if (window_pathname.includes('/introduce-flatmates'))
+    {
+        var user_array_image=[]
+    }
+
+
+    $(document).on('change','.user_image',function()
+    {
+
+        var files_rec = document.getElementById($(this).attr("id"));
+        console.log("-----------------",files_rec)
+
+        for (var rec = 0; rec < files_rec.files.length; rec++)
+        {
+            var reader = new FileReader();
+//            console.log("-----------------",files_rec.files[rec])
+            reader.onload = (function(theFile)
+            {
+                return function(e)
+                {
+                    var file_path = e.target.result
+//                    console.log ("Result 1",file_path)
+                    file_path = file_path.slice(file_path.indexOf(',')+1)
+                    console.log ("Result 2",file_path)
+                    user_array_image = []
+                    user_array_image.push(file_path)
+
+                    var remove_svg= $(document).find('.replace_image')
+                    remove_svg.remove()
+
+                    var add_img=$(document).find('.add_image_icon')
+
+                    if (add_img.find('img').length!=0)
+                    {
+                        var replace_img = add_img.find('img')
+                        replace_img.replaceWith('<img src="data:image/jpeg;base64,'+file_path+'"/>')
+                    }
+                    else
+                    {
+                        console.log ("Deleteeeeeeeeee")
+                        add_img.append('<img src="data:image/jpeg;base64,'+file_path+'"/>')
+                    }
+                };
+            })(files_rec.files[rec]);
+            reader.readAsDataURL(files_rec.files[rec])
+        }
+    });
+
+       $( document ).on('submit','#find_employment',function( event ) {
+            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
+//            console.log(record_array)
+
+            var find_pace_for = $("input[name=find-place-for]:checked").val()
+            console.log(find_pace_for)
+            var data = {}
+
+            if (find_pace_for == "me")
+            {
+                data['place_for'] = find_pace_for
+                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                                      'age' : $("input[name=your_age_0]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+                                    }]
+                console.log(data)
+            }
+
+            if (find_pace_for == "couple")
+            {
+                data['place_for'] = find_pace_for
+                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                                      'age' : $("input[name=your_age_0]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+                                    }]
+                data['record'].push({ 'name' : $("input[name=find_first_name_1]").val(),
+                                      'age' : $("input[name=your_age_1]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_1]:checked").val()
+                                    })
+                console.log(data)
+            }
+
+            if (find_pace_for == "group")
+            {
+                data['place_for'] = find_pace_for
+                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+                                      'age' : $("input[name=your_age_0]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+                                    }]
+                data['record'].push({ 'name' : $("input[name=find_first_name_2]").val(),
+                                      'age' : $("input[name=your_age_2]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_2]:checked").val()
+                                    })
+
+                var record=3;
+                $(".custom_me_group").each(function(index)
+                {
+                    data['record'].push({
+                                      'name' : $("input[name=find_first_name_2"+(index+1).toString()+"]").val(),
+                                      'age' : $("input[name=your_age_2"+(index+1).toString()+"]").val(),
+                                      'gender' : $("input[name=find-place-for-gender_2"+(index+1).toString()+"]:checked").val()
+                                    })
+                    record+=1
+                })
+                console.log(data)
+                console.log($(".custom_me_group"))
+            }
+
+
+
+            data['record'].push({'user_image':$("#user_image").val()})
+            record_array[0]['about_you'] = data
+            if (user_array_image)
+                record_array[0]['property_images'] = user_array_image
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+            console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
+
+            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+
+
+//            alert("Page")
+
+        });
+
+
 function remove_div_for_group()
 {
     console.log ("In template remove_div_for_group")

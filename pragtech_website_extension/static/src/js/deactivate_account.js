@@ -1,7 +1,8 @@
 odoo.define('pragtech_website_extension.deactivate_account', function (require)
     {
         $(document).ready(function()
-        {
+        {     $("#activate_account").css('display','none')
+
             $("#deactivate_account").on('click',function()
             {
 
@@ -15,6 +16,32 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
                     }}),
                     success: function(data)
                     {
+
+                    $("#activate_account").css('display','block')
+                    $("#deactivate_account").css('display','none')
+
+
+                    }
+
+                    })
+})
+
+ $("#activate_account").on('click',function()
+            {
+
+            $.ajax({
+                    url: '/deactivate_account',
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {
+                        'activate_account':true,
+                    }}),
+                    success: function(data)
+                    {
+                    $("#deactivate_account").css('display','block')
+                    $("#activate_account").css('display','none')
+
 
                     }
 

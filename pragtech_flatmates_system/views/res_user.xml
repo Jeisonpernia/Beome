@@ -19,6 +19,7 @@
                          <group string="Deactivate Account">
                              <field name="deactivate_account"/>
                          </group>
+
                      </group>
                     </page>
                  </xpath>

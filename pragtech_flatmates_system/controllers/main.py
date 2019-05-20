@@ -157,7 +157,7 @@ class Website_Inherit(Website):
         # return http.request.render('pragtech_flatmates_system.home',
         #                             {'length' : data_list })
         return http.request.render('pragtech_flatmates_system.home')
-    #
+
     @http.route(website=True, auth="public")
     def web_login(self, redirect=None, *args, **kw):
         response = super(Website_Inherit, self).web_login(redirect=redirect, *args, **kw)
@@ -1313,6 +1313,7 @@ class FlatMates(http.Controller):
                          'user_id':request.env.user.id
                          })
 
+
         if vals:
             print('\n\n\n Final Find Place Vals :',vals,'\n\n')
             print('--------------------------------------------------------------')
@@ -1340,14 +1341,14 @@ class FlatMates(http.Controller):
                 new_line_id = flatmate_line_obj.sudo().create(line_dict)
                 print('+++++++++++++++++ New Line Id ::: ', new_line_id)
 
-            image_line_obj = request.env['property.image']
-            image_dict = {}
-            if 'usre_image' in find_place_data and find_place_data('user_image'):
-                user_data = base64.encodestring(find_place_data.get('user_image').read())
-                image_dict.update({'image': user_data,'flat_mates_id':new_flat_mate_id.id})
-            if image_dict:
-                new_image_id= image_line_obj.sudo().create(image_dict)
-                print("fgfgfgkjdszgbjhfsdgjh",new_image_id)
+            # image_line_obj = request.env['property.image']
+            # image_dict = {}
+            # if 'usre_image' in find_place_data and find_place_data('user_image'):
+            #     user_data = base64.encodestring(find_place_data.get('user_image').read())
+            #     image_dict.update({'image': user_data,'flat_mates_id':new_flat_mate_id.id})
+            # if image_dict:
+            #     new_image_id= image_line_obj.sudo().create(image_dict)
+            #     print("fgfgfgkjdszgbjhfsdgjh",new_image_id)
 
 
 
@@ -1376,6 +1377,13 @@ class FlatMates(http.Controller):
                         new_line_id = person_line_obj.sudo().create(person_line_dict)
                         print('++++++++person_line_obj+++++++++ New Line Id ::: ', new_line_id)
 
+            if 'property_images' in find_place_dict and find_place_dict.get('property_images'):
+                images = self.create_property_images(find_place_dict.get('property_images'), new_flat_mate_id)
+
+                if images:
+                    new_flat_mate_id.write({
+                        'property_image_ids': [(6, 0, images)]
+                    })
 
         if find_proprty_created:
             result = {'new_flatmate_id':new_flat_mate_id.id}
@@ -2174,6 +2182,9 @@ class FlatMates(http.Controller):
         res_user = request.env['res.users'].search([('id', '=', request.env.user.id)])
         if 'deactivate_account' in kwargs and kwargs['deactivate_account'] == True:
             res_user.sudo().write({'deactivate_account': True})
+            print("\n\ndeactivate_account-----",res_user,kwargs)
+        if 'activate_account' in kwargs and kwargs['activate_account'] == True:
+            res_user.sudo().write({'deactivate_account': False})
             print("\n\ndeactivate_account-----",res_user,kwargs)
 
     @http.route(['/account_settings'], type='json', auth="public", website=True, )

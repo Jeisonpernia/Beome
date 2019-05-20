@@ -449,6 +449,8 @@
 												<p class="mt-4">Deactivating your account means your listing will be taken down and your listing alerts will be turned off. You can still access your account but it will remain dorment until you reactivate or create a new listing.</p>
 												
 												<button type="button" class="btn btn-green1 mt-3 mb-4 btn-block" data-dismiss="modal" id="deactivate_account">Deactivate my account and listing</button>
+                                                <button type="button" class="btn btn-green1 mt-3 mb-4 btn-block" data-dismiss="modal" id="activate_account">Active my account and listing</button>
+
 												<hr/>
 													
 												<p>Deleting your account means that your account and listing removed from the website.</p>

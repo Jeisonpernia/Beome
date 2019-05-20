@@ -103,73 +103,73 @@ $(document).ready(function() {
 
         });
 
-        $( document ).on('submit','#find_employment',function( event ) {
-            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
-//            console.log(record_array)
-
-            var find_pace_for = $("input[name=find-place-for]:checked").val()
-            console.log(find_pace_for)
-            data = {}
-
-            if (find_pace_for == "me")
-            {
-                data['place_for'] = find_pace_for
-                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
-                                      'age' : $("input[name=your_age_0]").val(),
-                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
-                                    }]
-                console.log(data)
-            }
-
-            if (find_pace_for == "couple")
-            {
-                data['place_for'] = find_pace_for
-                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
-                                      'age' : $("input[name=your_age_0]").val(),
-                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
-                                    }]
-                data['record'].push({ 'name' : $("input[name=find_first_name_1]").val(),
-                                      'age' : $("input[name=your_age_1]").val(),
-                                      'gender' : $("input[name=find-place-for-gender_1]:checked").val()
-                                    })
-                console.log(data)
-            }
-
-            if (find_pace_for == "group")
-            {
-                data['place_for'] = find_pace_for
-                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
-                                      'age' : $("input[name=your_age_0]").val(),
-                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
-                                    }]
-                data['record'].push({ 'name' : $("input[name=find_first_name_2]").val(),
-                                      'age' : $("input[name=your_age_2]").val(),
-                                      'gender' : $("input[name=find-place-for-gender_2]:checked").val()
-                                    })
-
-                var record=3;
-                $(".custom_me_group").each(function(index)
-                {
-                    data['record'].push({
-                                      'name' : $("input[name=find_first_name_2"+(index+1).toString()+"]").val(),
-                                      'age' : $("input[name=your_age_2"+(index+1).toString()+"]").val(),
-                                      'gender' : $("input[name=find-place-for-gender_2"+(index+1).toString()+"]:checked").val()
-                                    })
-                    record+=1
-                })
-                console.log(data)
-                console.log($(".custom_me_group"))
-            }
-            data['record'].push({'user_image':$("#user_image").val()})
-            record_array[0]['about_you'] = data
-            localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
-
-            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
-
-//            alert("Page")
-
-        });
+//        $( document ).on('submit','#find_employment',function( event ) {
+//            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
+////            console.log(record_array)
+//
+//            var find_pace_for = $("input[name=find-place-for]:checked").val()
+//            console.log(find_pace_for)
+//            data = {}
+//
+//            if (find_pace_for == "me")
+//            {
+//                data['place_for'] = find_pace_for
+//                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+//                                      'age' : $("input[name=your_age_0]").val(),
+//                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+//                                    }]
+//                console.log(data)
+//            }
+//
+//            if (find_pace_for == "couple")
+//            {
+//                data['place_for'] = find_pace_for
+//                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+//                                      'age' : $("input[name=your_age_0]").val(),
+//                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+//                                    }]
+//                data['record'].push({ 'name' : $("input[name=find_first_name_1]").val(),
+//                                      'age' : $("input[name=your_age_1]").val(),
+//                                      'gender' : $("input[name=find-place-for-gender_1]:checked").val()
+//                                    })
+//                console.log(data)
+//            }
+//
+//            if (find_pace_for == "group")
+//            {
+//                data['place_for'] = find_pace_for
+//                data['record'] = [{ 'name' : $("input[name=find_first_name_0]").val(),
+//                                      'age' : $("input[name=your_age_0]").val(),
+//                                      'gender' : $("input[name=find-place-for-gender_0]:checked").val()
+//                                    }]
+//                data['record'].push({ 'name' : $("input[name=find_first_name_2]").val(),
+//                                      'age' : $("input[name=your_age_2]").val(),
+//                                      'gender' : $("input[name=find-place-for-gender_2]:checked").val()
+//                                    })
+//
+//                var record=3;
+//                $(".custom_me_group").each(function(index)
+//                {
+//                    data['record'].push({
+//                                      'name' : $("input[name=find_first_name_2"+(index+1).toString()+"]").val(),
+//                                      'age' : $("input[name=your_age_2"+(index+1).toString()+"]").val(),
+//                                      'gender' : $("input[name=find-place-for-gender_2"+(index+1).toString()+"]:checked").val()
+//                                    })
+//                    record+=1
+//                })
+//                console.log(data)
+//                console.log($(".custom_me_group"))
+//            }
+//            data['record'].push({'user_image':$("#user_image").val()})
+//            record_array[0]['about_you'] = data
+//            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+//            console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
+//
+//            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//
+////            alert("Page")
+//
+//        });
 
         $( "#find_lifestyle" ).submit(function( event ) {
             var find_employment_status = []
