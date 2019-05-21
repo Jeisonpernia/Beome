@@ -8,7 +8,7 @@
 
                 <div class="form-group field-password">
                     <label for="password">Password</label>
-                    <input type="text" placeholder="Enter something" name="validation" id="validation" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required"  t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                    <input type="password" placeholder="Enter something" name="validation" id="validation" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required"  t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
                 </div>
 
 

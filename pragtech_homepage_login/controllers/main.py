@@ -34,7 +34,7 @@ class HomepageLogin(Website_Inherit):
      
     @http.route('/web/access_login',type="http", auth='public', website=True,csrf=False)
     def access_login(self, **kw):
-        val_password = 'LEpv799wvXNf3eRL'
+        val_password = 'Housemates@123'
         if 'validation' in kw and kw['validation']:
             request.session['val_password'] = kw['validation']
         if request.session['val_password'] == val_password:

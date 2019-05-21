@@ -11,6 +11,10 @@ $(document).ready(function()
     if (window_pathname.includes('about-yourself'))
     {
         console.log ("In general statement if (window_pathname.includes('about-yourself'))")
+
+        if ($("#find_comment").val().length == 0 )
+        $('.styles__errorMessage_find_comment').hide();
+
         if ($(this).find("#find_comment").val().length<10)
             $('.find-publish').prop("disabled", true)
         else
@@ -25,6 +29,29 @@ $(document).ready(function()
             $('.find-publish').prop("disabled", true)
         else
             $('.find-publish').prop("disabled", false)
+    });
+
+    $("#find_comment").on('keyup', function (){
+        if ( $("#find_comment").val().length == 0 )
+            {
+                $('.styles__errorMessage_find_comment').hide();
+                // Code added by dhrup
+                $('#find_comment').removeClass("border-red")
+            }
+
+        if ( $("#find_comment").val().length <= 9 )
+            {
+                $('.styles__errorMessage_find_comment').show();
+                // Code added by dhrup
+                $('#find_comment').addClass("border-red")
+            }
+        else
+           {
+                $('.styles__errorMessage_find_comment').hide();
+                // Code added by dhrup
+                $('#find_comment').removeClass("border-red")
+           }
+
     });
 
 //  ======================================================
@@ -237,10 +264,11 @@ console.log("Righttt")
 
 
 
-            data['record'].push({'user_image':$("#user_image").val()})
+//            data['record'].push({'user_image':$("#user_image").val()})
             record_array[0]['about_you'] = data
             if (user_array_image)
-                record_array[0]['property_images'] = user_array_image
+                data['record'][0]['user_image'] =user_array_image
+//                record_array[0]['property_images'] = user_array_image
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
             console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
 
@@ -248,6 +276,7 @@ console.log("Righttt")
 
 
 //            alert("Page")
+//            event.preventDefault()
 
         });
 

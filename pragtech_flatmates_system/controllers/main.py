@@ -410,10 +410,10 @@ class FlatMates(http.Controller):
             print("=====kAHSfdjsaD====",value_key)
             values.update({'pref':property.pref })
         if property.person_ids:
-            if property.person_ids.age:
-                values.update({'age':property.person_ids.age})
-            if property.person_ids.gender:
-                values.update({'gender': property.person_ids.gender})
+            if property.person_ids[0].age:
+                values.update({'age':property.person_ids[0].age})
+            if property.person_ids[0].gender:
+                values.update({'gender': property.person_ids[0].gender})
         if property.max_len_stay_id:
             values.update({'stay_lenget':property.max_len_stay_id.name})
 
@@ -433,10 +433,10 @@ class FlatMates(http.Controller):
             values.update({'f_student': 'Student'})
 
         if property.rooms_ids:
-            if property.rooms_ids.room_furnishing_id:
-                values.update({'room_furnishing_id':property.rooms_ids.room_furnishing_id.name})
-            if property.rooms_ids.bath_room_type_id:
-                values.update({'bath_room_type_id':property.rooms_ids.bath_room_type_id.name})
+            if property.rooms_ids[0].room_furnishing_id:
+                values.update({'room_furnishing_id':property.rooms_ids[0].room_furnishing_id.name})
+            if property.rooms_ids[0].bath_room_type_id:
+                values.update({'bath_room_type_id':property.rooms_ids[0].bath_room_type_id.name})
 
         if property.internet_id:
             values.update({'internet_id':property.internet_id.name})
@@ -1377,13 +1377,15 @@ class FlatMates(http.Controller):
                         new_line_id = person_line_obj.sudo().create(person_line_dict)
                         print('++++++++person_line_obj+++++++++ New Line Id ::: ', new_line_id)
 
-            if 'property_images' in find_place_dict and find_place_dict.get('property_images'):
-                images = self.create_property_images(find_place_dict.get('property_images'), new_flat_mate_id)
 
-                if images:
-                    new_flat_mate_id.write({
-                        'property_image_ids': [(6, 0, images)]
-                    })
+                    print ("Record--------------------------",about_list[0])
+                    if 'user_image' in about_list[0] and about_list[0].get('user_image'):
+                        images = self.create_property_images(about_list[0].get('user_image'), new_flat_mate_id)
+
+                        if images:
+                            new_flat_mate_id.write({
+                                'property_image_ids': [(6, 0, images)]
+                            })
 
         if find_proprty_created:
             result = {'new_flatmate_id':new_flat_mate_id.id}
@@ -1892,10 +1894,9 @@ class FlatMates(http.Controller):
 
     @http.route('/get_aboutroom', auth='public', type='json', website=True)
     def get_aboutroom(self):
-
         room_types = request.env['room.types'].sudo().search_read(fields=['id', 'name'])
-        room_furnishing = request.env['room.furnishing'].sudo().search_read(fields=['id', 'name'])
-        bathroom_types = request.env['bathroom.types'].sudo().search_read(fields=['id', 'name'])
+        room_furnishing = request.env['room.furnishing'].sudo().search_read(domain=[('view_for','=','List')],fields=['id', 'name'])
+        bathroom_types = request.env['bathroom.types'].sudo().search_read(domain=[('view_for','=','List')],fields=['id', 'name'])
 
         print("Recordddddddddddddddddd-------", room_types)
         print("Recordddddddddddddddddd-------", room_furnishing)
@@ -2199,6 +2200,24 @@ class FlatMates(http.Controller):
             res_user.partner_id.sudo().write({'email':kwargs['email']})
         if 'mobile' in kwargs:
             res_user.partner_id.sudo().write({'mobile':kwargs['mobile']})
+        print("\n\ndeactivate_account-----", kwargs)
+        if 'image' in kwargs:
+            res_user.sudo().write({'image': kwargs['mobile']})
+
+    @http.route(['/get_users_default_data'], type='json', auth="public", website=True, )
+    def get_users_default_data(self, **kwargs):
+        user_name = request.env.user.name
+        user_email = request.env.user.login
+        user_mobile = request.env.user.partner_id.mobile
+        data = {
+                'user_name':user_name,
+                'user_email':user_email,
+
+                }
+        if user_mobile:
+            data.update({'user_mobile':user_mobile})
+
+        return data
 
     @http.route(['/country'], type='json', auth="public", website=True, )
     def country_code(self, **kwargs):

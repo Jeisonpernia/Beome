@@ -2,20 +2,21 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Website',
+    'name': 'Housemates',
     'category': 'Website',
     'summary': '',
     'website': '',
     'version': '12.0.4',
     'description': "",
     'depends': [
-                'website','website_blog','base','auth_signup','pragtech_homepage_login', 'pragtech_website_extension'
+                'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension'
                 ],
     'installable': True,
     'data': [
         'security/ir.model.access.csv',
 
         'data/website_data.xml',
+        # 'data/configuration_data.xml',
 
         'views/assets.xml',
         'views/remove_footer.xml',

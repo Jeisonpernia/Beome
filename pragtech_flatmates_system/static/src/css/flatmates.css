@@ -1726,6 +1726,15 @@ color:#2f3a4a;
     margin-right: .5rem;
 }
 
+.styles__errorMessage_find_comment:before {
+    color: #cb104b;
+    content: "\F071";
+    font-family: FontAwesome;
+    font-size: 1rem;
+    margin-left: .25rem;
+    margin-right: .5rem;
+}
+
 .styles__errorMessage2:before {
     color: #cb104b;
     content: "\F071";

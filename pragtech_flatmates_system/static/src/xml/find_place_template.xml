@@ -1110,6 +1110,7 @@
                                             <textarea class="form-control" rows="4" id="find_comment"
                                                       name="find_comment"
                                                       placeholder="Say something about yourself..."></textarea>
+                                            <div class="styles__errorMessage_find_comment">Tell us a little more</div>
                                             <p class="mt-3">Tell your potential flatmates a little about yourself. What
                                                 do you do for work, what do you like to do for fun and where you are
                                                 from. Also remember to let them know what you're looking for.
