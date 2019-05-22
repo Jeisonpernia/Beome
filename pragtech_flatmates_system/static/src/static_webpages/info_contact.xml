@@ -3,7 +3,22 @@
   <data>
     <template id="info_contact" name="Contact">
       <t t-call="website.layout">
-        <div class="oe_structure oe_empty">
+        <div class="oe_structure oe_empty info-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="/">Home</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page"><a href="/contact">Contact</a>
+							</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
           <section>
             <div class="container">
               <div class="col-lg-6 mx-auto contact-form">

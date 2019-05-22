@@ -2,7 +2,25 @@
 <odoo>
     <template id="property_detail11">
         <t t-call="website.layout">
-            <div class="oe_structure oe_empty">
+            <div class="oe_structure oe_empty info-page">
+                <div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="/">Home</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#">Room</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#">Div1</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#">Div2</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#">Div3</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#">Div4</a></li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
                 <div class="conatiner-fluid">
                     <div class="row">
                         <!--<div class="property-slider">-->

@@ -6,7 +6,7 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.4',
+    'version': '12.0.5',
     'description': "",
     'depends': [
                 'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension'
@@ -25,16 +25,17 @@
         'views/website_blog_view.xml',
         'views/res_user.xml',
         'views/email_template.xml',
-
         'static/src/xml/menu_item.xml',
         'static/src/xml/home_view.xml',
         'static/src/xml/shortlist_template.xml',
         'static/src/xml/list_place_template.xml',
+        'static/src/xml/custom_header_template.xml',
         'static/src/xml/find_place_template.xml',
         'static/src/xml/about_template.xml',
         'static/src/xml/property_detail.xml',
         'static/src/xml/website_blog_template.xml',
         'static/src/xml/find_place_preview.xml',
+        'static/src/xml/list_place_preview.xml',
 
         'static/src/static_webpages/info_breadcrumb.xml',
         'static/src/static_webpages/info_li_list.xml',

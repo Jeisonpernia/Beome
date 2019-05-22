@@ -158,13 +158,14 @@ console.log("Righttt")
 
     if (window_pathname.includes('/introduce-flatmates'))
     {
+        console.log ("sdefffffffffffffffffff")
         var user_array_image=[]
     }
 
 
-    $(document).on('change','.user_image',function()
+    $(document).on('change','#file-input',function()
     {
-
+        console.log("----------------- ggggggggggggggggggggg aaaaaaaaaaaaa aaaaaaaa")
         var files_rec = document.getElementById($(this).attr("id"));
         console.log("-----------------",files_rec)
 
@@ -204,7 +205,7 @@ console.log("Righttt")
         }
     });
 
-       $( document ).on('submit','#find_employment',function( event ) {
+   $( document ).on('submit','#find_employment',function( event ) {
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
 //            console.log(record_array)
 
@@ -488,5 +489,16 @@ $(".find_employment-status").click(function()
         $(this).removeClass("items-cirle-hover")
     }
   });
+
+
+    $(document).ready(function () {
+    var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
+
+    $("#mySingleFieldTags").tagit({
+        availableTags: sampleTags
+    });
+});
+
+
 });// End of document
 });// End of Odoo Deine

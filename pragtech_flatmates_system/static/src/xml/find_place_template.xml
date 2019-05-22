@@ -5,6 +5,7 @@
         <!-- URL: find-place/describe-your-ideal-place/start -->
         <template id="find_place" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -45,6 +46,7 @@
         <!-- URL: find-place/describe-your-ideal-place/accommodation -->
         <template id="find_place_accommodation" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -259,6 +261,7 @@
         <!-- URL: find-place/describe-your-ideal-place/about-flatmates -->
         <template id="find_about_template" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -279,9 +282,13 @@
                                         <div class="form-group">
                                             <span>Suburb</span>
                                             <p class="text-muted">We recommend choosing at least 4 suburbs</p>
+                                            <!--<div class="form-control form-control-lg mt-2 p-0">-->
+                                                <!--<input type="text" class="find-suburbs" id="" name="suburbs"-->
+                                                       <!--placeholder="Search for a suburb"/>-->
+                                            <!--</div>-->
+
                                             <div class="form-control form-control-lg mt-2 p-0">
-                                                <input type="text" class="find-suburbs" id="" name="suburbs"
-                                                       placeholder="Search for a suburb"/>
+                                                <input name="suburbs" id="mySingleFieldTags"/>
                                             </div>
                                         </div>
 
@@ -315,6 +322,7 @@
         <!-- URL: find-place/describe-your-ideal-place/about-flatmates -->
         <template id="find_rent_timimg" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -387,6 +395,7 @@
         <!-- URL: find-place/describe-your-ideal-place/property-preferences -->
         <template id="find_property_preferences" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -519,6 +528,7 @@
         <!-- URL: find-place/describe-your-ideal-place/introduce-yourself -->
         <template id="find_introduce_yourself" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -571,6 +581,7 @@
         <!-- URL: find-place/describe-your-ideal-place/introduce-flatmates -->
         <template id="find_introduce_flatmates" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -751,7 +762,7 @@
                                             </svg>
                                         </label>
 
-                                        <input id="file-input" type="file" class="user_image"/>
+                                        <input id="file-input" type="file" class="userimage" accept="image/*"/>
                                     </div>
                                     <!--<input id="user_image" type="file"/>-->
                                     <!--<input type="file" name="uploads" accept="image/*" id="user_image"/>-->
@@ -815,6 +826,7 @@
         <!-- URL: find-place/describe-your-ideal-place/employment -->
         <template id="find_employment" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -982,6 +994,7 @@
         <!-- URL: find-place/describe-your-ideal-place/lifestyle -->
         <template id="find_lifestyle" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -1089,11 +1102,12 @@
         <!-- URL: find-place/describe-your-ideal-place/lifestyle -->
         <template id="find_about_yourself" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
 
-                            <form action="" id="find_pubish" method="POST">
+                            <form action="/find/a/property" id="find_pubish" method="POST">
                                 <div class="row">
                                     <div class="col-lg-12 col-sm-12 col-xs-12">
                                         <p class="text-uppercase">Introduce Yourself</p>
@@ -1135,6 +1149,24 @@
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <template id="find_a_property" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
+                <div class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-xs-12 list-place">
+                                    <h3>Finding Property Created !!!</h3>
+                                    <h3>Preview Page under development</h3>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>

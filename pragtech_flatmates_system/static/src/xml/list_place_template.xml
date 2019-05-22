@@ -5,6 +5,7 @@
         <!--Describe your place Main Template-->
         <template id="list_place" name="Share Accommodation">
             <t t-call="website.layout">
+            <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -42,6 +43,7 @@
         <!--What type of accommodation are you offering?-->
         <template id="list_place_accommodation" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <form action="#" id="list_place_accommodation_form_id" method="POST">
@@ -177,6 +179,7 @@
         <!--What type of property is this?-->
         <template id="whole_property_template" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -257,6 +260,7 @@
         <!--About the property-->
         <template id="about_template" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -288,7 +292,9 @@
                                                        type="text" name="property_address"/>
                                             </div>
                                             <div class="styles__errorMessage">Please enter street number</div>
-                                            <div><a href="">Having trouble finding your address?</a></div>
+                                            <div>
+                                                <a href="">Having trouble finding your address?</a>
+                                            </div>
 
                                             <table id="address" style="display:none;">
                                                 <tr>
@@ -419,7 +425,8 @@
 
                                             <!--Code added by dhrup-->
                                             <select class="form-control mt-2" id="parking" name="select-parking">
-                                                <option value="Select" selected="selected" disabled="disabled" >Select</option>
+                                                <option value="Select" selected="selected" disabled="disabled">Select
+                                                </option>
                                                 <t t-foreach="parkings" t-as="parking">
                                                     <option t-attf-value="#{parking.id}">
                                                         <t t-esc="parking.name"/>
@@ -442,7 +449,8 @@
 
                                             <!--Code added by dhrup-->
                                             <select class="form-control mt-2" id="internet" name="select-internet">
-                                                <option value="Select" selected="selected" disabled="disabled" >Select</option>
+                                                <option value="Select" selected="selected" disabled="disabled">Select
+                                                </option>
                                                 <t t-foreach="internets" t-as="internet">
                                                     <option t-attf-value="#{internet.id}">
                                                         <t t-esc="internet.name"/>
@@ -500,6 +508,7 @@
         <!--Who currently lives in the property-->
         <template id="about_who_lives_here_template" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -628,6 +637,7 @@
         <!--About the room(s)-->
         <template id="about_rooms_template" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -768,6 +778,7 @@
         <!--Rent, bond and bills-->
         <template id="rent_bond_bills" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -869,6 +880,7 @@
         <!--Room availability-->
         <template id="room_availability" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -979,6 +991,7 @@
         <!--Property and room images-->
         <template id="property_images" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -1006,52 +1019,42 @@
                                         <div class="btn btn-outline-primary btn-file mb-3 center-add-photos">
                                             <i class="fa fa-camera"></i>
                                             Add Photos
-                                            <input type="file" name="uploads[]" accept="image/*" multiple="multiple" id="upload"/>
+                                            <input type="file" name="uploads[]" accept="image/*" multiple="multiple"
+                                                   id="upload"/>
                                         </div>
 
                                         <div class="scrolling-wrapper add-photos-slide mid-add-photos d-none">
-                                            <button type="button" class="scroll-backward arrow-left"><i class="fa fa-chevron-left"></i></button>
-                                            <button type="button" class="scroll-forward arrow-right"><i class="fa fa-chevron-right"></i></button>
+                                            <button type="button" class="scroll-backward arrow-left">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </button>
+                                            <button type="button" class="scroll-forward arrow-right">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
 
                                             <div class="btn btn-outline-primary1 btn-file">
                                                 <i class="fa fa-camera"></i>
                                                 Add Photos
-                                                <input type="file" name="uploads[]" accept="image/*" multiple="multiple"  id="upload1"/>
+                                                <input type="file" name="uploads[]" accept="image/*" multiple="multiple"
+                                                       id="upload1"/>
                                             </div>
 
-                                     <!--       <div class="card">
-                                                <img src="/pragtech_flatmates_system/static/src/img/teamups.jpg"  width="" height=""/>
-                                                <a href="#" class="w3-display-bottomleft"><i class="fa fa-trash fa-2x"></i></a>
-                                            </div>-->
-											
-											
-											
-											<!--<span class="slider">-->
-											<!--<a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x"></i></span></a>-->
-											<!--<img class="slider-img card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>-->
-											<!---->
-											<!--</span>-->
-											
-											<!--<span class="slider">-->
-											<!--<a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x"></i></span></a>-->
-											<!--<img class="slider-img card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>-->
-											<!---->
-											<!--</span>-->
-											
+                                            <!--       <div class="card">
+                                                       <img src="/pragtech_flatmates_system/static/src/img/teamups.jpg"  width="" height=""/>
+                                                       <a href="#" class="w3-display-bottomleft"><i class="fa fa-trash fa-2x"></i></a>
+                                                   </div>-->
 
 
+                                            <!--<span class="slider">-->
+                                            <!--<a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x"></i></span></a>-->
+                                            <!--<img class="slider-img card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>-->
+                                            <!---->
+                                            <!--</span>-->
 
-
-
-
-
-
-
-
-
-
-
-
+                                            <!--<span class="slider">-->
+                                            <!--<a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x"></i></span></a>-->
+                                            <!--<img class="slider-img card" src="/pragtech_flatmates_system/static/src/img/share-melbourne.jpg"  width="" height=""/>-->
+                                            <!---->
+                                            <!--</span>-->
 
 
                                             <!--<img class="card" src="/pragtech_flatmates_system/static/src/img/live-rent-free-pic.svg"  width="" height=""/>
@@ -1059,11 +1062,6 @@
                                             <img class="card" src="/pragtech_flatmates_system/static/src/img/flatmates_homePage_vid_2018.jpg"  width="" height=""/>-->
 
                                         </div>
-
-
-
-
-
 
 
                                         <div class="col-lg-7 mx-auto mt-3">
@@ -1074,7 +1072,6 @@
                                         </div>
                                     </div>
                                 </div>
-
 
 
                                 <div class="row">
@@ -1106,6 +1103,7 @@
         <!--Let's describe your ideal flatmate(s)-->
         <template id="list_place_describe_your_flatmate" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -1158,6 +1156,7 @@
         <!--Flatmate Preference-->
         <template id="flatmate_preference_template" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -1300,6 +1299,7 @@
 
         <template id="list_place_accepting" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -1507,6 +1507,7 @@
         <!--Describe yourself and your property-->
         <template id="list_place_describe_yourself" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -1561,6 +1562,7 @@
         <!--Tell us about you and your flatmates-->
         <template id="list_place_about_others" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -1627,6 +1629,7 @@
         <!--What's great about living at this property?-->
         <template id="list_place_comment_about_property" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
@@ -1642,7 +1645,7 @@
                     </section>
                     <section>
                         <div class="container">
-                            <form action="" id="list_place_comment_abt_property_form_id" method="POST">
+                            <form action="/list/my/property" id="list_place_comment_abt_property_form_id" method="POST">
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto">
                                         <div class="form-group">
@@ -1686,28 +1689,14 @@
 
         <template id="list_my_property" name="Share Accommodation">
             <t t-call="website.layout">
+                <t t-call="pragtech_flatmates_system.custom_header_template_id"/>
                 <div class="oe_structure oe_empty">
                     <section>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-12 col-xs-12 list-place">
                                     <h3>Listing Property Created !!!</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </t>
-        </template>
-
-        <template id="find_a_property" name="Share Accommodation">
-            <t t-call="website.layout">
-                <div class="oe_structure oe_empty">
-                    <section>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 col-sm-12 col-xs-12 list-place">
-                                    <h3>Finding Property Created !!!</h3>
+                                    <h3>Preview Page under development</h3>
                                 </div>
                             </div>
                         </div>

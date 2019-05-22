@@ -227,29 +227,35 @@ $(document).ready(function() {
             console.log('\nFind Place data \n\n',find_place_data)
 //            alert("page")
             if (find_place_data){
+                var is_id_exist = false
                 $.ajax({
                         url:'/create/find_place',
                         type:'POST',
                         dataType: 'json',
+                        async:false,
                         contentType: 'application/json',
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'find_place_data': find_place_data}}),
                         success: function(data){
                                 console.log('Return %%%%%%%%% : ',data)
-                                if(data['result']['new_flatmate_id']){
+                                if(data['result']){
+                                    is_id_exist = true
                                     console.log('iiiiiiiffffffffiiiiiffff')
-                                    window.location.replace('/find/a/property')
                                 }
-                                else{
-
-                                    window.location.replace('/')
-                                }
-
 
                             oldArray[0] = {}
                             localStorage.setItem('find_place_record', JSON.stringify(oldArray))
 
 
 	                    },
+
+	                    if(is_id_exist){
+	                        window.location.replace('/find/a/property');
+	                    }
+//	                    else
+//	                    {
+//	                        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+//	                        window.location.replace('/');
+//	                    }
                 });
 
 		    }
@@ -660,40 +666,49 @@ $(document).ready(function() {
             }
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
-            console.log('comment_about_property : ', comment_about_property)
-            console.log('LOCAL STORAGE 99 : ',localStorage.getItem('list_place_array'))
+//            console.log('comment_about_property : ', comment_about_property)
+//            console.log('LOCAL STORAGE 99 : ',localStorage.getItem('list_place_array'))
 
-            var list_place_data = JSON.parse(localStorage.getItem('list_place_array'));
+//            var list_place_data = JSON.parse(localStorage.getItem('list_place_array'));
 
-            console.log('\nListplace data \n\n',list_place_data)
-            if (list_place_data){
+
+//            alert('ssssssssssssssssssssssssssssssssssssssssssssssss')
+
+            if (localStorage.getItem('list_place_array')){
+                var list_place_data = JSON.parse(localStorage.getItem('list_place_array'));
+                console.log('\nListplace data :',list_place_data)
                 $.ajax({
                         url:'/create/list_property',
                         type:'POST',
                         dataType: 'json',
+                        async : false,
                         contentType: 'application/json',
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'list_place_data': list_place_data}}),
                         success: function(data){
-                            console.log('YYYYYYYYYYYYYYYYYYYYYYYYYY---',data['result']['new_list_id'])
-
-                            if(data['result']['new_list_id']){
-                                console.log('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY 333333')
-                                window.location.replace('/list/my/property')
-                            }
-                            else{
-                                console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ 4444444')
-                                window.location.replace('/')
-                            }
+////                            console.log('---',data)
+//                            console.log('YYYYYYYYYYYYYYYYYYYYYYYYYY---',data['result'])
+//                            alert('MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM')
+//
+//                            if(data['result']){
+//                                console.log('New list id present !!!!!!!!!!!!!')
+//                                alert('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN')
+//                                window.open('www.google.com',"_blank");
+////                                newWindow.location.href =
+////                                window.location.replace('www.google.com')
+//                            }
+//                            else{
+//                                console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ 4444444')
+//                                window.location.replace('/')
+//                            }
 
                             oldArray[0] = {}
                             localStorage.setItem('list_place_array', JSON.stringify(oldArray))
                             console.log('returnnnnnnnnnnnnnnnnn',localStorage.getItem('list_place_array'))
-//                            alert('OOLLLLLLLLLLLLLLLLLL')
 	                    },
                 });
 
 		    }
-//		    event.preventDefault()
+//		    alert('ssssssssssssssssssssssssssssssssssssssssssssssss2222222222222')
         });
 
 

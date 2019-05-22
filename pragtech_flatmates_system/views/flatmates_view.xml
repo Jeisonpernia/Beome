@@ -183,6 +183,10 @@
             <field name="model">house.mates</field>
             <field name="arch" type="xml">
                 <form string="Housemates" name="housemates">
+                    <header>
+                     <field name="state" widget="statusbar" statusbar_visible="active,deactive"/>
+
+                    </header>
                     <sheet>
                         <group>
                             <group>

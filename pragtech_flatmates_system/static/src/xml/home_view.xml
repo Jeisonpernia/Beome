@@ -24,7 +24,7 @@
                                 </p>
 
 
-                                <a class="btn btn-orange mb-2 list_place_check_login_user" href="/listplace"
+                                <a class="btn btn-orange mb-2 list_place_check_login_user start-listing" href="/listplace"
                                    type="button" id="list_place_check_login_user">List my
                                     place
                                 </a>

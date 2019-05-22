@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
+from odoo.exceptions import UserError
+import logging
+
+_logger = logging.getLogger(__name__)
 
 class Housemates(models.Model):
     _name = 'house.mates'
@@ -9,6 +13,7 @@ class Housemates(models.Model):
 
 
     ## Main
+    state = fields.Selection([('active', 'Active'), ('deactive', 'Deactive')],default='active')
     listing_type = fields.Selection([('list', 'List'), ('find', 'Find')], string="Listing type", default='find')
     name = fields.Char(string="Property Name")
     property_type = fields.Many2many('property.type', string="Property type")
@@ -33,6 +38,8 @@ class Housemates(models.Model):
     place_for = fields.Selection([('me', 'Me'), ('couple', 'Couple'), ('group', 'Group')], string="Place For")
     is_teamups = fields.Boolean('Teamups')
     is_short_list = fields.Boolean('Short List')
+    res_user_id = fields.Many2one('res.users', string="Users")
+
 
     ## About the room
     rooms_ids = fields.One2many('about.rooms', 'flatmate_id', string="About the room(s)")
@@ -83,6 +90,14 @@ class Housemates(models.Model):
     description_about_property = fields.Text('Description')
     description_about_user = fields.Text('About Flatmates')
 
+    @api.model
+    def create(self,values):
+        listing = super(Housemates, self).create(values)
+        print("---------values----------------listimng--------",listing)
+        listing.send_listing_alert_email()
+        return listing
+
+
     @api.onchange('listing_type')
     def load_dropdown_data(self):
         print ("\n\n\nIn Onchange",self.listing_type)
@@ -99,6 +114,28 @@ class Housemates(models.Model):
             print("\n====key",dict(self._fields['type'].selection).get(self.pref))
             return dict(self._fields['type'].selection).get(self.pref)
 
+    @api.multi
+    def send_listing_alert_email(self):
+
+        template = self.env.ref('pragtech_flatmates_system.mail_listing_alert')
+        assert template._name == 'mail.template'
+
+        template_values = {
+            #             'email_to': '${object.email|safe}',
+            'email_cc': False,
+            'auto_delete': True,
+            'partner_to': False,
+            'scheduled_date': False,
+        }
+
+        template.write(template_values)
+        for user in self.user_id:
+            print("===============user==============",user.login)
+            if not user.email:
+                raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
+            with self.env.cr.savepoint():
+                template.with_context(lang=user.lang).send_mail(user.id, force_send=True, raise_exception=True)
+            _logger.info("Password reset email sent for user <%s> to <%s>", user.login, user.email)
 
 
 class PropertyImage(models.Model):

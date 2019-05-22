@@ -63,9 +63,10 @@
 
                                 <span class="search-dropdown-txt">Search share accommodation</span>
                             </button>
-                            <div class="dropdown-menu search-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<div class="search-dropdown-menu">
 
-                                <form class="search-form" action="/search/records" method="GET">
+                                <form class="search-form" id="search_filter" action="/search/records" method="GET">
                                     <div class="form-group auto-input">
                                         <label class="p16-gray text-uppercase">Where are you looking?</label>
                                         <input type="text" class="form-control" id="search_places"
@@ -131,7 +132,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-lg-12 mt-3 pl-0 pr-0">
+                                        <div class="col-lg-12 mt-3 pl-0 pr-0 d-none">
                                                 <button class="btn search-btn btn-block" id="search-submit-start"
                                                         type="submit">Search
                                                 </button>
@@ -140,8 +141,7 @@
                                     </div>
                                 </form>
 
-
-                                <form class="search-form" action="/search/records" method="GET">
+                                <form class="search-form" id="search_room_filter" action="/search/records" method="GET">
                                     <div class="rooms-btn">
 
                                         <div class="search-min-budget mt-3">
@@ -171,7 +171,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="advance-filters">
+                                        <div class="advance-filters mt-2 mb-3">
                                             <hr class="mx-auto"/>
                                             <div class="text-center">
                                                 <a href="#" id='advance-filter-rooms' class="advance-filter">+ Advanced filters</a>
@@ -238,16 +238,53 @@
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 mt-3 btn-padding-right">
-                                                    <select class="form-control" id="search_list_accomodation" name="accommodation_type">
-                                                        <option value="">Accommodation Type</option>
-                                                        <!--<option>Room(s) in share houses</option>-->
-                                                        <!--<option>Whole properties for sharing</option>-->
-                                                        <!--<option>Studios</option>-->
-                                                        <!--<option>1 bed flats</option>-->
-                                                        <!--<option>Granny flats</option>-->
-                                                        <!--<option>Student accommodation</option>-->
-                                                        <!--<option>Homestays</option>-->
-                                                    </select>
+                                                    <!--<div class="dropdown show">
+                                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Dropdown link
+                                                        </a>
+
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <input type="checkbox" name="vehicle1" value="Bike"/> I have a bike<br/>
+                                                            <input type="checkbox" name="vehicle2" value="Car"/> I have a car<br/>
+                                                            <input type="checkbox" name="vehicle3" value="Boat" checked="checked"/> I have a boat<br/>
+                                                        </div>
+                                                    </div>-->
+													
+													<div class="radio-checkbox">
+                                                        <div class="select-check">
+
+                                                            <button type="button" class="show-checkbox-dropdown">Accommodation types</button>
+                                                            <div class="options hidden" id="search_list_accomodation">
+<!--<div class="input round-dot">-->
+    <!--<input name="search[share-houses]" type="hidden" value="0"/>-->
+    <!--<input id="search_share-houses" name="search[share-houses]" type="checkbox" value="1"/>-->
+    <!--<label for="search_share-houses">Room(s) in share houses</label>-->
+<!--</div>-->
+<!--<div class="input round-dot">-->
+    <!--<input name="search[whole-properties]" type="hidden" value="0"/>-->
+    <!--<input id="search_whole-properties" name="search[whole-properties]" type="checkbox" value="1"/>-->
+    <!--<label for="search_whole-properties">Whole properties for sharing</label>-->
+<!--</div>-->
+                                                                <!--<div class="input round-dot">-->
+                                                                    <!--<input name="search[studios]" type="hidden" value="0"/>-->
+                                                                    <!--<input id="search_studios" name="search[studios]" type="checkbox" value="1"/>-->
+                                                                    <!--<label for="search_studios">Studios</label>-->
+                                                                <!--</div>-->
+                                                                <!--<div class="input round-dot">-->
+                                                                    <!--<input name="search[1-beds]" type="hidden" value="0"/>-->
+                                                                    <!--<input id="search_1-beds" name="search[1-beds]" type="checkbox" value="1"/>-->
+                                                                    <!--<label for="search_1-beds">1 bed flats</label>-->
+                                                                <!--</div>-->
+                                                                <!--<div class="input round-dot">-->
+                                                                    <!--<input name="search[granny-flats]" type="hidden" value="0"/>-->
+                                                                    <!--<input id="search_granny-flats" name="search[granny-flats]" type="checkbox" value="1"/>-->
+                                                                    <!--<label for="search_granny-flats">Granny flats</label>-->
+                                                                <!--</div>-->
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
 
@@ -383,7 +420,7 @@
 
 
                                         </div>
-                                        <div class="col-lg-12 mt-3 pl-0 pr-0">
+                                        <div class="col-lg-12 mt-3 pl-0 pr-0 d-none">
                                             <button class="btn search-room-btn btn-block" id="search-submit" name="search_room_button"
                                                     type="submit" value="search_room_sumbit">Search Rooms
                                             </button>
@@ -392,7 +429,7 @@
                                     </div>
                                 </form>
 
-                                <form class="search-form" action="/search/records" method="GET">
+                                <form class="search-form" id="search_flatmates_filter" action="/search/records" method="GET">
                                     <div class="flatmates-btn">
 
                                         <div class="form-group row">
@@ -430,7 +467,7 @@
                                         </div>
 
 
-                                        <div class="advance-filters">
+                                        <div class="advance-filters mt-2 mb-3">
                                             <hr class="mx-auto"/>
                                             <div class="text-center">
                                                 <a href="#" id='advance-filter-flatmates' class="advance-filter">+ Advanced filters</a>
@@ -496,28 +533,96 @@
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 btn-padding-left">
-                                                        <select class="form-control" id="pepole_that_are" name="pepole_that_are">
-                                                            <option>People that are</option>
-                                                            <option>LGBT</option>
-                                                            <option>No kids</option>
-                                                            <option>No Pets</option>
-                                                            <option>No-smoker</option>
-                                                            <option>Smoker</option>
-                                                        </select>
+                                                        <div class="radio-checkbox">
+                                                            <div class="select-check">
+
+                                                                <button type="button" class="show-checkbox-dropdown">People that are</button>
+                                                                <div class="options hidden" id="pepole_that_are">
+                                                                    <div class="input round-dot">
+                                                                        <input id="fsmoker" name="fsmoker" type="checkbox" value="fsmoker"/>
+                                                                        <label for="fsmoker">Smoker</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="flgbti" name="flgbti" type="checkbox" value="flgbti"/>
+                                                                        <label for="flgbti">LGBTI+</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="fpets" name="fpets" type="checkbox" value="fpets"/>
+                                                                        <label for="fpets">Pets</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="fchildren" name="fchildren" type="checkbox" value="fchildren"/>
+                                                                        <label for="fchildren">Children</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+                                                        <!--<select class="form-control" id="pepole_that_are" name="pepole_that_are">-->
+                                                            <!--<option>People that are</option>-->
+                                                            <!--<option>LGBT</option>-->
+                                                            <!--<option>No kids</option>-->
+                                                            <!--<option>No Pets</option>-->
+                                                            <!--<option>No-smoker</option>-->
+                                                            <!--<option>Smoker</option>-->
+                                                        <!--</select>-->
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 mt-3 btn-padding-right">
-                                                        <select class="form-control" id="professions" name="professions">
-                                                            <option>Professions</option>
-                                                            <option>Working full-time</option>
-                                                            <option>Working Part-time</option>
-                                                            <option>Student</option>
-                                                            <option>Backpacker</option>
-                                                            <option>Retired</option>
-                                                            <option>Unemployed/Welfare</option>
-                                                            <option>Working Holiday</option>
-                                                        </select>
+                                                        <div class="radio-checkbox">
+                                                            <div class="select-check">
+
+                                                                <button type="button" class="show-checkbox-dropdown">Professions</button>
+                                                                <div class="options hidden" id="pepole_that_are">
+                                                                    <div class="input round-dot">
+                                                                        <input id="f_full_time" name="f_full_time" type="checkbox" value="f_full_time"/>
+                                                                        <label for="f_full_time">Working full-time</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="f_part_time" name="f_part_time" type="checkbox" value="f_part_time"/>
+                                                                        <label for="f_part_time">Working part-time</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="f_student" name="f_student" type="checkbox" value="f_student"/>
+                                                                        <label for="f_student">Student</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="f_backpacker" name="f_backpacker" type="checkbox" value="f_backpacker"/>
+                                                                        <label for="f_backpacker">Backpacker</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="f_retired" name="f_retired" type="checkbox" value="f_retired"/>
+                                                                        <label for="f_retired">Retired</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="f_unemployed" name="f_unemployed" type="checkbox" value="f_unemployed"/>
+                                                                        <label for="f_unemployed">Unemployed/Welfare</label>
+                                                                    </div>
+                                                                    <div class="input round-dot">
+                                                                        <input id="f_working_hloiday" name="f_working_hloiday" type="checkbox" value="f_working_hloiday"/>
+                                                                        <label for="f_working_hloiday">Working Holiday</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        <!--<select class="form-control" id="professions" name="professions">-->
+                                                            <!--<option>Professions</option>-->
+                                                            <!--<option>Working full-time</option>-->
+                                                            <!--<option>Working Part-time</option>-->
+                                                            <!--<option>Student</option>-->
+                                                            <!--<option>Backpacker</option>-->
+                                                            <!--<option>Retired</option>-->
+                                                            <!--<option>Unemployed/Welfare</option>-->
+                                                            <!--<option>Working Holiday</option>-->
+                                                        <!--</select>-->
                                                     </div>
+                                                    </div>
+
+
 
                                                     <div class="clearfix"></div>
 
@@ -534,7 +639,7 @@
 
 
                                         </div>
-                                        <div class="col-lg-12 mt-3 pl-0 pr-0">
+                                        <div class="col-lg-12 mt-3 pl-0 pr-0 d-none">
                                                 <button class="btn search-flat-btn btn-block" id="search-submit"
                                                         type="submit">Search Flatmates
                                                 </button>
@@ -543,7 +648,7 @@
                                     </div><!--flatmates-btn close-->
                                 </form>
 
-                                <form class="search-form" action="/search/records" method="GET">
+                                <form class="search-form" id="search_teamups_filter" action="/search/records" method="GET">
                                     <div class="teamups-btn">
 
                                         <div class="form-group row">
@@ -578,7 +683,7 @@
                                         </div>
 
 
-                                        <div class="advance-filters">
+                                        <div class="advance-filters mt-2 mb-3">
                                             <hr class="mx-auto"/>
                                             <div class="text-center">
                                                 <a href="#" id='advance-filter-teamups' class="advance-filter">+ Advanced filters</a>
@@ -724,7 +829,7 @@
 
                                         </div>
 
-                                            <div class="col-lg-12 mt-3 pl-0 pr-0">
+                                            <div class="col-lg-12 mt-3 pl-0 pr-0 d-none">
                                                 <button class="btn search-teamups-btn btn-block" id="search-submit"
                                                         type="submit">Search Teamups
                                                 </button>
@@ -732,11 +837,17 @@
                                     </div>
                                     <!--end of teamups-->
                                 </form>
-								
-								
-							
+
+								</div>
+
+
+							<button class="btn search-btn btn-block" id="search_submit_start" type="button"><span class="search-text">Search</span>
+                            <input type="hidden" value="search" id='search_value' name="form_value"/></button>
                             </div>
-							
+
+
+
+
 
                         </div>
                     </div>

@@ -1,7 +1,22 @@
 //<<<<<<< 73c592ab737ec37b97b027058a04268cfc2b7408
 odoo.define('pragtech_flatmates.search', function (require) {
 console.log("\nggggg")
+
+
 $(document).ready(function() {
+
+
+$('.show-checkbox-dropdown').on('click',function()
+{
+    console.log(')))))))))))))))))',$(this).siblings('.options'))
+    var show_options = $(this).siblings('.options')
+    console.log(')))))))))))))))))',show_options)
+    if (show_options.hasClass("hidden"))
+        show_options.removeClass("hidden")
+    else
+        show_options.addClass("hidden")
+
+})
 
     $('.dropdown').on('click','.search-mode-rooms,.search-mode-flatmates',function(){
                 console.log(')))))))))))))))))',$(this).attr('class'))
@@ -21,7 +36,8 @@ $(document).ready(function() {
 
                         if (class_name == 'search-mode-flatmates')
                         {
-
+                            $("#search_value").val("search_flatmates")
+                            $(".search-text").text("Search Flatmates")
                             property_types = data['result']['property_types']
                             for(var i=0;i<property_types.length;i++)
                             {
@@ -49,6 +65,8 @@ $(document).ready(function() {
 
                         if (class_name == 'search-mode-rooms')
                         {
+                            $("#search_value").val("search_rooms")
+                            $(".search-text").text("Search Rooms")
                             room_types = data['result']['room_types']
                             for(var i=0;i<room_types.length;i++){
                                 var room = room_types[i]
@@ -100,14 +118,32 @@ $(document).ready(function() {
                             for(var i=0;i<property_types.length;i++){
                                 var property_type = property_types[i]
                                 console.log('property_types :',property_type)
-                                $('#search_list_accomodation').append('<option value='+property_type[0]+'>'+property_type[1]+'</option>')
+                               $('#search_list_accomodation').append('<div class="input round-dot"><input id="'+property_type[0]+'" name="room_accommodation_'+property_type[0]+'" type="checkbox" value="'+property_type[0]+'"/><label for="'+property_type[0]+'">'+property_type[1]+'</label></div>')
                             }
                         }
+
 
 	                    },
                 });
 
 })
+
+$(document).on('click',"#search_submit_start",function()
+{
+
+//console.log("Himesh ----------------------",$("#search_value").val())
+//console.log("Himesh ----------------------",$(this).find("#search_room_filter"))
+
+    if ($("#search_value").val() == "search")
+        $("#search_filter").submit()
+
+    if ($("#search_value").val() == "search_rooms")
+        $("#search_room_filter").submit()
+
+    if ($("#search_value").val() == "search_flatmates")
+        $("#search_flatmates_filter").submit()
+
+});
 
 
 $(".rooms-btn").css('display','none');
@@ -117,7 +153,7 @@ $(".advanced-option").css('display','none')
 $("#hide-advance-filter-rooms").css('display','none')
 $("#hide-advance-filter-flatmates").css('display','none')
 $("#hide-advance-filter-teamups").css('display','none')
-$('.search-btn').attr('style','background-color:#37bc9b !important')
+//$('.search-btn').attr('style','background-color:#37bc9b !important')
 
 ///////////////////////////////////////////////////////////
 //Set Datepicker from today date
@@ -181,6 +217,7 @@ $("#advance-filter-teamups").css('display','block')
 
 
 $("#rooms").on("click", function(){
+console.log ("dfhhhaaaaadhhhhshshshsh")
 $(this).attr('style', 'background-color: #e9573e !important;color : white !important')
 $(".rooms-btn").css('display','block');
 $(".flatmates-btn").css('display','none');

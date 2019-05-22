@@ -89,9 +89,25 @@
                                             <div class="row">
                                                 <div class="col-lg-3 mt-5">
                                                     <div class="card" style="width: 18rem;">
-                                                        <img class="card-img-top rounded-circle mx-auto"
-                                                             src="/pragtech_flatmates_system/static/src/img/avtar.png"
-                                                             alt=""/>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-4 mx-auto dash-profile-pic">
+                                                                <div class="image-upload">
+                                                                    <div class="image-upload">
+                                                                        <label for="file-input2" class="add_image_icon">
+                                                                            <img class="card-img-top rounded-circle mx-auto dashbord-profile-img"
+                                                                                 src="/pragtech_flatmates_system/static/src/img/avtar.png"
+                                                                                 alt=""/>
+                                                                        </label>
+                                                                        <input id="file-input2" type="file" class="pro-img" accept="image/*"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!--<img class="card-img-top rounded-circle mx-auto"-->
+                                                             <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
+                                                             <!--alt=""/>-->
                                                         <div class="card-body">
                                                             <h5 class="card-title text-center">
                                                                 <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
@@ -179,8 +195,9 @@
                                                             </svg>
                                                         </div>
                                                         <div class="col-lg-10">
-                                                            <h4>Hey<span
-                                                                    t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                                                            <h4>Hey
+                                                                <span
+                                                                        t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
                                                                 ,
                                                                 <br/>
                                                                 You don't have a listing!
@@ -256,7 +273,7 @@
                                                                 Email alert setting
                                                             </a>
                                                         </li>
-                                                        <li>
+                                                        <li id="deactivate_account_popup_href_id">
                                                             <a href="#" data-toggle="modal"
                                                                data-target="#deactivate_account_popup">
                                                                 <svg class="icon" width="50" height="50"
@@ -364,6 +381,7 @@
                             </div>
                         </div>
 
+
                         <div class="modal fade" id="account_settings_popup" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -379,15 +397,31 @@
                                                     <form action="/action_page.php">
                                                         <h3 class="text-center mt-4 mb-4">Edit my account</h3>
 
+                                                        <!--<div class="row">-->
+                                                            <!--<div class="col-lg-4 mx-auto profile-pic1">-->
+                                                                <!--<img class="card-img-top rounded-circle mx-auto profile-pic"-->
+                                                                     <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
+                                                                     <!--alt=""/>-->
+                                                                <!--<input id="file-input" type="file" class="profile_image"-->
+                                                                       <!--accept="image/*"/>-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+
                                                         <div class="row">
-                                                            <div class="col-lg-4 mx-auto profile-pic1">
-                                                                <img class="card-img-top rounded-circle mx-auto profile-pic"
-                                                                     src="/pragtech_flatmates_system/static/src/img/avtar.png"
-                                                                     alt=""/>
-                                                                <input id="file-input" type="file" class="profile_image"
-                                                                   accept="image/*"/>
+                                                            <div class="col-lg-4 mx-auto profile-pic2">
+                                                                <div class="image-upload">
+                                                                    <div class="image-upload">
+                                                                        <label for="file-input" class="add_image_icon">
+                                                                            <img class="card-img-top rounded-circle mx-auto profile-pic"
+                                                                                 src="/pragtech_flatmates_system/static/src/img/avtar.png"
+                                                                                 alt=""/>
+                                                                        </label>
+                                                                        <input id="file-input" type="file" class="profile_image" accept="image/*"/>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
+
 
                                                         <div class="form-group mt-4">
                                                             <input type="text" class="form-control default_user_name"
@@ -547,7 +581,7 @@
 
 
                                         <!--<div class="row">
-											
+
                                                 <h5 class="text-center text-muted mt-3">Listing Alerts</h5>
                                                 <p class="text-center text-muted mt-3">We'll send listing alerts when you have an active listing</p>
                                                 <select name="listing_alerts" id="listing_alerts">
@@ -633,7 +667,9 @@
                                                     </p>
 
                                                     <h4>
-                                                        <a href="#" class="mt-3">Delete My Account</a>
+                                                        <a href="#" class="mt-3" data-toggle="modal"
+                                                           data-target="#delete_account_popup">Delete My Account
+                                                        </a>
                                                     </h4>
 
                                                     <h5 class="text-muted">This cannot be undone</h5>
@@ -654,6 +690,33 @@
                                     <a href="#">Delete My Account </a>
                                     <p style="color: black">This cannot be undone</p>-->
 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="delete_account_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h3 class="text-center">You really want to delete your account</h3>
+
+
+                                                    <button type="button" class="btn btn-green1 mt-3 mb-4 btn-block"
+                                                            data-dismiss="modal" id="delete_account">Yes Delete My
+                                                        account
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

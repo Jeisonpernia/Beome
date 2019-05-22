@@ -193,3 +193,9 @@ justify-content: center;
 color:#fff;
 }
 
+#account_settings_popup .image-upload img{
+	width: 160px;
+	height: 160px;
+}
+
+

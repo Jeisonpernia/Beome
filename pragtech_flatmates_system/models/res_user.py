@@ -15,6 +15,11 @@ class ResUser(models.Model):
     community_notices = fields.Boolean(string="Community notices")
     special_offers = fields.Boolean(string="Special offers")
     deactivate_account=fields.Boolean(string="Deactivate Account")
+    house_mates_ids = fields.One2many('house.mates', 'res_user_id')
+
+    last_logged_ip = fields.Char(string='IP')
+    last_logged_browser = fields.Char(string='Browser')
+    last_logged_os = fields.Char(string='OS')
 
     @api.multi
     def send_account_verify_email(self):
