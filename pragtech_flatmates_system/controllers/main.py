@@ -6,10 +6,10 @@ import werkzeug
 from io import StringIO, BytesIO
 from werkzeug.utils import redirect
 from datetime import date, datetime, timedelta
-from odoo.exceptions import AccessError, UserError
+from odoo.exceptions import AccessError, UserError,ValidationError
 from odoo.addons.auth_signup.models.res_users import SignupError
 from odoo.addons.web.controllers.main import ensure_db, Home
-
+import ast
 try:
     import httpagentparser
 except ImportError:
@@ -26,6 +26,15 @@ from odoo.addons.website.controllers.main import QueryURL
 from odoo.addons.http_routing.models.ir_http import slug, unslug
 from odoo import http, fields
 from odoo.addons.auth_signup.controllers.main import AuthSignupHome
+import pyotp
+import json
+
+# from __future__ import print_function
+import clicksend_client
+from clicksend_client import SmsMessage
+from clicksend_client.rest import ApiException
+
+
 _logger = logging.getLogger(__name__)
 
 
@@ -48,7 +57,6 @@ class AuthSignupHomeChild(AuthSignupHome):
     def web_login(self, *args, **kw):
         values = request.params.copy()
         ensure_db()
-
 
         response = super(AuthSignupHomeChild, self).web_login(*args, **kw)
 
@@ -73,7 +81,7 @@ class AuthSignupHomeChild(AuthSignupHome):
             if partner:
 
                 user = request.env['res.users'].sudo().search([('partner_id', '=', partner.id), ('active', '=', False)],
-                                                              limit=1)
+                                                       limit=1)
 
                 if user:
 
@@ -2379,6 +2387,7 @@ class FlatMates(http.Controller):
         user_name = request.env.user.name
         user_email = request.env.user.login
         user_mobile = request.env.user.partner_id.mobile
+        is_mobile_verified = request.env.user.partner_id.mobile_no_is_verified
         user_image = request.env.user.image
 
         data = {
@@ -2390,7 +2399,10 @@ class FlatMates(http.Controller):
             data.update({'user_mobile':user_mobile})
         if user_image:
             data.update({'user_image':user_image})
-
+        if is_mobile_verified:
+            data.update({'is_mobile_verified': True})
+        else:
+            data.update({'is_mobile_verified': False})
         return data
 
     @http.route(['/country'], type='json', auth="public", website=True, )
@@ -2399,6 +2411,123 @@ class FlatMates(http.Controller):
         value = {}
         value['country'] = [[i.id, i.name+" (+"+str(i.phone_code)+")"] for i in res_country]
         return value
+
+    @http.route(['/send_sms'], type='json', auth="public", website=True)
+    def send_sms(self, **kwargs):
+        print('\n\n\n22222222222222222222222 ::', kwargs, '\n\n\n')
+        country_id = None
+        phone_code = None
+        mobile_no = None
+        send = False
+
+        if 'country_id' in kwargs and kwargs.get('country_id'):
+            country_id = request.env['res.country'].browse(int(kwargs.get('country_id')))
+            if country_id:
+                phone_code = country_id.phone_code
+
+        if 'mobile_no' in kwargs and kwargs.get('mobile_no'):
+            mobile_no = kwargs.get('mobile_no')
+
+        if phone_code and mobile_no:
+            send = self.send_otp_to_verify_mobile_no(phone_code,mobile_no)
+        print('\n\n\n------------------- Is send :: ',send,'\n\n\n')
+        return send
+
+    def send_otp_to_verify_mobile_no(self,phone_code,mobile_no):
+        user_name = request.env['ir.config_parameter'].sudo().search([('key', '=', 'pragtech_flatmates_system.sms_user_name')])
+        user_password = request.env['ir.config_parameter'].sudo().search([('key', '=', 'pragtech_flatmates_system.sms_user_password')])
+        is_sms_send = False
+
+        print('\n\n\n------------------------------------------------------------\n\n',)
+        print('\n\n User Name : ',user_name.value)
+        print('\n\n User Password : ', user_password.value)
+        print('\n\n\n------------------------------------------------------------\n\n')
+        if not user_name and not user_password:
+            raise ValidationError(_('Please Configure User Name and Password'))
+
+        totp = pyotp.TOTP('base32secret3232')
+        random_otp = totp.now()
+        message_to_send = "Your OTP is "+random_otp
+        mobile_number = "+"+str(phone_code)+str(mobile_no)
+
+        request.session['random_otp'] = random_otp
+        request.session['mobile_no'] = mobile_no
+        print('\n\n\nRandom OTP :',random_otp)
+
+        configuration = clicksend_client.Configuration()
+        configuration.username = str(user_name.value) #user_name
+        configuration.password = str(user_password.value) #password
+
+        # create an instance of the API class
+        api_instance = clicksend_client.SMSApi(clicksend_client.ApiClient(configuration))
+        sms_message = SmsMessage(source="python",
+                                 body=message_to_send,
+                                 to=mobile_number)#"+61411111111"
+        sms_messages = clicksend_client.SmsMessageCollection(messages=[sms_message])
+
+        try:
+            # Send sms message(s)
+            api_response = api_instance.sms_send_post(sms_messages)
+            print('\n\nResponse\n',api_response)
+            ret_response = ast.literal_eval((api_response))
+
+            if ret_response['http_code'] == 200 and ret_response['response_code'] == 'SUCCESS':
+                if ret_response['data']['messages'][0]['status'] == 'SUCCESS':
+                    data = {
+                        'is_sms_send': True,
+                        'status': 'SUCCESS',
+                    }
+
+                elif ret_response['data']['messages'][0]['status'] == 'INVALID_RECIPIENT':
+                    is_sms_send = False
+                    data = {
+                        'is_sms_send':False,
+                        'status': 'INVALID_RECIPIENT',
+                    }
+                else:
+                    data = {
+                        'is_sms_send': False,
+                        'status': 'SOMETHING_WENT_WRONG',
+                    }
+
+        except ApiException as e:
+            print("Exception when calling SMSApi->sms_send_post: %s\n" % e)
+
+        return data
+
+    @http.route(['/verify_otp'], type='json', auth="public", website=True)
+    def verify_otp(self, **kwargs):
+        request.env.user.partner_id
+        print('\n\n\nVERIFY OTP ::', kwargs, '\n\n\n')
+        entered_otp = None
+        sent_otp = None
+        is_verified = False
+
+        sent_otp = str(request.session.get('random_otp'))
+
+        if 'entered_otp' in kwargs and kwargs.get('entered_otp'):
+            entered_otp = kwargs.get('entered_otp')
+
+        if sent_otp == entered_otp:
+            print('66666666666666666666666666666666666')
+            is_verified = True
+
+            request.env.user.partner_id.mobile = str(request.session.get('mobile_no'))
+            request.env.user.partner_id.mobile_no_is_verified = True
+
+            request.session['random_otp'] = ""
+            request.session['mobile_no'] = ""
+
+
+        data = {
+            'is_verified':is_verified
+        }
+
+
+        return data
+
+
+
     ##################################################################
     # --------------  End of Routes for AJAX -------------- #
     ##################################################################

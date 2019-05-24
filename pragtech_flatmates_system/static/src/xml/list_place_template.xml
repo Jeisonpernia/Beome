@@ -12,7 +12,7 @@
                             <div class="row">
                                 <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                     <t t-if="request.env.user.partner_id.name != 'Public user'">
-                                        <h4>Thanks<span t-esc="request.env.user.partner_id.name"/>, let’s list your
+                                        <h4>Thanks <span t-esc="request.env.user.partner_id.name"/>, let’s list your
                                             place
                                         </h4>
                                     </t>
@@ -807,7 +807,7 @@
                                             </p>
                                             <div>
                                                 <span class="currency">$</span>
-                                                <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
                                                        id="weekly_rent"
                                                        name="rent" value=""/>
                                             </div>
@@ -907,6 +907,9 @@
                                             <br/>
                                             <input id="txtdate" type="text" name="date"
                                                    class="span2 datepicker room-availability-datepicker mt-2"/>
+											
+											<span class="datepicker-position"><i class="fa fa-calendar" aria-hidden="false"></i></span>
+											
                                             <!--<input type="text" id="avail_date"-->
                                             <!--class="span2 datepicker room-availability-datepicker mt-2"-->
                                             <!--placeholder="Date..." name="date"/>-->
@@ -1116,7 +1119,7 @@
                                     <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                         <h4>Let's describe your ideal flatmate(s)
                                         </h4>
-                                        <div class="mt-5 col-md-2 mx-auto">
+                                        <div class="mt-5 col-md-2 col-sm-6 col-6 mx-auto">
                                             <img src="/pragtech_flatmates_system/static/src/img/illustration-person-PNG.png"
                                                  class="img-fluid"></img>
                                         </div>
@@ -1520,7 +1523,7 @@
                                     <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                         <h4>Describe yourself and your property
                                         </h4>
-                                        <div class="mt-5 col-md-2 mx-auto">
+                                        <div class="mt-5 col-md-2 col-sm-6 col-6 mx-auto">
                                             <img src="/pragtech_flatmates_system/static/src/img/illustration-speech-PNG.png"
                                                  class="img-fluid"></img>
                                         </div>

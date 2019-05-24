@@ -15,7 +15,7 @@ var room_data;
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
                     success: function(data)
                     {
-                        console.log ("Dataaaaaaaaaaaaa",data)
+                        //console.log ("Dataaaaaaaaaaaaa",data)
                         room_data=data
                     },
                 });
@@ -30,7 +30,7 @@ var room_data;
     load_data_aboutroom()
 //    console.log('11111111',room_data['result'])
     var div_length= $('.list-about-room').length
-    console.log("Length----------------------------------",$('.list-about-room'))
+    //console.log("Length----------------------------------",$('.list-about-room'))
 
 //    console.log('11111111',room_data['result'][0]['room_types'])
 //    console.log('11111111',room_data['result'][0]['room_furnishing'])
@@ -80,7 +80,7 @@ var room_data;
            $('.about_rooms_bttn').prop("disabled", false)
         }
 
-        console.log(div_length)
+        //console.log(div_length)
         if (div_length==1)
         {
             $('#room_number').remove()
@@ -105,7 +105,7 @@ $(document).ready(function() {
   $(".acceptlist").click(function() {
 
     var active_state = $(this).hasClass("accommodation-listing-item-active")
-    console.log("=------------- wae awee  assd-------- asdfs-",)
+    //console.log("=------------- wae awee  assd-------- asdfs-",)
 
     if (active_state == true)
     {
@@ -141,7 +141,7 @@ $(document).ready(function() {
 
 
   $(document).on('click','.bedroom-btn > input:radio',function() {
-console.log("Notttttt")
+//console.log("Notttttt")
     $(this).parent()
       .addClass("bedroom-btn-active") //Add class wrong to the label
       .siblings().removeClass("bedroom-btn-active"); // Remove classes from the other labels.
@@ -158,7 +158,7 @@ $(document).ready(function() {
 
   $("#add_another_room_div").on('click','input:radio',function() {
 
-    console.log ("-----------",$(this))
+    //console.log ("-----------",$(this))
     $(this).parent()
       .addClass("bedroom-btn-active") //Add class wrong to the label
       .siblings().removeClass("bedroom-btn-active"); // Remove classes from the other labels.
@@ -167,9 +167,9 @@ $(document).ready(function() {
     $(this).closest('div').find('input[value!='+this.value+']').attr('checked',false)
 
 //    console.log("----------------Siblings",$(this).closest('div').find('input[value!='+this.value+']'));
-    console.log("----------------Checked length",$("input:checked").length);
+    //console.log("----------------Checked length",$("input:checked").length);
 
-    console.log("----------------Room_type_0",$("input[name=room_type_0]").is(":checked"));
+    //console.log("----------------Room_type_0",$("input[name=room_type_0]").is(":checked"));
 
     var div_length = $('.list-about-room').length
     var radio_btn_checked_length = $("input:checked").length

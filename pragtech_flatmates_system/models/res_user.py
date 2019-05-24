@@ -54,7 +54,7 @@ class ResUser(models.Model):
 #         except Exception as e:
 #                 print  ("\n\nFailed to insert record<br/>\n" + str(e))
 
-    @api.multi
-    def write(self,vals):
-        print("\n\n--------------users write-----------",vals)
-        return super(ResUser,self).write(vals)
+    # @api.multi
+    # def write(self,vals):
+    #     print("\n\n--------------users write-----------",vals)
+    #     return super(ResUser,self).write(vals)

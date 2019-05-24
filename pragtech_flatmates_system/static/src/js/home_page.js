@@ -5,7 +5,7 @@ $(document).ready(function() {
     //console.log('Button-------------',$('.property_button'))
     $('#lazy_load').on('click','.property_button',function()
     {
-    console.log("111111111111111111",$(this).data('button-id'))
+    //console.log("111111111111111111",$(this).data('button-id'))
     var window_pathname = window.location.pathname
 
     var property_id=$(this).data('button-id')
@@ -135,7 +135,7 @@ $(document).ready(function() {
     $(".student-accomodation").addClass('items-cirle-hover')
     $(".homestay").addClass('items-cirle-hover')
 
-    console.log($(".homestay").hasClass('items-cirle-hover'))
+    //console.log($(".homestay").hasClass('items-cirle-hover'))
 
     $("div").remove(".active_tick_icon");
     svg.each(function(){$(this).removeAttr('class','active_svg_icon');});
@@ -240,7 +240,7 @@ $(document).ready(function() {
 
 
         $("#view_more_article").click(function(){
-            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>> ::: ',)
+            //console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>> ::: ',)
             $('#main_column').removeClass('col-md-8');
         })
 

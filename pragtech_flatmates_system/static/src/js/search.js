@@ -1,6 +1,6 @@
 //<<<<<<< 73c592ab737ec37b97b027058a04268cfc2b7408
 odoo.define('pragtech_flatmates.search', function (require) {
-console.log("\nggggg")
+//console.log("\nggggg")
 
 
 $(document).ready(function() {
@@ -8,9 +8,9 @@ $(document).ready(function() {
 
 $('.show-checkbox-dropdown').on('click',function()
 {
-    console.log(')))))))))))))))))',$(this).siblings('.options'))
+    //console.log(')))))))))))))))))',$(this).siblings('.options'))
     var show_options = $(this).siblings('.options')
-    console.log(')))))))))))))))))',show_options)
+    //console.log(')))))))))))))))))',show_options)
     if (show_options.hasClass("hidden"))
         show_options.removeClass("hidden")
     else
@@ -19,7 +19,7 @@ $('.show-checkbox-dropdown').on('click',function()
 })
 
     $('.dropdown').on('click','.search-mode-rooms,.search-mode-flatmates',function(){
-                console.log(')))))))))))))))))',$(this).attr('class'))
+                //console.log(')))))))))))))))))',$(this).attr('class'))
                 var class_name= $(this).attr('class')
 
 
@@ -30,7 +30,7 @@ $('.show-checkbox-dropdown').on('click',function()
                         contentType: 'application/json',
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'type':$(this).attr('class')}}),
                         success: function(data){
-                            console.log('88888888888888888888888 ',data)
+                            //console.log('88888888888888888888888 ',data)
                             //room types
 
 
@@ -61,7 +61,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             for(var i=0;i<min_stay.length;i++)
                             {
                                 var minstay = min_stay[i]
-                                console.log('min_stay :',minstay)
+                                //console.log('min_stay :',minstay)
                                 $('#find_min_stay').append('<option disabled selected hidden>Min Stay</option><option value='+minstay[0]+'>'+minstay[1]+'</option>')
                             }
                             }
@@ -73,7 +73,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             for(var i=0;i<max_stay.length;i++)
                             {
                                 var maxstay = max_stay[i]
-                                console.log('min_stay :',max_stay)
+                                //console.log('min_stay :',max_stay)
                                 $('#find_max_stay').append('<option disabled selected hidden>Max Stay</option><option value='+maxstay[0]+'>'+maxstay[1]+'</option>')
                             }
                             }
@@ -91,7 +91,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             room_types = data['result']['room_types']
                             for(var i=0;i<room_types.length;i++){
                                 var room = room_types[i]
-                                console.log('rooms :',room)
+                                //console.log('rooms :',room)
                                 $('#search_room_type_id').append('<option value='+room[0]+'>'+room[1]+'</option>')
                             }
                             }
@@ -103,7 +103,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             bathroom_types = data['result']['bathroom_types']
                             for(var i=0;i<bathroom_types.length;i++){
                                 var bathroom_type = bathroom_types[i]
-                                console.log('Bathroom type :',bathroom_type)
+                                //console.log('Bathroom type :',bathroom_type)
                                 $('#search_room_bathroom_type_id').append('<option value='+bathroom_type[0]+'>'+bathroom_type[1]+'</option>')
                             }
                             }
@@ -115,7 +115,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             room_furnishing_types = data['result']['room_furnishing_types']
                             for(var i=0;i<room_furnishing_types.length;i++){
                                 var room_furnishing_type = room_furnishing_types[i]
-                                console.log('Room Furnishing type :',room_furnishing_type)
+                                //console.log('Room Furnishing type :',room_furnishing_type)
                                 $('#search_room_furnsh_type_id').append('<option value='+room_furnishing_type[0]+'>'+room_furnishing_type[1]+'</option>')
                             }
                             }
@@ -127,7 +127,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             max_len_stay = data['result']['max_len_stay']
                             for(var i=0;i<max_len_stay.length;i++){
                                 var max_stay = max_len_stay[i]
-                                console.log('stay type :',max_stay)
+                                //console.log('stay type :',max_stay)
                                 $('#search_stay_len_id').append('<option value='+max_stay[0]+'>'+max_stay[1]+'</option>')
                             }
                             }
@@ -139,7 +139,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             parking_types = data['result']['parking_types']
                             for(var i=0;i<parking_types.length;i++){
                                 var parking_type = parking_types[i]
-                                console.log('parking type :',parking_type)
+                                //console.log('parking type :',parking_type)
                                 $('#search_room_parking_type_id').append('<option value='+parking_type[0]+'>'+parking_type[1]+'</option>')
                             }
                             }
@@ -151,7 +151,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             bedrooms = data['result']['bedrooms']
                             for(var i=0;i<bedrooms.length;i++){
                                 var bedroom = bedrooms[i]
-                                console.log('Bedroom :',bedroom)
+                                //console.log('Bedroom :',bedroom)
                                 $('#search_avail_bedrooms_id').append('<option value='+bedroom[0]+'>'+bedroom[1]+'</option>')
                             }
                             }
@@ -161,7 +161,7 @@ $('.show-checkbox-dropdown').on('click',function()
                             property_types = data['result']['property_types']
                             for(var i=0;i<property_types.length;i++){
                                 var property_type = property_types[i]
-                                console.log('property_types :',property_type)
+                                //console.log('property_types :',property_type)
                                $('#search_list_accomodation').append('<div class="input round-dot"><input id="'+property_type[0]+'" name="room_accommodation_'+property_type[0]+'" type="checkbox" value="'+property_type[0]+'"/><label for="'+property_type[0]+'">'+property_type[1]+'</label></div>')
                             }
                             }
@@ -262,7 +262,7 @@ $("#advance-filter-teamups").css('display','block')
 
 
 $("#rooms").on("click", function(){
-console.log ("dfhhhaaaaadhhhhshshshsh")
+//console.log ("dfhhhaaaaadhhhhshshshsh")
 $(this).attr('style', 'background-color: #e9573e !important;color : white !important')
 $(".rooms-btn").css('display','block');
 $(".flatmates-btn").css('display','none');

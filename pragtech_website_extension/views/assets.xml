@@ -8,7 +8,7 @@
             <script type="text/javascript" src="/pragtech_website_extension/static/src/js/email_alert.js"></script>
             <script type="text/javascript" src="/pragtech_website_extension/static/src/js/deactivate_account.js"></script>
             <script type="text/javascript" src="/pragtech_website_extension/static/src/js/account_settings.js"></script>
-
+            <script type="text/javascript" src="/pragtech_website_extension/static/src/js/sms_code.js"></script>
 
 
         </xpath>

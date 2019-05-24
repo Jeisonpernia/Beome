@@ -88,26 +88,59 @@
                                         <main class="modal-body">
                                             <div class="row">
                                                 <div class="col-lg-3 mt-5">
-                                                    <div class="card" style="width: 18rem;">
+                                                    <div class="card">
 
                                                         <div class="row">
-                                                            <div class="col-lg-4 mx-auto dash-profile-pic">
-                                                                <div class="image-upload">
-                                                                    <div class="image-upload">
-                                                                        <label for="file-input2" class="add_image_icon">
-                                                                            <img class="card-img-top rounded-circle mx-auto dashbord-profile-img"
-                                                                                 src="/pragtech_flatmates_system/static/src/img/avtar.png"
-                                                                                 alt=""/>
-                                                                        </label>
-                                                                        <input id="file-input2" type="file" class="pro-img" accept="image/*"/>
-                                                                    </div>
+<!--<<<<<<< HEAD-->
+                                                            <!--<div class="col-lg-4 mx-auto dash-profile-pic">-->
+                                                                <!--<div class="image-upload">-->
+                                                                    <!--<div class="image-upload">-->
+                                                                        <!--<label for="file-input2" class="add_image_icon">-->
+                                                                            <!--<img class="card-img-top rounded-circle mx-auto dashbord-profile-img"-->
+                                                                                 <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
+                                                                                 <!--alt=""/>-->
+                                                                        <!--</label>-->
+                                                                        <!--<input id="file-input2" type="file"-->
+                                                                               <!--class="pro-img" accept="image/*"/>-->
+                                                                    <!--</div>-->
+<!--=======-->
+                                                            <div class="col-lg-6 mx-auto dash-profile-pic">
+
+                                                                <!--<div class="image-upload">
+                                                                    <label for="file-input2" class="add_image_icon">
+                                                                        <img class="card-img-top rounded-circle mx-auto dashbord-profile-img"
+                                                                             src="/pragtech_flatmates_system/static/src/img/avtar.png"
+                                                                             alt=""/>
+                                                                    </label>
+                                                                    <input id="file-input2" type="file" class="pro-img" accept="image/*"/>
+                                                                </div>-->
+
+
+                                                                <div class="image-upload-1">
+                                                                    <label for="file-input-22" class="add_image_icon">
+                                                                        <img class="card-img-top rounded-circle mx-auto profile-pic-2"
+                                                                             src="/pragtech_flatmates_system/static/src/img/avtar.png"
+                                                                             alt="" width="140" height="140"/>
+                                                                    </label>
+                                                                    <input id="file-input-22" type="file"
+                                                                           class="dashboard_profile_image"
+                                                                           accept="image/*"/>
+<!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
                                                                 </div>
+
+
+                                                                <!--<img class="card-img-top rounded-circle mx-auto" src="/pragtech_flatmates_system/static/src/img/avtar.png" alt=""/>-->
+
                                                             </div>
                                                         </div>
 
-                                                        <!--<img class="card-img-top rounded-circle mx-auto"-->
-                                                             <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
-                                                             <!--alt=""/>-->
+<!--<<<<<<< HEAD-->
+                                                        <!--&lt;!&ndash;<img class="card-img-top rounded-circle mx-auto"&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;src="/pragtech_flatmates_system/static/src/img/avtar.png"&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;alt=""/>&ndash;&gt;-->
+<!--=======-->
+
+<!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
                                                         <div class="card-body">
                                                             <h5 class="card-title text-center">
                                                                 <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
@@ -198,7 +231,7 @@
                                                             <h4>Hey
                                                                 <span
                                                                         t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
-                                                                ,
+
                                                                 <br/>
                                                                 You don't have a listing!
                                                             </h4>
@@ -341,12 +374,13 @@
                                                         <div class="form-group mt-4">
                                                             <select class="form-control" id="country"
                                                                     name="country_list">
-                                                                <option>Select Country</option>
+                                                                <option val="">Select Country</option>
                                                             </select>
                                                         </div>
 
                                                         <div class="form-group mt-2">
-                                                            <input type="text" class="form-control" id="" name="mobile"
+                                                            <input type="text" class="form-control verify-mobile-no"
+                                                                   id="verify_mobile" name="mobile"
                                                                    placeholder="Mobile number"/>
                                                         </div>
 
@@ -363,15 +397,69 @@
                                                                 contact me on my mobile(recommended)
                                                             </span>
                                                         </div>
-                                                        <button type="button" class="btn btn-green1 mt-3 mb-4 btn-block"
-                                                                data-dismiss="modal">Send SMS Code
+                                                        <div class="styles__errorMessage1 invalid_mobile_no"
+                                                             style="display:none;">Invalid Mobile Number
+                                                        </div>
+
+                                                        <!--<div class="styles__errorMessage1"></div>-->
+
+
+                                                        <!--<a href="#">-->
+                                                        <button type="button"
+                                                                class="btn btn-green1 mt-3 mb-4 btn-block send_sms_code_btn">
+                                                            Send SMS Code
                                                         </button>
+                                                        <!--</a>-->
+                                                        <!--data-dismiss="modal"-->
 
                                                         <!--<div class="form-group mt-2">
                                                         <input type="checkbox" id="verified_member"/>
                                                         <label for="verified_member" style="color:black;">Allowed Verified members to contact me on my mobile(recommended)</label>
                                                         </div>-->
 
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="verify_otp_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-8 mx-auto">
+                                                    <form action="/action_page.php">
+                                                        <h3 class="text-center mt-4 mb-4 verify-heading-msg">Verify
+                                                            Mobile Number
+                                                        </h3>
+
+                                                        <div class="form-group mt-4">
+                                                            <div class="form-group mt-2">
+                                                                <input type="text" class="form-control otp-code"
+                                                                       id="otp_code_id" name="otp_code"
+                                                                       placeholder="Enter your OTP"/>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button"
+                                                                class="btn btn-green1 mt-3 mb-4 btn-block check_otp">
+                                                            Submit
+                                                        </button>
+                                                        <h2 class="verified-message" style="display:none">Your Mobile
+                                                            Number Is verified
+                                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                                        </h2>
+                                                        <h2 class="invalid-otp-msgg" style="display:none">Invalid OTP
+                                                        </h2>
                                                     </form>
                                                 </div>
                                             </div>
@@ -398,29 +486,47 @@
                                                         <h3 class="text-center mt-4 mb-4">Edit my account</h3>
 
                                                         <!--<div class="row">-->
-                                                            <!--<div class="col-lg-4 mx-auto profile-pic1">-->
-                                                                <!--<img class="card-img-top rounded-circle mx-auto profile-pic"-->
-                                                                     <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
-                                                                     <!--alt=""/>-->
-                                                                <!--<input id="file-input" type="file" class="profile_image"-->
-                                                                       <!--accept="image/*"/>-->
-                                                            <!--</div>-->
+                                                        <!--<div class="col-lg-4 mx-auto profile-pic1">-->
+                                                        <!--<img class="card-img-top rounded-circle mx-auto profile-pic"-->
+                                                        <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
+                                                        <!--alt=""/>-->
+                                                        <!--<input id="file-input" type="file" class="profile_image"-->
+                                                        <!--accept="image/*"/>-->
+                                                        <!--</div>-->
                                                         <!--</div>-->
 
-                                                        <!--<div class="row">-->
-                                                            <!--<div class="col-lg-4 mx-auto profile-pic2">-->
-                                                                <!--<div class="image-upload">-->
-                                                                    <!--<div class="image-upload">-->
-                                                                        <!--<label for="file-input" class="add_image_icon">-->
-                                                                            <!--<img class="card-img-top rounded-circle mx-auto profile-pic"-->
-                                                                                 <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
-                                                                                 <!--alt=""/>-->
-                                                                        <!--</label>-->
-                                                                        <!--<input id="file-input" type="file" class="profile_image" accept="image/*"/>-->
-                                                                    <!--</div>-->
-                                                                <!--</div>-->
-                                                            <!--</div>-->
-                                                        <!--</div>-->
+<!--<<<<<<< HEAD-->
+                                                        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<div class="col-lg-4 mx-auto profile-pic2">&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<div class="image-upload">&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<div class="image-upload">&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<label for="file-input" class="add_image_icon">&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<img class="card-img-top rounded-circle mx-auto profile-pic"&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;src="/pragtech_flatmates_system/static/src/img/avtar.png"&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;alt=""/>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<input id="file-input" type="file" class="profile_image" accept="image/*"/>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--=======-->
+                                                        <div class="row">
+                                                            <div class="col-lg-4 mx-auto profile-pic2">
+                                                                <div class="image-upload">
+                                                                    <div class="image-upload">
+                                                                        <label for="file-input-11" class="add_image_icon">
+                                                                            <img class="card-img-top rounded-circle mx-auto profile-pic"
+                                                                                 src="/pragtech_flatmates_system/static/src/img/avtar.png"
+                                                                                 alt=""/>
+                                                                        </label>
+                                                                        <input id="file-input-11" type="file"
+                                                                               class="image_account_settings" accept="image/*"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+<!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
 
 
                                                         <div class="form-group mt-4">
@@ -455,8 +561,15 @@
                                                             </span>
 
                                                             <span class="verify-phone">
-                                                                <a href="#">Verify mobile phone</a>
+                                                                <a href="#" data-toggle="modal"
+                                                                   data-target="#verify_mobile_popup"
+                                                                   data-dismiss="modal">Verify mobile phone
+                                                                </a>
                                                             </span>
+                                                            <span class="already-verified" style="display:none;">
+                                                                <h5>Verified</h5>
+                                                            </span>
+
                                                         </div>
 
 
@@ -877,3 +990,4 @@
     </template>
 
 </odoo>
+

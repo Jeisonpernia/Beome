@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 
     function initAutocomplete() {
-        console.log('INIT AutoCompleteeeeeeeeeeeeeeeeeeeeee ')
+        //console.log('INIT AutoCompleteeeeeeeeeeeeeeeeeeeeee ')
       // Create the autocomplete object, restricting the search predictions to
       // geographical location types.
       autocomplete = new google.maps.places.Autocomplete(
@@ -47,10 +47,10 @@ $(document).ready(function() {
     }
 
     function fillInAddress() {
-        console.log('fillllllllll in addresssssssssssssssssss',autocomplete)
+        //console.log('fillllllllll in addresssssssssssssssssss',autocomplete)
       // Get the place details from the autocomplete object.
       var place = autocomplete.getPlace();
-      console.log('place :',place)
+      //console.log('place :',place)
 
         ////////////////////////////////////////////////////////////////
                    // Code Added for Longitude and latitude //
@@ -66,8 +66,8 @@ $(document).ready(function() {
         document.getElementById('latitude').value = lati_tude;
         document.getElementById('longitude').value = longi_tude;
 
-        console.log('Lat :',lati_tude)
-        console.log('Long :',longi_tude)
+        //console.log('Lat :',lati_tude)
+        //console.log('Long :',longi_tude)
        ///////////////////////////////////////////////////////////////////
 
       for (var component in componentForm) {
@@ -86,9 +86,9 @@ $(document).ready(function() {
           document.getElementById(addressType).value = val;
         }
       }
-      console.log('???????????????????????????????????????',$('#street_number').val())
+      //console.log('???????????????????????????????????????',$('#street_number').val())
       if ($('#street_number').val() == ""){
-            console.log('*******************************************')
+            //console.log('*******************************************')
 //            $('#propert_submit_btn').prop("disabled", true);
             $(".styles__errorMessage").show()
             // Code added by dhrup
@@ -107,7 +107,7 @@ $(document).ready(function() {
     // Bias the autocomplete object to the user's geographical location,
     // as supplied by the browser's 'navigator.geolocation' object.
     function geolocate() {
-      console.log('geoooooooolocaaaaaaateeeeeeeeee')
+      //console.log('geoooooooolocaaaaaaateeeeeeeeee')
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var geolocation = {

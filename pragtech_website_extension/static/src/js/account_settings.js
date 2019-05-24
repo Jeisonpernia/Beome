@@ -1,7 +1,8 @@
 odoo.define('pragtech_website_extension.account_settings', function (require){
+
     $(document).ready(function(){
 
-    $("#account_settings_popup_id").on('click',function(){
+    $(document).on('click','#dashboard_user, #account_settings_popup_id',function(){
         console.log('Don...............Don...........Don')
                 $.ajax({
                     url: '/get_users_default_data',
@@ -14,19 +15,30 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                         console.log('Return user data :::::::::: ',data)
                         var user_name = data['result']['user_name']
                         var user_email = data['result']['user_email']
-                        console.log('User name and email :::: ',user_name,user_email)
+//                        console.log('User name and email :::: ',user_name,user_email)
                         $(".default_user_name").val(user_name);
                         $(".default_user_email").val(user_email);
 
                         if (data['result']['user_mobile']){
                             var user_mobile = data['result']['user_mobile']
                             $(".default_user_mobile").val(user_mobile);
+
+                            if(data['result']['is_mobile_verified'] == true){
+                                $(".verify-phone").css('display','none')
+                                $(".already-verified").css('display','block')
+                            }
+                            else{
+                                console.log('')
+
+                            }
                         }
+
 
                         if (data['result']['user_image']){
                             var user_image = data['result']['user_image']
-                            console.log('Imageeeeeeeeeeeeeeeeeeeeeeeeee :',user_image)
+//                            console.log('Imageeeeeeeeeeeeeeeeeeeeeeeeee :',user_image)
                             $(".profile-pic").attr("src", "data:image/png;base64," + user_image);
+                            $(".profile-pic-2").attr("src", "data:image/png;base64," + user_image);
 
 //                            $(".profile-pic").val(user_image);
                         }
@@ -36,71 +48,60 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
 
     })
 
-    //////////////////////////////////////////////////////////////////
-    // change image on account setting
-    $(document).ready(function() {
-        var readURL = function(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('.profile-pic').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $(".profile_image").on('change', function(){
-            readURL(this);
+        $(document).on('change','.image_account_settings', function(){
+        console.log ("aaaaaaaaaa eeeeeeeee tttttttttt 111111111111")
+            readURL_account(this);
         });
 
-        $(".profile_image").on('click', function() {
-           $(".profile_image").click();
+        function readURL_account(input) {
+        console.log ("ffffffffffffff")
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.profile-pic').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+        $(".dashboard_profile_image").on('change', function(){
+        console.log ("aaaaaaaaaa eeeeeeeee tttttttttt")
+            readURL_dashboard(this);
         });
-    });
-    /////////////////////////////////////////////////////////////////////
-    //Change image on My Account Dashboard
-    $(document).ready(function() {
-        var readURL = function(input) {
-            console.log('OOOOOOOOOOOOOOOO :',input.files,input.files.length)
-            if (input.files && input.files[0]) {
+
+        function readURL_dashboard(input) {
+            if (input.files && input.files[0])
+            {
                 var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $(".dashbord-profile-img").attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $(".pro-img").on('change', function(){
-            readURL(this);
-            console.log('55555555555555555555555555555555555555555555')
-            var image = $(".dashbord-profile-img").attr('src')
-            console.log('Imageeeeee ::: ',image)
-
-            $.ajax({
-                    url: '/set_user_profile_pic',
+                reader.onload = function (e)
+                {
+                    $('.profile-pic-2').attr('src', e.target.result);
+                    $.ajax({
+                    url: '/account_settings',
                     type: "POST",
                     dataType: 'json',
                     contentType: 'application/json',
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {
-                    'image':image,
+                    'image':e.target.result,
                     }}),
                     success: function(data)
-                    {
-                    }
+                    {}
+                    })
 
-            })
-        });
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
-        $(".pro-img").on('click', function() {
-           $(".pro-img").click();
-        });
-    });
-    //////////////////////////////////////////////////////////////
+
+
+
+
+
 
     });//document ready
 });//main

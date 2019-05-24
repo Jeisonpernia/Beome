@@ -148,13 +148,14 @@
                                             <div class="form-group row">
                                             <input type="hidden" name="listing_type" value="list"/>
                                                 <div class="col-lg-3 col-6 btn-padding-right">
-                                                    <input type="text" class="form-control" id="min_room_rent_id" name="min_room_rent"
-                                                           placeholder="Min rent"/>
+                                                    <input type="text" class="form-control" id="min_room_rent_id" name="min_room_rent"/>
+													<label class="form-control-placeholder" for="min_room_rent_id">Min rent</label>
                                                 </div>
 
                                                 <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
                                                     <input type="text" class="form-control" id="max_room_rent_id" name="max_room_rent"
-                                                           placeholder="Max rent"/>
+                                                           />
+													<label class="form-control-placeholder" for="max_room_rent_id">Max rent</label>
                                                 </div>
 
                                                 <div class="col-lg-6 col-12 mb-2 btn-padding-left">
@@ -840,7 +841,7 @@
 
 								</div>
 
-                            
+
 							<button class="btn search-btn btn-block" id="search_submit_start" type="button"><span class="search-text">Search</span>
                             <input type="hidden" value="search" id='search_value' name="form_value"/></button>
                             </div>

@@ -1005,7 +1005,11 @@ width: 10%;
 
 .search-form .rooms-btn select > option, .search-form .flatmates-btn select > option{
 	background: #fff;
-	color: #495057;
+	color: #6D7580;
+}
+
+.search-form .rooms-btn select, .search-form .flatmates-btn select{
+	color: #a5a8ad;
 }
 
 
@@ -2143,8 +2147,12 @@ width: 8px;
     display: none;
 }
 
-.image-upload img
+.image-upload-1 > input
 {
+    display: none;
+}
+
+.image-upload img{
     height:64px;
     width: 64px;
     cursor: pointer;
@@ -2331,7 +2339,7 @@ background: #11836c;
 	border-bottom-style: solid;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	border-bottom: 1px dashed #a5a8ad;
+	border-bottom: 1px solid #a5a8ad;
 	outline: 0;
 }
 .select-check.open button {
@@ -2424,3 +2432,39 @@ background: #11836c;
     top:46px;
 }
 /* End for top menu */
+.house-mates-logo{
+    height: 96px;
+    text-align: center;
+	line-height: 96px;
+}
+
+
+
+.datepicker-position{
+	position: relative;
+	right: 30px;
+	color: #82888a;
+}
+
+.form-group {
+  position: relative;	
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 15px;
+  transition: all 200ms;	
+  opacity: 0.5;
+  font-weight: normal;
+}
+
+.form-control:focus + .form-control-placeholder  {
+  font-size: 75%;
+  transform: translate3d(0, -60%, 0);
+  opacity: 1;
+  background: #fff;
+  padding-left: 0;
+  margin-left: 6px;
+  padding: 0px 6px;
+}

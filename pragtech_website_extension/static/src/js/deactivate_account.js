@@ -78,7 +78,7 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
             var email = $("#email").val()
             var mobile = $('#mobile').val()
             var image = $(".profile-pic").attr('src')
-            console.log('Imageeeeee ::: ',image)
+//            console.log('Imageeeeee ::: ',image)
 //            alert('gfrgght')
 
             $.ajax({
@@ -101,6 +101,9 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
 
             $("#verify_mobile").on('click',function()
             {
+                $(".verify-mobile-no").val("")
+                $(".invalid_mobile_no").css('display','none')
+
                 $.ajax({
                             url: '/country',
                             type: "POST",
@@ -113,8 +116,35 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
                                 for(var i=0;i<countries.length;i++)
                                 {
                                     var country = countries[i]
-                                    console.log('country :',country)
+//                                    console.log('country :',country)
                                     $('#country').append('<option value='+country[0]+'>'+country[1]+'</option>')
+                                }
+                            }
+                        })
+            })
+            $(".verify-phone").on('click',function()
+            {
+                $.ajax({
+                            url: '/country',
+                            type: "POST",
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            data:JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                            success: function(data)
+                            {
+                                console.log('PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP')
+                                countries = data['result']['country']
+                                for(var i=0;i<countries.length;i++)
+                                {
+                                    var country = countries[i]
+//                                    console.log('country :',country)
+                                    $('#country').append('<option value='+country[0]+'>'+country[1]+'</option>')
+                                }
+
+                                console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR ',$(".default_user_mobile").val())
+                                if($(".default_user_mobile").val()){
+                                    var mobile_no = $(".default_user_mobile").val()
+                                    $(".verify-mobile-no").val(mobile_no)
                                 }
                             }
                         })

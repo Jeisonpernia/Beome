@@ -13,7 +13,7 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                         <t t-if="request.env.user.partner_id.name != 'Public user'">
-                                            <h4>Thanks<span t-esc="request.env.user.partner_id.name"/>, let’s find you
+                                            <h4>Thanks <span t-esc="request.env.user.partner_id.name"/>, let’s find you
                                                 a place
                                             </h4>
                                         </t>
@@ -343,7 +343,7 @@
                                             <span>Weekly budget</span>
                                             <div>
                                                 <span class="currency">$</span>
-                                                <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
                                                        id="find-budget" name="budget" value=""/>
                                             </div>
                                         </div>
@@ -629,7 +629,7 @@
                                                 <div class="form-group">
                                                     <span>Your age</span>
                                                     <div>
-                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                        <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
                                                                id="find-your-age" name="your_age_0" value=""/>
                                                     </div>
                                                 </div>
@@ -662,7 +662,7 @@
                                                 <div class="form-group">
                                                     <span>Your partner's age</span>
                                                     <div>
-                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                        <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
                                                                id="find-your-age" name="your_age_1" value=""/>
                                                     </div>
                                                 </div>
@@ -695,7 +695,7 @@
                                                 <div class="form-group">
                                                     <span>Your friend's age</span>
                                                     <div>
-                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                        <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
                                                                id="find-your-age" name="your_age_2" value=""/>
                                                     </div>
                                                 </div>

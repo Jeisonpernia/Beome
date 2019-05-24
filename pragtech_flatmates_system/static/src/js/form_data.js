@@ -17,7 +17,7 @@ $(document).ready(function() {
             $("input[name=find_place_looking]:checked").each(function()
             {
             find_property_looking_for.push($(this).val())
-            console.log($(this).val())
+            //console.log($(this).val())
             })
             temp_dict['is_finding'] = true
             temp_dict['find_property_looking_for'] = find_property_looking_for
@@ -25,8 +25,8 @@ $(document).ready(function() {
 
             record_array.push(temp_dict)
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            console.log('//////////////////////////////// ',temp_dict)
-            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+            //console.log('//////////////////////////////// ',temp_dict)
+            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 //            alert("Page")
 
@@ -34,10 +34,10 @@ $(document).ready(function() {
 
         $( "#rent_timing" ).submit(function( event ) {
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
-            console.log(record_array)
+            //console.log(record_array)
 
                 localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 //            alert("Page")
 
@@ -56,7 +56,7 @@ $(document).ready(function() {
 
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
 
-            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 //            alert("Page")
 
@@ -78,14 +78,14 @@ $(document).ready(function() {
             record_array[0]['find_parking_type'] = find_parking_type
             record_array[0]['find_no_of_flatmates'] = find_no_of_flatmates
 
-            console.log(find_room_furnishing)
-            console.log(find_internet_type)
-            console.log(find_bathroom_type)
-            console.log(find_parking_type)
-            console.log(find_no_of_flatmates)
-            console.log(record_array)
+            //console.log(find_room_furnishing)
+            //console.log(find_internet_type)
+            //console.log(find_bathroom_type)
+            //console.log(find_parking_type)
+            //console.log(find_no_of_flatmates)
+            //console.log(record_array)
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+                        //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 //            alert("Page")
 
@@ -93,7 +93,7 @@ $(document).ready(function() {
 
         $( "#introduce_flatmates" ).submit(function( event ) {
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
-            console.log(record_array)
+            //console.log(record_array)
 
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
 
@@ -132,7 +132,7 @@ $(document).ready(function() {
 //                                      'age' : $("input[name=your_age_1]").val(),
 //                                      'gender' : $("input[name=find-place-for-gender_1]:checked").val()
 //                                    })
-//                console.log(data)
+//                //console.log(data)
 //            }
 //
 //            if (find_pace_for == "group")
@@ -165,7 +165,6 @@ $(document).ready(function() {
 //            localStorage.setItem('find_place_record', JSON.stringify(record_array));
 //            console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
 //
-//            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 //
 ////            alert("Page")
 //
@@ -175,7 +174,7 @@ $(document).ready(function() {
             var find_employment_status = []
 
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
-            console.log(record_array)
+            //console.log(record_array)
             $("input[name=employment_status]:checked").each(function()
             {
             find_employment_status.push($(this).val())
@@ -184,11 +183,11 @@ $(document).ready(function() {
 
             record_array[0]['find_employment_status'] = find_employment_status
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            console.log('Employment status :: ',find_employment_status)
-            console.log('LOCAL STORAGE ',localStorage.getItem('find_place_record'))
+            //console.log('Employment status :: ',find_employment_status)
+            //console.log('LOCAL STORAGE ',localStorage.getItem('find_place_record'))
 //            event.preventDefault()
 
-            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 //            alert("Page")
 
@@ -206,7 +205,7 @@ $(document).ready(function() {
 
             record_array[0]['find_lifestyle'] = find_lifestyle
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+                        //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 //            alert("Page")
 
@@ -215,16 +214,16 @@ $(document).ready(function() {
 
         $( "#find_pubish" ).submit(function( event ) {
             var find_comment = $("#find_comment").val()
-            console.log (find_comment)
+            //console.log (find_comment)
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
 
             record_array[0]['find_comment'] = find_comment
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            console.log('List Place Array BY DON  : ',localStorage.getItem('find_place_record'))
+            //console.log('List Place Array BY DON  : ',localStorage.getItem('find_place_record'))
 
             var find_place_data = JSON.parse(localStorage.getItem('find_place_record'));
 
-            console.log('\nFind Place data \n\n',find_place_data)
+            //console.log('\nFind Place data \n\n',find_place_data)
 //            alert("page")
             if (find_place_data){
                 var is_id_exist = false
@@ -236,10 +235,10 @@ $(document).ready(function() {
                         contentType: 'application/json',
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'find_place_data': find_place_data}}),
                         success: function(data){
-                                console.log('Return %%%%%%%%% : ',data)
+                                //console.log('Return %%%%%%%%% : ',data)
                                 if(data['result']){
                                     is_id_exist = true
-                                    console.log('iiiiiiiffffffffiiiiiffff')
+                                    //console.log('iiiiiiiffffffffiiiiiffff')
                                 }
 
                             oldArray[0] = {}
@@ -259,7 +258,7 @@ $(document).ready(function() {
                 });
 
 		    }
-		                console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//		                console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 
 //		    event.preventDefault()
@@ -298,10 +297,10 @@ $(document).ready(function() {
             oldArray.push(temp_dict)
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('List Place Array : ',localStorage.getItem('list_place_array'))
-            console.log('temp_dict : ',temp_dict);
-            console.log('accommodation_type : ',accommodation_type);
-            console.log('property_type :',property_type);
+            //console.log('List Place Array : ',localStorage.getItem('list_place_array'))
+            //console.log('temp_dict : ',temp_dict);
+            //console.log('accommodation_type : ',accommodation_type);
+            //console.log('property_type :',property_type);
 //            alert('TTTTTTTTTTTTTTTTTTTTTTTT')
 //            event.preventDefault()
     //        localStorage.setItem("lastname", "Smith");
@@ -321,8 +320,8 @@ $(document).ready(function() {
             }
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('whole_property_property_type', whole_property_property_type)
-            console.log('LOCAL STORAGE :',localStorage.getItem('list_place_array'))
+            //console.log('whole_property_property_type', whole_property_property_type)
+            //console.log('LOCAL STORAGE :',localStorage.getItem('list_place_array'))
 
         });
 
@@ -395,23 +394,23 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('property_address ',property_address);
-            console.log('--------------------------------------------')
-            console.log('Street : ',street_addrss)
-            console.log('Route : ',route)
-            console.log('City : ',city)
-            console.log('State : ',state)
-            console.log('zip code : ',zip_code)
-            console.log('Country : ',country)
-            console.log('Latitude : ',latitude)
-            console.log('Longitude : ',longitude)
-            console.log('----------------------------------------------')
-            console.log('total_bedrooms ', total_bedrooms);
-            console.log('total_bathrooms ',total_bathrooms );
-            console.log('parking ', parking);
-            console.log('internet ',internet);
-            console.log('room_furnishing_type ',room_furnishing_type)
-            console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
+            //console.log('property_address ',property_address);
+            //console.log('--------------------------------------------')
+            //console.log('Street : ',street_addrss)
+            //console.log('Route : ',route)
+            //console.log('City : ',city)
+            //console.log('State : ',state)
+            //console.log('zip code : ',zip_code)
+            //console.log('Country : ',country)
+            //console.log('Latitude : ',latitude)
+            //console.log('Longitude : ',longitude)
+            //console.log('----------------------------------------------')
+            //console.log('total_bedrooms ', total_bedrooms);
+            //console.log('total_bathrooms ',total_bathrooms );
+            //console.log('parking ', parking);
+            //console.log('internet ',internet);
+            //console.log('room_furnishing_type ',room_furnishing_type)
+            //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 //            event.preventDefault()
 
         });
@@ -428,8 +427,8 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('total_no_of_flatmates ',total_no_of_flatmates );
-            console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
+            //console.log('total_no_of_flatmates ',total_no_of_flatmates );
+            //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 
         });
 
@@ -450,7 +449,7 @@ $(document).ready(function() {
             $( $("input:checked") ).each(function( index )
             {
                 var attribute = $(this).attr('name').substring(0, $(this).attr('name').length-2)
-                console.log(attribute)
+                //console.log(attribute)
                 if (count % 3 == 0)
                 {
                     if (attribute == 'room_type')
@@ -484,8 +483,8 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
-            console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
+            //console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
+            //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 //            alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
 
         });
@@ -548,10 +547,10 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('weekly_rent :', weekly_rent);
-            console.log('bond :', bond);
-            console.log('bill :',bill);
-            console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
+            //console.log('weekly_rent :', weekly_rent);
+            //console.log('bond :', bond);
+            //console.log('bill :',bill);
+            //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 
         });
 
@@ -575,10 +574,10 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('avail_date :', avail_date);
-            console.log('min_length_of_stay :', min_length_of_stay);
-            console.log('max_length_of_stay :', max_length_of_stay);
-            console.log('LOCAL STORAGE 11 : ',localStorage.getItem('list_place_array'))
+            //console.log('avail_date :', avail_date);
+            //console.log('min_length_of_stay :', min_length_of_stay);
+            //console.log('max_length_of_stay :', max_length_of_stay);
+            //console.log('LOCAL STORAGE 11 : ',localStorage.getItem('list_place_array'))
 
 
         });
@@ -586,7 +585,7 @@ $(document).ready(function() {
         //form data of Property and room images Page
          $('#property_images_form_id').submit(function( event ) {
 //            alert('ffffffffffffffffffffffffffffffffff')
-            console.log('hereeeeeeeeeeeeeeeeeeeeeeeeee');
+            //console.log('hereeeeeeeeeeeeeeeeeeeeeeeeee');
 
 
         });
@@ -607,9 +606,9 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('flatmate_preference_type : ', flatmate_preference_type);
-            console.log('Is Female : ', is_female_only)
-            console.log('LOCAL STORAGE 33 : ',localStorage.getItem('list_place_array'))
+            //console.log('flatmate_preference_type : ', flatmate_preference_type);
+            //console.log('Is Female : ', is_female_only)
+            //console.log('LOCAL STORAGE 33 : ',localStorage.getItem('list_place_array'))
 //            alert('kKKKKKKKKKKKKKKKKKKKKKKKKKKK')
 
 
@@ -630,8 +629,8 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('Accepting :: ', accepting);
-            console.log('LOCAL STORAGE 44 : ',localStorage.getItem('list_place_array'))
+            //console.log('Accepting :: ', accepting);
+            //console.log('LOCAL STORAGE 44 : ',localStorage.getItem('list_place_array'))
 
         });
 
@@ -649,8 +648,8 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log('COMMENT : ', about_you_and_your_flatmates)
-            console.log('LOCAL STORAGE 88 : ',localStorage.getItem('list_place_array'))
+            //console.log('COMMENT : ', about_you_and_your_flatmates)
+            //console.log('LOCAL STORAGE 88 : ',localStorage.getItem('list_place_array'))
         });
 
 
@@ -676,7 +675,7 @@ $(document).ready(function() {
 
             if (localStorage.getItem('list_place_array')){
                 var list_place_data = JSON.parse(localStorage.getItem('list_place_array'));
-                console.log('\nListplace data :',list_place_data)
+                //console.log('\nListplace data :',list_place_data)
                 $.ajax({
                         url:'/create/list_property',
                         type:'POST',
@@ -703,7 +702,7 @@ $(document).ready(function() {
 
                             oldArray[0] = {}
                             localStorage.setItem('list_place_array', JSON.stringify(oldArray))
-                            console.log('returnnnnnnnnnnnnnnnnn',localStorage.getItem('list_place_array'))
+                            //console.log('returnnnnnnnnnnnnnnnnn',localStorage.getItem('list_place_array'))
 	                    },
                 });
 

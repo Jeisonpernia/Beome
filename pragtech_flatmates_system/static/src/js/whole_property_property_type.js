@@ -13,15 +13,15 @@ $(document).ready(function() {
 $(document).ready(function() {
 	"use strict";
 
-console.log('windowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww1111111111111',window.location.pathname)
+//console.log('windowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww1111111111111',window.location.pathname)
 	if (window.location.pathname == '/listplace/whole-property/about')
 	{
-	console.log('windowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
+	//console.log('windowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
 	$('#room_furnishing_in_about_id').show();
 	}
 
   $(".2_bedrooms_property").click(function() {
-  console.log('AAtttttttttttttttttttttttttt1111111111')
+  //console.log('AAtttttttttttttttttttttttttt1111111111')
 
 
       $('.2-bedrooms').addClass("bedroom-btn-active")
@@ -31,7 +31,7 @@ console.log('windowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww1111111111111',window.loc
   });
 
   $(".1_bedrooms_property").click(function() {
-  console.log('AAtttttttttttttttttttttttttt222222222')
+  //console.log('AAtttttttttttttttttttttttttt222222222')
 
       $('.1-bedrooms').addClass("bedroom-btn-active")
       $('.2-bedrooms').removeClass("bedroom-btn-active")
@@ -40,7 +40,7 @@ console.log('windowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww1111111111111',window.loc
   });
 
   $(".studio_property").click(function() {
-  console.log('AAtttttttttttttttttttttttttt3333333333')
+  //console.log('AAtttttttttttttttttttttttttt3333333333')
 
       $('.studio').addClass("bedroom-btn-active")
       $('.1-bedrooms').removeClass("bedroom-btn-active")
@@ -49,7 +49,7 @@ console.log('windowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww1111111111111',window.loc
   });
 
   $(".granny_flat_property").click(function() {
-  console.log('AAtttttttttttttttttttttttttt4444444444')
+  //console.log('AAtttttttttttttttttttttttttt4444444444')
 
       $('.granny-flat').addClass("bedroom-btn-active")
       $('.2-bedrooms').removeClass("bedroom-btn-active")

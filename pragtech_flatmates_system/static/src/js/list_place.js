@@ -18,7 +18,7 @@ $(document).ready(function()
 
     if (window_pathname.includes('about-others'))
     {
-        console.log ("In general statement if (window_pathname.includes('about-others'))")
+//        console.log ("In general statement if (window_pathname.includes('about-others'))")
         if ($(this).find("#comment").val().length<10)
             $('.about-others-nxt-btn').prop("disabled", true)
     }
@@ -27,7 +27,7 @@ $(document).ready(function()
    if (window.location.pathname == '/listplace/whole-property/about')
     {
 
-        console.log ("In general statement if (window.location.pathname == '/listplace/whole-property/about'))")
+//        console.log ("In general statement if (window.location.pathname == '/listplace/whole-property/about'))")
         var room_type = JSON.parse(localStorage.getItem('list_place_array'));
 
         if (room_type[0]['whole_property_property_type'] == '1_bedrooms' || room_type[0]['whole_property_property_type'] == 'studio')
@@ -40,7 +40,7 @@ $(document).ready(function()
 
     if (window.location.pathname == '/listplace/share-house/flatmate-preference')
     {
-        console.log ("In general statement if (window.location.pathname == '/listplace/share-house/flatmate-preference')",$(document).find('input[name="flatmate_Preference_type"]:checked'))
+        //console.log ("In general statement if (window.location.pathname == '/listplace/share-house/flatmate-preference')",$(document).find('input[name="flatmate_Preference_type"]:checked'))
         if ($(document).find('input[name="flatmate_Preference_type"]:checked').length == 0)
             $(".flatmate-pref-nxt-btn").prop("disabled",false)
 //        else
@@ -50,6 +50,16 @@ $(document).ready(function()
 
 //  = --------------  End of General Statements  -------------- =
 
+//  ================================================================================================
+//  = --------------  Validations for /listplace/describe-your-place/accommodation  -------------- =
+//  ================================================================================================
+//  Note: Check whether this js is not visible on other than two pages mentioned in a
+//  comment above
+
+
+
+
+//  = --------------  End of Validations for /listplace/describe-your-place/accommodation  -------------- =
 
 //  ===============================================================================================
 //  = --------------  Validations for /list-place/share-house/flatmate-preference  -------------- =
@@ -58,7 +68,7 @@ $(document).ready(function()
 //  comment above
 
   $(".bedroom-btn > input[name='flatmate_Preference_type']:radio").click(function() {
-    console.log ("In template /list-place/share-house/flatmate-preference")
+    //console.log ("In template /list-place/share-house/flatmate-preference")
 
     if (!$(this).parents().find('.show_females_only').hasClass('d-none'))
         $(this).parents().find('.show_females_only').addClass('d-none')
@@ -96,7 +106,7 @@ $(document).ready(function()
     $("#comment").keyup(function()
     {
 //        console.log ($(this).val().length)
-        console.log ("In template /listplace/share-house/about-others -- or -- /listplace/share-house/about-property")
+        //console.log ("In template /listplace/share-house/about-others -- or -- /listplace/share-house/about-property")
         var window_pathname = window.location.pathname
         if ($(this).val().length < 10)
         {
@@ -165,8 +175,8 @@ $(document).ready(function()
             oldArray[0]['property_images'] = array_of_image
         localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-        console.log('hereeeeeeeeeeeeeeeeeeeeeeeeee',array_of_image);
-        console.log('LOCAL STORAGE 33 : ',localStorage.getItem('list_place_array'))
+        //console.log('hereeeeeeeeeeeeeeeeeeeeeeeeee',array_of_image);
+        //console.log('LOCAL STORAGE 33 : ',localStorage.getItem('list_place_array'))
 
     });
 
@@ -182,10 +192,10 @@ $(document).ready(function()
 
     $( ".scrolling-wrapper" ).scroll(function() {
 
-        console.log ($('.scrolling-wrapper')[0].scrollWidth - $('.scrolling-wrapper')[0].clientWidth)
-        console.log ($('.scrolling-wrapper').scrollLeft())
+        //console.log ($('.scrolling-wrapper')[0].scrollWidth - $('.scrolling-wrapper')[0].clientWidth)
+        //console.log ($('.scrolling-wrapper').scrollLeft())
 //        .scrollLeftMax
-        console.log ($('.scrolling-wrapper').scrollLeft())
+        //console.log ($('.scrolling-wrapper').scrollLeft())
         if (($('.scrolling-wrapper')[0].scrollWidth - $('.scrolling-wrapper')[0].clientWidth) == $('.scrolling-wrapper').scrollLeft())
             $('.scroll-forward').addClass("d-none")
         if (($('.scrolling-wrapper')[0].scrollWidth - $('.scrolling-wrapper')[0].clientWidth) != $('.scrolling-wrapper').scrollLeft())
@@ -194,7 +204,7 @@ $(document).ready(function()
             $('.scroll-backward').removeClass("d-none")
         if ($('.scrolling-wrapper').scrollLeft()==0)
             $('.scroll-backward').addClass("d-none")
-        console.log ("In Scroll Event")
+        //console.log ("In Scroll Event")
     });
 
 
@@ -214,10 +224,10 @@ $(document).ready(function()
 
     $( ".property-wrapper" ).scroll(function() {
 
-        console.log ($('.property-wrapper')[0].scrollWidth - $('.property-wrapper')[0].clientWidth)
-        console.log ($('.property-wrapper').scrollLeft())
+        //console.log ($('.property-wrapper')[0].scrollWidth - $('.property-wrapper')[0].clientWidth)
+        //console.log ($('.property-wrapper').scrollLeft())
 //        .scrollLeftMax
-        console.log ($('.property-wrapper').scrollLeft())
+        //console.log ($('.property-wrapper').scrollLeft())
         if (($('.property-wrapper')[0].scrollWidth - $('.property-wrapper')[0].clientWidth) == $('.property-wrapper').scrollLeft())
             $('.scroll-property-forward').addClass("d-none")
         if (($('.property-wrapper')[0].scrollWidth - $('.property-wrapper')[0].clientWidth) != $('.property-wrapper').scrollLeft())
@@ -226,7 +236,7 @@ $(document).ready(function()
             $('.scroll-property-backward').removeClass("d-none")
         if ($('.property-wrapper').scrollLeft()==0)
             $('.scroll-property-backward').addClass("d-none")
-        console.log ("In Scroll Event")
+        //console.log ("In Scroll Event")
 
     });
 
@@ -237,7 +247,7 @@ $(document).ready(function()
 
     $(document).on('click','.delete-image',function()
     {
-    console.log("Deletteeeeeeeeeeeeeee",$(this).parents('.slider'))
+    //console.log("Deletteeeeeeeeeeeeeee",$(this).parents('.slider'))
     var find_current_image = $(this).parents('.slider')
     var img_path = find_current_image.find('img').attr('src')
     var img_to_remove = img_path.replace('data:image/jpeg;base64,','')
@@ -256,8 +266,8 @@ $(document).ready(function()
         $(".add-furniture").removeClass("d-none")
         $(".mid-add-photos").addClass("d-none")
     }
-    console.log("Deletteeeeeeeeeeeeeee",array_of_image.length)
-    console.log("Deletteeeeeeeeeeeeeee",array_of_image.length)
+    //console.log("Deletteeeeeeeeeeeeeee",array_of_image.length)
+    //console.log("Deletteeeeeeeeeeeeeee",array_of_image.length)
     find_current_image.remove()
 
     })
@@ -265,7 +275,7 @@ $(document).ready(function()
     {
 
         var files_rec = document.getElementById($(this).attr("id"));
-        console.log("-----------------",files_rec)
+        //console.log("-----------------",files_rec)
 
         if (files_rec.files.length != 0)
         {
@@ -303,7 +313,7 @@ $(document).ready(function()
                     $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
 //                    if (array_of_image.length == files_rec.files.length)
 
-                    console.log (array_of_image.length)
+                    //console.log (array_of_image.length)
                     if ($('.scroll-forward').hasClass("d-none"))
                         $('.scroll-forward').removeClass("d-none")
                 };
@@ -321,7 +331,7 @@ $(document).ready(function()
 
         if (window_pathname.includes('about-others'))
         {
-        console.log ("In general statement if (window_pathname.includes('about-others'))")
+        //console.log ("In general statement if (window_pathname.includes('about-others'))")
         if ($(this).find("#comment").val().length<10)
             $('.about-others-nxt-btn').prop("disabled", true)
 
@@ -366,7 +376,7 @@ $(document).ready(function()
                     {
                         $('.styles__errorMessage2').hide();
                     }
-            console.log ("In general statement if (window_pathname.includes('about-property'))")
+            //console.log ("In general statement if (window_pathname.includes('about-property'))")
             if ($(this).find("#comment").val().length<10)
                 $('.about-property-nxt-btn').prop("disabled", true)
         }

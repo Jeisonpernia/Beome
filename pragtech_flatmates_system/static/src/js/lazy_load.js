@@ -59,7 +59,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                     success: function(data)
                     {
 
-                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'])
+                        //console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'])
                         if (data['result'].length == 0){$("#load_symbol").hide()}
 
                         var div = $("#lazy_load");
@@ -113,8 +113,8 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
                             if (button_name == 'shortlist')
                             {
-                                console.log (shortlist_msg_div)
-                                console.log (data_shortlist)
+                                //console.log (shortlist_msg_div)
+                                //console.log (data_shortlist)
                                 if (!shortlist_msg_div.hasClass('d-none'))
                                     shortlist_msg_div.addClass('d-none')
                                 if (data_shortlist.hasClass('d-none'))

@@ -10,7 +10,7 @@ $(document).ready(function()
 
     if (window_pathname.includes('about-yourself'))
     {
-        console.log ("In general statement if (window_pathname.includes('about-yourself'))")
+        // ("In general statement if (window_pathname.includes('about-yourself'))")
 
         if ($("#find_comment").val().length == 0 )
         $('.styles__errorMessage_find_comment').hide();
@@ -23,7 +23,7 @@ $(document).ready(function()
 
     $("#find_comment").keyup(function()
     {
-        console.log ("In template /find-place/describe-your-ideal-place/about-yourself")
+        //console.log ("In template /find-place/describe-your-ideal-place/about-yourself")
         var window_pathname = window.location.pathname
         if ($(this).val().length < 10)
             $('.find-publish').prop("disabled", true)
@@ -99,7 +99,7 @@ $(document).ready(function()
 $('.find-suburbs').on('keypress',function(e) {
     if(event.keyCode == 13)
     {
-       console.log($(this).parent())
+       //console.log($(this).parent())
        $(this).parent().prepend('<div class="badge badge-pill badge-secondary"><span>Tag 220<i class="close fa fa-times"></i></div>')
        alert("sfdsd")
        event.preventDefault();
@@ -135,7 +135,7 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
 
 //  /find-place/describe-your-ideal-place/property-preferences
   $(".property_preferences > input:radio").click(function() {
-console.log("Righttt")
+//console.log("Righttt")
     $(this).parent()
       .addClass("bedroom-btn-active") //Add class wrong to the label
       .siblings().removeClass("bedroom-btn-active"); // Remove classes from the other labels.
@@ -158,16 +158,16 @@ console.log("Righttt")
 
     if (window_pathname.includes('/introduce-flatmates'))
     {
-        console.log ("sdefffffffffffffffffff")
+        //console.log ("sdefffffffffffffffffff")
         var user_array_image=[]
     }
 
 
     $(document).on('change','#file-input-profile',function()
     {
-        console.log("----------------- ggggggggggggggggggggg aaaaaaaaaaaaa aaaaaaaa")
+        //console.log("----------------- ggggggggggggggggggggg aaaaaaaaaaaaa aaaaaaaa")
         var files_rec = document.getElementById($(this).attr("id"));
-        console.log("-----------------",files_rec.files.length)
+        //console.log("-----------------",files_rec.files.length)
 
         for (var rec = 0; rec < files_rec.files.length; rec++)
         {
@@ -180,7 +180,7 @@ console.log("Righttt")
                     var file_path = e.target.result
 //                    console.log ("Result 1",file_path)
                     file_path = file_path.slice(file_path.indexOf(',')+1)
-                    console.log ("Result 2",file_path)
+                    //console.log ("Result 2",file_path)
                     user_array_image = []
                     user_array_image.push(file_path)
 
@@ -188,7 +188,7 @@ console.log("Righttt")
                     remove_svg.remove()
 
                     var add_img=$(document).find('.add_profile_icon')
-                    console.log ("Deleteeeeeeeeee",add_img.find('img').length)
+                    //console.log ("Deleteeeeeeeeee",add_img.find('img').length)
                     if (add_img.find('img').length!=0)
                     {
                         var replace_img = add_img.find('img')
@@ -196,7 +196,7 @@ console.log("Righttt")
                     }
                     else
                     {
-                        console.log ("Deleteeeeeeeeee")
+                        //console.log ("Deleteeeeeeeeee")
                         add_img.append('<img src="data:image/jpeg;base64,'+file_path+'"/>')
                     }
                 };
@@ -210,7 +210,7 @@ console.log("Righttt")
 //            console.log(record_array)
 
             var find_pace_for = $("input[name=find-place-for]:checked").val()
-            console.log(find_pace_for)
+            //console.log(find_pace_for)
             var data = {}
 
             if (find_pace_for == "me")
@@ -220,7 +220,7 @@ console.log("Righttt")
                                       'age' : $("input[name=your_age_0]").val(),
                                       'gender' : $("input[name=find-place-for-gender_0]:checked").val()
                                     }]
-                console.log(data)
+                //console.log(data)
             }
 
             if (find_pace_for == "couple")
@@ -234,7 +234,7 @@ console.log("Righttt")
                                       'age' : $("input[name=your_age_1]").val(),
                                       'gender' : $("input[name=find-place-for-gender_1]:checked").val()
                                     })
-                console.log(data)
+                //console.log(data)
             }
 
             if (find_pace_for == "group")
@@ -259,8 +259,8 @@ console.log("Righttt")
                                     })
                     record+=1
                 })
-                console.log(data)
-                console.log($(".custom_me_group"))
+                //console.log(data)
+                //console.log($(".custom_me_group"))
             }
 
 
@@ -271,9 +271,9 @@ console.log("Righttt")
                 data['record'][0]['user_image'] =user_array_image
 //                record_array[0]['property_images'] = user_array_image
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
+            //console.log('Local Storage by Sagar : ',localStorage.getItem('find_place_record'))
 
-            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 
 //            alert("Page")
@@ -284,7 +284,7 @@ console.log("Righttt")
 
 function remove_div_for_group()
 {
-    console.log ("In template remove_div_for_group")
+    //console.log ("In template remove_div_for_group")
     $($(document).find('.me_group')).each(function(index)
     {
 //        if ($(this).find("input[name='find_first_name_1']").length == 0)
@@ -295,7 +295,7 @@ function remove_div_for_group()
 }
 
 $(".find_place_for_option").on('click','input:radio',function() {
-    console.log ("In template /find-place/describe-your-ideal-place/introduce-flatmates")
+    //console.log ("In template /find-place/describe-your-ideal-place/introduce-flatmates")
 
 //    console.log ("-------asffffffffsdgsd zsfsf----",$(this).val())
     toggle_about_you_button()
@@ -359,7 +359,7 @@ function toggle_about_you_button()
 
     if ($(".find_place_for_option").find("input:checked").val() == 'group')
     {
-        console.log ("Inside group ")
+        //console.log ("Inside group ")
         var data_length = 0
         var group_div_length = $('.decribe-place').find('.custom_me_group').length
         if ($("input[name=find_first_name_0]").val()!="" &&
@@ -439,7 +439,7 @@ $(document).on('click','.button_for_add_another_person',function()
 
 $(document).on('click','.remove_another_person',function()
 {
-    console.log($(this).closest("div.me_group"))
+    //console.log($(this).closest("div.me_group"))
     $(this).closest("div.me_group").remove();
 });
 //  = --------------  End of Validations for /list-place/share-house/flatmate-preference  -------------- =
@@ -447,7 +447,7 @@ $(document).on('click','.remove_another_person',function()
 //    /find-place/describe-your-ideal-place/employment
 $(".find_employment-status").click(function()
   {
-    console.log ($(this))
+    //console.log ($(this))
     var active_state = $(this).hasClass("accommodation-listing-item-active")
 
     if (active_state == true)

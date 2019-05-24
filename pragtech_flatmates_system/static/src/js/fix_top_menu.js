@@ -4,14 +4,18 @@ $(document).ready(function()
 {// Start of document
 
     "use strict";
-    console.log("In this function ---------------------",$("header.o_affix_enabled"))
-    console.log("In this function ---------------------",$("#oe_main_menu_navbar"))
+    //console.log("In this function ---------------------",$("header.o_affix_enabled"))
+    //console.log("In this function ---------------------",$("#oe_main_menu_navbar"))
 
+    $(".go_back").on("click", function()
+    {
+      window.history.back();
+    });
 
     var top_div = $("#wrapwrap").find('main')
 //    var main_div = top_div.second()
 
-    console.log("In this function ---------------------",top_div.first())
+    //console.log("In this function ---------------------",top_div.first())
 
     if ($("#oe_main_menu_navbar").length > 0)
     {

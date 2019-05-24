@@ -4,7 +4,7 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
         {
             $("#dashboard_user").on('click',function()
             {
-                console.log ("In jsssssssssss")
+//                console.log ("In jsssssssssss")
                 $.ajax({
                     url: '/blogs_for_login',
                     type: "POST",
@@ -17,8 +17,8 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                         var blog_blog_id
                         var blog_blog_name
                         ul.empty()
-                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",ul.children())
-                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'])
+//                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",ul.children())
+//                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'])
 
 
                         if (data['result']['user_profile_pic']){
@@ -28,8 +28,8 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
 
                         for (index=0 ; index < data['result']['blogs'].length; index++)
                         {
-                            console.log(data['result']['blogs'][index]['id'])
-                            console.log(data['result']['blogs'][index]['name'])
+//                            console.log(data['result']['blogs'][index]['id'])
+//                            console.log(data['result']['blogs'][index]['name'])
                             blog_blog_id = data['result']['blogs'][index]['blog_id'][0]
                             blog_blog_name = data['result']['blogs'][index]['blog_id'][1].toLowerCase().replace(/ +/g, '-')
 

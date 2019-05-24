@@ -207,7 +207,7 @@ $(document).ready(function() {
         $(".flatmate-pref-nxt-btn").on("click", function()
         {
             var accommodation_type = $('#type_of_accomodation').val()
-            console.log('NNNNNNNNNNNNNNNNNNNNNNNNNN4444',accommodation_type)
+            //console.log('NNNNNNNNNNNNNNNNNNNNNNNNNN4444',accommodation_type)
             var action = ""
 
             if(accommodation_type == "sharehouse"){
@@ -235,7 +235,7 @@ $(document).ready(function() {
         $(".accepting-nxt-btn").on("click", function()
         {
             var accommodation_type = $('#type_of_accomodation').val()
-            console.log('NNNNNNNNNNNNNNNNNNNNNNNNNN4444',accommodation_type)
+            //console.log('NNNNNNNNNNNNNNNNNNNNNNNNNN4444',accommodation_type)
             var action = ""
 
             if(accommodation_type == "sharehouse"){
@@ -264,7 +264,7 @@ $(document).ready(function() {
         $(".describe-yourself-and-property-nxt-btn").on("click", function()
         {
             var accommodation_type = $('#type_of_accomodation').val()
-            console.log('NNNNNNNNNNNNNNNNNNNNNNNNNN6666',accommodation_type)
+            //console.log('NNNNNNNNNNNNNNNNNNNNNNNNNN6666',accommodation_type)
             var action = ""
 
             if(accommodation_type == "sharehouse"){

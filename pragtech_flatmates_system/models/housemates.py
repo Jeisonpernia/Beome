@@ -92,17 +92,17 @@ class Housemates(models.Model):
     @api.model
     def create(self,values):
         listing = super(Housemates, self).create(values)
-        print("---------values----------------listimng--------",listing)
+        # print("---------values----------------listimng--------",listing)
         listing.send_listing_alert_email()
         return listing
 
 
     @api.onchange('listing_type')
     def load_dropdown_data(self):
-        print ("\n\n\nIn Onchange",self.listing_type)
+        # print ("\n\n\nIn Onchange",self.listing_type)
 
         listing_category = self.env['property.listing.category'].search([('property_listing_category','=',self.listing_type.capitalize() )])
-        print ("\n\n\nIn Onchange", listing_category)
+        # print ("\n\n\nIn Onchange", listing_category)
 
         res = {}
         res['domain'] = {'property_type': [('listing_category', '=', listing_category.id)]}
@@ -110,7 +110,7 @@ class Housemates(models.Model):
 
     def selection_value(self,key):
         if self.pref == key:
-            print("\n====key",dict(self._fields['type'].selection).get(self.pref))
+            # print("\n====key",dict(self._fields['type'].selection).get(self.pref))
             return dict(self._fields['type'].selection).get(self.pref)
 
     @api.multi
@@ -129,7 +129,7 @@ class Housemates(models.Model):
 
         template.write(template_values)
         for user in self.user_id:
-            print("===============user==============",user.login)
+            # print("===============user==============",user.login)
             if not user.email:
                 raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
             with self.env.cr.savepoint():

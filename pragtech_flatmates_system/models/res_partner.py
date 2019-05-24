@@ -24,6 +24,7 @@ class ResPartner(models.Model):
     verify_valid = fields.Boolean(compute='_compute_verify_valid', string='Verify Token is Valid')
     verify_url = fields.Char(compute='_compute_verify_url', string='Verify Account URL')
     first_login = fields.Boolean(string='Is First Login')
+    mobile_no_is_verified = fields.Boolean(string='Is Verified Mobile Number')
 
     @api.multi
     @api.depends('verify_token', 'verify_expiration')

@@ -9,7 +9,7 @@ from odoo.addons.web.controllers.main import Home
 
 
 class HomepageLogin(Website_Inherit):
-     
+
     # @http.route('/', auth='public',type="http" ,website=True, csrf=False)
     # def index(self, **kw):
     #
@@ -27,9 +27,12 @@ class HomepageLogin(Website_Inherit):
         else:
             return response
      
-    @http.route(website=True, auth="public")
+    @http.route(website=True, auth="public", csrf="False")
     def web_login(self, redirect=None, *args, **kw):
         response = super(HomepageLogin, self).web_login(redirect=redirect, *args, **kw)
+        print("\n\n=-----=---weblogin====",kw,response)
+        # request.session.logout(keep_db=True)
+
         return response
      
     @http.route('/web/access_login',type="http", auth='public', website=True,csrf=False)
@@ -37,7 +40,7 @@ class HomepageLogin(Website_Inherit):
         val_password = 'Housemates@123'
         if 'validation' in kw and kw['validation']:
             request.session['val_password'] = kw['validation']
-        if request.session['val_password'] == val_password:
+        if 'val_password' in request.session and request.session['val_password'] == val_password:
             return http.request.render('pragtech_flatmates_system.home')
         
 class FlatMates(FlatMates):
@@ -45,12 +48,12 @@ class FlatMates(FlatMates):
     @http.route(['/info'], type='http', auth="public", website=True, csrf=True)
     def info(self, **kwargs):
         response = super(FlatMates, self).info(**kwargs)
-        if 'val_password'  not in request.session:
+        if 'val_password' not in request.session:
             return http.request.render('pragtech_homepage_login.homepage_login')
         else :
             return response
         
-class Home(Home):   
+class Home(Home):
     
     @http.route('/web/login', type='http', auth="none", sitemap=False)
     def web_login(self, redirect=None, **kw):
