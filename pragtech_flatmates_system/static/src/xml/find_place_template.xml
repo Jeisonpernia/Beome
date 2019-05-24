@@ -745,7 +745,7 @@
                             <span class="icon">
                                 <div class="image-upload">
                                     <div class="image-upload">
-                                        <label for="file-input" class="add_image_icon" >
+                                        <label for="file-input-profile" class="add_profile_icon" >
                                             <svg class="replace_image" xmlns="http://www.w3.org/2000/svg" height="64" width="64" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <defs>
                                                     <circle cx="32" id="prefix__a" cy="32" r="32"></circle>
@@ -762,7 +762,7 @@
                                             </svg>
                                         </label>
 
-                                        <input id="file-input" type="file" class="userimage" accept="image/*"/>
+                                        <input id="file-input-profile" type="file" class="userimage" accept="image/*"/>
                                     </div>
                                     <!--<input id="user_image" type="file"/>-->
                                     <!--<input type="file" name="uploads" accept="image/*" id="user_image"/>-->

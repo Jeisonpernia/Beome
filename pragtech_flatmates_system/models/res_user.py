@@ -15,7 +15,7 @@ class ResUser(models.Model):
     community_notices = fields.Boolean(string="Community notices")
     special_offers = fields.Boolean(string="Special offers")
     deactivate_account=fields.Boolean(string="Deactivate Account")
-    house_mates_ids = fields.One2many('house.mates', 'res_user_id')
+    house_mates_ids = fields.Many2many('house.mates')
 
     last_logged_ip = fields.Char(string='IP')
     last_logged_browser = fields.Char(string='Browser')
@@ -53,3 +53,8 @@ class ResUser(models.Model):
             _logger.info("Password reset email sent for user <%s> to <%s>", user.login, user.email)
 #         except Exception as e:
 #                 print  ("\n\nFailed to insert record<br/>\n" + str(e))
+
+    @api.multi
+    def write(self,vals):
+        print("\n\n--------------users write-----------",vals)
+        return super(ResUser,self).write(vals)

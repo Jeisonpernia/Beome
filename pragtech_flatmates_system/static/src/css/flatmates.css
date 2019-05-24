@@ -13,6 +13,10 @@ body{
    font-family: 'open_sansregular' !important;
 }
 
+body p{
+	margin-bottom: 10px;
+}
+
 section{
    padding: 48px;
 }
@@ -391,6 +395,10 @@ padding:20px;
 	position: absolute;
 	padding-left:10px;
 	padding-top: 9px;
+}
+
+.decribe-place select{
+	height: 40px;
 }
 
 
@@ -2368,17 +2376,51 @@ background: #11836c;
 	margin-top: 30px;	
 }
 
-.custom_header{
-    background: #eee;
-    height: 96px;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    z-index:10;
-}
+
 
 .house-mates-logo{
     height: 96px;
     text-align: center;
 	line-height: 96px;
 }
+
+.about_total_bathrooms {
+	
+}
+/* Added for top menu */
+.fixed-top-with-edit {
+    position: fixed;
+    top: 46px;
+    right: 0;
+    left: 0;
+    z-index: 1041;
+}
+
+.fixed-top-without-edit {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    left: 0;
+    z-index: 1041;
+}
+
+#wrapwrap > main {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+    margin-top: 96px;
+}
+
+.custom_header{
+    background: #eee;
+    height: 96px;
+    position: fixed;
+    width: 100%;
+    z-index:1042;
+    top:0px;
+}
+
+.top_margin {
+    top:46px;
+}
+/* End for top menu */

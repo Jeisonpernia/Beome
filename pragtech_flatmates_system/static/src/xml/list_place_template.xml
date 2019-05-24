@@ -16,7 +16,7 @@
                                             place
                                         </h4>
                                     </t>
-                                    <div class="mt-5 col-md-2 mx-auto">
+                                    <div class="mt-5 col-md-2 col-sm-6 col-6 mx-auto">
                                         <img src="/pragtech_flatmates_system/static/src/img/illustration-house.png"
                                              class="img-fluid"></img>
                                     </div>

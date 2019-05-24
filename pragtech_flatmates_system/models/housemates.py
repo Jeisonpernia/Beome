@@ -38,7 +38,6 @@ class Housemates(models.Model):
     place_for = fields.Selection([('me', 'Me'), ('couple', 'Couple'), ('group', 'Group')], string="Place For")
     is_teamups = fields.Boolean('Teamups')
     is_short_list = fields.Boolean('Short List')
-    res_user_id = fields.Many2one('res.users', string="Users")
 
 
     ## About the room

@@ -1,0 +1,28 @@
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+	section{
+		padding: 20px 0px;
+	}
+	
+	.btn-orange{
+		width: 100%;
+	}
+	
+	.btn-blue{
+		width: 100%;
+	}
+	
+	.property-img{
+		height: 200px;
+	}
+	
+	.property-img img{
+		height: 200px;
+	}
+	
+	.items{
+		padding: 10px 20px;
+	}
+	
+
+
+}

@@ -163,11 +163,11 @@ console.log("Righttt")
     }
 
 
-    $(document).on('change','#file-input',function()
+    $(document).on('change','#file-input-profile',function()
     {
         console.log("----------------- ggggggggggggggggggggg aaaaaaaaaaaaa aaaaaaaa")
         var files_rec = document.getElementById($(this).attr("id"));
-        console.log("-----------------",files_rec)
+        console.log("-----------------",files_rec.files.length)
 
         for (var rec = 0; rec < files_rec.files.length; rec++)
         {
@@ -187,8 +187,8 @@ console.log("Righttt")
                     var remove_svg= $(document).find('.replace_image')
                     remove_svg.remove()
 
-                    var add_img=$(document).find('.add_image_icon')
-
+                    var add_img=$(document).find('.add_profile_icon')
+                    console.log ("Deleteeeeeeeeee",add_img.find('img').length)
                     if (add_img.find('img').length!=0)
                     {
                         var replace_img = add_img.find('img')

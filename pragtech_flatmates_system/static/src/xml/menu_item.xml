@@ -322,7 +322,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="LGBTI"
+                                                        <input type="text" class="form-control" value=""
                                                                id="search_check_lgbt" name="LGBTI" readonly="true"/>
                                                         <span class="search-accepting">LGBT+ friendly</span>
                                                     </div>
@@ -333,8 +333,8 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="Retirees welcome"
-                                                               id="" name="retirees" readonly="true"/>
+                                                        <input type="text" class="form-control" value=""
+                                                               id="search_check_retirees" name="retirees" readonly="true"/>
                                                         <span class="search-accepting">Retirees welcome</span>
                                                     </div>
                                                 </div>
@@ -345,7 +345,7 @@
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control"
-                                                               value="Students accepted" id="" name="students" readonly="true"/>
+                                                               value="" id="search_check_student" name="students" readonly="true"/>
                                                         <span class="search-accepting">Students accepted</span>
                                                     </div>
                                                 </div>
@@ -355,8 +355,8 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="Smokers accepted"
-                                                               id="" name="smokers" readonly="true"/>
+                                                        <input type="text" class="form-control" value=""
+                                                               id="search_check_smokers" name="smokers" readonly="true"/>
                                                         <span class="search-accepting">Smokers accepted</span>
                                                     </div>
                                                 </div>
@@ -366,8 +366,8 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="Backpackers OK"
-                                                               id="" name="backpackers" readonly="true"/>
+                                                        <input type="text" class="form-control" value=""
+                                                               id="search_check_backpackers" name="backpackers" readonly="true"/>
                                                         <span class="search-accepting">Backpackers OK</span>
                                                     </div>
                                                 </div>
@@ -377,8 +377,8 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="Children OK"
-                                                               id="" name="children" readonly="true"/>
+                                                        <input type="text" class="form-control" value=""
+                                                               id="search_check_children" name="children" readonly="true"/>
                                                         <span class="search-accepting">Children OK</span>
                                                     </div>
                                                 </div>
@@ -388,8 +388,8 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="40yrs+ welcome"
-                                                               id="" name="fourty_year_old" readonly="true"/>
+                                                        <input type="text" class="form-control" value=""
+                                                               id="search_check_fourty_year_old" name="fourty_year_old" readonly="true"/>
                                                         <span class="search-accepting">40yrs+ welcome</span>
                                                     </div>
                                                 </div>
@@ -399,9 +399,9 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="All female flat"
-                                                               id="" name="all_female_flat" readonly="true"/>
-                                                        <span class="search-accepting">All female flat</span>
+                                                        <input type="text" class="form-control" value=""
+                                                               id="search_check_on_welfare" name="on_welfare" readonly="true"/>
+                                                        <span class="search-accepting">On welfare</span>
                                                     </div>
                                                 </div>
 
@@ -410,8 +410,8 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" value="Pets considered"
-                                                               id="" name="pets" readonly="true"/>
+                                                        <input type="text" class="form-control" value=""
+                                                               id="search_check_pets" name="pets" readonly="true"/>
                                                         <span class="search-accepting">Pets considered</span>
                                                     </div>
                                                 </div>

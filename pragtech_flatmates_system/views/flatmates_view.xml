@@ -194,8 +194,8 @@
                             <field name="name"/>
                             <field name="property_type" String="Property type" widget="many2many_tags" options="{'no_create_edit':True}"/>
                             <field name="user_id" String="User" options="{'no_create_edit':True}"/>
-                                <label for="street" string="Address"/>
-                                <div class="o_address_format">
+                                <label for="street" string="Address" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <div class="o_address_format" attrs="{'invisible': [('listing_type', '=', 'find')]}">
                                     <field name="street" placeholder="Street..." class="o_address_street"/>
                                     <field name="street2" placeholder="Street 2..." class="o_address_street"/>
                                     <field name="city" placeholder="City" class="o_address_city"/>
@@ -207,12 +207,12 @@
                                 </div>
                             </group>
                             <group>
-                                <field name="total_bathrooms_id"/>
-                                <field name="total_bedrooms_id"/>
+                                <field name="total_bathrooms_id" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <field name="total_bedrooms_id" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
                                 <field name="total_no_flatmates_id"/>
-                                <field name="type"/>
-                                <field name="pref"/>
-                                <field name="place_for"/>
+                                <field name="type" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <field name="pref" attrs="{'invisible': [('listing_type', '=', 'list')]}"/>
+                                <field name="place_for" attrs="{'invisible': [('listing_type', '=', 'list')]}"/>
                                 <field name="is_short_list"/>
                             </group>
                         </group>
@@ -228,7 +228,7 @@
                                 </field>
                             </page>
 
-                            <page name='about person' string="About person">
+                            <page name='about person' string="About person" attrs="{'invisible': [('listing_type', '=', 'list')]}">
                                 <field name="person_ids">
                                     <tree editable="bottom">
                                         <field name="name"/>
@@ -253,15 +253,15 @@
                             </group>
                             <h3>Bond &amp; Details</h3>
                             <group col="4">
-                                <field name="bond_id" options="{'no_create_edit':'True'}"/>
-                                <field name="bill_id" options="{'no_create_edit':'True'}"/>
-                                <field name="min_len_stay_id" options="{'no_create_edit':'True'}"/>
+                                <field name="bond_id" options="{'no_create_edit':'True'}" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <field name="bill_id" options="{'no_create_edit':'True'}" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <field name="min_len_stay_id" options="{'no_create_edit':'True'}" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
                                 <field name="max_len_stay_id" options="{'no_create_edit':'True'}"/>
                             </group>
                         </page>
                                 <page name='accepting employment_status lifestyle' string="Accepting, Employment Status &amp; Lifestyle ">
-                                <h3>Accepting</h3>
-                            	<group col="4">
+                                <h3 attrs="{'invisible': [('listing_type', '=', 'find')]}">Accepting</h3>
+                            	<group col="4" attrs="{'invisible': [('listing_type', '=', 'find')]}">
                                     <field name="backpackers"/>
                                     <field name="students"/>
                                     <field name="smokers"/>
@@ -273,8 +273,8 @@
                                     <field name="on_welfare"/>
                             	</group>
 
-                                <h3>Employment Status</h3>
-                            	<group col="4">
+                                <h3 attrs="{'invisible': [('listing_type', '=', 'list')]}">Employment Status</h3>
+                            	<group col="4" attrs="{'invisible': [('listing_type', '=', 'list')]}">
                                     <field name="f_full_time"/>
                                     <field name="f_part_time"/>
                                     <field name="f_working_holiday"/>
@@ -284,8 +284,8 @@
                                     <field name="f_student"/>
                             	</group>
 
-                                <h3>Lifestyle</h3>
-                            	<group col="4">
+                                <h3 attrs="{'invisible': [('listing_type', '=', 'list')]}">Lifestyle</h3>
+                            	<group col="4" attrs="{'invisible': [('listing_type', '=', 'list')]}">
                                     <field name="fsmoker"/>
                                     <field name="flgbti"/>
                                     <field name="fpets"/>

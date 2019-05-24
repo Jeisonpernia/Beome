@@ -407,20 +407,20 @@
                                                             <!--</div>-->
                                                         <!--</div>-->
 
-                                                        <div class="row">
-                                                            <div class="col-lg-4 mx-auto profile-pic2">
-                                                                <div class="image-upload">
-                                                                    <div class="image-upload">
-                                                                        <label for="file-input" class="add_image_icon">
-                                                                            <img class="card-img-top rounded-circle mx-auto profile-pic"
-                                                                                 src="/pragtech_flatmates_system/static/src/img/avtar.png"
-                                                                                 alt=""/>
-                                                                        </label>
-                                                                        <input id="file-input" type="file" class="profile_image" accept="image/*"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <!--<div class="row">-->
+                                                            <!--<div class="col-lg-4 mx-auto profile-pic2">-->
+                                                                <!--<div class="image-upload">-->
+                                                                    <!--<div class="image-upload">-->
+                                                                        <!--<label for="file-input" class="add_image_icon">-->
+                                                                            <!--<img class="card-img-top rounded-circle mx-auto profile-pic"-->
+                                                                                 <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
+                                                                                 <!--alt=""/>-->
+                                                                        <!--</label>-->
+                                                                        <!--<input id="file-input" type="file" class="profile_image" accept="image/*"/>-->
+                                                                    <!--</div>-->
+                                                                <!--</div>-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
 
 
                                                         <div class="form-group mt-4">

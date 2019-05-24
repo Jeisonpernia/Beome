@@ -259,28 +259,26 @@ class FlatMates(http.Controller):
 
     @http.route(['/shortlist'], type='http', auth="public", website=True, csrf=False)
     def short_listting(self, **kwargs):
-        print("\n\n\n\n\n=====================", kwargs)
         flatmate_obj = request.env['house.mates'].sudo().search([('id', '=', kwargs['data'])], limit=1)
+        res_user_id = request.env['res.users'].sudo().search([('id','=',request.uid)])
         if flatmate_obj and 'data' in kwargs:
             if kwargs['active'] == 'True':
-                flatmate_obj.is_short_list = True
-                if flatmate_obj.user_id:
-                    print("\n\n\n\n\n=====================active",flatmate_obj.user_id.house_mates_ids)
-                    if flatmate_obj.user_id.house_mates_ids:
-                        flatmate_obj.user_id.sudo().write({
+                if res_user_id:
+                    if res_user_id.house_mates_ids:
+                        res_user_id.sudo().write({
                                 'house_mates_ids': [(4,flatmate_obj.id)]
                             })
                     else:
-                        flatmate_obj.user_id.sudo().write({
+                        res_user_id.sudo().write({
                             'house_mates_ids': [(6,0,[flatmate_obj.id])]
                         })
 
             else:
-                for id in flatmate_obj.user_id.house_mates_ids:
+                for id in res_user_id.house_mates_ids:
                     if flatmate_obj.id == id.id:
-                        print("\n\n\n\n\n===================== false",id.id,flatmate_obj)
-                        flatmate_obj.is_short_list = False
-                        flatmate_obj.res_user_id = False
+                        res_user_id.sudo().write({
+                            'house_mates_ids': [(3,flatmate_obj.id)]
+                        })
 
         list = {}
         return list
@@ -2020,7 +2018,7 @@ class FlatMates(http.Controller):
 
         fields = ['id', 'street2', 'city', 'listing_type', 'state', 'weekly_budget', 'description_about_property', 'property_image_ids', 'total_bathrooms_id', 'total_bedrooms_id', 'total_no_flatmates_id', 'person_ids', 'is_short_list']
 
-        print ("\n\n\n",filters[0].get('listing_type'))
+        print ("\n\n\n",filters[0])
         print ("\n\n\n", filters[0].get('max_age'))
         if filters[0].get('listing_type') =='home':
             # print ("Homeeeeeeeeeeeeeeee")
@@ -2043,7 +2041,8 @@ class FlatMates(http.Controller):
                 if filters[0].get('gender_selection') == 'Females + % 26 + males + % 28no + couple % 29':
                     domain.append(('person_ids.gender','=','male'))
                     domain.append(('person_ids.gender', '=', 'female'))
-
+            if filters[0].get('find_property_type'):
+                domain.append(('property_type', '=', int(filters[0].get('find_property_type'))))
             if filters[0].get('find_min_rent'):
                 domain.append(('weekly_budget', '>=', int(filters[0].get('find_min_rent'))))
             if filters[0].get('find_max_rent'):
@@ -2107,6 +2106,24 @@ class FlatMates(http.Controller):
                     domain.append(('person_ids.gender', '=', 'female'))
             if filters[0].get('search_room_type'):
                 domain.append(('rooms_ids.room_type_id', '=', int(filters[0].get('search_room_type'))))
+            if filters[0].get('LGBTI'):
+                domain.append(('LGBTI','=',True))
+            if filters[0].get('retirees'):
+                domain.append(('retirees','=',True))
+            if filters[0].get('students'):
+                domain.append(('students','=',True))
+            if filters[0].get('smokers'):
+                domain.append(('smokers','=',True))
+            if filters[0].get('backpackers'):
+                domain.append(('backpackers','=',True))
+            if filters[0].get('children'):
+                domain.append(('children','=',True))
+            if filters[0].get('fourty_year_old'):
+                domain.append(('fourty_year_old','=',True))
+            if filters[0].get('on_welfare'):
+                domain.append(('on_welfare','=',True))
+            if filters[0].get('pets'):
+                domain.append(('pets','=',True))
             if filters[0].get('search_room_parking_type'):
                 domain.append(('parking_id', '=', int(filters[0].get('search_room_parking_type'))))
             if filters[0].get('search_room_bathroom_type'):
@@ -2150,7 +2167,15 @@ class FlatMates(http.Controller):
             property_data['id'] = rec.get('id')
 
             ## Code added by dhrup
-            property_data['is_short_list'] = rec.get('is_short_list')
+            res_user_id = request.env['res.users'].sudo().search([('id', '=', request.uid)])
+            hose_mates_id_list = []
+
+            for id in res_user_id.house_mates_ids:
+                hose_mates_id_list.append(id.id)
+            if rec.get('id') in hose_mates_id_list:
+                property_data['is_short_list'] = True
+            else:
+                property_data['is_short_list'] = False
             property_data['description'] = rec.get('description_about_property')
             property_data['weekly_budget'] = rec.get('weekly_budget')
             property_data['listing_type'] = rec.get('listing_type')
