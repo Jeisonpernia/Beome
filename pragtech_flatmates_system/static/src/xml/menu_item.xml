@@ -840,7 +840,7 @@
 
 								</div>
 
-
+                            
 							<button class="btn search-btn btn-block" id="search_submit_start" type="button"><span class="search-text">Search</span>
                             <input type="hidden" value="search" id='search_value' name="form_value"/></button>
                             </div>

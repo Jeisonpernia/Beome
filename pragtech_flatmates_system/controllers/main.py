@@ -2015,12 +2015,15 @@ class FlatMates(http.Controller):
         property_list = []
         property_data = {}
         domain = []
-
+        properties=''
         fields = ['id', 'street2', 'city', 'listing_type', 'state', 'weekly_budget', 'description_about_property', 'property_image_ids', 'total_bathrooms_id', 'total_bedrooms_id', 'total_no_flatmates_id', 'person_ids', 'is_short_list']
 
         print ("\n\n\n",filters[0])
         print ("\n\n\n", filters[0].get('max_age'))
         if filters[0].get('listing_type') =='home':
+            # print ("Homeeeeeeeeeeeeeeee")
+            properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id),('state','=','active')], fields=fields, order='id', limit=16)
+        if not filters[0].get('listing_type'):
             # print ("Homeeeeeeeeeeeeeeee")
             properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id),('state','=','active')], fields=fields, order='id', limit=16)
 
@@ -2151,13 +2154,11 @@ class FlatMates(http.Controller):
             properties = request.env['house.mates'].sudo().search_read(domain=domain,fields=fields,order='id', limit=16)
 
         # print ("Recordddddddddddddddddd----8888888888888888888888---",properties)
-
         if filters[0].get('listing_type') =='shortlist':
             # print ("Homeeeeeeeeeeeeeeee")
             print ("0----------------------------------0",request.env.user.house_mates_ids.ids)
             properties = request.env['house.mates'].sudo().search_read(domain=[('id', 'in', request.env.user.house_mates_ids.ids),('id', '>', record_id),('state','=','active')], fields=fields, order='id', limit=16)
             # print("Streettt---------------------------", properties)
-
         for rec in properties:
             # print("Streettt---------------------------", properties)
             property_image_main = request.env['property.image'].sudo().search_read(

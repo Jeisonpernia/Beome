@@ -25,5 +25,12 @@ $(document).ready(function()
 //        main_div.addClass("top_marign")
 //        $("main").addClass("main-margin")
     }
+
+//    temp code added for redirecting to home page
+    if (window.location.pathname == '/web/access_login'){
+
+    window.location.replace('/')
+    }
+
 });// End of document
 });// End of Odoo Deine
