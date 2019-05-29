@@ -26,8 +26,12 @@ from odoo.addons.website.controllers.main import QueryURL
 from odoo.addons.http_routing.models.ir_http import slug, unslug
 from odoo import http, fields
 from odoo.addons.auth_signup.controllers.main import AuthSignupHome
+from odoo.modules.module import get_module_resource
 import pyotp
 import json
+
+
+
 
 # from __future__ import print_function
 import clicksend_client
@@ -36,6 +40,10 @@ from clicksend_client.rest import ApiException
 
 
 _logger = logging.getLogger(__name__)
+
+suburb_json_file_path = get_module_resource('pragtech_flatmates_system', 'models', 'suburb.json')
+with open(suburb_json_file_path) as json_file:
+    suburb_data = json.load(json_file)
 
 
 class AuthSignupHomeChild(AuthSignupHome):
@@ -145,6 +153,7 @@ class AuthSignupHomeChild(AuthSignupHome):
 class Website_Inherit(Website):
     @http.route('/', auth='public', website=True)
     def index(self, **kw):
+
         context = request.env.context
         print("====================['login']========", request.params)
         user_rec = request.env['res.users'].sudo().search([('id', '=', context.get('uid'))])
@@ -438,6 +447,27 @@ class FlatMates(http.Controller):
     #
     #     return request.render("pragtech_flatmates_system.property_detail11", values)
 
+
+
+    @http.route(['/get_html_content_property_detail'], type='json', auth="public", website=True, csrf=False)
+    def get_html_content_property_detail(self,**kwargs):
+        property = request.env['house.mates'].sudo().browse(int(kwargs['id']))
+        values={}
+        if property.description_about_property:
+            str_proprty_descrip=property.description_about_property.replace('\n','<br>')
+            values={'description_about_property':str_proprty_descrip}
+        if property.description_about_user:
+            str_user_descrip=property.description_about_user.replace('\n','<br>')
+            values.update({'description_about_user':str_user_descrip})
+        if property.latitude:
+            values.update({'latitude':property.latitude})
+        if property.longitude:
+            values.update({'longitude':property.longitude})
+        print("\n\n-----property-----",values)
+        return values
+
+
+
     @http.route(['/P<id>'], type='http', auth="public", website=True, csrf=True)
     def property_detail(self, id, **kwargs):
         print("\n\nID -----------------------", id)
@@ -453,7 +483,7 @@ class FlatMates(http.Controller):
         if property.city:
             property_address+= ', ' + property.city
 
-        values = {'property': property, 'property_address': property_address}
+        values = {'property': property, 'property_address': property_address,'street':property.street,'street2':property.street2,'city':property.city}
         if property.listing_type == 'list':
             values.update({'listing_type':'List'})
         if property.listing_type == 'find':
@@ -472,36 +502,51 @@ class FlatMates(http.Controller):
             values.update({'listing_type':'House'})
         if property.type == 'flat':
             values.update({'listing_type':'Flat'})
-        if property.description_about_property:
-            values.update({'description_about_property': property.description_about_property})
-        if property.description_about_user:
-            values.update({'description_about_user': property.description_about_user})
+        # if property.description_about_property:
+        #     # property_des=property.description_about_property
+        #     # new_property_des=property_des.replace('\n','<br/>')
+        #     values.update({'description_about_property': property.description_about_property})
+        # if property.description_about_user:
+        #     values.update({'description_about_user': property.description_about_user})
+
         if property.backpackers == True:
+            values.update({'property_new':'property preferences'})
             values.update(({'backpackers': 'Backpackers'}))
         if property.smokers == True:
+            values.update({'property_new':'property preferences'})
             values.update({'smokers': 'Smokers'})
         if property.fourty_year_old == True:
+            values.update({'property_new':'property preferences'})
             values.update({'fourty_year_old': '40+ years olds'})
         if property.pets == True:
+            values.update({'property_new':'property preferences'})
             values.update({'pets': 'Pets'})
         if property.on_welfare == True:
+            values.update({'property_new':'property preferences'})
             values.update({'on_welfare': 'On welfare'})
         if property.students == True:
+            values.update({'property_new':'property preferences'})
             values.update(({'students': 'Students'}))
         if property.LGBTI == True:
+            values.update({'property_new':'property preferences'})
             values.update({'LGBTI': 'LGBTI'})
         if property.children == True:
+            values.update({'property_new':'property preferences'})
             values.update({'children': 'Children'})
         if property.retirees == True:
+            values.update({'property_new':'property preferences'})
             values.update({'retirees': 'Retirees'})
         if property.min_len_stay_id:
             values.update({'min_len_stay_id': property.min_len_stay_id.name})
         if property.avil_date:
-            values.update({'avil_date': property.avil_date})
+            date_string=str(property.avil_date)
+            new_date = datetime.strptime(date_string, '%Y-%m-%d')
+            available_date = datetime.strftime(new_date,'%d %b %G')
+            values.update({'avil_date': available_date})
         if property.weekly_budget:
             values.update({'weekly_budget': property.weekly_budget})
         if property.bond_id:
-            values.update({'bond_id': property.bond_id.name})
+            values.update({'bond_id': property.weekly_budget*property.bond_id.number_of_week})
         if property.bill_id:
             values.update({'bill_id': property.bill_id.name})
         print(property.parking_id.name)
@@ -539,12 +584,15 @@ class FlatMates(http.Controller):
                 values.update({'room_furnishing_id':property.rooms_ids[0].room_furnishing_id.name})
             if property.rooms_ids[0].bath_room_type_id:
                 values.update({'bath_room_type_id':property.rooms_ids[0].bath_room_type_id.name})
+            if property.rooms_ids[0].room_type_id:
+                values.update({'room_type_id': property.rooms_ids[0].room_type_id.name})
 
         if property.internet_id:
             values.update({'internet_id':property.internet_id.name})
         if property.property_type:
-            print("=====ghghghgh====",property.property_type)
             values.update({'accomodation_type':property.property_type})
+        print("=====ghghghgh====", values)
+
         return request.render("pragtech_flatmates_system.property_detail11", values)
 
     @http.route(['/shortlists'], type='http', auth="public", website=True, csrf=True)
@@ -2017,6 +2065,24 @@ class FlatMates(http.Controller):
 
         data = [{'room_types': room_types, 'room_furnishing': room_furnishing, 'bathroom_types': bathroom_types}]
         return data
+
+
+    @http.route('/get_suburbs', auth='public', type='json', website=True)
+    def get_suburbs(self, suburb_to_search, type_of_data) :
+        records = []
+        print ("data ---------------------------- ", type(suburb_to_search), type_of_data)
+
+        # if type == "string":
+        #     for suburb_name in suburb_data:
+        #         print (data1)
+        if type_of_data == "integer":
+            for data in suburb_data:
+                # print (" =-------------------------= ", data['post_code'] ,int(suburb_to_search))
+                if data['post_code'] == int(suburb_to_search):
+                    records.append ([data['suburb_name'], data['post_code'], data['suburb_search']])
+            print (" =-------------------------= ",records)
+            return records
+
 
     @http.route('/get_product', auth='public', type='json', website=True)
     def get_product(self, record_id, filters=None) :

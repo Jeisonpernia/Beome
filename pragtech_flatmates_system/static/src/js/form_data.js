@@ -674,7 +674,7 @@ $(document).ready(function() {
 //            alert('ssssssssssssssssssssssssssssssssssssssssssssssss')
 
             if (localStorage.getItem('list_place_array')){
-                var list_place_data = JSON.parse(localStorage.getItem('list_place_array'));
+
                 //console.log('\nListplace data :',list_place_data)
                 $.ajax({
                         url:'/create/list_property',

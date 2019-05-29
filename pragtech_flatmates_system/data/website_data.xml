@@ -8,6 +8,9 @@
         <!--Hide Blogs Menu-->
         <delete model="website.menu" id="website.menu_news"></delete>
 
+        <function name="change_data_endpoint" model="house.mates"/>
+
+
         <record id="mail_verify_account" model="mail.template">
             <field name="name">Account Verification Email</field>
             <field name="subject">Verify Your Email Address</field>

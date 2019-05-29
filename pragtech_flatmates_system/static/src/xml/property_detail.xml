@@ -11,11 +11,11 @@
 								<li class="breadcrumb-item">
 									<a href="/">Home</a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="#">Room</a></li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="#">Div1</a></li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="#">Div2</a></li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="#">Div3</a></li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="#">Div4</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="/search/records?listing_type=list">Room</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#"><t t-esc="city"/>,<t t-esc="street"/></a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#"><t t-esc="street2"/> P<t t-esc="property.id"/> </a></li>
+								<!--<li class="breadcrumb-item active" aria-current="page"><a href="#">Div3</a></li>-->
+								<!--<li class="breadcrumb-item active" aria-current="page"><a href="#">Div4</a></li>-->
 							</ol>
 						</nav>
 					</div>
@@ -145,8 +145,10 @@
 
                                     <h3>About me</h3>
 
-                                    <p class="mt-3 mb-3"><t t-esc="description_about_property"/>
-                                    </p>
+                                    <div class="mt-3 mb-3">
+
+                                        <t t-esc="description_about_property"/>
+                                    </div>
 
                                     <div class="about-me">
                                         <t t-if="f_full_time">
@@ -566,10 +568,14 @@
                                             </div>
 
                                             <button class="btn btn-primary btn-green2 btn-block">Login to message
-                                                Priscilla
+                                                <t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t>
                                             </button>
 
-                                            <button class="btn btn-outline-primary2 btn-block">Login to show Priscilla's
+                                            <button class="btn btn-outline-primary2 btn-block">Login to show <t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t>
                                                 number
                                             </button>
 
@@ -579,7 +585,9 @@
                                     <div class="row">
                                         <div class="col-12 social-media text-center mt-4">
                                             <p class="p16-gray">
-                                                <strong>Samuel has no verified social media</strong>
+                                                <strong><t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t> has no verified social media</strong>
                                             </p>
 
                                             <div class="social-media-icon mt-4">
@@ -714,7 +722,7 @@
 
                                     <div class="upgrade mt-3">
                                         <span class="upgradeStatus">Free to message</span>
-                                        <span>Private room with shared bathroom</span>
+                                        <span><t t-esc="room_type_id"/> with <t t-esc="bath_room_type_id"/></span>
                                     </div>
 
                                     <hr class="mt-5 mb-4"/>
@@ -725,14 +733,14 @@
                                                 <div class="room-value">
                                                     <span class="room-price">
                                                         <t t-if="weekly_budget">
-                                                            <t t-esc="weekly_budget"></t>
+                                                            $<t t-esc="weekly_budget"></t>
                                                         </t>
                                                     </span>
                                                     <span class="room-per-week text-muted">/wk</span>
                                                 </div>
 
                                                 <div class="room-txt mt-2 text-center">
-                                                    Bills not inc.
+                                                        <t t-esc="bill_id"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -831,11 +839,12 @@
 
                                     <h3>About the property</h3>
 
-                                    <p class="mt-3 mb-3">
-                                        <t t-if="description_about_property">
-                                            <t t-esc="description_about_property"></t>
-                                        </t>
-                                    </p>
+                                    <div class="mt-3 mb-3" id="description_about_property">
+                                        <!--<t t-if="description_about_property">-->
+                                            <!--<t t-esc="description_about_property"></t>-->
+                                        <!--</t>-->
+                                    </div>
+                                    <t t-if="property_new">
 
 
                                     <h3 class="mb-3 mt-5">Property preferences</h3>
@@ -1048,6 +1057,7 @@
                                             </div>
                                         </t>
                                     </div>
+                                    </t>
 
                                     <div class="property-msg-box mt-5">
                                         <h3>
@@ -1071,7 +1081,9 @@
 
                                             <div class="col-lg-4">
                                                 <button class="btn btn-primary btn-green2 btn-block">Login to message
-                                                    Karan
+                                                    <t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t>
                                                 </button>
                                             </div>
                                         </div>
@@ -1096,7 +1108,7 @@
                                                             </svg>
                                                         </span>
 
-                                                        <span class="property-preferences-list-subtitle">Private room
+                                                        <span class="property-preferences-list-subtitle"><t t-esc="room_type_id"/>
                                                         </span>
 
                                                     </div>
@@ -1132,8 +1144,7 @@
                                                         </span>
 
 
-                                                        <span class="property-preferences-list-subtitle">Shared
-                                                            bathroom
+                                                        <span class="property-preferences-list-subtitle"> <t t-esc="bath_room_type_id"/>
                                                         </span>
 
                                                     </div>
@@ -1152,8 +1163,20 @@
                                                         </span>
 
                                                         <span class="property-preferences-list-subtitle">
-                                                            <t t-if="pref">
-                                                                <t t-esc="pref"></t>
+                                                            <t t-if="pref == 'anyone'">
+                                                                <span>Anyone</span>
+                                                            </t>
+                                                            <t t-if="pref == 'females_only'">
+                                                                <span>Females only</span>
+                                                            </t>
+                                                            <t t-if="pref == 'males_only'">
+                                                                <span>Males only</span>
+                                                            </t>
+                                                            <t t-if="pref == 'no_couple'">
+                                                                <span>Female or male(no couples)</span>
+                                                            </t>
+                                                            <t t-if="pref == 'couple'">
+                                                                <span>Couple</span>
                                                             </t>
                                                         </span>
 
@@ -1175,13 +1198,13 @@
                                                         <ul>
                                                             <li>
                                                                 <span class="property-preferences-list-subtitle">
-                                                                    <t t-if="weekly_rent">
-                                                                        <t t-esc="weekly_rent"></t>
+                                                                    <t t-if="weekly_budget">
+                                                                        $<t t-esc="weekly_budget"></t> Weekly Rent
                                                                     </t>
                                                                 </span>
                                                             </li>
                                                             <li>
-                                                                <span class="property-preferences-list-title">$486
+                                                                <span class="property-preferences-list-title">$<t t-esc="bond_id"/>
                                                                     bond
                                                                 </span>
                                                             </li>
@@ -1214,13 +1237,13 @@
 
                                                         <ul>
                                                             <li>
-                                                                <span class="property-preferences-list-subtitle">Bills
-                                                                    not included in rent
+                                                                <span class="property-preferences-list-subtitle">
+                                                                    Bills <t t-esc="bill_id"/>
                                                                 </span>
                                                             </li>
                                                             <li>
-                                                                <span class="property-preferences-list-title">Internet
-                                                                    available, not included in rent
+                                                                <span class="property-preferences-list-title">
+                                                                    <t t-esc="internet_id"/>
                                                                 </span>
                                                             </li>
                                                         </ul>
@@ -1273,7 +1296,7 @@
                                                         </span>
 
 
-                                                        <span class="property-preferences-list-subtitle">Unfurnished
+                                                        <span class="property-preferences-list-subtitle"><t t-esc="room_furnishing_id"/>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1314,11 +1337,11 @@
 
                                     <h3>About the flatmates</h3>
 
-                                    <p class="mt-3 mb-3">
-                                        <t t-if="description_about_user">
-                                            <t t-esc="description_about_user"></t>
-                                        </t>
-                                    </p>
+                                    <div class="mt-3 mb-3" id="description_about_user">
+                                        <!--<t t-if="description_about_user">-->
+                                            <!--<t t-esc="description_about_user"></t>-->
+                                        <!--</t>-->
+                                    </div>
 
 
                                 </div>
@@ -1354,10 +1377,15 @@
                                             </div>
 
                                             <button class="btn btn-primary btn-green2 btn-block">Login to message
-                                                Priscilla
+                                                <t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t>
                                             </button>
 
-                                            <button class="btn btn-outline-primary2 btn-block">Login to show Priscilla's
+                                            <button class="btn btn-outline-primary2 btn-block">Login to show
+                                                <t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t>
                                                 number
                                             </button>
 
@@ -1367,7 +1395,9 @@
                                     <div class="row">
                                         <div class="col-12 social-media text-center mt-4">
                                             <p class="p16-gray">
-                                                <strong>Samuel has no verified social media</strong>
+                                                <strong><t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t> has no verified social media</strong>
                                             </p>
 
                                             <div class="social-media-icon mt-4">
@@ -1482,9 +1512,9 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2232.1568841040585!2d144.91411341165494!3d-37.70215119092171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65afdcd8d2887%3A0xff1ef620c57cc144!2sPascoe+Vale+Rd%2C+Melbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1557394152019!5m2!1sen!2sin"
-                                width="100%" height="450" frameborder="0" style="border:0"
-                                allowfullscreen="true"></iframe>
+                            <div id="map" style ="height:500px;width:2000px"></div>
+
+
                     </div>
                 </div>
 

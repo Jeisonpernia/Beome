@@ -164,6 +164,7 @@ class BondBond(models.Model):
     _description = 'Bond'
 
     name = fields.Char(string='Bond')
+    number_of_week = fields.Integer(string='Total Number of Week')
 
 class BillBill(models.Model):
     _name = 'bill.bill'

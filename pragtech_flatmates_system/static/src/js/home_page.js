@@ -1,21 +1,123 @@
 odoo.define('pragtech_flatmates.home_page', function (require) {
-
+ var id=0;
 $(document).ready(function() {
 
-    //console.log('Button-------------',$('.property_button'))
+    //$(this).data('button-id')
+
     $('#lazy_load').on('click','.property_button',function()
+
     {
-    //console.log("111111111111111111",$(this).data('button-id'))
-    var window_pathname = window.location.pathname
 
-    var property_id=$(this).data('button-id')
-    var a = "P"+property_id
+    id = $(this).data('button-id')
 
-    if (window_pathname.includes('/search'))
-        window.open('/'+a)
-    else
-        window.open(a)
+	  			 var window_pathname = window.location.pathname
+
+                var property_id=id
+                var a = "P"+property_id
+
+                if (window_pathname.includes('/search'))
+                    window.open('/'+a)
+                else
+                    window.open(a)
+
+
+
+
     });
+
+     if (window.location.href.indexOf("/P") > -1) {
+
+     var path=window.location.pathname
+     var property_id=path.split('P').pop()
+           console.log("gggggggggggggggg",window.location.pathname, property_id)
+
+
+$.ajax({
+	  		url : "/get_html_content_property_detail",   // calls to controller method
+	  		type:'POST',
+            dataType: 'json',
+            async:false,
+            contentType: 'application/json',
+            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
+	  		success : function(result) {    // work after controller method return
+
+
+	  			if (result) {
+
+
+                $("#description_about_property").html(result['result']['description_about_property'])
+	  			$("#description_about_user").html(result['result']['description_about_user'])
+	  			 }
+
+	  	       initMap()
+           function initMap() {
+	  			 var uluru = {lat: Number(result['result']['latitude']), lng: Number(result['result']['longitude'])};
+                  var map = new google.maps.Map(
+                      document.getElementById('map'), {zoom: 18, center: uluru});
+
+
+            var geocoder = new google.maps.Geocoder;
+        var infowindow = new google.maps.InfoWindow;
+         geocodeLatLng(geocoder, map, infowindow);
+
+      }
+
+      function geocodeLatLng(geocoder, map, infowindow) {
+
+        var latlng = {lat: Number(result['result']['latitude']), lng:Number(result['result']['longitude'])};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[0])
+            {
+              map.setZoom(18);
+//              var marker = new google.maps.Circle({
+//                  strokeColor: '#00a693',
+//            strokeOpacity: 0.8,
+//            strokeWeight: 2,
+//            fillColor: '#00a693',
+//            fillOpacity: 0.90,
+//            map: map,
+//            center:latlng,
+//            radius:50
+//            });
+lable_info=[results[0].formatted_address]
+console.log("=====label====",lable_info[0])
+            var marker = new google.maps.Circle({
+                position: latlng,
+                map: map,
+                radius:50,
+                fillColor: '#00a693',
+                fillOpacity: 0.90,
+                strokeColor: '#00a693',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                center:latlng,
+                label : lable_info[0][0]
+
+              });
+
+//              infowindow.setContent(results[0].formatted_address);
+//              infowindow.open(map, marker);
+            } else {
+              window.alert('No results found');
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+
+
+}
+
+
+
+	  		},
+
+
+	         });
+}
+
+
 
 });
 

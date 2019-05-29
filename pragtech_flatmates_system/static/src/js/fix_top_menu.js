@@ -36,5 +36,30 @@ $(document).ready(function()
     window.location.replace('/')
     }
 
+    //close button on header
+    $(".delete_creating_listing").on('click',function(){
+        console.log('222222222222222222222222223333333333333333')
+
+        var list_place_array = JSON.parse(localStorage.getItem('list_place_array'));
+
+        var find_place_array = JSON.parse(localStorage.getItem('find_place_record'));
+
+        if(list_place_array){
+            console.log("List Place Beforeeeeeee ",list_place_array[0])
+            localStorage.setItem('list_place_array', '[]');
+
+            console.log('List Place Afterrrrrr :',JSON.parse(localStorage.getItem('list_place_array')))
+        }
+        if(find_place_array){
+
+            console.log("Find Place Beforeeeeeee ",find_place_array[0])
+            localStorage.setItem('find_place_record', '[]');
+
+            console.log('find Place Afterrrrrr :',JSON.parse(localStorage.getItem('find_place_record')))
+        }
+
+    })
+
+
 });// End of document
 });// End of Odoo Deine

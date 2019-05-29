@@ -6,17 +6,17 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.6',
+    'version': '12.0.7',
     'description': "",
     'depends': [
-                'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension'
+                'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname',
                 ],
     'installable': True,
     'data': [
         'security/ir.model.access.csv',
 
         'data/website_data.xml',
-        # 'data/configuration_data.xml',
+        #'data/configuration_data.xml',
 
         'views/assets.xml',
         'views/remove_footer.xml',

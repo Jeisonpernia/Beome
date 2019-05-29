@@ -6,6 +6,13 @@ odoo.define('pragtech_flatmates.search', function (require) {
 $(document).ready(function() {
 
 
+$('.search-dropdown-menu').scroll(function() {
+    console.log ("Inside Scrolllllllllllllllllllll")
+    //    $( "#frdate" ).datepicker( "destroy" );
+    $('#room_avail_date_id').datepicker('hide')
+    $('#room_avail_date_id').blur();
+})
+
 $('.show-checkbox-dropdown').on('click',function()
 {
     //console.log(')))))))))))))))))',$(this).siblings('.options'))
@@ -203,7 +210,18 @@ $("#hide-advance-filter-teamups").css('display','none')
 ///////////////////////////////////////////////////////////
 //Set Datepicker from today date
 
+
 $('#room_avail_date_id').datepicker({minDate: 0});
+$('#room_avail_date_id').click(function()
+{
+console.log ("In sjowwwwwwwwwwww")
+$('.on-active-datepicker').addClass('show')
+
+})
+
+
+
+
 //$("#search_filter_date").datepicker({
 //dateFormat: 'dd/mm/yy'
 //});

@@ -9,6 +9,43 @@
 }
 
 
+select {
+	background: #F0F3FB;
+	border: 1px solid #F0F3FB;
+	border-radius: 4px;
+	width: 100%;
+	padding: 20px;
+	font-size: 16px;
+	color: #3F3F3F;
+
+	/* Here's the code we need */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	 -o-appearance: none;
+		appearance: none;
+}
+
+/*.select-wrapper {
+	position: relative;	
+}
+
+.select-wrapper:after {
+	font-family: FontAwesome;
+  	content: '\f107';
+  	font-size: 28px;
+  	position: absolute;
+  	top: 5px;
+  	right: 30px;
+  	color: #a5a8ad;
+  	pointer-events: none;
+}*/
+
+select::-ms-expand {
+  display: none;
+}
+
+
 body{
    font-family: 'open_sansregular' !important;
 }
@@ -827,7 +864,7 @@ border-radius: 50%;
     float: left;
     display: block;
     margin-right: 2.3576520234%;
-    width: 60%;
+    width: 62%;
     margin-top: 1.3em;
     position: relative;
     text-align: left;
@@ -836,6 +873,7 @@ border-radius: 50%;
 .search .dropdown-menu{
 	border-radius: 0px;
 	padding: 0px;
+	width: 100%;
 }
 
 
@@ -844,7 +882,7 @@ border-radius: 50%;
 }
 
 header .navbar-brand.logo{
-	width: 23%;
+	width: 21%;
 }
 
 header .navbar-brand.logo img{
@@ -931,6 +969,7 @@ width: 10%;
 	overflow-y: scroll;
 }
 
+
 .bedroom-btn-active-span{
 	color: #fff;
 }
@@ -1000,6 +1039,10 @@ width: 10%;
 	border:1px solid #37bc9b;
 	outline: 0px;
 	color: #fff;
+	background-image: url("/pragtech_flatmates_system/static/src/img/dropdown-white.svg");
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: 18px;	
 }
 
 
@@ -1010,6 +1053,10 @@ width: 10%;
 
 .search-form .rooms-btn select, .search-form .flatmates-btn select{
 	color: #a5a8ad;
+	background-image: url("/pragtech_flatmates_system/static/src/img/dropdown-gray.svg");
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: 18px;
 }
 
 
@@ -1018,6 +1065,11 @@ width: 10%;
 	border:1px solid #37bc9b;
 	outline: 0px;
 	color: #fff;
+	background-image: url("/pragtech_flatmates_system/static/src/img/dropdown-white.svg");
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: 18px;
+	
 }
 
 
@@ -2468,3 +2520,91 @@ background: #11836c;
   margin-left: 6px;
   padding: 0px 6px;
 }
+
+.back-arrow{
+  color: #2f3a4a;
+  margin-top: 10px;
+}
+
+#close_listing_popup_model_id .close-listing-popup{
+    margin-top: 18%;
+    max-width: 550px;
+}
+
+#close_listing_popup_model_id .modal-body{
+	text-align: center;
+	padding: 30px;
+}
+
+#close_listing_popup_model_id .modal-content{
+	border-radius: 0px;
+}
+
+#close_listing_popup_model_id .modal-footer{
+	background: #f2f2f2;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 10px;
+	
+}
+
+#close_listing_popup_model_id .modal-footer button{
+	border-radius: 0px;
+	background: #e1e1e1;
+	border:1px solid #adadad;
+	padding: 3px 20px;
+}
+
+#ui-datepicker-div{
+	z-index: 1041 !important;
+	padding: 15px;
+	width: 300px;
+	margin-top: 5px;
+}
+
+.ui-widget-header{
+	background: none;
+	border: none;
+}
+
+.ui-datepicker td span, .ui-datepicker td a{
+	padding: .5em;
+}
+
+
+.ui-datepicker .ui-datepicker-prev{
+	background-image: url("/pragtech_flatmates_system/static/src/img/left-arrow.svg");
+	background-repeat: no-repeat;
+	background-position: left center;
+	border: 1px solid #ccc;
+	width: 35px;
+	top: 2px;
+	left: 2px;
+}
+
+
+
+
+.ui-datepicker .ui-datepicker-next{
+	background-image: url("/pragtech_flatmates_system/static/src/img/right-arrow.svg");
+	background-repeat: no-repeat;
+	background-position: right center;
+	border: 1px solid #ccc;
+	width: 35px;
+	top: 2px;
+	right: 2px;
+}
+
+
+
+
+.ui-widget-header .ui-icon{
+	background: none;
+}
+
+.ui-icon, .ui-widget-content .ui-icon{
+	background: none;
+}
+
+
+>>>>>>> [Fix]:Search design fixed and functionality implemented for suburbs

@@ -847,6 +847,8 @@
                                 <field name="name" placeholder="Bond" required="1"/>
                             </h1>
                         </div>
+                        <label class="oe_edit_only" for="number_of_week" string="Number Of Week"/>
+                        <field name="number_of_week" placeholder="Number Of Week" required="1"/>
                     </sheet>
                 </form>
             </field>
@@ -858,6 +860,7 @@
             <field name="arch" type="xml">
                 <tree string="Bond" name="Bond">
                     <field name="name"/>
+                    <field name="number_of_week"/>
                 </tree>
             </field>
         </record>

@@ -12,7 +12,15 @@
                             <div class="row">
                                 <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                     <t t-if="request.env.user.partner_id.name != 'Public user'">
-                                        <h4>Thanks <span t-esc="request.env.user.partner_id.name"/>, let’s list your
+                                        <h4>Thanks <t t-if="user_id.firstname">
+                                                                    <span t-esc="user_id.firstname"/>
+                                                                </t>
+                                                                <t t-elif="user_id.lastname">
+                                                                    <span t-esc="user_id.lastname"/>
+                                                                </t>
+                                                                <t t-else="user_id.name">
+                                                                    <span t-esc="user_id.name"/>
+                                                                </t>, let’s list your
                                             place
                                         </h4>
                                     </t>
@@ -163,7 +171,7 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/listplace">
+                                        <a href="/listplace" class="d-none d-md-block d-lg-block d-xl-block">
                                             <button type="button" class="btn btn-primary btn-transparent go_back">Back
                                             </button>
                                         </a>
@@ -242,7 +250,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
-                                                <a href="/listplace/describe-your-place/accommodation">
+                                                <a href="/listplace/describe-your-place/accommodation" class="d-none d-md-block d-lg-block d-xl-block">
                                                     <button type="button" class="btn btn-primary btn-transparent">Back
                                                     </button>
                                                 </a>
@@ -492,8 +500,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/describe-your-place/accommodation">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -621,8 +631,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/about">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -762,8 +774,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/who-lives-here">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -864,8 +878,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/about-rooms">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -979,8 +995,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/rent-bond-bills">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -1089,8 +1107,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/room-availability">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -1141,9 +1161,11 @@
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/property-images">-->
-                                                <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                <div class="d-none d-md-block d-lg-block d-xl-block">
+                                                    <button type="button" class="btn btn-primary btn-transparent go_back">
                                                     Back
-                                                </button>
+                                                    </button>
+                                                </div>
                                                 <!--</a>-->
                                             </div>
                                         </div>
@@ -1282,9 +1304,11 @@
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/describe-your-flatmate">-->
-                                                <button type="button" class="btn btn-primary btn-transparent go_back">
-                                                    Back
-                                                </button>
+                                                <div class="d-none d-md-block d-lg-block d-xl-block">
+                                                    <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                        Back
+                                                    </button>
+                                                </div>
                                                 <!--</a>-->
                                             </div>
                                         </div>
@@ -1495,8 +1519,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/flatmate-preference">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -1546,9 +1572,11 @@
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/accepting">-->
-                                                <button type="button" class="btn btn-primary btn-transparent go_back">
-                                                    Back
-                                                </button>
+                                                <div class="d-none d-md-block d-lg-block d-xl-block">
+                                                    <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                        Back
+                                                    </button>
+                                                </div>
                                                 <!--</a>-->
                                             </div>
                                         </div>
@@ -1617,8 +1645,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/introduce-yourself">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>
@@ -1677,8 +1707,10 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/about-others">-->
-                                        <button type="button" class="btn btn-primary btn-transparent go_back">Back
-                                        </button>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            </button>
+                                        </div>
                                         <!--</a>-->
                                     </div>
                                 </div>

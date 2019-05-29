@@ -150,6 +150,94 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
         $(".submit-property-preferences").prop("disabled",true)
   });
 
+    $(document).on('keyup keydown','#find_suburb',function(e)
+    {
+    var data;
+    var type;
+
+    // DOWN
+    if (e.keyCode == 40)
+    {
+
+    }
+
+    // UP
+    else if (e.keyCode == 38)
+    {
+
+    }
+
+    // Enter key is pressed
+    else if (e.keyCode == 13) {
+        e.preventDefault();
+    }
+
+    else
+    {
+        console.log ($(this).val())
+        if (isNaN($(this).val()))
+        {
+            data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'suburb_to_search' : $(this).val(), 'type_of_data' : 'string' }})
+            type = 'string'
+        }
+        else
+        {
+            data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'suburb_to_search' : $(this).val(), 'type_of_data' : 'integer' }})
+            type = 'integer'
+        }
+
+         console.log ("key press",isNaN($(this).val()))
+
+        if ($(this).val().length==0)
+        {
+            $("#livesearch").html("");
+            $("#livesearch").attr('style', 'border:0px')
+
+        }
+        else
+        {
+             $("#livesearch").html("");
+             $("#livesearch").attr('style', 'border:0px')
+             if (type == 'integer' && $(this).val().length == 4)
+             {
+             $.ajax({
+                        url: '/get_suburbs',
+                        type: "POST",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        async: false,
+                        data: data,
+                        success: function(data)
+                        {
+                            console.log(data['result'].length)
+                            for (var i=0; i<data['result'].length; i++)
+                            {
+                                console.log (data['result'][i][2])
+                                $("#livesearch").append("<div class='dropdown-suburbs'>"+data['result'][i][2]+"</div>");
+                            }
+
+                        }
+                    })
+            }
+            if (type == 'string' && $(this).val().length >= 2)
+            {
+             $.ajax({
+                        url: '/get_suburbs',
+                        type: "POST",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data: data,
+                        async: false,
+                        success: function(data)
+                        {
+                            $("#livesearch").append("<div class='dropdown-suburbs'>afs</div>");
+                        }
+                    })
+            }
+        }
+    }
+
+})
 
 //  =============================================================================================================
 //  = --------------  Validations for /find-place/describe-your-ideal-place/introduce-flatmates  -------------- =
@@ -158,7 +246,7 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
 
     if (window_pathname.includes('/introduce-flatmates'))
     {
-        //console.log ("sdefffffffffffffffffff")
+//        console.log ("sdefffffffffffffffffff")
         var user_array_image=[]
     }
 
@@ -492,12 +580,12 @@ $(".find_employment-status").click(function()
 
 
     $(document).ready(function () {
-    var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
 
-    $("#mySingleFieldTags").tagit({
-        availableTags: sampleTags
+      $("#mySingleFieldTags").tagit();
+//    $("#mySingleFieldTags").tagit({
+//        availableTags: sampleTags
+//    });
     });
-});
 
 
 });// End of document

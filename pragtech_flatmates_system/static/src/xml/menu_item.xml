@@ -158,7 +158,7 @@
 													<label class="form-control-placeholder" for="max_room_rent_id">Max rent</label>
                                                 </div>
 
-                                                <div class="col-lg-6 col-12 mb-2 btn-padding-left">
+                                                <div class="col-lg-6 col-12 mb-2 btn-padding-left select-wrapper">
                                                     <select class="form-control" id="search_sort" name="search_sort">
                                                         <option value="photos">Photos first</option>
                                                         <option value="newest">Newest listings</option>

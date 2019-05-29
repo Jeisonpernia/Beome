@@ -86,8 +86,8 @@ class Housemates(models.Model):
     property_image_ids = fields.One2many('property.image', 'flat_mates_id', string='Images')
 
     ## Description
-    description_about_property = fields.Text('Description')
-    description_about_user = fields.Text('About Flatmates')
+    description_about_property = fields.Html('Description')
+    description_about_user = fields.Html('About Flatmates')
 
     @api.model
     def create(self,values):
@@ -136,6 +136,17 @@ class Housemates(models.Model):
                 template.with_context(lang=user.lang).send_mail(user.id, force_send=True, raise_exception=True)
             _logger.info("Password reset email sent for user <%s> to <%s>", user.login, user.email)
 
+    #To add 'picture' in data URL in Facebook Graph Provider
+    @api.model
+    def change_data_endpoint(self):
+
+        template_id = self.env['ir.model.data'].get_object_reference('auth_oauth', 'provider_facebook')[1]
+        template_id = self.env['auth.oauth.provider'].browse(template_id)
+
+
+        updated = template_id.write({'data_endpoint': 'https://graph.facebook.com/me?fields=id,name,email,picture'})
+        if updated:
+            return True
 
 class PropertyImage(models.Model):
     _name = 'property.image'

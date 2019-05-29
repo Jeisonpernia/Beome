@@ -59,7 +59,18 @@
                                                 </span>
                                             </div>
                                             <div class="text-center mt-1">
-                                                <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                                                <t t-if="user_id.firstname">
+                                                    <span t-esc="user_id.firstname"/>
+                                                </t>
+                                                <t t-elif="user_id.lastname">
+                                                    <span t-esc="user_id.lastname"/>
+                                                </t>
+                                                <t t-else="user_id.name">
+                                                    <span t-esc="user_id.name"/>
+                                                </t>
+
+
+                                                <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
                                             </div>
 
                                             <!--<b>-->
@@ -91,19 +102,19 @@
                                                     <div class="card">
 
                                                         <div class="row">
-<!--<<<<<<< HEAD-->
+                                                            <!--<<<<<<< HEAD-->
                                                             <!--<div class="col-lg-4 mx-auto dash-profile-pic">-->
-                                                                <!--<div class="image-upload">-->
-                                                                    <!--<div class="image-upload">-->
-                                                                        <!--<label for="file-input2" class="add_image_icon">-->
-                                                                            <!--<img class="card-img-top rounded-circle mx-auto dashbord-profile-img"-->
-                                                                                 <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
-                                                                                 <!--alt=""/>-->
-                                                                        <!--</label>-->
-                                                                        <!--<input id="file-input2" type="file"-->
-                                                                               <!--class="pro-img" accept="image/*"/>-->
-                                                                    <!--</div>-->
-<!--=======-->
+                                                            <!--<div class="image-upload">-->
+                                                            <!--<div class="image-upload">-->
+                                                            <!--<label for="file-input2" class="add_image_icon">-->
+                                                            <!--<img class="card-img-top rounded-circle mx-auto dashbord-profile-img"-->
+                                                            <!--src="/pragtech_flatmates_system/static/src/img/avtar.png"-->
+                                                            <!--alt=""/>-->
+                                                            <!--</label>-->
+                                                            <!--<input id="file-input2" type="file"-->
+                                                            <!--class="pro-img" accept="image/*"/>-->
+                                                            <!--</div>-->
+                                                            <!--=======-->
                                                             <div class="col-lg-6 mx-auto dash-profile-pic">
 
                                                                 <!--<div class="image-upload">
@@ -125,7 +136,7 @@
                                                                     <input id="file-input-22" type="file"
                                                                            class="dashboard_profile_image"
                                                                            accept="image/*"/>
-<!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
+                                                                    <!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
                                                                 </div>
 
 
@@ -134,16 +145,26 @@
                                                             </div>
                                                         </div>
 
-<!--<<<<<<< HEAD-->
+                                                        <!--<<<<<<< HEAD-->
                                                         <!--&lt;!&ndash;<img class="card-img-top rounded-circle mx-auto"&ndash;&gt;-->
                                                         <!--&lt;!&ndash;src="/pragtech_flatmates_system/static/src/img/avtar.png"&ndash;&gt;-->
                                                         <!--&lt;!&ndash;alt=""/>&ndash;&gt;-->
-<!--=======-->
+                                                        <!--=======-->
 
-<!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
+                                                        <!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
                                                         <div class="card-body">
                                                             <h5 class="card-title text-center">
-                                                                <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                                                                <t t-if="user_id.firstname">
+                                                                    <span t-esc="user_id.firstname"/>
+                                                                </t>
+                                                                <t t-elif="user_id.lastname">
+                                                                    <span t-esc="user_id.lastname"/>
+                                                                </t>
+                                                                <t t-else="user_id.name">
+                                                                    <span t-esc="user_id.name"/>
+                                                                </t>
+
+                                                                <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
                                                             </h5>
                                                             <p class="text-center text-danger">Free Account</p>
                                                             <a href="#" class="btn btn-orange btn-block">Why Upgrade</a>
@@ -229,8 +250,16 @@
                                                         </div>
                                                         <div class="col-lg-10">
                                                             <h4>Hey
-                                                                <span
-                                                                        t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                                                                <t t-if="user_id.firstname">
+                                                                    <span t-esc="user_id.firstname"/>
+                                                                </t>
+                                                                <t t-elif="user_id.lastname">
+                                                                    <span t-esc="user_id.lastname"/>
+                                                                </t>
+                                                                <t t-else="user_id.name">
+                                                                    <span t-esc="user_id.name"/>
+                                                                </t>
+                                                                <!--t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
 
                                                                 <br/>
                                                                 You don't have a listing!
@@ -495,7 +524,7 @@
                                                         <!--</div>-->
                                                         <!--</div>-->
 
-<!--<<<<<<< HEAD-->
+                                                        <!--<<<<<<< HEAD-->
                                                         <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
                                                         <!--&lt;!&ndash;<div class="col-lg-4 mx-auto profile-pic2">&ndash;&gt;-->
                                                         <!--&lt;!&ndash;<div class="image-upload">&ndash;&gt;-->
@@ -510,23 +539,25 @@
                                                         <!--&lt;!&ndash;</div>&ndash;&gt;-->
                                                         <!--&lt;!&ndash;</div>&ndash;&gt;-->
                                                         <!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--=======-->
+                                                        <!--=======-->
                                                         <div class="row">
                                                             <div class="col-lg-4 mx-auto profile-pic2">
                                                                 <div class="image-upload">
                                                                     <div class="image-upload">
-                                                                        <label for="file-input-11" class="add_image_icon">
+                                                                        <label for="file-input-11"
+                                                                               class="add_image_icon">
                                                                             <img class="card-img-top rounded-circle mx-auto profile-pic"
                                                                                  src="/pragtech_flatmates_system/static/src/img/avtar.png"
                                                                                  alt=""/>
                                                                         </label>
                                                                         <input id="file-input-11" type="file"
-                                                                               class="image_account_settings" accept="image/*"/>
+                                                                               class="image_account_settings"
+                                                                               accept="image/*"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-<!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
+                                                        <!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
 
 
                                                         <div class="form-group mt-4">
@@ -544,7 +575,7 @@
                                                         <div class="form-group mt-2">
                                                             <input type="text" class="form-control default_user_mobile"
                                                                    id="mobile" name="mobile"
-                                                                   placeholder="Mobile number"/>
+                                                                   placeholder="Mobile number" readonly="1"/>
                                                         </div>
 
 

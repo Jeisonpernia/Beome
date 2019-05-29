@@ -1,6 +1,9 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.addons.auth_signup.models.res_partner import SignupError, now
+import base64
+import requests
+
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -58,3 +61,48 @@ class ResUser(models.Model):
     # def write(self,vals):
     #     print("\n\n--------------users write-----------",vals)
     #     return super(ResUser,self).write(vals)
+
+
+    #Inherited to set User's Profile picture gets from Facebook
+    @api.model
+    def _generate_signup_values(self, provider, validation, params):
+
+        image = None
+        if validation.get('picture'):
+            image_url = validation['picture']['data']['url']
+            image_data = self._get_image_data(image_url)
+
+            if image_data:
+                image = base64.b64encode(image_data)
+
+
+        oauth_uid = validation['user_id']
+        email = validation.get('email', 'provider_%s_user_%s' % (provider, oauth_uid))
+        name = validation.get('name', email)
+        dict1= {
+            'name': name,
+            'login': email,
+            'email': email,
+            'oauth_provider_id': provider,
+            'oauth_uid': oauth_uid,
+            'oauth_access_token': params['access_token'],
+            'active': True,
+        }
+
+        if image:
+            dict1.update({'image':image})
+
+        return dict1
+
+    def _get_image_data(self, image_url):
+
+        image_content = None
+
+        resp = requests.get(image_url)
+
+        if resp.status_code == 200:
+            image_content = resp.content
+
+        if image_content:
+            return image_content
+

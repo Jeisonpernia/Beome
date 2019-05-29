@@ -13,11 +13,19 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                         <t t-if="request.env.user.partner_id.name != 'Public user'">
-                                            <h4>Thanks <span t-esc="request.env.user.partner_id.name"/>, let’s find you
+                                            <h4>Thanks <t t-if="user_id.firstname">
+                                                                    <span t-esc="user_id.firstname"/>
+                                                                </t>
+                                                                <t t-elif="user_id.lastname">
+                                                                    <span t-esc="user_id.lastname"/>
+                                                                </t>
+                                                                <t t-else="user_id.name">
+                                                                    <span t-esc="user_id.name"/>
+                                                                </t>, let’s find you
                                                 a place
                                             </h4>
                                         </t>
-                                        <div class="mt-5 col-md-2 mx-auto">
+                                        <div class="mt-5 col-md-2 col-sm-6 col-6 mx-auto">
                                             <img src="/pragtech_flatmates_system/static/src/img/illustration-house.png"
                                                  class="img-fluid"></img>
                                         </div>
@@ -242,9 +250,11 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/find-place/describe-your-ideal-place/start">
-                                            <button type="button" class="btn btn-primary btn-transparent">Back</button>
-                                        </a>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/start">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -282,10 +292,16 @@
                                         <div class="form-group">
                                             <span>Suburb</span>
                                             <p class="text-muted">We recommend choosing at least 4 suburbs</p>
-                                            <!--<div class="form-control form-control-lg mt-2 p-0">-->
-                                                <!--<input type="text" class="find-suburbs" id="" name="suburbs"-->
+                                            <!--<div class="form-control form-control-lg mt-2">-->
+                                                <!--<input type="text" class="" id="" name="suburbs"-->
                                                        <!--placeholder="Search for a suburb"/>-->
                                             <!--</div>-->
+
+
+                                            <input type="text" autocomplete="off" class="form-control mt-2" id="find_suburb"
+                                                   name="suburbs" placeholder=""/>
+                                            <div id="livesearch"></div>
+
 
                                             <div class="form-control form-control-lg mt-2 p-0">
                                                 <input name="suburbs" id="mySingleFieldTags"/>
@@ -304,9 +320,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/find-place/describe-your-ideal-place/accommodation">
-                                            <button type="button" class="btn btn-primary btn-transparent">Back</button>
-                                        </a>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/accommodation">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -377,9 +395,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/find-place/describe-your-ideal-place/about-flatmates">
-                                            <button type="button" class="btn btn-primary btn-transparent">Back</button>
-                                        </a>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/about-flatmates">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -510,9 +530,11 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/find-place/describe-your-ideal-place/rent-timing">
-                                            <button type="button" class="btn btn-primary btn-transparent">Back</button>
-                                        </a>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/rent-timing">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -538,7 +560,7 @@
                                         <t t-if="request.env.user.partner_id.name != 'Public user'">
                                             <h4>Introduce yourself</h4>
                                         </t>
-                                        <div class="mt-5 col-md-2 mx-auto">
+                                        <div class="mt-5 col-md-2 col-sm-6 col-6 mx-auto">
                                             <img src="/pragtech_flatmates_system/static/src/img/illustration-generic-person-PNG.png"
                                                  class="img-fluid"></img>
                                         </div>
@@ -560,10 +582,12 @@
                                         </div>
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
-                                                <a href="/find-place/describe-your-ideal-place/property-preferences">
-                                                    <button type="button" class="btn btn-primary btn-transparent">Back
-                                                    </button>
-                                                </a>
+                                                <div class="d-none d-md-block d-lg-block d-xl-block">
+                                                    <a href="/find-place/describe-your-ideal-place/property-preferences">
+                                                        <button type="button" class="btn btn-primary btn-transparent">Back
+                                                        </button>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -739,7 +763,7 @@
 				  
 				<div class="row">
 					
-					<div class="col-lg-2 text-center">
+					<div class="col-lg-2 col-2 text-center">
 
                         <div class="profile-pic1">
                             <span class="icon">
@@ -789,7 +813,7 @@
 
 
                     </div>
-					<div class="col-lg-10 about-profilepic-txt"><p>You can add or change your profile picture later</p></div>
+					<div class="col-lg-10 col-10 about-profilepic-txt"><p>You can add or change your profile picture later</p></div>
 				  </div>
 											
 
@@ -808,9 +832,11 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/find-place/describe-your-ideal-place/introduce-yourself">
-                                            <button type="button" class="btn btn-primary btn-transparent">Back</button>
-                                        </a>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/introduce-yourself">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -976,9 +1002,11 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/find-place/describe-your-ideal-place/introduce-flatmates">
-                                            <button type="button" class="btn btn-primary btn-transparent">Back</button>
-                                        </a>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/introduce-flatmates">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -1084,9 +1112,11 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/find-place/describe-your-ideal-place/employment">
-                                            <button type="button" class="btn btn-primary btn-transparent">Back</button>
-                                        </a>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/employment">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -1143,9 +1173,11 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/find-place/describe-your-ideal-place/lifestyle">
-                                            <button type="button" class="btn btn-primary btn-transparent">Back</button>
-                                        </a>
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/lifestyle">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
