@@ -150,31 +150,39 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
         $(".submit-property-preferences").prop("disabled",true)
   });
 
+//    function add_suburbs(data)
+//    {
+//        $("#find_suburb").autocomplete({ source: data, delay:300 })
+//    }
+
     $(document).on('keyup keydown','#find_suburb',function(e)
     {
     var data;
     var type;
 
+    console.log($(this).val())
     // DOWN
     if (e.keyCode == 40)
     {
-
+        console.log ("Downnn")
     }
 
     // UP
     else if (e.keyCode == 38)
     {
-
+        console.log ("Uppppp")
     }
 
     // Enter key is pressed
-    else if (e.keyCode == 13) {
+    else if (e.keyCode == 13)
+    {
+        console.log ("Enterrrr")
         e.preventDefault();
     }
 
     else
     {
-        console.log ($(this).val())
+//        console.log ($(this).val())
         if (isNaN($(this).val()))
         {
             data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'suburb_to_search' : $(this).val(), 'type_of_data' : 'string' }})
@@ -186,7 +194,7 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
             type = 'integer'
         }
 
-         console.log ("key press",isNaN($(this).val()))
+//         console.log ("key press",isNaN($(this).val()))
 
         if ($(this).val().length==0)
         {
@@ -198,7 +206,7 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
         {
              $("#livesearch").html("");
              $("#livesearch").attr('style', 'border:0px')
-             if (type == 'integer' && $(this).val().length == 4)
+             if (type == 'integer' && $(this).val().length >= 3)
              {
              $.ajax({
                         url: '/get_suburbs',
@@ -209,17 +217,11 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
                         data: data,
                         success: function(data)
                         {
-                            console.log(data['result'].length)
-                            for (var i=0; i<data['result'].length; i++)
-                            {
-                                console.log (data['result'][i][2])
-                                $("#livesearch").append("<div class='dropdown-suburbs'>"+data['result'][i][2]+"</div>");
-                            }
-
+                            $('#find_suburb').autocomplete({ source: data['result'], delay:300 })
                         }
                     })
             }
-            if (type == 'string' && $(this).val().length >= 2)
+            if (type == 'string' && $(this).val().length >= 3)
             {
              $.ajax({
                         url: '/get_suburbs',
@@ -230,7 +232,7 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
                         async: false,
                         success: function(data)
                         {
-                            $("#livesearch").append("<div class='dropdown-suburbs'>afs</div>");
+                            $('#find_suburb').autocomplete({ source: data['result'], delay:300 })
                         }
                     })
             }

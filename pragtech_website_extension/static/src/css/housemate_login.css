@@ -17,11 +17,15 @@
 
 .top-menu-dropdown .modal-header{
 	border-bottom: 0px;
+	position: absolute;
+	z-index: 1;
+	right: 50px;
+		
 }
 
 
 .top-menu-dropdown .modal-body{
-	padding: 0 40px;
+	padding: 40px 100px 80px;
 }
 .top-menu-dropdown .modal-content{
 	border-radius: 0px;
@@ -52,7 +56,6 @@
 }
 
 .top-menu-dropdown .my-account h4{
-	border-bottom: 1px solid #fff;
 	padding-bottom: 10px;
 	font-weight: normal;
 }
@@ -81,6 +84,13 @@
 	width: 16px;
 	height: auto;
 	fill: #fff;
+	margin-right: 5px;
+}
+
+.top-menu-dropdown .my-account ul li #bell-icon{
+	width: 16px;
+	height: auto;
+	fill: #FF0000;
 	margin-right: 5px;
 }
 
@@ -124,11 +134,11 @@
 }
 
 #verify_mobile_popup input, #account_settings_popup input, #email_alert_popup input, #deactivate_account_popup input{
-	height: 45px;
+	height: 50px;
 }
 
 #verify_mobile_popup select{
-	height: 45px;
+	height: 50px;
 }
 
 #verify_mobile_popup .modal-dialog, #account_settings_popup .modal-dialog, #email_alert_popup .modal-dialog, #deactivate_account_popup .modal-dialog{
@@ -197,4 +207,31 @@ color:#fff;
 	height: 160px;
 }
 
+#account_settings_popup .modal-footer{
+	background: #F4F5F5;
+	display: block;
+}
 
+#account_settings_popup .modal-footer a{
+	color:#005ce6;
+}
+
+#account_settings_popup .default_user_mobile{
+    background-color:white
+}
+
+
+#verify_otp_popup .security-code-sent{
+        color:#59616e;
+
+}
+
+
+#change_mobile_popup p{
+        color:#59616e;
+
+}
+
+#account_verification{
+    display:none;
+}

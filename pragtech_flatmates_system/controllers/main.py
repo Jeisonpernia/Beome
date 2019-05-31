@@ -29,9 +29,7 @@ from odoo.addons.auth_signup.controllers.main import AuthSignupHome
 from odoo.modules.module import get_module_resource
 import pyotp
 import json
-
-
-
+import re
 
 # from __future__ import print_function
 import clicksend_client
@@ -193,13 +191,17 @@ class Website_Inherit(Website):
                 }
 
                 template.sudo().write(template_values)
-                for user in user_rec:
-                    print("===============user==============", user.login)
-                    if not user.email:
-                        raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
-                    with request.env.cr.savepoint():
-                        template.sudo().with_context(lang=user.lang).send_mail(user.id, force_send=True, raise_exception=True)
-                    _logger.info("Password reset email sent for user <%s> to <%s>", user.login, user.email)
+                mail_server_obj = request.env['ir.mail_server'].sudo().search([])
+                print("===============mail_server_obj==============", mail_server_obj)
+
+                if mail_server_obj:
+                    for user in user_rec:
+                        print("===============user==============", user.login)
+                        if not user.email:
+                            raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
+                        with request.env.cr.savepoint():
+                            template.sudo().with_context(lang=user.lang).send_mail(user.id, force_send=True, raise_exception=True)
+                        _logger.info("Password reset email sent for user <%s> to <%s>", user.login, user.email)
 
 
         # print('\n\n\n ################################################ \n\n')
@@ -459,11 +461,14 @@ class FlatMates(http.Controller):
         if property.description_about_user:
             str_user_descrip=property.description_about_user.replace('\n','<br>')
             values.update({'description_about_user':str_user_descrip})
-        if property.latitude:
+        if property.listing_type:
+            values.update({'listing_type':property.listing_type})
+        if property.listing_type == 'list' and property.latitude:
             values.update({'latitude':property.latitude})
-        if property.longitude:
+        if property.listing_type == 'list' and property.longitude:
             values.update({'longitude':property.longitude})
-        print("\n\n-----property-----",values)
+
+
         return values
 
 
@@ -2070,19 +2075,28 @@ class FlatMates(http.Controller):
     @http.route('/get_suburbs', auth='public', type='json', website=True)
     def get_suburbs(self, suburb_to_search, type_of_data) :
         records = []
-        print ("data ---------------------------- ", type(suburb_to_search), type_of_data)
 
-        # if type == "string":
-        #     for suburb_name in suburb_data:
-        #         print (data1)
+        print ("data ---------------------------- ", type(suburb_to_search), suburb_to_search, type_of_data)
+
         if type_of_data == "integer":
             for data in suburb_data:
                 # print (" =-------------------------= ", data['post_code'] ,int(suburb_to_search))
                 if data['post_code'] == int(suburb_to_search):
-                    records.append ([data['suburb_name'], data['post_code'], data['suburb_search']])
+                    # records.append(data['suburb_search'])
+                    records.append ({ "label":data['suburb_search'], "value": data['suburb_name']+', '+str(data['post_code']) })
             print (" =-------------------------= ",records)
             return records
 
+
+        if type_of_data == "string":
+            for data in suburb_data:
+                my_regex = "^"+suburb_to_search
+                if re.search(my_regex, data['suburb_name'], re.IGNORECASE):
+                    print ("aaaaaaaaaaa",re.search(my_regex, data['suburb_name'], re.IGNORECASE))
+                    # print ("aaaaaaaaaaa",re.match(my_regex, data['suburb_name']))
+                    records.append ({ "label":data['suburb_search'], "value": data['suburb_name']+', '+str(data['post_code']) })
+            # print (" =-------------------------= ",records)
+            return records
 
     @http.route('/get_product', auth='public', type='json', website=True)
     def get_product(self, record_id, filters=None) :
@@ -2314,6 +2328,11 @@ class FlatMates(http.Controller):
         if user_profile_pic:
             data.update({'user_profile_pic':user_profile_pic})
 
+        is_verified = request.env.user.partner_id.mobile_no_is_verified
+
+        if is_verified:
+            data.update({'is_mobile_verified':True})
+
         return data
 
     @http.route('/get_info_webpages', auth='public', type='json', website=True)
@@ -2513,7 +2532,8 @@ class FlatMates(http.Controller):
 
         totp = pyotp.TOTP('base32secret3232')
         random_otp = totp.now()
-        message_to_send = "Your OTP is "+random_otp
+        message_to_send = "Your Beome.com.au code: "+random_otp+" . Never share this code. Beome will never ask you to login or disclose account information via SMS."
+        # message_to_send = "Your OTP is "+random_otp
         mobile_number = "+"+str(phone_code)+str(mobile_no)
 
         request.session['random_otp'] = random_otp
@@ -2528,7 +2548,7 @@ class FlatMates(http.Controller):
         api_instance = clicksend_client.SMSApi(clicksend_client.ApiClient(configuration))
         sms_message = SmsMessage(source="python",
                                  body=message_to_send,
-                                 to=mobile_number)#"+61411111111"
+                                 to="+61411111111")#"+61411111111"
         sms_messages = clicksend_client.SmsMessageCollection(messages=[sms_message])
 
         try:
@@ -2542,6 +2562,7 @@ class FlatMates(http.Controller):
                     data = {
                         'is_sms_send': True,
                         'status': 'SUCCESS',
+                        'mobile_number':mobile_number,
                     }
 
                 elif ret_response['data']['messages'][0]['status'] == 'INVALID_RECIPIENT':
@@ -2559,6 +2580,7 @@ class FlatMates(http.Controller):
         except ApiException as e:
             print("Exception when calling SMSApi->sms_send_post: %s\n" % e)
 
+        print('<<<<<< Data >>>>>>>>>>> ',data)
         return data
 
     @http.route(['/verify_otp'], type='json', auth="public", website=True)
@@ -2591,6 +2613,24 @@ class FlatMates(http.Controller):
 
 
         return data
+
+    @http.route(['/remove_partner_mobile_no'], type='json', auth="public", website=True)
+    def remove_partner_mobile_no(self, **kwargs):
+        print('\n\n-------------------------------------------------------------------')
+        partner_id = request.env.user.partner_id
+        print('\n Partner :',partner_id,partner_id.name)
+        if partner_id:
+            if partner_id.mobile:
+                print('Partner Mobile : ',partner_id.mobile)
+                partner_id.mobile=""
+            if partner_id.mobile_no_is_verified:
+                print('Parnter Is Verified :',partner_id.mobile_no_is_verified)
+                partner_id.mobile_no_is_verified = False
+
+        return True
+
+
+
 
 
 

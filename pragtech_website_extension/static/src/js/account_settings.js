@@ -98,9 +98,39 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
         }
 
 
+    $(".deregister_mobile_no").on('click',function(){
+        var mobile_no_to_deregister = $(".default_user_mobile").val()
+//        console.log('7777777777777777777777777777777777777777',mobile_no_to_deregister)
+        $(".old-mobile-no").append(mobile_no_to_deregister)
+    });
 
+    $("#close-deregister-popup").on('click',function(){
+        var mobile_no_to_deregister = $(".default_user_mobile").val()
+//        console.log('555555555555555555555555555555555555555',mobile_no_to_deregister)
+        $(".old-mobile-no").empty();
+        $("#account_settings_popup").modal("toggle")
 
+    })
 
+    $(".deregister-mobile").on('click',function(){
+
+        console.log('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG')
+
+         $.ajax({
+                    url: '/remove_partner_mobile_no',
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                    success: function(data)
+                    {
+                        $(".verify-mobile-on-dashboard").css('display','block')
+                        $("#account_verification").css('display','none')
+
+                        $("#signup_popup_id").modal('hide')
+                    }
+                });
+    });
 
 
     });//document ready

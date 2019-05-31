@@ -3,6 +3,7 @@
     <template id="property_detail11">
         <t t-call="website.layout">
             <div class="oe_structure oe_empty info-page">
+                <t t-if="property.listing_type == 'list'">
                 <div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -20,7 +21,28 @@
 						</nav>
 					</div>
 				</div>
-			</div>
+			    </div>
+                </t>
+                 <t t-if="property.listing_type == 'find'">
+                <div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="/">Home</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="/search/records?listing_type=find">Pepole</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#"><t t-esc="city"/></a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="#">F<t t-esc="property.id"/> </a></li>
+								<!--<li class="breadcrumb-item active" aria-current="page"><a href="#">Div3</a></li>-->
+								<!--<li class="breadcrumb-item active" aria-current="page"><a href="#">Div4</a></li>-->
+							</ol>
+						</nav>
+					</div>
+				</div>
+			    </div>
+                </t>
                 <div class="conatiner-fluid">
                     <div class="row">
                         <!--<div class="property-slider">-->
@@ -61,7 +83,7 @@
 
                                     <hr class="mt-5 mb-4"/>
                                     <div class="row">
-                                        <div class="col-lg-4 mb-4 text-center">
+                                        <div class="col-lg-4 col-md-4 col-12 mb-4 text-center">
 
                                             <div class="room-rent">
                                                 <div class="room-value">
@@ -90,7 +112,7 @@
 
                                         </div>
 
-                                        <div class="col-lg-4 mb-4 text-center">
+                                        <div class="col-lg-4 col-md-4 col-6 mb-4 text-center">
 
 
                                             <div class="room-months">
@@ -116,7 +138,7 @@
 
                                         </div>
 
-                                        <div class="col-lg-4 mb-4 text-center">
+                                        <div class="col-lg-4 col-md-4 col-6 mb-4 text-center">
                                             <div class="room-date">
                                                 <span class="icon">
                                                     <svg width="32" height="31">
@@ -145,9 +167,12 @@
 
                                     <h3>About me</h3>
 
-                                    <div class="mt-3 mb-3">
+                                    <!--<div class="mt-3 mb-3">-->
 
-                                        <t t-esc="description_about_property"/>
+                                        <!--<t t-esc="description_about_property"/>-->
+                                    <!--</div>-->
+                                    <div class="mt-3 mb-3" id="description_about_property">
+
                                     </div>
 
                                     <div class="about-me">
@@ -295,7 +320,7 @@
 
                                     <div class="property-preferences">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-6 col-12">
                                                 <div class="property-preferences-list mt-2 mb-2">
                                                     <span class="icon">
                                                         <svg width="23" height="20">
@@ -311,7 +336,7 @@
                                             </div>
 
 
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-6 col-12">
                                                 <div class="property-preferences-list mt-2 mb-2">
                                                     <span class="icon">
                                                         <svg width="24" height="24"
@@ -346,7 +371,7 @@
                                             </div>
 
 
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-6 col-12">
                                                 <div class="property-preferences-list mt-2 mb-2">
                                                     <span class="icon">
                                                         <svg width="22" height="22">
@@ -364,7 +389,7 @@
                                             </div>
 
 
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-6 col-12">
                                                 <div class="property-preferences-list mt-2 mb-2">
                                                     <span class="icon">
                                                         <svg width="24" height="24">
@@ -384,7 +409,7 @@
                                             </div>
 
 
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-6 col-12">
                                                 <div class="property-preferences-list mt-2 mb-2">
                                                     <span class="icon">
                                                         <svg width="24" height="21"
@@ -543,14 +568,14 @@
                                     <div class="row">
                                         <div class="col-12 login-form">
                                             <div class="row">
-                                                <div class="col-lg-4 text-center">
+                                                <div class="col-4 col-sm-3 text-center">
                                                     <span itemprop="image" t-field="user_id.image"
-                                                    t-options="{'widget': 'image','class': 'product_detail_img', 'alt-field': 'name', 'zoom': 'image'}"
+                                                    t-options="{'widget': 'image','class': 'product_detail_img rounded-circle', 'alt-field': 'name', 'zoom': 'image'}"
                                                       />
 
                                                 </div>
 
-                                                <div class="col-lg-8 text-center">
+                                                <div class="col-8 col-sm-9 text-center">
                                                     <h3><t t-esc="user_name"/> </h3>
                                                     <p>Online Today</p>
                                                     <div class="login-form-rounded-btn">Response rate: 100%
@@ -679,7 +704,7 @@
 
                                         </div>
 
-                                        <div class="col-12 text-muted text-center mt-2">
+                                        <div class="col-12 text-muted report-person text-center mt-2">
                                             <span class="icon">
                                                 <svg class="warning-shield" width="16" height="16" viewBox="0 0 50 50">
                                                     <path class="fill"
@@ -688,7 +713,7 @@
                                             </span>
 
                                             <span>
-                                                <strong>Report this person</strong>
+                                                Report this person
                                             </span>
                                         </div>
                                     </div>
@@ -727,7 +752,7 @@
 
                                     <hr class="mt-5 mb-4"/>
                                     <div class="row">
-                                        <div class="col-lg-3 mb-4 text-center">
+                                        <div class="col-lg-3 col-md-3 mb-4 col-sm-12 col-12 text-center">
 
                                             <div class="room-rent">
                                                 <div class="room-value">
@@ -745,7 +770,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-3 mb-4 text-center">
+                                        <div class="col-lg-3 mb-4 col-sm col text-center">
                                             <div class="room-months">
                                                 <span class="icon">
                                                     <svg width="32" height="27">
@@ -770,7 +795,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-3 mb-4 text-center">
+                                        <div class="col-lg-3 col-sm col mb-4 text-center">
                                             <div class="room-date">
                                                 <span class="icon">
                                                     <svg width="32" height="32">
@@ -806,7 +831,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-3 mb-4 text-center">
+                                        <div class="col-lg-3 col-sm col mb-4 text-center">
 
 
                                             <div class="room-date">
@@ -1097,7 +1122,7 @@
                                     <div class="room-details">
                                         <div class="property-preferences">
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="24">
@@ -1115,7 +1140,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="24"
@@ -1151,7 +1176,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="23">
@@ -1184,7 +1209,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="24">
@@ -1214,7 +1239,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="14" height="24"
@@ -1252,7 +1277,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="24" viewBox="0 0 24 24"
@@ -1286,7 +1311,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="23" height="20">
@@ -1302,7 +1327,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="21"
@@ -1350,12 +1375,12 @@
                                     <div class="row">
                                         <div class="col-12 login-form">
                                             <div class="row">
-                                                <div class="col-lg-4 text-center">
+                                                <div class="col-4 col-sm-3 text-center">
                                                     <img src="/pragtech_flatmates_system/static/src/img/avtar.png"
                                                          class="img-fluid rounded-circle" alt=""/>
                                                 </div>
 
-                                                <div class="col-lg-8 text-center">
+                                                <div class="col-8 col-sm-9 text-center">
                                                     <h3>
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
@@ -1489,7 +1514,7 @@
 
                                         </div>
 
-                                        <div class="col-12 text-muted text-center mt-2">
+                                        <div class="col-12 text-muted text-center report-person mt-2">
                                             <span class="icon">
                                                 <svg class="warning-shield" width="16" height="16" viewBox="0 0 50 50">
                                                     <path class="fill"
@@ -1498,7 +1523,7 @@
                                             </span>
 
                                             <span>
-                                                <strong>Report this person</strong>
+                                                Report this person
                                             </span>
                                         </div>
                                     </div>
@@ -1510,15 +1535,15 @@
                     </section>
                 </t>
 
-                <div class="container-fluid">
+                <div class="container-fluid" id="map_container">
                     <div class="row">
-                            <div id="map" style ="height:500px;width:2000px"></div>
+                            <div id="map" class='map-canvas' role="application" style ="height:300px;width:2000px"></div>
 
 
                     </div>
                 </div>
 
-                <section>
+                <section id="map_section">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6">
@@ -1536,35 +1561,35 @@
                                         </tr>
 
                                         <tr>
-                                            <td class="border-0">Glenroy Fish &amp; Chips</td>
-                                            <td class="border-0 text-right">Close by</td>
+                                            <td class="border-0 col-8">Glenroy Fish &amp; Chips</td>
+                                            <td class="border-0 col-4 text-right">Close by</td>
                                         </tr>
 
                                         <tr>
-                                            <td>Dosa Villas</td>
-                                            <td class="text-right">Close by</td>
+                                            <td class="col-8">Dosa Villas</td>
+                                            <td class="col-4 text-right">Close by</td>
                                         </tr>
 
                                         <tr>
-                                            <td>Dehleez Indian &amp; Pakistani Restaurant</td>
-                                            <td class="text-right">Close by</td>
+                                            <td class="col-8">Dehleez Indian &amp; Pakistani Restaurant</td>
+                                            <td class="col-4 text-right">Close by</td>
                                         </tr>
 
                                         <tr>
-                                            <td>My Mates Pizza Glenroy</td>
-                                            <td class="text-right">Close by</td>
+                                            <td class="col-8">My Mates Pizza Glenroy</td>
+                                            <td class="col-4 text-right">Close by</td>
                                         </tr>
 
                                         <tr>
-                                            <td>Domino's</td>
-                                            <td class="text-right">Close by</td>
+                                            <td class="col-8">Domino's</td>
+                                            <td class="col-4 text-right">Close by</td>
                                         </tr>
 
                                         <tr>
-                                            <td>
+                                            <td class="col-8">
                                                 <a href="#">+ Show more</a>
                                             </td>
-                                            <td class="text-right"></td>
+                                            <td class="col-4 text-right"></td>
                                         </tr>
 
                                     </table>
@@ -1586,35 +1611,35 @@
                                         </tr>
 
                                         <tr>
-                                            <td class="border-0">Coles Glenroy</td>
-                                            <td class="border-0 text-right">~ 4 min walk</td>
+                                            <td class="border-0 col-8">Coles Glenroy</td>
+                                            <td class="border-0 col-4 text-right">~ 4 min walk</td>
                                         </tr>
 
                                         <tr>
-                                            <td>Nepal Bazaar</td>
-                                            <td class="text-right">~ 8 min walk</td>
+                                            <td class="col-8">Nepal Bazaar</td>
+                                            <td class="col-4 text-right">~ 8 min walk</td>
                                         </tr>
 
                                         <tr>
-                                            <td>Glenroy Supermarket</td>
-                                            <td class="text-right">~ 8 min walk</td>
+                                            <td class="col-8">Glenroy Supermarket</td>
+                                            <td class="col-4 text-right">~ 8 min walk</td>
                                         </tr>
 
                                         <tr>
-                                            <td>Heaven wood fire pizza</td>
-                                            <td class="text-right">~ 17 min walk</td>
+                                            <td class="col-8">Heaven wood fire pizza</td>
+                                            <td class="col-4 text-right">~ 17 min walk</td>
                                         </tr>
 
                                         <tr>
-                                            <td>A Farnley Grocers</td>
-                                            <td class="text-right">~ 29 min walk</td>
+                                            <td class="col-8">A Farnley Grocers</td>
+                                            <td class="col-4 text-right">~ 29 min walk</td>
                                         </tr>
 
                                         <tr>
-                                            <td>
+                                            <td class="col-8">
                                                 <a href="#">+ Show more</a>
                                             </td>
-                                            <td class="text-right"></td>
+                                            <td class="col-4 text-right"></td>
                                         </tr>
 
                                     </table>

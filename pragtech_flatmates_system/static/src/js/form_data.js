@@ -45,9 +45,9 @@ $(document).ready(function() {
 
         $( "#find_property_preferences" ).submit(function( event ) {
             var find_weekly_budget = $("input[name=budget]").val()
-            var find_move_date = $("input[name=find_date]").val()
+            var find_move_date = $(".room-availability-datepicker").val()
             var find_preferred_length_stay = $("#find-preferred-stay").val()
-
+//console.log('RRRRRR ::' ,$(".room-availability-datepicker").val())
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
 
             record_array[0]['find_weekly_budget'] = find_weekly_budget
@@ -56,8 +56,8 @@ $(document).ready(function() {
 
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
 
-            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
-
+//            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//
 //            alert("Page")
 
         });
@@ -85,8 +85,8 @@ $(document).ready(function() {
             //console.log(find_no_of_flatmates)
             //console.log(record_array)
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-                        //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
-
+//                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//
 //            alert("Page")
 
         });
@@ -97,7 +97,7 @@ $(document).ready(function() {
 
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
 
-                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 //            alert("Page")
 
@@ -174,7 +174,7 @@ $(document).ready(function() {
             var find_employment_status = []
 
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
-            //console.log(record_array)
+            console.log(record_array)
             $("input[name=employment_status]:checked").each(function()
             {
             find_employment_status.push($(this).val())
@@ -205,8 +205,8 @@ $(document).ready(function() {
 
             record_array[0]['find_lifestyle'] = find_lifestyle
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-                        //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
-
+//                        console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//
 //            alert("Page")
 
         });
@@ -223,7 +223,6 @@ $(document).ready(function() {
 
             var find_place_data = JSON.parse(localStorage.getItem('find_place_record'));
 
-            //console.log('\nFind Place data \n\n',find_place_data)
 //            alert("page")
             if (find_place_data){
                 var is_id_exist = false
@@ -668,10 +667,10 @@ $(document).ready(function() {
 //            console.log('comment_about_property : ', comment_about_property)
 //            console.log('LOCAL STORAGE 99 : ',localStorage.getItem('list_place_array'))
 
-//            var list_place_data = JSON.parse(localStorage.getItem('list_place_array'));
+            var list_place_data = JSON.parse(localStorage.getItem('list_place_array'));
 
-
-//            alert('ssssssssssssssssssssssssssssssssssssssssssssssss')
+            console.log('List Place Data 29 May :: ',list_place_data[0])
+//            alert('ssssssssssssssssssss----Check---ssssssssssssssssssssssssssss')
 
             if (localStorage.getItem('list_place_array')){
 

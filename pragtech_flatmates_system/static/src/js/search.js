@@ -5,7 +5,6 @@ odoo.define('pragtech_flatmates.search', function (require) {
 
 $(document).ready(function() {
 
-
 $('.search-dropdown-menu').scroll(function() {
     console.log ("Inside Scrolllllllllllllllllllll")
     //    $( "#frdate" ).datepicker( "destroy" );

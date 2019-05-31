@@ -965,7 +965,7 @@ width: 10%;
 	border: none;
 	border-radius: 0px;
 	padding: 15px;
-	max-height: 350px;
+	max-height: 380px;
 	overflow-y: scroll;
 }
 
@@ -998,12 +998,6 @@ width: 10%;
 	width: 100%;
 }
 
-.search-form .advance-filters hr{
-	width: 94%;
-	z-index: -1;
-	position: absolute;
-	margin-top: 12px;
-}
 
 .search-form .advance-filters a{
 	background: #fff;
@@ -1024,7 +1018,6 @@ width: 10%;
 .search-form .advance-filters{
 	text-align: center;
 }
-
 
 .search-form .btn-padding-right{
 	padding-right: 5px;
@@ -1055,7 +1048,7 @@ width: 10%;
 	color: #a5a8ad;
 	background-image: url("/pragtech_flatmates_system/static/src/img/dropdown-gray.svg");
 	background-repeat: no-repeat;
-	background-position: right 16px center;
+	background-position: right 10px center;
 	background-size: 18px;
 }
 
@@ -1067,7 +1060,7 @@ width: 10%;
 	color: #fff;
 	background-image: url("/pragtech_flatmates_system/static/src/img/dropdown-white.svg");
 	background-repeat: no-repeat;
-	background-position: right 16px center;
+	background-position: right 10px center;
 	background-size: 18px;
 	
 }
@@ -1079,46 +1072,38 @@ width: 10%;
 }
 
 
-.search-form .advanced-option input:focus{
-	background: #37bc9b;
-	color: #fff;
-	border:1px solid #37bc9b;
-	outline: 0px;
-}
-
-
 
 
 .search-form .advanced-option input::-webkit-input-placeholder {
     color: #999;
 }
-.search-form .advanced-option input:focus::-webkit-input-placeholder {
+/*.search-form .advanced-option input:focus::-webkit-input-placeholder {
     color: #fff;
-}
+}*/
 
 /* Firefox < 19 */
 .search-form .advanced-option input:-moz-placeholder {
     color: #999;
 }
-.search-form .advanced-option input:focus:-moz-placeholder {
+/*.search-form .advanced-option input:focus:-moz-placeholder {
     color: #fff;
-}
+}*/
 
 /* Firefox > 19 */
 .search-form .advanced-option input::-moz-placeholder {
     color: #999;
 }
-.search-form .advanced-option input:focus::-moz-placeholder {
+/*.search-form .advanced-option input:focus::-moz-placeholder {
     color: #fff;
-}
+}*/
 
 /* Internet Explorer 10 */
 .search-form .advanced-option input:-ms-input-placeholder {
     color: #999;
 }
-.search-form .advanced-option input:focus:-ms-input-placeholder {
+/*.search-form .advanced-option input:focus:-ms-input-placeholder {
     color: #fff;
-}
+}*/
 
 .search-form .input-group input{
 	background: #fff;
@@ -1329,6 +1314,7 @@ width: 10%;
 
 .property-detail-left .room-rent .room-value .room-per-week{
 	font-size: 16px;
+	vertical-align: sub;
 }
 
 .property-detail-left .room-rent .room-txt{
@@ -2300,10 +2286,9 @@ background: #11836c;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-/*	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMThweCIgaGVpZ2h0PSIxMnB4IiB2aWV3Qm94PSIwIDAgMTggMTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPmRyb3Bkb3duPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPjwvZGVmcz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+ICAgICAgICA8cGF0aCBkPSJNMSwxIEw5LDkgTDE3LDEiIGlkPSJQYXRoLTM3NyIgc3Ryb2tlPSIjQ0JDREQxIiBzdHJva2Utd2lkdGg9IjMiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgPC9nPjwvc3ZnPg==) no-repeat 95% 50%;*/
 	border: 1px solid #e4e5e6;
 	border-radius: 5px;
-	color: #495057;
+/*	color: #495057;*/
 	font-size: 14px;
 	font-weight: normal;
 	height: 50px;
@@ -2313,7 +2298,14 @@ background: #11836c;
 	text-align: left;
 	width: 100%;
 	background: #fff;
+	color: #a5a8ad;
+	background-image: url("/pragtech_flatmates_system/static/src/img/dropdown-gray.svg");
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	background-size: 18px;
+	
 }
+
 .toggle {
 	clear: none;
 	float: left;
@@ -2327,7 +2319,6 @@ background: #11836c;
 }
 .select-check button {
 	color: #a5a8ad;
-	font-size: 1rem;
 	font-weight: normal;
 	text-align: left;
 }
@@ -2373,7 +2364,7 @@ background: #11836c;
 .round-dot label::before {
 	color: #ccc;
 	content: url(https://flatmates.com.au/assets/icons/circle-7279797c627d1bf38a70367e5bb271a2929366522e18940ccbfe2f53e1c7f4e8.svg);
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	margin-right: 5px;
 	position: relative;
@@ -2391,7 +2382,7 @@ background: #11836c;
 	border-bottom-style: solid;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	border-bottom: 1px solid #a5a8ad;
+	border-bottom: 1px dashed #a5a8ad;
 	outline: 0;
 }
 .select-check.open button {
@@ -2606,5 +2597,16 @@ background: #11836c;
 	background: none;
 }
 
+.report-person svg{
+	fill: #6c757d !important;
+} 
 
->>>>>>> [Fix]:Search design fixed and functionality implemented for suburbs
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus{
+	color: #fff;
+}
+
+.show > .btn-secondary.dropdown-toggle{
+	background: #fff;
+	color: #2f3a4a;
+	
+}

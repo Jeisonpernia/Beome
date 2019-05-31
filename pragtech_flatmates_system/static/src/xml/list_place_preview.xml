@@ -221,7 +221,7 @@
 			<div class="container">
 			<div class="row">
 			  	<div class="col-12">
-				<h2>Your Property Listing <button class=" btn btn-outline-primary"><strong>Preview listing</strong></button></h2>
+				<h2>Your Property Listing <button class="btn btn-outline-primary your-property-listing-btn"><strong>Preview listing</strong></button></h2>
 				  </div>
 			  </div>
 				</div>
@@ -245,7 +245,7 @@
 
                                     <hr class="mt-5 mb-4"/>
                                     <div class="row">
-                                        <div class="col-lg-4 mb-4 text-center">
+                                        <div class="col-lg-4 col-md-4 col-12 mb-4 text-center">
 											<div class="row" style="min-height:40px;">
 											<div class="col-12">
 												<button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal" data-target="#about_room_popup"><i class="fa fa-pencil"></i> Edit</button>
@@ -399,7 +399,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4 mb-4 text-center">
+                                        <div class="col-lg-4 col-md-4 col-6 mb-4 text-center">
 											<div class="row" style="min-height:40px;">
 											<div class="col-12">
 												</div>
@@ -428,7 +428,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4 mb-4 text-center">
+                                        <div class="col-lg-4 col-md-4 col-6 mb-4 text-center">
 											<div class="row" style="min-height:40px;">
 											<div class="col-12">
 												<button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal" data-target="#property-description-edit_popup"><i class="fa fa-pencil"></i> Edit</button>
@@ -998,7 +998,7 @@
                                     <div class="room-details">
                                         <div class="property-preferences">
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="24">
@@ -1016,7 +1016,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="24"
@@ -1053,7 +1053,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="23">
@@ -1074,7 +1074,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="24">
@@ -1104,7 +1104,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="14" height="24"
@@ -1142,7 +1142,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="24" viewBox="0 0 24 24"
@@ -1176,7 +1176,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="23" height="20">
@@ -1192,7 +1192,7 @@
                                                 </div>
 
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
                                                         <span class="icon">
                                                             <svg width="24" height="21"
@@ -1229,14 +1229,14 @@
                                     <div class="row">
                                         <div class="col-12 login-form">
                                             <div class="row">
-                                                <div class="col-lg-4 text-center">
+                                                <div class="col-4 col-sm-3 coltext-center">
                                                     <span itemprop="image" t-field="user_id.image"
-                                                    t-options="{'widget': 'image','class': 'product_detail_img', 'alt-field': 'name', 'zoom': 'image'}"
+                                                    t-options="{'widget': 'image','class': 'product_detail_img rounded-circle', 'alt-field': 'name', 'zoom': 'image'}"
                                                       />
 
                                                 </div>
 
-                                                <div class="col-lg-8 text-center">
+                                                <div class="col-8 col-sm-9 text-center">
                                                     <h3><t t-esc="user_name"/> </h3>
                                                     <p>Online Today</p>
                                                     <div class="login-form-rounded-btn">Response rate: 100%
@@ -1357,7 +1357,7 @@
 											
                                         </div>
 
-                                        <div class="col-12 text-muted text-center mt-2">
+                                        <div class="col-12 text-muted report-person text-center mt-2">
                                             <span class="icon">
                                                 <svg class="warning-shield" width="16" height="16" viewBox="0 0 50 50">
                                                     <path class="fill"
@@ -1366,14 +1366,14 @@
                                             </span>
 
                                             <span>
-                                                <strong>Report this person</strong>
+                                                Report this person
                                             </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 							
-							<div class="row">
+							<div class="row mt-3">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2232.1568841040585!2d144.91411341165494!3d-37.70215119092171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65afdcd8d2887%3A0xff1ef620c57cc144!2sPascoe+Vale+Rd%2C+Melbourne+VIC%2C+Australia!5e0!3m2!1sen!2sin!4v1557394152019!5m2!1sen!2sin"
                                 width="100%" height="450" frameborder="0" style="border:0"
                                 allowfullscreen="true"></iframe>
@@ -1402,22 +1402,22 @@
 			  </div>
 
 			  <div class="row">
-				<div class="col-lg-6"><p class="p14"><strong>Flatmates.com.au is a peer to peer listing site for those looking for shared homes or those looking for a flatmate. Simply create a listing, search and connect.</strong></p></div>
-				<div class="col-lg-2">
+				<div class="col-lg-6 col-md-12 col-12"><p class="p14"><strong>Flatmates.com.au is a peer to peer listing site for those looking for shared homes or those looking for a flatmate. Simply create a listing, search and connect.</strong></p></div>
+				<div class="col-lg-2 col-md-4 col-6">
 				  <ul>
 					<li><a href="#">About us</a></li>
 					<li><a href="#">How it works</a></li>
 					<li><a href="#">Info</a></li>
 				  </ul>
 				  </div>
-				<div class="col-lg-2">
+				<div class="col-lg-2 col-md-4 col-6">
 				  <ul>
 					<li><a href="#">Privacy policy</a></li>
 					<li><a href="#">Terms &amp; Conditions</a></li>
 
 				  </ul>
 				  </div>
-				<div class="col-lg-2 social-icons text-center">
+				<div class="col-lg-2 col-md-4 col-6 social-icons text-center">
 				  <p class="p14">Connect with us on:</p>
 					<ul>
 					<li><a href="#"><span class="icon"><svg width="29" height="29" viewBox="0 0 29 29"><path fill="#FFF" fill-rule="evenodd" d="M14.498 0C6.505 0 0 6.506 0 14.499 0 22.495 6.505 29 14.498 29 22.494 29 29 22.495 29 14.499 29 6.506 22.494 0 14.498 0zm3.608 15.01h-2.359v8.41h-3.496v-8.41H10.59v-2.972h1.662v-1.922c0-1.375.653-3.528 3.528-3.528l2.59.011v2.884h-1.88c-.308 0-.742.154-.742.81v1.748h2.664l-.305 2.968z"></path></svg></span></a></li>

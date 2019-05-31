@@ -131,7 +131,7 @@
                                                                     <label for="file-input-22" class="add_image_icon">
                                                                         <img class="card-img-top rounded-circle mx-auto profile-pic-2"
                                                                              src="/pragtech_flatmates_system/static/src/img/avtar.png"
-                                                                             alt="" width="140" height="140"/>
+                                                                             alt="" width="120" height="120"/>
                                                                     </label>
                                                                     <input id="file-input-22" type="file"
                                                                            class="dashboard_profile_image"
@@ -167,7 +167,10 @@
                                                                 <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
                                                             </h5>
                                                             <p class="text-center text-danger">Free Account</p>
-                                                            <a href="#" class="btn btn-orange btn-block">Why Upgrade</a>
+                                                            <a href="#" class="btn btn-orange btn-block"
+                                                               data-toggle="modal"
+                                                               data-target="#why_upgrade_popup">Why Upgrade
+                                                            </a>
                                                             <p class="text-center text-muted mt-3">Payment history</p>
                                                         </div>
                                                     </div>
@@ -302,15 +305,26 @@
                                                     <h4>My account</h4>
 
                                                     <ul>
-                                                        <li id="verify_mobile">
+                                                        <li id="verify_mobile" class="verify-mobile-on-dashboard">
                                                             <a href="#" data-toggle="modal"
                                                                data-target="#verify_mobile_popup">
-                                                                <svg class="icon" viewBox="0 0 24 24" width="48"
+                                                                <svg id="bell-icon" class="icon" viewBox="0 0 24 24"
+                                                                     width="48"
                                                                      height="48">
                                                                     <path class="fill"
                                                                           d="M12 0c-1.105 0-2 .895-2 2 0 .042-.003.083 0 .125C7.678 2.43 6 3.42 6 6.03 6 15.945 1 14.035 1 20c0 0 4.006 1 11 1s11-1 11-1c0-5.93-5-3.998-5-13.97 0-2.63-1.658-3.61-4-3.905.003-.042 0-.083 0-.125 0-1.105-.895-2-2-2zM9.156 21.938C9.552 23.13 10.674 24 12 24c1.326 0 2.448-.87 2.844-2.063-.88.035-1.836.063-2.844.063-1.013 0-1.96-.026-2.844-.063z"></path>
                                                                 </svg>
                                                                 Verify mobile phone
+                                                            </a>
+                                                        </li>
+                                                        <li id="account_verification">
+                                                            <a href="#" data-toggle="modal"
+                                                               data-target="#">
+                                                                <svg class="verify_account" viewBox="0 0 24 24" width="48" height="48">
+                                                                    <path class="fill"
+                                                                          d="M20.03125,0.40625 C16.35025,0.47425 13.632,1.56875 12,3.71875 C10.067,6.26675 9.7145,10.14475 10.9375,15.21875 C10.4865,15.76975 10.14825,16.60675 10.28125,17.71875 C10.54625,19.92375 11.403,20.8265 12.125,21.1875 C12.468,22.9175 13.42375,24.86425 14.34375,25.78125 L14.34375,26.25 C14.35275,27.266 14.37825,28.14525 14.28125,29.28125 C13.66925,30.68725 11.63125,31.5135 9.28125,32.4375 C5.37525,33.9745 0.489,35.8715 0.125,41.9375 L0.0625,43 L32.46875,43 L29.28125,40.21875 L27.78125,38.90625 L29.09375,37.375 L30.40625,35.875 L31.71875,34.375 L33.21875,35.6875 L37.78125,39.65625 L38.96875,38.15625 C37.33175,34.32425 31.238,32.63275 28.25,31.21875 C27.535,30.85475 26.922,30.461 26.5,30 C26.322,29.804 26.1815,29.57025 26.0625,29.28125 C25.9645,28.14525 25.95875,27.259 25.96875,26.25 L25.96875,25.78125 C26.86375,24.86625 27.785,22.9195 28.125,21.1875 C28.848,20.8255 29.70475,19.92275 29.96875,17.71875 C30.09975,16.62875 29.77875,15.801 29.34375,15.25 C29.92375,13.271 31.1125,8.1115 29.0625,4.8125 C28.2055,3.4285 26.9025,2.55775 25.1875,2.21875 C24.2445,1.02575 22.46125,0.40625 20.03125,0.40625 L20.03125,0.40625 Z M46.4375,31.90625 L38.0625,42.5625 L31.90625,37.1875 L30.59375,38.6875 L38.34375,45.4375 L48,33.125 L46.4375,31.90625 L46.4375,31.90625 Z"></path>
+                                                                </svg>
+                                                                Account verifications
                                                             </a>
                                                         </li>
                                                         <li id="account_settings_popup_id">
@@ -409,8 +423,11 @@
 
                                                         <div class="form-group mt-2">
                                                             <input type="text" class="form-control verify-mobile-no"
-                                                                   id="verify_mobile" name="mobile"
-                                                                   placeholder="Mobile number"/>
+                                                                   id="verify_mobile" name="mobile"/>
+
+                                                            <label class="form-control-placeholder" for="verify_mobile">
+                                                                Mobile number
+                                                            </label>
                                                         </div>
 
 
@@ -468,20 +485,26 @@
                                             <div class="row">
                                                 <div class="col-lg-8 mx-auto">
                                                     <form action="/action_page.php">
-                                                        <h3 class="text-center mt-4 mb-4 verify-heading-msg">Verify
-                                                            Mobile Number
+                                                        <h3 class="text-center mt-4 mb-4 verify-heading-msg">Enter Your
+                                                            Security Code
                                                         </h3>
+                                                        <p class="security-code-sent">
+                                                            A security code has been sent to <span
+                                                                class="code-sent-to-mobile"></span> .It may take a few
+                                                            minutes to arrive.
 
+                                                        </p>
                                                         <div class="form-group mt-4">
                                                             <div class="form-group mt-2">
                                                                 <input type="text" class="form-control otp-code"
                                                                        id="otp_code_id" name="otp_code"
-                                                                       placeholder="Enter your OTP"/>
+                                                                       placeholder="Security code"/>
+                                                                <!--<label class="form-control-placeholder" for="otp_code_id">Security code</label>-->
                                                             </div>
                                                         </div>
                                                         <button type="button"
                                                                 class="btn btn-green1 mt-3 mb-4 btn-block check_otp">
-                                                            Submit
+                                                            Verify SMS code
                                                         </button>
                                                         <h2 class="verified-message" style="display:none">Your Mobile
                                                             Number Is verified
@@ -489,6 +512,109 @@
                                                         </h2>
                                                         <h2 class="invalid-otp-msgg" style="display:none">Invalid OTP
                                                         </h2>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </main>
+                                    <div class="modal-footer verify-code-footer">
+                                        <h4>
+                                            Haven't received anything?
+                                            <a href="#" data-toggle="modal"
+                                               data-target="#verify_mobile_popup"
+                                               data-dismiss="modal">Try again
+                                            </a>
+                                            Do not share security codes with anyone.
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal fade" id="change_mobile_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" id="close-deregister-popup" class="close"
+                                                data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-8 mx-auto">
+                                                    <form action="/action_page.php">
+                                                        <h3 class="text-center mt-4 mb-4">Deregister your mobile</h3>
+                                                        <p>If you deregister your mobile any active listings will be
+                                                            inaccessible to other members until you re-verify your nre
+                                                            number.
+                                                        </p>
+                                                        <p>
+                                                            Would you like to deregister <span
+                                                                class="old-mobile-no"></span>?
+                                                        </p>
+                                                        <button type="button"
+                                                                class="btn btn-green1 mt-3 mb-4 btn-block deregister-mobile"
+                                                                data-dismiss="modal">
+                                                            Yes, deregister
+                                                            <span class="old-mobile-no"></span>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="reset_password_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close"
+                                                data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-8 mx-auto">
+                                                    <form action="/action_page.php">
+                                                        <h3 class="text-center mt-4 mb-4">Change Password</h3>
+
+                                                        <div class="form-group mt-4">
+                                                            <div class="form-group mt-2">
+                                                                <input type="text" class="form-control"
+                                                                       id="current_passwrd" name=""
+                                                                       placeholder="Current Password"/>
+
+                                                                <!--<label class="form-control-placeholder" for="otp_code_id">Security code</label>-->
+                                                            </div>
+                                                            <div class="form-group mt-2">
+                                                                <input type="text" class="form-control"
+                                                                       id="new_passwrd" name=""
+                                                                       placeholder="New Password"/>
+
+                                                                <!--<label class="form-control-placeholder" for="otp_code_id">Security code</label>-->
+                                                            </div>
+                                                            <div class="form-group mt-2">
+                                                                <input type="text" class="form-control"
+                                                                       id="confirm_new_passwrd" name=""
+                                                                       placeholder="Confirm New Password"/>
+
+                                                                <!--<label class="form-control-placeholder" for="otp_code_id">Security code</label>-->
+                                                            </div>
+                                                        </div>
+
+                                                        <button type="button"
+                                                                class="btn btn-green1 mt-3 mb-4 btn-block"
+                                                                data-dismiss="modal">
+                                                                Change Password
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -562,20 +688,51 @@
 
                                                         <div class="form-group mt-4">
                                                             <input type="text" class="form-control default_user_name"
-                                                                   name="name" id="name" placeholder="Your name"/>
+                                                                   name="name" id="name"/>
+                                                            <label class="form-control-placeholder" for="name">Your
+                                                                name
+                                                            </label>
                                                         </div>
 
 
                                                         <div class="input-group mt-2">
                                                             <input type="text" class="form-control default_user_email"
-                                                                   name="email" id="email" placeholder="Email address"/>
+                                                                   name="email" id="email"/>
+                                                            <label class="form-control-placeholder" for="email">Email
+                                                                address
+                                                            </label>
                                                         </div>
 
 
                                                         <div class="form-group mt-2">
-                                                            <input type="text" class="form-control default_user_mobile"
-                                                                   id="mobile" name="mobile"
-                                                                   placeholder="Mobile number" readonly="1"/>
+                                                            <div class="row">
+                                                                <div class="col-9">
+                                                                    <input type="text"
+                                                                           class="form-control default_user_mobile"
+                                                                           id="mobile" name="mobile" readonly="1"/>
+                                                                    <label class="form-control-placeholder"
+                                                                           for="mobile">Mobile
+                                                                    </label>
+                                                                </div>
+
+                                                                <div class="col-3">
+                                                                    <span class="verify-phone">
+                                                                        <a href="#" data-toggle="modal"
+                                                                           data-target="#verify_mobile_popup"
+                                                                           data-dismiss="modal">Verify mobile phone
+                                                                        </a>
+                                                                    </span>
+                                                                    <span class="already-verified"
+                                                                          style="display:none;">
+                                                                        <a class="deregister_mobile_no" href="#"
+                                                                           data-toggle="modal"
+                                                                           data-target="#change_mobile_popup"
+                                                                           data-dismiss="modal">Change
+                                                                        </a>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
 
 
@@ -591,15 +748,6 @@
                                                                 contact me on my mobile(recommended)
                                                             </span>
 
-                                                            <span class="verify-phone">
-                                                                <a href="#" data-toggle="modal"
-                                                                   data-target="#verify_mobile_popup"
-                                                                   data-dismiss="modal">Verify mobile phone
-                                                                </a>
-                                                            </span>
-                                                            <span class="already-verified" style="display:none;">
-                                                                <h5>Verified</h5>
-                                                            </span>
 
                                                         </div>
 
@@ -608,6 +756,12 @@
                                                                 data-dismiss="modal" id="account_settings">Save My
                                                             Changes
                                                         </button>
+
+
+                                                        <a href="#" data-toggle="modal"
+                                                           data-target="#reset_password_popup">Change Password
+                                                        </a>
+
 
                                                     </form>
                                                 </div>
@@ -621,6 +775,13 @@
                                         </div>-->
 
                                     </main>
+
+                                    <div class="modal-footer">
+
+                                        <a href="#" data-toggle="modal" data-target="#deactivate_account_popup"
+                                           data-dismiss="modal">Deactivate or delete my account
+                                        </a>
+                                    </div>
 
                                 </div>
                             </div>
@@ -1021,4 +1182,3 @@
     </template>
 
 </odoo>
-

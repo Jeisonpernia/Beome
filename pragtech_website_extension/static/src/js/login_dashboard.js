@@ -26,6 +26,13 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                             $(".dashbord-profile-img").attr("src", "data:image/png;base64," + user_profile_pic);
                         }
 
+                        if (data['result']['is_mobile_verified'] == true){
+                            $(".verify-mobile-on-dashboard").css('display','none')
+                                $("#account_verification").css('display','block')
+//                            $("#bell-icon").css("fill","#fff");
+                        }
+
+
                         for (index=0 ; index < data['result']['blogs'].length; index++)
                         {
 //                            console.log(data['result']['blogs'][index]['id'])

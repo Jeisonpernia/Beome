@@ -31,10 +31,12 @@ class HomepageLogin(Website_Inherit):
     def web_login(self, redirect=None, *args, **kw):
         response = super(HomepageLogin, self).web_login(redirect=redirect, *args, **kw)
         print("\n\n=-----=---weblogin====",kw,response)
-        # request.session.logout(keep_db=True)
-
+        # if 'password' in kw and kw['password']:
         return response
-     
+        # else:
+        #     request.session.logout(keep_db=True)
+
+
     @http.route('/web/access_login',type="http", auth='public', website=True,csrf=False)
     def access_login(self, **kw):
         val_password = 'Housemates@123'

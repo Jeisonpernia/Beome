@@ -370,7 +370,7 @@
                                             <br/>
                                             <input id="find-txtdate" type="text" name="find_date"
                                                    placeholder="Select a date"
-                                                   class="span2 find-datepicker room-availability-datepicker mt-2"/>
+                                                   class="span2 find-datepicker room-availability-datepicker mt-2" value=""/>
                                         </div>
                                         <div class="form-group">
                                             <span>Preferred length of stay</span>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="upgrade_template_id" name="Main Frontend Layout">
+		<div role="dialog" id="why_upgrade_popup" class="modal p-0" tabindex="-1" t-ignore="true">
+                            <div class="modal-dialog">
+                                <form role="form">
+                                    <div class="modal-content">
+                                        <header class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                ×
+                                            </button>
+                                        </header>
+                                        <main class="modal-body">
+                                            
+
+                                        </main>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+	</template>
+</odoo>

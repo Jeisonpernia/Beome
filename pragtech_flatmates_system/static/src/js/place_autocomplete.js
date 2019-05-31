@@ -60,6 +60,7 @@ $(document).ready(function() {
         document.getElementById('longitude').value = '';
         document.getElementById('longitude').disabled = false;
 
+
         var lati_tude = place.geometry.location.lat()
         var longi_tude = place.geometry.location.lng()
 
