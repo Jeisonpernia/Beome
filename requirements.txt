@@ -1,4 +1,5 @@
 httpagentparser==1.8.2
 geopy==1.19.0
 pyotp==2.2.7
+clicksend-client==1.0.0
 
