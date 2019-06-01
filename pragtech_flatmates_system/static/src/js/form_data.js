@@ -338,6 +338,10 @@ $(document).ready(function() {
             var country = $ ("#country").val()
             var latitude = $("#latitude").val()
             var longitude = $("#longitude").val()
+            var north = $("#north").val()
+            var east = $("#east").val()
+            var south = $("#south").val()
+            var west = $("#west").val()
             var total_bedrooms = $("input[name='bed_rooms']:checked").val();
             var total_bathrooms = $("input[name='bath_rooms']:checked").val();
             var parking = $('#parking').val();
@@ -374,6 +378,19 @@ $(document).ready(function() {
             if (longitude){
                 oldArray[0]['longitude'] = longitude;
             }
+            if (north){
+                oldArray[0]['north'] = north;
+            }
+            if (east){
+                oldArray[0]['east'] = east;
+            }
+            if (south){
+                oldArray[0]['south'] = south;
+            }
+            if (west){
+                oldArray[0]['west'] = west;
+            }
+
             if (total_bedrooms){
                 oldArray[0]['total_bedrooms'] = total_bedrooms;
             }

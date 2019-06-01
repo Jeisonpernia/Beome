@@ -352,6 +352,30 @@
                                                         <input class="field" id="longitude" disabled="true"/>
                                                     </td>
                                                 </tr>
+                                                 <tr>
+                                                    <td class="label">North</td>
+                                                    <td class="wideField" colspan="3">
+                                                        <input class="field" id="north" disabled="true"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">South</td>
+                                                    <td class="wideField" colspan="3">
+                                                        <input class="field" id="south" disabled="true"/>
+                                                    </td>
+                                                </tr>
+                                                 <tr>
+                                                    <td class="label">East</td>
+                                                    <td class="wideField" colspan="3">
+                                                        <input class="field" id="east" disabled="true"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">West</td>
+                                                    <td class="wideField" colspan="3">
+                                                        <input class="field" id="west" disabled="true"/>
+                                                    </td>
+                                                </tr>
                                             </table>
                                             <!--<input type="text" class="form-control mt-2" id="prop_addr"-->
                                             <!--name="property_address"/>-->

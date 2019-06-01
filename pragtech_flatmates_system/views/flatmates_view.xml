@@ -189,9 +189,10 @@
                     </header>
                     <sheet>
                         <group>
+
                             <group>
+                                <field name="name" readonly="1"/>
                             <field name="listing_type" widget="radio" options="{'horizontal': true}"/>
-                            <field name="name"/>
                             <field name="property_type" String="Property type" widget="many2many_tags" options="{'no_create_edit':True}"/>
                             <field name="user_id" String="User" options="{'no_create_edit':True}"/>
                                 <label for="street" string="Address" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
@@ -369,7 +370,11 @@
             <field name="arch" type="xml">
                 <tree string="Housemates" name="housemates">
                     <field name="name"/>
-                    <field name="listing_type"/>
+                    <field name="listing_type" string="Type"/>
+                    <field name="street" string="Street"/>
+                    <field name="zip" string="Postal Code"/>
+                    <field name="city" string="Area"/>
+                    <field name="state_id" string="State"/>
                 </tree>
             </field>
         </record>

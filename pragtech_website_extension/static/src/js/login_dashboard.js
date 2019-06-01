@@ -18,7 +18,7 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                         var blog_blog_name
                         ul.empty()
 //                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",ul.children())
-//                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'])
+                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result']['listings'])
 
 
                         if (data['result']['user_profile_pic']){
@@ -44,6 +44,39 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                         }
                         if (data['result']['blogs'].length != 0)
                             ul.append('<li><a href="/info/'+blog_blog_name+'-'+blog_blog_id+'">+ View all articles</a></li>')
+
+                        if (data['result']['listings'].length != 0){
+                        for (var index=0 ; index < data['result']['listings'].length; index++)
+                        {
+                               listing_id = data['result']['listings'][index]['id']
+                            listing_address = data['result']['listings'][index]['address']
+
+                            $('.user_listings').append('<li id="listing_li<%=listing_id%>" value='+listing_id+'><input type="hidden" id="listing_li<%=listing_id%>" value='+listing_id+'>'+'<a href="#">'+data['result']['listings'][index]['address']+'</a></li>')
+                         }
+                        }
+
+
+                         $('li[id^="listing_li"]').on('click', function() {
+
+                           $.ajax({
+                            url : "/list_place_preview",   // calls to controller method
+                            type : "post",
+                            dataType : 'http',
+                            data : {
+                                'id':this.value,
+                                   // send to controller method arguments
+                            },
+                            success : function(result) {    // work after controller method return
+                                if (result) {
+
+                                }
+                            },
+                            });
+                         });
+
+
+
+
                     },
                 });
             });

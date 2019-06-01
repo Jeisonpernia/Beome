@@ -105,4 +105,3 @@ class ResUser(models.Model):
 
         if image_content:
             return image_content
-

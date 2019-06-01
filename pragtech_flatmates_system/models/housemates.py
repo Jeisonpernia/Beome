@@ -15,7 +15,7 @@ class Housemates(models.Model):
     ## Main
     state = fields.Selection([('active', 'Active'), ('deactive', 'Deactive')],default='active')
     listing_type = fields.Selection([('list', 'List'), ('find', 'Find')], string="Listing type", default='find')
-    name = fields.Char(string="Property Name")
+    name = fields.Char(string="ID",index=True,required=True, default=lambda self: _('New'))
     property_type = fields.Many2many('property.type', string="Property type")
     user_id = fields.Many2one('res.users', string="User")
 
@@ -27,6 +27,10 @@ class Housemates(models.Model):
     country_id = fields.Many2one('res.country')
     latitude = fields.Char()
     longitude = fields.Char()
+    north=fields.Char()
+    east=fields.Char()
+    south=fields.Char()
+    west=fields.Char()
 
     total_bathrooms_id = fields.Many2one('bathrooms', string="Total Bathrooms")
     total_bedrooms_id = fields.Many2one('bedrooms', string="Total Bedrooms")
@@ -92,8 +96,12 @@ class Housemates(models.Model):
     @api.model
     def create(self,values):
         listing = super(Housemates, self).create(values)
-        # print("---------values----------------listimng--------",listing)
-        listing.send_listing_alert_email()
+        if values.get('name', _('New')) == _('New'):
+            values['name'] = self.env['ir.sequence'].next_by_code('house.mates') or _('New')
+        print("---------values----------------listimng--------",values)
+        mail_server_obj = self.env['ir.mail_server'].sudo().search([])
+        if mail_server_obj:
+            listing.send_listing_alert_email()
         return listing
 
 
@@ -129,7 +137,7 @@ class Housemates(models.Model):
 
         template.write(template_values)
         for user in self.user_id:
-            # print("===============user==============",user.login)
+            print("===============user==============",user.login)
             if not user.email:
                 raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
             with self.env.cr.savepoint():

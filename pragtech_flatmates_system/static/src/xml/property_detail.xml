@@ -1537,7 +1537,7 @@
 
                 <div class="container-fluid" id="map_container">
                     <div class="row">
-                            <div id="map" class='map-canvas' role="application" style ="height:300px;width:2000px"></div>
+                            <div id="map" class='map-canvas' role="application" style ="height:294px;width:100%"></div>
 
 
                     </div>
@@ -1548,7 +1548,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table map_table_restaurants">
                                         <tr style="background:#f5f5f6;">
                                             <td colspan="2" class="text-center border-0">
                                                 <span class="mr-2">
@@ -1560,37 +1560,37 @@
                                             </td>
                                         </tr>
 
-                                        <tr>
-                                            <td class="border-0 col-8">Glenroy Fish &amp; Chips</td>
-                                            <td class="border-0 col-4 text-right">Close by</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="border-0 col-8">Glenroy Fish &amp; Chips</td>-->
+                                            <!--<td class="border-0 col-4 text-right">Close by</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">Dosa Villas</td>
-                                            <td class="col-4 text-right">Close by</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">Dosa Villas</td>-->
+                                            <!--<td class="col-4 text-right">Close by</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">Dehleez Indian &amp; Pakistani Restaurant</td>
-                                            <td class="col-4 text-right">Close by</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">Dehleez Indian &amp; Pakistani Restaurant</td>-->
+                                            <!--<td class="col-4 text-right">Close by</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">My Mates Pizza Glenroy</td>
-                                            <td class="col-4 text-right">Close by</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">My Mates Pizza Glenroy</td>-->
+                                            <!--<td class="col-4 text-right">Close by</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">Domino's</td>
-                                            <td class="col-4 text-right">Close by</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">Domino's</td>-->
+                                            <!--<td class="col-4 text-right">Close by</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">
-                                                <a href="#">+ Show more</a>
-                                            </td>
-                                            <td class="col-4 text-right"></td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">-->
+                                                <!--<a href="#">+ Show more</a>-->
+                                            <!--</td>-->
+                                            <!--<td class="col-4 text-right"></td>-->
+                                        <!--</tr>-->
 
                                     </table>
                                 </div>
@@ -1598,7 +1598,7 @@
 
                             <div class="col-lg-6">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table map_table_supermarket">
                                         <tr style="background:#f5f5f6;">
                                             <td colspan="2" class="border-0 text-center">
                                                 <span class="mr-2">
@@ -1610,37 +1610,37 @@
                                             </td>
                                         </tr>
 
-                                        <tr>
-                                            <td class="border-0 col-8">Coles Glenroy</td>
-                                            <td class="border-0 col-4 text-right">~ 4 min walk</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="border-0 col-8">Coles Glenroy</td>-->
+                                            <!--<td class="border-0 col-4 text-right">~ 4 min walk</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">Nepal Bazaar</td>
-                                            <td class="col-4 text-right">~ 8 min walk</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">Nepal Bazaar</td>-->
+                                            <!--<td class="col-4 text-right">~ 8 min walk</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">Glenroy Supermarket</td>
-                                            <td class="col-4 text-right">~ 8 min walk</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">Glenroy Supermarket</td>-->
+                                            <!--<td class="col-4 text-right">~ 8 min walk</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">Heaven wood fire pizza</td>
-                                            <td class="col-4 text-right">~ 17 min walk</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">Heaven wood fire pizza</td>-->
+                                            <!--<td class="col-4 text-right">~ 17 min walk</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">A Farnley Grocers</td>
-                                            <td class="col-4 text-right">~ 29 min walk</td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">A Farnley Grocers</td>-->
+                                            <!--<td class="col-4 text-right">~ 29 min walk</td>-->
+                                        <!--</tr>-->
 
-                                        <tr>
-                                            <td class="col-8">
-                                                <a href="#">+ Show more</a>
-                                            </td>
-                                            <td class="col-4 text-right"></td>
-                                        </tr>
+                                        <!--<tr>-->
+                                            <!--<td class="col-8">-->
+                                                <!--<a href="#">+ Show more</a>-->
+                                            <!--</td>-->
+                                            <!--<td class="col-4 text-right"></td>-->
+                                        <!--</tr>-->
 
                                     </table>
                                 </div>

@@ -45,54 +45,106 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                     {
                         initMap()
                     }
+                    var map;
+                    var marker;
+
                     function initMap()
                     {
-//                          var NEW_ZEALAND_BOUNDS = {
-//                            north: -34.36,
-//                            south: -47.35,
-//                            west: 166.28,
-//                            east: -175.81,
-//                          };
+                          var Australia_Bounds = {
+                            north: Number(result['result']['north']),
+                            south: Number(result['result']['south']),
+                            west:  Number(result['result']['west']),
+                            east:  Number(result['result']['east']),
+                          };
+
+                          console.log("\n----bounds----",Australia_Bounds)
 
                           var uluru = {lat: Number(result['result']['latitude']), lng: Number(result['result']['longitude'])};
-                          var map = new google.maps.Map(document.getElementById('map'),
+                          map = new google.maps.Map(document.getElementById('map'),
                                         {
                                         zoom: 21,
                                         center:  uluru,
                                         gestureHandling: 'greedy',
-//                                        restriction: {
-//                                                        latLngBounds: NEW_ZEALAND_BOUNDS,
-//                                                        strictBounds: false,
-//                                                      },
+                                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+                                        restriction: {
+                                                        latLngBounds: Australia_Bounds,
+                                                        strictBounds: false,
+                                                      },
 
                                         });
-//	google.maps.event.addListener(map, 'bounds_changed', function() {
-//		console.log("aaaaaaaaaaaaa",map.getBounds())
-//	});
+
+
+
+                          service = new google.maps.places.PlacesService(map);
+                          service.nearbySearch(
+                            {location: uluru, radius: 100, type: ['bus_station']},
+                            function(results, status, pagination) {
+                              if (status !== 'OK') return;
+                              createMarkers(results);
+                          });
+
+                           service.nearbySearch(
+                            {location: uluru, radius: 100, type: ['restaurant']},
+                            function(results, status, pagination) {
+                              if (status !== 'OK') return;
+                               console.log("===========result========",results,results.length)
+                              for (var i=0;i<results.length;i++){
+                              $(".map_table_restaurants").append("<tr><td class='border-0 col-8'>" + results[i]['name'] +"</td><td class='border-0 col-4 text-right'>Close by</td></tr>");
+                              }
+                              $(".map_table_restaurants").append("<tr><td class='col-8'> <a href='#'>+ Show more</a></td><td class='col-4 text-right'></td> </tr>")
+
+                              createMarkers(results);
+                          });
+                          service.nearbySearch(
+                            {location: uluru, radius: 100, type: ['train_station']},
+                            function(results, status, pagination) {
+                              if (status !== 'OK') return;
+
+                              createMarkers(results);
+                          });
+                          service.nearbySearch(
+                            {location: uluru, radius: 100, type: ['supermarket']},
+                            function(results, status, pagination) {
+                            console.log("======resultt--------",status)
+                              if (status !== 'OK') return;
+                              for (var i=0;i<results.length;i++){
+                              $(".map_table_supermarket").append("<tr><td class='border-0 col-8'>" + results[i]['name'] +"</td><td class='border-0 col-4 text-right'>29 min walk</td></tr>");
+                              }
+                              $(".map_table_supermarket").append("<tr><td class='col-8'> <a href='#'>+ Show more</a></td><td class='col-4 text-right'></td> </tr>")
+
+                              createMarkers(results);
+                          });
+
+                          service.nearbySearch(
+                            {location: uluru, radius: 100, type: ['cafe']},
+                            function(results, status, pagination) {
+                              if (status !== 'OK') return;
+
+                              createMarkers(results);
+                          });
 
                           var geocoder = new google.maps.Geocoder;
                           var infowindow = new google.maps.InfoWindow;
                           geocodeLatLng(geocoder, map, infowindow);
-                          google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
-                          console.log("=======in methoidd=====")
-                              if (this.getZoom() > 21) {
-                                this.setZoom(21);
-                              }
-                          });
+
+
+
+
                     }
 
                     function geocodeLatLng(geocoder, map, infowindow)
                     {
                           var latlng = {lat: Number(result['result']['latitude']), lng:Number(result['result']['longitude'])};
-                          geocoder.geocode({'location': latlng}, function(results, status)
+                          geocoder.geocode({'location': latlng,}, function(results, status)
                           {
                               if (status === 'OK')
                               {
                                     if (results[0])
                                     {
                                         label_info=[results[0].formatted_address]
-
-                                        var marker = new google.maps.Circle
+                                        console.log("====label===",typeof label_info[0])
+                                        marker = new google.maps.Circle
                                         ({
                                         position: latlng,
                                         map: map,
@@ -103,16 +155,20 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                                         strokeOpacity: 0.8,
                                         strokeWeight: 2,
                                         center:latlng,
-                                        label :label_info[0][0]
+                                        draggable: true,
+                                        raiseOnDrag: true,
+//                                        label: "Little Mount St",
+//                                        labelAnchor: new google.maps.Point(15, 65),
+//                                        labelClass: "labels", // the CSS class for the label
+//                                        labelInBackground: false,
+//                                         icon: pinSymbol('blue')
 
                                         });
 
 
 
-                                      infowindow.setContent(results[0].formatted_address);
+                                      infowindow.setContent(label_info[0]);
                                       infowindow.open(map, marker);
-                                      console.log("town:"+results[0].formatted_address.long_name);
-                                      arrAddress=results[0].formatted_address
 
 
                                     }
@@ -129,6 +185,46 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
 
                     }
+
+//                    function pinSymbol(color) {
+//                        return {
+//                            path: 'M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0',
+//                            radius:3,
+//                                        fillColor: '#00a693',
+//                                        fillOpacity: 0.90,
+//                                        strokeColor: '#00a693',
+//                                        strokeOpacity: 0.8,
+//                                        strokeWeight: 2,
+//                        };
+//                    }
+
+
+                     function createMarkers(places) {
+                     console.log("\n---in create----")
+                                var bounds = new google.maps.LatLngBounds();
+                                for (var i = 0, place; place = places[i]; i++) {
+                                  var image = {
+                                    url: place.icon,
+//                                    size: new google.maps.Size(21, 21),
+//                                    origin: new google.maps.Point(0, 0),
+//                                    anchor: new google.maps.Point(17, 34),
+                                    scaledSize: new google.maps.Size(21, 21)
+                                  };
+
+                                  marker = new google.maps.Marker({
+                                    map: map,
+                                    icon: image,
+                                    title: place.name,
+                                    position: place.geometry.location
+                                  });
+
+                                  bounds.extend(place.geometry.location);
+                                }
+                                map.fitBounds(bounds);
+                                }
+
+
+
 
 
 

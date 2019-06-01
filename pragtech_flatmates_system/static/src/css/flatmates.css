@@ -2610,3 +2610,13 @@ background: #11836c;
 	color: #2f3a4a;
 	
 }
+
+
+.labels {
+    color: white;
+    font-family:"Lucida Grande", "Arial", sans-serif;
+    font-size: 10px;
+    text-align: center;
+    width: 30px;
+    white-space: nowrap;
+}

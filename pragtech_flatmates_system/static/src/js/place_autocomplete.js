@@ -63,12 +63,20 @@ $(document).ready(function() {
 
         var lati_tude = place.geometry.location.lat()
         var longi_tude = place.geometry.location.lng()
+        var north = place.geometry.viewport.getNorthEast().lat()
+        var east = place.geometry.viewport.getNorthEast().lng()
+        var south = place.geometry.viewport.getSouthWest().lat()
+        var west = place.geometry.viewport.getSouthWest().lng()
 
         document.getElementById('latitude').value = lati_tude;
         document.getElementById('longitude').value = longi_tude;
+        document.getElementById('north').value = north;
+        document.getElementById('east').value = east;
+        document.getElementById('south').value = south;
+        document.getElementById('west').value = west;
 
-        //console.log('Lat :',lati_tude)
-        //console.log('Long :',longi_tude)
+        console.log('place.geometry------ :',place.geometry.viewport.getSouthWest().lat(),place.geometry.viewport.getSouthWest().lng(),place.geometry.viewport.getNorthEast().lat(),place.geometry.viewport.getNorthEast().lng())
+        console.log('Long :',longi_tude,lati_tude)
        ///////////////////////////////////////////////////////////////////
 
       for (var component in componentForm) {

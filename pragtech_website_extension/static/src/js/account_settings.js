@@ -132,6 +132,11 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                 });
     });
 
+    $(".change-passwrd-btn").on('click',function(){
+        console.log('1111111111111111111111111111')
+      $("#account_settings_popup").modal('hide')
+    })
+
 
     });//document ready
 });//main
