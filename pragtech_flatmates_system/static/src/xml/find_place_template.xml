@@ -292,20 +292,20 @@
                                         <div class="form-group">
                                             <span>Suburb</span>
                                             <p class="text-muted">We recommend choosing at least 4 suburbs</p>
-                                            <!--<div class="form-control form-control-lg mt-2">-->
+
                                                 <!--<input type="text" class="" id="" name="suburbs"-->
                                                        <!--placeholder="Search for a suburb"/>-->
-                                            <!--</div>-->
 
 
-                                            <input type="text" autocomplete="off" class="form-control mt-2" id="find_suburb"
-                                                   name="suburbs" placeholder=""/>
-                                            <div id="livesearch"></div>
-
-
-                                            <div class="form-control form-control-lg mt-2 p-0">
-                                                <input name="suburbs" id="mySingleFieldTags"/>
+                                            <div class="form-control form-control-lg mt-2 find-place-add-suburbs">
+                                                <input type="text" style="width:100%" autocomplete="off" id="find_suburb" name="suburbs"/>
                                             </div>
+                                            <!--<div id="livesearch"></div>-->
+
+
+
+                                                 <!--<span class="badge badge-light">Light</span>-->
+                                            <!--</div>-->
                                         </div>
 
                                     </div>

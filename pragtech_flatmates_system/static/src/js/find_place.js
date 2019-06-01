@@ -155,12 +155,12 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
 //        $("#find_suburb").autocomplete({ source: data, delay:300 })
 //    }
 
-    $(document).on('keyup keydown','#find_suburb',function(e)
+    $(document).on('keyup keydown','.find-place-add-suburbs',function(e)
     {
     var data;
     var type;
 
-    console.log($(this).val())
+    console.log("--------",$('#find_suburb').val())
     // DOWN
     if (e.keyCode == 40)
     {
@@ -183,30 +183,25 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
     else
     {
 //        console.log ($(this).val())
-        if (isNaN($(this).val()))
+        if (isNaN($('#find_suburb').val()))
         {
-            data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'suburb_to_search' : $(this).val(), 'type_of_data' : 'string' }})
+            data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'suburb_to_search' : $('#find_suburb').val(), 'type_of_data' : 'string' }})
             type = 'string'
         }
         else
         {
-            data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'suburb_to_search' : $(this).val(), 'type_of_data' : 'integer' }})
+            data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'suburb_to_search' : $('#find_suburb').val(), 'type_of_data' : 'integer' }})
             type = 'integer'
         }
 
 //         console.log ("key press",isNaN($(this).val()))
 
-        if ($(this).val().length==0)
+        if ($('#find_suburb').val().length==0)
         {
-            $("#livesearch").html("");
-            $("#livesearch").attr('style', 'border:0px')
-
         }
         else
         {
-             $("#livesearch").html("");
-             $("#livesearch").attr('style', 'border:0px')
-             if (type == 'integer' && $(this).val().length >= 3)
+             if (type == 'integer' && $('#find_suburb').val().length >= 3)
              {
              $.ajax({
                         url: '/get_suburbs',
@@ -217,25 +212,73 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
                         data: data,
                         success: function(data)
                         {
-                            $('#find_suburb').autocomplete({ source: data['result'], delay:300 })
+                            $('#find_suburb').autocomplete
+                            ({
+                                source: data['result'],
+                                delay:300,
+                                select: function(event, ui)
+                                {
+                                    console.log ("Selected Value --------",ui.item)
+                                    $(".find-place-add-suburbs").prepend('<span class="badge badge-light">'+ui.item.value+'</span>')
+                                    $("#find_suburb").val("")
+                                    return false;
+//                                    $("#log").append($("<li />").text("You selected '" + ui.item.value + "'"));
+//                                    var originalEvent = event,
+//                                        input__event_type = '',
+//                                        input__selection_type = '';
+//
+//                                    while ( originalEvent )
+//                                    {
+//                                    if ( originalEvent.keyCode === 13 )
+//                                    {
+//                                        originalEvent.stopPropagation();
+//                                    }
+//
+//                                    if ( originalEvent === event.originalEvent )
+//                                    {
+//                                        break;
+//                                    }
+//
+//                                    originalEvent = event.originalEvent;
+//                                    }
+//
+//                                    input__event_type = originalEvent.type;
+//
+//                                    if ( input__event_type === 'menuselect' )
+//                                    {
+//                                    // selected by keyboard instead of mouse/touch
+//                                    input__selection_type = 'menuselect'
+//                                    }
+//                                    /*DEBUG AUTOCOMPLETE*/console.log( 'DEBUG - AUTOCOMPLETE - SELECT EVENT IS', input__event_type );
+                                }
+                            })
+
                         }
                     })
             }
-            if (type == 'string' && $(this).val().length >= 3)
-            {
-             $.ajax({
-                        url: '/get_suburbs',
-                        type: "POST",
-                        dataType: 'json',
-                        contentType: 'application/json',
-                        data: data,
-                        async: false,
-                        success: function(data)
-                        {
-                            $('#find_suburb').autocomplete({ source: data['result'], delay:300 })
-                        }
-                    })
-            }
+//            if (type == 'string' && $(this).val().length >= 3)
+//            {
+//             $.ajax({
+//                        url: '/get_suburbs',
+//                        type: "POST",
+//                        dataType: 'json',
+//                        contentType: 'application/json',
+//                        data: data,
+//                        async: false,
+//                        success: function(data)
+//                        {
+//                            if (data['result'].length <= 5)
+//                                $('#find_suburb').autocomplete({ source: data['result'], delay:300 })
+//                            else
+//                            {
+//                                var data_array = []
+//                                for (var i=0; i<5; i++)
+//                                    data_array[i] = data['result'][i]
+//                                $('#find_suburb').autocomplete({ source: data_array, delay:300 })
+//                            }
+//                        }
+//                    })
+//            }
         }
     }
 
