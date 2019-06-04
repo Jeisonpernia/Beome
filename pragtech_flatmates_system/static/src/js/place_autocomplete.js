@@ -44,6 +44,9 @@ $(document).ready(function() {
       // place fields that are returned to just the address components.
       autocomplete2.setFields(['address_component','geometry']);
 
+      autocomplete2.addListener('place_changed', fillInAddress);
+
+
     }
 
     function fillInAddress() {

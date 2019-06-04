@@ -212,7 +212,7 @@
                                 <field name="total_bedrooms_id" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
                                 <field name="total_no_flatmates_id"/>
                                 <field name="type" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
-                                <field name="pref" attrs="{'invisible': [('listing_type', '=', 'list')]}"/>
+                                <field name="pref" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
                                 <field name="place_for" attrs="{'invisible': [('listing_type', '=', 'list')]}"/>
                                 <field name="is_short_list"/>
                             </group>
@@ -357,7 +357,21 @@
                                     <field name="description_about_user"/>
                                 </div>
                             </group>
-                            </page>
+                        </page>
+
+                        <page name='Suburbs Details' string="Suburbs Details" attrs="{'invisible': [('listing_type', '=', 'list')]}">
+                                <field name="suburbs_ids">
+                                    <tree editable="bottom">
+                                        <field name="subrub_name"/>
+                                        <field name="city"/>
+                                        <field name="state"/>
+                                        <field name="post_code"/>
+                                        <field name="latitude"/>
+                                        <field name="longitude"/>
+                                    </tree>
+                                </field>
+                        </page>
+
                         </notebook>
                     </sheet>
                 </form>

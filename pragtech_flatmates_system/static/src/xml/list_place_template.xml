@@ -1702,7 +1702,7 @@
                     </section>
                     <section>
                         <div class="container">
-                            <form action="/list/my/property" id="list_place_comment_abt_property_form_id" method="POST">
+                            <form action="/list_place_preview" id="list_place_comment_abt_property_form_id" method="POST">
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto">
                                         <div class="form-group">

@@ -5,7 +5,7 @@
     'name': 'Website Extensin',
     'summary': 'Customer Portal',
     'sequence': '9001',
-    'version': '12.0.9',
+    'version': '12.0.10',
     'category': 'Hidden',
     'description': """ Portal Extension """,
     'depends': ['portal'],

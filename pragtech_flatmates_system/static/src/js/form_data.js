@@ -34,11 +34,15 @@ $(document).ready(function() {
 
         $( "#rent_timing" ).submit(function( event ) {
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
-            //console.log(record_array)
+//            console.log(record_array)
 
-                localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+            var suburbs = $("input[id=suburbs]").map(function(){return $(this).val();}).get();
+            record_array[0]['suburbs'] = suburbs
 
+            localStorage.setItem('find_place_record', JSON.stringify(record_array));
+
+//            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//            event.preventDefault();
 //            alert("Page")
 
         });
@@ -219,7 +223,7 @@ $(document).ready(function() {
 
             record_array[0]['find_comment'] = find_comment
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
-            //console.log('List Place Array BY DON  : ',localStorage.getItem('find_place_record'))
+            console.log('List Place Array BY DON  : ',localStorage.getItem('find_place_record'))
 
             var find_place_data = JSON.parse(localStorage.getItem('find_place_record'));
 
@@ -240,8 +244,8 @@ $(document).ready(function() {
                                     //console.log('iiiiiiiffffffffiiiiiffff')
                                 }
 
-                            oldArray[0] = {}
-                            localStorage.setItem('find_place_record', JSON.stringify(oldArray))
+//                            var oldArray[0] = {}
+                            localStorage.setItem('find_place_record', JSON.stringify({}))
 
 
 	                    },
@@ -261,6 +265,7 @@ $(document).ready(function() {
 
 
 //		    event.preventDefault()
+//event.preventDefault();
 
         });
 

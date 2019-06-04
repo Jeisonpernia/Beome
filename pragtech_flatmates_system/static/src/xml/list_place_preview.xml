@@ -308,9 +308,10 @@
                                 <button type="button" class="scroll-forward arrow-right">
                                     <i class="fa fa-chevron-right"></i>
                                 </button>
-
-                                <t t-foreach="property.property_image_ids" t-as="image">
-                                    <img class="card" t-att-src="image_data_uri(image.image)" width="" height=""/>
+                                <t t-if="property.property_image_ids">
+                                    <t t-foreach="property.property_image_ids" t-as="image">
+                                        <img class="card" t-att-src="image_data_uri(image.image)" width="" height=""/>
+                                    </t>
                                 </t>
 
                             </div>
@@ -322,7 +323,7 @@
                     <div class="container bg-white">
                         <div class="row">
                             <div class="col-lg-8 property-detail-left">
-                                <input id="current_listing_id" type="text" t-att-value="property.id"/>
+                                <input id="current_listing_id" type="hidden" t-att-value="property.id"/>
                                 <h1>
                                     <t t-esc="property_address"/>
                                     <svg width="24" height="24" viewBox="0 0 16 16">
@@ -362,7 +363,7 @@
                                                                 <div class="container">
                                                                     <div class="row">
                                                                         <div class="col-lg-11 mx-auto">
-                                                                            <form action="/action_page.php">
+                                                                            <form action="">
                                                                                 <h3 class="text-center mb-5">About the
                                                                                     room
                                                                                 </h3>
@@ -449,6 +450,15 @@
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
                                                                                             <select class="form-control"
+                                                                                                    id="edit_room_type_id"
+                                                                                                    name="edit_room_type_id">
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="form-group">
+                                                                                            <select class="form-control"
                                                                                                     id="edit_room_furnishing_id"
                                                                                                     name="edit_room_furnishing_id">
                                                                                                 <!--<option value="">-->
@@ -469,6 +479,45 @@
                                                                                         </div>
                                                                                     </div>
 
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="form-group">
+                                                                                            <select class="form-control"
+                                                                                                    id="edit_bath_room_type_id"
+                                                                                                    name="edit_bath_room_type_id">
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="form-group">
+                                                                                            <select class="form-control"
+                                                                                                    id="edit_gender_preference"
+                                                                                                    name="edit_gender_preference">
+                                                                                                <option value="select"
+                                                                                                        selected="selected"
+                                                                                                        disabled="disabled">
+                                                                                                    Preferred gender
+                                                                                                </option>
+                                                                                                <option value="anyone">
+                                                                                                    Anyone welcome
+                                                                                                </option>
+                                                                                                <option value="females_only">
+                                                                                                    Females
+                                                                                                </option>
+                                                                                                <option value="males_only">
+                                                                                                    Males
+                                                                                                </option>
+                                                                                                <option value="no_couple">
+                                                                                                    Females &amp; males
+                                                                                                    (no couples)
+                                                                                                </option>
+                                                                                                <option value="couple">
+                                                                                                    Couples
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
                                                                                 </div>
 
                                                                                 <div class="row">
@@ -478,15 +527,18 @@
                                                                                             <!--class="form-control"-->
                                                                                             <!--placeholder="Available from"-->
                                                                                             <!--id="edit_avail_date" name="edit_avail_date"/>-->
-                                                                                            <input id="edit_date"
-                                                                                                   type="date"
-                                                                                                   name="edit_date"
-                                                                                                   class="form-control datepicker mt-2"
-                                                                                                    placeholder="Available from"/>
+                                                                                            <t t-if="avil_date">
+                                                                                                <input id="edit_date"
+                                                                                                       type="date"
+                                                                                                       name="edit_date"
+                                                                                                       class="form-control datepicker mt-2"
+                                                                                                       placeholder="Available from"
+                                                                                                       t-att-value="avil_date"/>
+                                                                                            </t>
 
                                                                                             <!--<span class="datepicker-position">-->
-                                                                                                <!--<i class="fa fa-calendar"-->
-                                                                                                   <!--aria-hidden="false"></i>-->
+                                                                                            <!--<i class="fa fa-calendar"-->
+                                                                                            <!--aria-hidden="false"></i>-->
                                                                                             <!--</span>-->
                                                                                         </div>
                                                                                     </div>
@@ -579,6 +631,7 @@
                                                                                 </div>
 
                                                                                 <button type="button"
+                                                                                        id="update_rooms_data"
                                                                                         class="btn btn-green1 mt-3 mb-4 btn-block"
                                                                                         data-dismiss="modal">Update
                                                                                 </button>
@@ -643,7 +696,9 @@
                                     <div class="col-lg-4 col-md-4 col-6 mb-4 text-center">
                                         <div class="row" style="min-height:40px;">
                                             <div class="col-12">
-                                                <button type="button" class="btn btn-transparent-edit btn-lg"
+                                                <button type="button"
+                                                        id="edit_property_descrp"
+                                                        class="btn btn-transparent-edit btn-lg"
                                                         data-toggle="modal"
                                                         data-target="#property-description-edit_popup">
                                                     <i class="fa fa-pencil"></i>
@@ -674,10 +729,143 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <input type="text"
+                                                                                                   id="search_places"
                                                                                                    class="form-control"
-                                                                                                   placeholder="Move date"
-                                                                                                   id="usr" name=""/>
+                                                                                                   placeholder="Property address"
+                                                                                                   name=""/>
+
+                                                                                            <table id="address"
+                                                                                                   style="display:none;">
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        Street address
+                                                                                                    </td>
+                                                                                                    <td class="slimField">
+                                                                                                        <input class="field"
+                                                                                                               id="street_number"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                    <td class="slimField">
+                                                                                                        <input class="field"
+                                                                                                               id="sublocality_level_2"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="2">
+                                                                                                        <input class="field"
+                                                                                                               id="route"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        City
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="3">
+                                                                                                        <input class="field"
+                                                                                                               id="locality"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        State
+                                                                                                    </td>
+                                                                                                    <td class="slimField">
+                                                                                                        <input class="field"
+                                                                                                               id="administrative_area_level_1"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                    <td class="label">
+                                                                                                        Zip code
+                                                                                                    </td>
+                                                                                                    <td class="wideField">
+                                                                                                        <input class="field"
+                                                                                                               id="postal_code"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        Country
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="3">
+                                                                                                        <input class="field"
+                                                                                                               id="country"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        Lat
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="3">
+                                                                                                        <input class="field"
+                                                                                                               id="latitude"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        long
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="3">
+                                                                                                        <input class="field"
+                                                                                                               id="longitude"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        North
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="3">
+                                                                                                        <input class="field"
+                                                                                                               id="north"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        South
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="3">
+                                                                                                        <input class="field"
+                                                                                                               id="south"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        East
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="3">
+                                                                                                        <input class="field"
+                                                                                                               id="east"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="label">
+                                                                                                        West
+                                                                                                    </td>
+                                                                                                    <td class="wideField"
+                                                                                                        colspan="3">
+                                                                                                        <input class="field"
+                                                                                                               id="west"
+                                                                                                               disabled="true"/>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </table>
                                                                                         </div>
+
 
                                                                                         <p class="text-muted p14">
                                                                                             <a href="#">Having trouble
@@ -688,30 +876,98 @@
 
 
                                                                                 </div>
+                                                                            <div class="row mt-3">
+                                                                                <div class="col-lg-6">
+                                                                                    <div class="form-group">
+                                                                                        <select class="form-control"
+                                                                                                id="edit_property_type" name="">
+                                                                                            <option value=""
+                                                                                                    disabled="disabled"
+                                                                                                    selected="selected">
+                                                                                                Type of property
+                                                                                            </option>
+                                                                                            <option value="house">House
+                                                                                            </option>
+                                                                                            <option value="flat">Flat
+                                                                                            </option>
+                                                                                            <!--Off-street parking-->
+                                                                                            <!--</option>-->
+                                                                                            <!--<option value="on-street-parking">-->
+                                                                                            <!--On-street parking-->
+                                                                                            <!--</option>-->
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6">
+                                                                                    <div class="form-group">
+                                                                                        <select class="form-control"
+                                                                                                id="edit_total_bedroom" name="">
+                                                                                            <option value=""
+                                                                                                    disabled="disabled"
+                                                                                                    selected="selected">
+                                                                                                Total bedrooms
+                                                                                            </option>
+                                                                                            <!--<option value="no-parking">-->
+                                                                                            <!--No parking-->
+                                                                                            <!--</option>-->
+                                                                                            <!--<option value="off-street-parking"-->
+                                                                                            <!--selected="">-->
+                                                                                            <!--Off-street parking-->
+                                                                                            <!--</option>-->
+                                                                                            <!--<option value="on-street-parking">-->
+                                                                                            <!--On-street parking-->
+                                                                                            <!--</option>-->
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
 
-                                                                                <div class="row mt-3">
+
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
                                                                                             <select class="form-control"
-                                                                                                    id="" name="">
-                                                                                                <option value="">Is
-                                                                                                    internet available?
+                                                                                                    id="edit_total_bathroom" name="">
+                                                                                                <option value=""
+                                                                                                        disabled="disabled"
+                                                                                                        selected="selected">
+                                                                                                    Total bathrooms
                                                                                                 </option>
-                                                                                                <option value="unlimited-internet">
-                                                                                                    Unlimited included
-                                                                                                    in rent
+                                                                                                <!--<option value="unlimited-internet">-->
+                                                                                                <!--Unlimited included-->
+                                                                                                <!--in rent-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="internet-included">-->
+                                                                                                <!--Included in rent-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="internet-extra"-->
+                                                                                                <!--selected="">-->
+                                                                                                <!--Available but not-->
+                                                                                                <!--included in rent-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="no-internet">-->
+                                                                                                <!--Not available-->
+                                                                                                <!--</option>-->
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="form-group">
+                                                                                            <select class="form-control"
+                                                                                                    id="edit_total_flatmates" name="">
+                                                                                                <option value=""
+                                                                                                        disabled="disabled"
+                                                                                                        selected="selected">
+                                                                                                    Total flatmates
                                                                                                 </option>
-                                                                                                <option value="internet-included">
-                                                                                                    Included in rent
-                                                                                                </option>
-                                                                                                <option value="internet-extra"
-                                                                                                        selected="">
-                                                                                                    Available but not
-                                                                                                    included in rent
-                                                                                                </option>
-                                                                                                <option value="no-internet">
-                                                                                                    Not available
-                                                                                                </option>
+                                                                                                <!--<option value="no-parking">-->
+                                                                                                <!--No parking-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="off-street-parking"-->
+                                                                                                <!--selected="">-->
+                                                                                                <!--Off-street parking-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="on-street-parking">-->
+                                                                                                <!--On-street parking-->
+                                                                                                <!--</option>-->
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -719,27 +975,55 @@
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
                                                                                             <select class="form-control"
-                                                                                                    id="" name="">
-                                                                                                <option value="">Is
+                                                                                                    id="edit_internet" name="">
+                                                                                                <option value=""
+                                                                                                        disabled="disabled"
+                                                                                                        selected="selected">
+                                                                                                    Is internet
+                                                                                                    available?
+                                                                                                </option>
+                                                                                                <!--<option value="no-parking">-->
+                                                                                                <!--No parking-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="off-street-parking"-->
+                                                                                                <!--selected="">-->
+                                                                                                <!--Off-street parking-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="on-street-parking">-->
+                                                                                                <!--On-street parking-->
+                                                                                                <!--</option>-->
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="form-group">
+                                                                                            <select class="form-control"
+                                                                                                    id="edit_parking" name="">
+                                                                                                <option value=""
+                                                                                                        disabled="disabled"
+                                                                                                        selected="selected">
+                                                                                                    Is
                                                                                                     parking available?
                                                                                                 </option>
-                                                                                                <option value="no-parking">
-                                                                                                    No parking
-                                                                                                </option>
-                                                                                                <option value="off-street-parking"
-                                                                                                        selected="">
-                                                                                                    Off-street parking
-                                                                                                </option>
-                                                                                                <option value="on-street-parking">
-                                                                                                    On-street parking
-                                                                                                </option>
+                                                                                                <!--<option value="no-parking">-->
+                                                                                                <!--No parking-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="off-street-parking"-->
+                                                                                                <!--selected="">-->
+                                                                                                <!--Off-street parking-->
+                                                                                                <!--</option>-->
+                                                                                                <!--<option value="on-street-parking">-->
+                                                                                                <!--On-street parking-->
+                                                                                                <!--</option>-->
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
+
 
                                                                                 </div>
 
                                                                                 <button type="button"
+                                                                                        id="update_property_descp"
                                                                                         class="btn btn-green1 mt-3 mb-4 btn-block"
                                                                                         data-dismiss="modal">Update
                                                                                 </button>
@@ -817,7 +1101,8 @@
                                 <hr class="mt-4 mb-5"/>
 
                                 <h3>About the property
-                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal"
+                                    <button type="button" id="edit_about_property_btn"
+                                            class="btn btn-transparent-edit btn-lg" data-toggle="modal"
                                             data-target="#about_property_popup">
                                         <i class="fa fa-pencil"></i>
                                         Edit
@@ -844,7 +1129,8 @@
                                                                 </h3>
 
                                                                 <div class="form-group mt-4 mb-2">
-                                                                    <textarea class="form-control" rows="4" id=""
+                                                                    <textarea class="form-control" rows="4"
+                                                                              id="edit_about_property"
                                                                               name="" placeholder=""
                                                                               data-toggle="tooltip"
                                                                               data-placement="right"
@@ -852,6 +1138,7 @@
                                                                 </div>
 
                                                                 <button type="button"
+                                                                        id="update_about_property_desc"
                                                                         class="btn btn-green1 mt-5 mb-4 btn-block"
                                                                         data-dismiss="modal">Update
                                                                 </button>
@@ -902,7 +1189,7 @@
                                                                     <h3 class="text-center mb-5">Accepting</h3>
 
                                                                     <div class="row">
-                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group">
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-pets">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text">
@@ -911,7 +1198,7 @@
                                                                                     </span>
                                                                                 </div>
                                                                                 <input type="text" class="form-control"
-                                                                                       value="LGBTI"
+                                                                                       value="pets"
                                                                                        id="search_check_lgbt"
                                                                                        name="LGBTI" readonly="true"/>
                                                                                 <span class="search-accepting">Pets
@@ -920,7 +1207,7 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group">
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-lgbt">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text">
@@ -932,13 +1219,13 @@
                                                                                        value="LGBTI"
                                                                                        id="search_check_lgbt"
                                                                                        name="LGBTI" readonly="true"/>
-                                                                                <span class="search-accepting">Smokers
-                                                                                    OK
+                                                                                <span class="search-accepting">
+                                                                                    LGBT+ friendly
                                                                                 </span>
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group">
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-student">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text">
@@ -947,7 +1234,129 @@
                                                                                     </span>
                                                                                 </div>
                                                                                 <input type="text" class="form-control"
-                                                                                       value="LGBTI"
+                                                                                       value="students"
+                                                                                       id="search_check_lgbt"
+                                                                                       name="LGBTI" readonly="true"/>
+                                                                                <span class="search-accepting">Students
+                                                                                    OK
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-children">
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="fa fa-times"
+                                                                                           aria-hidden="false"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"
+                                                                                       value="children"
+                                                                                       id="search_check_lgbt"
+                                                                                       name="LGBTI" readonly="true"/>
+                                                                                <span class="search-accepting">Children
+                                                                                    OK
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-smokers">
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="fa fa-times"
+                                                                                           aria-hidden="false"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"
+                                                                                       value="smokers"
+                                                                                       id="search_check_lgbt"
+                                                                                       name="LGBTI" readonly="true"/>
+                                                                                <span class="search-accepting">Smokers
+                                                                                    OK
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-all_females">
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="fa fa-times"
+                                                                                           aria-hidden="false"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"
+                                                                                       value="all_females"
+                                                                                       id="search_check_lgbt"
+                                                                                       name="LGBTI" readonly="true"/>
+                                                                                <span class="search-accepting">All
+                                                                                    female flat
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-fourty_year_old">
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="fa fa-times"
+                                                                                           aria-hidden="false"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"
+                                                                                       value="fourty_year_old"
+                                                                                       id="search_check_lgbt"
+                                                                                       name="LGBTI" readonly="true"/>
+                                                                                <span class="search-accepting">40+
+                                                                                    welcome
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-backpackers">
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="fa fa-times"
+                                                                                           aria-hidden="false"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"
+                                                                                       value="backpackers"
+                                                                                       id="search_check_lgbt"
+                                                                                       name="LGBTI" readonly="true"/>
+                                                                                <span class="search-accepting">
+                                                                                    Backpackers welcome
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-retirees">
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="fa fa-times"
+                                                                                           aria-hidden="false"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"
+                                                                                       value="retirees"
+                                                                                       id="search_check_lgbt"
+                                                                                       name="LGBTI" readonly="true"/>
+                                                                                <span class="search-accepting">Retirees
+                                                                                    welcome
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-on_welfare">
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="fa fa-times"
+                                                                                           aria-hidden="false"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"
+                                                                                       value="on_welfare"
                                                                                        id="search_check_lgbt"
                                                                                        name="LGBTI" readonly="true"/>
                                                                                 <span class="search-accepting">Welfare

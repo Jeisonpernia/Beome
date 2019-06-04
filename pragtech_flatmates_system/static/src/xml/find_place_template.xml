@@ -297,9 +297,10 @@
                                                        <!--placeholder="Search for a suburb"/>-->
 
 
-                                            <div class="form-control form-control-lg mt-2 find-place-add-suburbs">
-                                                <input type="text" style="width:100%" autocomplete="off" id="find_suburb" name="suburbs"/>
+                                            <div class="form-control form-control-lg mt-2 p-0 find-place-add-suburbs">
+                                                <input type="text" autocomplete="off" id="find_suburb" name="suburbs"/>
                                             </div>
+                                            <p class="show-distance-msg d-none">The suburb selected is greater than 25km from your original suburb</p>
                                             <!--<div id="livesearch"></div>-->
 
 
@@ -313,8 +314,7 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <button type="submit" id=""
-                                                class="btn btn-primary btn-green propert_submit_btn">Next
-                                            <!--disabled="disabled"-->
+                                                class="btn btn-primary btn-green propert_submit_btn" disabled="disabled">Next
                                         </button>
                                     </div>
                                 </div>

@@ -150,33 +150,83 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
         $(".submit-property-preferences").prop("disabled",true)
   });
 
-//    function add_suburbs(data)
-//    {
-//        $("#find_suburb").autocomplete({ source: data, delay:300 })
-//    }
+function deg2rad(deg)
+{
+  return deg * (Math.PI/180)
+}
 
-    $(document).on('keyup keydown','.find-place-add-suburbs',function(e)
+function calculate_distance ( lat1, lat2, lon1, lon2)
+{
+    var R = 6371
+    var dlon = deg2rad (lon2 - lon1)
+    var dlat = deg2rad (lat2 - lat1)
+    var a = (Math.sin(dlat/2)*Math.sin(dlat/2)) +
+            Math.cos(lat1) * Math.cos(lat2) *
+            (Math.sin(dlon/2)*Math.sin(dlon/2))
+    var c = 2 * Math.atan2( Math.sqrt(Math.abs(a)), Math.sqrt(Math.abs(1-a)) )
+    var d = R * c
+
+    console.log ("\n\nlon",dlon)
+    console.log ("lat",dlat)
+    console.log ("a",a)
+    console.log ("c",c, Math.sqrt(a))
+    console.log ("d",d, Math.sqrt(1-a))
+
+    return d
+}
+
+    $(document).on('click','.delete-suburb',function(e)
+    {
+        if ($(this).parent().parent().hasClass('suburbs-div-red'))
+        $('.show-distance-msg').addClass('d-none')
+
+        $(this).parent().parent().remove()
+
+        if ($('.suburbs-div').length == 0)
+            $('.propert_submit_btn').attr('disabled',true)
+
+    })
+
+    $(document).on('keyup','.find-place-add-suburbs',function(e)
     {
     var data;
     var type;
 
-    console.log("--------",$('#find_suburb').val())
+//    console.log("--------",$('#find_suburb').val())
+    // BACKSPACE
+    if (e.keyCode == 8)
+    {
+//        console.log ("Backsapce")
+        if ($('.suburbs-div').length != 0)
+        {
+            var last_div = $('.suburbs-div').last()
+            if (last_div.hasClass('suburbs-div-red'))
+                $('.show-distance-msg').addClass('d-none')
+            last_div.remove()
+            if ($('.suburbs-div').length == 0)
+                $('.propert_submit_btn').attr('disabled',true)
+        }
+
+    }
+
     // DOWN
     if (e.keyCode == 40)
     {
-        console.log ("Downnn")
+//        console.log ("Backspace")
+        $("#find_suburb").val("")
     }
 
     // UP
     else if (e.keyCode == 38)
     {
-        console.log ("Uppppp")
+//        console.log ("Uppppp")
+        $("#find_suburb").val("")
     }
 
     // Enter key is pressed
     else if (e.keyCode == 13)
     {
-        console.log ("Enterrrr")
+//        console.log ("Enterrrr")
         e.preventDefault();
     }
 
@@ -218,67 +268,165 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
                                 delay:300,
                                 select: function(event, ui)
                                 {
-                                    console.log ("Selected Value --------",ui.item)
-                                    $(".find-place-add-suburbs").prepend('<span class="badge badge-light">'+ui.item.value+'</span>')
-                                    $("#find_suburb").val("")
-                                    return false;
-//                                    $("#log").append($("<li />").text("You selected '" + ui.item.value + "'"));
-//                                    var originalEvent = event,
-//                                        input__event_type = '',
-//                                        input__selection_type = '';
-//
-//                                    while ( originalEvent )
-//                                    {
-//                                    if ( originalEvent.keyCode === 13 )
-//                                    {
-//                                        originalEvent.stopPropagation();
-//                                    }
-//
-//                                    if ( originalEvent === event.originalEvent )
-//                                    {
-//                                        break;
-//                                    }
-//
-//                                    originalEvent = event.originalEvent;
-//                                    }
-//
-//                                    input__event_type = originalEvent.type;
-//
-//                                    if ( input__event_type === 'menuselect' )
-//                                    {
-//                                    // selected by keyboard instead of mouse/touch
-//                                    input__selection_type = 'menuselect'
-//                                    }
-//                                    /*DEBUG AUTOCOMPLETE*/console.log( 'DEBUG - AUTOCOMPLETE - SELECT EVENT IS', input__event_type );
+                                    var suburb_obj = $('.find-place-add-suburbs').find("input")
+//                                    console.log ("88888888888888888888888",suburb_obj)
+                                    if (suburb_obj.length == 1)
+                                    {
+                                        $(".find-place-add-suburbs").prepend('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>')
+                                        $("#find_suburb").val("")
+                                        $('.propert_submit_btn').attr('disabled',false)
+                                        return false;
+                                    }
+                                    else
+                                    {
+                                        var flag_add = 1;
+                                        var flag_dist = 1;
+
+                                        var first_suburb = $(".suburbs-div").first()
+                                        var first_suburb_span = first_suburb.find('span')
+
+//                                            console.log ("First   Suburb ",first_suburb_span.attr('data-lat'),first_suburb_span.attr('data-lon'))
+//                                            console.log ("Current Suburb ",ui.item.value[1],ui.item.value[2])
+
+                                        var distance = calculate_distance ( first_suburb_span.attr('data-lat'), ui.item.value[1], first_suburb_span.attr('data-lon'), ui.item.value[2])
+
+//                                            console.log (distance)
+
+                                        if (distance > 30)
+                                        {
+                                            console.log ("In the message message")
+                                            $('.show-distance-msg').removeClass("d-none")
+
+                                                $('<div class="suburbs-div suburbs-div-red"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-danger" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+    //                                            $(".find-place-add-suburbs").prepend('<input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'</span>')
+                                                $("#find_suburb").val("")
+                                            $("#find_suburb").val("")
+                                            return false;
+                                        }
+                                        else
+                                        {
+                                            suburb_obj.each(function()
+                                            {
+                                                if ($(this).val() == ui.item.label)
+                                                    flag_add = 0
+    //                                            console.log("------------",$(this).val())
+                                            })
+
+                                            if (flag_add == 1)
+                                            {
+                                                if (!$('.show-distance-msg').hasClass("d-none"))
+                                                    $('.show-distance-msg').addClass("d-none")
+                                                $('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+    //                                            $(".find-place-add-suburbs").prepend('<input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'</span>')
+                                                $("#find_suburb").val("")
+                                                return false;
+                                            }
+                                            else
+                                            {
+                                                $("#find_suburb").val("")
+                                                return false;
+                                            }
+                                        }
+                                    }
                                 }
                             })
 
                         }
                     })
             }
-//            if (type == 'string' && $(this).val().length >= 3)
-//            {
-//             $.ajax({
-//                        url: '/get_suburbs',
-//                        type: "POST",
-//                        dataType: 'json',
-//                        contentType: 'application/json',
-//                        data: data,
-//                        async: false,
-//                        success: function(data)
-//                        {
-//                            if (data['result'].length <= 5)
-//                                $('#find_suburb').autocomplete({ source: data['result'], delay:300 })
-//                            else
-//                            {
-//                                var data_array = []
-//                                for (var i=0; i<5; i++)
-//                                    data_array[i] = data['result'][i]
-//                                $('#find_suburb').autocomplete({ source: data_array, delay:300 })
-//                            }
-//                        }
-//                    })
-//            }
+            if (type == 'string' && $('#find_suburb').val().length >= 3)
+            {
+            console.log ("Elseeeeeeeeee Stringggggggggg")
+             $.ajax({
+                        url: '/get_suburbs',
+                        type: "POST",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data: data,
+                        async: false,
+                        success: function(data)
+                        {
+                            var data_array = []
+                            if (data['result'].length <= 5)
+                                for (var i=0; i<data['result'].length; i++)
+                                    data_array[i] = data['result'][i]
+                            else
+                                for (var i=0; i<5; i++)
+                                data_array[i] = data['result'][i]
+
+                            $('#find_suburb').autocomplete
+                            ({
+                                source: data_array,
+                                delay:300,
+                                select: function(event, ui)
+                                {
+                                    var suburb_obj = $('.find-place-add-suburbs').find("input")
+//                                    console.log ("88888888888888888888888",suburb_obj)
+                                    if (suburb_obj.length == 1)
+                                    {
+                                        $(".find-place-add-suburbs").prepend('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>')
+                                        $("#find_suburb").val("")
+                                        $('.propert_submit_btn').attr('disabled',false)
+                                        return false;
+                                    }
+                                    else
+                                    {
+                                        var flag_add = 1;
+                                        var flag_dist = 1;
+
+                                        var first_suburb = $(".suburbs-div").first()
+                                        var first_suburb_span = first_suburb.find('span')
+
+//                                            console.log ("First   Suburb ",first_suburb_span.attr('data-lat'),first_suburb_span.attr('data-lon'))
+//                                            console.log ("Current Suburb ",ui.item.value[1],ui.item.value[2])
+
+                                        var distance = calculate_distance ( first_suburb_span.attr('data-lat'), ui.item.value[1], first_suburb_span.attr('data-lon'), ui.item.value[2])
+
+//                                            console.log (distance)
+
+                                        if (distance > 30)
+                                        {
+//                                                console.log ("In the message message")
+                                            $('.show-distance-msg').removeClass("d-none")
+
+                                                $('<div class="suburbs-div suburbs-div-red"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-danger" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+    //                                            $(".find-place-add-suburbs").prepend('<input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'</span>')
+                                                $("#find_suburb").val("")
+                                            $("#find_suburb").val("")
+                                            return false;
+                                        }
+                                        else
+                                        {
+                                            suburb_obj.each(function()
+                                            {
+                                                if ($(this).val() == ui.item.label)
+                                                    flag_add = 0
+    //                                            console.log("------------",$(this).val())
+                                            })
+
+                                            if (flag_add == 1)
+                                            {
+                                                if (!$('.show-distance-msg').hasClass("d-none"))
+                                                    $('.show-distance-msg').addClass("d-none")
+                                                $('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+    //                                            $(".find-place-add-suburbs").prepend('<input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'</span>')
+                                                $("#find_suburb").val("")
+                                                return false;
+                                            }
+                                            else
+                                            {
+                                                $("#find_suburb").val("")
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                }
+                            })
+                        }
+
+
+                    })
+            }
         }
     }
 

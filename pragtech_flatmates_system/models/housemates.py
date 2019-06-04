@@ -93,6 +93,9 @@ class Housemates(models.Model):
     description_about_property = fields.Html('Description')
     description_about_user = fields.Html('About Flatmates')
 
+    ## Suburbs
+    suburbs_ids = fields.One2many('find.suburbs', 'housemate_id', string="Suburbs Details")
+
     @api.model
     def create(self,values):
         listing = super(Housemates, self).create(values)
@@ -182,3 +185,15 @@ class AboutPerson(models.Model):
     name = fields.Char(string="Name")
     age = fields.Integer(string='Age')
     gender = fields.Selection([('male','Male'),('female','Female')], string="Gender", default="female")
+
+class Suburbs(models.Model):
+    _name = 'find.suburbs'
+    _description = 'Suburbs details'
+
+    housemate_id = fields.Many2one('house.mates', string="Housemates")
+    subrub_name = fields.Char(string="Suburb Name")
+    city = fields.Char(string="City")
+    state = fields.Char(string="State")
+    post_code = fields.Char(string="Post Code")
+    latitude = fields.Char(string="Latitude")
+    longitude = fields.Char(string="Longitude")

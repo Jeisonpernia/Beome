@@ -24,3 +24,4 @@ access_internet_categories,access_internet_categories,model_internet_categories,
 access_parking_categories,access_parking_categories,model_parking_categories,base.group_user,1,1,1,1
 access_total_flatmates_categories,access_total_flatmates_categories,model_total_flatmates_categories,base.group_user,1,1,1,1
 access_about_person,access_about_person,model_about_person,base.group_user,1,1,1,1
+access_find_suburbs,access_find_suburbs,model_find_suburbs,base.group_user,1,1,1,1

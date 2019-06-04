@@ -21,6 +21,7 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
                         console.log(' !! data : ',data['result'])
 
                         $("#edit_weekly_budget").val(data['result']['weekly_budget'])
+                        $("#edit_date").val(data['result']['avil_date'])
 
                         bill_ids = data['result']['bill_ids']
                         for(var i=0;i<bill_ids.length;i++){
@@ -43,32 +44,256 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
                             $('#edit_room_furnishing_id').append('<option value='+room_furnishing_id[0]+'>'+room_furnishing_id[1]+'</option>')
                         }
 
+                        room_types = data['result']['room_types']
+                        for(var i=0;i<room_types.length;i++){
+                            var room_type = room_types[i]
+                            console.log('room_type :',room_type)
+                            $('#edit_room_type_id').append('<option value='+room_type[0]+'>'+room_type[1]+'</option>')
+                        }
+
+                        bath_room_types = data['result']['bath_room_types']
+                        for(var i=0;i<bath_room_types.length;i++){
+                            var bath_room_type = bath_room_types[i]
+                            console.log('bath_room_type :',bath_room_type)
+                            $('#edit_bath_room_type_id').append('<option value='+bath_room_type[0]+'>'+bath_room_type[1]+'</option>')
+                        }
+
                         min_stay_ids = data['result']['min_stay_ids']
                         for(var i=0;i<min_stay_ids.length;i++){
                             var min_stay_id = min_stay_ids[i]
                             console.log('min_stay_id :',min_stay_id)
-                            $('#edit_min_stay_id').append('<option value='+min_stay_id[0]+'>'+min_stay_id[1]+'</option>')
+                            $('#edit_min_stay_id').append('<option value='+min_stay_id[0]+'>'+min_stay_id[1]+' min'+'</option>')
                         }
 
                         max_stay_ids = data['result']['max_stay_ids']
                         for(var i=0;i<max_stay_ids.length;i++){
                             var max_stay_id = max_stay_ids[i]
                             console.log('max_stay_id :',max_stay_id)
-                            $('#edit_max_stay_id').append('<option value='+max_stay_id[0]+'>'+max_stay_id[1]+'</option>')
+                            $('#edit_max_stay_id').append('<option value='+max_stay_id[0]+'>'+max_stay_id[1]+' max'+'</option>')
                         }
 
                         $('#edit_bills_id').val(data['result']['existing_bill_id']);
                         $('#edit_bond_id').val(data['result']['existing_bond_id']);
                         $('#edit_room_furnishing_id').val(data['result']['existing_room_furnishing_id'])
+                        $('#edit_room_type_id').val(data['result']['existing_room_type_id'])
+                        $('#edit_bath_room_type_id').val(data['result']['existing_bath_room_type_id'])
                         $('#edit_min_stay_id').val(data['result']['existing_min_stay_id'])
                         $('#edit_max_stay_id').val(data['result']['existing_max_stay_id'])
-
+                        $('#edit_gender_preference').val(data['result']['existing_preference'])
 
 
                     }
                 });
+        })//edit about rooms
 
+        $("#update_rooms_data").on('click',function(){
+            console.log(" ! Update About rooms data !")
+            var data = {}
+            var current_property_id = $("#current_listing_id").val()
+            var update_weekly_budget = $("#edit_weekly_budget").val()
+            var update_bill = $("#edit_bills_id").val()
+            var update_bond = $("#edit_bond_id").val()
+            var update_room_furnishing = $("#edit_room_furnishing_id").val()
+            var update_room_type = $("#edit_room_type_id").val()
+            var update_bath_room_type = $("#edit_bath_room_type_id").val()
+            var update_available_date = $("#edit_date").val()
+            var update_min_stay = $("#edit_min_stay_id").val()
+            var update_max_stay = $("#edit_max_stay_id").val()
+            var update_preference = $('#edit_gender_preference').val()
+
+            data = {
+                'current_property_id':current_property_id,
+                'update_weekly_budget':update_weekly_budget,
+                'update_bill':update_bill,
+                'update_bond':update_bond,
+                'update_room_furnishing':update_room_furnishing,
+                'update_room_type':update_room_type,
+                'update_bath_room_type':update_bath_room_type,
+                'update_available_date':update_available_date,
+                'update_min_stay':update_min_stay,
+                'update_max_stay':update_max_stay,
+                'update_preference':update_preference,
+            }
+
+            console.log('----------------------------------------')
+            console.log('update_weekly_budget : ', update_weekly_budget)
+            console.log('update_bill ',update_bill)
+            console.log('update_bond ',update_bond)
+            console.log('update_room_furnishing ',update_room_furnishing)
+            console.log('update_available_date ',update_available_date)
+            console.log('update_min_stay ',update_min_stay)
+            console.log('update_max_stay ',update_max_stay)
+            console.log('-----------------------------------------')
+
+            $.ajax({
+                    url: '/update_about_rooms_data',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": data}),
+                    success: function(data){
+                    }
+            });
+
+        });
+
+        $('#edit_about_property_btn').on('click',function(){
+            console.log('dddddddddddddddddddddddddddddd')
+            var current_property_id = $("#current_listing_id").val()
+
+            $.ajax({
+                    url: '/get_about_property_data',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_property_id':current_property_id}}),
+                    success: function(data){
+
+                        if(data['result']['about_property_description']){
+                                $('#edit_about_property').html(data['result']['about_property_description'])
+                        }
+
+                    }
+            });
+        });
+
+        $('#update_about_property_desc').on('click',function(){
+               console.log('12222222222222222222')
+
+               var current_property_id = $("#current_listing_id").val()
+               var update_about_property_desc = $('#edit_about_property').val()
+               var data = {}
+
+               data = {
+               'current_property_id':current_property_id,
+               'update_about_property_desc':update_about_property_desc,
+               }
+
+            $.ajax({
+                    url: '/update_about_property_data',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": data}),
+                    success: function(data){
+                    }
+            });
         })
+
+        $('#edit_property_descrp').on('click',function(){
+            console.log('5555555555555555555555555555555555555')
+
+            var current_property_id = $("#current_listing_id").val()
+            console.log("Current Listing id :",current_property_id)
+
+            $.ajax({
+                    url: '/get_property_descp_data_of_current_property',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_property_id':current_property_id}}),
+                    success: function(data){
+                    console.log(' !! data : ',data['result'])
+
+                        total_bedrooms = data['result']['total_bedrooms']
+                        for(var i=0;i<total_bedrooms.length;i++){
+                            var total_bedroom = total_bedrooms[i]
+                            console.log('total_bedrooms id :',total_bedroom)
+                            $('#edit_total_bedroom').append('<option value='+total_bedroom[0]+'>'+total_bedroom[1]+' bed property'+'</option>')
+                        }
+
+                        total_bathrooms = data['result']['total_bathrooms']
+                        for(var i=0;i<total_bathrooms.length;i++){
+                            var total_bathroom = total_bathrooms[i]
+                            console.log('total_bathrooms id :',total_bathroom)
+                            $('#edit_total_bathroom').append('<option value='+total_bathroom[0]+'>'+total_bathroom[1]+' bathrooms'+'</option>')
+                        }
+
+                        total_flatmates = data['result']['total_flatmates']
+                        for(var i=0;i<total_flatmates.length;i++){
+                            var total_flatmate = total_flatmates[i]
+                            console.log('total_flatmates id :',total_flatmate)
+                            $('#edit_total_flatmates').append('<option value='+total_flatmate[0]+'>'+total_flatmate[1]+' flatmates'+'</option>')
+                        }
+
+                        internets = data['result']['internet']
+                        for(var i=0;i<internets.length;i++){
+                            var internet = internets[i]
+                            console.log('internet id :',internet)
+                            $('#edit_internet').append('<option value='+internet[0]+'>'+internet[1]+'</option>')
+                        }
+                        parkings = data['result']['parking']
+                        for(var i=0;i<parkings.length;i++){
+                            var parking = parkings[i]
+                            console.log('parking id :',parking)
+                            $('#edit_parking').append('<option value='+parking[0]+'>'+parking[1]+'</option>')
+                        }
+
+                        //Set existing data
+                        $('#edit_total_bedroom').val(data['result']['existing_bedroom_id'])
+                        $('#edit_total_bathroom').val(data['result']['existing_bathroom_id'])
+                        $('#edit_total_flatmates').val(data['result']['existing_no_of_flatmates'])
+                        $('#edit_internet').val(data['result']['existing_internet_id'])
+                        $('#edit_parking').val(data['result']['existing_parking_id'])
+
+                        if(data['result']['existing_property_type']){
+                            $('#edit_property_type').val(data['result']['existing_property_type'])
+                        }
+
+                    }
+            });
+
+        });
+
+        $('#update_property_descp').on('click',function(){
+            console.log('666666666666666666666666666666666666666666')
+            var data = {}
+            var current_property_id = $("#current_listing_id").val()
+            var update_property_type = $("#edit_property_type").val()
+            var update_bedrooms = $("#edit_total_bedroom").val()
+            var update_bathrooms = $("#edit_total_bathroom").val()
+            var update_flatmates = $("#edit_total_flatmates").val()
+            var update_internet = $("#edit_internet").val()
+            var update_parking = $("#edit_parking").val()
+
+            data = {
+                'current_property_id':current_property_id,
+                'update_property_type':update_property_type,
+                'update_bedrooms':update_bedrooms,
+                'update_bathrooms':update_bathrooms,
+                'update_flatmates':update_flatmates,
+                'update_internet':update_internet,
+                'update_parking':update_parking,
+            }
+            console.log('----------------------------------')
+            console.log('current_property_id ',current_property_id)
+            console.log('update_property_type ',update_property_type)
+            console.log('update_bedrooms ',update_bedrooms)
+            console.log('update_bathrooms ',update_bathrooms)
+            console.log('update_flatmates ',update_flatmates)
+            console.log('update_internet ',update_internet)
+            console.log('update_parking ',update_parking)
+            console.log('----------------------------------')
+
+            $.ajax({
+                    url: '/update_property_descp',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": data}),
+                    success: function(data){
+                    }
+            });
+
+
+
+        });
+
 
 
 
