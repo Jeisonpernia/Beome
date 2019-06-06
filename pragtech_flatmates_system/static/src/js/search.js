@@ -5,6 +5,17 @@ odoo.define('pragtech_flatmates.search', function (require) {
 
 $(document).ready(function() {
 
+$('input').focus(function(){
+  console.log ("In jsssssssssssssssssssss", $(this).siblings())
+  $(this).siblings().addClass('focused')
+});
+
+$('input').blur(function(){
+  var inputValue = $(this).val();
+  if ( inputValue == "" )
+    $(this).siblings().removeClass('focused');
+})
+
 $('.search-dropdown-menu').scroll(function() {
     console.log ("Inside Scrolllllllllllllllllllll")
     //    $( "#frdate" ).datepicker( "destroy" );

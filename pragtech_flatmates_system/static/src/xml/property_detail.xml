@@ -506,6 +506,8 @@
 
                                     <div class="preferred-locations">
 
+                                        <t t-if="property.suburbs_ids">
+                                        <t t-foreach="property.suburbs_ids" t-as="suburb">
                                         <div class="property-rounded-btn">
                                             <span class="property-rounded-btn-icon">
                                                 <svg width="20" height="14">
@@ -521,44 +523,46 @@
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <span class="property-rounded-btn-txt">Saint Lucia, 4067</span>
+                                            <span class="property-rounded-btn-txt"><t t-esc="suburb.subrub_name"></t>,<t t-esc="suburb.post_code"></t> </span>
                                         </div>
+                                        </t>
+                                        </t>
 
-                                        <div class="property-rounded-btn">
-                                            <span class="property-rounded-btn-icon">
-                                                <svg width="20" height="14">
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
-                                                       stroke-linecap="round" stroke-linejoin="round">
-                                                        <g transform="translate(-177.000000, -2502.000000)"
-                                                           stroke="#13D0AB" stroke-width="2">
-                                                            <g transform="translate(0.000000, 668.000000)">
-                                                                <polyline
-                                                                        points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                            </span>
-                                            <span class="property-rounded-btn-txt">New Farm, 4005</span>
-                                        </div>
+                                        <!--<div class="property-rounded-btn">-->
+                                            <!--<span class="property-rounded-btn-icon">-->
+                                                <!--<svg width="20" height="14">-->
+                                                    <!--<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"-->
+                                                       <!--stroke-linecap="round" stroke-linejoin="round">-->
+                                                        <!--<g transform="translate(-177.000000, -2502.000000)"-->
+                                                           <!--stroke="#13D0AB" stroke-width="2">-->
+                                                            <!--<g transform="translate(0.000000, 668.000000)">-->
+                                                                <!--<polyline-->
+                                                                        <!--points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline>-->
+                                                            <!--</g>-->
+                                                        <!--</g>-->
+                                                    <!--</g>-->
+                                                <!--</svg>-->
+                                            <!--</span>-->
+                                            <!--<span class="property-rounded-btn-txt">New Farm, 4005</span>-->
+                                        <!--</div>-->
 
-                                        <div class="property-rounded-btn">
-                                            <span class="property-rounded-btn-icon">
-                                                <svg width="20" height="14">
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
-                                                       stroke-linecap="round" stroke-linejoin="round">
-                                                        <g transform="translate(-177.000000, -2502.000000)"
-                                                           stroke="#13D0AB" stroke-width="2">
-                                                            <g transform="translate(0.000000, 668.000000)">
-                                                                <polyline
-                                                                        points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                            </span>
-                                            <span class="property-rounded-btn-txt">Bowen Hills, 4006</span>
-                                        </div>
+                                        <!--<div class="property-rounded-btn">-->
+                                            <!--<span class="property-rounded-btn-icon">-->
+                                                <!--<svg width="20" height="14">-->
+                                                    <!--<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"-->
+                                                       <!--stroke-linecap="round" stroke-linejoin="round">-->
+                                                        <!--<g transform="translate(-177.000000, -2502.000000)"-->
+                                                           <!--stroke="#13D0AB" stroke-width="2">-->
+                                                            <!--<g transform="translate(0.000000, 668.000000)">-->
+                                                                <!--<polyline-->
+                                                                        <!--points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline>-->
+                                                            <!--</g>-->
+                                                        <!--</g>-->
+                                                    <!--</g>-->
+                                                <!--</svg>-->
+                                            <!--</span>-->
+                                            <!--<span class="property-rounded-btn-txt">Bowen Hills, 4006</span>-->
+                                        <!--</div>-->
 
                                     </div>
 

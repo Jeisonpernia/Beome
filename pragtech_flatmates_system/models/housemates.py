@@ -18,7 +18,7 @@ class Housemates(models.Model):
     name = fields.Char(string="ID",index=True,required=True, default=lambda self: _('New'))
     property_type = fields.Many2many('property.type', string="Property type")
     user_id = fields.Many2one('res.users', string="User")
-
+    property_address =  fields.Char()
     street = fields.Char()
     street2 = fields.Char()
     city = fields.Char()

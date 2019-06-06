@@ -425,7 +425,7 @@ padding:20px;
 
 .decribe-place input{
 	height:40px;
-	padding-left:20px;
+	padding-left:10px;
 }
 
 .decribe-place .currency{
@@ -1027,14 +1027,14 @@ width: 10%;
 	padding-left: 5px;
 }
 
-.search-form .rooms-btn select:focus, .search-form .flatmates-btn select:focus{
+.search-form .rooms-btn select:focus, .search-form .flatmates-btn select:focus, #about_room_popup select:focus, #property-description-edit_popup select:focus, #list_place_property_preferences_popup select:focus{
 	background: #37bc9b;
 	border:1px solid #37bc9b;
 	outline: 0px;
 	color: #fff;
 	background-image: url("/pragtech_flatmates_system/static/src/img/dropdown-white.svg");
 	background-repeat: no-repeat;
-	background-position: right 16px center;
+	background-position: right 10px center;
 	background-size: 18px;	
 }
 
@@ -1044,7 +1044,7 @@ width: 10%;
 	color: #6D7580;
 }
 
-.search-form .rooms-btn select, .search-form .flatmates-btn select{
+.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select, #list_place_property_preferences_popup select{
 	color: #a5a8ad;
 	background-image: url("/pragtech_flatmates_system/static/src/img/dropdown-gray.svg");
 	background-repeat: no-repeat;
@@ -2504,7 +2504,8 @@ background: #11836c;
 }
 
 .form-group {
-  position: relative;	
+  position: relative;
+  text-align: left;
 }
 
 .form-control-placeholder {
@@ -2514,9 +2515,10 @@ background: #11836c;
   transition: all 200ms;	
   opacity: 0.5;
   font-weight: normal;
+  color: #212529;
 }
 
-.form-control:focus + .form-control-placeholder  {
+.form-control:focus + .form-control-placeholder {
   font-size: 75%;
   transform: translate3d(0, -60%, 0);
   opacity: 1;
@@ -2639,3 +2641,121 @@ display: inline;
     width: 30px;
     white-space: nowrap;
 }
+
+
+/*Suburb Design Start*/
+.locations-autocomplete .auto-input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: #fff;
+	border: 1px solid #e4e5e6;
+	border-radius: 5px;
+	font-size: 1rem;
+	font-weight: normal;
+	min-height: 50px;
+	padding-left: 10px;
+	transition: all .5s ease-in-out;
+	width: 100%;
+}
+.locations-autocomplete .auto-input.active {
+	border-color: #37bc9b;
+}
+.token {
+	background: #efefef;
+	border-radius: 5px;
+	color: #7c818b;
+	display: inline-block;
+	margin-right: .25em;
+	margin-top: 0.5rem;
+	padding: .25em .5em;
+}
+.token .remove {
+	cursor: pointer;
+	display: inline-block;
+	padding-left: 0.5rem;
+}
+.token .remove {
+	cursor: pointer;
+}
+.token .remove svg {
+	height: .8em;
+	width: .8em;
+}
+.token .icon .fill {
+	fill: #7c818b;
+}
+.locations-autocomplete .auto-input .token-input {
+	width: auto;
+}
+.locations-autocomplete .auto-input .hidden-input {
+	background: none;
+	border: 0;
+	width: auto;
+}
+.popular-locations {
+	margin-bottom: 1.5rem;
+}
+.popular-locations .locations {
+	display: block;
+	margin: 0.5rem 0 1rem;
+}
+.popular-locations .popular-location {
+	clear: none;
+	color: #a5a8ad;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.875rem;
+	margin-bottom: 4px;
+	margin-right: 4px;
+	padding: 0 6px 0 0;
+	text-align: center;
+	white-space: nowrap;
+}
+.popular-locations .popular-location svg {
+	height: 12px;
+	width: 12px;
+}
+.popular-locations .popular-location .fill {
+	fill: #a5a8ad;
+}
+.popular-locations .popular-location .icon-label {
+	white-space: nowrap;
+}
+/*Suburb Design end*/
+
+.focused{
+  transform: translate3d(0, -60%, 0);
+  font-size: 75%;
+  opacity: 1;
+  background: #fff;
+  padding-left: 0;
+  margin-left: 6px;
+  padding: 0px 6px;
+  color: #2f3a4a;
+}
+
+/*Map Css start*/
+/*.gm-style .gm-style-iw-t::after{
+	display: none
+}
+
+.gm-style .gm-style-iw-c{
+	width: 150px;
+	height: 150px;
+	border-radius: 100%;
+	background: red;
+	color: #fff;
+}
+
+.gm-style .gm-style-iw-d{
+	margin-top: 35%;
+	text-align: center;
+}
+
+.gm-ui-hover-effect{
+	display: none;
+}*/
+
+/*Map Css end*/
+

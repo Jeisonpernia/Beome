@@ -17,11 +17,19 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
     });
 
-    if (window.location.href.indexOf("/P") > -1)
+    if (window.location.href.indexOf("/P") > -1 || window.location.href.indexOf("/list_place_preview") > -1 || window.location.href.indexOf("/find_place_preview") > -1)
     {
 
          var path=window.location.pathname
+         if (path.indexOf('P') !== -1){
          var property_id=path.split('P').pop()
+         }
+         else if (path.indexOf('/list_place_preview') !== -1 || path.indexOf('/find_place_preview') !== -1)
+         {
+                  console.log("============ooooooooooo==========",$("#current_listing_id").val())
+
+         var property_id=$("#current_listing_id").val()
+         }
 
         $.ajax({
                 url : "/get_html_content_property_detail",   // calls to controller method
@@ -89,11 +97,12 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                             function(results, status, pagination) {
                               if (status !== 'OK') return;
                                console.log("===========result========",results,results.length)
+                               if (path.indexOf('P') !== -1){
                               for (var i=0;i<results.length;i++){
                               $(".map_table_restaurants").append("<tr><td class='border-0 col-8'>" + results[i]['name'] +"</td><td class='border-0 col-4 text-right'>Close by</td></tr>");
                               }
                               $(".map_table_restaurants").append("<tr><td class='col-8'> <a href='#'>+ Show more</a></td><td class='col-4 text-right'></td> </tr>")
-
+                                }
                               createMarkers(results);
                           });
                           service.nearbySearch(
@@ -108,11 +117,12 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                             function(results, status, pagination) {
                             console.log("======resultt--------",status)
                               if (status !== 'OK') return;
+                              if (path.indexOf('P') !== -1){
                               for (var i=0;i<results.length;i++){
                               $(".map_table_supermarket").append("<tr><td class='border-0 col-8'>" + results[i]['name'] +"</td><td class='border-0 col-4 text-right'>29 min walk</td></tr>");
                               }
                               $(".map_table_supermarket").append("<tr><td class='col-8'> <a href='#'>+ Show more</a></td><td class='col-4 text-right'></td> </tr>")
-
+                              }
                               createMarkers(results);
                           });
 

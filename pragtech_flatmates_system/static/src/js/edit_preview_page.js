@@ -135,6 +135,7 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
                     success: function(data){
                     }
             });
+            location.reload();
 
         });
 
@@ -152,7 +153,9 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
                     success: function(data){
 
                         if(data['result']['about_property_description']){
-                                $('#edit_about_property').html(data['result']['about_property_description'])
+                                $('.edit_about_property_div').html(data['result']['about_property_description'])
+                                $('#edit_about_property').html($('.edit_about_property_div').text())
+
                         }
 
                     }
@@ -181,6 +184,7 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
                     success: function(data){
                     }
             });
+            location.reload();
         })
 
         $('#edit_property_descrp').on('click',function(){
@@ -247,11 +251,28 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
                     }
             });
 
+
         });
 
         $('#update_property_descp').on('click',function(){
             console.log('666666666666666666666666666666666666666666')
             var data = {}
+
+            var property_address = $('.loc-field').val()
+            var street_number = $("#street_number").val()
+            var street_addrss = $("#sublocality_level_2").val()
+            var route = $("#route").val()
+            var city = $("#locality").val()
+            var state = $("#administrative_area_level_1").val()
+            var zip_code = $("#postal_code").val()
+            var country = $("#country").val()
+            var latitude = $("#latitude").val()
+            var longitude = $("#longitude").val()
+            var north = $("#north").val()
+            var east = $("#east").val()
+            var south = $("#south").val()
+            var west = $("#west").val()
+
             var current_property_id = $("#current_listing_id").val()
             var update_property_type = $("#edit_property_type").val()
             var update_bedrooms = $("#edit_total_bedroom").val()
@@ -269,6 +290,8 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
                 'update_internet':update_internet,
                 'update_parking':update_parking,
             }
+
+
             console.log('----------------------------------')
             console.log('current_property_id ',current_property_id)
             console.log('update_property_type ',update_property_type)
@@ -278,6 +301,51 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
             console.log('update_internet ',update_internet)
             console.log('update_parking ',update_parking)
             console.log('----------------------------------')
+
+            if (property_address){
+                data['property_address'] = property_address;
+            }
+            if(street_number){
+                data['street_number'] = street_number;
+            }
+            if (street_addrss){
+                data['street1'] = street_addrss;
+            }
+            if (route){
+                data['street2'] = route;
+            }
+            if (city){
+                data['city'] = city;
+            }
+            if (state){
+                data['state'] = state;
+            }
+            if (zip_code){
+                data['zip_code'] = zip_code;
+            }
+            if (country){
+                data['country'] = country;
+            }
+            if (latitude){
+                data['latitude'] = latitude;
+            }
+            if (longitude){
+                data['longitude'] = longitude;
+            }
+            if (north){
+                data['north'] = north;
+            }
+            if (east){
+                data['east'] = east;
+            }
+            if (south){
+                data['south'] = south;
+            }
+            if (west){
+                data['west'] = west;
+            }
+
+            console.log('data after address :: ',data)
 
             $.ajax({
                     url: '/update_property_descp',
@@ -289,10 +357,117 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
                     success: function(data){
                     }
             });
-
-
+            location.reload();
 
         });
+
+        $(document).on('click','.update-accepting',function(){
+            console.log('update----', $(this).find('.icons-accept').hasClass('fa-check'))
+//            console.log(ev.target.offsetParent)
+//            console.log(ev.target.offsetParent.childNodes)
+//            console.log(ev.target.offsetParent.childNodes[3].checked)
+            if ($(this).find('.icons-accept').hasClass('fa-check') == true){
+                console.log('0000000000000000000000000000000')
+                $(this).find('input').attr("checked","checked")
+//                ev.target.offsetParent.childNodes[3].checked = true
+            }
+            else{
+                console.log('11111111111111111111111')
+//              ev.target.offsetParent.childNodes[3].checked = false
+                $(this).find('input').removeAttr("checked")
+            }
+
+        })
+
+
+        $('#edit_accepting_id').on('click',function(){
+            console.log('7777777777777888888888888888888888888888999999999999')
+            var current_property_id = $("#current_listing_id").val()
+
+
+            $.ajax({
+                    url: '/get_accepting_data',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_property_id':current_property_id}}),
+                    success: function(data){
+                        console.log('data $$$ ',data)
+//                        if(data['result']['pets'] == true){
+//                            $(".icon-pets").removeClass("fa-times")
+//                            $(".icon-pets").addClass("fa-check")
+//                        }
+                    }
+            })
+        })
+
+
+         $(document).on('click','#update_accepting_btn',function(){
+             var update_accepting = []
+
+//            var checkboxes = document.getElementsByClassName('cat_check');
+//            for (var i = 0; i < checkboxes.length; i++) {
+//            if(checkboxes[i].checked == true){
+//                console.log(checkboxes[i])
+//                update_accepting.push(checkboxes[i].value);
+//            }
+////            checkboxes[i].checked = false;
+//            }
+            var data = {}
+            var current_property_id = $("#current_listing_id").val()
+
+            $.each($("input[id='edit_accepting']:checked"), function(){
+                    update_accepting.push($(this).val());
+            });
+
+            console.log('update accepting array ::',update_accepting)
+            data = {
+            'current_property_id':current_property_id,
+            'update_accepting':update_accepting
+            }
+
+            $.ajax({
+                    url: '/update_accepting_data',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": data}),
+                    success: function(data){
+                    }
+            });
+            location.reload();
+
+
+        })
+
+         $(document).on('click','.about_room_popup_close',function(){
+
+         location.reload();
+         })
+
+         $(document).on('click','.list_place_property_preferences_popup_close',function(){
+
+         location.reload();
+         })
+
+         $(document).on('click','.about_property_popup_close',function(){
+
+         location.reload();
+         })
+
+          $(document).on('click','.property-description-edit_popup_close',function(){
+
+         location.reload();
+         })
+
+
+
+
+
+
+
 
 
 

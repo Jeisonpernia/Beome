@@ -148,7 +148,7 @@
                                             <div class="form-group row">
                                             <input type="hidden" name="listing_type" value="list"/>
                                                 <div class="col-lg-3 col-6 btn-padding-right">
-                                                    <input type="text" class="form-control" id="min_room_rent_id" name="min_room_rent"/>
+                                                    <input type="text" class="form-control" id="min_room_rent_id" name="min_room_rent" value=""/>
 													<label class="form-control-placeholder" for="min_room_rent_id">Min rent</label>
                                                 </div>
 

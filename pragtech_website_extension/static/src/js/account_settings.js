@@ -16,7 +16,9 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                         var user_name = data['result']['user_name']
                         var user_email = data['result']['user_email']
 //                        console.log('User name and email :::: ',user_name,user_email)
+                        $(".default_user_name").siblings().addClass('focused')
                         $(".default_user_name").val(user_name);
+                        $(".default_user_email").siblings().addClass('focused')
                         $(".default_user_email").val(user_email);
 
                         if (data['result']['user_mobile']){
@@ -135,6 +137,24 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
     $(".change-passwrd-btn").on('click',function(){
         console.log('1111111111111111111111111111')
       $("#account_settings_popup").modal('hide')
+    })
+
+    $(document).on('click','#account_verification',function()
+    {
+        console.log('\nClicked')
+        $.ajax({
+                    url: '/verification_action_social_media',
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                    success: function(data)
+                    {
+                        console.log('\nuuuuuuuuuu0',data['result'])
+                        $("#verify_facebook").attr('href',data['result'])
+                        $("#verify_facebook").attr('target','blank')
+                    }
+                });
     })
 
 

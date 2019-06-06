@@ -337,7 +337,7 @@
                                                 <tr>
                                                     <td class="label">Country</td>
                                                     <td class="wideField" colspan="3">
-                                                        <input class="field" id="country" disabled="true"/>
+                                                        <input class="field" id="country"/>
                                                     </td>
                                                 </tr>
                                                 <tr>
