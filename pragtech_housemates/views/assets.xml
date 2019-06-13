@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="assets_frontend_website" inherit_id="web.assets_frontend" name="Flatmates Frontend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/pragtech_housemates/static/src/css/info.css"/>
+            <link rel="stylesheet" type="text/scss" href="/pragtech_housemates/static/src/css/flatmates.css"/>
+            <link rel="stylesheet" type="text/scss" href="/pragtech_housemates/static/src/css/product_images.css"/>
+            <!--<link rel="stylesheet" type="text/scss" href="/pragtech_housemates/static/src/css/flickity.css"/>-->
+            <!--<link rel="stylesheet" type="text/scss" href="/pragtech_housemates/static/src/css/flickity-style.css"/>-->
+			<!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>-->
+            <link rel="stylesheet" type="text/scss" href="/pragtech_housemates/static/src/css/flatmates-responsive.css"/>
+
+            <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>-->
+            <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/accommodation_page.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/lazy_load.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/home_page.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/add_another_room.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/whole_property_property_type.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/info_template.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/dynamic_url.js"></script>
+            <!--<script type="text/javascript" src="/pragtech_housemates/static/src/js/flickity_min.js"></script>-->
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/list_place.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/find_place.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/form_data.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/place_autocomplete.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/place_search.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/search.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/fix_top_menu.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/edit_preview_page.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/edit_find_preview.js"></script>
+            <script type="text/javascript" src="/pragtech_housemates/static/src/js/responsive.js"></script>
+
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkJT0sGkvkGimReoi_XXGMmQ70O4_BFBc&amp;libraries=places"></script>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tag-it/2.0/css/jquery.tagit.css"/>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tag-it/2.0/js/tag-it.js"/>
+
+        </xpath>
+</template>
+</odoo>

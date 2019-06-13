@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_value_my_room" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="/">Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="/value-my-room">Value My Room</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                    <section class="value-my-room">
+
+
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4">
+                                    <h1>What's yours worth?</h1>
+                                    <p class="mt-4">Enter your suburb below to find out what your room is worth. It's
+                                        free, no sign up required.
+                                    </p>
+
+                                    <div class="bird mt-5">
+                                        <svg class="bird" width="46" height="41" viewBox="0 0 46 41">
+                                            <g fill="none" fill-rule="evenodd">
+                                                <path fill="#E9573F"
+                                                      d="M8.324 17.163S2.89 9.12.89 12.143c-2 3.024 7.434 5.02 7.434 5.02M8.324 17.163s3.6-9.033 0-9.033 0 9.033 0 9.033"></path>
+                                                <path fill="#F7BB42"
+                                                      d="M20.326 29.616h-.89v11.38h.89v-11.38zM23.596 29.616h-.89v11.38h.89v-11.38z"></path>
+                                                <path fill="#E9573F"
+                                                      d="M8.134 16.79c0 7.602 6.1 13.765 13.624 13.765 7.524 0 13.624-6.163 13.624-13.765H8.134"></path>
+                                                <path fill="#F7BB42"
+                                                      d="M12.786 16.79c0 4.207 3.376 7.618 7.54 7.618s7.54-3.41 7.54-7.618"></path>
+                                                <path fill="#E9573F"
+                                                      d="M38.788 11.558c0-4.146-3.327-7.508-7.432-7.508-4.104 0-7.43 3.362-7.43 7.508s3.326 7.508 7.43 7.508c4.105 0 7.432-3.362 7.432-7.508"></path>
+                                                <path fill="#000000"
+                                                      d="M35.008 10.15c0-.396-.318-.718-.71-.718-.393 0-.71.322-.71.718 0 .397.317.72.71.72.392 0 .71-.323.71-.72"></path>
+                                                <path fill="#F7BB42"
+                                                      d="M38.788 11.558l6.966 4.223H37.5l1.288-4.222"></path>
+                                                <path fill="#E9573F"
+                                                      d="M28.58 4.567s4.186-.473 3.44-1.872c-.746-1.4-3.44 1.872-3.44 1.872"></path>
+                                                <path fill="#E9573F"
+                                                      d="M28.58 4.567s1.937-3.778.37-3.93c-1.565-.15-.37 3.93-.37 3.93"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+
+                                    <form>
+                                        <div class="form-group mt-2">
+                                            <input type="text" class="form-control" id="" name=""
+                                                   placeholder="Enter your suburb or postcode"/>
+                                        </div>
+
+                                        <button class="btn btn-block btn-green1" id="" type="submit">Value My Room
+                                        </button>
+                                    </form>
+
+
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="col-lg-12 text-center mt-2">
+                                        <img src="/pragtech_housemates/static/src/img/sun.png"
+                                             class="img-fluid mb-3" alt=""/>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <img src="/pragtech_housemates/static/src/img/board.png"
+                                             class="img-fluid board-pic" alt=""/>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </section>
+
+
+                    <div class="container-fluid">
+                        <img src="/pragtech_housemates/static/src/img/city-bg.png" class="img-fluid mb-5" alt=""/>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_verification" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Account Verifications </h1>
+                                                <h2 class="mt-5">Verifying your account can help build trust with other members, resulting in more enquires and replies. It also helps our moderation team keep the community safe.</h2>
+                                                <img src="/pragtech_housemates/static/src/img/account-verifications.png" class="img-fluid mt-2" alt=""/>
+                                                <h2 class="mt-4">Mobile verification (Required)</h2>
+                                                <p class="mt-2">Mobile verification is mandatory for all members wishing to active their listing, send messages to other members or to access other members mobile numbers.<br/><br/>
+
+                                                    When you enter your mobile number we will send you a short code which you will need to enter into the website. You can opt for members to have your number available to upgraded members on the verification page or can be changed under your account settings.
+                                                </p>
+
+                                                <div class="mt-2 gray-bx"><p>The only time Flatmates.com.au will send you a text message is to provide you with a security code. We will never send you a text message asking you to log into our site.</p></div>
+
+                                                <h2 class="mt-4">Social media verification (Recommended)</h2>
+
+                                                <p class="mt-2">Verifying your social media accounts with Flatmates.com.au not only helps build trust in the community, but can also result in more enquiries and replies. Having your social accounts verified and linked may also speed up your selection process by allowing you to get to know potential flatmates better.<br/><br/>
+
+                                                    To get the full benefit of social verification you will need to allow public viewing of your profile. This allows upgraded members of Flatmates.com.au to access your publicly available Facebook, Linkedin, Instagram or Twitter page through your listing. What is shown on this page is only the information that is already publicly available on the web and is determined by your settings with that social provider.
+                                                </p>
+
+                                                <div class="mt-2 gray-bx">
+                                                    <h3>Update 23 April 2018:</h3>
+                                                    <p>Due to recent changes by Facebook, links to other member’s verified Facebook profiles will be temporarily unavailable. We are working with Facebook on a solution for this change. Members may still verify their Facebook accounts and the icon will show on their listings. </p>
+                                                </div>
+
+                                                <h3 class="mt-4">Where are verifications shown?</h3>
+
+                                                <p class="mt-2">Verifications are shown as their respective social icons under your name and at the bottom of your listings. This information is also shown in the messaging system at the top. These icons just show that you are verified for each social account.<br/><br/>
+
+                                                    If you allow access to your public profile then upgraded members will be able to access the public profile of your social account from your listing.</p>
+
+
+                                                <h3 class="mt-4">How can I view other members social verifications?</h3>
+
+                                                <p class="mt-2">You can see which accounts a member has verified with us at the bottom of their listing or at the top of messages to you.<br/><br/>
+
+                                                    To have access to these, you will need to have an upgraded account. If you’re logged in, you can <a href="https://flatmates.com.au/secure-payment">view upgrade plans here</a>, which start at $25.
+                                                </p>
+
+                                                <div class="mt-2 gray-bx">
+                                                    <h3>Update 30 April 2018:</h3>
+                                                    <p>Due to recent changes by Facebook, links to other member’s verified Facebook profiles will be temporarily unavailable. We are working with Facebook on a solution for this change. Members may still verify their Facebook accounts and the icon will show on their listings.</p>
+                                                </div>
+
+                                                <p class="mt-4"><a href="https://flatmates.com.au/info/why-upgrade">Read more about upgrades</a>.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

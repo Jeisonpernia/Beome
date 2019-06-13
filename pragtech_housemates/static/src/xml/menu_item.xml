@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_navbar" inherit_id="website.layout" name="Inherit Main Menu">
+        <xpath expr="//header//ul[@id='top_menu']//li[1]" position="before">
+
+            
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/shortlists">
+                    <div class="nav-icon mx-auto">
+                        <span class="icon">
+                            <svg class="shortlist" viewBox="0 0 64 44">
+                                <path class="fill"
+                                      d="M10.6 43.7c-.4 0-.9-.1-1.2-.4-.7-.5-1-1.4-.8-2.2L12 27.8 1.5 19c-.7-.6-.9-1.4-.7-2.3.3-.8 1-1.4 1.9-1.4l13.7-.9 5.1-12.7C21.8.9 22.6.4 23.4.4c.9 0 1.6.5 1.9 1.3l5.1 12.7 13.7.9c.9.1 1.6.6 1.9 1.4.3.8 0 1.7-.6 2.3l-10.5 8.8 3.4 13.3c.2.8-.1 1.7-.8 2.2-.4.3-.8.4-1.2.4-.4 0-.8-.1-1.1-.3l-11.6-7.3L12 43.4c-.6.2-1 .3-1.4.3z"></path>
+                                <path class="fill"
+                                      d="M61.4 7H30.1l1.9 4.6 14.9 1.1c1.4.1 2.6.3 3.2 2.3h11.2c1.1 0 2-1.8 2-4s-.8-4-1.9-4zm0 13H48.5l-9.6 8h22.5c1.1 0 2-1.8 2-4s-.9-4-2-4zm0 13H38.8l2 8h20.6c1.1 0 2-1.8 2-4s-.9-4-2-4z"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="text-center mt-1">
+                        Shortlist
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/info">
+                    <div class="nav-icon mx-auto">
+                        <span class="icon">
+                            <svg class="info-icon" viewBox="0 0 50 50">
+                                <path class="fill"
+                                      d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="text-center mt-1">
+                        Info
+                    </div>
+                </a>
+            </li>
+            <!--</li>-->
+
+        </xpath>
+
+
+        <xpath expr="//header//ul[@id='top_menu']" position="before">
+            <div class="search search-box-bar">
+                <div class="new-search-container people-border">
+                    <div class="new-search closed">
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle search-dropdown search-bar-responsive" type="button"
+                                    data-toggle="modal" data-target="#dropdownMenuButton" aria-haspopup="true"
+                                    aria-expanded="false">
+                                <div class="search-icon search-box-icon">
+                                    <span class="fa fa-search"></span>
+                                </div>
+
+                                <span class="search-dropdown-txt">Search share accommodation</span>
+                            </button>
+
+                            <div class="dropdown-menu search-dropdown-responsive" aria-labelledby="dropdownMenuButton" id="dropdownMenuButton" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="search-dropdown-menu">
+
+                            <form class="search-form" id="search_filter" action="/search/records" method="GET">
+                                <div class="form-group auto-input">
+                                    <label class="p16-gray text-uppercase">Where are you looking?</label>
+                                    <input type="text" class="form-control" id="search_places"
+                                           placeholder="Start typing a suburb, city, station or uni"/>
+                                </div>
+                                <div class="popular-locations">
+                                    <div class="locations">
+                                        <span class="popular-location">
+                                            <i class="fas fa-map-marker-alt" />
+                                            <span class="icon-label">Sydney</span>
+                                        </span>
+                                        <span class="popular-location">
+                                            <i class="fas fa-map-marker-alt" />
+                                            <span class="icon-label">Melbourne</span>
+                                        </span>
+                                        <span class="popular-location">
+                                            <i class="fas fa-map-marker-alt" />
+                                            <span class="icon-label">Brisbane</span>
+                                        </span>
+                                        <span class="popular-location">
+                                            <i class="fas fa-map-marker-alt"/>
+                                            <span class="icon-label">Perth</span>
+                                        </span>
+                                        <span class="popular-location">
+                                            <i class="fas fa-map-marker-alt"/>
+                                            <span class="icon-label">Gold Coast</span>
+                                        </span>
+                                        <span class="popular-location">
+                                            <i class="fas fa-map-marker-alt"/>
+                                            <span class="icon-label">Adelaide</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="" class="p16-gray text-uppercase">What are you looking for?</label>
+
+                                    <div class="search-mode">
+
+                                        <div class="search-mode-rooms">
+                                            <button type="button" class="btn btn-outline-danger btn-block"
+                                                    id="rooms">
+                                                <span class="fa fa-home"></span>
+                                                Rooms
+                                            </button>
+                                        </div>
+
+                                        <div class="search-mode-flatmates">
+                                            <button type="button" class="btn btn-outline-info btn-block"
+                                                    id="flatmates">
+                                                <span class="fa fa-user">
+                                                </span>
+                                                Flatmates
+                                            </button>
+                                        </div>
+
+                                        <div class="search-mode-teamups">
+                                            <button type="button" class="btn btn-outline-warning btn-block"
+                                                    id="teamups">
+                                                <span class="fa fa-users"></span>
+                                                Teamups
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-12 mt-3 pl-0 pr-0 d-none">
+                                        <button class="btn search-btn btn-block" id="search-submit-start"
+                                                type="submit">Search
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </form>
+
+                            <form class="search-form mt-2" id="search_room_filter" action="/search/records" method="GET">
+                                <div class="rooms-btn">
+
+                                    <div class="search-min-budget">
+                                        <div class="form-group row">
+                                            <input type="hidden" name="listing_type" value="list"/>
+                                            <div class="col-lg-3 col-6 btn-padding-right">
+                                                <input type="text" class="form-control" id="min_room_rent_id" name="min_room_rent" value=""/>
+                                                <label class="form-control-placeholder" for="min_room_rent_id">Min rent</label>
+                                            </div>
+
+                                            <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                <input type="text" class="form-control" id="max_room_rent_id" name="max_room_rent"
+                                                />
+                                                <label class="form-control-placeholder" for="max_room_rent_id">Max rent</label>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 btn-padding-left select-wrapper">
+                                                <select class="form-control" id="search_sort" name="search_sort">
+                                                    <option value="photos">Photos first</option>
+                                                    <option value="newest">Newest listings</option>
+                                                    <option value="cheapest">Cheapest (rent low to high)</option>
+                                                    <option value="most-expensive">Dearest (rent high to low)</option>
+                                                    <option value="earliest-available">Available soonest</option>
+                                                    <option value="recently-active">Active most recently</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="advance-filters mt-2 mb-3">
+
+                                        <div class="text-center">
+                                            <a href="#" id='advance-filter-rooms' class="advance-filter">+ Advanced filters</a>
+                                            <a href="#" id='hide-advance-filter-rooms' class="hide-advance-filter">- Hide Advanced filters</a>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="advanced-option mt-4">
+                                        <div class="form-group row">
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                                <input type="text" class="form-control filter-btn" id="room_avail_date_id" name="search_room_avail_date"
+                                                       placeholder="Available from"/>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left">
+                                                <select class="form-control" id="search_gender" name="search_gender">
+                                                    <option>select gender</option>
+                                                    <option value="anyone">Any gender</option>
+                                                    <option value="females_only">Places accepting females</option>
+                                                    <option value="males_only">Places accepting males</option>
+                                                    <option value="couple">Places accepting couples</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                                <select class="form-control search-room-types" id="search_room_type_id" name="search_room_type">
+                                                    <option value="">All rooms</option>
+                                                    <!--<option>Private room</option>-->
+                                                    <!--<option>Room shared with others</option>-->
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left">
+                                                <select class="form-control" id="search_room_bathroom_type_id" name="search_room_bathroom_type">
+                                                    <option value="">All bathroom types</option>
+                                                    <!--<option>Ensuite bathroom</option>-->
+                                                    <!--<option>Own bathroom</option>-->
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                                <select class="form-control" id="search_room_furnsh_type_id" name="search_room_furnsh_type">
+                                                    <option value="">Any furnishing</option>
+                                                    <!--<option>Furnished Room</option>-->
+                                                    <!--<option>Unfurnished Room</option>-->
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left">
+                                                <select class="form-control" id="search_stay_len_id" name="search_stay_len">
+                                                    <option value="">All stay lengths</option>
+                                                    <!--<option>1 week</option>-->
+                                                    <!--<option>2 weeks</option>-->
+                                                    <!--<option>4 weeks</option>-->
+                                                    <!--<option>6 weeks</option>-->
+                                                    <!--<option>2 months</option>-->
+                                                    <!--<option>3 months</option>-->
+                                                    <!--<option>4 months</option>-->
+                                                    <!--<option>6 months</option>-->
+                                                    <!--<option>9 months</option>-->
+                                                    <!--<option>1 year</option>-->
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                                <!--<div class="dropdown show">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Dropdown link
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <input type="checkbox" name="vehicle1" value="Bike"/> I have a bike<br/>
+                                                        <input type="checkbox" name="vehicle2" value="Car"/> I have a car<br/>
+                                                        <input type="checkbox" name="vehicle3" value="Boat" checked="checked"/> I have a boat<br/>
+                                                    </div>
+                                                </div>-->
+
+                                                <div class="radio-checkbox">
+                                                    <div class="select-check">
+
+                                                        <button type="button" class="show-checkbox-dropdown">Accommodation types</button>
+                                                        <div class="options hidden" id="search_list_accomodation">
+                                                            <!--<div class="input round-dot">-->
+                                                            <!--<input name="search[share-houses]" type="hidden" value="0"/>-->
+                                                            <!--<input id="search_share-houses" name="search[share-houses]" type="checkbox" value="1"/>-->
+                                                            <!--<label for="search_share-houses">Room(s) in share houses</label>-->
+                                                            <!--</div>-->
+                                                            <!--<div class="input round-dot">-->
+                                                            <!--<input name="search[whole-properties]" type="hidden" value="0"/>-->
+                                                            <!--<input id="search_whole-properties" name="search[whole-properties]" type="checkbox" value="1"/>-->
+                                                            <!--<label for="search_whole-properties">Whole properties for sharing</label>-->
+                                                            <!--</div>-->
+                                                            <!--<div class="input round-dot">-->
+                                                            <!--<input name="search[studios]" type="hidden" value="0"/>-->
+                                                            <!--<input id="search_studios" name="search[studios]" type="checkbox" value="1"/>-->
+                                                            <!--<label for="search_studios">Studios</label>-->
+                                                            <!--</div>-->
+                                                            <!--<div class="input round-dot">-->
+                                                            <!--<input name="search[1-beds]" type="hidden" value="0"/>-->
+                                                            <!--<input id="search_1-beds" name="search[1-beds]" type="checkbox" value="1"/>-->
+                                                            <!--<label for="search_1-beds">1 bed flats</label>-->
+                                                            <!--</div>-->
+                                                            <!--<div class="input round-dot">-->
+                                                            <!--<input name="search[granny-flats]" type="hidden" value="0"/>-->
+                                                            <!--<input id="search_granny-flats" name="search[granny-flats]" type="checkbox" value="1"/>-->
+                                                            <!--<label for="search_granny-flats">Granny flats</label>-->
+                                                            <!--</div>-->
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left">
+                                                <select class="form-control" id="search_room_parking_type_id" name="search_room_parking_type">
+                                                    <option value="">Any parking</option>
+                                                    <!--<option>No parking</option>-->
+                                                    <!--<option>Off-street parking</option>-->
+                                                    <!--<option>On-street parking</option>-->
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                                <select class="form-control" id="search_avail_bedrooms_id" name="search_bedrooms">
+                                                    <option value="">Available bedrooms</option>
+                                                    <!--<option>1 bedroom</option>-->
+                                                    <!--<option>2 bedrooms</option>-->
+                                                    <!--<option>3 bedrooms</option>-->
+                                                    <!--<option>4 bedrooms</option>-->
+                                                    <!--<option>5 bedrooms</option>-->
+                                                    <!--<option>6 bedrooms</option>-->
+                                                </select>
+                                            </div>
+
+
+
+                                            <div class="clearfix"></div>
+
+                                            <div class="col-lg-12 mt-3">
+                                                <input type="text" class="form-control" id="rooms-search-keywords"/>
+                                                <label class="form-control-placeholder" for="rooms-search-keywords">Search by keywords eg. Pool</label>
+                                            </div>
+
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right lgbt-friendly checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value=""
+                                                           id="search_check_lgbt" name="LGBTI" readonly="true"/>
+                                                    <span class="search-accepting">LGBT+ friendly</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value=""
+                                                           id="search_check_retirees" name="retirees" readonly="true"/>
+                                                    <span class="search-accepting">Retirees welcome</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control"
+                                                           value="" id="search_check_student" name="students" readonly="true"/>
+                                                    <span class="search-accepting">Students accepted</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value=""
+                                                           id="search_check_smokers" name="smokers" readonly="true"/>
+                                                    <span class="search-accepting">Smokers accepted</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value=""
+                                                           id="search_check_backpackers" name="backpackers" readonly="true"/>
+                                                    <span class="search-accepting">Backpackers OK</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value=""
+                                                           id="search_check_children" name="children" readonly="true"/>
+                                                    <span class="search-accepting">Children OK</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value=""
+                                                           id="search_check_fourty_year_old" name="fourty_year_old" readonly="true"/>
+                                                    <span class="search-accepting">40yrs+ welcome</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value=""
+                                                           id="search_check_on_welfare" name="on_welfare" readonly="true"/>
+                                                    <span class="search-accepting">On welfare</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right checkbox-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value=""
+                                                           id="search_check_pets" name="pets" readonly="true"/>
+                                                    <span class="search-accepting">Pets considered</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-lg-12 mt-3 pl-0 pr-0 d-none">
+                                        <button class="btn search-room-btn btn-block" id="search-submit" name="search_room_button"
+                                                type="submit" value="search_room_sumbit">Search Rooms
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </form>
+
+                            <form class="search-form mt-2" id="search_flatmates_filter" action="/search/records" method="GET">
+                                <div class="flatmates-btn">
+
+                                    <div class="form-group row">
+                                        <!--<div class="col-lg-3 col-6 btn-padding-left btn-padding-right">-->
+                                        <!--<input type="text" class="form-control" id="" placeholder="Min Rent" />-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-lg-3 col-6 btn-padding-left">-->
+                                        <!--<input type="text" class="form-control" id="" placeholder="Max Rent" />-->
+                                        <!--</div>-->
+                                        <input type="hidden" name="listing_type" value="find"/>
+                                        <div class="col-lg-6 col-12 btn-padding-right">
+                                            <select class="form-control" id="gender_selection" name="gender_selection">
+                                                <option name="find_all_genders">All genders</option>
+                                                <option name="find_females">Females</option>
+                                                <option name="find_male">Males</option>
+                                                <option name="find_females">Females &#38; males (no couple)</option>
+                                                <option name="find_couple">Couples</option>
+
+                                            </select>
+                                        </div>
+
+
+                                        <div class="col-lg-6 col-12 btn-padding-left">
+                                            <select class="form-control" id="photo_first" name="photo_first">
+                                                <option name="find_photos">Photos first</option>
+                                                <option name="find_newest">Newest listings</option>
+                                                <option name="find_most_active">Active most recently</option>
+                                                <option name="find_low_to_hight">Budget (lowest to highest)</option>
+                                                <option name="find_move_date_soonest">Move date soonest</option>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="advance-filters mt-2 mb-3">
+
+                                        <div class="text-center">
+                                            <a href="#" id='advance-filter-flatmates' class="advance-filter">+ Advanced filters</a>
+                                            <a href="#" id='hide-advance-filter-flatmates' class="hide-advance-filter">- Hide Advanced filters</a>
+
+                                        </div>
+                                    </div>
+                                    <div class="advanced-option">
+                                        <div class="search-min-budget mt-3">
+                                            <div class="form-group row">
+
+                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                    <input type="text" class="form-control" id="flatmates-min-age" name="find_min_age"/>
+                                                    <label class="form-control-placeholder" for="flatmates-min-age">Min age</label>
+                                                </div>
+
+                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                    <input type="text" class="form-control" id="flatmates-max-age" name="find_max_age"/>
+                                                    <label class="form-control-placeholder" for="flatmates-max-age">Max age</label>
+                                                </div>
+                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                    <input type="text" class="form-control" id="flatmates-min-rent" name="find_min_rent"/>
+                                                    <label class="form-control-placeholder" for="flatmates-min-rent">Min rent</label>
+                                                </div>
+
+                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                    <input type="text" class="form-control" id="flatmates-max-rent" name="find_max_rent"/>
+                                                    <label class="form-control-placeholder" for="flatmates-max-rent">Max rent</label>
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group row">
+                                            <div class="col-lg-6 col-12 btn-padding-right">
+                                                <input type="text" class="form-control filter-btn"
+                                                       id="flat_avail_date_id" name="flat_avail_date_id" placeholder="Available from"/>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 btn-padding-left">
+                                                <select class="form-control" id="find_property_type" name="find_property_type">
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="search-min-stay mt-3">
+                                            <div class="form-group row">
+
+                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                    <select class="form-control" id="find_min_stay" name="find_min_stay">
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                    <select class="form-control" id="find_max_stay" name="find_max_stay">
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-6 col-12 btn-padding-left">
+                                                    <div class="radio-checkbox">
+                                                        <div class="select-check">
+
+                                                            <button type="button" class="show-checkbox-dropdown">People that are</button>
+                                                            <div class="options hidden" id="pepole_that_are">
+                                                                <div class="input round-dot">
+                                                                    <input id="fsmoker" name="fsmoker" type="checkbox" value="fsmoker"/>
+                                                                    <label for="fsmoker">Smoker</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="flgbti" name="flgbti" type="checkbox" value="flgbti"/>
+                                                                    <label for="flgbti">LGBTI+</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="fpets" name="fpets" type="checkbox" value="fpets"/>
+                                                                    <label for="fpets">Pets</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="fchildren" name="fchildren" type="checkbox" value="fchildren"/>
+                                                                    <label for="fchildren">Children</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                    <!--<select class="form-control" id="pepole_that_are" name="pepole_that_are">-->
+                                                    <!--<option>People that are</option>-->
+                                                    <!--<option>LGBT</option>-->
+                                                    <!--<option>No kids</option>-->
+                                                    <!--<option>No Pets</option>-->
+                                                    <!--<option>No-smoker</option>-->
+                                                    <!--<option>Smoker</option>-->
+                                                    <!--</select>-->
+                                                </div>
+
+                                                <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                                    <div class="radio-checkbox">
+                                                        <div class="select-check">
+
+                                                            <button type="button" class="show-checkbox-dropdown">Professions</button>
+                                                            <div class="options hidden" id="pepole_that_are">
+                                                                <div class="input round-dot">
+                                                                    <input id="f_full_time" name="f_full_time" type="checkbox" value="f_full_time"/>
+                                                                    <label for="f_full_time">Working full-time</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="f_part_time" name="f_part_time" type="checkbox" value="f_part_time"/>
+                                                                    <label for="f_part_time">Working part-time</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="f_student" name="f_student" type="checkbox" value="f_student"/>
+                                                                    <label for="f_student">Student</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="f_backpacker" name="f_backpacker" type="checkbox" value="f_backpacker"/>
+                                                                    <label for="f_backpacker">Backpacker</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="f_retired" name="f_retired" type="checkbox" value="f_retired"/>
+                                                                    <label for="f_retired">Retired</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="f_unemployed" name="f_unemployed" type="checkbox" value="f_unemployed"/>
+                                                                    <label for="f_unemployed">Unemployed/Welfare</label>
+                                                                </div>
+                                                                <div class="input round-dot">
+                                                                    <input id="f_working_hloiday" name="f_working_hloiday" type="checkbox" value="f_working_hloiday"/>
+                                                                    <label for="f_working_hloiday">Working Holiday</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <!--<select class="form-control" id="professions" name="professions">-->
+                                                        <!--<option>Professions</option>-->
+                                                        <!--<option>Working full-time</option>-->
+                                                        <!--<option>Working Part-time</option>-->
+                                                        <!--<option>Student</option>-->
+                                                        <!--<option>Backpacker</option>-->
+                                                        <!--<option>Retired</option>-->
+                                                        <!--<option>Unemployed/Welfare</option>-->
+                                                        <!--<option>Working Holiday</option>-->
+                                                        <!--</select>-->
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="clearfix"></div>
+
+                                                <div class="col-lg-12 mt-3">
+                                                    <input type="text" class="form-control" id="flatmates-search-keywords"/>
+                                                    <label class="form-control-placeholder" for="flatmates-search-keywords">Search by keywords eg. Vegan</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                    <div class="col-lg-12 mt-3 pl-0 pr-0 d-none">
+                                        <button class="btn search-flat-btn btn-block" id="search-submit"
+                                                type="submit">Search Flatmates
+                                        </button>
+                                    </div>
+
+                                </div><!--flatmates-btn close-->
+                            </form>
+
+                            <form class="search-form mt-2" id="search_teamups_filter" action="/search/records" method="GET">
+                                <div class="teamups-btn">
+
+                                    <div class="form-group row">
+                                        <!--<div class="col-lg-3 col-6 btn-padding-left btn-padding-right">-->
+                                        <!--<input type="text" class="form-control" id="" placeholder="Min Rent" />-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-lg-3 col-6 btn-padding-left">-->
+                                        <!--<input type="text" class="form-control" id="" placeholder="Max Rent" />-->
+                                        <!--</div>-->
+                                        <div class="col-lg-6 col-12 btn-padding-right">
+                                            <select class="form-control" id="">
+                                                <option>All genders</option>
+                                                <option>Females</option>
+                                                <option>Males</option>
+                                                <option>Females &#38; males (no couple)</option>
+                                                <option>Couples</option>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="col-lg-6 col-12 btn-padding-left">
+                                            <select class="form-control" id="">
+                                                <option>Photos first</option>
+                                                <option>Newest listings</option>
+                                                <option>Active most recently</option>
+                                                <option>Budget (lowest to highest)</option>
+                                                <option>Move date soonest</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="advance-filters mt-2 mb-3">
+
+                                        <div class="text-center">
+                                            <a href="#" id='advance-filter-teamups' class="advance-filter">+ Advanced filters</a>
+                                            <a href="#" id='hide-advance-filter-teamups' class="hide-advance-filter">- Hide Advanced filters</a>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="advanced-option">
+                                        <div class="search-min-budget mt-3">
+                                            <div class="form-group row">
+
+                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                    <input type="text" class="form-control" id="teamups-min-age"/>
+                                                    <label class="form-control-placeholder" for="teamups-min-age">Min age</label>
+                                                </div>
+
+                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                    <input type="text" class="form-control" id="teamups-max-age"/>
+                                                    <label class="form-control-placeholder" for="teamups-max-age">Max age</label>
+                                                </div>
+                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                    <input type="text" class="form-control" id="teamups-min-rent"/>
+                                                    <label class="form-control-placeholder" for="teamups-min-rent">Min rent</label>
+                                                </div>
+
+                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                    <input type="text" class="form-control" id="teamups-max-rent"/>
+                                                    <label class="form-control-placeholder" for="teamups-max-rent">Max rent</label>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group row">
+                                            <div class="col-lg-6 col-12 btn-padding-right">
+                                                <input type="text" class="form-control filter-btn" name="find_date"
+                                                       id="teamups_avail_date_id" placeholder="Available from"/>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12 btn-padding-left">
+                                                <select class="form-control" id="">
+                                                    <option>People looking for</option>
+                                                    <option name="find_share_house">Room(s) in share houses</option>
+                                                    <option name="find_whole_property">Whole properties for sharing</option>
+                                                    <option name="find_studios">Studios</option>
+                                                    <option name="find_one_bed_flat">1 bed flats</option>
+                                                    <option name="find_granny_flat">Granny flats</option>
+                                                    <option name="find_student_accommodation">Student accommodation</option>
+                                                    <option name="find_homestay">Homestays</option>
+                                                    <option name="find_shared_room">Shared rooms</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="search-min-stay mt-3">
+                                            <div class="form-group row">
+
+                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                    <select class="form-control" id="">
+                                                        <option>Min stay</option>
+                                                        <option>1 week</option>
+                                                        <option>2 weeks</option>
+                                                        <option>4 weeks</option>
+                                                        <option>6 weeks</option>
+                                                        <option>2 months</option>
+                                                        <option>3 months</option>
+                                                        <option>4 months</option>
+                                                        <option>6 months</option>
+                                                        <option>9 months</option>
+                                                        <option>1 year</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                    <select class="form-control" id="">
+                                                        <option>Max stay</option>
+                                                        <option>1 week</option>
+                                                        <option>2 weeks</option>
+                                                        <option>4 weeks</option>
+                                                        <option>6 weeks</option>
+                                                        <option>2 months</option>
+                                                        <option>3 months</option>
+                                                        <option>4 months</option>
+                                                        <option>6 months</option>
+                                                        <option>9 months</option>
+                                                        <option>1 year</option>
+                                                        <option>Open-ended stay</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-6 col-12 btn-padding-left">
+                                                    <select class="form-control" id="">
+                                                        <option>People that are</option>
+                                                        <option>LGBT</option>
+                                                        <option>No kids</option>
+                                                        <option>No Pets</option>
+                                                        <option>No-smoker</option>
+                                                        <option>Smoker</option>
+                                                        <option></option>
+                                                        <option></option>
+                                                        <option></option>
+                                                        <option></option>
+                                                        <option></option>
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                                    <select class="form-control" id="">
+                                                        <option>Professions</option>
+                                                        <option>Working full-time</option>
+                                                        <option>Working Part-time</option>
+                                                        <option>Student</option>
+                                                        <option>Backpacker</option>
+                                                        <option>Retired</option>
+                                                        <option>Unemployed/Welfare</option>
+                                                        <option>Working Holiday</option>
+                                                        <option></option>
+                                                        <option></option>
+                                                        <option></option>
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="clearfix"></div>
+
+                                                <div class="col-lg-12 mt-3">
+                                                    <input type="text" class="form-control" id="teamups-search-keywords"/>
+                                                    <label class="form-control-placeholder" for="teamups-search-keywords">Search by keywords eg. Vegan</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+
+                                    <div class="col-lg-12 mt-3 pl-0 pr-0 d-none">
+                                        <button class="btn search-teamups-btn btn-block" id="search-submit"
+                                                type="submit">Search Teamups
+                                        </button>
+                                    </div>
+                                </div>
+                                <!--end of teamups-->
+                            </form>
+
+                        </div>
+
+
+                        <button class="btn search-btn btn-block" id="search_submit_start" type="button"><span class="search-text">Search</span>
+                            <input type="hidden" value="search" id='search_value' name="form_value"/></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+
+    </template>
+</odoo>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_home_share_melbourne" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+									<t t-call="pragtech_housemates.info_li_list"/>
+                                </div>
+
+								<div class="col-lg-8 col-12" id="add_html_content">
+
+									<div class="container info-page">
+										<div class="row">
+											<div class="col-lg-10">
+												<h1>Home Share Melbourne</h1>
+
+												<p class="mt-2">by <span><strong>Flatmates Team</strong></span></p>
+
+
+												<h3 class="mt-5">We are helping Home Share Melbourne find homes for people who need it most. Have a spare room and want to help? Or know someone who might be interested?</h3>
+
+												<img src="/pragtech_housemates/static/src/img/share-melbourne.jpg" class="img-fluid mt-2" alt=""/>
+
+
+												<h3 class="mt-5">What is Home Share Melbourne?</h3>
+
+												<p class="mt-2"><a href="https://www.homesharemelbourne.org/?utm_source=flatmates&amp;utm_medium=blog&amp;utm_content=Home Share Melbourne Explainer">Home Share Melbourne</a> is a personalised matching service for share houses. Their goal is to find homes for asylum seekers, people over the age of 55, young people with limited supports and women escaping family violence. They do this by matching them with people, like you, who have spare rooms.</p>
+												<h3 class="mt-5">What are the benefits?</h3>
+
+												<ul class="mt-2">
+													<li>You can be confident that your new flatmate will have:</li>
+													<ul>
+														<li>passed thorough background and reference checks;</li>
+														<li>been interviewed by a Home Share Melbourne coordinator; and</li>
+														<li>had their suitability assessed.</li>
+													</ul>
+
+													<li>Get ongoing support from your coordinator, who will check in with you regularly to make sure everyone is happy with the arrangement and mediate if any issues arise.</li>
+													<li>Your coordinator will do the legwork for you and find you a suitable match.</li>
+													<li>Get help creating an agreement with your new flatmate that meets your needs.</li>
+													<li>You will make a difference in someone else’s life by giving them a home - a safe place to live.</li>
+												</ul>
+
+												<h3 class="mt-5">How does it work?</h3>
+
+												<ol class="mt-2">
+													<li><a href="https://www.homesharemelbourne.org/im-interested.html?utm_source=flatmates&amp;utm_medium=blog&amp;utm_content=Home Share Melbourne Explainer">Submit an application</a> to Home Share Melbourne (it’s a short form).</li>
+													<li>Chat on the phone with a Home Share Melbourne coordinator to learn more.</li>
+													<li>The Coordinator visits you at home to get to know you better.</li>
+													<li>They match you with a new flatmate. Your flatmate has undergone a background check, interview and had their situation assessed.</li>
+													<li>The Coordinator introduces you to your match. If you are both happy you will get help making an occupancy agreement.</li>
+													<li>Your new flatmate moves in!</li>
+													<li>Your Coordinator provides ongoing support for a minimum of 6 months.</li>
+												</ol>
+
+												<h3 class="mt-5">Who will my new flatmate be?</h3>
+
+												<p class="mt-2">Your new flatmate will be someone who can sustain a tenancy. They could be an asylum seeker, refugee, affected by family violence, aged, or from a disadvantaged background.<br/><br/>
+
+													<strong>Note:</strong> People who are homeless and living on the street or who have complex needs are not eligible for this program.</p>
+
+												<h3 class="mt-5">What will the agreement be?</h3>
+
+												<p class="mt-2">The agreement will be personalised and can be re-negotiated if your situation changes. A Home Share Melbourne coordinator will work with you and your new flatmate to pick from one of these options:  1. Rent (max. $200/week); 2. Combination of rent (max. $100/week) and 5 hours/week of support; or 3. 10 hours/week of support.<br/><br/>
+
+
+													Support could mean getting help around the house (e.g. cleaning, gardening or pet sitting), companionship, or assistance if you are aged or have a disability.</p>
+
+
+												<h3 class="mt-5">Does it cost money?</h3>
+
+												<p class="mt-2">There may be fees for some arrangements. This will be determined on an individual basis. For people opening their homes to people within our target group, these fees will be waived.</p>
+
+
+												<h3 class="mt-5">Am I eligible?</h3>
+
+												<p class="mt-2">You are eligible if you:</p>
+
+												<ul class="mt-2">
+													<li>are 18 years old or older;</li>
+													<li>have a spare room that is in good condition;</li>
+													<li>own your home or have permission from your landlord; and</li>
+													<li>live in the City of Port Phillip or within a 30-minute radius*.</li>
+												</ul>
+
+
+												<p class="mt-2">Due to overwhelming demand <a href="https://www.homesharemelbourne.org/?utm_source=flatmates&amp;utm_medium=blog&amp;utm_content=Home Share Melbourne Explainer">Home Share Melbourne</a> are not accepting referrals for people seeking accommodation.</p>
+
+
+												<h3 class="mt-5">How do I join?</h3>
+
+												<p class="mt-2">Fill in an <a href="https://www.homesharemelbourne.org/im-interested.html?utm_source=flatmates&amp;utm_medium=blog&amp;utm_content=Home Share Melbourne Explainer">application form</a> and a coordinator from Home Share Melbourne will call you with more information.</p>
+
+
+												<h3 class="mt-5">What if I am not eligible but still want to help?</h3>
+
+												<p class="mt-2">Spread the word. Talk to your friends and family about Home Share Melbourne.</p>
+
+												<h3 class="mt-5">Read Home Share Melbourne’s <a href="https://www.homesharemelbourne.org/faqs.html?utm_source=flatmates&amp;utm_medium=blog&amp;utm_content=Home Share Melbourne Explainer">FAQ</a> for more information.</h3>
+
+												<h3 class="mt-4">*Eligible Suburbs</h3>
+
+												<p class="mt-4"><strong>City of Melbourne</strong></p>
+
+												<ul class="mt-2">
+													<li>Carlton 3053</li>
+													<li>Carlton North 3054</li>
+													<li>Docklands 3008</li>
+													<li>East Melbourne 3002</li>
+													<li>Flemington 3031</li>
+													<li>Kensington 3031</li>
+													<li>Melbourne 3000</li>
+													<li>Melbourne 3004</li>
+													<li>North Melbourne 3051</li>
+													<li>Port Melbourne 3207</li>
+													<li>Southbank 3006</li>
+													<li>South Wharf 3006</li>
+													<li>South Yarra 3141</li>
+													<li>West Melbourne 3003</li>
+												</ul>
+
+
+												<p class="mt-4"><strong>City of Port Phillip</strong></p>
+
+												<ul class="mt-2">
+													<li>Albert Park 3206</li>
+													<li>Balaclava 3183</li>
+													<li>Elwood 3184</li>
+													<li>Middle Park 3206</li>
+													<li>Ripponlea 3185</li>
+													<li>St Kilda 3182</li>
+													<li>St Kilda East 3183</li>
+													<li>St Kilda West 3182</li>
+													<li>South Melbourne 3205</li>
+												</ul>
+
+												<p class="mt-4"><strong>City of Yarra</strong></p>
+
+												<ul class="mt-2">
+													<li>Abbotsford 3067</li>
+													<li>Burnley 3121</li>
+													<li>Collingwood 3066</li>
+													<li>Cremorne 3121</li>
+													<li>Fairfield 3078</li>
+													<li>Fitzroy 3065</li>
+													<li>Fitzroy North 3068</li>
+													<li>Princes Hill 3054</li>
+													<li>Richmond 3121</li>
+												</ul>
+
+
+												<p class="mt-4"><strong>City of Darebin</strong></p>
+
+												<ul class="mt-2">
+													<li>Northcote 3070</li>
+													<li>Preston 3072</li>
+												</ul>
+
+
+												<p class="mt-4"><strong>City of Moreland</strong></p>
+
+												<ul class="mt-2">
+													<li>Brunswick 3056</li>
+													<li>Brunswick East 3057</li>
+													<li>Brunswick West 3055</li>
+												</ul>
+
+												<p class="mt-4"><strong>City of Boroondara</strong></p>
+
+												<ul class="mt-2">
+													<li>Camberwell 3124</li>
+													<li>Canterbury 3126</li>
+													<li>Glen Iris 3146</li>
+													<li>Hawthorn 3122</li>
+													<li>Hawthorn East 3123</li>
+													<li>Kew 3101</li>
+													<li>Kew East 3102</li>
+												</ul>
+
+												<p class="mt-4"><strong>City of Bayside</strong></p>
+
+												<ul class="mt-2">
+													<li>Beaumaris 3193</li>
+													<li>Black Rock 3193</li>
+													<li>Brighton 3186</li>
+													<li>Brighton East 3187</li>
+													<li>Cheltenham 3192</li>
+													<li>Gardenvale 3185</li>
+													<li>Hampton 3188</li>
+													<li>Hampton East 3188</li>
+													<li>Highett 3190</li>
+													<li>Sandringham 3191</li>
+													<li>Moorabbin 3189</li>
+												</ul>
+
+												<p class="mt-4"><strong>City of Glen Eira</strong></p>
+
+												<ul class="mt-2">
+													<li>Bentleigh 3204</li>
+													<li>Bentleigh East 3165</li>
+													<li>Caulfield 3162</li>
+													<li>Caulfield East 3145</li>
+													<li>Caulfield North 3161</li>
+													<li>Caulfield South 3162</li>
+													<li>Carnegie 3163</li>
+													<li>Elsternwick 3185</li>
+													<li>Gardenvale 3185</li>
+													<li>Glen Huntly 3163</li>
+													<li>McKinnon 3204</li>
+													<li>Murrumbeena 3163</li>
+													<li>Ormond 3204</li>
+												</ul>
+
+												<p class="mt-4"><strong>City of Kingston</strong></p>
+
+												<ul class="mt-2">
+													<li>Cheltenham 3192</li>
+													<li>Mentone 3194</li>
+													<li>Moorabbin 3189</li>
+													<li>Moorabbin Airport 3194</li>
+													<li>Parkdale 3195</li>
+												</ul>
+
+												<p class="mt-4"><strong>City of Stonnington</strong></p>
+
+												<ul class="mt-2">
+													<li>Armadale 3143</li>
+													<li>Glen  Iris 3146</li>
+													<li>Kooyong 3144</li>
+													<li>Malvern</li>
+													<li>Malvern East 3145</li>
+													<li>Prahran 3181</li>
+													<li>Toorak 3142</li>
+													<li>Windsor 3181</li>
+												</ul>
+
+												<p class="mt-4"><strong>City of Maribyrnong</strong></p>
+
+
+												<ul class="mt-2">
+													<li>Footscray 3011</li>
+													<li>Kingsville 3012</li>
+													<li>Seddon 3011</li>
+													<li>Tottenham 3012</li>
+													<li>West Footscray 3012</li>
+													<li>Yarraville 3013</li>
+												</ul>
+
+
+
+												<div class="row mt-5">
+													<div class="col-lg-3 author-image text-center">
+														<img src="/pragtech_housemates/static/src/img/flatmates-author.jpg" class="img-fluid" alt=""/>
+													</div>
+
+													<div class="col-lg-9 author">
+														<h2>Flatmates Team</h2>
+														<p class="text-muted"><a href="mailto:support@flatmates.com.au" target="_blank">support@flatmates.com.au</a></p>
+
+														<p class="social-icons mt-3">
+															<span><a href="https://twitter.com/@flatmates">
+																<i class="fa fa-twitter-square"></i></a></span>
+
+															<span><a href="https://flatmates.com.au">
+																<i class="fa fa-globe"></i></a></span>
+														</p>
+
+
+													</div>
+
+												</div>
+
+												<hr class="mb-4"/>
+
+
+											</div>
+										</div>
+									</div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

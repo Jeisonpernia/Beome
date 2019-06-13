@@ -94,9 +94,11 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
                     }}),
                     success: function(data)
                     {
-                                }
+
+                               }
 
                                 })
+                                location.reload();
             })
 
             $("#verify_mobile").on('click',function()
@@ -164,6 +166,28 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
                             }
                         })
             })
+
+            $(".close_payment_history_popup").on('click',function(){
+            location.reload();
+            })
+
+            $("#payment_history_popup").on("hidden.bs.modal", function () {
+              location.reload();
+            });
+
+
+            $(".close_signup_popup_id").on('click',function(){
+            location.reload();
+            })
+
+            $("#signup_popup_id").on("hidden.bs.modal", function () {
+              location.reload();
+            });
+
+
+
+
+
 
 
 

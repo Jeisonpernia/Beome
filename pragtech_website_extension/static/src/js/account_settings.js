@@ -132,6 +132,7 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                         $("#signup_popup_id").modal('hide')
                     }
                 });
+                location.reload();
     });
 
     $(".change-passwrd-btn").on('click',function(){
@@ -151,8 +152,18 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                     success: function(data)
                     {
                         console.log('\nuuuuuuuuuu0',data['result'])
-                        $("#verify_facebook").attr('href',data['result'])
+                        $("#verify_facebook").attr('href',data['result'][0])
                         $("#verify_facebook").attr('target','blank')
+
+                        $("#verify_linkedin").attr('href',data['result'][1])
+                        $("#verify_linkedin").attr('target','blank')
+
+                        $("#verify_instagram").attr('href',data['result'][2])
+                        $("#verify_instagram").attr('target','blank')
+
+                        $("#verify_twitter").attr('href',data['result'][3])
+                        $("#verify_twitter").attr('target','blank')
+
                     }
                 });
     })

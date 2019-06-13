@@ -3,8 +3,8 @@ from odoo import http
 import json
 from odoo.http import  request
 import werkzeug
-from odoo.addons.pragtech_flatmates_system.controllers.main import Website_Inherit 
-from odoo.addons.pragtech_flatmates_system.controllers.main import FlatMates
+from odoo.addons.pragtech_housemates.controllers.main import Website_Inherit
+from odoo.addons.pragtech_housemates.controllers.main import FlatMates
 from odoo.addons.web.controllers.main import Home 
 
 
@@ -17,7 +17,7 @@ class HomepageLogin(Website_Inherit):
     #         return http.request.render('pragtech_homepage_login.homepage_login')
     #
     #     if 'val_password'  in request.session :
-    #         return http.request.render('pragtech_flatmates_system.home')
+    #         return http.request.render('pragtech_housemates.home')
 
     @http.route('/', auth='public', type="http", website=True, csrf=False)
     def index(self, **kw):
@@ -43,7 +43,7 @@ class HomepageLogin(Website_Inherit):
         if 'validation' in kw and kw['validation']:
             request.session['val_password'] = kw['validation']
         if 'val_password' in request.session and request.session['val_password'] == val_password:
-            return http.request.render('pragtech_flatmates_system.home')
+            return http.request.render('pragtech_housemates.home')
         
 class FlatMates(FlatMates):
     

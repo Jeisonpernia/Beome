@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--Hide Home Menu-->
+        <delete model="website.menu" id="website.menu_home"></delete>
+        <!--Hide Contact Us Menu-->
+        <delete model="website.menu" id="website.menu_contactus"></delete>
+        <!--Hide Blogs Menu-->
+        <delete model="website.menu" id="website_blog.menu_news"></delete>
+
+        <function name="change_data_endpoint" model="house.mates"/>
+
+
+        <record id="mail_verify_account" model="mail.template">
+            <field name="name">Account Verification Email</field>
+            <field name="subject">Verify Your Email Address</field>
+            <field name="email_to">${(object.email)}</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="body_html" type="xml">
+                <div style="text-align:center">
+                    <img src="/pragtech_housemates/static/src/img/beome-logo.png" class="img-fluid mt-2" alt=""/>
+                    <br/>
+                    <h2 style="margin:30px 0">You can now get your email verified.
+                        <br/>
+                        Just confirm it below.
+                    </h2>
+
+
+                    <a href="${object.verify_url}">
+                        <button type="button"
+                                style="padding: 15px 30px; background: #f63; color: #fff; font-weight: bold; border: none; border-radius: 50px;">
+                            Confirm my email
+                        </button>
+                    </a>
+
+                </div>
+
+            </field>
+
+        </record>
+
+         <record id="mail_login_alert" model="mail.template">
+            <field name="name">LogIn Alert</field>
+            <field name="subject">LogIn Alert</field>
+            <field name="email_to">${(object.email)}</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="body_html" type="xml">
+                <div style="text-align:center">
+                    <img src="/pragtech_housemates/static/src/img/beome-logo.png" class="img-fluid mt-2" alt=""/>
+                    <br/>
+                    <h2 style="margin:30px 0">Hi ${(object.name)} Your account has been accessed successfully. <br/>
+                        The details of the system from which the account is accessed ...
+                        <br/>
+                         Browser :-  ${(object.last_logged_browser)}<br/>
+                         IP Address :- ${(object.last_logged_ip)}<br/>
+                         User OS :- ${(object.last_logged_os)}
+
+                    </h2>
+
+
+                </div>
+
+            </field>
+
+        </record>
+
+         <record id="blog_community_notices_alert" model="mail.template">
+            <field name="name">Blog Community Notice Alert</field>
+            <field name="subject">Blog Community Notice Alert</field>
+            <field name="email_to">${(object.email)}</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="body_html" type="xml">
+                <div style="text-align:center">
+                    <img src="/pragtech_housemates/static/src/img/beome-logo.png" class="img-fluid mt-2" alt=""/>
+                    <br/>
+                    <h2 style="margin:30px 0">Hi ${(object.name)} New Blog is added on website. <br/>
+                        <br/>
+
+
+                    </h2>
+
+
+                </div>
+
+            </field>
+
+        </record>
+
+
+        <record id="mail_listing_alert" model="mail.template">
+            <field name="name">Listing Alert Email</field>
+            <field name="subject">Listing Created Successfully</field>
+            <field name="email_to">${(object.email)}</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="body_html" type="xml">
+                <div style="text-align:center">
+                    <img src="/pragtech_housemates/static/src/img/beome-logo.png" class="img-fluid mt-2" alt=""/>
+                    <br/>
+                    <h2 style="margin:30px 0">Your Listing is added in website successfully,
+                        <br/>
+                    </h2>
+
+
+                </div>
+
+            </field>
+
+        </record>
+
+    </data>
+</odoo>
