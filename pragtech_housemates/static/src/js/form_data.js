@@ -3,6 +3,24 @@ odoo.define('pragtech_flatmates.form_data', function (require) {
 
 
 $(document).ready(function() {
+
+        $('.weekly-rent-input').keyup(function() {
+           if (this.value.match(/[^0-9]/g)) {
+          this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        });
+
+        $('.verify-mobile-no').keyup(function() {
+           if (this.value.match(/[^0-9]/g)) {
+          this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        });
+        $('.otp-code').keyup(function() {
+           if (this.value.match(/[^0-9]/g)) {
+          this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        });
+
         //form data of What type of accommodation are you offering? Page
         $( "#find_about_flatmates" ).submit(function( event ) {
             localStorage.setItem('find_place_record','[]')
@@ -41,7 +59,7 @@ $(document).ready(function() {
 
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
 
-//            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//            console.log('SUBURBSSSSSS ::' ,suburbs)
 //            event.preventDefault();
 //            alert("Page")
 

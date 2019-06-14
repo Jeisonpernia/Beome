@@ -845,7 +845,7 @@
                                             </p>
                                             <div>
                                                 <span class="currency">$</span>
-                                                <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
+                                                <input type="text" class="form-control mt-2 weekly-rent-input"
                                                        id="weekly_rent"
                                                        name="rent" value=""/>
                                             </div>

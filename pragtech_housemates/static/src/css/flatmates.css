@@ -2012,7 +2012,15 @@ color:#2f3a4a;
     margin-right: .25em;
     margin-top: 0.5rem;
     padding: .25em .5em;
+    font-weight: bold;
 }
+
+.token-red {
+    background: #ff3333 !important;
+    color: #fff !important;
+}
+
+
 
 .home-listings .shortlist{
 	position: absolute;
@@ -2891,6 +2899,3 @@ display: inline;
 	-webkit-box-shadow: none;
 	-o-box-shadow: none;
 }
-
-
-

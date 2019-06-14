@@ -296,7 +296,6 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
         });
 
 
-
-
-    });
+     });
 });
+

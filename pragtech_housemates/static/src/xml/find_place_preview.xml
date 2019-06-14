@@ -290,35 +290,44 @@
                         </div>
                     </div>
                 </div>
-                <div class="conatiner-fluid">
-                    <div class="row">
-                        <!--<div class="property-slider">-->
-                        <div class="col-lg-12 mx-auto text-center property-slider">
-                            <div class="scrolling-wrapper add-photos-slide">
-                                <button type="button" class="scroll-backward arrow-left">
-                                    <i class="fa fa-chevron-left"></i>
-                                </button>
-                                <button type="button" class="scroll-forward arrow-right">
-                                    <i class="fa fa-chevron-right"></i>
-                                </button>
-                                <t t-if="property.property_image_ids">
-                                    <t t-foreach="property.property_image_ids" t-as="image">
-                                        <img class="card" t-att-src="image_data_uri(image.image)" width="" height=""/>
-                                    </t>
-                                </t>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <section class="property-find-place">
                     <input id="current_listing_id" type="hidden" t-att-value="property.id"/>
                     <div class="container bg-white">
                         <div class="row">
+                            <div class="col-12 pr-0 pl-0 pb-3">
+                                <div class="property-slider">
+                                    <div class="col-lg-12 mx-auto text-center property-slider">
+                                        <div class="scrolling-wrapper add-photos-list_preview">
+                                            <div class="btn btn-outline-primary1 btn-file">
+                                                <i class="fa fa-camera"></i>
+                                                Change Photo
+                                                <input type="file" name="change_photos" accept="image/*"
+                                                       id="change_photos_find"/>
+                                            </div>
 
+                                            <t t-if="property.property_image_ids">
+                                                <t t-foreach="property.property_image_ids" t-as="image">
+                                                    <span class="slider">
+                                                        <img class="slider-img card"
+                                                             t-att-src="image_data_uri(image.image)"/>
+                                                    </span>
+                                                </t>
+                                            </t>
 
+                                            <!--<t t-if="property.property_image_ids">-->
+                                            <!--<t t-foreach="property.property_image_ids" t-as="image">-->
+                                            <!--<img class="card" t-att-src="image_data_uri(image.image)" width="" height=""/>-->
+                                            <!--</t>-->
+                                            <!--</t>-->
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
 
                         <div class="row">
                             <div class="col-lg-8 property-detail-left">
@@ -345,7 +354,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close close_applicant_information_popup" data-dismiss="modal"
+                                                <button type="button" class="close close_applicant_information_popup"
+                                                        data-dismiss="modal"
                                                         aria-label="Close">
                                                     ×
                                                 </button>
@@ -422,8 +432,12 @@
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                             <label class="p14">Gender</label>
-                                                                            <select class="form-control" id="edit_gender_1" name="">
-                                                                                <option selected="selected" disabled="disabled">Please select</option>
+                                                                            <select class="form-control"
+                                                                                    id="edit_gender_1" name="">
+                                                                                <option selected="selected"
+                                                                                        disabled="disabled">Please
+                                                                                    select
+                                                                                </option>
                                                                                 <option value="female">Female</option>
                                                                                 <option value="male">Male</option>
                                                                             </select>
@@ -433,9 +447,11 @@
                                                                         <div class="form-group">
                                                                             <label class="p14">Age</label>
                                                                             <!--<select class="custom-select" id="" name="">-->
-                                                                                <!--<option>25</option>-->
+                                                                            <!--<option>25</option>-->
                                                                             <!--</select>-->
-                                                                            <input class="form-control" id="edit_age_1" value="" type="number"/>
+                                                                            <input class="form-control weekly-rent-input"
+                                                                                   id="edit_age_1" value=""
+                                                                                   type="number"/>
                                                                         </div>
                                                                     </div>
 
@@ -449,8 +465,12 @@
                                                                     <div class="col-lg-4 for-couple-gender">
                                                                         <div class="form-group">
                                                                             <label class="p14">Gender</label>
-                                                                            <select class="form-control" id="edit_gender_2" name="">
-                                                                                <option selected="selected" disabled="disabled">Please select</option>
+                                                                            <select class="form-control"
+                                                                                    id="edit_gender_2" name="">
+                                                                                <option selected="selected"
+                                                                                        disabled="disabled">Please
+                                                                                    select
+                                                                                </option>
                                                                                 <option value="female">Female</option>
                                                                                 <option value="male">Male</option>
                                                                             </select>
@@ -459,9 +479,11 @@
                                                                     <div class="col-lg-4 for-couple-age">
                                                                         <div class="form-group">
                                                                             <label class="p14">Age</label>
-                                                                            <input class="form-control" id="edit_age_2" value="" type="number"/>
+                                                                            <input class="form-control weekly-rent-input"
+                                                                                   id="edit_age_2" value=""
+                                                                                   type="number"/>
                                                                             <!--<select class="custom-select" id="" name="">-->
-                                                                                <!--<option>25</option>-->
+                                                                            <!--<option>25</option>-->
                                                                             <!--</select>-->
                                                                         </div>
                                                                     </div>
@@ -511,7 +533,9 @@
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <button type="button" class="close close_general_information_popup_id" data-dismiss="modal"
+                                                                <button type="button"
+                                                                        class="close close_general_information_popup_id"
+                                                                        data-dismiss="modal"
                                                                         aria-label="Close">
                                                                     ×
                                                                 </button>
@@ -537,7 +561,7 @@
                                                                                                 </span>
                                                                                             </div>
                                                                                             <input type="number"
-                                                                                                   class="form-control"
+                                                                                                   class="form-control weekly-rent-input"
                                                                                                    placeholder=""
                                                                                                    id="edit_max_budget"
                                                                                                    name="edit_max_budget"/>
@@ -870,7 +894,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close close_aboutme_popup" data-dismiss="modal"
+                                                <button type="button" class="close close_aboutme_popup"
+                                                        data-dismiss="modal"
                                                         aria-label="Close">
                                                     ×
                                                 </button>
@@ -1174,7 +1199,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close close_aboutme_features_popup" data-dismiss="modal"
+                                                <button type="button" class="close close_aboutme_features_popup"
+                                                        data-dismiss="modal"
                                                         aria-label="Close">
                                                     ×
                                                 </button>
@@ -1443,7 +1469,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close close_property_preferences_popup" data-dismiss="modal"
+                                                <button type="button" class="close close_property_preferences_popup"
+                                                        data-dismiss="modal"
                                                         aria-label="Close">
                                                     ×
                                                 </button>
@@ -1719,7 +1746,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close close_preferred_accommodation_popup" data-dismiss="modal"
+                                                <button type="button" class="close close_preferred_accommodation_popup"
+                                                        data-dismiss="modal"
                                                         aria-label="Close">
                                                     ×
                                                 </button>
@@ -2026,14 +2054,26 @@
                                                                 <div class="row mt-3">
                                                                     <div class="col-12">
                                                                         <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                   id="" name=""/>
+                                                                            <div class="locations-autocomplete">
+                                                                                <div class="auto-input find-place-add-suburbs">
+                                                                                    <input class="hidden-input token-input"
+                                                                                           placeholder="" type="text"
+                                                                                           autocomplete="off"
+                                                                                           id="find_suburb"
+                                                                                           name="suburbs" value=""/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <p class="show-distance-msg d-none">The
+                                                                                suburb selected is greater than 25km
+                                                                                from your original suburb
+                                                                            </p>
                                                                         </div>
                                                                     </div>
 
                                                                 </div>
 
                                                                 <button type="button"
+                                                                        id="update_suburb_id"
                                                                         class="btn btn-green1 mt-3 mb-4 btn-block"
                                                                         data-dismiss="modal">Update
                                                                 </button>
@@ -2144,17 +2184,18 @@
                                         <p class="mt-4 mb-2 col-lg-10 mx-auto text-center">Upgrade your account to make
                                             your listing free to message.
                                         </p>
-                                        <t t-if="user_id.partner_id.mobile == true">
-                                        <button class="btn btn-primary btn-green2 btn-block mt-3" data-toggle="modal" data-target="#why_upgrade_popup">Upgrade account
-                                        </button>
+                                        <t t-if="user_id.partner_id.mobile_no_is_verified == true">
+                                            <button class="btn btn-primary btn-green2 btn-block mt-3 upgrade_plan_class"
+                                                    data-toggle="modal" data-target="#why_upgrade_popup">Upgrade account
+                                            </button>
                                         </t>
-                                        <t t-elif="user_id.partner_id.mobile == false">
-                                             <button class="btn btn-primary btn-green2 btn-block mt-3" data-toggle="modal" data-target="#verify_mobile_popup">Upgrade account
-                                        </button>
+                                        <t t-elif="user_id.partner_id.mobile_no_is_verified == false">
+                                            <button class="btn btn-primary btn-green2 btn-block mt-3 select_country"
+                                                    data-toggle="modal" data-target="#verify_mobile_popup">Upgrade
+                                                account
+                                            </button>
 
                                         </t>
-
-
 
 
                                     </div>

@@ -33,8 +33,10 @@ $(document).ready(function() {
                 toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != "" && $("#parking :selected").text() != "Select" && $("#internet :selected").text() != "Select" && $("input[name=room_furnishing_types]").is(":checked") == true)
             }
         }
-            else
-                toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking").val() != "" && $("#internet").val() != "" && $("#parking :selected").text() != "Select" && $("#internet :selected").text() != "Select" )
+            else{
+                toggle_property_submit_button($("input[id='autocomplete']").val() != "" && $("input[name=bed_rooms]").is(":checked") == true && $("input[name=bath_rooms]").is(":checked") == true && $("#parking :selected").val() != "Select" && $("#internet :selected").val() != "Select" )
+            }
+
     }
 
 

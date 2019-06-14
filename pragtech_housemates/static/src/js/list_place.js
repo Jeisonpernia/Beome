@@ -262,7 +262,7 @@ $(document).ready(function()
 
     });
 
-    if (window_pathname.includes('/property-images') || window_pathname.includes('/list_place_preview'))
+    if (window_pathname.includes('/property-images') || window_pathname.includes('/list_place_preview') || window_pathname.includes('/find_place_preview'))
     {
         var array_of_image = []
     }
@@ -354,6 +354,9 @@ $(document).on('change','#change_photos',function()
         var files_rec = document.getElementById($(this).attr("id"));
         console.log("-----------------",files_rec.files.length)
 
+        var property_id = parseInt(window_pathname.replace('/list_place_preview',''))
+        console.log("----------------- 1111",property_id)
+
 //        if (files_rec.files.length != 0)
 //        {
 //            $(".center-add-photos").addClass("d-none")
@@ -381,14 +384,12 @@ $(document).on('change','#change_photos',function()
 //                    if (array_of_image.length == files_rec.files.length)
                     if (files_rec.files.length == array_of_image.length)
                     {
-                            var property_id =17
-
                             $.ajax({
                             url:'/add/image/data',
                             type:'POST',
                             dataType: 'json',
                             contentType: 'application/json',
-                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'array_of_image': array_of_image, 'property_id' : property_id }}),
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'array_of_image': array_of_image, 'property_id' : property_id, 'filters' : 'list_place' }}),
                             success: function(data)
                             {
                                 console.log ("Controlllerrrrrrrrrrrrr")
@@ -411,12 +412,12 @@ $(document).on('click','.delete-list-image',function()
     var find_current_image = $(this).parents('.slider')
     var img_path = find_current_image.find('img').attr('src')
     var img_to_remove = img_path.split(',')
-
+    var property_id = parseInt(window_pathname.replace('/list_place_preview',''))
     $(this).parent().parent().parent().remove()
     
 //    console.log ("----ddddddddddddddddddd---",img_to_remove[1])
-    var property_id =17
-    var data = {'array_of_image': img_to_remove[1], 'property_id' : property_id }
+
+    var data = {'array_of_image': img_to_remove[1], 'property_id' : property_id, 'filters' : 'list_place' }
     $.ajax({
     url:'/delete/image/data',
     type:'POST',
@@ -432,6 +433,56 @@ $(document).on('click','.delete-list-image',function()
 
     });
 
+$(document).on('change','#change_photos_find',function()
+    {
+
+        var files_rec = document.getElementById($(this).attr("id"));
+        console.log("-----------------",files_rec.files.length)
+
+        var property_id = parseInt(window_pathname.replace('/find_place_preview',''))
+        console.log("----------------- 1111",property_id)
+
+        for (var rec = 0; rec < files_rec.files.length; rec++)
+        {
+            var reader = new FileReader();
+//            console.log("-----------------",files_rec.files[rec])
+            reader.onload = (function(theFile)
+            {
+                return function(e)
+                {
+                    var file_path = e.target.result
+//                    console.log ("Result 1",file_path)
+                    file_path = file_path.slice(file_path.indexOf(',')+1)
+//                    console.log ("Result 2",file_path)
+                    array_of_image.push(file_path)
+//                    console.log ("Result 2",array_of_image.length)
+
+                    $(document).find('.add-photos-list_preview').find(".slider").remove()
+                    $(document).find('.add-photos-list_preview').append('<span class="slider"><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
+//                    if (array_of_image.length == files_rec.files.length)
+                    if (files_rec.files.length == array_of_image.length)
+                    {
+                            $.ajax({
+                            url:'/add/image/data',
+                            type:'POST',
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'array_of_image': array_of_image, 'property_id' : property_id, 'filters' : 'find_place' }}),
+                            success: function(data)
+                            {
+                                console.log ("Controlllerrrrrrrrrrrrr")
+                            }
+                            })
+                    }
+                };
+            })(files_rec.files[rec]);
+//            reader.readAsBinaryString(files_rec.files[rec])
+
+            reader.readAsDataURL(files_rec.files[rec])
+            console.log("-----------Length array",array_of_image.length)
+        }
+
+    });
 
 
 

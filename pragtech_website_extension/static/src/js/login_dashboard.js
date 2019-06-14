@@ -52,7 +52,7 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                             listing_address = data['result']['listings'][index]['address']
                             if (data['result']['listings'][index]['status'] == 'pending'){
                             if (data['result']['listings'][index]['type'] == 'list'){
-                            $('.user_listings').append('<div class="row find"><div class="col-lg-2 property_listing_status"><span class="status-label-pending">Pending</span></div><div class="col-lg-7 property_listing"><li id="listing_li<%=listing_id%>" value='+listing_id+'><a href="#">'+data['result']['listings'][index]['address']+'</div><div class="col-lg-2 property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span>Edit</span></span> </a></li></div> </div>')
+                            $('.user_listings').append('<div class="row find"><div class="col-lg-2 property_listing_status"><span class="status-label-pending">Pending</span></div><div class="col-lg-7 property_listing"><li id="listing_li<%=listing_id%>" value='+listing_id+'><a href="#">'+data['result']['listings'][index]['address']+'</div><div class="col-lg-2 property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span>Edit</span></span></a></li></div> </div>')
                             }
 
                            else if (data['result']['listings'][index]['type'] == 'find'){
@@ -157,14 +157,37 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                                 var starts = transaction_history['start_date']
                                 var ends = transaction_history['end_date']
                                 var payment_date = transaction_history['payment_date']
+                                var sale_id = transaction_history['sale_id']
 
-                                var markup = "<tr><td></td><td><b>" + plan + "</b></td><td>" +"$"+ amount + "</td><td>" + days + "</td><td>" + starts + "</td><td>" + ends + "</td><td>" + payment_date + "</td></tr>";
-
+                                var markup = "<tr class='table-row'><td></td><td><b>" + plan + "</b></td><td>" +"$"+ amount + "</td><td>" + days + "</td><td>" + starts + "</td><td>" + ends + "</td><td>" + payment_date + "</td><td><a class='email-invoice' value=" + sale_id + " href='#'>Email Invoice</a></td></tr>";
+//                                  var markup = "<tr class='table-row'><td></td><td><b>" + plan + "</b></td><td>" +"$"+ amount + "</td><td>" + days + "</td><td>" + starts + "</td><td>" + ends + "</td><td>" + payment_date + "</td><td><input type='button' class='email-invoice' id="+ sale_id + " value='Email Invoice'></input></td></tr>";
                                 $("table tbody").append(markup);
-
                                 console.log('transaction history : ',plan,amount)
-//                                $('#edit_max_stay_id').append('<option value='+max_stay_id[0]+'>'+max_stay_id[1]+'</option>')
                             }
+
+                            $(".email-invoice").on('click', function(){
+                                 console.log('Click Sale ID : ',$(this).attr('value'))
+                                 var sale_order_id = $(this).attr('value')
+
+                                 $.ajax({
+                                        url: '/send_invoice_mail',
+                                        type: "POST",
+                                        dataType: 'json',
+                                        contentType: 'application/json',
+                                        data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'order_id':sale_order_id}}),
+                                        success: function(data)
+                                        {
+                                            console.log('yessss hereeeeeeeeeeeeeee')
+                                            $('#email_sent_popup').modal('toggle');
+                                            location.reload();
+//                                            $('#payment_history_popup').modal('hide');
+
+                                        }
+                                 });
+
+
+
+                            })
 
 
                         }
@@ -173,7 +196,8 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
 
          })
 
-         $("#upgrade_plan_id").on('click',function(){
+
+         $(".upgrade_plan_class").on('click',function(){
 
             $.ajax({
                     url: '/get_product_plan',
@@ -198,7 +222,6 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
             })
 
          });
-
 
 
     });

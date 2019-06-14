@@ -409,7 +409,7 @@
                                                                                                 </span>
                                                                                             </div>
                                                                                             <input type="number"
-                                                                                                   class="form-control"
+                                                                                                   class="form-control weekly-rent-input"
                                                                                                    placeholder=""
                                                                                                    id="edit_weekly_budget"
                                                                                                    name="edit_weekly_budget"/>
@@ -656,7 +656,7 @@
                                             <div class="room-value">
                                                 <span class="room-price">
                                                     <t t-if="weekly_budget">
-                                                        <t t-esc="weekly_budget"></t>
+                                                        $<t t-esc="weekly_budget"></t>
                                                     </t>
                                                 </span>
                                                 <span class="room-per-week text-muted">/wk</span>
@@ -1672,7 +1672,7 @@
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">$</span>
                                                                             </div>
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="text" class="form-control weekly-rent-input"
                                                                                    placeholder="" id="" name=""/>
                                                                             <div class="input-group-append">
                                                                                 <span class="input-group-text">per
@@ -2121,12 +2121,13 @@
                                             your listing free to message.
                                         </p>
 
-                                         <t t-if="user_id.partner_id.mobile == true">
-                                        <button class="btn btn-primary btn-green2 btn-block mt-3" data-toggle="modal" data-target="#why_upgrade_popup">Upgrade account
+
+                                         <t t-if="user_id.partner_id.mobile_no_is_verified == true">
+                                        <button class="btn btn-primary btn-green2 btn-block mt-3 upgrade_plan_class" data-toggle="modal" data-target="#why_upgrade_popup">Upgrade account
                                         </button>
                                         </t>
-                                        <t t-elif="user_id.partner_id.mobile == false">
-                                             <button class="btn btn-primary btn-green2 btn-block mt-3" data-toggle="modal" data-target="#verify_mobile_popup">Upgrade account
+                                        <t t-elif="user_id.partner_id.mobile_no_is_verified == false">
+                                             <button class="btn btn-primary btn-green2 btn-block mt-3 select_country" data-toggle="modal" data-target="#verify_mobile_popup">Upgrade account
                                         </button>
 
                                         </t>

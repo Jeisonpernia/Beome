@@ -48,7 +48,8 @@ class WebsiteSale(WebsiteSale):
                     'days':transaction.days,
                     'start_date':transaction.start_date,
                     'end_date':transaction.end_date,
-                    'payment_date':transaction.payment_date
+                    'payment_date':transaction.payment_date,
+                    'sale_id':transaction.sale_id.id
                 }
 
                 history_list.append(transaction_dict)
@@ -57,6 +58,7 @@ class WebsiteSale(WebsiteSale):
             data = {
                 'transaction_history': history_list,
             }
+        print('\n\nHistory :: ',history_list,'\n\n')
 
         return data
 
@@ -64,7 +66,7 @@ class WebsiteSale(WebsiteSale):
     def get_product_plan(self, **post):
         data = {}
 
-        product = request.env['product.product'].search([('name','=','Basic Plan')])
+        product = request.env['product.product'].sudo().search([('name','=','Basic Plan')])
         print('Product : ',product)
         if product:
             data.update({
@@ -73,6 +75,44 @@ class WebsiteSale(WebsiteSale):
                 'no_of_days':product.no_of_days
             })
         return data
+
+    @http.route(['/send_invoice_mail'], type='json', auth="public", website=True)
+    def send_invoice_mail(self, **post):
+
+        if 'order_id' in post and post.get('order_id'):
+            order_id = request.env['sale.order'].sudo().browse(int(post.get('order_id')))
+            if order_id:
+
+                invoice_id = request.env['account.invoice'].sudo().search([('origin','=',order_id.name)],limit=1)
+                print('Invoice id ',invoice_id,invoice_id.name)
+                template = request.env.ref('account.email_template_edi_invoice', False)
+
+                compose_form = request.env.ref('account.account_invoice_send_wizard_form', False)
+                ctx = dict(
+                        default_model='account.invoice',
+                        default_res_id=invoice_id.id,
+                        default_use_template=bool(template),
+                        default_template_id=template and template.id or False,
+                        default_composition_mode='comment',
+                        mark_invoice_as_sent=True,
+                        custom_layout="mail.mail_notification_paynow",
+                        force_email=True,
+                        active_ids=invoice_id.ids
+                    )
+                vals = {
+                    'is_email':True,
+                    'is_print':False,
+                    # 'res_ids':invoice_id.id,
+                    'template_id':template.id,
+                    'partner_ids':invoice_id.partner_id,
+                    }
+                mail_wizard = request.env['account.invoice.send'].with_context(ctx).sudo().create(vals)
+                print("\n \n mail_wizard ----",mail_wizard,mail_wizard.partner_id,mail_wizard.subject)
+                test = mail_wizard.send_and_print_action()
+                print("\n test --",test)
+
+        return True
+
 
 
     @http.route(['/shop/confirmation'], type='http', auth="public", website=True)

@@ -411,3 +411,21 @@ margin: 20px 0;
 		min-height: 490px;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+/*============================ For Landscape Only ====================*/
+
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  
+	header .navbar-brand.logo {width:45%;}
+	
+}

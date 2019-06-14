@@ -489,7 +489,6 @@ class FlatMates(http.Controller):
         return values
 
 
-
     @http.route(['/P<id>'], type='http', auth="public", website=True, csrf=True)
     def property_detail(self, id, **kwargs):
         property = request.env['house.mates'].sudo().search([('id', '=', id)], limit=1)
@@ -619,7 +618,27 @@ class FlatMates(http.Controller):
 
             print("\n\nID -----------------------", request.uid)
         print("=====ghghghgh====", values)
-
+        """set mobile_not_verified,show_upgrade_plan and show_number as per conditions"""
+        if not request.env.user.partner_id.mobile_no_is_verified:
+            values['mobile_not_verified'] = True
+        else:
+            values['mobile_not_verified'] = False
+        basic_plan_product = request.env['product.product'].sudo().search([('name', '=', 'Basic Plan')])
+        sale_order_ids = request.env['sale.order'].sudo().search([('partner_id', '=', request.env.user.partner_id.id)])
+        for sale in sale_order_ids:
+            for line in sale.order_line:
+                if line.product_id.id == basic_plan_product.id:
+                    if date.today() > sale.create_date.date() +timedelta(days=basic_plan_product.no_of_days) and  not values['mobile_not_verified']:
+                        values['show_upgrade_plan'] = True
+                    else:
+                        values['show_upgrade_plan'] = False
+                    continue
+        if 'show_upgrade_plan'  not in values:
+            values['show_upgrade_plan'] = True
+        if not values['show_upgrade_plan'] and not values['mobile_not_verified']:
+            values['show_number'] = True
+        else:
+            values['show_number'] = False
         return request.render("pragtech_housemates.property_detail11", values)
 
     @http.route(['/shortlists'], type='http', auth="public", website=True, csrf=True)
@@ -2572,31 +2591,55 @@ class FlatMates(http.Controller):
     @http.route('/add/image/data', auth='public', type='json', website=True)
     def add_image_data(self, property_id, array_of_image, filters=None):
 
-        images = []
-        # print ("\n\nArray Of Image -------------- ", property_id)
-        property_obj = request.env['house.mates'].sudo().search([('id', '=', property_id)])
-        # print ("\n\nArray Of Image -------------- ", property_obj.property_image_ids)
 
-        if len(array_of_image)!=0:
-            images = self.create_property_images(array_of_image, property_obj)
+        if filters == 'list_place':
+            images = []
+            print ("\n\nArray Of Image -------------- ", property_id)
+            property_obj = request.env['house.mates'].sudo().search([('id', '=', property_id)])
+            print ("\n\nArray Of Image -------------- ", property_obj.property_image_ids)
 
-        return True
+            if len(array_of_image)!=0:
+                images = self.create_property_images(array_of_image, property_obj)
+            return True
+
+        if filters == 'find_place':
+            images = []
+            print ("\n\nArray Of Image -------------- ", property_id)
+            property_obj = request.env['house.mates'].sudo().search([('id', '=', property_id)])
+            print ("\n\nArray Of Image -------------- ", property_obj.property_image_ids)
+
+            property_obj.property_image_ids.unlink()
+            if len(array_of_image)!=0:
+                images = self.create_property_images(array_of_image, property_obj)
+            return True
+            return True
 
     @http.route('/delete/image/data', auth='public', type='json', website=True)
-    def delete_image_data(self, property_id, array_of_image):
+    def delete_image_data(self, property_id, array_of_image, filters=None):
 
-        print ("\n\nArray Of Image -------------- ", property_id)
-        property_obj = request.env['house.mates'].sudo().search([('id', '=', property_id)])
-        print ("Inside Deleteeeeeeeeeeeee")
+        if filters == 'list_place':
+            print ("\n\nArray Of Image -------------- ", property_id)
+            property_obj = request.env['house.mates'].sudo().search([('id', '=', property_id)])
+            print ("Inside Deleteeeeeeeeeeeee")
 
-        for images in property_obj.property_image_ids:
-            # print ("\n\n",len(images.image.decode('ascii').strip()), len(array_of_image))
-            # print (len(images.image.decode('ascii')), len(array_of_image))
-            if images.image.decode('ascii').strip() == array_of_image:
-                images.unlink()
-                print ("Match found")
+            for images in property_obj.property_image_ids:
+                # print ("\n\n",len(images.image.decode('ascii').strip()), len(array_of_image))
+                # print (len(images.image.decode('ascii')), len(array_of_image))
+                if images.image.decode('ascii').strip() == array_of_image:
+                    images.unlink()
+                    print ("Match found")
+            return True
 
-        return True
+        if filters == 'find_place':
+            # print ("\n\nArray Of Image -------------- ", property_id)
+            # property_obj = request.env['house.mates'].sudo().search([('id', '=', property_id)])
+            # print ("Inside Deleteeeeeeeeeeeee")
+            #
+            # for images in property_obj.property_image_ids:
+            #     if images.image.decode('ascii').strip() == array_of_image:
+            #         images.unlink()
+            #         print ("Match found")
+            return True
 
     @http.route('/get_product', auth='public', type='json', website=True)
     def get_product(self, record_id, filters=None) :
@@ -2609,17 +2652,36 @@ class FlatMates(http.Controller):
         print ("\n\n\n88888888888888888888",filters[0])
         print ("\n\n\n", filters[0].get('max_age'))
         if filters[0].get('listing_type') =='home':
-            # print ("Homeeeeeeeeeeeeeeee")
+            print ("Homeeeeeeeeeeeeeeee")
+
             properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id),('state','=','active')], fields=fields, order='id', limit=16)
         if not filters[0].get('listing_type'):
             # print ("Homeeeeeeeeeeeeeeee")
-            properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id),('state','=','active')], fields=fields, order='id', limit=16)
+            if filters[0].get('suburbs%5B%5D'):
+                suburb_string=str(filters[0].get('suburbs%5B%5D')).replace('+',' ')
+                suburb_string2=suburb_string.replace('%2C',',')
+                suburb_list=suburb_string2.split(',')
+                # properties_ids = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id), ('state', '=', 'active'),('listing_type','=','find')])
+                # for id in properties_ids:
+                properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id), ('state', '=', 'active'),('listing_type','=','find'),('suburbs_ids.subrub_name','=',suburb_list[0]),('suburbs_ids.city','=',str(suburb_list[1]).strip()),('suburbs_ids.state','=',str(suburb_list[2]).strip()),('suburbs_ids.post_code','=',str(suburb_list[3]).strip())])
+                print("\n\n--------", properties)
+
+                # properties = request.env['house.mates'].sudo().search_read(
+                # domain=[('id', '>', record_id), ('state', '=', 'active')], fields=fields, order='id', limit=16)
+            else:
+                properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id),('state','=','active')], fields=fields, order='id', limit=16)
 
         domain=[('id', '>', record_id),('state','=','active')]
         if filters[0].get('listing_type') == 'find':
             # print ("Finddddddddddddddddd",filters[0])
 
             domain.append(('listing_type','=','find'))
+            if filters[0].get('suburbs%5B%5D'):
+                suburb_string=str(filters[0].get('suburbs%5B%5D')).replace('+',' ')
+                suburb_string2=suburb_string.replace('%2C',',')
+                suburb_list=suburb_string2.split(',')
+                domain.append(('suburbs_ids.subrub_name','=',suburb_list[0]),('suburbs_ids.city','=',str(suburb_list[1]).strip()),('suburbs_ids.state','=',str(suburb_list[2]).strip()),('suburbs_ids.post_code','=',str(suburb_list[3]).strip()))
+
             if filters[0].get('find_min_age'):
                 domain.append(('person_ids.age','>=',int(filters[0].get('find_min_age'))))
             if filters[0].get('find_max_age'):
@@ -3042,7 +3104,6 @@ class FlatMates(http.Controller):
         phone_code = None
         mobile_no = None
         send = False
-
         if 'country_id' in kwargs and kwargs.get('country_id'):
             country_id = request.env['res.country'].browse(int(kwargs.get('country_id')))
             if country_id:
@@ -3086,7 +3147,7 @@ class FlatMates(http.Controller):
         api_instance = clicksend_client.SMSApi(clicksend_client.ApiClient(configuration))
         sms_message = SmsMessage(source="python",
                                  body=message_to_send,
-                                 to="+61411111111")#"+61411111111"
+                                 to=mobile_number)#"+61411111111"
         sms_messages = clicksend_client.SmsMessageCollection(messages=[sms_message])
 
         try:
@@ -4034,6 +4095,27 @@ class FlatMates(http.Controller):
                         pass
         return True
 
+    @http.route(['/update_suburbs'], type='json', auth="public", website=True)
+    def update_suburbs(self, **kwargs):
+
+        print('\n\n----------------------------------------------------------------\n\n',kwargs)
+        if kwargs.get('current_finding_id'):
+            current_finding_id = kwargs.get('current_finding_id')
+
+            house_mates_id = request.env['house.mates'].sudo().browse(int(current_finding_id))
+
+            if house_mates_id:
+                if 'update_suburbs' in kwargs and kwargs.get('update_suburbs'):
+                    print("\n\n\nSUBURBS:\n\n",kwargs.get('update_suburbs'))
+
+                    #delete all previous suburbs before update
+                    if house_mates_id.suburbs_ids:
+                        for line in house_mates_id.suburbs_ids:
+                            line.sudo().unlink()
+
+                    self.create_suburbs_line(house_mates_id, kwargs.get('update_suburbs'))
+
+        return True
 
     ##################################################################
     # --------------  End of Routes for AJAX -------------- #
@@ -4242,3 +4324,11 @@ class WebsiteBlogInherit(WebsiteBlog):
         response = request.render("website_blog.blog_post_short", values)
         return response
 
+    @http.route(['/get_property_owner_number'], type='json', auth="public", website=True, )
+    def get_property_owner_number(self, **kwargs):
+        """Get phone number and name of property owner"""
+        if kwargs.get('property_id'):
+            property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
+
+            return {'name': property_id.user_id.partner_id.name, 'phone': property_id.user_id.partner_id.mobile}
+        return False

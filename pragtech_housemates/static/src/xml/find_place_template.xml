@@ -292,62 +292,30 @@
                                         <div class="form-group">
                                             <span>Suburb</span>
                                             <p class="text-muted">We recommend choosing at least 4 suburbs</p>
-											
-											
-											<div class="locations-autocomplete">
-      
-      <div class="auto-input"><span class="token">Brisbane City, 4000<span class="remove"><span class="icon">
-        <svg viewBox="0 0 16 16">
-          <path class="fill" fill-rule="evenodd" d="M10.942 8l4.456-4.457c.803-.802.803-2.14 0-2.94-.802-.804-2.14-.804-2.94 0L8 5.057 3.543.602C2.74-.2 1.403-.2.603.602c-.804.802-.804 2.14 0 2.94L5.057 8 .602 12.457c-.803.802-.803 2.14 0 2.94.802.804 2.14.804 2.94 0L8 10.943l4.457 4.456c.802.803 2.14.803 2.94 0 .804-.802.804-2.14 0-2.94L10.943 8z"></path>
-        </svg>
-        </span></span></span>
-        <input class="hidden-input token-input" placeholder="" type="text" value=""/>
-      </div>
-      <div class="popular-locations">
-        <div class="locations"><span class="popular-location"><span class="icon">
-          <svg class="map-marker" viewBox="0 0 50 50">
-            <path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path>
-          </svg>
-          <span class="icon-label">Sydney</span></span></span><span class="popular-location"><span class="icon">
-          <svg class="map-marker" viewBox="0 0 50 50">
-            <path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path>
-          </svg>
-          <span class="icon-label">Melbourne</span></span></span><span class="popular-location"><span class="icon">
-          <svg class="map-marker" viewBox="0 0 50 50">
-            <path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path>
-          </svg>
-          <span class="icon-label">Brisbane</span></span></span><span class="popular-location"><span class="icon">
-          <svg class="map-marker" viewBox="0 0 50 50">
-            <path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path>
-          </svg>
-          <span class="icon-label">Perth</span></span></span><span class="popular-location"><span class="icon">
-          <svg class="map-marker" viewBox="0 0 50 50">
-            <path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path>
-          </svg>
-          <span class="icon-label">Gold Coast</span></span></span><span class="popular-location"><span class="icon">
-          <svg class="map-marker" viewBox="0 0 50 50">
-            <path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path>
-          </svg>
-          <span class="icon-label">Adelaide</span></span></span></div>
-      </div>
-    </div>
-
-                                                <!--<input type="text" class="" id="" name="suburbs"-->
-                                                       <!--placeholder="Search for a suburb"/>-->
 
 
-                                            <div class="form-control form-control-lg mt-2 p-0 find-place-add-suburbs">
-                                                <input type="text" autocomplete="off" id="find_suburb" name="suburbs"/>
+                                            <!--<div class="locations-autocomplete">-->
+                                                <!--<div class="auto-input"><span class="token">Brisbane City, 4000<span class="remove"><span class="icon">-->
+                                                    <!--<svg viewBox="0 0 16 16">-->
+                                                        <!--<path class="fill" fill-rule="evenodd" d="M10.942 8l4.456-4.457c.803-.802.803-2.14 0-2.94-.802-.804-2.14-.804-2.94 0L8 5.057 3.543.602C2.74-.2 1.403-.2.603.602c-.804.802-.804 2.14 0 2.94L5.057 8 .602 12.457c-.803.802-.803 2.14 0 2.94.802.804 2.14.804 2.94 0L8 10.943l4.457 4.456c.802.803 2.14.803 2.94 0 .804-.802.804-2.14 0-2.94L10.943 8z"></path>-->
+                                                    <!--</svg>-->
+                                                <!--</span></span></span>-->
+                                                    <!--<input class="hidden-input token-input" placeholder="" type="text" value=""/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <div class="locations-autocomplete">
+                                                <div class="auto-input find-place-add-suburbs">
+                                                    <input class="hidden-input token-input" placeholder="" type="text" autocomplete="off" id="find_suburb" name="suburbs" value=""/>
+                                                </div>
                                             </div>
                                             <p class="show-distance-msg d-none">The suburb selected is greater than 25km from your original suburb</p>
-                                            <!--<div id="livesearch"></div>-->
 
-
-
-                                                 <!--<span class="badge badge-light">Light</span>-->
+                                            <!--<div class="form-control form-control-lg mt-2 p-0 find-place-add-suburbs">-->
+                                                <!--<input type="text" autocomplete="off" id="find_suburb" name="suburbs"/>-->
                                             <!--</div>-->
+                                            <!--<p class="show-distance-msg d-none">The suburb selected is greater than 25km from your original suburb</p>-->
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="row">
@@ -400,7 +368,7 @@
                                             <span>Weekly budget</span>
                                             <div>
                                                 <span class="currency">$</span>
-                                                <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
+                                                <input type="text" class="form-control mt-2 weekly-rent-input"
                                                        id="find-budget" name="budget" value=""/>
                                             </div>
                                         </div>
@@ -692,7 +660,7 @@
                                                 <div class="form-group">
                                                     <span>Your age</span>
                                                     <div>
-                                                        <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
+                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
                                                                id="find-your-age" name="your_age_0" value=""/>
                                                     </div>
                                                 </div>
@@ -725,7 +693,7 @@
                                                 <div class="form-group">
                                                     <span>Your partner's age</span>
                                                     <div>
-                                                        <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
+                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
                                                                id="find-your-age" name="your_age_1" value=""/>
                                                     </div>
                                                 </div>
@@ -758,7 +726,7 @@
                                                 <div class="form-group">
                                                     <span>Your friend's age</span>
                                                     <div>
-                                                        <input type="number" min="1" class="form-control mt-2 weekly-rent-input"
+                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
                                                                id="find-your-age" name="your_age_2" value=""/>
                                                     </div>
                                                 </div>

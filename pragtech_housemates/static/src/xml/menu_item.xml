@@ -49,7 +49,7 @@
                     <div class="new-search closed">
 
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle search-dropdown search-bar-responsive" type="button"
+                            <button class="btn btn-secondary dropdown-toggle search-dropdown search-bar-responsive"  type="button"
                                     data-toggle="modal" data-target="#dropdownMenuButton" aria-haspopup="true"
                                     aria-expanded="false">
                                 <div class="search-icon search-box-icon">
@@ -68,11 +68,14 @@
                                     <div class="search-dropdown-menu">
 
                             <form class="search-form" id="search_filter" action="/search/records" method="GET">
-                                <div class="form-group auto-input">
+                                <div class="form-group auto-input locations-autocomplete">
                                     <label class="p16-gray text-uppercase">Where are you looking?</label>
-                                    <input type="text" class="form-control" id="search_places"
-                                           placeholder="Start typing a suburb, city, station or uni"/>
+                                    <div class="auto-input find-place-add-suburbs-search">
+                                        <input class="hidden-input token-input" placeholder="Start typing a suburb" type="text" autocomplete="off" id="find_suburb_search" name="suburbs_1" value=""/>
+                                    </div>
                                 </div>
+                                <!--placeholder = "Start typing a suburb, city, station or uni"-->
+
                                 <div class="popular-locations">
                                     <div class="locations">
                                         <span class="popular-location">

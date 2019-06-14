@@ -602,12 +602,32 @@
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                             </button>
-
-                                            <button class="btn btn-outline-primary2 btn-block">Show <t t-if="user_name">
+                                            <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan and show_number -->
+                                            <t t-if="mobile_not_verified">
+                                            <button type="button" class="btn btn-outline-primary2 btn-block" id="country_fill" data-toggle="modal" data-target="#verify_mobile_popup">Show
+                                                <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                                 number
                                             </button>
+                                            </t>
+                                            <t t-if="show_upgrade_plan">
+                                                <button type="button" class="btn btn-outline-primary2 btn-block" data-toggle="modal" data-target="#why_upgrade_popup">Show
+                                                    <t t-if="user_name">
+                                                                <t t-esc="user_name"></t>
+                                                            </t>
+                                                    number
+                                                </button>
+                                            </t>
+                                            <t t-if="show_number">
+                                            <button type="button" class="btn btn-outline-primary2 btn-block" id="show_mobile" data-toggle="modal" data-target="#show_mobile_number">Show
+                                               <input type="test" id="property_id" style="display:none;'" t-att-value="property.id"></input>
+                                                <t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t>
+                                                number
+                                            </button>
+                                            </t>
                                             </t>
                                             <t t-else="">
                                                 <div class="form-group mt-3">
@@ -1441,13 +1461,32 @@
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                             </button>
-
-                                            <button class="btn btn-outline-primary2 btn-block">Show
+                                                <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan and show_number -->
+                                            <t t-if="mobile_not_verified">
+                                            <button type="button" class="btn btn-outline-primary2 btn-block" id="country_fill" data-toggle="modal" data-target="#verify_mobile_popup">Show
                                                 <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                                 number
                                             </button>
+                                            </t>
+                                            <t t-if="show_upgrade_plan">
+                                                <button type="button" class="btn btn-outline-primary2 btn-block" data-toggle="modal" data-target="#why_upgrade_popup">Show
+                                                    <t t-if="user_name">
+                                                                <t t-esc="user_name"></t>
+                                                            </t>
+                                                    number
+                                                </button>
+                                            </t>
+                                            <t t-if="show_number">
+                                            <button type="button" class="btn btn-outline-primary2 btn-block" id="show_mobile" data-toggle="modal" data-target="#show_mobile_number">Show
+                                               <input type="test" id="property_id" style="display:none;'" t-att-value="property.id"></input>
+                                                <t t-if="user_name">
+                                                            <t t-esc="user_name"></t>
+                                                        </t>
+                                                number
+                                            </button>
+                                            </t>
                                             </t>
 
                                             <t t-else="">

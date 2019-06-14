@@ -5,7 +5,7 @@
     'name': 'Website Extensin',
     'summary': 'Customer Portal',
     'sequence': '9001',
-    'version': '12.0.12',
+    'version': '12.0.13',
     'category': 'Hidden',
     'description': """ Portal Extension """,
     'depends': ['portal','auth_oauth','website_sale','l10n_au','sale_management'],
@@ -18,6 +18,7 @@
         'views/auth_oauth_templates.xml',
 		'views/upgrade_templates.xml',
         'views/product_view.xml',
+        'views/payment_template.xml',
     ],
     'qweb': [
     ],

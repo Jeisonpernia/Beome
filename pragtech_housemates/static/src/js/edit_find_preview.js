@@ -444,6 +444,34 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
         })
 
+
+
+        $("#update_suburb_id").on('click',function(){
+            console.log('okkkkkkkkkkkkkkkkkkkkkkkkkkkk')
+            var update_suburbs = $("input[id=suburbs]").map(function(){return $(this).val();}).get();
+            console.log('Suburbs : ',suburbs)
+            var current_finding_id = $("#current_listing_id").val()
+
+            data = {
+                'current_finding_id':current_finding_id,
+                'update_suburbs':update_suburbs
+            }
+
+            $.ajax({
+                    url: '/update_suburbs',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": data}),
+                    success: function(data){
+
+                    }
+            });
+            location.reload()
+
+        });
+
 $(".close_applicant_information_popup").on('click',function(){
  location.reload();
 

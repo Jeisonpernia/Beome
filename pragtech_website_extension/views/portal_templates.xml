@@ -167,7 +167,7 @@
                                                                 <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
                                                             </h5>
                                                             <p class="text-center text-danger">Free Account</p>
-                                                            <a href="#" class="btn btn-orange btn-block"
+                                                            <a href="#" class="btn btn-orange btn-block upgrade_plan_class"
                                                                id="upgrade_plan_id"
                                                                data-toggle="modal"
                                                                data-target="#why_upgrade_popup">Why Upgrade
@@ -417,7 +417,7 @@
                                                     <h4>My account</h4>
 
                                                     <ul>
-                                                        <li id="verify_mobile" class="verify-mobile-on-dashboard">
+                                                        <li id="verify_mobile" class="verify-mobile-on-dashboard select_country">
                                                             <a href="#" data-toggle="modal"
                                                                data-target="#verify_mobile_popup">
                                                                 <svg id="bell-icon" class="icon" viewBox="0 0 24 24"
@@ -507,7 +507,32 @@
                                 </form>
                             </div>
                         </div>
-
+                        <!--Mobile number display dialog-->
+                        <div class="modal fade" id="show_mobile_number" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-8 mx-auto">
+                                                    <form action="/action_page.php">
+                                                        <h3 class="text-center mt-4 mb-4" id="show_mobile_heading"></h3>
+                                                            <div class="form-group mt-4">
+                                                                    <p style="color:black;text-align:center;" id="property_owner_mobile"></p>
+                                                            </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="modal fade" id="verify_mobile_popup" role="dialog">
                             <div class="modal-dialog">
@@ -608,7 +633,7 @@
 
                                                         <div class="mobileVerified">
                                                             <i class="fa fa-mobile"></i>
-                                                            <span class="mobileVerified__number">9284234403</span>
+                                                            <span class="mobileVerified__number"></span>
                                                             <button class="linkButton">Edit</button>
                                                         </div>
 
@@ -1392,6 +1417,30 @@
                             </div>
                         </div>
 
+                        <div class="modal fade" id="email_sent_popup" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close close_email_sent_popup"  aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <form action="/action_page.php">
+                                                        <h3 class="text-center mt-4 mb-4">Email Sent</h3>
+                                                        <p style="color:black;">Invoice is sent to your register Email ID</p>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="modal fade" id="account_settings_popup" role="dialog">
                             <div class="modal-dialog">
@@ -1811,7 +1860,6 @@
             </div>
         </t>
     </template>
-
 
     <template id="portal_show_sign_inherited" inherit_id="portal.portal_show_sign_in" name="Show Sign In">
         <xpath expr="//a[@t-attf-href='/web/login']" position="replace">

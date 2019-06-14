@@ -100,8 +100,60 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
                                 })
                                 location.reload();
             })
+            //Show mobile dialog details on show mobile nummber click
+            $("#show_mobile").on('click',function()
+            {
+                var property = $('#property_id').val()
+                $.ajax({
+                            url: '/get_property_owner_number',
+                            type: "POST",
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            data:JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {
+                                'property_id': property
+                                }}),
+                            success: function(data)
+                            {
+                                if (data){
+                                    if (data['result']['phone']){
+                                        $("#property_owner_mobile").text(data['result']['phone'])
+                                    }
+                                    else{
+                                        $("#property_owner_mobile").text(data['result']['name'] + " has no mobile number!")
+                                    }
 
-            $("#verify_mobile").on('click',function()
+                                    $("#show_mobile_heading").text(data['result']['name'] + "'s Mobile Number")
+
+
+                                }
+                            }
+                        })
+            })
+            //fill country on click of show mobile number, if verify dialog pop up
+            $("#country_fill").on('click',function()
+            {
+                $(".verify-mobile-no").val("")
+                $(".invalid_mobile_no").css('display','none')
+
+                $.ajax({
+                            url: '/country',
+                            type: "POST",
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            data:JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                            success: function(data)
+                            {
+                                countries = data['result']['country']
+                                for(var i=0;i<countries.length;i++)
+                                {
+                                    var country = countries[i]
+//                                    console.log('country :',country)
+                                    $('#country').append('<option value='+country[0]+'>'+country[1]+'</option>')
+                                }
+                            }
+                        })
+            })
+            $(".select_country").on('click',function()
             {
                 $(".verify-mobile-no").val("")
                 $(".invalid_mobile_no").css('display','none')

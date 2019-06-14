@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<data noupdate="0">
+	<data noupdate="1">
 
 		<!-- Sequences for hous.mates -->
         <record id="seq_house_mates_list" model="ir.sequence">
@@ -32,11 +32,15 @@
 			<field name="name">3</field>
 		</record>
 		<record model="bathrooms" id="bath4">
-			<field name="name">4</field>
+			<field name="name">4+</field>
 		</record>
-		<record model="bathrooms" id="bath5">
-			<field name="name">5</field>
-		</record>
+		<!--<record model="bathrooms" id="bath5">-->
+			<!--<field name="name">5</field>-->
+		<!--</record>-->
+		<!--<record model="bathrooms" id="bath5">-->
+			<!--<field name="name">6+</field>-->
+		<!--</record>-->
+
 		
 		<!-- Bathroom Categories Demonstration Data -->
 		<record model="bathroom.categories" id="bath_cat1">
@@ -61,6 +65,9 @@
 		</record>
 		<record model="bedrooms" id="bed_room5">
 			<field name="name">5</field>
+		</record>
+		<record model="bedrooms" id="bed_room5">
+			<field name="name">6+</field>
 		</record>
 		
 		<!-- Property Listing Category Demonstration Data -->
@@ -146,10 +153,10 @@
 		
 		<!-- Room Types Demonstration Data -->
 		<record model="room.types" id="total_falt_cat1">
-			<field name="name">Shared</field>
+			<field name="name">Private</field>
 		</record>
 		<record model="room.types" id="total_falt_cat2">
-			<field name="name">Private</field>
+			<field name="name">Shared</field>
 		</record>
 		
 		<!--Minimum length of stay Demonstration Data -->

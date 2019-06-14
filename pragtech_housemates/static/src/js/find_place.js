@@ -7,19 +7,19 @@ $(document).ready(function()
 
      var window_pathname = window.location.pathname
 
-
-    if (window_pathname == '/find-place/describe-your-ideal-place/start')
-    {
-        // ("In general statement if (window_pathname.includes('about-yourself'))")
-
-        if ($("#find_comment").val().length == 0 )
-        $('.styles__errorMessage_find_comment').hide();
-
-        if ($(this).find("#find_comment").val().length<10)
-            $('.find-publish').prop("disabled", true)
-        else
-            $('.find-publish').prop("disabled", false)
-    }
+// Commented by Himesh bcoz this code was affecting the top menu bar for Find Place Start
+//    if (window_pathname == '/find-place/describe-your-ideal-place/start')
+//    {
+//        // ("In general statement if (window_pathname.includes('about-yourself'))")
+//
+//        if ($("#find_comment").val().length == 0 )
+//        $('.styles__errorMessage_find_comment').hide();
+//
+//        if ($(this).find("#find_comment").val().length<10)
+//            $('.find-publish').prop("disabled", true)
+//        else
+//            $('.find-publish').prop("disabled", false)
+//    }
 
     $("#find_comment").keyup(function()
     {
@@ -187,6 +187,7 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
 
     })
 
+    var flag = 0
     $(document).on('keyup','.find-place-add-suburbs',function(e)
     {
     var data;
@@ -196,9 +197,13 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
     // BACKSPACE
     if (e.keyCode == 8)
     {
-//        console.log ("Backsapce")
-        if ($('.suburbs-div').length != 0)
+        console.log ("Backsapce",$('#find_suburb').val())
+
+
+
+        if ($('.suburbs-div').length != 0 && $('#find_suburb').val().length == 0 && flag == 1)
         {
+            flag = 0
             var last_div = $('.suburbs-div').last()
             if (last_div.hasClass('suburbs-div-red'))
                 $('.show-distance-msg').addClass('d-none')
@@ -206,6 +211,12 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
             if ($('.suburbs-div').length == 0)
                 $('.propert_submit_btn').attr('disabled',true)
         }
+        else
+        {
+            if ($('#find_suburb').val().length == 0 )
+                flag = 1
+        }
+
 
     }
 
@@ -272,7 +283,8 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
 //                                    console.log ("88888888888888888888888",suburb_obj)
                                     if (suburb_obj.length == 1)
                                     {
-                                        $(".find-place-add-suburbs").prepend('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>')
+//                                        $(".find-place-add-suburbs").prepend('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>')
+                                        $(".find-place-add-suburbs").prepend('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.label+'"/><span class="token" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>')
                                         $("#find_suburb").val("")
                                         $('.propert_submit_btn').attr('disabled',false)
                                         return false;
@@ -297,7 +309,10 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
                                             console.log ("In the message message")
                                             $('.show-distance-msg').removeClass("d-none")
 
-                                                $('<div class="suburbs-div suburbs-div-red"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-danger" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+//                                                $('<div class="suburbs-div suburbs-div-red"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-danger" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+                                                $('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.label+'"/><span class="token token-red" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+
+
     //                                            $(".find-place-add-suburbs").prepend('<input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'</span>')
                                                 $("#find_suburb").val("")
                                             $("#find_suburb").val("")
@@ -316,7 +331,8 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
                                             {
                                                 if (!$('.show-distance-msg').hasClass("d-none"))
                                                     $('.show-distance-msg').addClass("d-none")
-                                                $('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+                                                $('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.label+'"/><span class="token" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+//                                                $('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
     //                                            $(".find-place-add-suburbs").prepend('<input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'</span>')
                                                 $("#find_suburb").val("")
                                                 return false;
@@ -364,7 +380,8 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
 //                                    console.log ("88888888888888888888888",suburb_obj)
                                     if (suburb_obj.length == 1)
                                     {
-                                        $(".find-place-add-suburbs").prepend('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>')
+//                                        $(".find-place-add-suburbs").prepend('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.label+'"/><span class="token" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>')
+                                        $(".find-place-add-suburbs").prepend('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.label+'"/><span class="token" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>')
                                         $("#find_suburb").val("")
                                         $('.propert_submit_btn').attr('disabled',false)
                                         return false;
@@ -388,8 +405,8 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
                                         {
 //                                                console.log ("In the message message")
                                             $('.show-distance-msg').removeClass("d-none")
-
-                                                $('<div class="suburbs-div suburbs-div-red"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-danger" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+//                                                $('<div class="suburbs-div suburbs-div-red"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-danger" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+                                                $('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.label+'"/><span class="token token-red" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
     //                                            $(".find-place-add-suburbs").prepend('<input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'</span>')
                                                 $("#find_suburb").val("")
                                             $("#find_suburb").val("")
@@ -408,7 +425,7 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
                                             {
                                                 if (!$('.show-distance-msg').hasClass("d-none"))
                                                     $('.show-distance-msg').addClass("d-none")
-                                                $('<div class="suburbs-div"><input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+                                                $('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.label+'"/><span class="token" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
     //                                            $(".find-place-add-suburbs").prepend('<input type=hidden id="suburbs" name="suburbs[]" value="'+ui.item.label+'"><span class="badge badge-light" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'</span>')
                                                 $("#find_suburb").val("")
                                                 return false;
