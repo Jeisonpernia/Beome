@@ -6,14 +6,25 @@
                 <section>
                     <div class="container">
                         <div class="row">
-                            <div class="col-12">
-                                <h2 class="mb-3">Dashboard</h2>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
                             <div class="col-lg-8 potential-matches">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-9 col-7 float-left">
+                                        <h2 class="mb-3 pl-3">Dashboard</h2>
+                                    </div>
+                                    <t t-if="user_id.partner_id.mobile_no_is_verified == false">
+                                    <div class="col-lg-8 col-md-3 col-5 float-right">
+                                        <div class="pending-tab">
+                                            <span class="yellow-circle"></span>
+                                            Pending
+                                            <span class="hide-verify-number">
+                                                <a  data-toggle="modal" data-target="#verify_mobile_popup" href="#" class="select_country">Verify mobile number</a>
+                                                to activate this listing
+                                            </span>
+                                        </div>
+                                    </div>
+                                    </t>
+                                </div>
+
                                 <div class="bg-white">
                                     <h4>Potential Matches</h4>
 
@@ -29,150 +40,183 @@
                                                 </button>
 
                                                 <div class="home-listings" id="">
-                                                    <div class="card">
-                                                        <div class="property-content">
-                                                            <input field="text" id="property_id" t-att-value='record_id'
-                                                                   hidden='false'/>
-                                                            <div class="property-img">
-                                                                <img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'
-                                                                     class="img-fluid"/>
-                                                                <div class="propety-ribbon-blue">New | $300</div>
+                                                    <t t-if="matches">
+                                                        <t t-foreach="matches" t-as="match">
+                                                            <div class="card open-detail-of-match">
+                                                                <div class="property-content">
+                                                                    <input type="hidden" class="match_id"
+                                                                           t-att-value='match.id'
+                                                                    />
+                                                                    <t t-if="match.property_image_ids">
+                                                                        <t t-foreach="match.property_image_ids"
+                                                                           t-as="image">
+                                                                            <div class="property-img">
+                                                                                <img class="img-fluid"
+                                                                                     t-att-src="image_data_uri(image.image)"/>
+
+                                                                                <!--<img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'-->
+                                                                                <!--class="img-fluid"/>-->
+                                                                                <div class="propety-ribbon-white">New |
+                                                                                    $
+                                                                                    <t t-esc="match.weekly_budget"/>
+                                                                                </div>
+                                                                            </div>
+                                                                        </t>
+                                                                    </t>
+                                                                    <p class="property-listing-heading mt-2">
+                                                                        <t t-if="match.user_id.partner_id.firstname">
+                                                                            <t t-esc="match.user_id.partner_id.firstname"/>
+                                                                        </t>
+                                                                        <t t-elif="match.user_id.partner_id.lastname">
+                                                                            <t t-esc="match.user_id.partner_id.lastname"/>
+                                                                        </t>
+                                                                    </p>
+                                                                    <t t-if="match.suburbs_ids[0].subrub_name">
+                                                                        <p class="property-listing-subheading">Looking
+                                                                            in:
+                                                                            <t t-esc="match.suburbs_ids[0].subrub_name"/>
+                                                                            ,
+                                                                            <br></br>
+                                                                        </p>
+                                                                    </t>
+                                                                    <t t-if="match.suburbs_ids[0].city">
+                                                                        <p class="property-listing-subheading">
+                                                                            <t t-esc="match.suburbs_ids[0].city"/>
+                                                                        </p>
+                                                                    </t>
+                                                                    <!--<p class="property-listing-subheading">Room in a share-->
+                                                                    <!--house-->
+                                                                    <!--</p>-->
+                                                                    <!--<p class="property-listing-para">THE LOCATION:-->
+
+                                                                    <!--6 minutes walk to Bronte beach through the trees.-->
+                                                                    <!--100 steps to the bus stop, corner store and post box.-->
+                                                                    <!--The only sound you'll hear is the birds and wind in the-->
+                                                                    <!--trees.-->
+                                                                    <!--4 minute walk to famous Italian deli cafe.-->
+                                                                    <!--8 minute walk through the park to 9 epic Bronte Beach-->
+                                                                    <!--cafes on the water.-->
+                                                                    <!--</p>-->
+                                                                </div>
                                                             </div>
-                                                            <p class="property-listing-heading mt-2"><a href="">
-                                                                Bronte</a>,
-                                                                <a href="">Sydney</a>
-                                                            </p>
-                                                            <p class="property-listing-subheading">Room in a share
-                                                                house
-                                                            </p>
-                                                            <p class="property-listing-para">THE LOCATION:
+                                                        </t>
+                                                    </t>
 
-                                                                6 minutes walk to Bronte beach through the trees.
-                                                                100 steps to the bus stop, corner store and post box.
-                                                                The only sound you'll hear is the birds and wind in the
-                                                                trees.
-                                                                4 minute walk to famous Italian deli cafe.
-                                                                8 minute walk through the park to 9 epic Bronte Beach
-                                                                cafes on the water.
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                                    <!--<div class="card">-->
+                                                    <!--<div class="property-content">-->
+                                                    <!--<input field="text" id="property_id" t-att-value='record_id'-->
+                                                    <!--hidden='false'/>-->
+                                                    <!--<div class="property-img">-->
+                                                    <!--<img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'-->
+                                                    <!--class="img-fluid"/>-->
+                                                    <!--<div class="propety-ribbon-blue">New | $300</div>-->
+                                                    <!--</div>-->
+                                                    <!--<p class="property-listing-heading mt-2"><a href="">-->
+                                                    <!--Bronte</a>,-->
+                                                    <!--<a href="">Sydney</a>-->
+                                                    <!--</p>-->
+                                                    <!--<p class="property-listing-subheading">Room in a share-->
+                                                    <!--house-->
+                                                    <!--</p>-->
+                                                    <!--<p class="property-listing-para">THE LOCATION:-->
 
-                                                    <div class="card">
-                                                        <div class="property-content">
-                                                            <input field="text" id="property_id" t-att-value='record_id'
-                                                                   hidden='false'/>
-                                                            <div class="property-img">
-                                                                <img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'
-                                                                     class="img-fluid"/>
-                                                                <div class="propety-ribbon-blue">New | $300</div>
-                                                            </div>
-                                                            <p class="property-listing-heading mt-2"><a href="">
-                                                                Bronte</a>,
-                                                                <a href="">Sydney</a>
-                                                            </p>
-                                                            <p class="property-listing-subheading">Room in a share
-                                                                house
-                                                            </p>
-                                                            <p class="property-listing-para">THE LOCATION:
+                                                    <!--6 minutes walk to Bronte beach through the trees.-->
+                                                    <!--100 steps to the bus stop, corner store and post box.-->
+                                                    <!--The only sound you'll hear is the birds and wind in the-->
+                                                    <!--trees.-->
+                                                    <!--4 minute walk to famous Italian deli cafe.-->
+                                                    <!--8 minute walk through the park to 9 epic Bronte Beach-->
+                                                    <!--cafes on the water.-->
+                                                    <!--</p>-->
+                                                    <!--</div>-->
+                                                    <!--</div>-->
 
-                                                                6 minutes walk to Bronte beach through the trees.
-                                                                100 steps to the bus stop, corner store and post box.
-                                                                The only sound you'll hear is the birds and wind in the
-                                                                trees.
-                                                                4 minute walk to famous Italian deli cafe.
-                                                                8 minute walk through the park to 9 epic Bronte Beach
-                                                                cafes on the water.
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                                    <!--<div class="card">-->
+                                                    <!--<div class="property-content">-->
+                                                    <!--<input field="text" id="property_id" t-att-value='record_id'-->
+                                                    <!--hidden='false'/>-->
+                                                    <!--<div class="property-img">-->
+                                                    <!--<img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'-->
+                                                    <!--class="img-fluid"/>-->
+                                                    <!--<div class="propety-ribbon-blue">New | $300</div>-->
+                                                    <!--</div>-->
+                                                    <!--<p class="property-listing-heading mt-2"><a href="">-->
+                                                    <!--Bronte</a>,-->
+                                                    <!--<a href="">Sydney</a>-->
+                                                    <!--</p>-->
+                                                    <!--<p class="property-listing-subheading">Room in a share-->
+                                                    <!--house-->
+                                                    <!--</p>-->
+                                                    <!--<p class="property-listing-para">THE LOCATION:-->
 
-                                                    <div class="card">
-                                                        <div class="property-content">
-                                                            <input field="text" id="property_id" t-att-value='record_id'
-                                                                   hidden='false'/>
-                                                            <div class="property-img">
-                                                                <img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'
-                                                                     class="img-fluid"/>
-                                                                <div class="propety-ribbon-blue">New | $300</div>
-                                                            </div>
-                                                            <p class="property-listing-heading mt-2"><a href="">
-                                                                Bronte</a>,
-                                                                <a href="">Sydney</a>
-                                                            </p>
-                                                            <p class="property-listing-subheading">Room in a share
-                                                                house
-                                                            </p>
-                                                            <p class="property-listing-para">THE LOCATION:
+                                                    <!--6 minutes walk to Bronte beach through the trees.-->
+                                                    <!--100 steps to the bus stop, corner store and post box.-->
+                                                    <!--The only sound you'll hear is the birds and wind in the-->
+                                                    <!--trees.-->
+                                                    <!--4 minute walk to famous Italian deli cafe.-->
+                                                    <!--8 minute walk through the park to 9 epic Bronte Beach-->
+                                                    <!--cafes on the water.-->
+                                                    <!--</p>-->
+                                                    <!--</div>-->
+                                                    <!--</div>-->
 
-                                                                6 minutes walk to Bronte beach through the trees.
-                                                                100 steps to the bus stop, corner store and post box.
-                                                                The only sound you'll hear is the birds and wind in the
-                                                                trees.
-                                                                4 minute walk to famous Italian deli cafe.
-                                                                8 minute walk through the park to 9 epic Bronte Beach
-                                                                cafes on the water.
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                                    <!--<div class="card">-->
+                                                    <!--<div class="property-content">-->
+                                                    <!--<input field="text" id="property_id" t-att-value='record_id'-->
+                                                    <!--hidden='false'/>-->
+                                                    <!--<div class="property-img">-->
+                                                    <!--<img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'-->
+                                                    <!--class="img-fluid"/>-->
+                                                    <!--<div class="propety-ribbon-blue">New | $300</div>-->
+                                                    <!--</div>-->
+                                                    <!--<p class="property-listing-heading mt-2"><a href="">-->
+                                                    <!--Bronte</a>,-->
+                                                    <!--<a href="">Sydney</a>-->
+                                                    <!--</p>-->
+                                                    <!--<p class="property-listing-subheading">Room in a share-->
+                                                    <!--house-->
+                                                    <!--</p>-->
+                                                    <!--<p class="property-listing-para">THE LOCATION:-->
 
-                                                    <div class="card">
-                                                        <div class="property-content">
-                                                            <input field="text" id="property_id" t-att-value='record_id'
-                                                                   hidden='false'/>
-                                                            <div class="property-img">
-                                                                <img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'
-                                                                     class="img-fluid"/>
-                                                                <div class="propety-ribbon-blue">New | $300</div>
-                                                            </div>
-                                                            <p class="property-listing-heading mt-2"><a href="">
-                                                                Bronte</a>,
-                                                                <a href="">Sydney</a>
-                                                            </p>
-                                                            <p class="property-listing-subheading">Room in a share
-                                                                house
-                                                            </p>
-                                                            <p class="property-listing-para">THE LOCATION:
+                                                    <!--6 minutes walk to Bronte beach through the trees.-->
+                                                    <!--100 steps to the bus stop, corner store and post box.-->
+                                                    <!--The only sound you'll hear is the birds and wind in the-->
+                                                    <!--trees.-->
+                                                    <!--4 minute walk to famous Italian deli cafe.-->
+                                                    <!--8 minute walk through the park to 9 epic Bronte Beach-->
+                                                    <!--cafes on the water.-->
+                                                    <!--</p>-->
+                                                    <!--</div>-->
+                                                    <!--</div>-->
 
-                                                                6 minutes walk to Bronte beach through the trees.
-                                                                100 steps to the bus stop, corner store and post box.
-                                                                The only sound you'll hear is the birds and wind in the
-                                                                trees.
-                                                                4 minute walk to famous Italian deli cafe.
-                                                                8 minute walk through the park to 9 epic Bronte Beach
-                                                                cafes on the water.
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                                    <!--<div class="card">-->
+                                                    <!--<div class="property-content">-->
+                                                    <!--<input field="text" id="property_id" t-att-value='record_id'-->
+                                                    <!--hidden='false'/>-->
+                                                    <!--<div class="property-img">-->
+                                                    <!--<img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'-->
+                                                    <!--class="img-fluid"/>-->
+                                                    <!--<div class="propety-ribbon-blue">New | $300</div>-->
+                                                    <!--</div>-->
+                                                    <!--<p class="property-listing-heading mt-2"><a href="">-->
+                                                    <!--Bronte</a>,-->
+                                                    <!--<a href="">Sydney</a>-->
+                                                    <!--</p>-->
+                                                    <!--<p class="property-listing-subheading">Room in a share-->
+                                                    <!--house-->
+                                                    <!--</p>-->
+                                                    <!--<p class="property-listing-para">THE LOCATION:-->
 
-                                                    <div class="card">
-                                                        <div class="property-content">
-                                                            <input field="text" id="property_id" t-att-value='record_id'
-                                                                   hidden='false'/>
-                                                            <div class="property-img">
-                                                                <img src='https://flatmates-res.cloudinary.com/image/upload/c_fill,dpr_2.0,f_auto,h_180,q_auto,w_290/n17wpxi5cd5mqpzq3xgk.jpg'
-                                                                     class="img-fluid"/>
-                                                                <div class="propety-ribbon-blue">New | $300</div>
-                                                            </div>
-                                                            <p class="property-listing-heading mt-2"><a href="">
-                                                                Bronte</a>,
-                                                                <a href="">Sydney</a>
-                                                            </p>
-                                                            <p class="property-listing-subheading">Room in a share
-                                                                house
-                                                            </p>
-                                                            <p class="property-listing-para">THE LOCATION:
-
-                                                                6 minutes walk to Bronte beach through the trees.
-                                                                100 steps to the bus stop, corner store and post box.
-                                                                The only sound you'll hear is the birds and wind in the
-                                                                trees.
-                                                                4 minute walk to famous Italian deli cafe.
-                                                                8 minute walk through the park to 9 epic Bronte Beach
-                                                                cafes on the water.
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                                    <!--6 minutes walk to Bronte beach through the trees.-->
+                                                    <!--100 steps to the bus stop, corner store and post box.-->
+                                                    <!--The only sound you'll hear is the birds and wind in the-->
+                                                    <!--trees.-->
+                                                    <!--4 minute walk to famous Italian deli cafe.-->
+                                                    <!--8 minute walk through the park to 9 epic Bronte Beach-->
+                                                    <!--cafes on the water.-->
+                                                    <!--</p>-->
+                                                    <!--</div>-->
+                                                    <!--</div>-->
 
 
                                                 </div>
@@ -183,8 +227,9 @@
 
                                     <div class="row">
                                         <div class="col-lg-4 mx-auto mt-4">
-                                            <button class="btn btn-block btn-outline-primary2">View more matches
-                                            </button>
+                                            <a class="btn btn-block btn-outline-primary2 view_more_property_button">View
+                                                more matches
+                                            </a>
                                         </div>
                                     </div>
 
@@ -194,6 +239,12 @@
 
 
                             <div class="col-lg-4 listing-views">
+                                <div class="row hidden-sm hidden-xs">
+                                    <div class="col-12">
+                                        <h2 class="mb-3">&amp;nbsp;</h2>
+                                    </div>
+                                </div>
+
                                 <div class="bg-white">
                                     <div class="listing-views-header">
                                         <h4>Listing Views</h4>
@@ -221,7 +272,7 @@
                                     </div>
 
 
-                                    <button class=" btn btn-block btn-outline-primary">Deactivate listing</button>
+                                    <button class=" btn btn-block btn-outline-primary edit_list_deactivate_listing_button">Deactivate listing</button>
 
 
                                 </div>
@@ -288,11 +339,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <span><h2>Your Property Listing
-                                <button class="btn btn-outline-primary preview-listing-btn">
-                                    <strong>Preview listing</strong>
-                                </button>
-                            </h2></span>
+                            <span>
+                                <h2>Your Property Listing
+                                    <button class="btn btn-outline-primary preview-listing-btn list_preview_listings">
+                                        <strong>Preview listing</strong>
+                                    </button>
+                                </h2>
+                            </span>
 
                             <span></span>
 
@@ -300,56 +353,57 @@
                     </div>
                 </div>
 
-                
 
                 <section class="property-list-place" style="padding-top:20px">
-					
+
                     <div class="container bg-white">
-						<div class="row">
-							<div class="col-12 pr-0 pl-0 pb-3">
-							<div class="property-slider">
-                            <div class="col-lg-12 mx-auto text-center property-slider">
-                                <div class="scrolling-wrapper add-photos-list_preview">
-                                    <button type="button" class="scroll-backward arrow-left">
-                                        <i class="fa fa-chevron-left"></i>
-                                    </button>
-                                    <button type="button" class="scroll-forward arrow-right">
-                                        <i class="fa fa-chevron-right"></i>
-                                    </button>
+                        <div class="row">
+                            <div class="col-12 pr-0 pl-0 pb-3">
+                                <div class="property-slider">
+                                    <div class="col-lg-12 mx-auto text-center property-slider">
+                                        <div class="scrolling-wrapper add-photos-list_preview">
+                                            <button type="button" class="scroll-backward arrow-left">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </button>
+                                            <button type="button" class="scroll-forward arrow-right">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
 
-                                    <div class="btn btn-outline-primary1 btn-file">
-                                        <i class="fa fa-camera"></i>
-                                        Add Photos
-                                        <input type="file" name="change_photos[]" accept="image/*" multiple="multiple"
-                                               id="change_photos"/>
-                                    </div>
+                                            <div class="btn btn-outline-primary1 btn-file">
+                                                <i class="fa fa-camera"></i>
+                                                Add Photos
+                                                <input type="file" name="change_photos[]" accept="image/*"
+                                                       multiple="multiple"
+                                                       id="change_photos"/>
+                                            </div>
 
-                                    <t t-if="property.property_image_ids">
-                                        <t t-foreach="property.property_image_ids" t-as="image">
-                                            <span class="slider">
-                                                <a href="#">
-                                                    <span class="delete-slider">
-                                                        <i class="fa fa-trash fa-2x delete-list-image"></i>
+                                            <t t-if="property.property_image_ids">
+                                                <t t-foreach="property.property_image_ids" t-as="image">
+                                                    <span class="slider">
+                                                        <a href="#">
+                                                            <span class="delete-slider">
+                                                                <i class="fa fa-trash fa-2x delete-list-image"></i>
+                                                            </span>
+                                                        </a>
+                                                        <img class="slider-img card"
+                                                             t-att-src="image_data_uri(image.image)"/>
                                                     </span>
-                                                </a>
-                                                <img class="slider-img card" t-att-src="image_data_uri(image.image)"/>
-                                            </span>
-                                        </t>
-                                    </t>
+                                                </t>
+                                            </t>
 
-                                    <!--<t t-if="property.property_image_ids">-->
-                                    <!--<t t-foreach="property.property_image_ids" t-as="image">-->
-                                    <!--<img class="card" t-att-src="image_data_uri(image.image)" width="" height=""/>-->
-                                    <!--</t>-->
-                                    <!--</t>-->
+                                            <!--<t t-if="property.property_image_ids">-->
+                                            <!--<t t-foreach="property.property_image_ids" t-as="image">-->
+                                            <!--<img class="card" t-att-src="image_data_uri(image.image)" width="" height=""/>-->
+                                            <!--</t>-->
+                                            <!--</t>-->
 
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
-							
-							</div>
-						</div>
-						
+
                         <div class="row">
                             <div class="col-lg-8 property-detail-left">
                                 <input id="current_listing_id" type="hidden" t-att-value="property.id"/>
@@ -383,7 +437,9 @@
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <button type="button" class="close about_room_popup_close" data-dismiss="modal"
+                                                                <button type="button"
+                                                                        class="close about_room_popup_close"
+                                                                        data-dismiss="modal"
                                                                         aria-label="Close">
                                                                     ×
                                                                 </button>
@@ -630,10 +686,6 @@
                                                                                 </div>
 
 
-
-
-
-
                                                                                 <button type="button"
                                                                                         id="update_rooms_data"
                                                                                         class="btn btn-green1 mt-3 mb-4 btn-block"
@@ -656,7 +708,8 @@
                                             <div class="room-value">
                                                 <span class="room-price">
                                                     <t t-if="weekly_budget">
-                                                        $<t t-esc="weekly_budget"></t>
+                                                        $
+                                                        <t t-esc="weekly_budget"></t>
                                                     </t>
                                                 </span>
                                                 <span class="room-per-week text-muted">/wk</span>
@@ -714,7 +767,9 @@
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <button type="button" class="close property-description-edit_popup_close" data-dismiss="modal"
+                                                                <button type="button"
+                                                                        class="close property-description-edit_popup_close"
+                                                                        data-dismiss="modal"
                                                                         aria-label="Close">
                                                                     ×
                                                                 </button>
@@ -1133,7 +1188,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close about_property_popup_close" data-dismiss="modal"
+                                                <button type="button" class="close about_property_popup_close"
+                                                        data-dismiss="modal"
                                                         aria-label="Close">
                                                     ×
                                                 </button>
@@ -1147,7 +1203,8 @@
                                                                     in this property?
                                                                 </h3>
 
-                                                                <div class="form-group mt-4 mb-2 edit_about_property_div" style="display: none;">
+                                                                <div class="form-group mt-4 mb-2 edit_about_property_div"
+                                                                     style="display: none;">
                                                                 </div>
 
                                                                 <div class="form-group mt-4 mb-2">
@@ -1199,7 +1256,9 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <button type="button" class="close list_place_property_preferences_popup_close" data-dismiss="modal"
+                                                    <button type="button"
+                                                            class="close list_place_property_preferences_popup_close"
+                                                            data-dismiss="modal"
                                                             aria-label="Close">
                                                         ×
                                                     </button>
@@ -1641,7 +1700,8 @@
                                 <hr class="mt-5 mb-5"/>
 
                                 <h3 class="mb-3 mt-3">Room Details
-                                    <button type="button" class="btn btn-transparent-edit btn-lg edit_about_the_room" data-toggle="modal"
+                                    <button type="button" class="btn btn-transparent-edit btn-lg edit_about_the_room"
+                                            data-toggle="modal"
                                             data-target="#about_room_popup">
                                         <i class="fa fa-pencil"></i>
                                         Edit
@@ -1672,7 +1732,8 @@
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">$</span>
                                                                             </div>
-                                                                            <input type="text" class="form-control weekly-rent-input"
+                                                                            <input type="text"
+                                                                                   class="form-control weekly-rent-input"
                                                                                    placeholder="" id="" name=""/>
                                                                             <div class="input-group-append">
                                                                                 <span class="input-group-text">per
@@ -2122,13 +2183,16 @@
                                         </p>
 
 
-                                         <t t-if="user_id.partner_id.mobile_no_is_verified == true">
-                                        <button class="btn btn-primary btn-green2 btn-block mt-3 upgrade_plan_class" data-toggle="modal" data-target="#why_upgrade_popup">Upgrade account
-                                        </button>
+                                        <t t-if="user_id.partner_id.mobile_no_is_verified == true">
+                                            <button class="btn btn-primary btn-green2 btn-block mt-3 upgrade_plan_class"
+                                                    data-toggle="modal" data-target="#why_upgrade_popup">Upgrade account
+                                            </button>
                                         </t>
                                         <t t-elif="user_id.partner_id.mobile_no_is_verified == false">
-                                             <button class="btn btn-primary btn-green2 btn-block mt-3 select_country" data-toggle="modal" data-target="#verify_mobile_popup">Upgrade account
-                                        </button>
+                                            <button class="btn btn-primary btn-green2 btn-block mt-3 select_country"
+                                                    data-toggle="modal" data-target="#verify_mobile_popup">Upgrade
+                                                account
+                                            </button>
 
                                         </t>
 
@@ -2229,9 +2293,23 @@
 
                                         </div>
 
-                                        <button class="btn btn-primary btn-outline-primary btn-block mt-3">Edit
+                                        <t t-if="user_id.partner_id.mobile_no_is_verified == false">
+                                            <button class="btn btn-primary btn-outline-primary btn-block mt-3 select_country"
+                                                    data-toggle="modal" data-target="#verify_mobile_popup">Edit
                                             verifications
-                                        </button>
+                                            </button>
+
+                                        </t>
+
+                                        <t t-else="">
+                                            <button class="btn btn-primary btn-outline-primary btn-block mt-3 edit_account_verification"
+                                                    data-toggle="modal" data-target="#account_verification_popup">Edit
+                                            verifications
+                                            </button>
+
+                                        </t>
+
+
 
 
                                     </div>
@@ -2260,7 +2338,8 @@
 
                         <div class="container-fluid" id="map_container">
                             <div class="row">
-                                <div id="map" class='map-canvas' role="application" style ="height:294px;width:100%"></div>
+                                <div id="map" class='map-canvas' role="application"
+                                     style="height:294px;width:100%"></div>
                             </div>
                         </div>
 

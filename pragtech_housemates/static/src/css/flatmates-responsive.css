@@ -1,7 +1,13 @@
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+	
 section{
 	padding: 20px 0px;
 }
+	
+	.home-animation h4{
+		font-size: 22px;
+		line-height: 24px;
+	}
 	
 .home-animation-btn-orange-padding{
 	padding-right: auto;
@@ -241,6 +247,10 @@ margin: 20px 0;
 		display: none;
 	}
 	
+	.navbar-expand-xs .navbar-toggler{
+		display: none;
+	}
+	
 	.search-bar-responsive{
 		fill:#fff;
 	}
@@ -256,6 +266,11 @@ margin: 20px 0;
 	
 	header .navbar-brand.logo{
 		width: 100%;
+		height: 50px;
+	}
+	
+	header .navbar-brand.logo img{
+		height: 50px;
 	}
 	
 	.search-form .search-mode{
@@ -281,7 +296,7 @@ margin: 20px 0;
 	}
 	
 	#wrapwrap > main{
-		margin-top: 122px;
+		margin-top: 112px !important;
 	}
 	
 	.search-form .btn-padding-left{
@@ -301,9 +316,29 @@ margin: 20px 0;
 		margin-top: 15px;
 	}
 	
+	.house-mates-logo{
+		height: 125px;
+		line-height: 125px;
+	}	
 	
 	
+	.custom_header{
+		height: 125px;
+	}
 	
+	.hide-verify-number	{
+		display: none;
+	}
+	
+.pending-tab{
+	height: 35px;
+	line-height: 35px;
+	margin-right: 10px;
+	}
+	
+	.info-page #add_html_content{
+		display: none;
+	}
 	
 }
 
@@ -339,7 +374,36 @@ margin: 20px 0;
 		font-size: 13px;
 	}
 	
+header .navbar-brand.logo {width:100%;}	
 	
+	.navbar-expand-xs .navbar-toggler{
+		display: none;
+	}	
+	
+	#top_menu_collapse .search{
+		width: 21%;
+	}	
+	
+	#top_menu_collapse .search-dropdown	{
+		background: none;
+		fill:#fff;
+		color: #fff;
+		text-align: center;
+	}
+	
+		#top_menu_collapse .search-dropdown:hover	{
+		background: none;
+	}
+	
+	#wrapwrap > main{
+		margin-top: 138px;
+	}
+	
+	.navbar .nav-item:hover{
+		background: none;
+	}	
+		
+
 }
 
 
@@ -395,6 +459,14 @@ margin: 20px 0;
 	.breadcrumb{
 		padding: 20px 0px 0 0;
 	}	
+	.hide-verify-number	{
+		display: none;
+	}	
+.pending-tab{
+	height: 35px;
+	line-height: 35px;
+	margin-right: 10px;
+	}	
 	
 }
 
@@ -426,6 +498,23 @@ margin: 20px 0;
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
   
-	header .navbar-brand.logo {width:45%;}
+	header .navbar-brand.logo {width:100%;}
+	
+	.container{
+		max-width: 100%;
+	}
+	
+	.house-mates-logo{
+		height: 80px;
+		line-height: 80px;
+	}
+	
+	.custom_header{
+		height: 80px;
+	}	
+	
+	.welcome-img{
+		width: 50%;
+	}
 	
 }

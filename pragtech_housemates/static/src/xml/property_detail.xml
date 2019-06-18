@@ -594,57 +594,80 @@
 
                                             <t t-if="login_user_id">
                                                  <div class="form-group mt-3">
-                                                <textarea class="form-control" rows="4" id=""
-                                                          placeholder="Message…"></textarea>
-                                            </div>
-                                            <button class="btn btn-primary btn-green2 btn-block">Message
-                                                <t t-if="user_name">
-                                                            <t t-esc="user_name"></t>
-                                                        </t>
-                                            </button>
-                                            <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan and show_number -->
-                                            <t t-if="mobile_not_verified">
-                                            <button type="button" class="btn btn-outline-primary2 btn-block" id="country_fill" data-toggle="modal" data-target="#verify_mobile_popup">Show
-                                                <t t-if="user_name">
-                                                            <t t-esc="user_name"></t>
-                                                        </t>
-                                                number
-                                            </button>
-                                            </t>
-                                            <t t-if="show_upgrade_plan">
-                                                <button type="button" class="btn btn-outline-primary2 btn-block" data-toggle="modal" data-target="#why_upgrade_popup">Show
+                                                    <textarea class="form-control" rows="4" id="message_owner"  required="required"
+                                                              placeholder="Message…"></textarea>
+                                                </div>
+                                                <div class="styles__errorMessage1 invalid_owner_mobile"
+                                                             style="display:none;">Owner's Mobile Not Verified or Invalid.
+                                                        </div>
+                                                <div class="styles__errorMessage1 message_required"
+                                                             style="display:none;">Message Required!
+                                                </div>
+                                                <t t-if="mobile_not_verified">
+                                                    <button class="btn btn-primary btn-green2 btn-block" data-toggle="modal" data-target="#verify_mobile_popup">Message
+                                                        <t t-if="user_name">
+                                                                    <t t-esc="user_name"></t>
+                                                                </t>
+                                                    </button>
+                                                </t>
+                                                <t t-elif="show_upgrade_plan_send">
+                                                    <button class="btn btn-primary btn-green2 btn-block upgrade_plan_class" data-toggle="modal" data-target="#why_upgrade_popup">Message
+                                                        <t t-if="user_name">
+                                                                    <t t-esc="user_name"></t>
+                                                                </t>
+                                                    </button>
+                                                </t>
+                                                <t t-else="">
+                                                    <button class="btn btn-primary btn-green2 btn-block send_messgae_to_owner">Message
+                                                    <t t-if="user_name">
+                                                                <t t-esc="user_name"></t>
+                                                            </t>
+                                                </button>
+                                                </t>
+
+                                                <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan_mobile and show_number -->
+                                                <t t-if="mobile_not_verified">
+                                                <button type="button" class="btn btn-outline-primary2 btn-block" data-toggle="modal" data-target="#verify_mobile_popup">Show
                                                     <t t-if="user_name">
                                                                 <t t-esc="user_name"></t>
                                                             </t>
                                                     number
                                                 </button>
-                                            </t>
-                                            <t t-if="show_number">
-                                            <button type="button" class="btn btn-outline-primary2 btn-block" id="show_mobile" data-toggle="modal" data-target="#show_mobile_number">Show
-                                               <input type="test" id="property_id" style="display:none;'" t-att-value="property.id"></input>
-                                                <t t-if="user_name">
-                                                            <t t-esc="user_name"></t>
-                                                        </t>
-                                                number
-                                            </button>
-                                            </t>
+                                                </t>
+                                                <t t-elif="show_upgrade_plan_mobile">
+                                                    <button type="button" class="btn btn-outline-primary2 btn-block upgrade_plan_class" data-toggle="modal" data-target="#why_upgrade_popup">Show
+                                                        <t t-if="user_name">
+                                                                    <t t-esc="user_name"></t>
+                                                                </t>
+                                                        number
+                                                    </button>
+                                                </t>
+                                                <t t-else="show_number">
+                                                <button type="button" class="btn btn-outline-primary2 btn-block" id="show_mobile" data-toggle="modal" data-target="#show_mobile_number">Show
+                                                   <input type="text" id="property_id" style="display:none;'" t-att-value="property.id"></input>
+                                                    <t t-if="user_name">
+                                                                <t t-esc="user_name"></t>
+                                                            </t>
+                                                    number
+                                                </button>
+                                                </t>
                                             </t>
                                             <t t-else="">
                                                 <div class="form-group mt-3">
                                                 <textarea class="form-control" rows="4" id=""
                                                           placeholder="Login or signup to Message…"></textarea>
-                                            </div>
-                                                <button class="btn btn-primary btn-green2 btn-block">Login to message
-                                                <t t-if="user_name">
-                                                            <t t-esc="user_name"></t>
-                                                        </t>
-                                            </button>
+                                                </div>
+                                                    <button class="btn btn-primary btn-green2 btn-block">Login to message
+                                                    <t t-if="user_name">
+                                                                <t t-esc="user_name"></t>
+                                                            </t>
+                                                </button>
 
-                                            <button class="btn btn-outline-primary2 btn-block">Login to show <t t-if="user_name">
-                                                            <t t-esc="user_name"></t>
-                                                        </t>
-                                                number
-                                            </button>
+                                                <button class="btn btn-outline-primary2 btn-block">Login to show <t t-if="user_name">
+                                                                <t t-esc="user_name"></t>
+                                                            </t>
+                                                    number
+                                                </button>
 
                                             </t>
 
@@ -660,90 +683,10 @@
                                             </p>
 
                                             <div class="social-media-icon mt-4">
-
-                                                <div class="facebook-icon">
-                                                    <span class="icon">
-                                                        <svg class="facebook" width="36" height="36"
-                                                             viewBox="0 0 16 16">
-                                                            <path fill="#395185"
-                                                                  d="M15.088 15.967c.485 0 .88-.394.88-.88V.913c0-.485-.395-.88-.88-.88H.912c-.485 0-.88.395-.88.88v14.176c0 .485.395.88.88.88h14.176"></path>
-                                                            <path fill="#FFF"
-                                                                  d="M11.027 15.967v-6.17h2.07l.31-2.405h-2.38V5.856c0-.696.193-1.17 1.192-1.17h1.272V2.533c-.22-.03-.976-.094-1.855-.094-1.836 0-3.093 1.12-3.093 3.178v1.774H6.467v2.405h2.077v6.17h2.483"></path>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-
-
-                                                <div class="instagram-icon">
-                                                    <span class="icon">
-                                                        <svg class="instagram" width="36" height="36"
-                                                             viewBox="0 0 36 36">
-                                                            <g fill="none" fill-rule="evenodd">
-                                                                <path d="M26 36H10C4.486 36 0 31.514 0 26V10C0 4.486 4.486 0 10 0h16c5.514 0 10 4.486 10 10v16c0 5.514-4.486 10-10 10z"
-                                                                      fill="#304FFE"></path>
-                                                                <path d="M0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10c0-.962-.144-1.89-.399-2.771A32.852 32.852 0 0 0 15 0C11.263 0 7.676.63 4.327 1.775 1.716 3.581 0 6.592 0 10z"
-                                                                      fill="#304FFE" opacity=".29"></path>
-                                                                <path d="M15 2A30.86 30.86 0 0 0 1.209 5.237 9.937 9.937 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10.202C30.477 5.112 23.103 2 15 2z"
-                                                                      fill="#6200EA"></path>
-                                                                <path d="M36 13.012C30.717 7.464 23.266 4 15 4A28.857 28.857 0 0 0 .191 8.067 10.009 10.009 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V13.012z"
-                                                                      fill="#673AB7"></path>
-                                                                <path d="M36 16.036C31.05 9.916 23.484 6 15 6a26.868 26.868 0 0 0-15 4.55V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10v-9.964z"
-                                                                      fill="#8E24AA"></path>
-                                                                <path d="M36 26v-6.557C31.547 12.559 23.808 8 15 8a24.887 24.887 0 0 0-15 5v13c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
-                                                                      fill="#C2185B"></path>
-                                                                <path d="M36 26v-2.379C32.41 15.596 24.361 10 15 10a22.908 22.908 0 0 0-15 5.572V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
-                                                                      fill="#D81B60"></path>
-                                                                <path d="M35.584 28.837C33.652 19.234 25.172 12 15 12c-5.88 0-11.188 2.423-15 6.317V26c0 5.514 4.486 10 10 10h16c4.528 0 8.357-3.028 9.584-7.163z"
-                                                                      fill="#F50057"></path>
-                                                                <path d="M33.951 32.039C33.448 21.995 25.169 14 15 14c-6.106 0-11.524 2.892-15 7.367V26c0 5.514 4.486 10 10 10h16c3.244 0 6.123-1.56 7.951-3.961z"
-                                                                      fill="#FF1744"></path>
-                                                                <path d="M15 16c-6.497 0-12.139 3.648-15 9.004V26c0 5.514 4.486 10 10 10h16a9.932 9.932 0 0 0 5.949-1.981c.02-.339.051-.675.051-1.019 0-9.389-7.611-17-17-17z"
-                                                                      fill="#FF5722"></path>
-                                                                <path d="M15 18C8.048 18 2.218 22.736.517 29.152 1.841 33.124 5.588 36 10 36h16a9.934 9.934 0 0 0 3.815-.76c.11-.733.185-1.477.185-2.24 0-8.284-6.716-15-15-15z"
-                                                                      fill="#FF6F00"></path>
-                                                                <path d="M15 20C8.145 20 2.542 25.31 2.049 32.039 3.877 34.44 6.756 36 10 36h16a9.96 9.96 0 0 0 1.677-.152C27.883 34.93 28 33.98 28 33c0-7.18-5.82-13-13-13z"
-                                                                      fill="#FF9800"></path>
-                                                                <path d="M25.575 36c.271-.955.425-1.959.425-3 0-6.075-4.925-11-11-11S4 26.925 4 33c0 .344.021.683.051 1.019A9.932 9.932 0 0 0 10 36h15.575z"
-                                                                      fill="#FFC107"></path>
-                                                                <path d="M15 24a9 9 0 0 0-9 9c0 .79.112 1.553.304 2.283A9.926 9.926 0 0 0 10 36h13.477c.333-.94.523-1.946.523-3a9 9 0 0 0-9-9z"
-                                                                      fill="#FFD54F"></path>
-                                                                <path d="M15 26.085a7 7 0 0 0-6.412 9.804c.463.065.932.111 1.412.111h11.358A6.964 6.964 0 0 0 22 33.085a7 7 0 0 0-7-7z"
-                                                                      fill="#FFE082"></path>
-                                                                <path d="M15 28.085a5 5 0 0 0-5 5c0 1.091.359 2.093.953 2.915h8.095A4.963 4.963 0 0 0 20 33.085a5 5 0 0 0-5-5z"
-                                                                      fill="#FFECB3"></path>
-                                                                <path d="M12 31h12a7 7 0 0 0 7-7V12a7 7 0 0 0-7-7H12a7 7 0 0 0-7 7v12a7 7 0 0 0 7 7z"
-                                                                      stroke="#FFF" stroke-width="2"></path>
-                                                                <circle stroke="#FFF" stroke-width="2" cx="18" cy="18"
-                                                                        r="6"></circle>
-                                                                <circle fill="#FFF" cx="25" cy="10" r="1"></circle>
-                                                            </g>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-
-                                                <div class="twitter-icon">
-                                                    <span class="icon">
-                                                        <svg class="twitter" width="36" height="36" viewBox="0 0 16 13">
-                                                            <path fill="#55ACEE"
-                                                                  d="M15.964 1.536c-.587.26-1.218.436-1.88.516.675-.406 1.195-1.048 1.44-1.813-.633.375-1.334.647-2.08.794C12.845.398 11.993 0 11.053 0c-1.81 0-3.277 1.466-3.277 3.275 0 .257.03.507.085.747C5.14 3.885 2.727 2.582 1.112.6.828 1.082.667 1.645.667 2.245c0 1.136.578 2.14 1.457 2.726-.537-.017-1.042-.164-1.484-.41v.042c0 1.587 1.13 2.91 2.628 3.21-.274.076-.564.116-.862.116-.21 0-.417-.02-.617-.06.416 1.303 1.626 2.25 3.06 2.276-1.122.88-2.534 1.402-4.07 1.402-.263 0-.524-.015-.78-.046 1.45.93 3.17 1.472 5.02 1.472 6.025 0 9.32-4.99 9.32-9.32 0-.14-.004-.282-.01-.423.64-.46 1.195-1.037 1.634-1.694"></path>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-
-                                                <div class="linkedin-icon">
-                                                    <span class="icon">
-                                                        <svg class="linkedin" width="36" height="36"
-                                                             viewBox="0 0 36 36">
-                                                            <g fill="none" fill-rule="evenodd">
-                                                                <path d="M36 31a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5h26a5 5 0 0 1 5 5v26z"
-                                                                      fill="#0288D1"></path>
-                                                                <path fill="#FFF"
-                                                                      d="M6 13h5v17H6zM8.485 11h-.028C6.965 11 6 9.888 6 8.499 6 7.08 6.995 6 8.514 6 10.035 6 10.972 7.08 11 8.499 11 9.887 10.035 11 8.485 11zM30 30h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99-.144.35-.101 1.318-.101 1.807v9h-5V13h5v2.616C19.721 14.5 20.85 13 23.738 13c3.578 0 6.261 2.25 6.261 7.274L30 30z"></path>
-                                                            </g>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-
+                                                <t t-call="pragtech_housemates.facebook_template"/>
+                                                <t t-call="pragtech_housemates.instagram_template"/>
+                                                <t t-call="pragtech_housemates.twitter_template"/>
+                                                <t t-call="pragtech_housemates.linkedin_template"/>
                                             </div>
 
                                         </div>
@@ -1453,34 +1396,56 @@
 
                                             <t t-if="login_user_id">
                                                  <div class="form-group mt-3">
-                                                <textarea class="form-control" rows="4" id=""
-                                                          placeholder="Message…"></textarea>
-                                            </div>
-                                            <button class="btn btn-primary btn-green2 btn-block">Message
-                                                <t t-if="user_name">
-                                                            <t t-esc="user_name"></t>
-                                                        </t>
-                                            </button>
-                                                <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan and show_number -->
+                                                    <textarea class="form-control" rows="4" id="message_owner"  required="required"
+                                                              placeholder="Message…"></textarea>
+                                                </div>
+                                                <div class="styles__errorMessage1 invalid_owner_mobile"
+                                                             style="display:none;">Owner's Mobile Not Verified or Invalid.
+                                                        </div>
+                                                <div class="styles__errorMessage1 message_required"
+                                                             style="display:none;">Message Required!
+                                                </div>
+                                                <t t-if="mobile_not_verified">
+                                                    <button class="btn btn-primary btn-green2 btn-block" data-toggle="modal" data-target="#verify_mobile_popup">Message
+                                                        <t t-if="user_name">
+                                                                    <t t-esc="user_name"></t>
+                                                                </t>
+                                                    </button>
+                                                </t>
+                                                <t t-elif="show_upgrade_plan_send">
+                                                    <button class="btn btn-primary btn-green2 btn-block upgrade_plan_class" data-toggle="modal" data-target="#why_upgrade_popup">Message
+                                                        <t t-if="user_name">
+                                                                    <t t-esc="user_name"></t>
+                                                                </t>
+                                                    </button>
+                                                </t>
+                                                <t t-else="">
+                                                    <button class="btn btn-primary btn-green2 btn-block send_messgae_to_owner">Message
+                                                    <t t-if="user_name">
+                                                                <t t-esc="user_name"></t>
+                                                            </t>
+                                                </button>
+                                                </t>
+                                                <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan_mobile and show_number -->
                                             <t t-if="mobile_not_verified">
-                                            <button type="button" class="btn btn-outline-primary2 btn-block" id="country_fill" data-toggle="modal" data-target="#verify_mobile_popup">Show
+                                            <button type="button" class="btn btn-outline-primary2 btn-block" data-toggle="modal" data-target="#verify_mobile_popup">Show
                                                 <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                                 number
                                             </button>
                                             </t>
-                                            <t t-if="show_upgrade_plan">
-                                                <button type="button" class="btn btn-outline-primary2 btn-block" data-toggle="modal" data-target="#why_upgrade_popup">Show
+                                            <t t-elif="show_upgrade_plan_mobile">
+                                                <button type="button" class="btn btn-outline-primary2 btn-block upgrade_plan_class" data-toggle="modal" data-target="#why_upgrade_popup">Show
                                                     <t t-if="user_name">
                                                                 <t t-esc="user_name"></t>
                                                             </t>
                                                     number
                                                 </button>
                                             </t>
-                                            <t t-if="show_number">
+                                            <t t-else="show_number">
                                             <button type="button" class="btn btn-outline-primary2 btn-block" id="show_mobile" data-toggle="modal" data-target="#show_mobile_number">Show
-                                               <input type="test" id="property_id" style="display:none;'" t-att-value="property.id"></input>
+                                               <input type="text" id="property_id" style="display:none;'" t-att-value="property.id"></input>
                                                 <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
@@ -1521,89 +1486,10 @@
 
                                             <div class="social-media-icon mt-4">
 
-                                                <div class="facebook-icon">
-                                                    <span class="icon">
-                                                        <svg class="facebook" width="36" height="36"
-                                                             viewBox="0 0 16 16">
-                                                            <path fill="#395185"
-                                                                  d="M15.088 15.967c.485 0 .88-.394.88-.88V.913c0-.485-.395-.88-.88-.88H.912c-.485 0-.88.395-.88.88v14.176c0 .485.395.88.88.88h14.176"></path>
-                                                            <path fill="#FFF"
-                                                                  d="M11.027 15.967v-6.17h2.07l.31-2.405h-2.38V5.856c0-.696.193-1.17 1.192-1.17h1.272V2.533c-.22-.03-.976-.094-1.855-.094-1.836 0-3.093 1.12-3.093 3.178v1.774H6.467v2.405h2.077v6.17h2.483"></path>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-
-
-                                                <div class="instagram-icon">
-                                                    <span class="icon">
-                                                        <svg class="instagram" width="36" height="36"
-                                                             viewBox="0 0 36 36">
-                                                            <g fill="none" fill-rule="evenodd">
-                                                                <path d="M26 36H10C4.486 36 0 31.514 0 26V10C0 4.486 4.486 0 10 0h16c5.514 0 10 4.486 10 10v16c0 5.514-4.486 10-10 10z"
-                                                                      fill="#304FFE"></path>
-                                                                <path d="M0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10c0-.962-.144-1.89-.399-2.771A32.852 32.852 0 0 0 15 0C11.263 0 7.676.63 4.327 1.775 1.716 3.581 0 6.592 0 10z"
-                                                                      fill="#304FFE" opacity=".29"></path>
-                                                                <path d="M15 2A30.86 30.86 0 0 0 1.209 5.237 9.937 9.937 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10.202C30.477 5.112 23.103 2 15 2z"
-                                                                      fill="#6200EA"></path>
-                                                                <path d="M36 13.012C30.717 7.464 23.266 4 15 4A28.857 28.857 0 0 0 .191 8.067 10.009 10.009 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V13.012z"
-                                                                      fill="#673AB7"></path>
-                                                                <path d="M36 16.036C31.05 9.916 23.484 6 15 6a26.868 26.868 0 0 0-15 4.55V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10v-9.964z"
-                                                                      fill="#8E24AA"></path>
-                                                                <path d="M36 26v-6.557C31.547 12.559 23.808 8 15 8a24.887 24.887 0 0 0-15 5v13c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
-                                                                      fill="#C2185B"></path>
-                                                                <path d="M36 26v-2.379C32.41 15.596 24.361 10 15 10a22.908 22.908 0 0 0-15 5.572V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
-                                                                      fill="#D81B60"></path>
-                                                                <path d="M35.584 28.837C33.652 19.234 25.172 12 15 12c-5.88 0-11.188 2.423-15 6.317V26c0 5.514 4.486 10 10 10h16c4.528 0 8.357-3.028 9.584-7.163z"
-                                                                      fill="#F50057"></path>
-                                                                <path d="M33.951 32.039C33.448 21.995 25.169 14 15 14c-6.106 0-11.524 2.892-15 7.367V26c0 5.514 4.486 10 10 10h16c3.244 0 6.123-1.56 7.951-3.961z"
-                                                                      fill="#FF1744"></path>
-                                                                <path d="M15 16c-6.497 0-12.139 3.648-15 9.004V26c0 5.514 4.486 10 10 10h16a9.932 9.932 0 0 0 5.949-1.981c.02-.339.051-.675.051-1.019 0-9.389-7.611-17-17-17z"
-                                                                      fill="#FF5722"></path>
-                                                                <path d="M15 18C8.048 18 2.218 22.736.517 29.152 1.841 33.124 5.588 36 10 36h16a9.934 9.934 0 0 0 3.815-.76c.11-.733.185-1.477.185-2.24 0-8.284-6.716-15-15-15z"
-                                                                      fill="#FF6F00"></path>
-                                                                <path d="M15 20C8.145 20 2.542 25.31 2.049 32.039 3.877 34.44 6.756 36 10 36h16a9.96 9.96 0 0 0 1.677-.152C27.883 34.93 28 33.98 28 33c0-7.18-5.82-13-13-13z"
-                                                                      fill="#FF9800"></path>
-                                                                <path d="M25.575 36c.271-.955.425-1.959.425-3 0-6.075-4.925-11-11-11S4 26.925 4 33c0 .344.021.683.051 1.019A9.932 9.932 0 0 0 10 36h15.575z"
-                                                                      fill="#FFC107"></path>
-                                                                <path d="M15 24a9 9 0 0 0-9 9c0 .79.112 1.553.304 2.283A9.926 9.926 0 0 0 10 36h13.477c.333-.94.523-1.946.523-3a9 9 0 0 0-9-9z"
-                                                                      fill="#FFD54F"></path>
-                                                                <path d="M15 26.085a7 7 0 0 0-6.412 9.804c.463.065.932.111 1.412.111h11.358A6.964 6.964 0 0 0 22 33.085a7 7 0 0 0-7-7z"
-                                                                      fill="#FFE082"></path>
-                                                                <path d="M15 28.085a5 5 0 0 0-5 5c0 1.091.359 2.093.953 2.915h8.095A4.963 4.963 0 0 0 20 33.085a5 5 0 0 0-5-5z"
-                                                                      fill="#FFECB3"></path>
-                                                                <path d="M12 31h12a7 7 0 0 0 7-7V12a7 7 0 0 0-7-7H12a7 7 0 0 0-7 7v12a7 7 0 0 0 7 7z"
-                                                                      stroke="#FFF" stroke-width="2"></path>
-                                                                <circle stroke="#FFF" stroke-width="2" cx="18" cy="18"
-                                                                        r="6"></circle>
-                                                                <circle fill="#FFF" cx="25" cy="10" r="1"></circle>
-                                                            </g>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-
-                                                <div class="twitter-icon">
-                                                    <span class="icon">
-                                                        <svg class="twitter" width="36" height="36" viewBox="0 0 16 13">
-                                                            <path fill="#55ACEE"
-                                                                  d="M15.964 1.536c-.587.26-1.218.436-1.88.516.675-.406 1.195-1.048 1.44-1.813-.633.375-1.334.647-2.08.794C12.845.398 11.993 0 11.053 0c-1.81 0-3.277 1.466-3.277 3.275 0 .257.03.507.085.747C5.14 3.885 2.727 2.582 1.112.6.828 1.082.667 1.645.667 2.245c0 1.136.578 2.14 1.457 2.726-.537-.017-1.042-.164-1.484-.41v.042c0 1.587 1.13 2.91 2.628 3.21-.274.076-.564.116-.862.116-.21 0-.417-.02-.617-.06.416 1.303 1.626 2.25 3.06 2.276-1.122.88-2.534 1.402-4.07 1.402-.263 0-.524-.015-.78-.046 1.45.93 3.17 1.472 5.02 1.472 6.025 0 9.32-4.99 9.32-9.32 0-.14-.004-.282-.01-.423.64-.46 1.195-1.037 1.634-1.694"></path>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-
-                                                <div class="linkedin-icon">
-                                                    <span class="icon">
-                                                        <svg class="linkedin" width="36" height="36"
-                                                             viewBox="0 0 36 36">
-                                                            <g fill="none" fill-rule="evenodd">
-                                                                <path d="M36 31a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5h26a5 5 0 0 1 5 5v26z"
-                                                                      fill="#0288D1"></path>
-                                                                <path fill="#FFF"
-                                                                      d="M6 13h5v17H6zM8.485 11h-.028C6.965 11 6 9.888 6 8.499 6 7.08 6.995 6 8.514 6 10.035 6 10.972 7.08 11 8.499 11 9.887 10.035 11 8.485 11zM30 30h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99-.144.35-.101 1.318-.101 1.807v9h-5V13h5v2.616C19.721 14.5 20.85 13 23.738 13c3.578 0 6.261 2.25 6.261 7.274L30 30z"></path>
-                                                            </g>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-
+                                                <t t-call="pragtech_housemates.facebook_template"/>
+                                                <t t-call="pragtech_housemates.instagram_template"/>
+                                                <t t-call="pragtech_housemates.twitter_template"/>
+                                                <t t-call="pragtech_housemates.linkedin_template"/>
                                             </div>
 
                                         </div>
@@ -1755,6 +1641,307 @@
                 </section>
 
 
+            </div>
+        </t>
+    </template>
+
+    <template id="instagram_template">
+        <t t-if="mobile_not_verified">
+            <div class="instagram-icon">
+                <a href="#" data-toggle="modal" data-target='#verify_mobile_popup'>
+                <span class="icon">
+                    <svg class="instagram" width="36" height="36"
+                         viewBox="0 0 36 36">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M26 36H10C4.486 36 0 31.514 0 26V10C0 4.486 4.486 0 10 0h16c5.514 0 10 4.486 10 10v16c0 5.514-4.486 10-10 10z"
+                                  fill="#304FFE"></path>
+                            <path d="M0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10c0-.962-.144-1.89-.399-2.771A32.852 32.852 0 0 0 15 0C11.263 0 7.676.63 4.327 1.775 1.716 3.581 0 6.592 0 10z"
+                                  fill="#304FFE" opacity=".29"></path>
+                            <path d="M15 2A30.86 30.86 0 0 0 1.209 5.237 9.937 9.937 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10.202C30.477 5.112 23.103 2 15 2z"
+                                  fill="#6200EA"></path>
+                            <path d="M36 13.012C30.717 7.464 23.266 4 15 4A28.857 28.857 0 0 0 .191 8.067 10.009 10.009 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V13.012z"
+                                  fill="#673AB7"></path>
+                            <path d="M36 16.036C31.05 9.916 23.484 6 15 6a26.868 26.868 0 0 0-15 4.55V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10v-9.964z"
+                                  fill="#8E24AA"></path>
+                            <path d="M36 26v-6.557C31.547 12.559 23.808 8 15 8a24.887 24.887 0 0 0-15 5v13c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
+                                  fill="#C2185B"></path>
+                            <path d="M36 26v-2.379C32.41 15.596 24.361 10 15 10a22.908 22.908 0 0 0-15 5.572V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
+                                  fill="#D81B60"></path>
+                            <path d="M35.584 28.837C33.652 19.234 25.172 12 15 12c-5.88 0-11.188 2.423-15 6.317V26c0 5.514 4.486 10 10 10h16c4.528 0 8.357-3.028 9.584-7.163z"
+                                  fill="#F50057"></path>
+                            <path d="M33.951 32.039C33.448 21.995 25.169 14 15 14c-6.106 0-11.524 2.892-15 7.367V26c0 5.514 4.486 10 10 10h16c3.244 0 6.123-1.56 7.951-3.961z"
+                                  fill="#FF1744"></path>
+                            <path d="M15 16c-6.497 0-12.139 3.648-15 9.004V26c0 5.514 4.486 10 10 10h16a9.932 9.932 0 0 0 5.949-1.981c.02-.339.051-.675.051-1.019 0-9.389-7.611-17-17-17z"
+                                  fill="#FF5722"></path>
+                            <path d="M15 18C8.048 18 2.218 22.736.517 29.152 1.841 33.124 5.588 36 10 36h16a9.934 9.934 0 0 0 3.815-.76c.11-.733.185-1.477.185-2.24 0-8.284-6.716-15-15-15z"
+                                  fill="#FF6F00"></path>
+                            <path d="M15 20C8.145 20 2.542 25.31 2.049 32.039 3.877 34.44 6.756 36 10 36h16a9.96 9.96 0 0 0 1.677-.152C27.883 34.93 28 33.98 28 33c0-7.18-5.82-13-13-13z"
+                                  fill="#FF9800"></path>
+                            <path d="M25.575 36c.271-.955.425-1.959.425-3 0-6.075-4.925-11-11-11S4 26.925 4 33c0 .344.021.683.051 1.019A9.932 9.932 0 0 0 10 36h15.575z"
+                                  fill="#FFC107"></path>
+                            <path d="M15 24a9 9 0 0 0-9 9c0 .79.112 1.553.304 2.283A9.926 9.926 0 0 0 10 36h13.477c.333-.94.523-1.946.523-3a9 9 0 0 0-9-9z"
+                                  fill="#FFD54F"></path>
+                            <path d="M15 26.085a7 7 0 0 0-6.412 9.804c.463.065.932.111 1.412.111h11.358A6.964 6.964 0 0 0 22 33.085a7 7 0 0 0-7-7z"
+                                  fill="#FFE082"></path>
+                            <path d="M15 28.085a5 5 0 0 0-5 5c0 1.091.359 2.093.953 2.915h8.095A4.963 4.963 0 0 0 20 33.085a5 5 0 0 0-5-5z"
+                                  fill="#FFECB3"></path>
+                            <path d="M12 31h12a7 7 0 0 0 7-7V12a7 7 0 0 0-7-7H12a7 7 0 0 0-7 7v12a7 7 0 0 0 7 7z"
+                                  stroke="#FFF" stroke-width="2"></path>
+                            <circle stroke="#FFF" stroke-width="2" cx="18" cy="18"
+                                    r="6"></circle>
+                            <circle fill="#FFF" cx="25" cy="10" r="1"></circle>
+                        </g>
+                    </svg>
+                </span>
+                </a>
+            </div>
+        </t>
+        <t t-elif="show_upgrade_plan_media">
+            <div class="instagram-icon">
+                <a href="#" class="upgrade_plan_class" data-toggle="modal" data-target='#why_upgrade_popup'>
+                <span class="icon">
+                    <svg class="instagram" width="36" height="36"
+                         viewBox="0 0 36 36">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M26 36H10C4.486 36 0 31.514 0 26V10C0 4.486 4.486 0 10 0h16c5.514 0 10 4.486 10 10v16c0 5.514-4.486 10-10 10z"
+                                  fill="#304FFE"></path>
+                            <path d="M0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10c0-.962-.144-1.89-.399-2.771A32.852 32.852 0 0 0 15 0C11.263 0 7.676.63 4.327 1.775 1.716 3.581 0 6.592 0 10z"
+                                  fill="#304FFE" opacity=".29"></path>
+                            <path d="M15 2A30.86 30.86 0 0 0 1.209 5.237 9.937 9.937 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10.202C30.477 5.112 23.103 2 15 2z"
+                                  fill="#6200EA"></path>
+                            <path d="M36 13.012C30.717 7.464 23.266 4 15 4A28.857 28.857 0 0 0 .191 8.067 10.009 10.009 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V13.012z"
+                                  fill="#673AB7"></path>
+                            <path d="M36 16.036C31.05 9.916 23.484 6 15 6a26.868 26.868 0 0 0-15 4.55V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10v-9.964z"
+                                  fill="#8E24AA"></path>
+                            <path d="M36 26v-6.557C31.547 12.559 23.808 8 15 8a24.887 24.887 0 0 0-15 5v13c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
+                                  fill="#C2185B"></path>
+                            <path d="M36 26v-2.379C32.41 15.596 24.361 10 15 10a22.908 22.908 0 0 0-15 5.572V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
+                                  fill="#D81B60"></path>
+                            <path d="M35.584 28.837C33.652 19.234 25.172 12 15 12c-5.88 0-11.188 2.423-15 6.317V26c0 5.514 4.486 10 10 10h16c4.528 0 8.357-3.028 9.584-7.163z"
+                                  fill="#F50057"></path>
+                            <path d="M33.951 32.039C33.448 21.995 25.169 14 15 14c-6.106 0-11.524 2.892-15 7.367V26c0 5.514 4.486 10 10 10h16c3.244 0 6.123-1.56 7.951-3.961z"
+                                  fill="#FF1744"></path>
+                            <path d="M15 16c-6.497 0-12.139 3.648-15 9.004V26c0 5.514 4.486 10 10 10h16a9.932 9.932 0 0 0 5.949-1.981c.02-.339.051-.675.051-1.019 0-9.389-7.611-17-17-17z"
+                                  fill="#FF5722"></path>
+                            <path d="M15 18C8.048 18 2.218 22.736.517 29.152 1.841 33.124 5.588 36 10 36h16a9.934 9.934 0 0 0 3.815-.76c.11-.733.185-1.477.185-2.24 0-8.284-6.716-15-15-15z"
+                                  fill="#FF6F00"></path>
+                            <path d="M15 20C8.145 20 2.542 25.31 2.049 32.039 3.877 34.44 6.756 36 10 36h16a9.96 9.96 0 0 0 1.677-.152C27.883 34.93 28 33.98 28 33c0-7.18-5.82-13-13-13z"
+                                  fill="#FF9800"></path>
+                            <path d="M25.575 36c.271-.955.425-1.959.425-3 0-6.075-4.925-11-11-11S4 26.925 4 33c0 .344.021.683.051 1.019A9.932 9.932 0 0 0 10 36h15.575z"
+                                  fill="#FFC107"></path>
+                            <path d="M15 24a9 9 0 0 0-9 9c0 .79.112 1.553.304 2.283A9.926 9.926 0 0 0 10 36h13.477c.333-.94.523-1.946.523-3a9 9 0 0 0-9-9z"
+                                  fill="#FFD54F"></path>
+                            <path d="M15 26.085a7 7 0 0 0-6.412 9.804c.463.065.932.111 1.412.111h11.358A6.964 6.964 0 0 0 22 33.085a7 7 0 0 0-7-7z"
+                                  fill="#FFE082"></path>
+                            <path d="M15 28.085a5 5 0 0 0-5 5c0 1.091.359 2.093.953 2.915h8.095A4.963 4.963 0 0 0 20 33.085a5 5 0 0 0-5-5z"
+                                  fill="#FFECB3"></path>
+                            <path d="M12 31h12a7 7 0 0 0 7-7V12a7 7 0 0 0-7-7H12a7 7 0 0 0-7 7v12a7 7 0 0 0 7 7z"
+                                  stroke="#FFF" stroke-width="2"></path>
+                            <circle stroke="#FFF" stroke-width="2" cx="18" cy="18"
+                                    r="6"></circle>
+                            <circle fill="#FFF" cx="25" cy="10" r="1"></circle>
+                        </g>
+                    </svg>
+                </span>
+                </a>
+            </div>
+        </t>
+        <t t-else="">
+            <div class="instagram-icon">
+                <span t-att-class="not property_user_id.insta_profile_url and 'isDisabled'">
+                <a t-att-href="property_user_id.insta_profile_url if property_user_id.insta_profile_url else ' '" target="_blank">
+                <span class="icon">
+                    <svg class="instagram" width="36" height="36"
+                         viewBox="0 0 36 36">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M26 36H10C4.486 36 0 31.514 0 26V10C0 4.486 4.486 0 10 0h16c5.514 0 10 4.486 10 10v16c0 5.514-4.486 10-10 10z"
+                                  fill="#304FFE"></path>
+                            <path d="M0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10c0-.962-.144-1.89-.399-2.771A32.852 32.852 0 0 0 15 0C11.263 0 7.676.63 4.327 1.775 1.716 3.581 0 6.592 0 10z"
+                                  fill="#304FFE" opacity=".29"></path>
+                            <path d="M15 2A30.86 30.86 0 0 0 1.209 5.237 9.937 9.937 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V10.202C30.477 5.112 23.103 2 15 2z"
+                                  fill="#6200EA"></path>
+                            <path d="M36 13.012C30.717 7.464 23.266 4 15 4A28.857 28.857 0 0 0 .191 8.067 10.009 10.009 0 0 0 0 10v16c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10V13.012z"
+                                  fill="#673AB7"></path>
+                            <path d="M36 16.036C31.05 9.916 23.484 6 15 6a26.868 26.868 0 0 0-15 4.55V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10v-9.964z"
+                                  fill="#8E24AA"></path>
+                            <path d="M36 26v-6.557C31.547 12.559 23.808 8 15 8a24.887 24.887 0 0 0-15 5v13c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
+                                  fill="#C2185B"></path>
+                            <path d="M36 26v-2.379C32.41 15.596 24.361 10 15 10a22.908 22.908 0 0 0-15 5.572V26c0 5.514 4.486 10 10 10h16c5.514 0 10-4.486 10-10z"
+                                  fill="#D81B60"></path>
+                            <path d="M35.584 28.837C33.652 19.234 25.172 12 15 12c-5.88 0-11.188 2.423-15 6.317V26c0 5.514 4.486 10 10 10h16c4.528 0 8.357-3.028 9.584-7.163z"
+                                  fill="#F50057"></path>
+                            <path d="M33.951 32.039C33.448 21.995 25.169 14 15 14c-6.106 0-11.524 2.892-15 7.367V26c0 5.514 4.486 10 10 10h16c3.244 0 6.123-1.56 7.951-3.961z"
+                                  fill="#FF1744"></path>
+                            <path d="M15 16c-6.497 0-12.139 3.648-15 9.004V26c0 5.514 4.486 10 10 10h16a9.932 9.932 0 0 0 5.949-1.981c.02-.339.051-.675.051-1.019 0-9.389-7.611-17-17-17z"
+                                  fill="#FF5722"></path>
+                            <path d="M15 18C8.048 18 2.218 22.736.517 29.152 1.841 33.124 5.588 36 10 36h16a9.934 9.934 0 0 0 3.815-.76c.11-.733.185-1.477.185-2.24 0-8.284-6.716-15-15-15z"
+                                  fill="#FF6F00"></path>
+                            <path d="M15 20C8.145 20 2.542 25.31 2.049 32.039 3.877 34.44 6.756 36 10 36h16a9.96 9.96 0 0 0 1.677-.152C27.883 34.93 28 33.98 28 33c0-7.18-5.82-13-13-13z"
+                                  fill="#FF9800"></path>
+                            <path d="M25.575 36c.271-.955.425-1.959.425-3 0-6.075-4.925-11-11-11S4 26.925 4 33c0 .344.021.683.051 1.019A9.932 9.932 0 0 0 10 36h15.575z"
+                                  fill="#FFC107"></path>
+                            <path d="M15 24a9 9 0 0 0-9 9c0 .79.112 1.553.304 2.283A9.926 9.926 0 0 0 10 36h13.477c.333-.94.523-1.946.523-3a9 9 0 0 0-9-9z"
+                                  fill="#FFD54F"></path>
+                            <path d="M15 26.085a7 7 0 0 0-6.412 9.804c.463.065.932.111 1.412.111h11.358A6.964 6.964 0 0 0 22 33.085a7 7 0 0 0-7-7z"
+                                  fill="#FFE082"></path>
+                            <path d="M15 28.085a5 5 0 0 0-5 5c0 1.091.359 2.093.953 2.915h8.095A4.963 4.963 0 0 0 20 33.085a5 5 0 0 0-5-5z"
+                                  fill="#FFECB3"></path>
+                            <path d="M12 31h12a7 7 0 0 0 7-7V12a7 7 0 0 0-7-7H12a7 7 0 0 0-7 7v12a7 7 0 0 0 7 7z"
+                                  stroke="#FFF" stroke-width="2"></path>
+                            <circle stroke="#FFF" stroke-width="2" cx="18" cy="18"
+                                    r="6"></circle>
+                            <circle fill="#FFF" cx="25" cy="10" r="1"></circle>
+                        </g>
+                    </svg>
+                </span>
+                </a>
+                </span>
+            </div>
+        </t>
+    </template>
+
+    <template id="facebook_template">
+        <t t-if="mobile_not_verified">
+            <div class="facebook-icon">
+                <a href="#" data-toggle="modal" data-target='#verify_mobile_popup'>
+                    <span class="icon">
+                        <svg class="facebook" width="36" height="36"
+                             viewBox="0 0 16 16">
+                            <path fill="#395185"
+                                  d="M15.088 15.967c.485 0 .88-.394.88-.88V.913c0-.485-.395-.88-.88-.88H.912c-.485 0-.88.395-.88.88v14.176c0 .485.395.88.88.88h14.176"></path>
+                            <path fill="#FFF"
+                                  d="M11.027 15.967v-6.17h2.07l.31-2.405h-2.38V5.856c0-.696.193-1.17 1.192-1.17h1.272V2.533c-.22-.03-.976-.094-1.855-.094-1.836 0-3.093 1.12-3.093 3.178v1.774H6.467v2.405h2.077v6.17h2.483"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </t>
+        <t t-elif="show_upgrade_plan_media">
+            <div class="facebook-icon">
+                <a href="#" class="upgrade_plan_class" data-toggle="modal" data-target='#why_upgrade_popup'>
+                    <span class="icon">
+                        <svg class="facebook" width="36" height="36"
+                             viewBox="0 0 16 16">
+                            <path fill="#395185"
+                                  d="M15.088 15.967c.485 0 .88-.394.88-.88V.913c0-.485-.395-.88-.88-.88H.912c-.485 0-.88.395-.88.88v14.176c0 .485.395.88.88.88h14.176"></path>
+                            <path fill="#FFF"
+                                  d="M11.027 15.967v-6.17h2.07l.31-2.405h-2.38V5.856c0-.696.193-1.17 1.192-1.17h1.272V2.533c-.22-.03-.976-.094-1.855-.094-1.836 0-3.093 1.12-3.093 3.178v1.774H6.467v2.405h2.077v6.17h2.483"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </t>
+        <t t-else="">
+            <div class="facebook-icon">
+                <span t-att-class="not property_user_id.facebook_profile_url and 'isDisabled'">
+                    <a t-att-href="property_user_id.facebook_profile_url if property_user_id.facebook_profile_url else ' '" target="_blank">
+                        <span class="icon">
+                            <svg class="facebook" width="36" height="36"
+                                 viewBox="0 0 16 16">
+                                <path fill="#395185"
+                                      d="M15.088 15.967c.485 0 .88-.394.88-.88V.913c0-.485-.395-.88-.88-.88H.912c-.485 0-.88.395-.88.88v14.176c0 .485.395.88.88.88h14.176"></path>
+                                <path fill="#FFF"
+                                      d="M11.027 15.967v-6.17h2.07l.31-2.405h-2.38V5.856c0-.696.193-1.17 1.192-1.17h1.272V2.533c-.22-.03-.976-.094-1.855-.094-1.836 0-3.093 1.12-3.093 3.178v1.774H6.467v2.405h2.077v6.17h2.483"></path>
+                            </svg>
+                        </span>
+                    </a>
+                </span>
+            </div>
+        </t>
+    </template>
+    <template id="twitter_template">
+        <t t-if="mobile_not_verified">
+            <div class="twitter-icon">
+                <a href="#" data-toggle="modal" data-target='#verify_mobile_popup'>
+                    <span class="icon">
+                        <svg class="twitter" width="36" height="36" viewBox="0 0 16 13">
+                            <path fill="#55ACEE"
+                                  d="M15.964 1.536c-.587.26-1.218.436-1.88.516.675-.406 1.195-1.048 1.44-1.813-.633.375-1.334.647-2.08.794C12.845.398 11.993 0 11.053 0c-1.81 0-3.277 1.466-3.277 3.275 0 .257.03.507.085.747C5.14 3.885 2.727 2.582 1.112.6.828 1.082.667 1.645.667 2.245c0 1.136.578 2.14 1.457 2.726-.537-.017-1.042-.164-1.484-.41v.042c0 1.587 1.13 2.91 2.628 3.21-.274.076-.564.116-.862.116-.21 0-.417-.02-.617-.06.416 1.303 1.626 2.25 3.06 2.276-1.122.88-2.534 1.402-4.07 1.402-.263 0-.524-.015-.78-.046 1.45.93 3.17 1.472 5.02 1.472 6.025 0 9.32-4.99 9.32-9.32 0-.14-.004-.282-.01-.423.64-.46 1.195-1.037 1.634-1.694"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </t>
+        <t t-elif="show_upgrade_plan_media">
+            <div class="twitter-icon">
+                <a href="#" class="upgrade_plan_class" data-toggle="modal" data-target='#why_upgrade_popup'>
+                    <span class="icon">
+                        <svg class="twitter" width="36" height="36" viewBox="0 0 16 13">
+                            <path fill="#55ACEE"
+                                  d="M15.964 1.536c-.587.26-1.218.436-1.88.516.675-.406 1.195-1.048 1.44-1.813-.633.375-1.334.647-2.08.794C12.845.398 11.993 0 11.053 0c-1.81 0-3.277 1.466-3.277 3.275 0 .257.03.507.085.747C5.14 3.885 2.727 2.582 1.112.6.828 1.082.667 1.645.667 2.245c0 1.136.578 2.14 1.457 2.726-.537-.017-1.042-.164-1.484-.41v.042c0 1.587 1.13 2.91 2.628 3.21-.274.076-.564.116-.862.116-.21 0-.417-.02-.617-.06.416 1.303 1.626 2.25 3.06 2.276-1.122.88-2.534 1.402-4.07 1.402-.263 0-.524-.015-.78-.046 1.45.93 3.17 1.472 5.02 1.472 6.025 0 9.32-4.99 9.32-9.32 0-.14-.004-.282-.01-.423.64-.46 1.195-1.037 1.634-1.694"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </t>
+        <t t-else="">
+            <div class="twitter-icon">
+                <span t-att-class="not property_user_id.twitter_profile_url and 'isDisabled'">
+                    <a t-att-href="property_user_id.twitter_profile_url if property_user_id.twitter_profile_url else ' '" target="_blank">
+                        <span class="icon">
+                            <svg class="twitter" width="36" height="36" viewBox="0 0 16 13">
+                                <path fill="#55ACEE"
+                                      d="M15.964 1.536c-.587.26-1.218.436-1.88.516.675-.406 1.195-1.048 1.44-1.813-.633.375-1.334.647-2.08.794C12.845.398 11.993 0 11.053 0c-1.81 0-3.277 1.466-3.277 3.275 0 .257.03.507.085.747C5.14 3.885 2.727 2.582 1.112.6.828 1.082.667 1.645.667 2.245c0 1.136.578 2.14 1.457 2.726-.537-.017-1.042-.164-1.484-.41v.042c0 1.587 1.13 2.91 2.628 3.21-.274.076-.564.116-.862.116-.21 0-.417-.02-.617-.06.416 1.303 1.626 2.25 3.06 2.276-1.122.88-2.534 1.402-4.07 1.402-.263 0-.524-.015-.78-.046 1.45.93 3.17 1.472 5.02 1.472 6.025 0 9.32-4.99 9.32-9.32 0-.14-.004-.282-.01-.423.64-.46 1.195-1.037 1.634-1.694"></path>
+                            </svg>
+                        </span>
+                    </a>
+                </span>
+            </div>
+        </t>
+    </template>
+
+    <template id="linkedin_template">
+        <t t-if="mobile_not_verified">
+            <div class="linkedin-icon">
+                <a href="#" data-toggle="modal" data-target='#verify_mobile_popup'>
+                    <span class="icon">
+                                                        <svg class="linkedin" width="36" height="36"
+                                                             viewBox="0 0 36 36">
+                                                            <g fill="none" fill-rule="evenodd">
+                                                                <path d="M36 31a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5h26a5 5 0 0 1 5 5v26z"
+                                                                      fill="#0288D1"></path>
+                                                                <path fill="#FFF"
+                                                                      d="M6 13h5v17H6zM8.485 11h-.028C6.965 11 6 9.888 6 8.499 6 7.08 6.995 6 8.514 6 10.035 6 10.972 7.08 11 8.499 11 9.887 10.035 11 8.485 11zM30 30h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99-.144.35-.101 1.318-.101 1.807v9h-5V13h5v2.616C19.721 14.5 20.85 13 23.738 13c3.578 0 6.261 2.25 6.261 7.274L30 30z"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+                </a>
+            </div>
+        </t>
+        <t t-elif="show_upgrade_plan_media">
+            <div class="linkedin-icon">
+                <a href="#" class="upgrade_plan_class" data-toggle="modal" data-target='#why_upgrade_popup'>
+                    <span class="icon">
+                                                        <svg class="linkedin" width="36" height="36"
+                                                             viewBox="0 0 36 36">
+                                                            <g fill="none" fill-rule="evenodd">
+                                                                <path d="M36 31a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5h26a5 5 0 0 1 5 5v26z"
+                                                                      fill="#0288D1"></path>
+                                                                <path fill="#FFF"
+                                                                      d="M6 13h5v17H6zM8.485 11h-.028C6.965 11 6 9.888 6 8.499 6 7.08 6.995 6 8.514 6 10.035 6 10.972 7.08 11 8.499 11 9.887 10.035 11 8.485 11zM30 30h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99-.144.35-.101 1.318-.101 1.807v9h-5V13h5v2.616C19.721 14.5 20.85 13 23.738 13c3.578 0 6.261 2.25 6.261 7.274L30 30z"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+                </a>
+            </div>
+        </t>
+        <t t-else="">
+            <div class="linkedin-icon">
+                <span t-att-class="not property_user_id.linkedin_profile_url and 'isDisabled'">
+                    <a t-att-href="property_user_id.linkedin_profile_url if property_user_id.linkedin_profile_url else ' '" target="_blank">
+                        <span class="icon">
+                                                        <svg class="linkedin" width="36" height="36"
+                                                             viewBox="0 0 36 36">
+                                                            <g fill="none" fill-rule="evenodd">
+                                                                <path d="M36 31a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5h26a5 5 0 0 1 5 5v26z"
+                                                                      fill="#0288D1"></path>
+                                                                <path fill="#FFF"
+                                                                      d="M6 13h5v17H6zM8.485 11h-.028C6.965 11 6 9.888 6 8.499 6 7.08 6.995 6 8.514 6 10.035 6 10.972 7.08 11 8.499 11 9.887 10.035 11 8.485 11zM30 30h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99-.144.35-.101 1.318-.101 1.807v9h-5V13h5v2.616C19.721 14.5 20.85 13 23.738 13c3.578 0 6.261 2.25 6.261 7.274L30 30z"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+                    </a>
+                </span>
             </div>
         </t>
     </template>

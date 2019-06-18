@@ -52,8 +52,12 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                     {
                         $("#description_about_property").html(result['result']['description_about_property'])
                         $("#description_about_user").html(result['result']['description_about_user'])
-                         $('.breadcrumb_city').attr('href','/search/records?listing_type=list&city='+result['result']['city'])
-                          $('.breadcrumb_suburb_city').attr('href','/search/records?listing_type=find&city='+result['result']['suburbs_city'])
+                        $('.breadcrumb_city').attr('href','/search/records?listing_type=list&city='+result['result']['city'])
+                        $('.breadcrumb_suburb_city').attr('href','/search/records?listing_type=find&city='+result['result']['suburbs_city'])
+                        $('.view_more_find_property_button').attr('href','/search/records?listing_type=find&city='+result['result']['city'])
+                        $('.view_more_property_button').attr('href','/search/records?listing_type=list&city='+result['result']['suburbs_city'])
+
+
                         if (result['result']['listing_type'] == 'find')
                         {
                             $("#map_container").css('display','none')

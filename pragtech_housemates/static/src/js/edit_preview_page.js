@@ -476,6 +476,39 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
         });
 
 
+        $(".list_preview_listings").on("click", function () {
+         var path=window.location.pathname
+        var property_id=path.split('list_place_preview').pop()
+        var a = "P"+property_id
+         window.open('/'+a)
+        });
+
+        $(".open-detail-of-match").on('click',function(e){
+            console.log('222222222222222222222222222222222',$(this).find(".match_id").val())
+//            var id = e.target.attributes.value2.value
+            var id = $(this).find(".match_id").val()
+            window.open("P"+id)
+
+        })
+$(".edit_list_deactivate_listing_button").on("click", function () {
+ var path=window.location.pathname
+var property_id=path.split('list_place_preview').pop()
+ $.ajax({
+                    url: '/edit_deactivate_listing',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+                    success: function(data){
+                        console.log("\n==========data============== deactive",data)
+                        if (data['result'] == true){
+                        window.location.replace('/')
+                        }
+                    }
+            });
+
+})
 
 
 

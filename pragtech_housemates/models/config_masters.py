@@ -172,3 +172,13 @@ class BillBill(models.Model):
 
     name = fields.Char(string='Bill')
 
+class PlanFeature(models.Model):
+    _name = 'plan.feature'
+    _description = 'Plan Feature'
+
+    name = fields.Char(string='Name')
+    feature_type = fields.Selection([('send_message', 'Send messages to all listings including'),
+                                     ('enquiries', 'Receive enquiries from all members'),
+                                     ('mobile_number', 'Access Mobile numbers'),
+                                     ('social_media', 'Access Social Media profiles')], string="Feature Type", default='enquiries')
+

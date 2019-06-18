@@ -89,7 +89,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
 
 
-                            open_main_div = '<div class="col-lg-3 col-sm-3 col-xs-12 property-content col-md-6">'
+                            open_main_div = '<div class="col-lg-3 col-sm-6 col-xs-12 property-content col-md-6">'
                             link_open_div = '<a href="#" type="button" class="property_button" data-button-id='+record_id+' >'
                             open_image_div = '<div class="property-img"><img src=data:image/jpeg;base64,'+image+' class="img-fluid"/>'
                             close_image_div = '</div>'

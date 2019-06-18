@@ -53,6 +53,12 @@
                          <group>
                              <field name="insta_profile_url"/>
                          </group>
+                         <group>
+                             <field name="twitter_profile_url"/>
+                         </group>
+                         <group>
+                             <field name="linkedin_profile_url"/>
+                         </group>
                      </page>
                  </xpath>
             </field>
@@ -63,8 +69,9 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                 <xpath expr="//field[@name='mobile']" position="after">
-                        <field name="mobile_no_is_verified"/>
+                 <xpath expr="//field[@name='vat']" position="after">
+                        <field name="mobile_no_is_verified" string="Is Verified Mobile Number"/>
+                        <field name="allowed_to_contact"/>
                  </xpath>
             </field>
         </record>

@@ -491,7 +491,7 @@ position: absolute;
 
 }
 
-.user_listings_div ul li a:hover{
+.user_listings_div ul li:hover{
 	background: #0f9977;
 	text-decoration: none;
 }
@@ -637,3 +637,14 @@ fill: #fff;
 	color: #005ce6 !important;
 }
 
+.add-green{
+    background-color:#11836c;
+}
+
+.fa-check{
+    color:white
+}
+
+.fa-times{
+    color:white
+}

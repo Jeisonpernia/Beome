@@ -472,57 +472,91 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
         });
 
-$(".close_applicant_information_popup").on('click',function(){
- location.reload();
+        $(".close_applicant_information_popup").on('click',function(){
+         location.reload();
 
-})
-$(".close_general_information_popup_id").on('click',function(){
- location.reload();
+        })
+        $(".close_general_information_popup_id").on('click',function(){
+         location.reload();
 
-})
-$(".close_aboutme_popup").on('click',function(){
- location.reload();
+        })
+        $(".close_aboutme_popup").on('click',function(){
+         location.reload();
 
-})
+        })
 
-$(".close_aboutme_features_popup").on('click',function(){
- location.reload();
+        $(".close_aboutme_features_popup").on('click',function(){
+         location.reload();
 
-})
+        })
 
-$(".close_property_preferences_popup").on('click',function(){
- location.reload();
+        $(".close_property_preferences_popup").on('click',function(){
+         location.reload();
 
-})
-$(".close_preferred_accommodation_popup").on('click',function(){
- location.reload();
+        })
+        $(".close_preferred_accommodation_popup").on('click',function(){
+         location.reload();
 
-})
+        })
 
-$("#applicant_information_popup").on("hidden.bs.modal", function () {
-              location.reload();
+        $("#applicant_information_popup").on("hidden.bs.modal", function () {
+                      location.reload();
+        });
+
+        $("#general_information_popup_id").on("hidden.bs.modal", function () {
+                      location.reload();
+        });
+
+        $("#aboutme_popup").on("hidden.bs.modal", function () {
+                      location.reload();
+        });
+
+        $("#aboutme_features_popup").on("hidden.bs.modal", function () {
+                      location.reload();
+        });
+
+        $("#property_preferences_popup").on("hidden.bs.modal", function () {
+                      location.reload();
+        });
+
+        $("#preferred_accommodation_popup").on("hidden.bs.modal", function () {
+                      location.reload();
+        });
+
+
+$(".find_preview_listings").on("click", function () {
+ var path=window.location.pathname
+var property_id=path.split('find_place_preview').pop()
+var a = "P"+property_id
+ window.open('/'+a)
 });
 
-$("#general_information_popup_id").on("hidden.bs.modal", function () {
-              location.reload();
-});
+        $(".open-detail-of-match-for-find").on('click',function(e){
+            console.log('333333333333333333333',$(this).find(".match_id").val())
+//            var id = e.target.attributes.value2.value
+            var id = $(this).find(".match_id").val()
+            window.open("P"+id)
 
-$("#aboutme_popup").on("hidden.bs.modal", function () {
-              location.reload();
-});
+        })
+ $(".edit_find_deactivate_listing_button").on("click", function () {
+ var path=window.location.pathname
+var property_id=path.split('find_place_preview').pop()
+ $.ajax({
+                    url: '/edit_deactivate_listing',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+                    success: function(data){
+                        console.log("\n==========data============== deactive",data)
+                        if (data['result'] == true){
+                        window.location.replace('/')
+                        }
+                    }
+            });
 
-$("#aboutme_features_popup").on("hidden.bs.modal", function () {
-              location.reload();
-});
-
-$("#property_preferences_popup").on("hidden.bs.modal", function () {
-              location.reload();
-});
-
-$("#preferred_accommodation_popup").on("hidden.bs.modal", function () {
-              location.reload();
-});
-
+})
 
 
 

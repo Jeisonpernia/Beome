@@ -409,6 +409,24 @@
                                                             </ul>
                                                         </div>
                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-10">
+                                                            <span style="font-size: large; margin-left: -15px; ">Create New Listings</span></div>
+                                                                <div class="col-lg-6" style="margin-left: -19px;">
+                                                                    <a class="btn btn-orange btn-block mb-2 list_place_check_login_user"
+                                                                       href="/listplace" type="button"
+                                                                       id="list_place_check_login_user">List my place
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <a class="btn btn-blue btn-block mb-2"
+                                                                       href="/find-place/describe-your-ideal-place/start"
+                                                                       type="button" id="find_place">Find a place
+                                                                    </a>
+                                                                </div>
+
+                                                    </div>
 
 
                                                 </div>
@@ -429,7 +447,7 @@
                                                                 Verify mobile phone
                                                             </a>
                                                         </li>
-                                                        <li id="account_verification">
+                                                        <li id="account_verification" class="edit_account_verification">
                                                             <a href="#" data-toggle="modal"
                                                                data-target="#account_verification_popup">
                                                                 <svg class="icon verify_account" viewBox="0 0 50 50"
@@ -555,7 +573,7 @@
                                                         <div class="form-group mt-4">
                                                             <select class="form-control" id="country"
                                                                     name="country_list">
-                                                                <option val="">Select Country</option>
+                                                                <option value="13" selected="selected">Australia (+61)</option>
                                                             </select>
                                                         </div>
 
@@ -569,14 +587,15 @@
                                                         </div>
 
 
-                                                        <div class="input-group checkbox-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">
-                                                                    <i class="fa fa-times" aria-hidden="false"></i>
+                                                        <div class="input-group checkbox-group allowed-to-contact">
+                                                            <div class="input-group-prepend ">
+                                                                <span class="input-group-text add-green">
+                                                                    <i class="fa fa-check" aria-hidden="false"></i>
+                                                                    <input type="checkbox" id="allowed-contact" name="allowed-contact" checked="checked"/>
                                                                 </span>
                                                             </div>
                                                             <input type="text" class="form-control" value=""
-                                                                   id="verified_member" name="pets" readonly="true"/>
+                                                                   id="verified_member" name="" readonly="true"/>
                                                             <span class="search-accepting">Allowed Verified members to
                                                                 contact me on my mobile(recommended)
                                                             </span>
@@ -808,7 +827,7 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-8 mx-auto">
-                                                    <form action="/action_page.php">
+                                                    <!--<form action="">-->
                                                         <h3 class="text-center mt-4 mb-4 verify-heading-msg">Enter Your
                                                             Security Code
                                                         </h3>
@@ -837,7 +856,7 @@
                                                         </h2>
                                                         <h2 class="invalid-otp-msgg" style="display:none">Invalid OTP
                                                         </h2>
-                                                    </form>
+                                                    <!--</form>-->
                                                 </div>
                                             </div>
                                         </div>

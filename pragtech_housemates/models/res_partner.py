@@ -25,6 +25,7 @@ class ResPartner(models.Model):
     verify_url = fields.Char(compute='_compute_verify_url', string='Verify Account URL')
     first_login = fields.Boolean(string='Is First Login')
     mobile_no_is_verified = fields.Boolean(string='Is Verified Mobile Number')
+    allowed_to_contact = fields.Boolean(string="Allowed to Contact")
 
     @api.model
     def create(self, vals):

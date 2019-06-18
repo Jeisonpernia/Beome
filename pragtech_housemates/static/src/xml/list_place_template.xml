@@ -6,7 +6,7 @@
         <template id="list_place" name="Share Accommodation">
             <t t-call="website.layout">
             <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -26,7 +26,7 @@
                                     </t>
                                     <div class="mt-5 col-md-2 col-sm-6 col-6 mx-auto">
                                         <img src="/pragtech_housemates/static/src/img/illustration-house.png"
-                                             class="img-fluid"></img>
+                                             class="img-fluid welcome-img"></img>
                                     </div>
                                     <div class="mt-4 text-center">
                                         <h5>Describe your place</h5>
@@ -52,7 +52,7 @@
         <template id="list_place_accommodation" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <form action="#" id="list_place_accommodation_form_id" method="POST">
                             <div class="container">
@@ -188,7 +188,7 @@
         <template id="whole_property_template" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -269,7 +269,7 @@
         <template id="about_template" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -294,8 +294,8 @@
                                             <div id="locationField">
                                                 <input class="form-control mt-2 loc-field"
                                                        id="autocomplete"
-                                                       title="Do not include the word 'Unit'  Note: Your exact address will not be shared with other members."
-                                                       data-toggle="tooltip"
+                                                       title=""
+                                                       data-toggle=""
                                                        placeholder="Enter your address"
                                                        type="text" name="property_address"/>
                                             </div>
@@ -543,7 +543,7 @@
         <template id="about_who_lives_here_template" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -674,7 +674,7 @@
         <template id="about_rooms_template" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -817,7 +817,7 @@
         <template id="rent_bond_bills" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -921,7 +921,7 @@
         <template id="room_availability" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -1037,7 +1037,7 @@
         <template id="property_images" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -1151,7 +1151,7 @@
         <template id="list_place_describe_your_flatmate" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <form action="#" id="list_place_describe_your_flatmate_form_id" method="POST">
@@ -1206,7 +1206,7 @@
         <template id="flatmate_preference_template" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -1351,7 +1351,7 @@
         <template id="list_place_accepting" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <form action="#" id="list_place_accepting_form_id" method="POST">
@@ -1561,7 +1561,7 @@
         <template id="list_place_describe_yourself" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <form action="#" id="list_place_describe_yourself_form_id" method="POST">
@@ -1618,7 +1618,7 @@
         <template id="list_place_about_others" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -1687,7 +1687,7 @@
         <template id="list_place_comment_about_property" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -1749,7 +1749,7 @@
         <template id="list_my_property" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -1767,6 +1767,5 @@
 
     </data>
 </odoo>
-
 
 

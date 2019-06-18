@@ -9,12 +9,24 @@ odoo.define('pragtech_website_extension.sms_code', function (require){
                       var mobile_no_to_verify = $(".verify-mobile-no").val();
                       console.log('Coutry Id :',country_id)
                       console.log('Mobile No: ',mobile_no_to_verify)
+
+                      var data = {
+                            'country_id':country_id,
+                            'mobile_no':mobile_no_to_verify
+                          }
+
+                      if($("input[name=allowed-contact]").attr('checked') == 'checked'){
+                        console.log('yesss checkedddddddd')
+                        data['allowed_to_contact'] = true
+                      }
+
+
                     $.ajax({
                         url: '/send_sms',
                         type: "POST",
                         dataType: 'json',
                         contentType: 'application/json',
-                        data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'country_id':country_id,'mobile_no':mobile_no_to_verify}}),
+                        data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": data}),
                         success: function(data){
 //                                console.log('888888888888888888888888888888888888888888888',data)
                                 if((data['result']['is_sms_send'] == true) && (data['result']['status'] == "SUCCESS")){
@@ -74,6 +86,25 @@ odoo.define('pragtech_website_extension.sms_code', function (require){
                         }
                     });
                 });
+
+
+                $(".allowed-to-contact").on('click',function(){
+                    console.log('wwwwwwwwwwwwwwwwwwwwwwwww',$(this).find('i').hasClass('fa-times'))
+                    if($(this).find('i').hasClass('fa-times') == false){
+                        console.log('ifffffffffffffffffffffffffffffffff')
+                        $(".add-green").css('background-color','#e4e5e6')
+                        $("#allowed-contact").removeAttr('checked')
+
+
+                    }
+                    else{
+                        console.log('elseeeeeeeeeeeeeeeeeeeeeeeeeee')
+                        $(".add-green").css('background-color','#11836c')
+                        $("#allowed-contact").attr('checked','checked')
+
+                    }
+
+                })
 
 
 

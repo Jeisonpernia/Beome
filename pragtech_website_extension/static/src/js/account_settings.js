@@ -140,7 +140,7 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
       $("#account_settings_popup").modal('hide')
     })
 
-    $(document).on('click','#account_verification',function()
+    $(document).on('click','.edit_account_verification',function()
     {
         console.log('\nClicked')
         $.ajax({
@@ -161,8 +161,11 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                         $("#verify_instagram").attr('href',data['result'][2])
                         $("#verify_instagram").attr('target','blank')
 
-                        $("#verify_twitter").attr('href',data['result'][3])
+                        $(".mobileVerified__number").text(data['result'][3])
+
+                        $("#verify_twitter").attr('href',data['result'][4])
                         $("#verify_twitter").attr('target','blank')
+
 
                     }
                 });

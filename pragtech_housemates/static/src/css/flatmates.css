@@ -2899,3 +2899,47 @@ display: inline;
 	-webkit-box-shadow: none;
 	-o-box-shadow: none;
 }
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.isDisabled > a {
+  color: lightgrey;
+  display: inline-block;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+.propety-ribbon-white{
+	background: #ffff;
+	bottom: 0px;
+	color: #000000;
+	font-size: 0.875rem;
+	min-width: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: absolute;
+	right: 0;
+	text-align: center;
+}
+
+.yellow-circle{
+width: 12px;
+height: 12px;
+border-radius: 50%;
+display: inline-block;
+background-color: #f7bb42;
+}
+
+.pending-tab{
+	background: #fff;
+	font-size: 16px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	padding: 0 20px;
+	text-align: center;
+}

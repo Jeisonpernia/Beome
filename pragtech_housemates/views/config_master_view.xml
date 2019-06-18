@@ -913,6 +913,48 @@
         <menuitem id="bill_action_menu_id" name="Bill" action="bill_action"
                   parent="pragtech_housemates.config_id" sequence="14"/>
 
+    <!--Plan Features Master-->
+        <record id="feature_plan_form" model="ir.ui.view">
+            <field name="name">plan.feature.form</field>
+            <field name="model">plan.feature</field>
+            <field name="arch" type="xml">
+                <form string="Plan Features" name="Plan Features">
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Plan Features"/>
+                            <h1>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="feature_type"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="feature_plan_tree" model="ir.ui.view">
+            <field name="name">plan.feature.tree</field>
+            <field name="model">plan.feature</field>
+            <field name="arch" type="xml">
+                <tree string="Plan Features" name="Plan Features">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="feature_plan_action" model="ir.actions.act_window">
+            <field name="name">Plan Features</field>
+            <field name="res_model">plan.feature</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="feature_plan_id" name="Plan Features" action="feature_plan_action"
+                  parent="pragtech_housemates.config_id" sequence="20"/>
 
 
     </data>

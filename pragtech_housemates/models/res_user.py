@@ -26,6 +26,9 @@ class ResUser(models.Model):
 
     facebook_profile_url = fields.Char(string="Facebook Profile URL")
     insta_profile_url = fields.Char(string= "Instagram Profile URL")
+    twitter_profile_url = fields.Char(string="Twitter Profile URL")
+    linkedin_profile_url = fields.Char(string="Linked In Profile URL")
+
 
 
     @api.multi

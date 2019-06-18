@@ -404,9 +404,24 @@
 		
 		
 		
-		
-		
-		
+		<!-- Plan Feature Demonstration Data -->
+		<record model="plan.feature" id="feature1">
+			<field name="name">Receive enquiries from all members</field>
+		   <field name="feature_type">enquiries</field>
+		</record>
+		<record model="plan.feature" id="feature2">
+			<field name="name">Access Mobile numbers</field>
+		   <field name="feature_type">mobile_number</field>
+		</record>
+		<record model="plan.feature" id="feature3">
+			<field name="name">Access Social Media profiles</field>
+		   <field name="feature_type">social_media</field>
+		</record>
+		<record model="plan.feature" id="feature4">
+			<field name="name">Send messages to all listings including</field>
+		   <field name="feature_type">send_message</field>
+		</record>
+
 		
 		
 		

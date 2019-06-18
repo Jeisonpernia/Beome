@@ -6,7 +6,7 @@
         <template id="find_place" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <form action="/find-place/describe-your-ideal-place/accommodation" method="POST">
@@ -55,7 +55,7 @@
         <template id="find_place_accommodation" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
 
@@ -272,7 +272,7 @@
         <template id="find_about_template" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -348,7 +348,7 @@
         <template id="find_rent_timimg" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -423,7 +423,7 @@
         <template id="find_property_preferences" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -558,7 +558,7 @@
         <template id="find_introduce_yourself" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <form action="introduce-flatmates" id="introduce_flatmates" method="POST">
@@ -613,7 +613,7 @@
         <template id="find_introduce_flatmates" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -860,7 +860,7 @@
         <template id="find_employment" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
 
@@ -1030,7 +1030,7 @@
         <template id="find_lifestyle" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
 
@@ -1140,7 +1140,7 @@
         <template id="find_about_yourself" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
 
@@ -1197,7 +1197,7 @@
         <template id="find_a_property" name="Share Accommodation">
             <t t-call="website.layout">
                 <t t-call="pragtech_housemates.custom_header_template_id"/>
-                <div class="oe_structure oe_empty">
+                <div class="oe_structure oe_empty no_responsive">
                     <section>
                         <div class="container">
                             <div class="row">

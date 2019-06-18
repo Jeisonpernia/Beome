@@ -618,24 +618,64 @@ class FlatMates(http.Controller):
 
             print("\n\nID -----------------------", request.uid)
         print("=====ghghghgh====", values)
-        """set mobile_not_verified,show_upgrade_plan and show_number as per conditions"""
+        """set mobile_not_verified,show_upgrade_plan_mobile and show_number as per conditions"""
         if not request.env.user.partner_id.mobile_no_is_verified:
             values['mobile_not_verified'] = True
         else:
             values['mobile_not_verified'] = False
-        basic_plan_product = request.env['product.product'].sudo().search([('name', '=', 'Basic Plan')])
-        sale_order_ids = request.env['sale.order'].sudo().search([('partner_id', '=', request.env.user.partner_id.id)])
-        for sale in sale_order_ids:
-            for line in sale.order_line:
-                if line.product_id.id == basic_plan_product.id:
-                    if date.today() > sale.create_date.date() +timedelta(days=basic_plan_product.no_of_days) and  not values['mobile_not_verified']:
-                        values['show_upgrade_plan'] = True
-                    else:
-                        values['show_upgrade_plan'] = False
-                    continue
-        if 'show_upgrade_plan'  not in values:
-            values['show_upgrade_plan'] = True
-        if not values['show_upgrade_plan'] and not values['mobile_not_verified']:
+        # basic_plan_product = request.env['product.product'].sudo().search([('name', '=', 'Basic Plan')])
+        # sale_order_ids = request.env['sale.order'].sudo().search([('partner_id', '=', request.env.user.partner_id.id)])
+        # for sale in sale_order_ids:
+        #     for line in sale.order_line:
+        #         if line.product_id.id == basic_plan_product.id:
+        #             if date.today() > sale.create_date.date() +timedelta(days=basic_plan_product.no_of_days) and  not values['mobile_not_verified']:
+        #                 values['show_upgrade_plan'] = True
+        #             else:
+        #                 values['show_upgrade_plan'] = False
+        #             continue
+        mobile_feature = request.env.ref('pragtech_housemates.feature2')
+        send_message = request.env.ref('pragtech_housemates.feature4')
+        social_media = request.env.ref('pragtech_housemates.feature3')
+        enquiries = request.env.ref('pragtech_housemates.feature1')
+
+        if not mobile_feature:
+            mobile_feature = request.env['plan.faeture'].sudo.search([('feature_type', '=', 'mobile_number')], limit=1)
+
+        if not send_message:
+            send_message = request.env['plan.faeture'].sudo.search([('feature_type', '=', 'send_message')], limit=1)
+
+        if not social_media:
+            social_media = request.env['plan.faeture'].sudo.search([('feature_type', '=', 'social_media')], limit=1)
+
+        if not enquiries:
+            enquiries = request.env['plan.faeture'].sudo.search([('feature_type', '=', 'enquiries')], limit=1)
+
+        transaction_ids = request.env['transaction.history'].sudo().search([('partner_id', '=', request.env.user.partner_id.id)])
+        for transaction in transaction_ids:
+            if date.today() <= datetime.strptime(transaction.end_date , '%d-%m-%Y').date():
+                for feature in transaction.plan.feature_ids:
+                    if feature.id == mobile_feature.id:
+                        values['show_upgrade_plan_mobile'] = False
+                    if feature.id == send_message.id:
+                        values['show_upgrade_plan_send'] = False
+                    if feature.id == social_media.id:
+                        values['show_upgrade_plan_media'] = False
+                    if feature.id == enquiries.id:
+                        values['show_upgrade_plan_receive'] = False
+
+        if 'show_upgrade_plan_mobile' not in values:
+            values['show_upgrade_plan_mobile'] = True
+
+        if 'show_upgrade_plan_send' not in values:
+            values['show_upgrade_plan_send'] = True
+
+        if 'show_upgrade_plan_media' not in values:
+            values['show_upgrade_plan_media'] = True
+
+        if 'show_upgrade_plan_receive' not in values:
+            values['show_upgrade_plan_receive'] = True
+
+        if not values['show_upgrade_plan_mobile'] and not values['mobile_not_verified']:
             values['show_number'] = True
         else:
             values['show_number'] = False
@@ -1790,6 +1830,14 @@ class FlatMates(http.Controller):
 
             # if request.session.get('new_listing_id'):
             #     request.session['new_listing_id'] = ''
+
+            matches = request.env['house.mates'].sudo().search([('id','!=',property.id),('listing_type','=','find'),'|',('suburbs_ids.city','=',property.city),('suburbs_ids.post_code','=',property.zip)])
+            print('\n\nMATCHES :\n',matches,'\n\n')
+            if matches:
+                values.update({
+                    'matches':matches
+                })
+
         if property:
             print("\n\n\n===== <<<<< Values >>>====\n", values, '\n\n\n')
 
@@ -2105,10 +2153,35 @@ class FlatMates(http.Controller):
                 values.update({'accomodation_type': property.property_type})
             print("\n\n\n===== <<<<< Values >>>====\n", values, '\n\n\n')
 
+            # print('CITY \n\n : ',property.suburbs_ids.city)
+
+            matches = request.env['house.mates'].sudo().search([('id', '!=', property.id), ('listing_type', '=', 'list')])
+                                                                # '|',('city', '=', property.suburb_ids.city), ('zip', '=',property.suburbs_ids.post_code)])
+
+            print('match searches : ',matches)
+
+            if matches:
+                matches_list = []
+                for match in matches:
+                    for suburb in property.suburbs_ids:
+                        if suburb.city == match.city:
+                            matches_list.append(match)
+                            break
+
+                print('\n\nMATCH LIST :\n', matches_list, '\n\n')
+
+                if matches_list:
+                    values.update({
+                        'matches': matches_list
+                    })
+
+
             # if request.session.get('new_listing_id'):
             #     request.session['new_listing_id'] = ''
 
         return request.render("pragtech_housemates.find_place_preview_template", values)
+
+
     ##################################################################
     # --------------  End of Routes for find my place -------------- #
     ##################################################################
@@ -2499,13 +2572,13 @@ class FlatMates(http.Controller):
         response_type = '&response_type=code'
 
         instagram = insta_url+insta_client_id+insta_redirect_uri+response_type
-
+        mobile=request.env.user.partner_id.mobile
 
         facebook = "https://www.facebook.com/v3.3/dialog/oauth?client_id=578866759262786&redirect_uri=http://localhost:8023/verify_facebook_token&scope=user_link"
 
         linkedin = "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=81mgxq1r3s06ht&state=thisisthetestingofcyz&redirect_uri=http://localhost:8023/verify_token"
 
-        return [facebook, linkedin, instagram, '']
+        return [facebook, linkedin, instagram, mobile,'']
 
     @http.route('/verify_<type>_token', auth='public', type='http', website=True)
     def get_social_media_token(self, type, **kwarg):
@@ -3092,7 +3165,7 @@ class FlatMates(http.Controller):
 
     @http.route(['/country'], type='json', auth="public", website=True, )
     def country_code(self, **kwargs):
-        res_country = request.env['res.country'].search([])
+        res_country = request.env['res.country'].search([('id','!=',13)])
         value = {}
         value['country'] = [[i.id, i.name+" (+"+str(i.phone_code)+")"] for i in res_country]
         return value
@@ -3112,8 +3185,12 @@ class FlatMates(http.Controller):
         if 'mobile_no' in kwargs and kwargs.get('mobile_no'):
             mobile_no = kwargs.get('mobile_no')
 
+        if 'allowed_to_contact' in kwargs and kwargs.get('allowed_to_contact'):
+            request.session['allowed_to_contact']= True
+
         if phone_code and mobile_no:
             send = self.send_otp_to_verify_mobile_no(phone_code,mobile_no)
+            pass
         print('\n\n\n------------------- Is send :: ',send,'\n\n\n')
         return send
 
@@ -3182,9 +3259,85 @@ class FlatMates(http.Controller):
         print('<<<<<< Data >>>>>>>>>>> ',data)
         return data
 
+    @http.route(['/sms_messgae_to_owner'], type='json', auth="public", website=True)
+    def sms_messgae_to_owner(self, **kwargs):
+        """Send message to owner of property, using property id get its partner
+        Send Message only if Owner's plan have that feature
+        """
+        mobile_no = False
+        phone_code = False
+        flag = 0
+        if 'property_id' in kwargs and kwargs.get('property_id'):
+            property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
+            #Check if owner's plan include receiving enquires feature
+            receive_enquiry_feature = request.env.ref('pragtech_housemates.feature1')
+
+            if not receive_enquiry_feature:
+                receive_enquiry_feature = request.env['plan.faeture'].sudo.search([('feature_type', '=', 'enquiries')], limit=1)
+            transaction_ids = request.env['transaction.history'].sudo().search(
+                [('partner_id', '=', property_id.user_id.partner_id.id)])
+            for transaction in transaction_ids:
+                if date.today() <= datetime.strptime(transaction.end_date, '%d-%m-%Y').date():
+                    for feature in transaction.plan.feature_ids:
+                        if feature.id == receive_enquiry_feature.id:
+                            flag = 1
+
+            if flag:
+                mobile_no = property_id.user_id.partner_id.mobile
+                if property_id.user_id.partner_id.country_id:
+                    phone_code = property_id.user_id.partner_id.country_id.phone_code
+        if mobile_no and phone_code:
+            user_name = request.env['ir.config_parameter'].sudo().search(
+                [('key', '=', 'pragtech_housemates.sms_user_name')])
+            user_password = request.env['ir.config_parameter'].sudo().search(
+                [('key', '=', 'pragtech_housemates.sms_user_password')])
+
+            mobile_number = "+" + str(phone_code) + str(mobile_no)
+
+
+            configuration = clicksend_client.Configuration()
+            configuration.username = str(user_name.value)  # user_name
+            configuration.password = str(user_password.value)  # password
+
+            # create an instance of the API class
+            api_instance = clicksend_client.SMSApi(clicksend_client.ApiClient(configuration))
+
+            sms_message = SmsMessage(source="python",
+                                     body=kwargs.get('message_owner'),
+                                     to=mobile_number)  # "+61411111111"
+            sms_messages = clicksend_client.SmsMessageCollection(messages=[sms_message])
+
+            try:
+                # Send sms message(s)
+                api_response = api_instance.sms_send_post(sms_messages)
+                print('\n\nResponse\n', api_response)
+                ret_response = ast.literal_eval((api_response))
+                if ret_response['data']['messages'][0]['status'] == 'SUCCESS':
+                    data = {
+                        'is_sms_send': True,
+                        'status': 'SUCCESS',
+                        'mobile_number':mobile_number,
+                    }
+
+                elif ret_response['data']['messages'][0]['status'] == 'INVALID_RECIPIENT':
+                    is_sms_send = False
+                    data = {
+                        'is_sms_send':False,
+                        'status': 'INVALID_RECIPIENT',
+                    }
+                else:
+                    data = {
+                        'is_sms_send': False,
+                        'status': 'SOMETHING_WENT_WRONG',
+                    }
+            except ApiException as e:
+                print("Exception when calling SMSApi->sms_send_post: %s\n" % e)
+            return data
+        return False
+
+
     @http.route(['/verify_otp'], type='json', auth="public", website=True)
     def verify_otp(self, **kwargs):
-        request.env.user.partner_id
         print('\n\n\nVERIFY OTP ::', kwargs, '\n\n\n')
         entered_otp = None
         sent_otp = None
@@ -3202,8 +3355,12 @@ class FlatMates(http.Controller):
             request.env.user.partner_id.mobile = str(request.session.get('mobile_no'))
             request.env.user.partner_id.mobile_no_is_verified = True
 
+            if request.session.get('allowed_to_contact'):
+                request.env.user.partner_id.allowed_to_contact = True
+
             request.session['random_otp'] = ""
             request.session['mobile_no'] = ""
+            request.session['allowed_to_contact'] = False
 
 
         data = {
@@ -3225,6 +3382,8 @@ class FlatMates(http.Controller):
             if partner_id.mobile_no_is_verified:
                 print('Parnter Is Verified :',partner_id.mobile_no_is_verified)
                 partner_id.mobile_no_is_verified = False
+            if partner_id.allowed_to_contact:
+                partner_id.allowed_to_contact = False
 
         return True
 
@@ -4330,5 +4489,19 @@ class WebsiteBlogInherit(WebsiteBlog):
         if kwargs.get('property_id'):
             property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
 
-            return {'name': property_id.user_id.partner_id.name, 'phone': property_id.user_id.partner_id.mobile}
+            if property_id.user_id.partner_id.allowed_to_contact:
+                return {'name': property_id.user_id.partner_id.name, 'phone': property_id.user_id.partner_id.mobile}
+            else:
+                return {'name': property_id.user_id.partner_id.name}
         return False
+
+    @http.route(['/edit_deactivate_listing'], type='json', auth="public", website=True, )
+    def edit_deactivate_listing(self,**kwargs):
+        """Get phone number and name of property owner"""
+        print("\n\n----------edit_deactivate_listing-------------",kwargs)
+        if kwargs.get('property_id'):
+            property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
+            property_id.sudo().write({'state':'deactive'})
+        return True
+
+
