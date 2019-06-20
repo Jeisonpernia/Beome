@@ -99,6 +99,12 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
             var email = $("#email").val()
             var mobile = $('#mobile').val()
             var image = $(".profile-pic").attr('src')
+            var is_allowed_to_contact = false
+
+            if($("input[name=allowed-contact-in-edit]").attr('checked') == 'checked'){
+                        console.log('yesss checkedddddddd')
+                        is_allowed_to_contact = true
+            }
 //            console.log('Imageeeeee ::: ',image)
 //            alert('gfrgght')
 
@@ -112,6 +118,7 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
                     'email':email,
                     'mobile':mobile,
                     'image':image,
+                    'is_allowed_to_contact':is_allowed_to_contact,
                     }}),
                     success: function(data)
                     {
@@ -256,6 +263,15 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
             $("#signup_popup_id").on("hidden.bs.modal", function () {
               location.reload();
             });
+
+            $("#close_upgrade_popup").on("click", function () {
+              location.reload();
+            });
+
+            $("#why_upgrade_popup").on("hidden.bs.modal", function () {
+              location.reload();
+            });
+
 
 
 

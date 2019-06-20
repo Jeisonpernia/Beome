@@ -107,6 +107,25 @@ odoo.define('pragtech_website_extension.sms_code', function (require){
                 })
 
 
+                $(".allowed-to-contact-in-edit-account").on('click',function(){
+                    console.log('wwwwwwwwwwwwwwwwwwwwwwwww',$(this).find('i').hasClass('fa-times'))
+                    if($(this).find('i').hasClass('fa-times') == false){
+                        console.log('ifffffffffffffffffffffffffffffffff')
+                        $(".add-green-in-edit").css('background-color','#e4e5e6')
+                        $("#allowed-contact-in-edit").removeAttr('checked')
+
+
+                    }
+                    else{
+                        console.log('elseeeeeeeeeeeeeeeeeeeeeeeeeee')
+                        $(".add-green-in-edit").css('background-color','#11836c')
+                        $("#allowed-contact-in-edit").attr('checked','checked')
+
+                    }
+
+                })
+
+
 
 
 

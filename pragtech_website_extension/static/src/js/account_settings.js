@@ -24,6 +24,7 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                         if (data['result']['user_mobile']){
                             var user_mobile = data['result']['user_mobile']
                             $(".default_user_mobile").val(user_mobile);
+                            $(".add-focused").addClass("focused")
 
                             if(data['result']['is_mobile_verified'] == true){
                                 $(".verify-phone").css('display','none')
@@ -160,6 +161,8 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
 
                         $("#verify_instagram").attr('href',data['result'][2])
                         $("#verify_instagram").attr('target','blank')
+
+                        console.log('data result : ',data['result'][3])
 
                         $(".mobileVerified__number").text(data['result'][3])
 

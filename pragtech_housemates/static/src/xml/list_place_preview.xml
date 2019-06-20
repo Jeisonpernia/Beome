@@ -456,29 +456,20 @@
 
                                                                                 <div class="row">
                                                                                     <div class="col-lg-6">
-                                                                                        <label class="p14">Weekly rent
-                                                                                        </label>
-                                                                                        <div class="input-group mb-3">
-                                                                                            <div class="input-group-prepend">
-                                                                                                <span class="input-group-text">
-                                                                                                    $
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <input type="number"
-                                                                                                   class="form-control weekly-rent-input"
-                                                                                                   placeholder=""
-                                                                                                   id="edit_weekly_budget"
-                                                                                                   name="edit_weekly_budget"/>
-                                                                                            <div class="input-group-append">
-                                                                                                <span class="input-group-text">
-                                                                                                    per week
-                                                                                                </span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
+  
+  <div class="input-group mb-3">
+    <div class="input-group-prepend"> <span class="input-group-text">$</span> </div>
+	  <div>
+		  <label class="form-control-placeholder1 focused" for="edit_weekly_budget">Weekly rent</label>
+    <input type="number" class="form-control weekly-rent-input" placeholder="" id="edit_weekly_budget" name="edit_weekly_budget"/>
+	  
+	 </div>
+    <div class="input-group-append"> <span class="input-group-text">per week</span> </div>
+  </div>
+</div>
 
 
-                                                                                    <div class="col-lg-6 mt-30">
+                                                                                    <div class="col-lg-6">
                                                                                         <div class="form-group">
                                                                                             <select class="form-control"
                                                                                                     id="edit_bills_id"

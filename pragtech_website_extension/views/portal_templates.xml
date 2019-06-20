@@ -641,7 +641,7 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-10 mx-auto">
-                                                    <form action="/action_page.php">
+                                                    <!--<form action="">-->
                                                         <h3 class="text-center mt-4 mb-4">Account verification</h3>
                                                         <p>
                                                             <strong>Mobile verification</strong>
@@ -653,7 +653,7 @@
                                                         <div class="mobileVerified">
                                                             <i class="fa fa-mobile"></i>
                                                             <span class="mobileVerified__number"></span>
-                                                            <button class="linkButton">Edit</button>
+                                                            <button class="linkButton" data-toggle="modal" data-target="#change_mobile_popup">Edit</button>
                                                         </div>
 
                                                         <p>
@@ -801,7 +801,7 @@
                                                         </div>
 
 
-                                                    </form>
+                                                    <!--</form>-->
                                                 </div>
                                             </div>
                                         </div>
@@ -976,7 +976,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button type="button"  id="close_upgrade_popup" class="close" data-dismiss="modal" aria-label="Close">
                                             ×
                                         </button>
                                     </div>
@@ -1031,53 +1031,54 @@
                                                             <div class="col-lg-6 basic-plan">
                                                                 <div class="plan-content">
                                                                     <h2 class="plan-name"></h2>
-                                                                    <ul>
+                                                                    <ul class="plan-features">
                                                                         <li>Create listings</li>
                                                                         <li>Browse all listings</li>
-                                                                        <li>Send messages to all listings including
-                                                                            <span class="icon">
-                                                                                <svg class="early-bird"
-                                                                                     viewBox="0 0 24 19">
-                                                                                    <path class="fill"
-                                                                                          d="M21.08.79c-.348-.838-3.95-2.19-5.138 3.204L9.66 8.774.264 14.487l.47.165 1.25-.37L0 15.47l.65.228 6.726-2.028s3.034.42 5.398.422l-.334.68c-.112.228.84 2.515 1.19 3.604l-1.778.275c-.212.033-.12.36.09.327l1.872-.29 1.873.29c.21.032.3-.294.088-.326l-1.794-.276-.08-.28-.32-1.096-.594-2.044-.004-.012c.072-.147 2.342-1.197 2.342-1.197h-.002c8.246-3.012 3.704-9.918 5.442-10.99C21.494 2.302 24 1.626 24 1.626c0-.77-2.92-.837-2.92-.837z"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                            <span class="bold-text">Early Bird</span>
-                                                                            <span class="info-tooltip">
-                                                                                <svg class="info-icon"
-                                                                                     viewBox="0 0 50 50">
-                                                                                    <path class="fill"
-                                                                                          d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li>Receive enquiries from all members
-                                                                            <span class="info-tooltip">
-                                                                                <svg class="info-icon"
-                                                                                     viewBox="0 0 50 50">
-                                                                                    <path class="fill"
-                                                                                          d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li>Access Mobile numbers**
-                                                                            <span class="info-tooltip">
-                                                                                <svg class="info-icon"
-                                                                                     viewBox="0 0 50 50">
-                                                                                    <path class="fill"
-                                                                                          d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </li>
-                                                                        <li>Access Social Media profiles**
-                                                                            <span class="info-tooltip">
-                                                                                <svg class="info-icon"
-                                                                                     viewBox="0 0 50 50">
-                                                                                    <path class="fill"
-                                                                                          d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>
-                                                                                </svg>
-                                                                            </span>
-                                                                        </li>
+                                                                        <!--<li>Send messages to all listings including-->
+                                                                            <!--<span class="icon">-->
+                                                                                <!--<svg class="early-bird"-->
+                                                                                     <!--viewBox="0 0 24 19">-->
+                                                                                    <!--<path class="fill"-->
+                                                                                          <!--d="M21.08.79c-.348-.838-3.95-2.19-5.138 3.204L9.66 8.774.264 14.487l.47.165 1.25-.37L0 15.47l.65.228 6.726-2.028s3.034.42 5.398.422l-.334.68c-.112.228.84 2.515 1.19 3.604l-1.778.275c-.212.033-.12.36.09.327l1.872-.29 1.873.29c.21.032.3-.294.088-.326l-1.794-.276-.08-.28-.32-1.096-.594-2.044-.004-.012c.072-.147 2.342-1.197 2.342-1.197h-.002c8.246-3.012 3.704-9.918 5.442-10.99C21.494 2.302 24 1.626 24 1.626c0-.77-2.92-.837-2.92-.837z"></path>-->
+                                                                                <!--</svg>-->
+                                                                            <!--</span>-->
+                                                                            <!--<span class="bold-text">Early Bird</span>-->
+                                                                            <!--<span class="info-tooltip">-->
+                                                                                <!--<svg class="info-icon"-->
+                                                                                     <!--viewBox="0 0 50 50">-->
+                                                                                    <!--<path class="fill"-->
+                                                                                          <!--d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>-->
+                                                                                <!--</svg>-->
+                                                                            <!--</span>-->
+                                                                        <!--</li>-->
+                                                                        <!--<li>Receive enquiries from all members-->
+                                                                            <!--<span class="info-tooltip">-->
+                                                                                <!--<svg class="info-icon"-->
+                                                                                     <!--viewBox="0 0 50 50">-->
+                                                                                    <!--<path class="fill"-->
+                                                                                          <!--d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>-->
+                                                                                <!--</svg>-->
+                                                                            <!--</span>-->
+                                                                        <!--</li>-->
+                                                                        <!--<li>Access Mobile numbers**-->
+                                                                            <!--<span class="info-tooltip">-->
+                                                                                <!--<svg class="info-icon"-->
+                                                                                     <!--viewBox="0 0 50 50">-->
+                                                                                    <!--<path class="fill"-->
+                                                                                          <!--d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>-->
+                                                                                <!--</svg>-->
+                                                                            <!--</span>-->
+                                                                        <!--</li>-->
+                                                                        <!--<li>Access Social Media profiles**-->
+                                                                            <!--<span class="info-tooltip">-->
+                                                                                <!--<svg class="info-icon"-->
+                                                                                     <!--viewBox="0 0 50 50">-->
+                                                                                    <!--<path class="fill"-->
+                                                                                          <!--d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path>-->
+                                                                                <!--</svg>-->
+                                                                            <!--</span>-->
+                                                                        <!--</li>-->
+
                                                                         <!--<li>Your listing on-->
                                                                             <!--<br/>-->
                                                                             <!--<svg viewBox="0 0 591 103" class="rea-logo">-->
@@ -1546,7 +1547,7 @@
                                                                     <input type="text"
                                                                            class="form-control default_user_mobile"
                                                                            id="mobile" name="mobile" readonly="1"/>
-                                                                    <label class="form-control-placeholder"
+                                                                    <label class="form-control-placeholder add-focused"
                                                                            for="mobile">Mobile
                                                                     </label>
                                                                 </div>
@@ -1572,10 +1573,11 @@
                                                         </div>
 
 
-                                                        <div class="input-group checkbox-group">
+                                                        <div class="input-group checkbox-group allowed-to-contact-in-edit-account">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text">
+                                                                <span class="input-group-text add-green-in-edit">
                                                                     <i class="fa fa-times" aria-hidden="false"></i>
+                                                                    <input type="checkbox" id="allowed-contact-in-edit" name="allowed-contact-in-edit"/>
                                                                 </span>
                                                             </div>
                                                             <input type="text" class="form-control" value=""

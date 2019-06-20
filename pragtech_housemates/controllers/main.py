@@ -2563,6 +2563,7 @@ class FlatMates(http.Controller):
     @http.route('/verification_action_social_media', auth='public', type='json', website=False)
     def get_verification_action_social_media(self):
         print ("Insideeeeeeeeeee")
+        instagram = None
 
         base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
 
@@ -2571,7 +2572,9 @@ class FlatMates(http.Controller):
         insta_redirect_uri = '&redirect_uri='+base_url+'/verify_instagram_token'
         response_type = '&response_type=code'
 
-        instagram = insta_url+insta_client_id+insta_redirect_uri+response_type
+        print('CLIKKK : ',insta_client_id)
+        if insta_client_id:
+            instagram = insta_url+insta_client_id+insta_redirect_uri+response_type
         mobile=request.env.user.partner_id.mobile
 
         facebook = "https://www.facebook.com/v3.3/dialog/oauth?client_id=578866759262786&redirect_uri=http://localhost:8023/verify_facebook_token&scope=user_link"
@@ -3132,6 +3135,12 @@ class FlatMates(http.Controller):
         if 'image' in kwargs:
             data  = kwargs['image'].split(',')
             res_user.sudo().write({'image': data[1]})
+
+        if 'is_allowed_to_contact' in kwargs and kwargs.get('is_allowed_to_contact'):
+            print('trueeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+            if res_user.partner_id.mobile and not res_user.partner_id.allowed_to_contact:
+                print('not checkeddddddddddddddddddddddddddddd')
+                res_user.partner_id.sudo().write({'allowed_to_contact':True})
 
     @http.route(['/set_user_profile_pic'], type='json', auth="public", website=True, )
     def set_user_profile_pic(self, **kwargs):

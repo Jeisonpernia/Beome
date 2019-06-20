@@ -276,16 +276,23 @@ $(document).on('keyup','.find-place-add-suburbs-search',function(e)
     }
 
 })
-//$('input').focus(function(){
-//  console.log ("In jsssssssssssssssssssss", $(this).siblings())
-//  $(this).siblings().addClass('focused')
-//});
-//
-//$('input').blur(function(){
-//  var inputValue = $(this).val();
-//  if ( inputValue == "" )
-//    $(this).siblings().removeClass('focused');
-//})
+
+
+
+///////////////////////////////////////////////////////////////////////////
+$('input').focus(function(){
+  console.log ("In jsssssssssssssssssssss", $(this).siblings())
+  $(this).siblings().addClass('focused')
+});
+
+$('input').blur(function(){
+  var inputValue = $(this).val();
+  if ( inputValue == "" )
+    $(this).siblings().removeClass('focused');
+})
+//////////////////////////////////////////////////////////////////////////
+
+
 
 $('.search-dropdown-menu').scroll(function() {
     console.log ("Inside Scrolllllllllllllllllllll")

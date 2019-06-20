@@ -74,6 +74,19 @@ class WebsiteSale(WebsiteSale):
                 'amount':product.list_price,
                 'no_of_days':product.no_of_days
             })
+            feature_list= []
+            if product.feature_ids:
+                for feature in product.feature_ids:
+                    feature_dict = {
+                        feature.feature_type:feature.name
+                    }
+                    feature_list.append(feature_dict)
+
+            print('Feature List : ',feature_list)
+            if feature_list:
+                data.update({
+                    'features':feature_list
+                })
         return data
 
     @http.route(['/send_invoice_mail'], type='json', auth="public", website=True)

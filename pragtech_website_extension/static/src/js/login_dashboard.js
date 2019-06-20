@@ -274,6 +274,37 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                             $(".plan-name").text(plan)
                             $(".plan-amount").text(amount)
                             $(".plan-days").text(no_of_days)
+
+                            var features = data['result']['features']
+                            for (var i=0;i<features.length;i++){
+                                var feature = features[i]
+//                                console.log('Featuressssss : ',feature)
+                                if (feature['send_message']){
+                                    var send_msg = feature['send_message']
+                                    console.log('send msg : ',send_msg)
+                                    $(".plan-features").append('<li>'+ send_msg +'<span class="icon"><svg class="early-bird" viewBox="0 0 24 19"><path class="fill" d="M21.08.79c-.348-.838-3.95-2.19-5.138 3.204L9.66 8.774.264 14.487l.47.165 1.25-.37L0 15.47l.65.228 6.726-2.028s3.034.42 5.398.422l-.334.68c-.112.228.84 2.515 1.19 3.604l-1.778.275c-.212.033-.12.36.09.327l1.872-.29 1.873.29c.21.032.3-.294.088-.326l-1.794-.276-.08-.28-.32-1.096-.594-2.044-.004-.012c.072-.147 2.342-1.197 2.342-1.197h-.002c8.246-3.012 3.704-9.918 5.442-10.99C21.494 2.302 24 1.626 24 1.626c0-.77-2.92-.837-2.92-.837z"></path></svg></span><span class="bold-text">Early Bird</span><span class="info-tooltip"><svg class="info-icon"viewBox="0 0 50 50"><path class="fill" d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path></svg></span></li>')
+
+                                }
+
+                                if (feature['enquiries']){
+                                    var enquiries = feature['enquiries']
+                                    console.log('enquiries : ',enquiries)
+                                    $(".plan-features").append('<li>'+ enquiries +'<span class="info-tooltip"><svg class="info-icon" viewBox="0 0 50 50"><path class="fill" d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path></svg></span></li>')
+                                }
+
+                                if (feature['mobile_number']){
+                                    var access_mobile = feature['mobile_number']
+                                    console.log('access_mobile : ',access_mobile)
+                                    $(".plan-features").append('<li>'+ access_mobile +'**<span class="info-tooltip"><svg class="info-icon" viewBox="0 0 50 50"><path class="fill" d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path></svg></span></li>')
+                                }
+
+                                if (feature['social_media']){
+                                    var social_media = feature['social_media']
+                                    console.log('social_media : ',social_media)
+                                    $(".plan-features").append('<li>'+ social_media +'**<span class="info-tooltip"><svg class="info-icon" viewBox="0 0 50 50"><path class="fill" d="M25 0C11.215 0 0 11.215 0 25s11.215 25 25 25 25-11.215 25-25S38.785 0 25 0zm1.506 36.935c0 .215-.144.36-.36.36h-2.294c-.215 0-.358-.145-.358-.36V20.473c0-.215.144-.36.358-.36h2.295c.216 0 .36.145.36.36v16.462zm.072-21.053c0 .215-.145.36-.36.36H23.78c-.216 0-.357-.145-.357-.36v-2.618c0-.215.142-.36.357-.36h2.44c.214 0 .358.145.358.36v2.618z"></path></svg></span></li>')
+                                }
+
+                            }
                         }
                     }
             })

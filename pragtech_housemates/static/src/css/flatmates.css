@@ -2588,6 +2588,31 @@ background: #11836c;
   padding: 0px 6px;
 }
 
+.form-control-placeholder1 {
+  position: absolute;
+  top: 0;
+  padding: 12px;
+  transition: all 200ms;	
+  opacity: 0.5;
+  font-weight: normal;
+  color: #212529;
+  left:35px;
+}
+
+.form-control:focus + .form-control-placeholder1 {
+  font-size: 75%;
+  transform: translate3d(0, -60%, 0);
+  opacity: 1;
+  background: #fff;
+  padding-left: 0;
+  margin-left: 6px;
+  padding: 0px 6px;
+}
+
+#about_room_popup .form-control:focus{
+	border:1px solid #ced4da; 
+}
+
 .back-arrow{
   color: #2f3a4a;
   margin-top: 10px;
