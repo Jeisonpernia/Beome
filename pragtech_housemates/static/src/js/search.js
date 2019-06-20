@@ -30,6 +30,18 @@ function calculate_distance ( lat1, lat2, lon1, lon2)
 
 $(document).ready(function() {
 
+    $(".add-green-class").on('click',function(){
+        console.log('wwwwwwwwwwwwwwwwwwwwwwwww',$(this))
+        if($(this).find('i').hasClass('fa-times') == false){
+            console.log('ifffffffffffffffffffffffffffffffff')
+            $(this).find(".green-class").css('background-color','#e4e5e6')
+        }
+        else{
+            console.log('elseeeeeeeeeeeeeeeeeeeeeeeeeee')
+            $(this).find(".green-class").css('background-color','#11836c')
+        }
+    })
+
 $(document).on('keyup','.find-place-add-suburbs-search',function(e)
     {
     var data;

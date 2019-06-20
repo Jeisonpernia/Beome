@@ -511,7 +511,17 @@ var property_id=path.split('list_place_preview').pop()
 })
 
 
-
+    $(".update-accepting").on('click',function(){
+        console.log('wwwwwwwwwwwwwwwwwwwwwwwww',$(this))
+        if($(this).find('i').hasClass('fa-times') == false){
+            console.log('ifffffffffffffffffffffffffffffffff in accept')
+            $(this).find(".accept-check").css('background-color','#e4e5e6')
+        }
+        else{
+            console.log('elseeeeeeeeeeeeeeeeeeeeeeeeeee in accept ')
+            $(this).find(".accept-check").css('background-color','#11836c')
+        }
+    })
 
 
 

@@ -187,12 +187,12 @@
 
                                     <div class="advanced-option mt-4">
                                         <div class="form-group row">
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right">
                                                 <input type="text" class="form-control filter-btn" id="room_avail_date_id" name="search_room_avail_date"
                                                        placeholder="Available from"/>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-left">
                                                 <select class="form-control" id="search_gender" name="search_gender">
                                                     <option>select gender</option>
                                                     <option value="anyone">Any gender</option>
@@ -202,7 +202,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right">
                                                 <select class="form-control search-room-types" id="search_room_type_id" name="search_room_type">
                                                     <option value="">All rooms</option>
                                                     <!--<option>Private room</option>-->
@@ -210,7 +210,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-left">
                                                 <select class="form-control" id="search_room_bathroom_type_id" name="search_room_bathroom_type">
                                                     <option value="">All bathroom types</option>
                                                     <!--<option>Ensuite bathroom</option>-->
@@ -218,7 +218,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right">
                                                 <select class="form-control" id="search_room_furnsh_type_id" name="search_room_furnsh_type">
                                                     <option value="">Any furnishing</option>
                                                     <!--<option>Furnished Room</option>-->
@@ -226,7 +226,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-left">
                                                 <select class="form-control" id="search_stay_len_id" name="search_stay_len">
                                                     <option value="">All stay lengths</option>
                                                     <!--<option>1 week</option>-->
@@ -242,7 +242,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right">
                                                 <!--<div class="dropdown show">
                                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Dropdown link
@@ -293,7 +293,7 @@
                                             </div>
 
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-left">
                                                 <select class="form-control" id="search_room_parking_type_id" name="search_room_parking_type">
                                                     <option value="">Any parking</option>
                                                     <!--<option>No parking</option>-->
@@ -302,7 +302,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right">
                                                 <select class="form-control" id="search_avail_bedrooms_id" name="search_bedrooms">
                                                     <option value="">Available bedrooms</option>
                                                     <!--<option>1 bedroom</option>-->
@@ -324,10 +324,10 @@
                                             </div>
 
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right lgbt-friendly checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right lgbt-friendly checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value=""
                                                            id="search_check_lgbt" name="LGBTI" readonly="true"/>
@@ -335,10 +335,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-left checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value=""
                                                            id="search_check_retirees" name="retirees" readonly="true"/>
@@ -346,10 +346,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control"
                                                            value="" id="search_check_student" name="students" readonly="true"/>
@@ -357,10 +357,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-left checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value=""
                                                            id="search_check_smokers" name="smokers" readonly="true"/>
@@ -368,10 +368,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value=""
                                                            id="search_check_backpackers" name="backpackers" readonly="true"/>
@@ -379,10 +379,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-left checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value=""
                                                            id="search_check_children" name="children" readonly="true"/>
@@ -390,10 +390,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value=""
                                                            id="search_check_fourty_year_old" name="fourty_year_old" readonly="true"/>
@@ -401,10 +401,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-left checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-left checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value=""
                                                            id="search_check_on_welfare" name="on_welfare" readonly="true"/>
@@ -412,10 +412,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 mt-3 btn-padding-right checkbox-group">
+                                            <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right checkbox-group add-green-class">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fa fa-times" aria-hidden="false"></i></span>
+                                                        <span class="input-group-text green-class"><i class="fa fa-times" aria-hidden="false"></i></span>
                                                     </div>
                                                     <input type="text" class="form-control" value=""
                                                            id="search_check_pets" name="pets" readonly="true"/>
@@ -448,7 +448,7 @@
                                         <!--<input type="text" class="form-control" id="" placeholder="Max Rent" />-->
                                         <!--</div>-->
                                         <input type="hidden" name="listing_type" value="find"/>
-                                        <div class="col-lg-6 col-12 btn-padding-right">
+                                        <div class="col-lg-6 col-md-6 col-12 btn-padding-right">
                                             <select class="form-control" id="gender_selection" name="gender_selection">
                                                 <option name="find_all_genders">All genders</option>
                                                 <option name="find_females">Females</option>
@@ -460,7 +460,7 @@
                                         </div>
 
 
-                                        <div class="col-lg-6 col-12 btn-padding-left">
+                                        <div class="col-lg-6 col-md-6 col-12 btn-padding-left">
                                             <select class="form-control" id="photo_first" name="photo_first">
                                                 <option name="find_photos">Photos first</option>
                                                 <option name="find_newest">Newest listings</option>
@@ -486,21 +486,21 @@
                                         <div class="search-min-budget mt-3">
                                             <div class="form-group row">
 
-                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-right">
                                                     <input type="text" class="form-control" id="flatmates-min-age" name="find_min_age"/>
                                                     <label class="form-control-placeholder" for="flatmates-min-age">Min age</label>
                                                 </div>
 
-                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-left btn-padding-right">
                                                     <input type="text" class="form-control" id="flatmates-max-age" name="find_max_age"/>
                                                     <label class="form-control-placeholder" for="flatmates-max-age">Max age</label>
                                                 </div>
-                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-right">
                                                     <input type="text" class="form-control" id="flatmates-min-rent" name="find_min_rent"/>
                                                     <label class="form-control-placeholder" for="flatmates-min-rent">Min rent</label>
                                                 </div>
 
-                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-left btn-padding-right">
                                                     <input type="text" class="form-control" id="flatmates-max-rent" name="find_max_rent"/>
                                                     <label class="form-control-placeholder" for="flatmates-max-rent">Max rent</label>
                                                 </div>
@@ -514,12 +514,12 @@
 
 
                                         <div class="form-group row">
-                                            <div class="col-lg-6 col-12 btn-padding-right">
+                                            <div class="col-lg-6 col-md-6 col-12 btn-padding-right">
                                                 <input type="text" class="form-control filter-btn"
                                                        id="flat_avail_date_id" name="flat_avail_date_id" placeholder="Available from"/>
                                             </div>
 
-                                            <div class="col-lg-6 col-12 btn-padding-left">
+                                            <div class="col-lg-6 col-md-6 col-12 btn-padding-left">
                                                 <select class="form-control" id="find_property_type" name="find_property_type">
                                                 </select>
                                             </div>
@@ -529,17 +529,17 @@
                                         <div class="search-min-stay mt-3">
                                             <div class="form-group row">
 
-                                                <div class="col-lg-3 col-6 btn-padding-right">
+                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-right">
                                                     <select class="form-control" id="find_min_stay" name="find_min_stay">
                                                     </select>
                                                 </div>
 
-                                                <div class="col-lg-3 col-6 btn-padding-left btn-padding-right">
+                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-left btn-padding-right">
                                                     <select class="form-control" id="find_max_stay" name="find_max_stay">
                                                     </select>
                                                 </div>
 
-                                                <div class="col-lg-6 col-12 btn-padding-left">
+                                                <div class="col-lg-6 col-md-6 col-12 btn-padding-left">
                                                     <div class="radio-checkbox">
                                                         <div class="select-check">
 
@@ -578,7 +578,7 @@
                                                     <!--</select>-->
                                                 </div>
 
-                                                <div class="col-lg-6 col-12 mt-3 btn-padding-right">
+                                                <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right">
                                                     <div class="radio-checkbox">
                                                         <div class="select-check">
 

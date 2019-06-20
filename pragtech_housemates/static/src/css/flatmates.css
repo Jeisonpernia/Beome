@@ -2350,7 +2350,7 @@ background: #11836c;
 	float: left;
 	display: block;
 	width: 100%;
-	margin-bottom: 1em;
+	
 }
 .select-check {
 	padding: 0;
@@ -2623,7 +2623,7 @@ background: #11836c;
 }
 
 #ui-datepicker-div{
-	z-index: 1041 !important;
+	z-index: 1042 !important;
 	padding: 15px;
 	width: 300px;
 	margin-top: 5px;
@@ -2942,4 +2942,19 @@ background-color: #f7bb42;
 	-moz-border-radius: 50px;
 	padding: 0 20px;
 	text-align: center;
+}
+
+.create-listing-padding{
+	padding: 0px;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+.create-listing-btn-padding{
+	padding: 0px;
+}
+
+.property-detail-right .login-form img{
+	width: 60px;
+	height: 60px;
 }

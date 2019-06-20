@@ -723,7 +723,7 @@
 
                                     </div>
 
-                                    <div class="col-lg-4 mb-4 text-center">
+                                    <div class="col-lg-4 col-6 mb-4 text-center">
                                         <div class="row" style="min-height:40px;">
                                             <div class="col-12">
                                             </div>
@@ -755,7 +755,7 @@
 
                                     </div>
 
-                                    <div class="col-lg-4 mb-4 text-center">
+                                    <div class="col-lg-4 col-6 mb-4 text-center">
                                         <div class="row" style="min-height:40px;">
                                             <div class="col-12">
                                                 <button type="button" class="btn btn-transparent-edit btn-lg"
@@ -1254,7 +1254,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1275,7 +1275,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1296,7 +1296,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1317,7 +1317,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1337,7 +1337,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1357,7 +1357,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1377,7 +1377,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1397,7 +1397,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1415,7 +1415,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1434,7 +1434,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1455,7 +1455,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_employment_status_in_find">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-status-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1803,7 +1803,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_pref_accommodation">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-pref-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1824,7 +1824,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_pref_accommodation">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-pref-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1845,7 +1845,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_pref_accommodation">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-pref-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1866,7 +1866,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_pref_accommodation">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-pref-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1887,7 +1887,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_pref_accommodation">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-pref-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1908,7 +1908,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_pref_accommodation">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-pref-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1928,7 +1928,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_pref_accommodation">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-pref-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -1949,7 +1949,7 @@
                                                                     <div class="col-lg-4 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group edit_pref_accommodation">
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
-                                                                                <span class="input-group-text">
+                                                                                <span class="input-group-text add-pref-checked">
                                                                                     <i class="fa fa-times"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
@@ -2398,7 +2398,7 @@
                                     </strong>
                                 </p>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-2 col-4 col-sm-4 col-md-4">
                                 <ul>
                                     <li>
                                         <a href="#">About us</a>
@@ -2411,7 +2411,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-2 col-4 col-sm-4 col-md-4">
                                 <ul>
                                     <li>
                                         <a href="#">Privacy policy</a>
@@ -2422,7 +2422,7 @@
 
                                 </ul>
                             </div>
-                            <div class="col-lg-2 social-icons text-center">
+                            <div class="col-lg-2 col-4 col-sm-4 col-md-4 social-icons text-center">
                                 <p class="p14">Connect with us on:</p>
                                 <ul>
                                     <li>

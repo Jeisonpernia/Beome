@@ -20,6 +20,19 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
 //                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",ul.children())
                         console.log ("Dataalist_place_previewaaaaaaaaaaaaaaaaaaaaaa",data['result']['listings'])
 
+                        text_truncate = function(str, length, ending) {
+                            if (length == null) {
+                              length = 100;
+                            }
+                            if (ending == null) {
+                              ending = '...';
+                            }
+                            if (str.length > length) {
+                              return str.substring(0, length - ending.length) + ending;
+                            } else {
+                              return str;
+                            }
+                        };
 
                         if (data['result']['user_profile_pic']){
                              var user_profile_pic = data['result']['user_profile_pic']
@@ -53,40 +66,83 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                             listing_address = data['result']['listings'][index]['address']
                             if (data['result']['listings'][index]['status'] == 'pending'){
                             if (data['result']['listings'][index]['type'] == 'list'){
-                            $('.user_listings').append('<div class="row find"><div class="col-lg-2 property_listing_status" style="background-color: #f7bb42;text-align: center;margin-bottom: 5px;"><span class="status-label-pending">Pending</span></div><div class="col-lg-10 property_listing"><li id="listing_li<%=listing_id%>" value='+listing_id+'><div></div><a href="#">'+data['result']['listings'][index]['address']+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span>Edit</span></span></span></a></li></div> </div>')
+                                if ($(window).width() <= 768 ){
+                                    var address1 = text_truncate(data['result']['listings'][index]['address'],25,'...')
+                                }
+                                else{
+                                    var address1 = text_truncate(data['result']['listings'][index]['address'],44,'...')
+                                }
+
+                                $('.user_listings').append('<div class="row find"><div class="col-lg-2 col-md-2 col-3 property_listing_status" style="background-color: #f7bb42;text-align: center;margin-bottom: 5px;"><span class="status-label-pending">Pending</span></div><div class="col-lg-10 col-md-10 col-9 property_listing"><li id="listing_li<%=listing_id%>" value='+listing_id+'><div></div><a class="address-listing" href="#">'+address1+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span class="remove-edit">Edit</span></span></span></a></li></div> </div>')
                             }
 
                            else if (data['result']['listings'][index]['type'] == 'find'){
-                            $('.user_listings_find').append('<div class="row find"><div class="col-lg-2 property_listing_status" style="background-color:#f7bb42;text-align: center;margin-bottom: 5px;"><span class="status-label-pending">Pending</span></div><div class="col-lg-10 property_listing"><li id="find_li<%=listing_id%>" value='+listing_id+'><div class="icons"><svg class="login" viewBox="0 0 26 26"><path class="fill"d="M19 6c0 3.9-2.7 8-6 8S7 9.9 7 6s2.7-6 6-6 6 2.1 6 6z"></path><path class="fill"d="M16 14.2v-2.7h-6v2.7c0 .6-.4 1.1-.9 1.2C5.2 16.6 2 19.2 2 20.7v1.8C2 24.4 6.9 26 13 26s11-1.6 11-3.5v-1.8c0-1.4-3.1-4.1-7.1-5.3-.5-.1-.9-.7-.9-1.2z"></path></svg></div><a href="#">'+data['result']['listings'][index]['suburb_data']+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span>Edit</span></span></span> </a></li></div> </div>')
+                                if ($(window).width() <= 768 ){
+                                    var address2 = text_truncate(data['result']['listings'][index]['suburb_data'],25,'...')
+                                }
+                                else{
+                                    var address2 = text_truncate(data['result']['listings'][index]['suburb_data'],44,'...')
+                                }
+
+                                $('.user_listings_find').append('<div class="row find"><div class="col-lg-2 col-md-2 col-3 property_listing_status" style="background-color:#f7bb42;text-align: center;margin-bottom: 5px;"><span class="status-label-pending">Pending</span></div><div class="col-lg-10 col-md-10 col-9 property_listing"><li id="find_li<%=listing_id%>" value='+listing_id+'><div class="icons"><svg class="login" viewBox="0 0 26 26"><path class="fill"d="M19 6c0 3.9-2.7 8-6 8S7 9.9 7 6s2.7-6 6-6 6 2.1 6 6z"></path><path class="fill"d="M16 14.2v-2.7h-6v2.7c0 .6-.4 1.1-.9 1.2C5.2 16.6 2 19.2 2 20.7v1.8C2 24.4 6.9 26 13 26s11-1.6 11-3.5v-1.8c0-1.4-3.1-4.1-7.1-5.3-.5-.1-.9-.7-.9-1.2z"></path></svg></div><a class="address-listing" href="#">'+address2+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span class="remove-edit">Edit</span></span></span> </a></li></div> </div>')
                             }
                             }
 
                             else if (data['result']['listings'][index]['status'] == 'not_live'){
                             if (data['result']['listings'][index]['type'] == 'list'){
-                            $('.user_listings').append('<div class="row find"><div class="col-lg-2 property_listing_status" style="background-color: #808080;text-align: center;margin-bottom: 5px;"><span class="status-label-not_live">Not Live</span></div><div class="col-lg-10 property_listing"><li id="listing_li<%=listing_id%>" value='+listing_id+'><div></div><a href="#">'+data['result']['listings'][index]['address']+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span>Edit</span></span> </span></a></li></div> </div>')
+                                if ($(window).width() <= 768 ){
+                                    var address3 = text_truncate(data['result']['listings'][index]['address'],25,'...')
+                                }
+                                else{
+                                    var address3 = text_truncate(data['result']['listings'][index]['address'],44,'...')
+                                }
+
+                                $('.user_listings').append('<div class="row find"><div class="col-lg-2 col-md-2 col-3 property_listing_status" style="background-color: #808080;text-align: center;margin-bottom: 5px;"><span class="status-label-not_live">Not Live</span></div><div class="col-lg-10 col-md-10 col-9 property_listing"><li id="listing_li<%=listing_id%>" value='+listing_id+'><div></div><a class="address-listing" href="#">'+address3+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span class="remove-edit">Edit</span></span> </span></a></li></div> </div>')
                             }
 
                            else if (data['result']['listings'][index]['type'] == 'find'){
-                            $('.user_listings_find').append('<div class="row find"><div class="col-lg-2 property_listing_status" style="background-color: #808080;text-align: center;margin-bottom: 5px;"><span class="status-label-not_live">Not Live</span></div><div class="col-lg-10 property_listing"><li id="find_li<%=listing_id%>" value='+listing_id+'><div class="icons"><svg class="login" viewBox="0 0 26 26"><path class="fill"d="M19 6c0 3.9-2.7 8-6 8S7 9.9 7 6s2.7-6 6-6 6 2.1 6 6z"></path><path class="fill"d="M16 14.2v-2.7h-6v2.7c0 .6-.4 1.1-.9 1.2C5.2 16.6 2 19.2 2 20.7v1.8C2 24.4 6.9 26 13 26s11-1.6 11-3.5v-1.8c0-1.4-3.1-4.1-7.1-5.3-.5-.1-.9-.7-.9-1.2z"></path></svg></div><a href="#">'+data['result']['listings'][index]['suburb_data']+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span>Edit</span></span></span> </a></li></div> </div>')
+                                if ($(window).width() <= 768 ){
+                                    var address4 = text_truncate(data['result']['listings'][index]['suburb_data'],25,'...')
+                                }
+                                else{
+                                    var address4 = text_truncate(data['result']['listings'][index]['suburb_data'],44,'...')
+                                }
+
+                                 $('.user_listings_find').append('<div class="row find"><div class="col-lg-2  col-md-2 col-3 property_listing_status" style="background-color: #808080;text-align: center;margin-bottom: 5px;"><span class="status-label-not_live">Not Live</span></div><div class="col-lg-10 col-md-10 col-9 property_listing"><li id="find_li<%=listing_id%>" value='+listing_id+'><div class="icons"><svg class="login" viewBox="0 0 26 26"><path class="fill"d="M19 6c0 3.9-2.7 8-6 8S7 9.9 7 6s2.7-6 6-6 6 2.1 6 6z"></path><path class="fill"d="M16 14.2v-2.7h-6v2.7c0 .6-.4 1.1-.9 1.2C5.2 16.6 2 19.2 2 20.7v1.8C2 24.4 6.9 26 13 26s11-1.6 11-3.5v-1.8c0-1.4-3.1-4.1-7.1-5.3-.5-.1-.9-.7-.9-1.2z"></path></svg></div><a class="address-listing" href="#">'+address4+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span class="remove-edit">Edit</span></span></span> </a></li></div> </div>')
                             }
                             }
 
                             else if (data['result']['listings'][index]['status'] == 'live'){
-                            if (data['result']['listings'][index]['type'] == 'list'){
-                            $('.user_listings').append('<div class="row find"><div class="col-lg-2 property_listing_status" style="background-color: #6495ed;text-align: center;margin-bottom: 5px;"><span class="status-label-live">Live</span></div><div class="col-lg-10 property_listing"><li id="listing_li<%=listing_id%>" value='+listing_id+'><div></div><a href="#">'+data['result']['listings'][index]['address']+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span>Edit</span></span></span></a></li></div></div>')
+                                if (data['result']['listings'][index]['type'] == 'list'){
+                                    if ($(window).width() <= 768 ){
+                                        console.log('hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+                                        var address5 = text_truncate(data['result']['listings'][index]['address'],25,'...')
+                                    }
+                                    else{
+                                        console.log('hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee2222222')
+                                        var address5 = text_truncate(data['result']['listings'][index]['address'],44,'...')
+                                    }
+
+                                    $('.user_listings').append('<div class="row find"><div class="col-lg-2 col-md-2 col-3 property_listing_status" style="background-color: #6495ed;text-align: center;margin-bottom: 5px;"><span class="status-label-live">Live</span></div><div class="col-lg-10 col-md-10 col-9 property_listing"><li id="listing_li<%=listing_id%>" value='+listing_id+'><div></div><a class="address-listing" href="#">'+address5+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span class="remove-edit">Edit</span></span></span></a></li></div></div>')
+                                }
+                                else if (data['result']['listings'][index]['type'] == 'find'){
+                                    if ($(window).width() <= 768 ){
+                                        var address6 = text_truncate(data['result']['listings'][index]['suburb_data'],25,'...')
+                                    }
+                                    else{
+                                        var address6 = text_truncate(data['result']['listings'][index]['suburb_data'],44,'...')
+                                    }
+
+                                    $('.user_listings_find').append('<div class="row find"><div class="col-lg-2  col-md-2 col-3 property_listing_status" style="background-color: #6495ed;text-align: center;margin-bottom: 5px;"><span class="status-label-live">Live</span></div><div class="col-lg-10 col-md-10 col-9 property_listing"><li id="find_li<%=listing_id%>" value='+listing_id+'><div class="icons"><svg class="login" viewBox="0 0 26 26"><path class="fill"d="M19 6c0 3.9-2.7 8-6 8S7 9.9 7 6s2.7-6 6-6 6 2.1 6 6z"></path><path class="fill"d="M16 14.2v-2.7h-6v2.7c0 .6-.4 1.1-.9 1.2C5.2 16.6 2 19.2 2 20.7v1.8C2 24.4 6.9 26 13 26s11-1.6 11-3.5v-1.8c0-1.4-3.1-4.1-7.1-5.3-.5-.1-.9-.7-.9-1.2z"></path></svg></div><a class="address-listing" href="#">'+address6+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span class="remove-edit">Edit</span></span> </span></a></li></div> </div>')
+                                }
                             }
 
-                           else if (data['result']['listings'][index]['type'] == 'find'){
-                            $('.user_listings_find').append('<div class="row find"><div class="col-lg-2 property_listing_status" style="background-color: #6495ed;text-align: center;margin-bottom: 5px;"><span class="status-label-live">Live</span></div><div class="col-lg-10 property_listing"><li id="find_li<%=listing_id%>" value='+listing_id+'><div class="icons"><svg class="login" viewBox="0 0 26 26"><path class="fill"d="M19 6c0 3.9-2.7 8-6 8S7 9.9 7 6s2.7-6 6-6 6 2.1 6 6z"></path><path class="fill"d="M16 14.2v-2.7h-6v2.7c0 .6-.4 1.1-.9 1.2C5.2 16.6 2 19.2 2 20.7v1.8C2 24.4 6.9 26 13 26s11-1.6 11-3.5v-1.8c0-1.4-3.1-4.1-7.1-5.3-.5-.1-.9-.7-.9-1.2z"></path></svg></div><a href="#">'+data['result']['listings'][index]['suburb_data']+'<span class="property_listing_edit"><span class="link-edit"><svg class="edit" width="16" height="15" viewBox="0 0 512 512"><path class="fill"d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path><ellipse class="fill" cx="12.431" cy=".75" rx=".738" ry=".75"></ellipse></svg><span>Edit</span></span> </span></a></li></div> </div>')
-                            }
-                            }
+                           }
 
-
-
-                         }
                          $('.user_listings_div').css('display','block')
                          $('.no_user_listings_div').css('display','none')
-                        }
+
+                         }
 
 
                         else{

@@ -210,6 +210,7 @@ margin: 20px 0;
 		left: 0px;
 		position: absolute;
 		padding-right: 0px;
+		margin-left: -15px;
 	}
 	
 	
@@ -313,7 +314,6 @@ margin: 20px 0;
 	
 	.radio-checkbox{
 		margin-bottom: 0px;
-		margin-top: 15px;
 	}
 	
 	.house-mates-logo{
@@ -340,16 +340,49 @@ margin: 20px 0;
 		display: none;
 	}
 	
+	.card-img-top{
+		width: 120px;
+		height: 120px;
+	}
+	
+	.top-menu-dropdown .modal-header{
+		right: 5px;
+	}
+	
+.create-listing-padding{
+	padding: 0 15px;
+}
+
+.create-listing-btn-padding{
+	padding: 0 15px;
+}
+	
+	.remove-edit{
+		display: none;
+	}
+	
+	.user_listings_div .link-edit{
+		width: auto;
+	}	
+	
+	.footer_bg .social-icons li{
+		padding: 1px;
+	}
+		#about_room_popup, #property-description-edit_popup, #about_property_popup, #list_place_property_preferences_popup, #applicant_information_popup, #general_information_popup_id, #aboutme_popup, #aboutme_features_popup, #property_preferences_popup, #preferred_accommodation_popup, #preferred_locations_popup{
+		padding-right: 0px !important;
+	}
+	
+	.find_preview_listings{
+		margin-top: 20px;
+	}
+	
+
+	
 }
 
 @media only screen and (max-width: 768px) {
 	
-		.search-dropdown-responsive{
-		border: 0px;
-		left: 0px;
-		position: absolute;
-		padding-right: 0px;
-	}
+
 	
 	
 	#top_menu_collapse .search{
@@ -409,6 +442,15 @@ header .navbar-brand.logo {width:100%;}
 
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
+	
+			.search-dropdown-responsive{
+		border: 0px;
+		left: 0px;
+		position: absolute;
+		padding-right: 0px;
+		margin-left: -38px;
+	}
+	
 	section{
 	padding: 20px 0px;
 }
@@ -466,6 +508,43 @@ margin: 20px 0;
 	height: 35px;
 	line-height: 35px;
 	margin-right: 10px;
+	}
+	
+		#about_room_popup, #property-description-edit_popup, #about_property_popup, #list_place_property_preferences_popup, #applicant_information_popup, #general_information_popup_id, #aboutme_popup, #aboutme_features_popup, #property_preferences_popup, #preferred_accommodation_popup, #preferred_locations_popup{
+		padding-right: 0px !important;
+	}
+	
+	#dropdownMenuButton	.modal-dialog{
+		max-width: 100%;
+	}	
+	
+	.card-img-top{
+		width: 120px;
+		height: 120px;
+	}
+	
+.create-listing-padding{
+	padding: 0 15px;
+}
+
+.create-listing-btn-padding{
+	padding: 0 15px;
+}	
+	
+	.top-menu-dropdown .modal-body{
+		padding: 40px;
+	}	
+	
+	.search-form .btn-padding-left{
+		padding-left: 15px;
+	}
+	
+	.search-form .btn-padding-right{
+		padding-right: 15px;
+	}	
+	
+.search-form #search_sort{
+	margin-top: 15px;
 	}	
 	
 }
@@ -515,6 +594,14 @@ margin: 20px 0;
 	
 	.welcome-img{
 		width: 50%;
+	}
+	
+	#dropdownMenuButton	.modal-dialog{
+		max-width: 100%;
+	}
+	
+	.search-dropdown-menu{
+		max-height: 170px;
 	}
 	
 }

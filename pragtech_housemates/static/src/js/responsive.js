@@ -60,6 +60,21 @@ $(document).ready(function()
                     $(".info-page").find("#add_html_content").show()
                 }
 
+                window.onscroll = function() {myFunction1()};
+
+                function myFunction1() {
+                    console.log('hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+                   if ($(document).scrollTop()>50){
+                        console.log('iffffffffffffffffffffffffffffff')
+                        $(".navbar-brand").css('display','none')
+                   }
+                   else{
+                        console.log('elseeeeeeeeeeeeeeeeeeeeeeeeeee')
+                        $(".navbar-brand").css('display','block')
+                   }
+                }
+
+
 
            }
 

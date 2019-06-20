@@ -127,7 +127,7 @@
                                                                 </div>-->
 
 
-                                                                <div class="image-upload-1">
+                                                                <div class="image-upload-1 text-center">
                                                                     <label for="file-input-22" class="add_image_icon">
                                                                         <img class="card-img-top rounded-circle mx-auto profile-pic-2"
                                                                              src="/pragtech_housemates/static/src/img/avtar.png"
@@ -182,7 +182,7 @@
                                                 </div>
                                                 <div class="col-lg-6 mt-5 no_user_listings_div">
                                                     <div class="row">
-                                                        <div class="col-lg-2">
+                                                        <div class="col-lg-2 col-3">
                                                             <svg class="person" viewBox="0 0 109 260">
                                                                 <g fill="none" fill-rule="evenodd">
                                                                     <path d="M64.39 146.23c0 3.896-3.15 7.056-7.036 7.056-3.886 0-7.036-3.16-7.036-7.057 0-3.9 3.15-7.058 7.036-7.058 3.885 0 7.035 3.16 7.035 7.057"
@@ -258,7 +258,7 @@
                                                         </div>
 
 
-                                                        <div class="col-lg-10">
+                                                        <div class="col-lg-10 col-9">
                                                             <h4>Hey
                                                                 <t t-if="user_id.firstname">
                                                                     <span t-esc="user_id.firstname"/>
@@ -410,9 +410,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-lg-10">
-                                                            <span style="font-size: large; margin-left: -15px; ">Create New Listings</span></div>
-                                                                <div class="col-lg-6" style="margin-left: -19px;">
+                                                        <div class="col-lg-10 create-listing-padding">
+                                                            Create New Listings</div>
+                                                                <div class="col-lg-6 create-listing-btn-padding">
                                                                     <a class="btn btn-orange btn-block mb-2 list_place_check_login_user"
                                                                        href="/listplace" type="button"
                                                                        id="list_place_check_login_user">List my place

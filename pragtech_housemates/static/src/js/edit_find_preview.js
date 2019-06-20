@@ -558,6 +558,30 @@ var property_id=path.split('find_place_preview').pop()
 
 })
 
+    $(".edit_employment_status_in_find").on('click',function(){
+        console.log('wwwwwwwwwwwwwwwwwwwwwwwww',$(this))
+        if($(this).find('i').hasClass('fa-times') == false){
+            console.log('ifffffffffffffffffffffffffffffffff find')
+            $(this).find(".add-status-checked").css('background-color','#e4e5e6')
+        }
+        else{
+            console.log('elseeeeeeeeeeeeeeeeeeeeeeeeeee find')
+            $(this).find(".add-status-checked").css('background-color','#11836c')
+        }
+    })
+
+     $(".edit_pref_accommodation").on('click',function(){
+        console.log('wwwwwwwwwwwwwwwwwwwwwwwww',$(this))
+        if($(this).find('i').hasClass('fa-times') == false){
+            console.log('ifffffffffffffffffffffffffffffffff find')
+            $(this).find(".add-pref-checked").css('background-color','#e4e5e6')
+        }
+        else{
+            console.log('elseeeeeeeeeeeeeeeeeeeeeeeeeee find')
+            $(this).find(".add-pref-checked").css('background-color','#11836c')
+        }
+    })
+
 
 
 

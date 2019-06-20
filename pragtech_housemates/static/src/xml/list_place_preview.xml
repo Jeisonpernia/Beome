@@ -1274,7 +1274,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-pets"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1294,7 +1294,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-lgbti"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1314,7 +1314,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-students"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1334,7 +1334,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-children"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1353,7 +1353,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-smokers"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1372,7 +1372,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-all_flatmates"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1391,7 +1391,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-fourty_year_old"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1410,7 +1410,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-backpackers"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1430,7 +1430,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-retirees"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -1450,7 +1450,7 @@
                                                                         <div class="col-lg-6 col-12 mb-3 btn-padding-right lgbt-friendly checkbox-group update-accepting">
                                                                             <div class="input-group">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text">
+                                                                                    <span class="input-group-text accept-check">
                                                                                         <i class="fa fa-times icons-accept icon-on_welfare"
                                                                                            aria-hidden="false"></i>
                                                                                     </span>
@@ -2376,7 +2376,7 @@
                                     </strong>
                                 </p>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-6">
+                            <div class="col-lg-2 col-md-4 col-4">
                                 <ul>
                                     <li>
                                         <a href="#">About us</a>
@@ -2389,7 +2389,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-6">
+                            <div class="col-lg-2 col-md-4 col-4">
                                 <ul>
                                     <li>
                                         <a href="#">Privacy policy</a>
@@ -2400,7 +2400,7 @@
 
                                 </ul>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-6 social-icons text-center">
+                            <div class="col-lg-2 col-md-4 col-4 social-icons text-center">
                                 <p class="p14">Connect with us on:</p>
                                 <ul>
                                     <li>

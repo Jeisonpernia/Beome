@@ -108,14 +108,14 @@
 }
 
 
-#verify_mobile_popup .close, #account_settings_popup .close, #email_alert_popup .close, #deactivate_account_popup .close, #why_upgrade_popup .close, #payment_history_popup .close, #account_verification_popup .close{
+#verify_mobile_popup .close, #account_settings_popup .close, #email_alert_popup .close, #deactivate_account_popup .close, #why_upgrade_popup .close, #payment_history_popup .close, #account_verification_popup .close, #reset_password_popup .close{
 	font-size: 48px;
 	box-shadow: none;
 	opacity: 1;
 	color: #2f3a4a;
 }
 
-#verify_mobile_popup .modal-header, #account_settings_popup .modal-header, #email_alert_popup .modal-header, #deactivate_account_popup .modal-header, #why_upgrade_popup .modal-header, #payment_history_popup .modal-header, #account_verification_popup .modal-header{
+#verify_mobile_popup .modal-header, #account_settings_popup .modal-header, #email_alert_popup .modal-header, #deactivate_account_popup .modal-header, #why_upgrade_popup .modal-header, #payment_history_popup .modal-header, #account_verification_popup .modal-header, #reset_password_popup .modal-header{
 	border-bottom: 0px;
 	padding: 0 16px;
 	position: absolute;
@@ -123,7 +123,7 @@
 	right: 0px;
 }
 
-#verify_mobile_popup h3, #account_settings_popup h3, #email_alert_popup h3, #deactivate_account_popup h3, #why_upgrade_popup h3, #payment_history_popup h3, #account_verification_popup h3{
+#verify_mobile_popup h3, #account_settings_popup h3, #email_alert_popup h3, #deactivate_account_popup h3, #why_upgrade_popup h3, #payment_history_popup h3, #account_verification_popup h3, #reset_password_popup h3{
 	font-weight: normal;
 }
 
@@ -136,7 +136,7 @@
 	font-weight: normal;
 }
 
-#verify_mobile_popup input, #account_settings_popup input, #email_alert_popup input, #deactivate_account_popup input{
+#verify_mobile_popup input, #account_settings_popup input, #email_alert_popup input, #deactivate_account_popup input, #reset_password_popup input{
 	height: 50px;
 }
 
@@ -505,7 +505,6 @@ position: absolute;
 }
 
 .user_listings_div .property_listing_status .status-label-pending{
-    background:#f7bb42;
     color:#fff;
 }
 
