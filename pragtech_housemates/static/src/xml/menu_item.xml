@@ -176,7 +176,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="advance-filters mt-2 mb-3">
+                                    <div class="advance-filters mt-2">
 
                                         <div class="text-center">
                                             <a href="#" id='advance-filter-rooms' class="advance-filter">+ Advanced filters</a>
@@ -185,7 +185,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="advanced-option mt-4">
+                                    <div class="advanced-option">
                                         <div class="form-group row">
                                             <div class="col-lg-6 col-md-6 col-12 mt-3 btn-padding-right">
                                                 <input type="text" class="form-control filter-btn" id="room_avail_date_id" name="search_room_avail_date"
@@ -495,12 +495,12 @@
                                                     <input type="text" class="form-control" id="flatmates-max-age" name="find_max_age"/>
                                                     <label class="form-control-placeholder" for="flatmates-max-age">Max age</label>
                                                 </div>
-                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-right">
+                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-left btn-padding-right">
                                                     <input type="text" class="form-control" id="flatmates-min-rent" name="find_min_rent"/>
                                                     <label class="form-control-placeholder" for="flatmates-min-rent">Min rent</label>
                                                 </div>
 
-                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-left btn-padding-right">
+                                                <div class="col-lg-3 col-md-3 col-6 btn-padding-left">
                                                     <input type="text" class="form-control" id="flatmates-max-rent" name="find_max_rent"/>
                                                     <label class="form-control-placeholder" for="flatmates-max-rent">Max rent</label>
                                                 </div>

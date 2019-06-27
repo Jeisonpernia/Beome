@@ -21,6 +21,7 @@ class Housemates(models.Model):
     property_address =  fields.Char()
     street = fields.Char()
     street2 = fields.Char()
+    street3 = fields.Char()
     city = fields.Char()
     state_id = fields.Many2one('res.country.state')
     zip = fields.Char()

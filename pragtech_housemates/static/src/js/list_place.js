@@ -563,6 +563,71 @@ $(document).on('change','#change_photos_find',function()
                     $('.property_something').removeClass("border-red");
                 }
         });
+     var $input2 = $("#weekly_rent");
+        if (window_pathname.includes('rent-bond-bills') && $input2)
+        {
+                     if ($input2.val().length == 0 )
+                    {
+                        $('.styles__errorMessage3').hide();
+                    }
+            //console.log ("In general statement if (window_pathname.includes('about-property'))")
+            if ($input2.val() > 10000)
+                $('.rent-bond-bill-btn').prop("disabled", true)
+        }
+        $input2.on('keyup', function (){
+
+            if ($input2.val() <= 10000 )
+                {
+                    $('.styles__errorMessage3').hide();
+                    // Code added by dhrup
+                    $('#weekly_rent').removeClass("border-red");
+                }
+
+            if ($input2.val() > 10000 )
+                {
+                    $('.styles__errorMessage3').show();
+                    // Code added by dhrup
+                    $('#weekly_rent').addClass("border-red");
+                    $('.rent-bond-bill-btn').prop("disabled", true)
+                }
+            else
+                {
+                    $('.styles__errorMessage3').hide();
+                    // Code added by dhrup
+                    $('#weekly_rent').removeClass("border-red");
+                }
+        });
+
+        $("#min_len_stay").change(function (e) {
+            var value = this.value;
+            $("#max_len_stay option").each(function () {
+                this.disabled = false
+                console.log("--------------ll---------------",typeof value,typeof this.value)
+                if (Number(value) > Number(this.value)){
+                    console.log("--------------kk---------------",value,this.value)
+                    this.disabled = true
+                }
+
+            })
+
+        })
+
+        $("#max_len_stay").change(function (e) {
+            var value = this.value;
+            $("#min_len_stay option").each(function () {
+                this.disabled = false
+
+                if (Number(value) < Number(this.value)){
+                    console.log("-------------- ++ ---------------",value,this.value)
+                    this.disabled = true
+                }
+
+            })
+
+        })
+
+
+
 
 //  = --------------  End of Validations for /listplace/share-house/property-images  -------------- =
 });// End of document

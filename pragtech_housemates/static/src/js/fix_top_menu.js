@@ -7,10 +7,10 @@ $(document).ready(function()
     //console.log("In this function ---------------------",$("header.o_affix_enabled"))
     //console.log("In this function ---------------------",$("#oe_main_menu_navbar"))
 
-    $(".go_back").on("click", function()
-    {
-      window.history.back();
-    });
+//    $(".go_back").on("click", function()
+//    {
+//      window.history.back();
+//    });
 
     var top_div = $("#wrapwrap").find('main')
 //    var main_div = top_div.second()

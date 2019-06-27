@@ -17,6 +17,154 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
     });
 
+    $(document).on('click','.property-rounded-btn-location-link',function(){
+
+         console.log("+++++++++ text of a link +++++++++",this.text)
+         alert('hi')
+         var path=window.location.pathname
+         if (path.indexOf('P') !== -1){
+         var property_id=path.split('P').pop()
+         }
+         var property_preference_location = this.text
+         $.ajax({
+                url : "/get_html_content_property_detail",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                async:false,
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
+                success : function(result) {    // work after controller method return
+                    console.log("---------result['result']['city']---------",result)
+                    if (result)
+                    {
+                    $('.property-rounded-btn-location-link').attr('href','/search/records?listing_type=find&city='+result['result']['suburbs_city']+'&property_preference_location='+property_preference_location)
+                    }
+                }
+         })
+    })
+
+     $(document).on('click','.property-rounded-btn-link',function(){
+
+         console.log("+++++++++ text of a link +++++++++",this.text)
+         var path=window.location.pathname
+         if (path.indexOf('P') !== -1){
+         var property_id=path.split('P').pop()
+         }
+         var property_preference = this.text
+         $.ajax({
+                url : "/get_html_content_property_detail",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                async:false,
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
+                success : function(result) {    // work after controller method return
+                    console.log("---------result['result']['city']---------",result)
+                    if (result)
+                    {
+                    $('.property-rounded-btn-link').attr('href','/search/records?listing_type=list&city='+result['result']['city']+'&property_preference='+property_preference)
+                    }
+                }
+         })
+    })
+
+     $(document).on('click','.subrub_name',function(){
+
+         var path=window.location.pathname
+         if (path.indexOf('P') !== -1){
+         var property_id=path.split('P').pop()
+         }
+         else if (path.indexOf('/list_place_preview') !== -1 || path.indexOf('/find_place_preview') !== -1)
+         {
+                  if (path.indexOf('/list_place_preview') !== -1){
+                  var property_id=path.split('list_place_preview').pop()
+                  console.log("\n---------")
+
+                  }
+                  else{
+                  var property_id=path.split('find_place_preview').pop()
+                  }
+
+         }
+         var subrub_name = this.text
+         $.ajax({
+                url : "/get_html_content_property_detail",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                async:false,
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
+                success : function(result) {    // work after controller method return
+                    console.log("---------result['result']['city']---------",result)
+                    if (result)
+                    {
+                    $('.subrub_name').attr('href','/search/records?listing_type=find&city='+result['result']['suburbs_city']+'&subrub_name='+subrub_name)
+                    }
+                }
+         })
+    })
+
+    $(document).on('click','.property_type',function(){
+
+         var path=window.location.pathname
+         if (path.indexOf('P') !== -1){
+         var property_id=path.split('P').pop()
+         }
+         else if (path.indexOf('/list_place_preview') !== -1 || path.indexOf('/find_place_preview') !== -1)
+         {
+                  if (path.indexOf('/list_place_preview') !== -1){
+                  var property_id=path.split('list_place_preview').pop()
+                  console.log("\n---------")
+
+                  }
+                  else{
+                  var property_id=path.split('find_place_preview').pop()
+                  }
+
+         }
+         var property_type = this.text
+         $.ajax({
+                url : "/get_html_content_property_detail",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                async:false,
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
+                success : function(result) {    // work after controller method return
+                    console.log("---------result['result']['city']---------",result)
+                    if (result)
+                    {
+                    $('.property_type').attr('href','/search/records?listing_type=list&city='+result['result']['city']+'&property_type='+property_type)
+                    }
+                }
+         })
+    })
+    $(document).on('click','.property_street',function(){
+
+         var path=window.location.pathname
+         if (path.indexOf('P') !== -1){
+         var property_id=path.split('P').pop()
+         }
+         var property_street = this.text
+         $.ajax({
+                url : "/get_html_content_property_detail",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                async:false,
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
+                success : function(result) {    // work after controller method return
+                    console.log("---------result['result']['city']---------",result)
+                    if (result)
+                    {
+                    $('.property_street').attr('href','/search/records?listing_type=list&city='+result['result']['city']+'&property_street='+property_street)
+                    }
+                }
+         })
+    })
+
+
+
     if (window.location.href.indexOf("/P") > -1 || window.location.href.indexOf("/list_place_preview") > -1 || window.location.href.indexOf("/find_place_preview") > -1)
     {
 
@@ -47,7 +195,7 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                 contentType: 'application/json',
                 data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
                 success : function(result) {    // work after controller method return
-                    console.log("---------result['result']['city']---------",result['result']['city'])
+                    console.log("---------result['result']['city']---------")
                     if (result)
                     {
                         $("#description_about_property").html(result['result']['description_about_property'])
@@ -56,7 +204,6 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                         $('.breadcrumb_suburb_city').attr('href','/search/records?listing_type=find&city='+result['result']['suburbs_city'])
                         $('.view_more_find_property_button').attr('href','/search/records?listing_type=find&city='+result['result']['city'])
                         $('.view_more_property_button').attr('href','/search/records?listing_type=list&city='+result['result']['suburbs_city'])
-
 
                         if (result['result']['listing_type'] == 'find')
                         {
@@ -261,6 +408,8 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
 
  });
+
+
 
 
 

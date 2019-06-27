@@ -282,7 +282,9 @@ $(document).on('keyup','.find-place-add-suburbs-search',function(e)
 ///////////////////////////////////////////////////////////////////////////
 $('input').focus(function(){
   console.log ("In jsssssssssssssssssssss", $(this).siblings())
+  if (!$(this).siblings().hasClass('currency')){
   $(this).siblings().addClass('focused')
+  }
 });
 
 $('input').blur(function(){
@@ -526,49 +528,72 @@ $('#teamups_avail_date_id').datepicker({minDate: 0});
 $("#advance-filter-rooms").click(function(event){
 $(".advanced-option").css('display','block')
 $("#hide-advance-filter-rooms").css('display','block')
+$("#hide-advance-filter-flatmates").css('display','block')
+$("#hide-advance-filter-teamups").css('display','block')
 $("#advance-filter-rooms").css('display','none')
+$("#advance-filter-flatmates").css('display','none')
+$("#advance-filter-teamups").css('display','none')
 })
 
 
 $("#hide-advance-filter-rooms").click(function(event){
 $(".advanced-option").css('display','none')
 $("#hide-advance-filter-rooms").css('display','none')
+$("#hide-advance-filter-flatmates").css('display','none')
+$("#hide-advance-filter-teamups").css('display','none')
 $("#advance-filter-rooms").css('display','block')
+$("#advance-filter-flatmates").css('display','block')
+$("#advance-filter-teamups").css('display','block')
  })
 
 
 $("#advance-filter-flatmates").click(function(event){
 $(".advanced-option").css('display','block')
 $("#hide-advance-filter-flatmates").css('display','block')
+$("#hide-advance-filter-rooms").css('display','block')
+$("#hide-advance-filter-teamups").css('display','block')
 $("#advance-filter-flatmates").css('display','none')
+$("#advance-filter-rooms").css('display','none')
+$("#advance-filter-teamups").css('display','none')
 })
 
 
 
 $("#hide-advance-filter-flatmates").click(function(event){
 $(".advanced-option").css('display','none')
+$("#hide-advance-filter-rooms").css('display','none')
 $("#hide-advance-filter-flatmates").css('display','none')
+$("#hide-advance-filter-teamups").css('display','none')
+$("#advance-filter-rooms").css('display','block')
 $("#advance-filter-flatmates").css('display','block')
+$("#advance-filter-teamups").css('display','block')
 })
 
 
 $("#advance-filter-teamups").click(function(event){
 $(".advanced-option").css('display','block')
+$("#hide-advance-filter-flatmates").css('display','block')
+$("#hide-advance-filter-rooms").css('display','block')
 $("#hide-advance-filter-teamups").css('display','block')
+$("#advance-filter-flatmates").css('display','none')
+$("#advance-filter-rooms").css('display','none')
 $("#advance-filter-teamups").css('display','none')
 })
 
 
 $("#hide-advance-filter-teamups").click(function(event){
 $(".advanced-option").css('display','none')
+$("#hide-advance-filter-rooms").css('display','none')
+$("#hide-advance-filter-flatmates").css('display','none')
 $("#hide-advance-filter-teamups").css('display','none')
+$("#advance-filter-rooms").css('display','block')
+$("#advance-filter-flatmates").css('display','block')
 $("#advance-filter-teamups").css('display','block')
 })
 
 
 
 $("#rooms").on("click", function(){
-//console.log ("dfhhhaaaaadhhhhshshshsh")
 $(this).attr('style', 'background-color: #e9573e !important;color : white !important')
 $(".rooms-btn").css('display','block');
 $(".flatmates-btn").css('display','none');
@@ -578,9 +603,17 @@ $('.search-room-btn').attr('style','background-color:#37bc9b !important')
 $('#flatmates').removeAttr('style', 'background-color: #e9573e !important')
 $('#teamups').removeAttr('style', 'background-color: #e9573e !important')
 $('.navbar').attr('style', 'background-color: #e9573e !important')
+
+
 });
 
+if (window.location.href.indexOf("listing_type=list") > -1){
+$('.navbar').attr('style', 'background-color: #e9573e !important')
+}
 
+if (window.location.href.indexOf("listing_type=find") > -1){
+$('.navbar').attr('style', 'background-color: #17a2b8 !important')
+}
 
 $("#rooms").off("click", function(){
 $(this).attr('style', 'background-color: white !important;color : #e9573e !important')

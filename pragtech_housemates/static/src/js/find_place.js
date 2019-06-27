@@ -54,6 +54,43 @@ $(document).ready(function()
 
     });
 
+    var $input2 = $("#find-budget");
+    if (window_pathname.includes('rent-timing') && $input2)
+    {
+                 if ($input2.val().length == 0 )
+                {
+                    $('.styles__errorMessage3').hide();
+                }
+        //console.log ("In general statement if (window_pathname.includes('about-property'))")
+        if ($input2.val() > 10000)
+            $('.submit-rent-timing').prop("disabled", true)
+    }
+    $input2.on('keyup', function (){
+
+        if ($input2.val() <= 10000 )
+            {
+                $('.styles__errorMessage3').hide();
+                // Code added by dhrup
+                $('#find-budget').removeClass("border-red");
+            }
+
+        if ($input2.val() > 10000 )
+            {
+                $('.styles__errorMessage3').show();
+                // Code added by dhrup
+                $('#find-budget').addClass("border-red");
+                $('.submit-rent-timing').prop("disabled", true)
+            }
+        else
+            {
+                $('.styles__errorMessage3').hide();
+                // Code added by dhrup
+                $('#find-budget').removeClass("border-red");
+            }
+    });
+
+
+
 //  ======================================================
 //  = --------------  General Statements  -------------- =
 //  ======================================================
@@ -707,7 +744,7 @@ $(document).on('click','.button_for_add_another_person',function()
     var close_me_group_div ='</div>'
 
     var friends_first_name_div = '<div class="form-group"><span class="mb-1">Your friend\'s first name</span><input type="text" class="form-control mt-2" id="find-first-name" name="find_first_name_2'+(group_div_length+1).toString()+'" placeholder="" /></div>'
-    var friends_age_div = '<div class="form-group"><span>Your friend\'s age</span><div><input type="text" class="form-control mt-2 weekly-rent-input" id="find-your-age" name="your_age_2'+(group_div_length+1).toString()+'" value=""/></div></div>'
+    var friends_age_div = '<div class="form-group"><span>Your friend\'s age</span><div><input type="text" class="form-control mt-2 weekly-rent-input" id="find-your-age" name="your_age_2'+(group_div_length+1).toString()+'" value="" maxlength="2"/></div></div>'
     var friends_gender_div = '<div class="form-group"><span class="mb-1">The gender your friend identifies with</span><div class="total-bedrooms mt-2"><label class="radio-inline btn bedroom-btn"><input type="radio" value="female" name="find-place-for-gender_2'+(group_div_length+1).toString()+'" id="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>Female</label><label class="radio-inline btn bedroom-btn"><input type="radio" value="male" name="find-place-for-gender_2'+(group_div_length+1).toString()+'" id="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>Male</label></div></div>'
 
 //    <div class="form-group">
@@ -734,6 +771,41 @@ $(document).on('click','.button_for_add_another_person',function()
 //    console.log ("dffffffffffff-------------------ffffgdfgfdgfdgd",$('.custom_me_group').length)
 //    console.log (group_div_length)
 })
+
+ var $input3 = $("#find-your-age");
+    if (window_pathname.includes('introduce-flatmates') && $input3)
+    {
+                 if ($input3.val().length == 0 )
+                {
+                    $('.styles__errorMessage4').hide();
+                }
+        //console.log ("In general statement if (window_pathname.includes('about-property'))")
+        if ($input3.val() < 16)
+            $('.about_rooms_bttn').prop("disabled", true)
+    }
+    $input3.on('keyup', function (){
+
+        if ($input3.val() >= 16 )
+            {
+                $('.styles__errorMessage4').hide();
+                // Code added by dhrup
+                $('#find-your-age').removeClass("border-red");
+            }
+
+        if ($input3.val() < 16 )
+            {
+                $('.styles__errorMessage4').show();
+                // Code added by dhrup
+                $('#find-your-age').addClass("border-red");
+                $('.about_rooms_bttn').prop("disabled", true)
+            }
+        else
+            {
+                $('.styles__errorMessage4').hide();
+                // Code added by dhrup
+                $('#find-your-age').removeClass("border-red");
+            }
+    });
 
 $(document).on('click','.remove_another_person',function()
 {

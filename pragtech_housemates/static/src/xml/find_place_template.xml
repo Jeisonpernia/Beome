@@ -369,8 +369,9 @@
                                             <div>
                                                 <span class="currency">$</span>
                                                 <input type="text" class="form-control mt-2 weekly-rent-input"
-                                                       id="find-budget" name="budget" value=""/>
+                                                       id="find-budget" name="budget" value="" maxlength="5"/>
                                             </div>
+                                            <div class="styles__errorMessage3">Must be less than 10000</div>
                                         </div>
                                         <div class="form-group">
                                             <span>Preferred move date</span>
@@ -661,8 +662,9 @@
                                                     <span>Your age</span>
                                                     <div>
                                                         <input type="text" class="form-control mt-2 weekly-rent-input"
-                                                               id="find-your-age" name="your_age_0" value=""/>
+                                                               id="find-your-age" name="your_age_0" value="" maxlength="2"/>
                                                     </div>
+                                                    <div class="styles__errorMessage4">Must be at least 16</div>
                                                 </div>
 
                                                 <div class="form-group">
@@ -694,8 +696,9 @@
                                                     <span>Your partner's age</span>
                                                     <div>
                                                         <input type="text" class="form-control mt-2 weekly-rent-input"
-                                                               id="find-your-age" name="your_age_1" value=""/>
+                                                               id="find-your-age" name="your_age_1" value="" maxlength="2"/>
                                                     </div>
+                                                    <div class="styles__errorMessage4">Must be at least 16</div>
                                                 </div>
 
                                                 <div class="form-group">
@@ -727,8 +730,9 @@
                                                     <span>Your friend's age</span>
                                                     <div>
                                                         <input type="text" class="form-control mt-2 weekly-rent-input"
-                                                               id="find-your-age" name="your_age_2" value=""/>
+                                                               id="find-your-age" name="your_age_2" value="" maxlength="2"/>
                                                     </div>
+                                                    <div class="styles__errorMessage4">Must be at least 16</div>
                                                 </div>
 
                                                 <div class="form-group">

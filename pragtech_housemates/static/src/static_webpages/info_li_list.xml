@@ -22,8 +22,8 @@
 
                 <div>
                     <h3 class="mt-5 mb-4">Latest articles</h3>
-                    <t t-if="blog_posts">
-                        <div t-foreach="blog_posts" t-as="blog_post" name="blog_post">
+                    <t t-if="blog_posts1">
+                        <div t-foreach="blog_posts1" t-as="blog_post" name="blog_post">
                             <li class="info_item">
                                 <a t-attf-href="/info/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }">
                                     <span t-field="blog_post.name">Untitled Post</span>
@@ -31,8 +31,8 @@
                             </li>
                         </div>
                     </t>
-                    <t t-if="blog_posts">
-                        <li class="info_item" id="view_more_article"><a t-attf-href="/info/#{ slug(blog_posts[0].blog_id) }"> <span>+ View more articles</span></a></li>
+                    <t t-if="blog_posts1">
+                        <li class="info_item" id="view_more_article"><a t-attf-href="/info/#{ slug(blog_posts1[0].blog_id) }"> <span>+ View more articles</span></a></li>
                     </t>
                 </div>
 

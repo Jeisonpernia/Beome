@@ -1,4 +1,21 @@
+@media only screen and (min-width: 240px) and (max-width: 319px) {
+	.top-menu-dropdown .modal-body{
+		padding: 20px;
+	}
+	
+	.modal-header .close {
+    padding: 0px;
+    margin: 0rem -2.5rem -1rem auto;
+}
+
+	
+}
+
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+		.modal-header .close {
+    padding: 0px;
+    margin: 0rem 0rem -1rem auto;
+}
 	
 section{
 	padding: 20px 0px;
@@ -547,9 +564,78 @@ margin: 20px 0;
 	margin-top: 15px;
 	}	
 	
+
+	
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.info-page #add_html_content{
+		display: none;
+	}	
+	
+	.container{
+		max-width: 950px;
+	}
+	
+	.top-menu-dropdown .modal-content .card-img-top{
+		width: 100%;
+	}
+	
+	.form-control-placeholder{
+		padding: 15px 10px;
+	}
+		
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+	
+	.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+	
+.dropdown-toggle{
+		display: flex;
+}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1023px) {
+	
+.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+	
+.dropdown-toggle{
+		display: flex;
+}
+
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1199px) {
+
 	.home-listings .property-listing-heading{
 		min-height: 50px;
 	}
@@ -560,6 +646,31 @@ margin: 20px 0;
 	
 	.find_place_preview .potential-matches .bg-white{
 		min-height: 490px;
+	}
+	
+	
+	.top-menu-dropdown .modal-body{
+		padding: 40px;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1365px) {
+	.top-menu-dropdown .modal-body{
+		padding: 40px;
+	}
+	
+}
+
+
+@media only screen and (min-width: 1600px) and (max-width: 1919px) {
+	.top-menu-dropdown .modal-content .card-img-top{
+		margin-top: -25%;
+	}
+}
+
+@media only screen and (min-width: 1920px) and (max-width: 2500px) {
+		.top-menu-dropdown .modal-content .card-img-top{
+		margin-top: -25%;
 	}
 }
 

@@ -105,7 +105,48 @@ $(document).ready(function()
                 }
                 clearTimeout(id);
                 id = setTimeout(doneResizing, 2000);
-           }
+			   
+			    if (window_pathname == '/info')
+                {
+
+                }
+                if (window_pathname.includes('/info/'))
+                {
+                    $("#head_id").css('display','none')
+                    $(".info-page").find("#add_html_content").show()
+                }
+        }
+
+	   if ($(window).width() > 1024)
+	   {	
+		   
+		   if (window_pathname == '/info')
+			{
+
+			}
+			if (window_pathname.includes('/info/'))
+			{
+				$("#head_id").css('display','block')
+				$(".info-page").find("#add_html_content").show()
+			}
+	   	
+	   }
+		   
+		   	   if (($(window).width() > 992) && ($(window).width() < 1024)) 
+	   {	
+		   
+		   if (window_pathname == '/info')
+			{
+
+			}
+			if (window_pathname.includes('/info/'))
+			{
+				$("#head_id").css('display','block')
+				$(".info-page").find("#add_html_content").show()
+			}
+	   	
+	   }
+		   
        }
     });
 

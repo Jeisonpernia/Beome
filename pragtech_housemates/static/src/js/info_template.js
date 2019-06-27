@@ -8,6 +8,10 @@ $(document).ready(function() {
     {
         var breadcrumb_heading = $('a[href="'+window.location.pathname+'"]').find("span").text()
         $("li.active").replaceWith('<li class="breadcrumb-item active" aria-current="page"><a href="'+window_pathname+'">'+breadcrumb_heading.trim()+'</a></li>');
+
+        var breadcrumb_heading2 = $('.blog_title').text()
+       $("li.active").replaceWith('<li class="breadcrumb-item active" aria-current="page"><a href="'+window_pathname+'">'+breadcrumb_heading2.trim()+'</a></li>');
     }
+
 });
 });

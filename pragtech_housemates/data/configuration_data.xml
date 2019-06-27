@@ -167,13 +167,28 @@
 			<field name="name">1 week</field>
 		</record>
 		<record model="minimum.length.stay" id="min_length_stay3">
-			<field name="name">2 week</field>
+			<field name="name">2 weeks</field>
 		</record>
 		<record model="minimum.length.stay" id="min_length_stay4">
 			<field name="name">1 month</field>
 		</record>
 		<record model="minimum.length.stay" id="min_length_stay5">
 			<field name="name">2 months</field>
+		</record>
+		<record model="minimum.length.stay" id="min_length_stay6">
+			<field name="name">3 months</field>
+		</record>
+		<record model="minimum.length.stay" id="min_length_stay7">
+			<field name="name">4 months</field>
+		</record>
+		<record model="minimum.length.stay" id="min_length_stay8">
+			<field name="name">6 months</field>
+		</record>
+		<record model="minimum.length.stay" id="min_length_stay9">
+			<field name="name">9 months</field>
+		</record>
+		<record model="minimum.length.stay" id="min_length_stay10">
+			<field name="name">12 months+ </field>
 		</record>
 		
 		<!-- Maximum length of stay Demonstration Data -->
@@ -184,7 +199,7 @@
 			<field name="name">1 week</field>
 		</record>
 		<record model="maximum.length.stay" id="max_length_stay3">
-			<field name="name">2 week</field>
+			<field name="name">2 weeks</field>
 		</record>
 		<record model="maximum.length.stay" id="max_length_stay4">
 			<field name="name">1 month</field>
@@ -201,22 +216,33 @@
 		<record model="maximum.length.stay" id="max_length_stay8">
 			<field name="name">6 months</field>
 		</record>
+		<record model="maximum.length.stay" id="max_length_stay9">
+			<field name="name">9 months</field>
+		</record>
+		<record model="maximum.length.stay" id="max_length_stay10">
+			<field name="name">12 months+ </field>
+		</record>
 		
 		<!-- Bond Demonstration Data -->
 		<record model="bond.bond" id="bond1">
 			<field name="name">None</field>
+			<field name="number_of_week">0</field>
 		</record>
 		<record model="bond.bond" id="bond2">
 			<field name="name">1 week</field>
+			<field name="number_of_week">1</field>
 		</record>
 		<record model="bond.bond" id="bond3">
 			<field name="name">2 weeks</field>
+			<field name="number_of_week">2</field>
 		</record>
 		<record model="bond.bond" id="bond4">
 			<field name="name">3 weeks</field>
+			<field name="number_of_week">3</field>
 		</record>
 		<record model="bond.bond" id="bond5">
 			<field name="name">4 weeks</field>
+			<field name="number_of_week">4</field>
 		</record>
 		
 		<!-- Bill Demonstration Data -->

@@ -30,10 +30,15 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                                 $(".verify-phone").css('display','none')
                                 $(".already-verified").css('display','block')
                             }
-                            else{
-                                console.log('')
 
+                            if(data['result']['is_allowed_to_contact'] == true){
+                                console.log('7777777777777777777777777777777777777777777777')
+                                $(".allowed-to-contact-in-edit-account").find("i").removeClass("fa-times")
+                                $(".allowed-to-contact-in-edit-account").find("i").addClass("fa-check")
+                                $(".add-green-in-edit").css('background-color','#11836c')
+                                $("#allowed-contact-in-edit").attr('checked','checked')
                             }
+
                         }
 
 

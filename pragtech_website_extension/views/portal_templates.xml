@@ -60,13 +60,13 @@
                                             </div>
                                             <div class="text-center mt-1">
                                                 <t t-if="user_id.firstname">
-                                                    <span t-esc="user_id.firstname"/>
+                                                    <span t-esc="user_id.firstname[0:10]"/>
                                                 </t>
                                                 <t t-elif="user_id.lastname">
-                                                    <span t-esc="user_id.lastname"/>
+                                                    <span t-esc="user_id.lastname[0:10]"/>
                                                 </t>
                                                 <t t-else="user_id.name">
-                                                    <span t-esc="user_id.name"/>
+                                                    <span t-esc="user_id.name[0:10]"/>
                                                 </t>
 
 
@@ -98,7 +98,7 @@
                                         </header>
                                         <main class="modal-body">
                                             <div class="row">
-                                                <div class="col-lg-3 mt-5 mb-5">
+                                                <div class="col-lg-3 col-md-3 mt-5 mb-5">
                                                     <div class="card">
 
                                                         <div class="row">
@@ -157,7 +157,7 @@
                                                                 <t t-if="user_id.firstname">
                                                                     <span t-esc="user_id.firstname"/>
                                                                 </t>
-                                                                <t t-elif="user_id.lastname">
+                                                                <t t-if="user_id.lastname">
                                                                     <span t-esc="user_id.lastname"/>
                                                                 </t>
                                                                 <t t-else="user_id.name">
@@ -167,7 +167,7 @@
                                                                 <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
                                                             </h5>
                                                             <p class="text-center text-danger">Free Account</p>
-                                                            <a href="#" class="btn btn-orange btn-block upgrade_plan_class"
+                                                            <a href="#" class="btn btn-orange1 btn-block upgrade_plan_class"
                                                                id="upgrade_plan_id"
                                                                data-toggle="modal"
                                                                data-target="#why_upgrade_popup">Why Upgrade
@@ -180,7 +180,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6 mt-5 no_user_listings_div">
+                                                <div class="col-lg-6 col-md-6 mt-5 no_user_listings_div">
                                                     <div class="row">
                                                         <div class="col-lg-2 col-3">
                                                             <svg class="person" viewBox="0 0 109 260">
@@ -308,7 +308,7 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="col-lg-6 user_listings_div">
+                                                <div class="col-lg-6 col-md-6 user_listings_div">
                                                     <!--<div class="row">-->
                                                     <!--<div class="col-lg-12">-->
                                                     <!--<div class="title-bar">-->
@@ -431,7 +431,7 @@
 
                                                 </div>
 
-                                                <div class="col-lg-3 my-account">
+                                                <div class="col-lg-3 col-md-3 my-account">
                                                     <h4>My account</h4>
 
                                                     <ul>

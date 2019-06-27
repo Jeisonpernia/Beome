@@ -206,6 +206,7 @@
                                 <div class="o_address_format" attrs="{'invisible': [('listing_type', '=', 'find')]}">
                                     <field name="street" placeholder="Street..." class="o_address_street"/>
                                     <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="street3" placeholder="Street 3..." class="o_address_street"/>
                                     <field name="city" placeholder="City" class="o_address_city"/>
                                     <field name="state_id" class="o_address_state" placeholder="State"
                                            options='{"no_create": True}'/>

@@ -359,7 +359,8 @@ $(document).ready(function() {
             var street_number = $("#street_number").val()
             var street_addrss = $("#sublocality_level_2").val()
             var route = $("#route").val()
-            var city = $("#locality").val()
+            var suburb_location = $("#locality").val()
+            var city = $("#administrative_area_level_2").val()
             var state = $("#administrative_area_level_1").val()
             var zip_code = $("#postal_code").val()
             var country = $ ("#country").val()
@@ -386,6 +387,9 @@ $(document).ready(function() {
             }
             if (route){
                 oldArray[0]['street2'] = route;
+            }
+            if (suburb_location){
+                oldArray[0]['street3'] = suburb_location;
             }
             if (city){
                 oldArray[0]['city'] = city;
@@ -526,9 +530,10 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            //console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
+//            console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
             //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 //            alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
+//            event.preventDefault()
 
         });
 

@@ -33,7 +33,7 @@ odoo.define('pragtech_website_extension.sms_code', function (require){
                                     var mobile_number = data['result']['mobile_number']
 
 //                                    var msg = "A security code has been sent to "+mobile_number+" .It may take a few minutes to arrive."
-                                    $(".code-sent-to-mobile").append(mobile_number)
+                                    $(".code-sent-to-mobile").text(mobile_number)
                                     $("#verify_mobile_popup").modal('hide');
                                     $('#verify_otp_popup').modal('toggle');
 

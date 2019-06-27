@@ -12,6 +12,7 @@ $(document).ready(function() {
       route: 'long_name',
       locality: 'long_name',
       administrative_area_level_1: 'long_name',
+      administrative_area_level_2: 'short_name',
       country: 'long_name',
       postal_code: 'short_name'
     };
@@ -53,7 +54,7 @@ $(document).ready(function() {
         //console.log('fillllllllll in addresssssssssssssssssss',autocomplete)
       // Get the place details from the autocomplete object.
       var place = autocomplete.getPlace();
-      //console.log('place :',place)
+      console.log('place :',place)
 
         ////////////////////////////////////////////////////////////////
                    // Code Added for Longitude and latitude //

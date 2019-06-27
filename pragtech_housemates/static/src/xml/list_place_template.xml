@@ -171,10 +171,10 @@
 
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
-                                        <a href="/listplace" class="d-none d-md-block d-lg-block d-xl-block">
+                                        <!--<a href="/listplace" class="d-none d-md-block d-lg-block d-xl-block">-->
                                             <button type="button" class="btn btn-primary btn-transparent go_back">Back
                                             </button>
-                                        </a>
+                                        <!--</a>-->
                                     </div>
                                 </div>
                             </div>
@@ -250,10 +250,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
-                                                <a href="/listplace/describe-your-place/accommodation" class="d-none d-md-block d-lg-block d-xl-block">
-                                                    <button type="button" class="btn btn-primary btn-transparent">Back
+                                                <!--<a href="/listplace/describe-your-place/accommodation" class="d-none d-md-block d-lg-block d-xl-block">-->
+                                                    <button type="button" class="btn btn-primary btn-transparent go_back">Back
                                                     </button>
-                                                </a>
+                                                <!--</a>-->
                                             </div>
                                         </div>
                                     </div>
@@ -318,9 +318,15 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="label">City</td>
+                                                    <td class="label">Suburb</td>
                                                     <td class="wideField" colspan="3">
                                                         <input class="field" id="locality" disabled="true"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">City</td>
+                                                    <td class="wideField" colspan="3">
+                                                        <input class="field" id="administrative_area_level_2" disabled="true"/>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -847,8 +853,9 @@
                                                 <span class="currency">$</span>
                                                 <input type="text" class="form-control mt-2 weekly-rent-input"
                                                        id="weekly_rent"
-                                                       name="rent" value=""/>
+                                                       name="rent" value="" maxlength="5"/>
                                             </div>
+                                            <div class="styles__errorMessage3">Must be less than 10000</div>
                                         </div>
                                         <div class="form-group">
                                             <span>Bond</span>
@@ -1641,7 +1648,7 @@
                                     </t>
                                     <div class="col-lg-6 mx-auto">
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="4" id="comment"
+                                            <textarea class="form-control occup-decsp" rows="4" id="comment"
                                                       name="occupants_description"
                                                       placeholder="Say something about yourself..."></textarea>
                                         </div>
