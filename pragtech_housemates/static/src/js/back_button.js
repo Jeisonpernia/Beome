@@ -58,7 +58,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                    }
             })
             var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-            if (local_storage_data[0]){
+            if (local_storage_data != null){
                 var accommodation_type = local_storage_data[0]['accommodation_type']
                 if (accommodation_type == "whole-property"){
                   accommodation_type = "whole-property"
