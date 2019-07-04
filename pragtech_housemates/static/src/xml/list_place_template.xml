@@ -78,7 +78,7 @@
                                                         <path d="M39.049 11.732v21.463H2.95V11.732M41 12.707L21 1 1 12.707h40zM7.83 26.366h8.78v-4.878H7.83v4.878zm15.609 6.83V21.487h8.78v11.707"
                                                               stroke="#2F3A4A" stroke-width="1.5" fill="none"
                                                               fill-rule="evenodd" stroke-linecap="round"
-                                                              stroke-linejoin="round"></path>
+                                                              stroke-linejoin="round" class=""></path>
                                                     </svg>
                                                 </span>
                                             </div>
@@ -108,7 +108,7 @@
                                                         <path d="M1 34.043v-19.13h40v19.13m0-5.217H25.348V14.913m0 6.957H41m-8.696 3.478h1.74m-1.74-6.957h1.74M4.477 11.435H20.13V1H4.478v10.435zm13.732 3.297l-3.298-3.297H9.695l-3.188 3.19"
                                                               stroke="#2F3A4A" stroke-width="1.5" fill="none"
                                                               fill-rule="evenodd" stroke-linecap="round"
-                                                              stroke-linejoin="round"></path>
+                                                              stroke-linejoin="round" class=""></path>
                                                     </svg>
                                                 </span>
                                             </div>
@@ -140,11 +140,11 @@
 
                                         <div class="property-type mt-2">
                                             <label class="radio-inline btn bedroom-btn">
-                                                <input type="radio" name="property_type_input" value="house"/>
+                                                <input type="radio" id="property_type_input_house" name="property_type_input" value="house"/>
                                                 House
                                             </label>
                                             <label class="radio-inline btn bedroom-btn">
-                                                <input type="radio" name="property_type_input" value="flat"/>
+                                                <input type="radio" id="property_type_input_flat" name="property_type_input" value="flat"/>
                                                 Flat
                                             </label>
                                         </div>
@@ -251,7 +251,7 @@
                                         <div class="row">
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/describe-your-place/accommodation" class="d-none d-md-block d-lg-block d-xl-block">-->
-                                                    <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                                    <button type="button" class="btn btn-primary btn-transparent whole_property_go_back">Back
                                                     </button>
                                                 <!--</a>-->
                                             </div>
@@ -285,10 +285,8 @@
                             <form action="#" id="list_place_about_property_form_id" method="POST">
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place list_about_property">
-                                        <t t-if="type_of_accomodation">
                                             <input type="hidden" id="type_of_accomodation" name="type_of_accomodation"
                                                    t-attf-value="#{type_of_accomodation}"/>
-                                        </t>
                                         <div class="form-group">
                                             <span>Property Address</span>
                                             <div id="locationField">
@@ -531,7 +529,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/describe-your-place/accommodation">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent about_template_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->
@@ -662,7 +660,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/about">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent about_who_lives_here_template_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->
@@ -805,7 +803,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/who-lives-here">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent about_rooms_template_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->
@@ -910,7 +908,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/about-rooms">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent rent_bond_bills_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->
@@ -1027,7 +1025,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/rent-bond-bills">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent room_availability_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->
@@ -1139,7 +1137,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/room-availability">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent property_images_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->
@@ -1193,7 +1191,7 @@
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/property-images">-->
                                                 <div class="d-none d-md-block d-lg-block d-xl-block">
-                                                    <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                    <button type="button" class="btn btn-primary btn-transparent list_place_describe_your_flatmate_go_back">
                                                     Back
                                                     </button>
                                                 </div>
@@ -1336,7 +1334,7 @@
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/describe-your-flatmate">-->
                                                 <div class="d-none d-md-block d-lg-block d-xl-block">
-                                                    <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                    <button type="button" class="btn btn-primary btn-transparent flatmate_preference_template_go_back">
                                                         Back
                                                     </button>
                                                 </div>
@@ -1551,7 +1549,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/flatmate-preference">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent list_place_accepting_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->
@@ -1604,7 +1602,7 @@
                                             <div class="mt-4 mx-auto">
                                                 <!--<a href="/listplace/share-house/accepting">-->
                                                 <div class="d-none d-md-block d-lg-block d-xl-block">
-                                                    <button type="button" class="btn btn-primary btn-transparent go_back">
+                                                    <button type="button" class="btn btn-primary btn-transparent list_place_describe_yourself_go_back">
                                                         Back
                                                     </button>
                                                 </div>
@@ -1677,7 +1675,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/introduce-yourself">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent list_place_about_others_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->
@@ -1739,7 +1737,7 @@
                                     <div class="mt-4 mx-auto">
                                         <!--<a href="/listplace/share-house/about-others">-->
                                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                                            <button type="button" class="btn btn-primary btn-transparent go_back">Back
+                                            <button type="button" class="btn btn-primary btn-transparent list_place_comment_about_property_go_back">Back
                                             </button>
                                         </div>
                                         <!--</a>-->

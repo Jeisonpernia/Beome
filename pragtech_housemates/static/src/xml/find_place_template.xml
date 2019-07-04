@@ -304,12 +304,18 @@
                                                 <!--</div>-->
                                             <!--</div>-->
 
-                                            <div class="locations-autocomplete">
-                                                <div class="auto-input find-place-add-suburbs">
-                                                    <input class="hidden-input token-input" placeholder="" type="text" autocomplete="off" id="find_suburb" name="suburbs" value=""/>
-                                                </div>
+                                            <!--Comment by sagar-->
+                                            <!--<div class="locations-autocomplete">-->
+                                                <!--<div class="auto-input find-place-add-suburbs">-->
+                                                    <!--<input class="hidden-input token-input" placeholder="" type="text" autocomplete="off" id="find_suburb" name="suburbs" value=""/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<p class="show-distance-msg d-none">The suburb selected is greater than 25km from your original suburb</p>-->
+                                            <!--  -->
+
+                                            <div class="tag-input-div">
+                                                <input type="text" class="tags_input" placeholder="Start typing a suburb, city, station or uni" value=""/>
                                             </div>
-                                            <p class="show-distance-msg d-none">The suburb selected is greater than 25km from your original suburb</p>
 
                                             <!--<div class="form-control form-control-lg mt-2 p-0 find-place-add-suburbs">-->
                                                 <!--<input type="text" autocomplete="off" id="find_suburb" name="suburbs"/>-->
@@ -321,7 +327,7 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <button type="submit" id=""
-                                                class="btn btn-primary btn-green propert_submit_btn" disabled="disabled">Next
+                                                class="btn btn-primary btn-green propert_submit_btn">Next
                                         </button>
                                     </div>
                                 </div>
@@ -882,7 +888,7 @@
                                     <div class="col-lg-7 employment-status mx-auto">
                                         <div class="item mt-5">
                                             <div class="items">
-                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status"
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_full_time"
                                                      id="">
                                                     <input type="checkbox" name="employment_status"
                                                            value="working_full_time" class="d-none"/>
@@ -899,7 +905,7 @@
                                             </div>
 
                                             <div class="items">
-                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status"
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_part_time"
                                                      id="">
                                                     <input type="checkbox" name="employment_status"
                                                            value="working_part_time" class="d-none"/>
@@ -916,7 +922,7 @@
                                             </div>
 
                                             <div class="items">
-                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status"
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_holiday"
                                                      id="">
                                                     <input type="checkbox" name="employment_status"
                                                            value="working_holiday" class="d-none"/>
@@ -933,7 +939,7 @@
                                             </div>
 
                                             <div class="items">
-                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status"
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_retired"
                                                      id="">
                                                     <input type="checkbox" name="employment_status" value="retired"
                                                            class="d-none"/>
@@ -950,7 +956,7 @@
                                             </div>
 
                                             <div class="items">
-                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status"
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_unemployed"
                                                      id="">
                                                     <input type="checkbox" name="employment_status" value="unemployed"
                                                            class="d-none"/>
@@ -967,7 +973,7 @@
                                             </div>
 
                                             <div class="items">
-                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status"
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_backpacker"
                                                      id="">
                                                     <input type="checkbox" name="employment_status" value="backpacker"
                                                            class="d-none"/>
@@ -984,7 +990,7 @@
                                             </div>
 
                                             <div class="items">
-                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status"
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_student"
                                                      id="">
                                                     <input type="checkbox" name="employment_status" value="student"
                                                            class="d-none"/>
@@ -1051,7 +1057,7 @@
                                 <div class="row">
                                     <div class="item mt-5">
                                         <div class="items">
-                                            <div class="items-cirle items-cirle-hover mb-2 life-style" id="">
+                                            <div class="items-cirle items-cirle-hover mb-2 life-style find_smoker" id="">
                                                 <input type="checkbox" name="lifestyle" value="smoker" class="d-none"/>
                                                 <span class="icon">
                                                     <svg width="40" height="22">
@@ -1066,7 +1072,7 @@
                                         </div>
 
                                         <div class="items">
-                                            <div class="items-cirle items-cirle-hover mb-2 life-style" id="">
+                                            <div class="items-cirle items-cirle-hover mb-2 life-style find_lgbti" id="">
                                                 <input type="checkbox" name="lifestyle" value="lgbti" class="d-none"/>
                                                 <span class="icon">
                                                     <svg width="42" height="22">
@@ -1081,7 +1087,7 @@
                                         </div>
 
                                         <div class="items">
-                                            <div class="items-cirle items-cirle-hover mb-2 life-style" id="">
+                                            <div class="items-cirle items-cirle-hover mb-2 life-style find_pets" id="">
                                                 <input type="checkbox" name="lifestyle" value="pets" class="d-none"/>
                                                 <span class="icon">
                                                     <svg width="42" height="41">
@@ -1096,7 +1102,7 @@
                                         </div>
 
                                         <div class="items">
-                                            <div class="items-cirle items-cirle-hover mb-2 life-style" id="">
+                                            <div class="items-cirle items-cirle-hover mb-2 life-style find_children" id="">
                                                 <input type="checkbox" name="lifestyle" value="children"
                                                        class="d-none"/>
                                                 <span class="icon">

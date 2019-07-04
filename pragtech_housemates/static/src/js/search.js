@@ -254,7 +254,7 @@ $(document).on('keyup','.find-place-add-suburbs-search',function(e)
                                             {
                                                 if (!$('.show-distance-msg').hasClass("d-none"))
                                                     $('.show-distance-msg').addClass("d-none")
-                                                $('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.label+'"/><span class="token" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
+                                                $('<div class="suburbs-div"><input type="hidden" id="suburbs" name="suburbs[]" value="'+ui.item.tagText+'"/><span class="token" data-lat='+ui.item.value[1]+' data-lon='+ui.item.value[2]+'>'+ui.item.value[0]+'<i class="fa fa-close delete-suburb" style="font-size:16px"></i></span></div>').insertBefore('#find_suburb');
                                                 $("#find_suburb_search").val("")
                                                 return false;
                                             }
@@ -476,16 +476,107 @@ $(document).on('click',"#search_submit_start",function()
 //console.log("Himesh ----------------------",$("#search_value").val())
 //console.log("Himesh ----------------------",$(this).find("#search_room_filter"))
 
-    if ($("#search_value").val() == "search")
+    if ($("#search_value").val() == "search"){
         $("#search_filter").submit()
+    }
 
-    if ($("#search_value").val() == "search_rooms")
-        $("#search_room_filter").submit()
 
-    if ($("#search_value").val() == "search_flatmates")
+    if ($("#search_value").val() == "search_rooms"){
+        $("#search_room_filter").submit();
+    }
+
+
+    if ($("#search_value").val() == "search_flatmates"){
         $("#search_flatmates_filter").submit()
+    }
+
+    var arr = [];
+    $(".tags_container span").each(function(index, elem){
+        arr.push($(this).text());
+    });
+    arr.join("|");
+    console.log("=============== data of tags =============== ",arr)
+//                alert('hi')
 
 });
+
+// added by sagar - add city in search form
+ $("#search_filter").submit(function( event ) {
+        var tagContainer = $(".tags_container")
+        var tags = tagContainer.find(".tag");
+        var suburb_array = []
+        var suburbs = ""
+	 	//if no tag, return false
+	 	if(tags.length != 0){
+            $.each(tags,function(event){
+
+                suburb_data = $(this).find("input").data("suburb_name");
+                suburb_array.push(suburb_data)
+            });
+	 	}
+
+	 	suburbs = suburb_array.toString()
+
+        taginput = "<input type='hidden' class='tag_input search_suburbs' name='search_suburbs' value='"+suburbs+"'>"
+        $(".search_tag_input_suburbs").append(taginput)
+//        event.preventDefault()
+    });
+
+// added by sagar - add city in search room form
+ $("#search_room_filter").submit(function( event ) {
+        city = $(".city").text()
+        console.log('City :; ',city)
+
+        taginput = "<input type='hidden' class='room_tag_input search_city' name='search_city' value=" +city+">"
+        $(".rooms_tag_input_city").append(taginput)
+
+        var tagContainer = $(".tags_container")
+        var tags = tagContainer.find(".tag");
+        var suburb_array = []
+        var suburbs = ""
+	 	//if no tag, return false
+	 	if(tags.length != 0){
+            $.each(tags,function(event){
+
+                suburb_data = $(this).find("input").data("suburb_name");
+                suburb_array.push(suburb_data)
+            });
+	 	}
+
+	 	suburbs = suburb_array.toString()
+
+        taginput = "<input type='hidden' class='tag_input search_suburbs' name='search_suburbs' value='"+suburbs+"'>"
+        $(".rooms_tag_input_suburbs").append(taginput)
+    });
+
+// added by sagar - add city in search flatmates form
+ $("#search_flatmates_filter").submit(function( event ) {
+        city = $(".city").text()
+        console.log('City : ',city)
+
+        taginput = "<input type='hidden' class='room_tag_input search_city' name='search_city' value=" +city+">"
+        $(".flatmate_tag_input_city").append(taginput)
+
+        var tagContainer = $(".tags_container")
+        var tags = tagContainer.find(".tag");
+        var suburb_array = []
+        var suburbs = ""
+	 	//if no tag, return false
+	 	if(tags.length != 0){
+            $.each(tags,function(event){
+
+                suburb_data = $(this).find("input").data("suburb_name");
+                suburb_array.push(suburb_data)
+            });
+	 	}
+
+	 	suburbs = suburb_array.toString()
+
+        taginput = "<input type='hidden' class='tag_input search_suburbs' name='search_suburbs' value='"+suburbs+"'>"
+        $(".flatmate_tag_input_suburbs").append(taginput)
+
+    });
+
 
 
 $(".rooms-btn").css('display','none');
@@ -510,6 +601,24 @@ $('.on-active-datepicker').addClass('show')
 })
 
 
+$(".search-dropdown").click(function(event){
+    console.log('fdhndfhjdnfhkn')
+    var is_shown = $(".modal_shown").hasClass("show")
+    console.log('Is shownnnnnnnnnnnnnnnn : ',is_shown)
+    if (is_shown == false){
+           console.log('111111111111111111111111111111111')
+          $(".search-btn-close").removeClass('d-none')
+    }
+    else{
+            console.log('222222222222222222222222222')
+          $(".search-btn-close").addClass('d-none')
+    }
+});
+
+$(".search-btn-close").click(function(event){
+        $("#dropdownMenuButton").modal('hide');
+        $(this).addClass('d-none')
+})
 
 
 //$("#search_filter_date").datepicker({
@@ -593,25 +702,57 @@ $("#advance-filter-teamups").css('display','block')
 
 
 
-$("#rooms").on("click", function(){
-$(this).attr('style', 'background-color: #e9573e !important;color : white !important')
-$(".rooms-btn").css('display','block');
-$(".flatmates-btn").css('display','none');
-$(".teamups-btn").css('display','none');
-$('#search-submit-start').css('display','none')
-$('.search-room-btn').attr('style','background-color:#37bc9b !important')
-$('#flatmates').removeAttr('style', 'background-color: #e9573e !important')
-$('#teamups').removeAttr('style', 'background-color: #e9573e !important')
-$('.navbar').attr('style', 'background-color: #e9573e !important')
+//$("#rooms").on("click", function(){
+//$(this).attr('style', 'background-color: #e9573e !important;color : white !important')
+//$(".rooms-btn").css('display','block');
+//$(".flatmates-btn").css('display','none');
+//$(".teamups-btn").css('display','none');
+//$('#search-submit-start').css('display','none')
+//$('.search-room-btn').attr('style','background-color:#37bc9b !important')
+//$('#flatmates').removeAttr('style', 'background-color: #e9573e !important')
+//$('#teamups').removeAttr('style', 'background-color: #e9573e !important')
+//$('.navbar').attr('style', 'background-color: #e9573e !important')
+//
+//
+//});
 
+var clicks1 = false
+var clicks2 = false
+var clicks3 = false
+
+$("#rooms").on("click", function() {
+	if (clicks1)
+	{
+		$(this).removeAttr('style', 'background-color: #e9573e !important;color : white !important');
+		$('.navbar').removeAttr('style', 'background-color: #e9573e !important');
+		$(".rooms-btn").css('display','none');
+
+	}
+	else
+	{
+		$(this).attr('style', 'background-color: #e9573e !important;color : white !important')
+		$(".rooms-btn").css('display','block');
+		$(".flatmates-btn").css('display','none');
+		$(".teamups-btn").css('display','none');
+		$('#search-submit-start').css('display','none')
+		$('.search-room-btn').attr('style','background-color:#37bc9b !important')
+		$('#flatmates').removeAttr('style', 'background-color: #e9573e !important')
+		$('#teamups').removeAttr('style', 'background-color: #e9573e !important')
+		$('.navbar').attr('style', 'background-color: #e9573e !important')
+	}
+	clicks1 = !clicks1
+	clicks2 = false
+	clicks3 = false
 
 });
 
-if (window.location.href.indexOf("listing_type=list") > -1){
+
+
+if ((window.location.href.indexOf("listing_type=list") > -1 )|| (window.location.href.indexOf("list_place_preview") >-1)){
 $('.navbar').attr('style', 'background-color: #e9573e !important')
 }
 
-if (window.location.href.indexOf("listing_type=find") > -1){
+if ((window.location.href.indexOf("listing_type=find") > -1) || (window.location.href.indexOf("find_place_preview")>-1)){
 $('.navbar').attr('style', 'background-color: #17a2b8 !important')
 }
 
@@ -622,32 +763,82 @@ $(".rooms-btn").css('display','none');
 
 
 
-$("#flatmates").on("click", function(){
-$(this).attr('style', 'background-color: #17a2b8 !important;color : white !important')
-$(".flatmates-btn").css('display','block');
-$(".rooms-btn").css('display','none');
-$(".teamups-btn").css('display','none');
-$('#search-submit-start').css('display','none')
-$('.search-flat-btn').attr('style','background-color:#37bc9b !important')
-$('#rooms').removeAttr('style', 'background-color: #e9573e !important')
-$('#teamups').removeAttr('style', 'background-color: #e9573e !important')
-$('.navbar').attr('style', 'background-color: #17a2b8 !important')
+//$("#flatmates").on("click", function(){
+//$(this).attr('style', 'background-color: #17a2b8 !important;color : white !important')
+//$(".flatmates-btn").css('display','block');
+//$(".rooms-btn").css('display','none');
+//$(".teamups-btn").css('display','none');
+//$('#search-submit-start').css('display','none')
+//$('.search-flat-btn').attr('style','background-color:#37bc9b !important')
+//$('#rooms').removeAttr('style', 'background-color: #e9573e !important')
+//$('#teamups').removeAttr('style', 'background-color: #e9573e !important')
+//$('.navbar').attr('style', 'background-color: #17a2b8 !important')
+//});
+
+$("#flatmates").on("click", function() {
+	if (clicks3)
+	{
+		$(this).removeAttr('style', 'background-color: #17a2b8 !important;color : white !important')
+		$('.navbar').removeAttr('style', 'background-color: #17a2b8 !important')
+		$(".flatmates-btn").css('display','none');
+	}
+	else
+	{
+		$(this).attr('style', 'background-color: #17a2b8 !important;color : white !important')
+		$(".flatmates-btn").css('display','block');
+		$(".rooms-btn").css('display','none');
+		$(".teamups-btn").css('display','none');
+		$('#search-submit-start').css('display','none')
+		$('.search-flat-btn').attr('style','background-color:#37bc9b !important')
+		$('#rooms').removeAttr('style', 'background-color: #e9573e !important')
+		$('#teamups').removeAttr('style', 'background-color: #e9573e !important')
+		$('.navbar').attr('style', 'background-color: #17a2b8 !important')
+	}
+	clicks3 = !clicks3
+	clicks2 = false
+	clicks1 = false
 });
 
 
 
-$("#teamups").on("click", function(){
-$(this).attr('style', 'background-color: #ffc107 !important;color : white !important')
-$(".teamups-btn").css('display','block');
-$('#search-submit-start').css('display','none')
-$('.search-teamups-btn').attr('style','background-color:#37bc9b !important')
-$(".flatmates-btn").css('display','none');
-$(".rooms-btn").css('display','none');
-var serach_button = document.getElementById("search-submit");
-serach_button.value='Search Teamups'
-$('#rooms').removeAttr('style', 'background-color: #e9573e !important')
-$('#flatmates').removeAttr('style', 'background-color: #e9573e !important')
-$('.navbar').attr('style', 'background-color: #ffc107 !important')
+//$("#teamups").on("click", function(){
+//$(this).attr('style', 'background-color: #ffc107 !important;color : white !important')
+//$(".teamups-btn").css('display','block');
+//$('#search-submit-start').css('display','none')
+//$('.search-teamups-btn').attr('style','background-color:#37bc9b !important')
+//$(".flatmates-btn").css('display','none');
+//$(".rooms-btn").css('display','none');
+//var serach_button = document.getElementById("search-submit");
+//serach_button.value='Search Teamups'
+//$('#rooms').removeAttr('style', 'background-color: #e9573e !important')
+//$('#flatmates').removeAttr('style', 'background-color: #e9573e !important')
+//$('.navbar').attr('style', 'background-color: #ffc107 !important')
+//});
+
+$("#teamups").on("click", function() {
+	if (clicks2)
+	{
+		$(this).removeAttr('style', 'background-color: #ffc107 !important;color : white !important')
+		$('.navbar').removeAttr('style', 'background-color: #ffc107 !important')
+		$(".teamups-btn").css('display','none');
+	}
+	else
+	{
+		$(this).attr('style', 'background-color: #ffc107 !important;color : white !important')
+		$(".teamups-btn").css('display','block');
+		$('#search-submit-start').css('display','none')
+		$('.search-teamups-btn').attr('style','background-color:#37bc9b !important')
+		$(".flatmates-btn").css('display','none');
+		$(".rooms-btn").css('display','none');
+		var serach_button = document.getElementById("search-submit");
+		serach_button.value='Search Teamups'
+		$('#rooms').removeAttr('style', 'background-color: #e9573e !important')
+		$('#flatmates').removeAttr('style', 'background-color: #e9573e !important')
+		$('.navbar').attr('style', 'background-color: #ffc107 !important')
+	}
+	clicks2 = !clicks2
+	clicks1 = false
+	clicks3 = false
 });
 
 
@@ -672,6 +863,56 @@ $(document).on('click','.input-group', function(){
 //        $(this).parent().find("#search_check_lgbt").val("")
     }
 });
+
+
+    $(".tags_input").tagComplete({
+        autocomplete: {
+//          data: data,
+            freeEdit:false,
+            params : function(value){
+                return {q:value};
+            },
+            ajaxOpts: {
+                url: '/get_suburbss',
+                type: "GET",
+                success: function(result){
+                }
+            },
+            proccessData: function(data){
+//                 console.log('Dataaaaaaa 123: ',data)
+                 var res = []
+                    for(i=0;i<data.length;i++){
+//                        console.log('label :',data[i]['label'])
+                        res.push(data[i]['label'])
+                    }
+//                    console.log('data :/: ',res)
+                 return res;
+            },
+        }
+    })
+
+
+//    $(".tag_input").keydown(function(e) {
+//        switch (e.which) {
+//            case 40:
+//                console.log('11111111111111111111111111111111111111111111',e.which)
+////                e.preventDefault(); // prevent moving the cursor
+//                $('li:not(:last-child).abcc').removeClass('abcc')
+//                    .next().addClass('abcc');
+//                break;
+//
+//            case 38:
+//                console.log('222222222222222222222222222222222222222222222',e.which)
+////                e.preventDefault(); // prevent moving the cursor
+//                $('li:not(:first-child).abcc').removeClass('abcc')
+//                    .prev().addClass('abcc');
+//                break;
+//        }
+//    });
+
+
+
+
 
 //$(".search-room-btn").on("click", function(){
 //

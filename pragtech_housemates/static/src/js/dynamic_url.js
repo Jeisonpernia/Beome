@@ -32,6 +32,7 @@ $(document).ready(function() {
         {
             var accommodation_type = $('#type_of_accomodation').val()
             var action = ""
+            console.log("\n\n======\n\n",accommodation_type)
 
             if(accommodation_type == "sharehouse"){
                 action = "/listplace/share-house/who-lives-here"

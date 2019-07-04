@@ -20,7 +20,6 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
     $(document).on('click','.property-rounded-btn-location-link',function(){
 
          console.log("+++++++++ text of a link +++++++++",this.text)
-         alert('hi')
          var path=window.location.pathname
          if (path.indexOf('P') !== -1){
          var property_id=path.split('P').pop()
@@ -204,11 +203,17 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                         $('.breadcrumb_suburb_city').attr('href','/search/records?listing_type=find&city='+result['result']['suburbs_city'])
                         $('.view_more_find_property_button').attr('href','/search/records?listing_type=find&city='+result['result']['city'])
                         $('.view_more_property_button').attr('href','/search/records?listing_type=list&city='+result['result']['suburbs_city'])
-
+                        $('.breadcrumb_accomodation').attr('href','/search/records?listing_type=list&city='+result['result']['city']+'&property_type='+result['result']['property_type'])
                         if (result['result']['listing_type'] == 'find')
                         {
                             $("#map_container").css('display','none')
                             $('#map_section').css('display','none')
+                            $('.navbar').attr('style', 'background-color: #17a2b8 !important')
+
+                        }
+                        else if (result['result']['listing_type'] == 'list'){
+                        $('.navbar').attr('style', 'background-color: #e9573e !important')
+
                         }
                     }
                     if (result['result']['latitude'] && result['result']['longitude'])

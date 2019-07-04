@@ -44,7 +44,7 @@ $(document).ready(function() {
             record_array.push(temp_dict)
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
             //console.log('//////////////////////////////// ',temp_dict)
-            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 //            alert("Page")
 
@@ -54,12 +54,36 @@ $(document).ready(function() {
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
 //            console.log(record_array)
 
-            var suburbs = $("input[id=suburbs]").map(function(){return $(this).val();}).get();
-            record_array[0]['suburbs'] = suburbs
+//            var suburbs = $("input[id=suburbs]").map(function(){return $(this).val();}).get();
+//            record_array[0]['suburbs'] = suburbs
+            var tagContainer = $('.tags_container')
+            var tags = tagContainer.find('.tag')
+            var suburb_array=[]
+            if(tags.length != 0){
+            $.each(tags,function(event){
 
+            suburb_name = $(this).find("input").data("suburb_name");
+            latitude = $(this).find("input").data("lat");
+            longitude = $(this).find("input").data("long");
+            city = $(this).find("input").data("city");
+            post_code = $(this).find("input").data("post_code");
+
+            var temp_dict = {
+                'suburb_name':suburb_name,
+                'latitude':latitude,
+                'longitude':longitude,
+                'city':city,
+                'post_code':post_code
+            }
+            suburb_array.push(temp_dict)
+
+            record_array[0]['suburbs']=suburb_array
+
+            });
+}
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
 
-//            console.log('SUBURBSSSSSS ::' ,suburbs)
+//            console.log('SUBURBSSSSSS ::' ,localStorage.getItem('find_place_record'))
 //            event.preventDefault();
 //            alert("Page")
 
@@ -209,8 +233,8 @@ $(document).ready(function() {
             //console.log('LOCAL STORAGE ',localStorage.getItem('find_place_record'))
 //            event.preventDefault()
 
-            //console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
-
+//            console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+//
 //            alert("Page")
 
         });
@@ -244,6 +268,7 @@ $(document).ready(function() {
             console.log('List Place Array BY DON  : ',localStorage.getItem('find_place_record'))
 
             var find_place_data = JSON.parse(localStorage.getItem('find_place_record'));
+//            console.log('final data=============',find_place_data)
 
 //            alert("page")
             if (find_place_data){
@@ -283,10 +308,10 @@ $(document).ready(function() {
                 });
 
 		    }
-//		                console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
+		                console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
 
 
-//		    event.preventDefault()
+		    event.preventDefault()
 //event.preventDefault();
 
         });
@@ -489,22 +514,25 @@ $(document).ready(function() {
             var oldArray = JSON.parse(localStorage.getItem('list_place_array'));
             var radio_btn_checked_length = $("input:checked").length
             var num_of_rooms = radio_btn_checked_length / 3
-            var count = 1;
+            var count = -1;
             var room = 1
             var one_room_data = {}
             var final_data = []
             $( $("input:checked") ).each(function( index )
             {
                 var attribute = $(this).attr('name').substring(0, $(this).attr('name').length-2)
-                //console.log(attribute)
-                if (count % 3 == 0)
+                console.log(attribute)
+                if (count % 3 == 0 && count! == 0)
                 {
+                console.log ("fffffffffffffffffffff count 111",count, $("input:checked"))
+//                    console.log ("fffffffffffffffffffff",one_room_data)
                     if (attribute == 'room_type')
                         one_room_data['room_type'] = $(this).val()
                     else if (attribute == 'room_furnishing_types')
                         one_room_data['room_furnishing_types'] = $(this).val()
                     else if (attribute == 'bathroom_types')
                         one_room_data['bathroom_types'] = $(this).val()
+//                    console.log ("fffffffffffffffffffff",one_room_data)
                     final_data.push({['Room_'+room.toString()] : one_room_data })
                     one_room_data = {}
                     room = room+1
@@ -521,6 +549,8 @@ $(document).ready(function() {
                         one_room_data['bathroom_types'] = $(this).val()
 //                        one_room_data.push({'bathroom_types' : $(this).val()})
                     count = count+1
+//                    console.log ("fffffffffffffffffffff",one_room_data)
+                    console.log ("fffffffffffffffffffff count ",count)
                 }
             });
 
@@ -530,7 +560,7 @@ $(document).ready(function() {
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-//            console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
+            console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
             //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 //            alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
 //            event.preventDefault()

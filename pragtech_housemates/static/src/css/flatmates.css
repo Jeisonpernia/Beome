@@ -2354,6 +2354,17 @@ background: #11836c;
 }
 
 
+.search-btn-close{
+	position: absolute;
+right: 10px;
+line-height: 60px;
+font-size: 30px;
+	background: none;
+	border: none;
+
+}
+
+
 /* Search Box Radio Checkbox Start*/
 .radio-checkbox {
 	float: left;
@@ -2817,8 +2828,8 @@ display: inline;
 	display: inline-block;
 	font-size: 0.875rem;
 	margin-bottom: 4px;
-	margin-right: 4px;
-	padding: 0 6px 0 0;
+	margin-right: 0px;
+	padding: 0 4px 0 0;
 	text-align: center;
 	white-space: nowrap;
 }
@@ -3054,5 +3065,10 @@ background-color: #f7bb42;
     margin-left: .25rem;
     margin-right: .5rem;
 }
+.abcc{
+    background-color:#37bc9b;
+}
+
+
 
 

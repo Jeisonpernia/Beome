@@ -20,6 +20,16 @@ $(document).ready(function()
 //        else
 //            $('.find-publish').prop("disabled", false)
 //    }
+    if (window_pathname.includes('about-yourself'))
+        {
+			if ( $("#find_comment").val().length == 0 )
+            {
+                $('.styles__errorMessage_find_comment').hide();
+                // Code added by dhrup
+                $('#find_comment').removeClass("border-red")
+            }
+
+		}
 
     $("#find_comment").keyup(function()
     {
@@ -30,6 +40,7 @@ $(document).ready(function()
         else
             $('.find-publish').prop("disabled", false)
     });
+
 
     $("#find_comment").on('keyup', function (){
         if ( $("#find_comment").val().length == 0 )
@@ -51,6 +62,28 @@ $(document).ready(function()
                 // Code added by dhrup
                 $('#find_comment').removeClass("border-red")
            }
+
+    });
+
+    $("#find_comment").on('paste', function (){
+    	setTimeout(function () {
+        		if ($("#find_comment").val().length <= 9 )
+                {
+
+        			 $('.styles__errorMessage_find_comment').show();
+                     // Code added by dhrup
+                     $('#find_comment').addClass("border-red")
+                     $('.find-publish').prop("disabled", true)
+                }
+              else
+               {
+            	  $('.styles__errorMessage_find_comment').hide();
+                  // Code added by dhrup
+                  $('#find_comment').removeClass("border-red")
+                  $('.find-publish').prop("disabled", false)
+               }
+
+    	}, 1);
 
     });
 
@@ -138,7 +171,7 @@ $('.find-suburbs').on('keypress',function(e) {
     {
        //console.log($(this).parent())
        $(this).parent().prepend('<div class="badge badge-pill badge-secondary"><span>Tag 220<i class="close fa fa-times"></i></div>')
-       alert("sfdsd")
+//       alert("sfdsd")
        event.preventDefault();
       return false;
     }
@@ -630,7 +663,7 @@ function remove_div_for_group()
 }
 
 $(".find_place_for_option").on('click','input:radio',function() {
-    //console.log ("In template /find-place/describe-your-ideal-place/introduce-flatmates")
+    console.log ("In template /find-place/describe-your-ideal-place/introduce-flatmates")
 
 //    console.log ("-------asffffffffsdgsd zsfsf----",$(this).val())
     toggle_about_you_button()

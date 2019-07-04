@@ -132,7 +132,7 @@ $(document).ready(function()
 	   	
 	   }
 		   
-		   	   if (($(window).width() > 992) && ($(window).width() < 1024)) 
+		   	   if (($(window).width() > 992) && ($(window).width() < 1024))
 	   {	
 		   
 		   if (window_pathname == '/info')
@@ -144,6 +144,7 @@ $(document).ready(function()
 				$("#head_id").css('display','block')
 				$(".info-page").find("#add_html_content").show()
 			}
+
 	   	
 	   }
 		   

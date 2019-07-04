@@ -528,6 +528,36 @@ $(document).on('change','#change_photos_find',function()
 
         });
 
+        $input.on('paste', function (){
+        	setTimeout(function () {
+	        		var window_pathname = window.location.pathname
+	        		if ($input.val().length <= 9 )
+	                {
+
+	                    $('.styles__errorMessage1').show();
+	                    // Code added by dhrup
+	                    $('#comment').addClass("border-red")
+
+	                    if (window_pathname.includes("about-others"))
+	    	                $('.about-others-nxt-btn').prop("disabled", true)
+		        	    if (window_pathname.includes("about-property"))
+	    	                $('.about-property-nxt-btn').prop("disabled", true)
+	                }
+	              else
+	               {
+	                    $('.styles__errorMessage1').hide();
+	                    // Code added by dhrup
+	                    $('#comment').removeClass("border-red")
+
+	                    if (window_pathname.includes("about-others"))
+	    	                $('.about-others-nxt-btn').prop("disabled", false)
+		        	    if (window_pathname.includes("about-property"))
+	    	                $('.about-property-nxt-btn').prop("disabled", false)
+	               }
+
+        	},1);
+        });
+
 
 
     var $input1 = $(".property_something");

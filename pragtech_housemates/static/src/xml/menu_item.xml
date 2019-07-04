@@ -56,7 +56,18 @@
                                     <span class="fa fa-search"></span>
                                 </div>
 
-                                <span class="search-dropdown-txt">Search share accommodation</span>
+                                <span class="search-dropdown-txt">Search share accommodation
+								</span>
+								
+								
+								<button class="search-btn-close d-none" >
+                                            ×
+                                        </button>
+								
+								
+                                
+								
+								
                             </button>
 
                             <div class="dropdown-menu search-dropdown-responsive" aria-labelledby="dropdownMenuButton" id="dropdownMenuButton" role="dialog">
@@ -64,46 +75,61 @@
 
                             <!-- Modal content-->
                             <div class="modal-content">
+                               
+                                        <!--<button type="button" class="close search-btn-close" data-dismiss="modal" aria-label="Close">
+                                            ×
+                                        </button>-->
+                                    
                                 <div class="modal-body">
                                     <div class="search-dropdown-menu">
 
                             <form class="search-form" id="search_filter" action="/search/records" method="GET">
-                                <div class="form-group auto-input locations-autocomplete">
-                                    <label class="p16-gray text-uppercase">Where are you looking?</label>
-                                    <div class="auto-input find-place-add-suburbs-search">
-                                        <input class="hidden-input token-input" placeholder="Start typing a suburb" type="text" autocomplete="off" id="find_suburb_search" name="suburbs_1" value=""/>
-                                    </div>
+                                <!--<div class="form-group auto-input locations-autocomplete">-->
+                                    <!--<label class="p16-gray text-uppercase">Where are you looking?</label>-->
+                                    <!--<div class="auto-input find-place-add-suburbs-search">-->
+                                        <!--<input class="hidden-input token-input" placeholder="Start typing a suburb" type="text" autocomplete="off" id="find_suburb_search" name="suburbs_1" value=""/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <div class="search_tag_input_suburbs">
                                 </div>
+
+                                <label class="p16-gray text-uppercase">Where are you looking?</label>
+                                <div class="tag-input-div">
+                                    <input type="text" class="tags_input" placeholder="Start typing a suburb, city, station or uni" value=""/>
+                                </div>
+
                                 <!--placeholder = "Start typing a suburb, city, station or uni"-->
 
                                 <div class="popular-locations">
                                     <div class="locations">
                                         <span class="popular-location">
-                                            <i class="fas fa-map-marker-alt" />
-                                            <span class="icon-label">Sydney</span>
+                                            <span class="icon"><svg class="map-marker" viewBox="0 0 50 50"><path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path></svg></span>
+                                            <span class="icon-label sydney_city" data-id="0">Sydney</span>
                                         </span>
                                         <span class="popular-location">
-                                            <i class="fas fa-map-marker-alt" />
-                                            <span class="icon-label">Melbourne</span>
+                                            <span class="icon"><svg class="map-marker" viewBox="0 0 50 50"><path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path></svg></span>
+                                            <span class="icon-label melbourne_city" data-id="0">Melbourne</span>
                                         </span>
                                         <span class="popular-location">
-                                            <i class="fas fa-map-marker-alt" />
-                                            <span class="icon-label">Brisbane</span>
+                                            <span class="icon"><svg class="map-marker" viewBox="0 0 50 50"><path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path></svg></span>
+                                            <span class="icon-label brisbane_city" data-id="0">Brisbane</span>
                                         </span>
                                         <span class="popular-location">
-                                            <i class="fas fa-map-marker-alt"/>
-                                            <span class="icon-label">Perth</span>
+                                            <span class="icon"><svg class="map-marker" viewBox="0 0 50 50"><path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path></svg></span>
+                                            <span class="icon-label perth_city" data-id="0">Perth</span>
                                         </span>
                                         <span class="popular-location">
-                                            <i class="fas fa-map-marker-alt"/>
-                                            <span class="icon-label">Gold Coast</span>
+                                            <span class="icon"><svg class="map-marker" viewBox="0 0 50 50"><path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path></svg></span>
+                                            <span class="icon-label gold_cost_city" data-id="0">Gold Coast</span>
                                         </span>
                                         <span class="popular-location">
-                                            <i class="fas fa-map-marker-alt"/>
-                                            <span class="icon-label">Adelaide</span>
+                                            <span class="icon"><svg class="map-marker" viewBox="0 0 50 50"><path class="fill" d="M 25 1 C 16.178 1 9 8.178 9 17 C 9 31.114 23.627 47.94625 24.25 48.65625 C 24.44 48.87325 24.712 49 25 49 C 25.31 48.979 25.56 48.87625 25.75 48.65625 C 26.373 47.93425 41 30.813 41 17 C 41 8.178 33.822 1 25 1 z M 25 12 C 28.313 12 31 14.687 31 18 C 31 21.313 28.313 24 25 24 C 21.687 24 19 21.313 19 18 C 19 14.687 21.687 12 25 12 z"></path></svg></span>
+                                            <span class="icon-label adelaide_city" data-id="0">Adelaide</span>
                                         </span>
                                     </div>
                                 </div>
+
+
 
                                 <div class="form-group">
                                     <label for="" class="p16-gray text-uppercase">What are you looking for?</label>
@@ -147,6 +173,10 @@
 
                             <form class="search-form mt-2" id="search_room_filter" action="/search/records" method="GET">
                                 <div class="rooms-btn">
+                                    <div class="rooms_tag_input_city">
+                                    </div>
+                                    <div class="rooms_tag_input_suburbs">
+                                    </div>
 
                                     <div class="search-min-budget">
                                         <div class="form-group row">
@@ -438,6 +468,10 @@
 
                             <form class="search-form mt-2" id="search_flatmates_filter" action="/search/records" method="GET">
                                 <div class="flatmates-btn">
+                                        <div class="flatmate_tag_input_city">
+                                        </div>
+                                        <div class="flatmate_tag_input_suburbs">
+                                        </div>
 
                                     <div class="form-group row">
                                         <!--<div class="col-lg-3 col-6 btn-padding-left btn-padding-right">-->
