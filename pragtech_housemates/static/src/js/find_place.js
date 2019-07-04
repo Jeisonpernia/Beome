@@ -194,7 +194,7 @@ $('#find-budget, #find-txtdate').on('keyup change',function()
 {
     $('#find-txtdate').prop("readonly",true)
 
-    if ($('#find-budget').val()!='' && $('#find-txtdate').val()!='')
+    if ($('#find-budget').val()!='' && $('#find-budget').val() < 10000 && $('#find-txtdate').val()!='')
         $('.submit-rent-timing').prop("disabled", false)
 
     else

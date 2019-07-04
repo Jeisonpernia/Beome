@@ -128,10 +128,12 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                     url: '/remove_partner_mobile_no',
                     type: "POST",
                     dataType: 'json',
+                    async:false,
                     contentType: 'application/json',
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
                     success: function(data)
                     {
+                     console.log('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGoooooooooooooo')
                         $(".verify-mobile-on-dashboard").css('display','block')
                         $("#account_verification").css('display','none')
 

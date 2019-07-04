@@ -13,15 +13,16 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
                                         <t t-if="request.env.user.partner_id.name != 'Public user'">
-                                            <h4>Thanks <t t-if="user_id.firstname">
-                                                                    <span t-esc="user_id.firstname"/>
-                                                                </t>
-                                                                <t t-elif="user_id.lastname">
-                                                                    <span t-esc="user_id.lastname"/>
-                                                                </t>
-                                                                <t t-else="user_id.name">
+                                            <h4>Thanks <t t-if="user_id.name">
                                                                     <span t-esc="user_id.name"/>
-                                                                </t>, let’s find you
+                                                                </t>
+                                                                <!--<t t-elif="user_id.lastname">-->
+                                                                    <!--<span t-esc="user_id.lastname"/>-->
+                                                                <!--</t>-->
+                                                                <!--<t t-else="user_id.name">-->
+                                                                    <!--<span t-esc="user_id.name"/>-->
+                                                                <!--</t>-->
+                                                                , let’s find you
                                                 a place
                                             </h4>
                                         </t>

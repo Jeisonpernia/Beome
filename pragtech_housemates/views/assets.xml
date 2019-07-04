@@ -28,7 +28,7 @@
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/find_place.js"></script>
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/form_data.js"></script>
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/place_autocomplete.js"></script>
-            <script type="text/javascript" src="/pragtech_housemates/static/src/js/place_search.js"></script>
+            <!--<script type="text/javascript" src="/pragtech_housemates/static/src/js/place_search.js"></script>-->
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/search.js"></script>
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/fix_top_menu.js"></script>
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/edit_preview_page.js"></script>

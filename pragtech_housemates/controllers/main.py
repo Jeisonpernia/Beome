@@ -572,7 +572,7 @@ class FlatMates(http.Controller):
         if property.weekly_budget:
             values.update({'weekly_budget': int(property.weekly_budget)})
         if property.bond_id:
-            values.update({'bond_id': property.weekly_budget*property.bond_id.number_of_week})
+            values.update({'bond_id': int(property.weekly_budget*property.bond_id.number_of_week)})
         if property.bill_id:
             values.update({'bill_id': property.bill_id.name})
         print(property.parking_id.name)
@@ -2822,7 +2822,7 @@ class FlatMates(http.Controller):
         property_data = {}
         domain = []
         properties=''
-        fields = ['id', 'street2', 'city', 'listing_type', 'state', 'weekly_budget', 'description_about_property', 'property_image_ids', 'total_bathrooms_id', 'total_bedrooms_id', 'total_no_flatmates_id', 'person_ids', 'is_short_list']
+        fields = ['id', 'street2', 'city', 'listing_type', 'state', 'weekly_budget', 'suburbs_ids','description_about_property', 'property_image_ids', 'total_bathrooms_id', 'total_bedrooms_id', 'total_no_flatmates_id', 'person_ids', 'is_short_list','property_type','rooms_ids']
 
         print ("\n\n\n88888888888888888888",filters[0])
         print ("\n\n\n", filters[0].get('max_age'))
@@ -3088,7 +3088,7 @@ class FlatMates(http.Controller):
             # print("Streettt---------------------------", properties)
             property_image_main = request.env['property.image'].sudo().search_read(
                 domain=[('flat_mates_id','=',rec.get('id')),('id', 'in', rec.get('property_image_ids'))], fields=['image'], order='id', limit=1)
-            # print ("-----------------------------",property_image_main)
+            print ("-------------ddddddddddddd----------------",rec)
             property_data = {}
             property_data['id'] = rec.get('id')
 
@@ -3116,6 +3116,10 @@ class FlatMates(http.Controller):
                     property_data['bedrooms'] = rec.get('total_bedrooms_id')[1]
                 if rec.get('total_no_flatmates_id'):
                     property_data['flatmates'] = rec.get('total_no_flatmates_id')[1]
+                if rec.get('property_type'):
+                    property_type_id = request.env['property.type'].sudo().search([('id', 'in', rec.get('property_type'))])
+                    room_type=request.env['about.rooms'].sudo().search([('id', 'in', rec.get('rooms_ids'))])
+                    property_data['display_string'] = str(property_type_id.property_type)+" with "+str(room_type.room_type_id.name)+" room."
 
             if rec.get('listing_type') == 'find':
                 if rec.get('person_ids'):
@@ -3124,7 +3128,10 @@ class FlatMates(http.Controller):
                     property_data['name'] = about_person.name
                     property_data['age'] = about_person.age
                     property_data['gender'] = about_person.gender
-
+                    print("\n------------ propety_type------", rec.get('suburbs_ids'))
+                    suburbs_ids = request.env['find.suburbs'].sudo().search([('id', 'in', rec.get('suburbs_ids'))])
+                    for id in suburbs_ids:
+                        property_data['display_string'] = "Looking in : "+id.subrub_name+","
 
 
 

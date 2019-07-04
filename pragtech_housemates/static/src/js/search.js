@@ -602,15 +602,15 @@ $('.on-active-datepicker').addClass('show')
 
 
 $(".search-dropdown").click(function(event){
-    console.log('fdhndfhjdnfhkn')
+//    console.log('fdhndfhjdnfhkn')
     var is_shown = $(".modal_shown").hasClass("show")
     console.log('Is shownnnnnnnnnnnnnnnn : ',is_shown)
     if (is_shown == false){
-           console.log('111111111111111111111111111111111')
+//           console.log('111111111111111111111111111111111')
           $(".search-btn-close").removeClass('d-none')
     }
     else{
-            console.log('222222222222222222222222222')
+//            console.log('222222222222222222222222222')
           $(".search-btn-close").addClass('d-none')
     }
 });

@@ -73,7 +73,7 @@ $(document).ready(function() {
     //Validation for "Rent, bond and bills" page
     $("input[id='weekly_rent']").on("keyup", function(){
 
-        if($(this).val() != "" && $("#bond").val() != "" && $("#bill").val() != ""){
+        if($(this).val() != "" && $(this).val() < 10000 && $("#bond").val() != "" && $("#bill").val() != ""){
             $('.rent-bond-bill-btn').prop("disabled", false);
         } else {
             $('.rent-bond-bill-btn').prop("disabled", true);
@@ -82,7 +82,7 @@ $(document).ready(function() {
 
     $("select[id='bond']").on("change", function(){
 
-        if($("#bond").val() != "" && $("#bill").val() != "" && $("#weekly_rent").val() != ""){
+        if($("#bond").val() != "" && $("#bill").val() != "" && $("#weekly_rent").val() != "" && $("#weekly_rent").val() < 10000){
             $('.rent-bond-bill-btn').prop("disabled", false);
         } else {
             $('.rent-bond-bill-btn').prop("disabled", true);
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
     $("select[id='bill']").on("change", function(){
 
-        if($("#bill").val() != "" && $("#bond").val() != "" && $("#weekly_rent").val() != ""){
+        if($("#bill").val() != "" && $("#bond").val() != "" && $("#weekly_rent").val() != "" && $("#weekly_rent").val() < 10000){
             $('.rent-bond-bill-btn').prop("disabled", false);
         } else {
             $('.rent-bond-bill-btn').prop("disabled", true);

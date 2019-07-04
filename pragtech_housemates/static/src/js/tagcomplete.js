@@ -528,7 +528,6 @@
                     //dataUrl
 					dataUrl = options.autocomplete.ajaxOpts.url;
 
-
 					//now if we have url set
 					 if(dataUrl != null){
 
@@ -622,8 +621,32 @@
 		    tagId: tagId,
 		    tagText: tagText
 		})) {
-		    //result is true, append tag
-		    instance.tagsContainer.append(tag);
+
+            //added by sagar - restrict duplicate tag while adding
+		    if(tagsContainer[0].childElementCount != 0){
+		        console.log('in iffffffffffffffffffffffff')
+                var tags = tagsContainer.find("tag");
+                console.log('tagsssss : ',tags)
+                let span_flag = true
+                $('.tag').each(function(i){
+                    var spanText = $(this).text();
+                    console.log('tagg : ',spanText)
+                    if (spanText == tagText){
+                        span_flag = false;
+                    }
+
+                });
+                if (span_flag){
+                    instance.tagsContainer.append(tag);
+                }
+            }
+            else{
+                console.log('is in elseeeeeeeeeeeeeee')
+                instance.tagsContainer.append(tag);
+            }
+
+             //result is true, append tag
+//		    instance.tagsContainer.append(tag);
 		};
 
 		tagInput.removeAttr('placeholder')

@@ -69,7 +69,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                         for (index=0 ; index<data['result'].length; index++)
                         {
 
-                            console.log ("Indexxxxx",data['result'][index]['description'])
+                            console.log ("Indexxxxx",data['result'])
                             record_id = data['result'][index]['id']
                             if (data['result'][index]['image'] != 'undefined')
                                 image = data['result'][index]['image']
@@ -86,6 +86,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                             age = data['result'][index]['age']
                             gender = data['result'][index]['gender']
                             short_list = data['result'][index]['is_short_list']
+                            display_string=data['result'][index]['display_string']
 
 
 
@@ -101,7 +102,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                             else
                             	star_div = '<div class="shortlist"><a href="#222" class="default-shortlist shortlist-button"><svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></a></div>'
 
-                            property_name_div = '<p class="property-listing-subheading">To be added</p>'
+                            property_name_div = '<p class="property-listing-subheading">'+display_string+'</p>'
                             description = description.replace(/<[^>]+>/ig, '');
                             description_div = '<p class="property-listing-para">'+description+'</p>'
 
@@ -124,7 +125,12 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
                             if (data['result'][index]['listing_type'] == 'list')
                             {
+                                if(city){
                                 street_div = '<p class="property-listing-heading mt-2">'+street+', '+city+'</p>'
+                                }
+                                else{
+                                street_div = '<p class="property-listing-heading mt-2">'+street+', '+" "+'</p>'
+                                }
 
                                 orange_image_ribbion = '<div class="propety-ribbon-orange">New |  $'+weekly_budget+'</div>'
 

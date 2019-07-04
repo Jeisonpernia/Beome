@@ -59,15 +59,15 @@
                                                 </span>
                                             </div>
                                             <div class="text-center mt-1">
-                                                <t t-if="user_id.firstname">
-                                                    <span t-esc="user_id.firstname[0:10]"/>
-                                                </t>
-                                                <t t-elif="user_id.lastname">
-                                                    <span t-esc="user_id.lastname[0:10]"/>
-                                                </t>
-                                                <t t-else="user_id.name">
+                                                <t t-if="user_id.name">
                                                     <span t-esc="user_id.name[0:10]"/>
                                                 </t>
+                                                <!--<t t-elif="user_id.lastname">-->
+                                                    <!--<span t-esc="user_id.lastname[0:10]"/>-->
+                                                <!--</t>-->
+                                                <!--<t t-else="user_id.name">-->
+                                                    <!--<span t-esc="user_id.name[0:10]"/>-->
+                                                <!--</t>-->
 
 
                                                 <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
@@ -154,15 +154,15 @@
                                                         <!--&gt;>>>>>> [NEW]:SMS Sending code added on Verify mobile number-->
                                                         <div class="card-body">
                                                             <h5 class="card-title text-center">
-                                                                <t t-if="user_id.firstname">
-                                                                    <span t-esc="user_id.firstname"/>
-                                                                </t>
-                                                                <t t-if="user_id.lastname">
-                                                                    <span t-esc="user_id.lastname"/>
-                                                                </t>
-                                                                <t t-else="user_id.name">
+                                                                <t t-if="user_id.name">
                                                                     <span t-esc="user_id.name"/>
                                                                 </t>
+                                                                <!--<t t-if="user_id.lastname">-->
+                                                                    <!--<span t-esc="user_id.lastname"/>-->
+                                                                <!--</t>-->
+                                                                <!--<t t-else="user_id.name">-->
+                                                                    <!--<span t-esc="user_id.name"/>-->
+                                                                <!--</t>-->
 
                                                                 <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
                                                             </h5>
@@ -260,15 +260,15 @@
 
                                                         <div class="col-lg-10 col-9">
                                                             <h4>Hey
-                                                                <t t-if="user_id.firstname">
-                                                                    <span t-esc="user_id.firstname"/>
-                                                                </t>
-                                                                <t t-elif="user_id.lastname">
-                                                                    <span t-esc="user_id.lastname"/>
-                                                                </t>
-                                                                <t t-else="user_id.name">
+                                                                <t t-if="user_id.name">
                                                                     <span t-esc="user_id.name"/>
                                                                 </t>
+                                                                <!--<t t-elif="user_id.lastname">-->
+                                                                    <!--<span t-esc="user_id.lastname"/>-->
+                                                                <!--</t>-->
+                                                                <!--<t t-else="user_id.name">-->
+                                                                    <!--<span t-esc="user_id.name"/>-->
+                                                                <!--</t>-->
                                                                 <!--t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
 
                                                                 <br/>

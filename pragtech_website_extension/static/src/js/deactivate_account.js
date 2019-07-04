@@ -112,6 +112,7 @@ odoo.define('pragtech_website_extension.deactivate_account', function (require)
                     url: '/account_settings',
                     type: "POST",
                     dataType: 'json',
+                    async:false,
                     contentType: 'application/json',
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {
                     'name':name,

@@ -105,6 +105,7 @@ $(document).ready(function() {
 
         $(".rent-bond-bill-btn").on("click", function()
         {
+
             var accommodation_type = $('#type_of_accomodation').val()
             var action = ""
 

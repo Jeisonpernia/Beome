@@ -2145,15 +2145,19 @@
                                                                 <div class="row mt-3">
                                                                     <div class="col-12">
                                                                         <div class="form-group">
-                                                                            <div class="locations-autocomplete">
-                                                                                <div class="auto-input find-place-add-suburbs">
-                                                                                    <input class="hidden-input token-input"
-                                                                                           placeholder="" type="text"
-                                                                                           autocomplete="off"
-                                                                                           id="find_suburb"
-                                                                                           name="suburbs" value=""/>
-                                                                                </div>
+                                                                            <!--<div class="locations-autocomplete">-->
+                                                                                <!--<div class="auto-input find-place-add-suburbs">-->
+                                                                                    <!--<input class="hidden-input token-input"-->
+                                                                                           <!--placeholder="" type="text"-->
+                                                                                           <!--autocomplete="off"-->
+                                                                                           <!--id="find_suburb"-->
+                                                                                           <!--name="suburbs" value=""/>-->
+                                                                                <!--</div>-->
+                                                                            <!--</div>-->
+                                                                            <div class="tag-input-div">
+                                                                                <input type="text" class="tags_input" placeholder="Start typing a suburb, city, station or uni" value=""/>
                                                                             </div>
+
                                                                             <p class="show-distance-msg d-none">The
                                                                                 suburb selected is greater than 25km
                                                                                 from your original suburb
