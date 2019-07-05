@@ -5,7 +5,7 @@
     'name': 'Website Extensin',
     'summary': 'Customer Portal',
     'sequence': '9001',
-    'version': '12.0.20',
+    'version': '12.0.21',
     'category': 'Hidden',
     'description': """ Portal Extension """,
     'depends': ['portal','auth_oauth','website_sale','l10n_au','sale_management'],

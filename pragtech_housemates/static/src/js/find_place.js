@@ -763,11 +763,11 @@ function toggle_about_you_button()
 
 
 
-
+var counter = 0
 $(document).on('click','.button_for_add_another_person',function()
 {
 //    console.log ("Hi i m inside another person",)
-
+counter = counter +1
 //    console.log ("dffffffffffff-------------------ffffgdfgfdgfdgd",$('.custom_me_group').length)
     var group_div_length = $('.decribe-place').find('.custom_me_group').length
     var last_group_div = $(document).find('.me_group').last()
@@ -777,7 +777,7 @@ $(document).on('click','.button_for_add_another_person',function()
     var close_me_group_div ='</div>'
 
     var friends_first_name_div = '<div class="form-group"><span class="mb-1">Your friend\'s first name</span><input type="text" class="form-control mt-2" id="find-first-name" name="find_first_name_2'+(group_div_length+1).toString()+'" placeholder="" /></div>'
-    var friends_age_div = '<div class="form-group"><span>Your friend\'s age</span><div><input type="text" class="form-control mt-2 weekly-rent-input" id="find-your-age" name="your_age_2'+(group_div_length+1).toString()+'" value="" maxlength="2"/></div></div>'
+    var friends_age_div = '<div class="form-group"><span>Your friend\'s age</span><div><input type="text" class="form-control mt-2 weekly-rent-input" id="find-your-age_new'+counter.toString()+'" name="your_age_2'+(group_div_length+1).toString()+'" value="" maxlength="2"/><div class="styles__errorMessage5">Must be at least 16</div></div></div>'
     var friends_gender_div = '<div class="form-group"><span class="mb-1">The gender your friend identifies with</span><div class="total-bedrooms mt-2"><label class="radio-inline btn bedroom-btn"><input type="radio" value="female" name="find-place-for-gender_2'+(group_div_length+1).toString()+'" id="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>Female</label><label class="radio-inline btn bedroom-btn"><input type="radio" value="male" name="find-place-for-gender_2'+(group_div_length+1).toString()+'" id="find-place-for-gender_2'+(group_div_length+1).toString()+'"/>Male</label></div></div>'
 
 //    <div class="form-group">
@@ -803,14 +803,52 @@ $(document).on('click','.button_for_add_another_person',function()
     $('.about_rooms_bttn').prop("disabled",true)
 //    console.log ("dffffffffffff-------------------ffffgdfgfdgfdgd",$('.custom_me_group').length)
 //    console.log (group_div_length)
+var  age_input_id = "#find-your-age_new" + counter
+	$(age_input_id).on('keyup', function (){
+		if ($(age_input_id).val() >= 16 )
+		{
+		console.log("===== in 1 if")
+			$('.styles__errorMessage5').hide();
+			// Code added by dhrup
+			$(age_input_id).removeClass("border-red");
+		}
+
+	if ($(age_input_id).val() < 16 )
+		{
+		console.log("===== in 2 if")
+			$('.styles__errorMessage5').show();
+			// Code added by dhrup
+			$(age_input_id).addClass("border-red");
+			$('.about_rooms_bttn').prop("disabled", true)
+		}
+	else
+		{
+			$('.styles__errorMessage5').hide();
+			// Code added by dhrup
+			$(age_input_id).removeClass("border-red");
+		}
+	});
+
+
+
 })
 
  var $input3 = $("#find-your-age");
+ var $input4 = $("#find-your-partner-age")
+ var $input5 = $("#find-your-friend-age")
     if (window_pathname.includes('introduce-flatmates') && $input3)
     {
                  if ($input3.val().length == 0 )
                 {
                     $('.styles__errorMessage4').hide();
+                }
+                if ($input4.val().length == 0 )
+                {
+                    $('.styles__errorMessage6').hide();
+				}
+				if ($input5.val().length == 0 )
+                {
+                    $('.styles__errorMessage7').hide();
                 }
         //console.log ("In general statement if (window_pathname.includes('about-property'))")
         if ($input3.val() < 16)
@@ -837,6 +875,53 @@ $(document).on('click','.button_for_add_another_person',function()
                 $('.styles__errorMessage4').hide();
                 // Code added by dhrup
                 $('#find-your-age').removeClass("border-red");
+            }
+    });
+    $input4.on('keyup', function (){
+
+        if ($input4.val() >= 16 )
+            {
+                $('.styles__errorMessage6').hide();
+                // Code added by dhrup
+                $input4.removeClass("border-red");
+            }
+
+        if ($input4.val() < 16 )
+            {
+                $('.styles__errorMessage6').show();
+                // Code added by dhrup
+                $input4.addClass("border-red");
+                $('.about_rooms_bttn').prop("disabled", true)
+            }
+        else
+            {
+                $('.styles__errorMessage6').hide();
+                // Code added by dhrup
+                $input4.removeClass("border-red");
+            }
+	});
+
+	$input5.on('keyup', function (){
+
+        if ($input5.val() >= 16 )
+            {
+                $('.styles__errorMessage7').hide();
+                // Code added by dhrup
+                $input5.removeClass("border-red");
+            }
+
+        if ($input5.val() < 16 )
+            {
+                $('.styles__errorMessage7').show();
+                // Code added by dhrup
+                $input5.addClass("border-red");
+                $('.about_rooms_bttn').prop("disabled", true)
+            }
+        else
+            {
+                $('.styles__errorMessage7').hide();
+                // Code added by dhrup
+                $input5.removeClass("border-red");
             }
     });
 

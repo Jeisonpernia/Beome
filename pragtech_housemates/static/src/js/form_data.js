@@ -482,7 +482,7 @@ $(document).ready(function() {
             //console.log('parking ', parking);
             //console.log('internet ',internet);
             //console.log('room_furnishing_type ',room_furnishing_type)
-            //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
+            console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 //            event.preventDefault()
 
         });

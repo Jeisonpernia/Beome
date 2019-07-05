@@ -3118,8 +3118,14 @@ class FlatMates(http.Controller):
                     property_data['flatmates'] = rec.get('total_no_flatmates_id')[1]
                 if rec.get('property_type'):
                     property_type_id = request.env['property.type'].sudo().search([('id', 'in', rec.get('property_type'))])
-                    room_type=request.env['about.rooms'].sudo().search([('id', 'in', rec.get('rooms_ids'))])
-                    property_data['display_string'] = str(property_type_id.property_type)+" with "+str(room_type.room_type_id.name)+" room."
+                    if len(property_type_id)>1:
+                        property_data['display_string']=property_type_id[1].property_type
+                    else:
+                        room_type = request.env['about.rooms'].sudo().search([('id', 'in', rec.get('rooms_ids'))])
+                        property_data['display_string'] = str(property_type_id.property_type) + " with " + str(
+                            room_type.room_type_id.name) + " room."
+
+
 
             if rec.get('listing_type') == 'find':
                 if rec.get('person_ids'):

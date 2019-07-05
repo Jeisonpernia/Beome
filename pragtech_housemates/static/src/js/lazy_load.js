@@ -60,7 +60,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                     {
 
                         //console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'])
-                        if (data['result'].length == 0){$("#load_symbol").hide()}
+                        if (data['result'] && data['result'].length == 0){$("#load_symbol").hide()}
 
                         var div = $("#lazy_load");
                         var shortlist_msg_div = $(".empty-shortlist");
@@ -125,12 +125,19 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
                             if (data['result'][index]['listing_type'] == 'list')
                             {
-                                if(city){
+                                if(city && street){
                                 street_div = '<p class="property-listing-heading mt-2">'+street+', '+city+'</p>'
                                 }
-                                else{
-                                street_div = '<p class="property-listing-heading mt-2">'+street+', '+" "+'</p>'
+                                else if(city){
+                                street_div = '<p class="property-listing-heading mt-2">'+city+'</p>'
                                 }
+                                else if(street){
+                                street_div = '<p class="property-listing-heading mt-2">'+street+'</p>'
+                                }
+                                else{
+                                street_div = '<p class="property-listing-heading mt-2"> </p>'
+                                }
+
 
                                 orange_image_ribbion = '<div class="propety-ribbon-orange">New |  $'+weekly_budget+'</div>'
 

@@ -549,7 +549,7 @@ margin: 20px 0;
 }	
 	
 	.top-menu-dropdown .modal-body{
-		padding: 40px;
+		padding: 20px;
 	}	
 	
 	.search-form .btn-padding-left{
@@ -578,12 +578,20 @@ margin: 20px 0;
 	}
 	
 	.top-menu-dropdown .modal-content .card-img-top{
-		width: 100%;
+		width: 70px;
+		height: 70px;
 	}
 	
 	.form-control-placeholder{
 		padding: 15px 10px;
 	}
+	
+	#signup_popup_id .modal-header .close {
+    padding: 0px;
+    margin: 0rem -2.5rem -1rem auto;
+}
+	
+	
 		
 }
 
