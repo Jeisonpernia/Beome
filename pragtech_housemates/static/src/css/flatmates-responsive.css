@@ -1,0 +1,726 @@
+@media only screen and (min-width: 240px) and (max-width: 319px) {
+	.top-menu-dropdown .modal-body{
+		padding: 20px;
+	}
+	
+	.modal-header .close {
+    padding: 0px;
+    margin: 0rem -2.5rem -1rem auto;
+}
+
+	
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+		.modal-header .close {
+    padding: 0px;
+    margin: 0rem 0rem -1rem auto;
+}
+	
+section{
+	padding: 20px 0px;
+}
+	
+	.home-animation h4{
+		font-size: 22px;
+		line-height: 24px;
+	}
+	
+.home-animation-btn-orange-padding{
+	padding-right: auto;
+}
+
+
+.home-animation-btn-blue-padding{
+	padding-left: auto;
+}
+
+	
+.property-img{
+	height: 200px;
+}
+	
+.property-img img{
+	height: 200px;
+}
+	
+	
+.items{
+	padding: 10px 20px;
+}
+	
+.scrolling-wrapper{
+	height: 250px;		
+}
+	
+.slider .delete-slider .fa-trash{
+width: 45px;
+height: 45px;
+line-height: 45px;
+}
+
+.find-place-accommodation{
+padding: 20px;
+}
+	
+.about-profilepic-txt{
+	line-height: normal;		
+	padding-left: 40px;
+	margin-top: 5px;
+}
+	
+.property-slider .scrolling-wrapper{
+		height: 250px;
+}
+.property-detail-left h1{
+	font-size: 24px;
+}
+.property-detail-left .upgradeStatus{
+padding: 6px;		
+}	
+	
+.property-detail-left .upgrade span:last-child{
+	display: block;
+	padding-left: 0px;
+	margin-top: 5px;
+}
+	
+	.property-detail-left .room-months .room-txt, .property-detail-left .room-date .room-txt, .property-detail-left .room-rent .room-txt{
+		font-size: 14px;
+	}	
+	
+	.mb-5{
+		margin-bottom: 32px !important;
+	}
+	
+	.mt-5	{
+		margin-top: 32px !important;
+	}	
+	
+	.property-detail-left .property-msg-box{
+		padding: 15px;
+	}
+	.property-detail-left .property-preferences{
+		font-size: 14px;
+	}
+	
+	#map{
+		width: 100%;
+		height: 300px !important;
+	}
+	
+	.property-detail-left .preferred-locations{
+		display: block;
+	}
+	
+	.property-detail-left .property-rounded-btn{
+		display: block;
+	}
+	
+	.find_place_preview .potential-matches{
+		padding: 0px;
+	}
+	
+	.find_place_preview .listing-views{
+		padding: 20px 0 0 0;
+	}
+	
+	.find_place_preview .listing-views .bg-white{
+		min-height: 300px;
+	}
+	
+	.find_place_preview .listing-views-status{
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	
+	.find_place_preview h2{
+		font-size: 24px;
+	}
+	
+	.your-property-listing-btn{
+		margin-top: 15px;
+	}
+	
+	.btn-transparent-edit{
+		padding: 0px;
+	}
+	
+	.footer_bg ul{
+		padding-left: 0px;
+	}
+	
+	.footer_bg .social-icons{
+		padding-left: 0px;
+	}
+	
+	.footer_bg .rea-groups{
+		display: block;
+	}
+	
+	.footer_bg .rea-groups .rea-groups-list{
+		display: inline-block;
+		margin-top: 15px;
+	}
+	
+	
+.find_place_preview .preview-listing-btn{
+	width: 100%;
+	background: #11836c;
+color: #fff;
+margin: 20px 0;
+}
+	
+.how-to-guides h3{
+		padding: 0px;
+}
+	.how-to-guides ul li{
+		margin: 0px;
+	}
+	
+	.breadcrumb{
+		padding: 20px 0px 0 0;
+	}
+	
+	.top-menu-dropdown .modal-body{
+		padding: 40px 20px 20px;
+	}
+	
+	#why_upgrade_popup .modal-dialog, #payment_history_popup .modal-dialog, #account_verification_popup .modal-dialog, #account_settings_popup .modal-dialog, #email_alert_popup .modal-dialog, #deactivate_account_popup .modal-dialog, #reset_password_popup .modal-dialog{
+		width: 100%;
+		max-width: 100%;
+	}	
+	
+	#why_upgrade_popup .plan-content{
+		min-height: auto;
+	}	
+	
+#why_upgrade_popup .free-plan, #why_upgrade_popup .basic-plan, #why_upgrade_popup .full-plan, #why_upgrade_popup .pro-plan{
+	margin-bottom: 30px;
+	}	
+	
+	#why_upgrade_popup .free-plan .plan-footer h3{
+		display: none;
+	}
+	
+	#why_upgrade_popup .guarantee-blank{
+		min-height: auto;
+		margin: auto;
+	}	
+	
+	#why_upgrade_popup .plan-terms-and-conditions ul{
+		padding: 0px;
+	}
+	
+	
+	#account_settings_popup	.modal-body, #change_mobile_popup .modal-body, #reset_password_popup .modal-body{
+		padding: 16px 0px;
+	}
+	
+	#deactivate_account_popup .btn-green1{
+		padding: 8px;
+	}
+	
+	
+	.search-dropdown-responsive{
+		border: 0px;
+		left: 0px;
+		position: absolute;
+		padding-right: 0px;
+		margin-left: -15px;
+	}
+	
+	
+	#top_menu_collapse .search{
+		width: 25%;
+		margin-right: 0px;
+	}
+	
+	#top_menu_collapse .navbar-nav{
+		flex-direction:row;
+		width: 75%;
+		padding-right: 10px;
+	}
+	
+	 .navbar .nav-item{
+		flex-grow:1;
+		padding: 0px;
+		width: 25%;
+		
+	}
+	
+	.navbar .nav-item:hover{
+		background: none;
+	}
+	
+	.fixed-top-without-edit .navbar{
+		padding: 0px;
+	}
+	
+	#top_menu_collapse .navbar-nav .nav-link{
+		font-size: 13px;
+	}
+	
+	 .navbar-expand-sm .navbar-toggler{
+		display: none;
+	}
+	
+	.navbar-expand-xs .navbar-toggler{
+		display: none;
+	}
+	
+	.search-bar-responsive{
+		fill:#fff;
+	}
+	
+	#top_menu_collapse .search-dropdown{
+		background: none;
+		text-align: center;
+	}
+	
+	.navbar{
+		padding: 0px;
+	}
+	
+	header .navbar-brand.logo{
+		width: 100%;
+		height: 50px;
+	}
+	
+	header .navbar-brand.logo img{
+		height: 50px;
+	}
+	
+	.search-form .search-mode{
+	display: block;
+}
+
+.search-form .search-mode .search-mode-rooms{
+	padding-right: 0px;
+	margin-bottom: 10px;
+}
+
+.search-form .search-mode .search-mode-flatmates{
+	padding-right: 0px;
+	margin-bottom: 10px;
+}
+	
+	.search-bar-responsive .nav-icon{
+		margin-top: 4px;
+	}
+	
+	#top_menu_collapse .search-dropdown{
+		color: #fff;
+	}
+	
+	#wrapwrap > main{
+		margin-top: 112px !important;
+	}
+	
+	.search-form .btn-padding-left{
+		padding-left: 15px;
+	}
+	
+	.search-form .btn-padding-right{
+		padding-right: 15px;
+	}
+	
+	.search-form #search_sort, .search-form #photo_first, .search-form #flatmates-min-rent, .search-form #flatmates-max-rent, .search-form #find_property_type{
+		margin-top: 15px;
+	}
+	
+	.radio-checkbox{
+		margin-bottom: 0px;
+	}
+	
+	.house-mates-logo{
+		height: 125px;
+		line-height: 125px;
+	}	
+	
+	
+	.custom_header{
+		height: 125px;
+	}
+	
+	.hide-verify-number	{
+		display: none;
+	}
+	
+.pending-tab{
+	height: 35px;
+	line-height: 35px;
+	margin-right: 10px;
+	}
+	
+	.info-page #add_html_content{
+		display: none;
+	}
+	
+	.card-img-top{
+		width: 120px;
+		height: 120px;
+	}
+	
+	.top-menu-dropdown .modal-header{
+		right: 5px;
+	}
+	
+.create-listing-padding{
+	padding: 0 15px;
+}
+
+.create-listing-btn-padding{
+	padding: 0 15px;
+}
+	
+	.remove-edit{
+		display: none;
+	}
+	
+	.user_listings_div .link-edit{
+		width: auto;
+	}	
+	
+	.footer_bg .social-icons li{
+		padding: 1px;
+	}
+		#about_room_popup, #property-description-edit_popup, #about_property_popup, #list_place_property_preferences_popup, #applicant_information_popup, #general_information_popup_id, #aboutme_popup, #aboutme_features_popup, #property_preferences_popup, #preferred_accommodation_popup, #preferred_locations_popup{
+		padding-right: 0px !important;
+	}
+	
+	.find_preview_listings{
+		margin-top: 20px;
+	}
+	
+
+	
+}
+
+@media only screen and (max-width: 768px) {
+	
+
+	
+	
+	#top_menu_collapse .search{
+		width: 25%;
+	}
+	
+	#top_menu_collapse .navbar-nav{
+		flex-direction:row;
+		width: 75%;
+	}
+	
+	.navbar .nav-item{
+		flex-grow:1;
+		padding: 0px;
+	}
+	
+	.fixed-top-without-edit .navbar{
+		padding: 0px;
+	}
+	
+	#top_menu_collapse .navbar-nav .nav-link{
+		font-size: 13px;
+	}
+	
+header .navbar-brand.logo {width:100%;}	
+	
+	.navbar-expand-xs .navbar-toggler{
+		display: none;
+	}	
+	
+	#top_menu_collapse .search{
+		width: 21%;
+	}	
+	
+	#top_menu_collapse .search-dropdown	{
+		background: none;
+		fill:#fff;
+		color: #fff;
+		text-align: center;
+	}
+	
+		#top_menu_collapse .search-dropdown:hover	{
+		background: none;
+	}
+	
+	#wrapwrap > main{
+		margin-top: 138px;
+	}
+	
+	.navbar .nav-item:hover{
+		background: none;
+	}	
+		
+
+}
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+	
+			.search-dropdown-responsive{
+		border: 0px;
+		left: 0px;
+		position: absolute;
+		padding-right: 0px;
+		margin-left: -38px;
+	}
+	
+	section{
+	padding: 20px 0px;
+}
+	
+	#map{
+		width: 100%;
+		height: 350px !important;
+	}
+	
+	.property-detail-right .social-media-icon{
+		padding: 0 150px;
+	}	
+	
+	.find_place_preview .potential-matches{
+		padding: 0px;
+	}
+	
+	.find_place_preview .listing-views{
+		padding: 20px 0 0 0;
+	}	
+	
+	.find_place_preview .listing-views .bg-white{
+		min-height: 400px;
+	}	
+	
+	.btn-transparent-edit{
+		padding: 0px;
+	}
+	
+	.footer_bg ul{
+		padding-left: 0px;
+	}	
+	
+	.find_place_preview .preview-listing-btn{
+	width: 100%;
+	background: #11836c;
+color: #fff;
+margin: 20px 0;
+}
+.how-to-guides h3{
+		padding: 0px;
+	}
+	
+	.how-to-guides ul li{
+		margin: 0px;
+	}	
+	
+	.breadcrumb{
+		padding: 20px 0px 0 0;
+	}	
+	.hide-verify-number	{
+		display: none;
+	}	
+.pending-tab{
+	height: 35px;
+	line-height: 35px;
+	margin-right: 10px;
+	}
+	
+		#about_room_popup, #property-description-edit_popup, #about_property_popup, #list_place_property_preferences_popup, #applicant_information_popup, #general_information_popup_id, #aboutme_popup, #aboutme_features_popup, #property_preferences_popup, #preferred_accommodation_popup, #preferred_locations_popup{
+		padding-right: 0px !important;
+	}
+	
+	#dropdownMenuButton	.modal-dialog{
+		max-width: 100%;
+	}	
+	
+	.card-img-top{
+		width: 120px;
+		height: 120px;
+	}
+	
+.create-listing-padding{
+	padding: 0 15px;
+}
+
+.create-listing-btn-padding{
+	padding: 0 15px;
+}	
+	
+	.top-menu-dropdown .modal-body{
+		padding: 20px;
+	}	
+	
+	.search-form .btn-padding-left{
+		padding-left: 15px;
+	}
+	
+	.search-form .btn-padding-right{
+		padding-right: 15px;
+	}	
+	
+.search-form #search_sort{
+	margin-top: 15px;
+	}	
+	
+
+	
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.info-page #add_html_content{
+		display: none;
+	}	
+	
+	.container{
+		max-width: 950px;
+	}
+	
+	.top-menu-dropdown .modal-content .card-img-top{
+		width: 70px;
+		height: 70px;
+	}
+	
+	.form-control-placeholder{
+		padding: 15px 10px;
+	}
+	
+	#signup_popup_id .modal-header .close {
+    padding: 0px;
+    margin: 0rem -2.5rem -1rem auto;
+}
+	
+	
+		
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+	
+	.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+	
+.dropdown-toggle{
+		display: flex;
+}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1023px) {
+	
+.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+	
+.dropdown-toggle{
+		display: flex;
+}
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+
+	.home-listings .property-listing-heading{
+		min-height: 50px;
+	}
+	
+	.find_place_preview .listing-views .bg-white{
+		min-height: 490px;
+	}
+	
+	.find_place_preview .potential-matches .bg-white{
+		min-height: 490px;
+	}
+	
+	
+	.top-menu-dropdown .modal-body{
+		padding: 40px;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1365px) {
+	.top-menu-dropdown .modal-body{
+		padding: 40px;
+	}
+	
+}
+
+
+@media only screen and (min-width: 1600px) and (max-width: 1919px) {
+	.top-menu-dropdown .modal-content .card-img-top{
+		margin-top: -25%;
+	}
+}
+
+@media only screen and (min-width: 1920px) and (max-width: 2500px) {
+		.top-menu-dropdown .modal-content .card-img-top{
+		margin-top: -25%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/*============================ For Landscape Only ====================*/
+
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  
+	header .navbar-brand.logo {width:100%;}
+	
+	.container{
+		max-width: 100%;
+	}
+	
+	.house-mates-logo{
+		height: 80px;
+		line-height: 80px;
+	}
+	
+	.custom_header{
+		height: 80px;
+	}	
+	
+	.welcome-img{
+		width: 50%;
+	}
+	
+	#dropdownMenuButton	.modal-dialog{
+		max-width: 100%;
+	}
+	
+	.search-dropdown-menu{
+		max-height: 170px;
+	}
+	
+}

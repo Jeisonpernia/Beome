@@ -1,0 +1,654 @@
+.oe_login_form, .oe_signup_form {
+	background-color: #fff;
+	padding: 20px;
+	max-width: 400px!important;
+	text-align: left;
+}
+
+.d-none{
+  display:none;
+}
+
+.top-menu-dropdown{
+	max-width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.top-menu-dropdown .modal-header{
+	border-bottom: 0px;
+	position: absolute;
+	z-index: 1;
+	right: 50px;
+		
+}
+
+
+.top-menu-dropdown .modal-body{
+	padding: 40px 100px 80px;
+}
+.top-menu-dropdown .modal-content{
+	border-radius: 0px;
+	outline:none;
+	box-shadow: none;
+	background: #00C89F;
+	border:none;
+	text-align: left;
+}
+
+.top-menu-dropdown .modal-content .card-img-top{
+	margin-top: -48%;
+}
+
+.top-menu-dropdown .modal-content h4{
+	color: #fff;
+	font-weight: normal;
+}
+
+.top-menu-dropdown .modal-content .person{
+	  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.top-menu-dropdown .modal-content ul{
+	list-style-type: none;
+	padding: 0px;
+}
+
+.top-menu-dropdown .my-account h4{
+	padding-bottom: 10px;
+	font-weight: normal;
+}
+
+
+.top-menu-dropdown .my-account ul li{
+	padding: 5px;
+}
+
+.top-menu-dropdown .my-account ul li:hover{
+	background: #0f9977;
+}
+
+
+.top-menu-dropdown .my-account ul li a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.top-menu-dropdown .my-account ul li a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+
+.top-menu-dropdown .my-account ul li .icon{
+	width: 16px;
+	height: auto;
+	fill: #fff;
+	margin-right: 5px;
+}
+
+.top-menu-dropdown .my-account ul li #bell-icon{
+	width: 16px;
+	height: auto;
+	fill: #FF0000;
+	margin-right: 5px;
+}
+
+.top-menu-dropdown .close{
+	font-size: 48px;
+	color: #fff;
+	box-shadow: none;
+	opacity: 1;
+}
+
+
+#verify_mobile_popup, #email_alert_popup, #deactivate_account_popup, #payment_history_popup, #account_verification_popup {
+	color:#2f3a4a;
+	text-align: left;
+}
+
+
+#verify_mobile_popup .close, #account_settings_popup .close, #email_alert_popup .close, #deactivate_account_popup .close, #why_upgrade_popup .close, #payment_history_popup .close, #account_verification_popup .close, #reset_password_popup .close, #verify_otp_popup .close{
+	font-size: 48px;
+	box-shadow: none;
+	opacity: 1;
+	color: #2f3a4a;
+}
+
+#verify_mobile_popup .modal-header, #account_settings_popup .modal-header, #email_alert_popup .modal-header, #deactivate_account_popup .modal-header, #why_upgrade_popup .modal-header, #payment_history_popup .modal-header, #account_verification_popup .modal-header, #reset_password_popup .modal-header, #verify_otp_popup .modal-header{
+	border-bottom: 0px;
+	padding: 0 16px;
+	position: absolute;
+	z-index: 1;
+	right: 0px;
+}
+
+#verify_otp_popup h2{
+	font-weight: normal;
+	font-size: 24px;
+}
+
+#verify_mobile_popup h3, #account_settings_popup h3, #email_alert_popup h3, #deactivate_account_popup h3, #why_upgrade_popup h3, #payment_history_popup h3, #account_verification_popup h3, #reset_password_popup h3, #verify_otp_popup h3{
+	font-weight: normal;
+}
+
+#verify_mobile_popup h4, #account_settings_popup h4, #email_alert_popup h4, #deactivate_account_popup h4{
+	font-weight: normal;
+}
+
+
+#verify_mobile_popup h5, #account_settings_popup h5, #email_alert_popup h5, #deactivate_account_popup h5{
+	font-weight: normal;
+}
+
+#verify_mobile_popup input, #account_settings_popup input, #email_alert_popup input, #deactivate_account_popup input, #reset_password_popup input, #verify_otp_popup input{
+	height: 50px;
+}
+
+#verify_mobile_popup select{
+	height: 50px;
+}
+
+
+
+#email_alert_popup input, #email_alert_popup select{
+	height: 50px;
+}
+
+#email_alert_popup select:focus, #email_alert_popup select:focus{
+	background: #37bc9b;
+	border:1px solid #37bc9b;
+	outline: 0px;
+	color: #fff;
+}
+
+#email_alert_popup select > option, #email_alert_popup select > option{
+	background: #fff;
+	color: #495057;
+}
+
+#deactivate_account_popup p{
+	font-size: 16px;
+}
+
+.login-form-bg{
+	background: #e9edf1;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+.btn-fb{
+	cursor: pointer;
+background-color: #3b579d;
+border-color: #3b579d;
+border-radius: 3px;
+padding: 10px;
+width: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+color:#fff;
+}
+
+.btn-fb:hover{
+	cursor: pointer;
+background-color: #3b579d;
+border-color: #3b579d;
+border-radius: 3px;
+padding: 10px;
+width: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+color:#fff;
+}
+
+#account_settings_popup .image-upload img{
+	width: 160px;
+	height: 160px;
+}
+
+#account_settings_popup .modal-footer, #verify_otp_popup .modal-footer, #account_verification_popup .modal-footer{
+	background: #F4F5F5;
+	display: block;
+}
+
+#account_settings_popup .modal-footer p, #verify_otp_popup .modal-footer p{
+	color: #59616e;
+}
+
+#account_settings_popup .modal-footer a, #verify_otp_popup .modal-footer a, #account_verification_popup .modal-footer a{
+	color:#005ce6 !important;
+}
+
+#account_settings_popup .default_user_mobile{
+    background-color:white
+}
+
+
+#verify_otp_popup .security-code-sent{
+        color:#59616e;
+
+}
+
+
+#change_mobile_popup p{
+        color:#59616e;
+
+}
+
+#account_verification{
+    display:none;
+}
+
+#why_upgrade_popup .modal-dialog{
+	max-width: 90%;
+	width: 90%;
+}
+ 
+#why_upgrade_popup .free-plan, #why_upgrade_popup .basic-plan, #why_upgrade_popup .full-plan, #why_upgrade_popup .pro-plan{
+	background: #fafafa;
+	padding: 5px;
+}
+
+#why_upgrade_popup .plan-content{
+	color: #000;
+	min-height: 675px;
+}
+
+#why_upgrade_popup .plan-content h2{
+background: #59616e;
+color: #fff;
+margin-top: 0;
+padding: 10px 0;
+text-align: center;
+font-size: 16px;
+font-weight: normal;
+}
+
+#why_upgrade_popup .plan-content ul {
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+#why_upgrade_popup .plan-content li {
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    line-height:20px;
+    list-style: none;
+    padding: 16px 0;
+    text-align: center;
+}
+
+
+
+#why_upgrade_popup .bold-text {
+    font-weight: bold;
+}
+
+#why_upgrade_popup .info-tooltip {
+    position: relative;
+}
+
+#why_upgrade_popup .info-tooltip .info-icon {
+    height: 18px;
+    position: relative;
+    right: -2px;
+    width: 18px;
+}
+
+#why_upgrade_popup  .icon svg {
+    display: inline-block;
+    height: 14px;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    width: 14px;
+}
+
+#why_upgrade_popup .icon svg .fill {
+    fill: #979ba3;
+}
+
+#why_upgrade_popup .info-tooltip svg {
+    cursor: pointer;
+    fill: #808080;
+    padding: 0 3px;
+    width: 18px;
+}
+
+#why_upgrade_popup .plan-footer {
+    padding: 16px;
+}
+
+.plan-footer h3 {
+    margin-bottom: 0;
+    text-align: center;
+	color: #6d7580;
+font-size: 20px;
+	font-weight: normal;
+}
+
+#why_upgrade_popup .plan-footer .gray-btn {
+    background: #e5e6e8;
+    color: #979ba3;
+	margin-bottom: 22px;
+	margin-top: 30px;
+	border-radius: 0px;
+	padding: 8px 72px;
+}
+
+#why_upgrade_popup .plan-footer .btn-green1 {
+	margin-bottom: 22px;
+	margin-top: 30px;
+}
+
+
+#why_upgrade_popup .rea-logo {
+    height: 25px;
+}
+
+#why_upgrade_popup .full-plan .plan-content h2 {
+    background: #37bc9b;
+    border: 2px solid #0f9977;
+    margin: -13px -12px 1px;
+    position: relative;
+    z-index: 1;
+	font-weight: normal;
+}
+
+#why_upgrade_popup .guarantee {
+    background: #e9573e;
+    border: 2px solid #bf4934;
+    color: #fff;
+    font-weight: bold;
+    margin: 30px -12px 15px -10px;
+    padding: 8px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+	min-height: 130px;
+	font-size: 20px;
+}
+
+#why_upgrade_popup .guarantee-blank {
+	min-height: 130px;
+	margin: 30px -12px 15px -10px;
+    padding: 8px;
+}
+
+#why_upgrade_popup .guarantee .guarantee-content {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+#why_upgrade_popup .guarantee .guarantee-content svg {
+    cursor: pointer;
+    fill: #fff;
+    padding: 0 3px;
+    width: 18px;
+}
+
+#why_upgrade_popup .full-plan .most-popular {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#why_upgrade_popup .full-plan .plan-footer h3{
+	margin-top: 13px;
+}
+
+#why_upgrade_popup .plan-terms-and-conditions{
+	color: #000;
+}
+
+#why_upgrade_popup .plan-terms-and-conditions li {
+    font-size: 14px;
+    line-height: 20px;
+    list-style: none;
+    padding: 16px 8px 0;
+    text-align: center;
+}
+
+#why_upgrade_popup .plan-terms-and-conditions a {
+    color: #979ba3;
+	text-decoration: none;
+}
+
+#payment_history_popup .modal-dialog{
+	max-width: 70%;
+	width: 70%;
+}
+
+.table thead th{
+	border-bottom: none;
+}
+
+
+/*.form-control-placeholder, #verify_otp_popup .form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 15px;
+  transition: all 200ms;	
+  opacity: 0.5;
+  font-weight: normal;
+  left: 0px;
+  color: #212529;
+}
+
+
+.form-control:focus ~ .form-control-placeholder,
+{
+  font-size: 75%;
+  transform: translate3d(0, -60%, 0);
+  opacity: 1;
+  background: #fff;
+  padding-left: 0;
+  margin-left: 6px;
+  padding: 0px 6px;
+  color: #2f3a4a;
+position: absolute;
+	z-index: 3;
+}*/
+
+#verify_otp_popup .form-control:focus ~ .form-control-placeholder,
+#verify_otp_popup .form-control:valid ~ .form-control-placeholder{
+  font-size: 75%;
+  transform: translate3d(0, -60%, 0);
+  opacity: 1;
+  background: #fff;
+  padding-left: 0;
+  margin-left: 6px;
+  padding: 0px 6px;
+  color: #2f3a4a;
+position: absolute;
+	z-index: 3;
+}
+
+.user_listings_div .title-bar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #67d0b8;
+    margin-bottom: 16px;
+	padding-bottom: 16px;
+}
+
+
+.user_listings_div .title-bar span {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.user_listings_div .title-bar i {
+    padding-right: 6px;
+}
+
+.user_listings_div ul li a{
+	color: #fff;
+	padding: 0.3em 0.5em;
+
+}
+
+.user_listings_div ul li:hover{
+	background: #0f9977;
+	text-decoration: none;
+}
+
+.user_listings_div {
+	height: 260px;
+	overflow-y: scroll;
+}
+
+.user_listings_div .user_listings .property_listing_status{
+}
+
+.user_listings_div .property_listing_status .status-label-pending{
+    color:#fff;
+}
+
+.user_listings_div .property_listing_status .status-label-live{
+    background:#6495ed;
+    color:#fff;
+}
+
+.user_listings_div .property_listing_status .status-label-not_live{
+    background:#808080;
+    color:#fff;
+}
+
+.user_listings_div .link-edit {
+    font-size: 14px;
+    width: 64px;
+    float: right;
+color: #fff;
+fill: #fff;
+}
+
+.user_listings_div .link-edit .edit {
+    height: 10px;
+width: 16px;
+}
+
+.user_listings_div .icons {
+    display: inline-block;
+    width: 18px;
+}
+
+.user_listings_div .login {
+height: 10px;
+width: 16px;
+color: #fff;
+fill: #fff;
+}
+
+#account_verification_popup{
+	font-size: 16px;
+}
+
+#account_verification_popup .mobileVerified {
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #d5d7db;
+    padding: 8px 0;
+    margin-bottom: 1.5rem;
+}
+
+#account_verification_popup .mobileVerified i {
+    margin-right: 8px;
+    font-size: 20px;
+    color: #59616e;
+}
+
+#account_verification_popup .mobileVerified__number {
+    color: #2e3a4b;
+    font-size: 1rem;
+}
+
+#account_verification_popup .linkButton {
+    float: right;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #005ce6;
+}
+
+#account_verification_popup .account-verifications__social-wrapper > div:first-child {
+    border-top: 1px solid #d5d7db;
+}
+
+#account_verification_popup .account-verifications__social-wrapper > div {
+    border-bottom: 1px solid #d5d7db;
+}
+
+#account_verification_popup .social-media-verification {
+    padding: 0.5rem 0;
+    display: flex;
+}
+
+#account_verification_popup .social-media-verification__icon-title-wrapper {
+    float: left;
+}
+
+#account_verification_popup .social-media-verification__icon-title-wrapper .social-media-verification__icon {
+    width: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#account_verification_popup .social-media-verification__icon-title-wrapper .social-media-verification__icon svg {
+    height: 20px;
+    width: auto;
+}
+
+#account_verification_popup .social-media-verification--notVerified svg path {
+    fill: #e8e9ea;
+}
+
+#account_verification_popup .social-media-verification .facebook path:last-of-type {
+    fill: #fff !important;
+}
+
+#account_verification_popup .social-media-verification .linkedin path:last-of-type {
+    fill: #fff !important;
+}
+
+#account_verification_popup .social-media-verification__icon-title-wrapper .social-media-verification__title {
+    display: inline-block;
+    font-size: 1rem;
+    color: #6d737e;
+}
+#account_verification_popup .social-media-verification__showToggle {
+    margin: 0 auto;
+}
+
+#account_verification_popup .social-media-verification__action {
+    float: right;
+    text-align: right;
+    font-size: 1rem;
+    color: #005ce6;
+}
+
+#account_verification_popup .account-verifications__social-wrapper a{
+	color: #005ce6 !important;
+}
+
+.add-green{
+    background-color:#11836c;
+}
+
+.fa-check{
+    color:white
+}
+
+.fa-times{
+    color:white
+}

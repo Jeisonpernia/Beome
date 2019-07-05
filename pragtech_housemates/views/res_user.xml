@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_user_inherited" model="ir.ui.view">
+            <field name="name">res.user.form.inherited</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//page[@name='access_rights']" position="after">
+                    <page string="Email Alert Settings">
+                     <group>
+                                    <group string="Email Alert Settings Fields" name="preferences">
+                                        <field name="listing_alerts"/>
+                                        <field name="new_device_alerts"/>
+                                        <field name="message_alerts"/>
+                                        <field name="community_notices"/>
+                                        <field name="special_offers"/>
+                                    </group>
+                         <group string="Deactivate Account">
+                             <field name="deactivate_account"/>
+                         </group>
+
+                     </group>
+                    </page>
+                     <page string="Logged In details">
+                        <group>
+                            <group>
+                                <field name="last_logged_ip"/>
+                            </group>
+                            <group>
+                                <field name="last_logged_browser"/>
+                                <field name="last_logged_os"/>
+                            </group>
+                        </group>
+                      </page>
+
+                     <page string="Shortlisted Properties">
+                        <group>
+                          <field name="house_mates_ids" widget="many2many_tags"/>
+
+                            <!--<tree create="0" delete="0">-->
+                                <!--<field name="name"/>-->
+                                <!--<field name="listing_type"/>-->
+                            <!--</tree>-->
+                          <!--</field>-->
+                        </group>
+                      </page>
+
+                     <page string="Social Networking Profile">
+                         <group>
+                             <field name="facebook_profile_url"/>
+                         </group>
+                         <group>
+                             <field name="insta_profile_url"/>
+                         </group>
+                         <group>
+                             <field name="twitter_profile_url"/>
+                         </group>
+                         <group>
+                             <field name="linkedin_profile_url"/>
+                         </group>
+                     </page>
+                 </xpath>
+            </field>
+        </record>
+
+        <record id="res_partner_inherited" model="ir.ui.view">
+            <field name="name">res.partner.form.inherited</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='vat']" position="after">
+                        <field name="mobile_no_is_verified" string="Is Verified Mobile Number"/>
+                        <field name="allowed_to_contact"/>
+                 </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

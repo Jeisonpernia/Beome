@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_rent_payments" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Paying rent</h1>
+                                                <h2 class="mt-5">Rent is the money paid regularly by a tenant to the landlord in return for the right to use a premises.</h2>
+                                                <p class="mt-4">The residential tenancy agreement will detail the amount of the rent and when it should be paid. The tenant and landlord are free to agree about the amount of rent and when it will be paid. In the majority of tenancies in Australia rent is quoted as a weekly amount and paid every second week.<br/>
+                                                    <br/>
+                                                    Paying rent is probably the most important part of the tenancy and the area where issues most commonly arise. People are naturally careful with their money and properties.</p>
+                                                <h2 class="mt-4">Receipts and Records</h2>
+                                                <p class="mt-4">Keeping a record of rent payment is a crucial first step for tenants and landlords in securing the tenancy and preventing any disputes occurring later. If you have a <a href="https://info.flatmates.com.au/tenancy-agreements" target="_blank">Tenancy Agreement</a> or a common law <a href="https://info.flatmates.com.au/flatmate-agreement" target="_blank">Flatmate Agreement</a> and you are paying your rent by bank transfer then you already have a good record of the payment and what it is for.<br/>
+                                                    <br/>
+                                                    However if you do not have a written agreement or you are paying your rent by cash or cheque then you should get a written receipt for every rent payment. The receipt should have the following details:</p>
+                                                <ul class="mt-4">
+                                                    <li>Date of payment</li>
+                                                    <li>Period payment relates to</li>
+                                                    <li>Name of person paying the rent</li>
+                                                    <li>Name of person receiving the rent</li>
+                                                    <li>Amount of rent paid</li>
+                                                </ul>
+                                                <h2 class="mt-4">Changes in Rental Rate</h2>
+                                                <p class="mt-4">Landlords are allowed to increase the rental rate under the terms of the tenancy agreement. If the tenancy is for a fixed term, generally the agreement must allow for an increase for the landlord to do so. In most states and territories, the tenant must be given 60 days notice of an increase.<br/>
+                                                    <br/>
+                                                    The landlord and tenant can agree to decrease the rent at any time by mutual consent.</p>
+                                                <h2 class="mt-4">Deductions</h2>
+                                                <p class="mt-4">Landlords and tenants can agree to make payment of rent ‘without deductions’ or ‘free of all deductions’. When these words are used in the agreement, it means that the tenant cannot put-off payment of rent because of a debt owed to the tenant by the landlord.<br/>
+                                                    <br/>
+                                                    This situation commonly arises where the landlord owes the tenant money for repairs done to the premises at the tenant’s expense - in this situation, the tenant is generally allowed to off-set the costs of the repairs by not paying an equivalent amount of rent.</p>
+                                                <h2 class="mt-4">State specific guides to rental payments:</h2>
+                                                <p class="mt-4"><a href="https://info.flatmates.com.au/nsw-rent-payments">NSW Rent Payments</a><br/>
+                                                    <a href="https://info.flatmates.com.au/vic-rent-payments">Victoria Rent Payments</a><br/>
+                                                    <a href="https://info.flatmates.com.au/qld-rent-payments">Queensland Rent Payments</a><br/>
+                                                    <a href="https://info.flatmates.com.au/sa-rent-payments">South Australia Rent Payments</a><br/>
+                                                    <a href="https://info.flatmates.com.au/wa-rent-payments">Western Australia Rent Payments</a><br/>
+                                                    <a href="https://info.flatmates.com.au/tas-rent-payments">Tasmania Rent Payments</a><br/>
+                                                    <a href="https://info.flatmates.com.au/act-rent-payments">ACT Rent Payments</a><br/>
+                                                    <a href="https://info.flatmates.com.au/nt-rent-payments">Northern Territory Rent Payments</a></p>
+                                                <div class="mt-4 gray-bx">
+                                                    <h2><strong><i class="fa fa-usd"></i> Transferring money safely</strong></h2>
+                                                    <p>When paying your deposit, bond or rent by cash make sure you get a receipt. With modern phones this can be as simple as an SMS or email confirming the amount, date and what it is for. Keep a copy of this incase you need it later. <br/>
+                                                        <br/>
+                                                        <strong>Never ever transfer money to a bank account outside of Australia or use a untraceable money transfer system such as WESTERN UNION. If anyone asks you to do this on any website it is likely to be a scam and you are almost guaranteed to lose your money.</strong> <br/>
+                                                        <br/>
+                                                        If this ever happens on Flatmates.com.au report the member immediately so we can investigate and take the appropriate action.</p>
+                                                </div>
+                                                <hr class="mt-4 mb-4"/>
+                                                <p class="mt-4"><strong><em>These legal guides provide a brief summary and introduction of the laws and regulations affecting share accommodation. They do not cover all cases in all legal jurisdictions and might not apply in your specific share accommodation situation. It is important that you use this information as a guide only and seek independent Legal Advice or consult the <a href="https://info.flatmates.com.au/tenancy-acts">Relevant Acts</a>. We do not accept any liability that may arise from the use of this information.</em></strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
