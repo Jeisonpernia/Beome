@@ -41,9 +41,13 @@ $(document).ready(function()
     if (window.location.pathname == '/listplace/share-house/flatmate-preference')
     {
         //console.log ("In general statement if (window.location.pathname == '/listplace/share-house/flatmate-preference')",$(document).find('input[name="flatmate_Preference_type"]:checked'))
-        if ($(document).find('input[name="flatmate_Preference_type"]:checked').length == 0)
-            $(".flatmate-pref-nxt-btn").prop("disabled",false)
-//        else
+        if ($(document).find('input[name="flatmate_Preference_type"]:checked').length == 0){
+            $(".flatmate-pref-nxt-btn").prop("disabled",true)
+        }
+//        else{
+//            $(".flatmate-pref-nxt-btn").prop("disabled",true)
+//            console.log('sssssssssssssssssssssssssssssssssssssssss')
+//        }
 
     }
 

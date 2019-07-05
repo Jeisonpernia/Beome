@@ -4,6 +4,31 @@
  */
 (function( $ ){
 
+    function deg2rad(deg)
+    {
+        return deg * (Math.PI/180)
+    }
+
+    function calculate_distance ( lat1, lat2, lon1, lon2)
+    {
+        var R = 6371
+        var dlon = deg2rad (lon2 - lon1)
+        var dlat = deg2rad (lat2 - lat1)
+        var a = (Math.sin(dlat/2)*Math.sin(dlat/2)) +
+                Math.cos(lat1) * Math.cos(lat2) *
+                (Math.sin(dlon/2)*Math.sin(dlon/2))
+        var c = 2 * Math.atan2( Math.sqrt(Math.abs(a)), Math.sqrt(Math.abs(1-a)) )
+        var d = R * c
+
+        console.log ("\n\nlon",dlon)
+        console.log ("lat",dlat)
+        console.log ("a",a)
+        console.log ("c",c, Math.sqrt(a))
+        console.log ("d",d, Math.sqrt(1-a))
+
+        return d
+    }
+
 	/**
 	 * [tagComplete Tag+AutoComplete]
 	 * @param  {[object]} userOpts [user options object]
@@ -272,7 +297,44 @@
 				var id = $(this).data('id');
 
 				//add tag
-				$.fn.addTag(id,$(this).text(),inst);
+				if(window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates"){
+                    console.log("In find placeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+                $.fn.addTag(id,$(this).text(),inst);
+                if(tagsContainer.childElementCount != 0){
+                    last_span = $('.tag').last()
+                    last_lat = last_span.find("input").attr("data-lat")
+                    last_long = last_span.find("input").attr("data-long")
+
+                    console.log('LAST SPAN',last_span,last_span.find("input").attr("data-lat"),last_span.find("input").attr("data-long"))
+                    $('.tag').each(function(i){
+                        var span_input = $(this).find("input");
+                            each_lat = span_input.attr("data-lat")
+                            each_long = span_input.attr("data-long")
+                            if(each_lat != last_lat && each_long != last_long){
+                                var distance = calculate_distance ( each_lat, last_lat, each_long, last_long)
+                                console.log("Distance : ",distance)
+                                if(distance > 30){
+                                    $('.show-distance-msg').removeClass("d-none")
+                                    last_span.css("background-color","#f4a09d")
+                                    last_span.css("color","#fff")
+                                }
+                                else{
+                                    $('.show-distance-msg').addClass("d-none")
+                                }
+                            }
+//                            console.log('Input in span  : ',span_input.attr("data-lat") ,span_input.attr("data-long") )
+//                        if (spanText == tagText){
+//                        span_flag = false;
+//                        }
+                    });
+                }
+
+				}
+				else{
+				    console.log("on Search pageeeeeeeeeeeeeeeeeeeee")
+				    $.fn.addTag(id,$(this).text(),inst);
+				}
+//                $.fn.addTag(id,$(this).text(),inst);
 
 				//refresh User input
 				$.fn.refreshUserInput(inst.userInput,inst.tagsContainer,inst.options);
@@ -343,22 +405,26 @@
 
 				//instance data
 				inst = e.data;
-
+                $('.show-distance-msg').addClass("d-none")
 				tag = $(this).parent(".tag");
 
 				//delete tag
 				$.fn.deleteTag(tag,inst);
 
-				console.log('get tag length :: > ',tagsContainer[0].childElementCount)
 				if (tagsContainer[0].childElementCount == 0){
         			tagInput.attr("placeholder", "Start typing a suburb, city, station or uni");
+        			tagInput.attr('size',tagInput.attr('placeholder').length)
+        			$('.propert_submit_btn_in_find').prop("disabled", true);
 				}
+
 
 			});//end onTag Close
 
 
 			//lets listen if enter key is pressed and not empty
-			tagInput.on("keyup",instanceData,function(e){
+			$(".tag_input").on("keyup",instanceData,function(e){
+
+
 
 				//instance data
 				instance = e.data;
@@ -391,10 +457,9 @@
 
 
 				if ((value.length == 0 && keycode == backspaceKey)) {
-                    console.log('in deleteeeeeeeeeeeeeeeeeee')
 					//get lastTag
 					lastTagNo = tagsContainer.find('.tag').length;
-
+                    $('.show-distance-msg').addClass("d-none")
 					//if empty abort
 					if(lastTagNo == 0){
 
@@ -406,9 +471,10 @@
 					//delete tag
 					$.fn.deleteTag(lastTagInfo.selector,instance);
 
-                    console.log('get tag length :: > ',tagsContainer[0].childElementCount)
 				    if (tagsContainer[0].childElementCount == 0){
         			    tagInput.attr("placeholder", "Start typing a suburb, city, station or uni");
+        			    tagInput.attr('size',tagInput.attr('placeholder').length);
+        			    $('.propert_submit_btn_in_find').prop("disabled", true);
 				    }
 
 					//if free edit and free input is true
@@ -431,8 +497,7 @@
 				//if the key too is tokenizer set
 				//create tag
 				else if((keycode == enterKey || e.key == options.tokenizer)
-						&& value.length > 0
-						&& options.freeInput == true){
+						&& value.length > 0){
 
 					//trim last tokenizer
 					if(value.endsWith(options.tokenizer)){
@@ -440,7 +505,6 @@
 					}//end if
 
 					value = $.trim(value);
-
 					if(value.length == 0){
 
 						$(this).val("");
@@ -448,19 +512,69 @@
 						return self;
 					}
 
+					 selected_li = $(document).find(".abcc")
+
+                      var id = selected_li.attr("data-id")
+                      if(window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates"){
+                        console.log("In find placeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+                        $.fn.addTag(id,selected_li.text(),instanceData);
+                        if(tagsContainer.childElementCount != 0){
+                            last_span = $('.tag').last()
+                            last_lat = last_span.find("input").attr("data-lat")
+                            last_long = last_span.find("input").attr("data-long")
+
+                        console.log('LAST SPAN',last_span,last_span.find("input").attr("data-lat"),last_span.find("input").attr("data-long"))
+                        $('.tag').each(function(i){
+                            var span_input = $(this).find("input");
+                                each_lat = span_input.attr("data-lat")
+                                each_long = span_input.attr("data-long")
+                                if(each_lat != last_lat && each_long != last_long){
+                                    var distance = calculate_distance ( each_lat, last_lat, each_long, last_long)
+                                    console.log("Distance : ",distance)
+                                    if(distance > 30){
+                                        $('.show-distance-msg').removeClass("d-none")
+                                        last_span.css("background-color","#f4a09d")
+                                        last_span.css("color","#fff")
+                                    }
+                                    else{
+                                        $('.show-distance-msg').addClass("d-none")
+                                    }
+                                }
+                        });
+                    }
+
+				}
+				else{
+				    console.log("on Search pageeeeeeeeeeeeeeeeeeeee")
+                      $.fn.addTag(id,selected_li.text(),instanceData);
+				}
+
 					//add tag
 					// key, value, instance
-					$.fn.addTag(value,value,instance);
+//					$.fn.addTag(value,value,instance);
 
 					//empty value
 					$(this).val("");
 
+//
 					return self;
 				}//end if enter is pressed
 
+				$("#search_filter").bind("keypress", function (e) {
+                        if (e.keyCode == 13) {
+                            e.preventDefault();
+                        }
+                    });
+                $("#rent_timing").bind("keypress", function (e) {
+                        if (e.keyCode == 13) {
+                            e.preventDefault();
+                        }
+                    });
+
+
+
                 // added by sagar - restrict autocomplete if city tag is selected
                 if ((tagsContainer.find('.tag').length == 1) && (tagsContainer.find('span').hasClass('city'))){
-//                    console.log('yes city tag is selected')
                     e.preventDefault();
                     return false
                 }
@@ -488,48 +602,44 @@
 				}//end if value length is less than keyslimit
 
 				//if data is available
-				if(typeof options.autocomplete.data == 'object'){
+//				if(typeof options.autocomplete.data == 'object'){
+//
+//					//loop the data to get keywords
+//					for(i=0;i<autoCompeleteData.length;i++){
+//
+//						dataWord = autoCompeleteData[i];
+//
+//						//if we dont have a match
+//						if(dataWord.indexOf(value) == -1){
+//							continue;
+//						}//end if
+//
+//						//add to matched dropdown Data
+//						//using the word as key prevent
+//						//duplicate values
+//						matchedData[dataWord] = dataWord;
+//
+//						}//end for loop
+//
+//						//update the drop down first
+//						//before the network request
+//						$.fn.updateAutoComplete(autoComplete,matchedData);
+//				}//end if options.data an array or obj
 
-					//loop the data to get keywords
-					for(i=0;i<autoCompeleteData.length;i++){
 
-						dataWord = autoCompeleteData[i];
-
-						//if we dont have a match
-						if(dataWord.indexOf(value) == -1){
-							continue;
-						}//end if
-
-						//add to matched dropdown Data
-						//using the word as key prevent
-						//duplicate values
-						matchedData[dataWord] = dataWord;
-
-						}//end for loop
-
-						//update the drop down first
-						//before the network request
-						$.fn.updateAutoComplete(autoComplete,matchedData);
-					}//end if options.data an array or obj
-
-
+                    dataUrl = options.autocomplete.ajaxOpts.url;
                       // by sagar - restrict ajax call if down arrow is pressed
-//                    if(keycode == 40 ){
-//                        console.log('4000000000000000000000000000000000',proccessedData)
-//                        $.extend(matchedData,proccessedData);
-//
-//                        //update auto complete
-//                        $.fn.updateAutoComplete(autoComplete,matchedData);
-////					    $.fn.abortAjax(instance.ajaxPool);
-////					    return false
-//
-//					}
+                    if(keycode == 40 || keycode == 38){
+//                            console.log('UP or DOWN ARROW key is pressed !')
+                        e.preventDefault()
+
+					}
 
                     //dataUrl
-					dataUrl = options.autocomplete.ajaxOpts.url;
+
 
 					//now if we have url set
-					 if(dataUrl != null){
+					 else if(dataUrl != null){
 
 						ajaxOpts = options.autocomplete.ajaxOpts;
 
@@ -643,7 +753,14 @@
             else{
                 console.log('is in elseeeeeeeeeeeeeee')
                 instance.tagsContainer.append(tag);
+                $('.propert_submit_btn_in_find').prop("disabled", false);
             }
+
+             if (tagsContainer[0].childElementCount != 0){
+//        			    tagInput.attr("placeholder", "Start typing a suburb, city, station or uni");
+                        console.log('hereeeeeeeeeeee')
+                        tagInput.attr('size',20);
+				    }
 
              //result is true, append tag
 //		    instance.tagsContainer.append(tag);

@@ -5,8 +5,29 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 //    console.log ("Document Height",$(document).height());
 //    console.log ("Window Height",$(window).height());
 //    console.log ("Window Scroll Top",$(window).scrollTop());
+    var lazy_load_repeat = 0;
+    var fix_record_id=''
     var record_id = 0;
+
     var lock_scroll = false;
+
+     $.ajax({
+                url: '/get_id_of_last_record',
+                type:'POST',
+                dataType: 'json',
+                async:false,
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                contentType: 'application/json',
+                success: function(data)
+                {
+                fix_record_id=data['result']['id']+1
+                console.log("---data---get_id_of_last_record---",fix_record_id)
+                record_id=fix_record_id
+
+                }
+           })
+      console.log("---data---get_id_of_last_record--22222-",fix_record_id)
+
 
 
     function getURLparameters()
@@ -58,9 +79,21 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                     data: data,
                     success: function(data)
                     {
+                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",last_record_fetched)
+                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",lazy_load_repeat)
 
-                        //console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",data['result'])
-                        if (data['result'] && data['result'].length == 0){$("#load_symbol").hide()}
+                        if (last_record_fetched == fix_record_id && lazy_load_repeat == 0 || last_record_fetched != fix_record_id && lazy_load_repeat == 1)
+                        {
+                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",last_record_fetched == 0 && lazy_load_repeat == 0)
+                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",last_record_fetched != 0 && lazy_load_repeat == 1)
+
+                            lazy_load_repeat = 1
+
+
+
+                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",last_record_fetched)
+                        console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",lazy_load_repeat)
+                        if (data['result'] && data['result'].length == 0 ){$("#load_symbol").hide()}
 
                         var div = $("#lazy_load");
                         var shortlist_msg_div = $(".empty-shortlist");
@@ -69,7 +102,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                         for (index=0 ; index<data['result'].length; index++)
                         {
 
-                            console.log ("Indexxxxx",data['result'])
+                            console.log ("Indexxxxx",data['result'][index]['id'])
                             record_id = data['result'][index]['id']
                             if (data['result'][index]['image'] != 'undefined')
                                 image = data['result'][index]['image']
@@ -195,37 +228,38 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
                         lock_scroll = false
                         //$("#load_symbol").replaceWith('<div class="sk-fading-circle"><div class="sk-circle1 sk-circle"></div><div class="sk-circle2 sk-circle"></div><div class="sk-circle3 sk-circle"></div><div class="sk-circle4 sk-circle"></div><div class="sk-circle5 sk-circle"></div><div class="sk-circle6 sk-circle"></div><div class="sk-circle7 sk-circle"></div><div class="sk-circle8 sk-circle"></div><div class="sk-circle9 sk-circle"></div><div class="sk-circle10 sk-circle"></div><div class="sk-circle11 sk-circle"></div><div class="sk-circle12 sk-circle"></div>')
-                    },
+                    }
+                    }
                 });
     }
 
 
         var siteurl= $(window.location)
 
-        if (siteurl.attr('pathname') === '/' && record_id == 0)
+        if (siteurl.attr('pathname') === '/' && record_id == fix_record_id)
         {
         filters =[]
         domain = {}
 
         domain['listing_type']='home'
         filters.push(domain)
-        load_data(0, filters, 'home')
+        load_data(record_id, filters, 'home')
         }
 
         if (siteurl.attr('pathname') === '/search/records')
         {
         var filters = getURLparameters()
-        load_data(0, filters, filters[0]['listing_type'])
+        load_data(record_id, filters, filters[0]['listing_type'])
         }
 
-        if (siteurl.attr('pathname') === '/shortlists' && record_id == 0)
+        if (siteurl.attr('pathname') === '/shortlists' && record_id == fix_record_id)
         {
         filters =[]
         domain = {}
 
         domain['listing_type']='shortlist'
         filters.push(domain)
-        load_data(0, filters, 'shortlist')
+        load_data(record_id, filters, 'shortlist')
         }
 
 
@@ -248,7 +282,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
 
                     if (lock_scroll == false)
                     {
-//                    console.log ("------------------- Difference Scroll Top",$(window).scrollTop(),$(document).height() - $(window).height() - 100)
+                        console.log ("------------------- Difference Scroll Top",record_id)
                         lock_scroll = true
                         setTimeout(function() {
                         load_data(record_id, filters, 'home')

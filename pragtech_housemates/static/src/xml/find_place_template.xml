@@ -317,6 +317,7 @@
                                             <div class="tag-input-div">
                                                 <input type="text" class="tags_input" placeholder="Start typing a suburb, city, station or uni" value=""/>
                                             </div>
+                                            <p class="show-distance-msg d-none" style="color:red;">The suburb selected is greater than 25km from your original suburb</p>
 
                                             <!--<div class="form-control form-control-lg mt-2 p-0 find-place-add-suburbs">-->
                                                 <!--<input type="text" autocomplete="off" id="find_suburb" name="suburbs"/>-->
@@ -328,7 +329,7 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <button type="submit" id=""
-                                                class="btn btn-primary btn-green propert_submit_btn">Next
+                                                class="btn btn-primary btn-green propert_submit_btn_in_find" disabled="disabled">Next
                                         </button>
                                     </div>
                                 </div>

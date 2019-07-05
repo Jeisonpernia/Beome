@@ -4,6 +4,8 @@ $(document).ready(function()
 {// Start of document
 
      "use strict";
+	
+	//alert($(window).width());
 
      var window_pathname = window.location.pathname
      var id;
@@ -33,7 +35,7 @@ $(document).ready(function()
                 {
                     var text_div = $(document).find(".search-bar-responsive").first().find("div")
                     if (text_div.length == 0)
-                        $(".search-bar-responsive").append('<div class="nav-icon mx-auto"><span class="icon"><svg class="magnifying-glass" viewBox="0 0 50 50" width="20" height="20"><path class="fill" d="M21 3C11.6 3 4 10.6 4 20s7.6 17 17 17 17-7.6 17-17S30.4 3 21 3zm0 30c-7.2 0-13-5.8-13-13S13.8 7 21 7s13 5.8 13 13-5.8 13-13 13z"></path><path class="stroke" stroke-width="6" stroke-miterlimit="10" d="M31.2 31.2l13.3 13.3" style="stroke:#fff"></path></svg></span></div><div class="text-center mt-1">Search</div>')
+                        $(".search-bar-responsive").append('<div class="nav-icon mx-auto"><span class="fa fa-search"></span></div><div class="text-center mt-1">Search</div>')
                 }
 
                 if ($(document).find("#wrapwrap").find('nav').hasClass("navbar-expand-md"))
@@ -77,6 +79,7 @@ $(document).ready(function()
 
 
            }
+		   
 
            if ($(window).width() > 768 )
            {
@@ -106,18 +109,36 @@ $(document).ready(function()
                 clearTimeout(id);
                 id = setTimeout(doneResizing, 2000);
 			   
-			    if (window_pathname == '/info')
+/*			    if (window_pathname == '/info')
                 {
 
                 }
                 if (window_pathname.includes('/info/'))
                 {
-                    $("#head_id").css('display','none')
+                    $("#head_id").css('display','block')
                     $(".info-page").find("#add_html_content").show()
-                }
+                }*/
         }
+		   
+		   
+		   if (($(window).width() > 768) && ($(window).width() < 975))
+	   {	
+		   
+		   if (window_pathname == '/info')
+			{
 
-	   if ($(window).width() > 1024)
+			}
+			if (window_pathname.includes('/info/'))
+			{
+				$("#head_id").css('display','none')
+				$(".info-page").find("#add_html_content").show()
+			}
+
+	   	
+	   }
+		   
+
+	   if ($(window).width() >= 975)
 	   {	
 		   
 		   if (window_pathname == '/info')
@@ -132,21 +153,10 @@ $(document).ready(function()
 	   	
 	   }
 		   
-		   	   if (($(window).width() > 992) && ($(window).width() < 1024))
-	   {	
 		   
-		   if (window_pathname == '/info')
-			{
 
-			}
-			if (window_pathname.includes('/info/'))
-			{
-				$("#head_id").css('display','block')
-				$(".info-page").find("#add_html_content").show()
-			}
-
-	   	
-	   }
+		   
+		   
 		   
        }
     });

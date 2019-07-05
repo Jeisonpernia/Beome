@@ -79,6 +79,14 @@ $(document).ready(function() {
             $('.rent-bond-bill-btn').prop("disabled", true);
         }
     });
+//    $('.tags_input').on("keyup", function(){
+//        var tagcontainer = $('.tags_container')
+//        console.log(" taggggggggg 12 : ",tagcontainer[0].childElementCount)
+//        if(tagcontainer[0].childElementCount == 0){
+//            $('.propert_submit_btn').prop('disabled', false);
+//        }
+//
+//    })
 
     $("select[id='bond']").on("change", function(){
 

@@ -892,23 +892,19 @@ $(document).on('click','.input-group', function(){
     })
 
 
-//    $(".tag_input").keydown(function(e) {
-//        switch (e.which) {
-//            case 40:
-//                console.log('11111111111111111111111111111111111111111111',e.which)
-////                e.preventDefault(); // prevent moving the cursor
-//                $('li:not(:last-child).abcc').removeClass('abcc')
-//                    .next().addClass('abcc');
-//                break;
-//
-//            case 38:
-//                console.log('222222222222222222222222222222222222222222222',e.which)
-////                e.preventDefault(); // prevent moving the cursor
-//                $('li:not(:first-child).abcc').removeClass('abcc')
-//                    .prev().addClass('abcc');
-//                break;
-//        }
-//    });
+    $(".tag_input").keydown(function(e) {
+        switch (e.which) {
+            case 40:
+                $('li:not(:last-child).abcc').removeClass('abcc')
+                    .next().addClass('abcc');
+                break;
+
+            case 38:
+                $('li:not(:first-child).abcc').removeClass('abcc')
+                    .prev().addClass('abcc');
+                break;
+        }
+    });
 
 
 

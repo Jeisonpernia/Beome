@@ -2816,6 +2816,15 @@ class FlatMates(http.Controller):
             #         print ("Match found")
             return True
 
+
+
+    @http.route('/get_id_of_last_record', auth='public', type='json', website=True)
+    def get_id_of_last_record(self, **kwargs):
+        properties = request.env['house.mates'].sudo().search([],order='id desc',limit=1)
+        print("\n\n\n\nin controllar",properties)
+        data={'id':properties.id}
+        return data
+
     @http.route('/get_product', auth='public', type='json', website=True)
     def get_product(self, record_id, filters=None) :
         property_list = []
@@ -2829,7 +2838,8 @@ class FlatMates(http.Controller):
         if filters[0].get('listing_type') =='home':
             print ("Homeeeeeeeeeeeeeeee")
 
-            properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id),('state','=','active')], fields=fields, order='id desc', limit=12)
+            properties = request.env['house.mates'].sudo().search_read(domain=[('id', '<', record_id),('state','=','active')], fields=fields, order='id desc', limit=12)
+            print("Homeeeeeeeeeeeeeeee", properties)
         if not filters[0].get('listing_type'):
             # print ("Homeeeeeeeeeeeeeeee")
             if filters[0].get('search_city'):
@@ -2864,13 +2874,13 @@ class FlatMates(http.Controller):
 
             else:
                 print('goooooooooooooessssssssssssssss')
-                properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id),('state','=','active')], fields=fields, order='id desc', limit=12)
+                properties = request.env['house.mates'].sudo().search_read(domain=[('id', '<', record_id),('state','=','active')], fields=fields, order='id desc', limit=12)
 
 
 
 
 
-        domain=[('id', '>', record_id),('state','=','active')]
+        domain=[('id', '<', record_id),('state','=','active')]
         if filters[0].get('listing_type') == 'find':
             # print ("Finddddddddddddddddd",filters[0])
 
@@ -2956,7 +2966,7 @@ class FlatMates(http.Controller):
             # print ("Recordddddddddddddddddd-------",domain)
 
             properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields, order='id desc', limit=12)
-        domain= [('id', '>', record_id),('state','=','active')]
+        domain= [('id', '<', record_id),('state','=','active')]
         if filters[0].get('listing_type') == 'list':
             accomodation_type_room = [value for key, value in filters[0].items() if 'room_accommodation' in key]
             print('\n\n\naccomodation_type_room ::\n', accomodation_type_room, '\n\n\n')
@@ -3082,7 +3092,7 @@ class FlatMates(http.Controller):
         if filters[0].get('listing_type') =='shortlist':
             # print ("Homeeeeeeeeeeeeeeee")
             print ("0----------------------------------0",request.env.user.house_mates_ids.ids)
-            properties = request.env['house.mates'].sudo().search_read(domain=[('id', 'in', request.env.user.house_mates_ids.ids),('id', '>', record_id),('state','=','active')], fields=fields, order='id desc', limit=12)
+            properties = request.env['house.mates'].sudo().search_read(domain=[('id', 'in', request.env.user.house_mates_ids.ids),('id', '<', record_id),('state','=','active')], fields=fields, order='id desc', limit=12)
             # print("Streettt---------------------------", properties)
         for rec in properties:
             # print("Streettt---------------------------", properties)

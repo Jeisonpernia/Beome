@@ -962,6 +962,7 @@ header .navbar-brand.logo img{
 	height: 60px;
 	padding: 0px;
 	text-align: left;
+	line-height: 55px;
 }
 
 
@@ -2361,6 +2362,7 @@ line-height: 60px;
 font-size: 30px;
 	background: none;
 	border: none;
+	top:0;
 
 }
 
@@ -3095,6 +3097,16 @@ background-color: #f7bb42;
 .abcc{
     background-color:#37bc9b;
 }
+
+
+
+/*========================= Added by Rohit =======================*/
+
+.navbar-expand-md .navbar-nav {margin-left: 0px!important; width: 40%;}
+
+.navbar .nav-item {padding: 14px 0px;  width: calc(100% / 3); text-align: center;}
+
+.search {width: calc(100% / 1.5);}
 
 
 

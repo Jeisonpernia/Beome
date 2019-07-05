@@ -113,7 +113,10 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
 				"</span>");
 				$('.tags_container').prepend(tag)
 
+
+
             }
+            $('.propert_submit_btn').prop('disabled', false);
             }
 
 
