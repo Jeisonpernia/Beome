@@ -250,7 +250,7 @@ class Website_Inherit(Website):
         print('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY ', request.session)
         list_place = False
         find_place = False
-
+        short_list=False
         if request.session.get('list_place'):
             list_place = request.session.get('list_place')
 
