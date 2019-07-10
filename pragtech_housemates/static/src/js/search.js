@@ -509,9 +509,15 @@ $(document).on('click',"#search_submit_start",function()
 	 	//if no tag, return false
 	 	if(tags.length != 0){
             $.each(tags,function(event){
+                if($(this).find("input").data("suburb_name")){
+                    suburb_data = $(this).find("input").data("suburb_name");
+                    suburb_array.push(suburb_data)
+                }
+                else if($(this).find("input").data("city")){
+                    suburb_data = $(this).find("input").data("city")
+                    suburb_array.push(suburb_data)
+                }
 
-                suburb_data = $(this).find("input").data("suburb_name");
-                suburb_array.push(suburb_data)
             });
 	 	}
 
@@ -538,8 +544,16 @@ $(document).on('click',"#search_submit_start",function()
 	 	if(tags.length != 0){
             $.each(tags,function(event){
 
-                suburb_data = $(this).find("input").data("suburb_name");
-                suburb_array.push(suburb_data)
+                if($(this).find("input").data("suburb_name")){
+                    suburb_data = $(this).find("input").data("suburb_name");
+                    suburb_array.push(suburb_data)
+                }
+                else if($(this).find("input").data("city")){
+                    suburb_data = $(this).find("input").data("city")
+                    suburb_array.push(suburb_data)
+                }
+
+
             });
 	 	}
 
@@ -565,8 +579,15 @@ $(document).on('click',"#search_submit_start",function()
 	 	if(tags.length != 0){
             $.each(tags,function(event){
 
-                suburb_data = $(this).find("input").data("suburb_name");
-                suburb_array.push(suburb_data)
+                if($(this).find("input").data("suburb_name")){
+                    suburb_data = $(this).find("input").data("suburb_name");
+                    suburb_array.push(suburb_data)
+                }
+                else if($(this).find("input").data("city")){
+                    suburb_data = $(this).find("input").data("city")
+                    suburb_array.push(suburb_data)
+                }
+
             });
 	 	}
 
@@ -870,7 +891,7 @@ $(document).on('click','.input-group', function(){
 //          data: data,
             freeEdit:false,
             params : function(value){
-                return {q:value};
+                return {q:value,current_url:window.location.pathname};
             },
             ajaxOpts: {
                 url: '/get_suburbss',

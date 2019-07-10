@@ -443,6 +443,7 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 	  		},
 	  		success : function(result) {    // work after controller method return
 	  			if (result) {
+	  			console.log(' in short list ',result)
 
 	  			}
 	  		},
@@ -479,6 +480,7 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 				  		},
 				  		success : function(result) {    // work after controller method return
 				  			if (result) {
+				  			console.log(' in short list ',result)
 
 				  			}
 				  		},

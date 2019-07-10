@@ -43,7 +43,7 @@ suburb_json_file_path = get_module_resource('pragtech_housemates', 'models', 'su
 with open(suburb_json_file_path) as json_file:
     suburb_data = json.load(json_file)
 
-
+shortlist_data={}
 class AuthSignupHomeChild(AuthSignupHome):
     def do_signup(self, qcontext):
         """ Shared helper that creates a res.partner out of a token """
@@ -257,6 +257,9 @@ class Website_Inherit(Website):
         if request.session.get('find_place'):
             find_place = request.session.get('find_place')
 
+        if request.session.get('short_list'):
+            short_list = request.session.get('short_list')
+
         if not redirect and request.params['login_success']:
             # if request.env['res.users'].browse(request.uid).has_group('base.group_user'):
             #     redirect = b'/web?' + request.httprequest.query_string
@@ -269,6 +272,9 @@ class Website_Inherit(Website):
                 print('treeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
                 request.session['find_place'] = False
                 return werkzeug.utils.redirect('/find-place/describe-your-ideal-place/start')
+            if short_list:
+                request.session['short_list'] = False
+                return werkzeug.utils.redirect("/shortlists")
             # else:
             #     print('treeeeeeeeeeeeeeeeeee 2222222222222222222')
             #     redirect = '/'
@@ -280,29 +286,33 @@ class FlatMates(http.Controller):
 
     @http.route(['/shortlist'], type='http', auth="public", website=True, csrf=False)
     def short_listting(self, **kwargs):
-        flatmate_obj = request.env['house.mates'].sudo().search([('id', '=', kwargs['data'])], limit=1)
-        res_user_id = request.env['res.users'].sudo().search([('id','=',request.uid)])
-        if flatmate_obj and 'data' in kwargs:
-            if kwargs['active'] == 'True':
-                if res_user_id:
-                    if res_user_id.house_mates_ids:
-                        res_user_id.sudo().write({
-                                'house_mates_ids': [(4,flatmate_obj.id)]
+        if 'data' in kwargs and kwargs['data']:
+            global shortlist_data
+            shortlist_data=kwargs
+            print("\n in shortlist", shortlist_data)
+            flatmate_obj = request.env['house.mates'].sudo().search([('id', '=', kwargs['data'])], limit=1)
+            res_user_id = request.env['res.users'].sudo().search([('id','=',request.uid)])
+            if flatmate_obj and 'data' in kwargs:
+                if kwargs['active'] == 'True':
+                    if res_user_id:
+                        if res_user_id.house_mates_ids:
+                            res_user_id.sudo().write({
+                                    'house_mates_ids': [(4,flatmate_obj.id)]
+                                })
+                        else:
+                            res_user_id.sudo().write({
+                                'house_mates_ids': [(6,0,[flatmate_obj.id])]
                             })
-                    else:
-                        res_user_id.sudo().write({
-                            'house_mates_ids': [(6,0,[flatmate_obj.id])]
-                        })
 
-            else:
-                for id in res_user_id.house_mates_ids:
-                    if flatmate_obj.id == id.id:
-                        res_user_id.sudo().write({
-                            'house_mates_ids': [(3,flatmate_obj.id)]
-                        })
+                else:
+                    for id in res_user_id.house_mates_ids:
+                        if flatmate_obj.id == id.id:
+                            res_user_id.sudo().write({
+                                'house_mates_ids': [(3,flatmate_obj.id)]
+                            })
 
-        list = {}
-        return list
+            list = {}
+            return list
 
     @http.route(['/search/records'], type='http', auth="public", website=True, method=['GET'], csrf=False)
     def search_record(self, **kwargs):
@@ -698,9 +708,34 @@ class FlatMates(http.Controller):
         #     'user_email': request.env.user.email,
         #     'products': http.request.env['product.template'].sudo().search([]),
         # }
-        if request.uid:
-            user = request.env['res.users'].sudo().search([('id','=',request.uid)])
-            print("\n\n====request.uid===",user.house_mates_ids)
+        is_user_public = request.env.user.has_group('base.group_public')
+
+        if is_user_public:
+            request.session.update({'short_list': True})
+            return werkzeug.utils.redirect('/web/login', )
+
+        flatmate_obj = request.env['house.mates'].sudo().search([('id', '=', shortlist_data['data'])], limit=1)
+        res_user_id = request.env['res.users'].sudo().search([('id', '=', request.uid)])
+        if res_user_id:
+            if flatmate_obj and 'data' in shortlist_data:
+                if shortlist_data['active'] == 'True':
+                    if res_user_id:
+                        if res_user_id.house_mates_ids:
+                            res_user_id.sudo().write({
+                                'house_mates_ids': [(4, flatmate_obj.id)]
+                            })
+                        else:
+                            res_user_id.sudo().write({
+                                'house_mates_ids': [(6, 0, [flatmate_obj.id])]
+                            })
+
+                else:
+                    for id in res_user_id.house_mates_ids:
+                        if flatmate_obj.id == id.id:
+                            res_user_id.sudo().write({
+                                'house_mates_ids': [(3, flatmate_obj.id)]
+                            })
+
         return request.render("pragtech_housemates.shortlist_page", )
 
     ##################################################################
@@ -2238,6 +2273,12 @@ class FlatMates(http.Controller):
     #     '/web_editor/font_to_img/<icon>/<color>/<int:size>',
     #     '/web_editor/font_to_img/<icon>/<color>/<int:size>/<int:alpha>',
     #     ], type='http', auth="none")
+
+    @http.route(['/messages'], type='http', auth="public", website=True, csrf=True)
+    def messages(self, **kwargs):
+        return request.render("pragtech_housemates.messages_template")
+
+
     @http.route(['/info'], type='http', auth="public", website=True, csrf=True)
     def info(self, **kwargs):
 
@@ -2736,18 +2777,37 @@ class FlatMates(http.Controller):
             suburb_to_search = kwargs.get('q')
             my_regex = "^" + suburb_to_search
             # print ("aaaaaaaaaaa", suburb_to_search)
-            cnt = 1
-            for data in suburb_data:
-                if re.search(my_regex, data['suburb_name'], re.IGNORECASE):
-                    cnt +=1
-                    # print ("aaaaaaaaaaa",re.search(my_regex, data['suburb_name'], re.IGNORECASE))
-                    # print ("aaaaaaaaaaa",re.match(my_regex, data['suburb_name']))
-                    records.append({"label": data['suburb_search'],
-                                    "value": [data['suburb_name'] + ', ' + str(data['post_code']),
-                                              str(data['latitude']), str(data['longitude'])]})
-                    if cnt > 5:
+            if kwargs.get('current_url') == "/" or kwargs.get('current_url').find("/search/records") != -1:
+                for data in suburb_data:
+                    if data['suburb_name'] == "" and re.search(my_regex, data['city'], re.IGNORECASE)  :
+                        records.append({"label": data['suburb_search'],
+                                        "value": [data['post_code'],data['latitude'],data['longitude']]})
                         break
-            # print(" =-------------------------= ", records)
+
+                cnt = 2
+                for data in suburb_data:
+                    if data['suburb_name'] and re.search(my_regex, data['city'], re.IGNORECASE) or re.search(my_regex, data['suburb_search'], re.IGNORECASE) :
+                        cnt +=1
+                        # print ("aaaaaaaaaaa",re.search(my_regex, data['suburb_name'], re.IGNORECASE))
+                        # print ("aaaaaaaaaaa",re.match(my_regex, data['suburb_name']))
+                        records.append({"label": data['suburb_search'],
+                                        "value": [data['suburb_name'] + ', ' + str(data['post_code']),
+                                                  str(data['latitude']), str(data['longitude'])]})
+                        if cnt > 5:
+                            break
+            else:
+                cnt = 1
+                for data in suburb_data:
+                    if data['suburb_name'] and re.search(my_regex, data['city'], re.IGNORECASE) or re.search(my_regex,data['suburb_search'],re.IGNORECASE):
+                        cnt += 1
+                        # print ("aaaaaaaaaaa",re.search(my_regex, data['suburb_name'], re.IGNORECASE))
+                        # print ("aaaaaaaaaaa",re.match(my_regex, data['suburb_name']))
+                        records.append({"label": data['suburb_search'],
+                                        "value": [data['suburb_name'] + ', ' + str(data['post_code']),
+                                                  str(data['latitude']), str(data['longitude'])]})
+                        if cnt > 5:
+                            break
+            print("\n\n Match Records : \n\n", records,'\n\n')
             return json.dumps(records)
 
     @http.route('/get_details_of_suburb', auth='none', methods=['GET'])
@@ -2865,8 +2925,8 @@ class FlatMates(http.Controller):
                 print('\n\n\nSEARCH SUBURBS : ',search_suburbs,search_suburbs_list)
 
                 properties = request.env['house.mates'].sudo().search_read(
-                    domain=[('state', '=', 'active'), '|','|', ('street3', 'in',search_suburbs_list),('street2', 'in',search_suburbs_list),
-                            ('suburbs_ids.subrub_name', 'in', search_suburbs_list),
+                    domain=[('state', '=', 'active'), '|','|','|','|', ('city', 'in',search_suburbs_list),('street3', 'in',search_suburbs_list),
+                            ('street2', 'in',search_suburbs_list),('suburbs_ids.subrub_name', 'in', search_suburbs_list),('suburbs_ids.city', 'in', search_suburbs_list)
                             ])
 
                 print("\n\nProprties else if Search :",len(properties), properties,'\n\n')
@@ -2898,7 +2958,9 @@ class FlatMates(http.Controller):
                 search_suburbs = filters[0].get('search_suburbs').replace('+', ' ')
                 search_suburbs = search_suburbs.replace('%2C', ',')
                 search_suburbs_list = search_suburbs.split(',')
+                domain.append(('|'))
                 domain.append(('suburbs_ids.subrub_name', 'in', search_suburbs_list))
+                domain.append(('suburbs_ids.city', 'in', search_suburbs_list))
 
 
             if filters[0].get('property_preference_location'):
@@ -2989,8 +3051,10 @@ class FlatMates(http.Controller):
                 search_suburbs = search_suburbs.replace('%2C', ',')
                 search_suburbs_list = search_suburbs.split(',')
                 domain.append('|')
+                domain.append('|')
                 domain.append(('street3', 'in',search_suburbs_list))
                 domain.append(('street2', 'in',search_suburbs_list))
+                domain.append(('city', 'in', search_suburbs_list))
 
             if filters[0].get('property_preference'):
                 property_preference=str(filters[0].get('property_preference')).replace('%20',' ')

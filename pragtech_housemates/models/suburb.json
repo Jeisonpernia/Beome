@@ -138607,5 +138607,4973 @@
    "latitude": -31.88794,
    "longitude": 116.768389,
    "suburb_search": "York, York, WA, 6302"
- }
+ },
+  {
+      "suburb_name":"",
+      "city":"Bathurst",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bathurst, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bland",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bland, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Blayney",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Blayney, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cabonne",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cabonne, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cowra",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cowra, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Forbes",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Forbes, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lachlan",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lachlan, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lithgow",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lithgow, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mid-Western",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mid-Western, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Oberon",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Oberon, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Orange",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Orange, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Parkes",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Parkes, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Weddin",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Weddin, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Broken Hill",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Broken Hill, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Central Darling",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Central Darling, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cessnock",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cessnock, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dungog",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dungog, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gloucester",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gloucester, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Great Lakes",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Great Lakes, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lake Macquarie",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lake Macquarie, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Maitland",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Maitland, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Muswellbrook",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Muswellbrook, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Newcastle",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Newcastle, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Port Stephens",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Port Stephens, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Singleton",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Singleton, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Upper Hunter",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Upper Hunter, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kiama",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kiama, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Shellharbour",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Shellharbour, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Shoalhaven",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Shoalhaven, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wingecarribee",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wingecarribee, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wollongong",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wollongong, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bellingen",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bellingen, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Clarence Valley",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Clarence Valley, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Coffs Harbour",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Coffs Harbour, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Greater Taree",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Greater Taree, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kempsey",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kempsey, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Nambucca",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Nambucca, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Port Macquarie-Hastings",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Port Macquarie-Hastings, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Albury",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Albury, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Balranald",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Balranald, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Berrigan",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Berrigan, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Conargo",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Conargo, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Corowa",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Corowa, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Deniliquin",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Deniliquin, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Greater Hume",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Greater Hume, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Jerilderie",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Jerilderie, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Murray",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Murray, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tumbarumba",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tumbarumba, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Urana",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Urana, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wakool",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wakool, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wentworth",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wentworth, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Carrathool",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Carrathool, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Coolamon",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Coolamon, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cootamundra",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cootamundra, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Griffith",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Griffith, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gundagai",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gundagai, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hay",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hay, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Junee",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Junee, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Leeton",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Leeton, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lockhart",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lockhart, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Murrumbidgee",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Murrumbidgee, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Narrandera",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Narrandera, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Temora",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Temora, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wagga Wagga",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wagga Wagga, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Armidale Dumaresq",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Armidale Dumaresq, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Glen Innes Severn",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Glen Innes Severn, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gunnedah",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gunnedah, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Guyra",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Guyra, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gwydir",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gwydir, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Inverell",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Inverell, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Liverpool Plains",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Liverpool Plains, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Moree Plains",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Moree Plains, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Narrabri",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Narrabri, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tamworth",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tamworth, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tenterfield",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tenterfield, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Uralla",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Uralla, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Walcha",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Walcha, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bogan",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bogan, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bourke",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bourke, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Brewarrina",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Brewarrina, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cobar",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cobar, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Coonamble",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Coonamble, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dubbo",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dubbo, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gilgandra",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gilgandra, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Narromine",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Narromine, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Walgett",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Walgett, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Warren",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Warren, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Warrumbungle",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Warrumbungle, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wellington",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wellington, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ballina",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ballina, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Byron",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Byron, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kyogle",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kyogle, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lismore",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lismore, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Richmond Valley",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Richmond Valley, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tweed",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tweed, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bega Valley",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bega Valley, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bombala",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bombala, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Boorowa",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Boorowa, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cooma-Monaro",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cooma-Monaro, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Eurobodalla",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Eurobodalla, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Goulburn Mulwaree",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Goulburn Mulwaree, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Harden",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Harden, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Palerang",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Palerang, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Queanbeyan",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Queanbeyan, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Snowy River",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Snowy River, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tumut",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tumut, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Upper Lachlan",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Upper Lachlan, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yass Valley",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yass Valley, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Young",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Young, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ashfield",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ashfield, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Auburn",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Auburn, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bankstown",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bankstown, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Blacktown",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Blacktown, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Botany Bay",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Botany Bay, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Burwood",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Burwood, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Camden",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Camden, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Campbelltown",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Campbelltown, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Canada Bay",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Canada Bay, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Canterbury",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Canterbury, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Fairfield",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Fairfield, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Holroyd",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Holroyd, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hornsby",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hornsby, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hunter's Hill",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hunter's Hill, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hurstville",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hurstville, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kogarah",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kogarah, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ku-ring-gai",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ku-ring-gai, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lane Cove",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lane Cove, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Leichhardt",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Leichhardt, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Liverpool",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Liverpool, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Manly",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Manly, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Marrickville",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Marrickville, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mosman",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mosman, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"North Sydney",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"North Sydney, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Parramatta",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Parramatta, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Penrith",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Penrith, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Pittwater",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Pittwater, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Randwick",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Randwick, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Rockdale",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Rockdale, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ryde",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ryde, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Strathfield",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Strathfield, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Sutherland",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Sutherland, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Sydney",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Sydney, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"The Hills",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"The Hills, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Warringah",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Warringah, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Waverley",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Waverley, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Willoughby",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Willoughby, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Woollahra",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Woollahra, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Blue Mountains",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Blue Mountains, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gosford",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gosford, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hawkesbury",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hawkesbury, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wollondilly",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wollondilly, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wyong",
+      "state":"NSW",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wyong, NSW"
+   },
+   {
+      "suburb_name":"",
+      "city":"Alice Springs",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Alice Springs, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Barkly",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Barkly, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Belyuen",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Belyuen, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Central Desert",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Central Desert, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Coomalie",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Coomalie, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Darwin",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Darwin, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"East Arnhem",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"East Arnhem, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Katherine",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Katherine, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Litchfield",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Litchfield, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"MacDonnell",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"MacDonnell, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Palmerston",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Palmerston, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Roper Gulf",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Roper Gulf, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Unincorporated NT",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Unincorporated NT, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Victoria-Daly",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Victoria-Daly, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wagait",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wagait, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"West Arnhem",
+      "state":"NT",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"West Arnhem, NT"
+   },
+   {
+      "suburb_name":"",
+      "city":"Central Highlands",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Central Highlands, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gladstone",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gladstone, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Isaac",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Isaac, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Livingstone",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Livingstone, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mackay",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mackay, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Rockhampton",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Rockhampton, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Woorabinda",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Woorabinda, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Barcaldine",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Barcaldine, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Barcoo",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Barcoo, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Blackall-Tambo",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Blackall-Tambo, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Boulia",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Boulia, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Diamantina",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Diamantina, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Longreach",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Longreach, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Winton",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Winton, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Goondiwindi",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Goondiwindi, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Southern Downs",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Southern Downs, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Toowoomba",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Toowoomba, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Western Downs",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Western Downs, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Aurukun",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Aurukun, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cairns",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cairns, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cassowary Coast",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cassowary Coast, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cook",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cook, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hope Vale",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hope Vale, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kowanyama",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kowanyama, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lockhart River",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lockhart River, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mapoon",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mapoon, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Northern Peninsula city",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Northern Peninsula city, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Pormpuraaw",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Pormpuraaw, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tablelands",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tablelands, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Torres",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Torres, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Torres Strait Island",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Torres Strait Island, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Weipa",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Weipa, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wujal Wujal",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wujal Wujal, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yarrabah",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yarrabah, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Burdekin",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Burdekin, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Charters Towers",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Charters Towers, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hinchinbrook",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hinchinbrook, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Palm Island",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Palm Island, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Townsville",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Townsville, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Whitsunday",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Whitsunday, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Burke",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Burke, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Carpentaria",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Carpentaria, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cloncurry",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cloncurry, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Croydon",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Croydon, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Doomadgee",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Doomadgee, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Etheridge",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Etheridge, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Flinders",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Flinders, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"McKinlay",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"McKinlay, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mornington",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mornington, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mount Isa",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mount Isa, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Richmond",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Richmond, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Brisbane",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Brisbane, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gold Coast",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gold Coast, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ipswich",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ipswich, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lockyer Valley",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lockyer Valley, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Logan",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Logan, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Moreton Bay",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Moreton Bay, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Redland",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Redland, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Scenic Rim",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Scenic Rim, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Somerset",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Somerset, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Sunshine Coast",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Sunshine Coast, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Balonne",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Balonne, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bulloo",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bulloo, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Maranoa",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Maranoa, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Murweh",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Murweh, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Paroo",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Paroo, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Quilpie",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Quilpie, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Banana",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Banana, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bundaberg",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bundaberg, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cherbourg",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cherbourg, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Fraser Coast",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Fraser Coast, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gympie",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gympie, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"North Burnett",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"North Burnett, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"South Burnett",
+      "state":"QLD",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"South Burnett, QLD"
+   },
+   {
+      "suburb_name":"",
+      "city":"Barossa",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Barossa, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Barunga West",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Barunga West, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Clare and Gilbert Valleys",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Clare and Gilbert Valleys, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Copper Coast",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Copper Coast, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Flinders Ranges",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Flinders Ranges, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Goyder",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Goyder, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Light",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Light, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mallala",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mallala, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mount Remarkable",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mount Remarkable, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Northern citys",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Northern citys, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Orroroo Carrieton",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Orroroo Carrieton, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Peterborough",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Peterborough, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Port Pirie",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Port Pirie, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wakefield",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wakefield, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yorke Peninsula",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yorke Peninsula, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ceduna",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ceduna, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cleve",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cleve, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Elliston",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Elliston, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Franklin Harbour",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Franklin Harbour, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kimba",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kimba, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lower Eyre Peninsula",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lower Eyre Peninsula, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Port Augusta",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Port Augusta, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Port Lincoln",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Port Lincoln, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Streaky Bay",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Streaky Bay, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tumby Bay",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tumby Bay, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Whyalla",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Whyalla, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wudinna",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wudinna, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Adelaide",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Adelaide, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Adelaide Hills",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Adelaide Hills, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Burnside",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Burnside, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Charles Sturt",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Charles Sturt, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gawler",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gawler, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Holdfast Bay",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Holdfast Bay, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Marion",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Marion, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mitcham",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mitcham, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Norwood Payneham and St Peters",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Norwood Payneham and St Peters, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Onkaparinga",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Onkaparinga, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Playford",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Playford, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Port Adelaide Enfield",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Port Adelaide Enfield, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Prospect",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Prospect, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Salisbury",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Salisbury, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tea Tree Gully",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tea Tree Gully, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Unley",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Unley, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Walkerville",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Walkerville, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"West Torrens",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"West Torrens, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Berri and Barmera",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Berri and Barmera, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Karoonda East Murray",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Karoonda East Murray, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Loxton Waikerie",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Loxton Waikerie, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mid Murray",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mid Murray, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Murray Bridge",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Murray Bridge, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Renmark Paringa",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Renmark Paringa, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Southern Mallee",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Southern Mallee, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"The Coorong",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"The Coorong, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Anangu Pitjantjatjara Yankunytjatjara",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Anangu Pitjantjatjara Yankunytjatjara, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Coober Pedy",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Coober Pedy, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Maralinga Tjarutja",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Maralinga Tjarutja, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Roxby Downs",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Roxby Downs, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Grant",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Grant, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kingston",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kingston, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mount Gambier",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mount Gambier, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Naracoorte and Lucindale",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Naracoorte and Lucindale, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Robe",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Robe, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tatiara",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tatiara, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wattle Range",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wattle Range, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Alexandrina",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Alexandrina, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kangaroo Island",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kangaroo Island, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mount Barker",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mount Barker, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Victor Harbor",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Victor Harbor, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yankalilla",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yankalilla, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Unincorporated SA",
+      "state":"SA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Unincorporated SA, SA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Northern Midlands",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Northern Midlands, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Southern Midlands",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Southern Midlands, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Brighton",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Brighton, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Clarence",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Clarence, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Glenorchy",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Glenorchy, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hobart",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hobart, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kingborough",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kingborough, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Sorell",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Sorell, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"George Town",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"George Town, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Launceston",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Launceston, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Meander Valley",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Meander Valley, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"West Tamar",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"West Tamar, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Break O'Day",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Break O'Day, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dorset",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dorset, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Burnie",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Burnie, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Central Coast",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Central Coast, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Circular Head",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Circular Head, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Devonport",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Devonport, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kentish",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kentish, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"King Island",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"King Island, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Latrobe",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Latrobe, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Waratah-Wynyard",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Waratah-Wynyard, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"West Coast",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"West Coast, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Derwent Valley",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Derwent Valley, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Glamorgan-Spring Bay",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Glamorgan-Spring Bay, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Huon Valley",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Huon Valley, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tasman",
+      "state":"TAS",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tasman, TAS"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ballarat",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ballarat, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Central Goldfields",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Central Goldfields, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Greater Bendigo",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Greater Bendigo, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hepburn",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hepburn, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Loddon",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Loddon, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Macedon Ranges",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Macedon Ranges, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mitchell",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mitchell, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Moorabool",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Moorabool, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mount Alexander",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mount Alexander, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bass Coast",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bass Coast, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Baw Baw",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Baw Baw, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"East Gippsland",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"East Gippsland, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"South Gippsland",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"South Gippsland, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Campaspe",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Campaspe, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Greater Shepparton",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Greater Shepparton, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Moira",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Moira, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Strathbogie",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Strathbogie, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Melbourne",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Melbourne, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Port Phillip",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Port Phillip, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Stonnington",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Stonnington, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yarra",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yarra, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Banyule",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Banyule, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bayside",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bayside, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Boroondara",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Boroondara, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Brimbank",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Brimbank, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Darebin",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Darebin, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Glen Eira",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Glen Eira, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hobsons Bay",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hobsons Bay, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Manningham",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Manningham, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Maribyrnong",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Maribyrnong, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Monash",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Monash, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Moonee Valley",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Moonee Valley, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Moreland",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Moreland, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Whitehorse",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Whitehorse, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cardinia",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cardinia, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Casey",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Casey, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Frankston",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Frankston, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Greater Dandenong",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Greater Dandenong, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hume",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hume, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Knox",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Knox, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Maroondah",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Maroondah, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Melton",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Melton, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mornington Peninsula",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mornington Peninsula, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Nillumbik",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Nillumbik, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Whittlesea",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Whittlesea, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wyndham",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wyndham, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yarra Ranges",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yarra Ranges, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Alpine",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Alpine, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Benalla",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Benalla, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Indigo",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Indigo, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mansfield",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mansfield, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Murrindindi",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Murrindindi, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Towong",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Towong, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wangaratta",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wangaratta, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wodonga",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wodonga, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Colac-Otway",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Colac-Otway, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Golden Plains",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Golden Plains, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Greater Geelong",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Greater Geelong, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Queenscliffe",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Queenscliffe, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Surf Coast",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Surf Coast, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Buloke",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Buloke, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gannawarra",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gannawarra, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mildura",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mildura, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Swan Hill",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Swan Hill, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Unincorporated Victoria",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Unincorporated Victoria, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ararat",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ararat, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Corangamite",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Corangamite, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Glenelg",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Glenelg, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Moyne",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Moyne, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Pyrenees",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Pyrenees, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Southern Grampians",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Southern Grampians, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Warrnambool",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Warrnambool, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Hindmarsh",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Hindmarsh, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Horsham",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Horsham, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Northern Grampians",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Northern Grampians, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"West Wimmera",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"West Wimmera, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yarriambiack",
+      "state":"VIC",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yarriambiack, VIC"
+   },
+   {
+      "suburb_name":"",
+      "city":"Carnarvon",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Carnarvon, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Exmouth",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Exmouth, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Shark Bay",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Shark Bay, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Upper Gascoyne",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Upper Gascoyne, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Coolgardie",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Coolgardie, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dundas",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dundas, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Esperance",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Esperance, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kalgoorlie-Boulder",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kalgoorlie-Boulder, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Laverton",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Laverton, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Leonora",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Leonora, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Menzies",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Menzies, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ravensthorpe",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ravensthorpe, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Albany",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Albany, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Broomehill-Tambellup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Broomehill-Tambellup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cranbrook",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cranbrook, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Denmark",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Denmark, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gnowangerup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gnowangerup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Jerramungup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Jerramungup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Katanning",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Katanning, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kent",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kent, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kojonup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kojonup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Plantagenet",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Plantagenet, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Woodanilling",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Woodanilling, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Broome",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Broome, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Derby-West Kimberley",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Derby-West Kimberley, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Halls Creek",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Halls Creek, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wyndham-East Kimberley",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wyndham-East Kimberley, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Carnamah",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Carnamah, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Chapman Valley",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Chapman Valley, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Coorow",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Coorow, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cue",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cue, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Greater Geraldton",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Greater Geraldton, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Irwin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Irwin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Meekatharra",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Meekatharra, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mingenew",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mingenew, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Morawa",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Morawa, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mount Magnet",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mount Magnet, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Murchison",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Murchison, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Northampton",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Northampton, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Perenjori",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Perenjori, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Sandstone",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Sandstone, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Three Springs",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Three Springs, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wiluna",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wiluna, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yalgoo",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yalgoo, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Boddington",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Boddington, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mandurah",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mandurah, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Waroona",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Waroona, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Armadale",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Armadale, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bassendean",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bassendean, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bayswater",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bayswater, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Belmont",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Belmont, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cambridge",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cambridge, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Canning",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Canning, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Claremont",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Claremont, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cockburn",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cockburn, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cottesloe",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cottesloe, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"East Fremantle",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"East Fremantle, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Fremantle",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Fremantle, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gosnells",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gosnells, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Joondalup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Joondalup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kalamunda",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kalamunda, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kwinana",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kwinana, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Melville",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Melville, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mosman Park",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mosman Park, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mundaring",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mundaring, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Nedlands",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Nedlands, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Peppermint Grove",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Peppermint Grove, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Perth",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Perth, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Rockingham",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Rockingham, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Serpentine-Jarrahdale",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Serpentine-Jarrahdale, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"South Perth",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"South Perth, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Stirling",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Stirling, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Subiaco",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Subiaco, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Swan",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Swan, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Victoria Park",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Victoria Park, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Vincent",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Vincent, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wanneroo",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wanneroo, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Ashburton",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Ashburton, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"East Pilbara",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"East Pilbara, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Karratha",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Karratha, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Port Hedland",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Port Hedland, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Augusta-Margaret River",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Augusta-Margaret River, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Boyup Brook",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Boyup Brook, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bridgetown-Greenbushes",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bridgetown-Greenbushes, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bunbury",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bunbury, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Busselton",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Busselton, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Capel",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Capel, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Collie",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Collie, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dardanup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dardanup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Donnybrook-Balingup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Donnybrook-Balingup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Harvey",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Harvey, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Manjimup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Manjimup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Nannup",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Nannup, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Beverley",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Beverley, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Brookton",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Brookton, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Bruce Rock",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Bruce Rock, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Chittering",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Chittering, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Corrigin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Corrigin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cuballing",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cuballing, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Cunderdin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Cunderdin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dalwallinu",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dalwallinu, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dandaragan",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dandaragan, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dowerin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dowerin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Dumbleyung",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Dumbleyung, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Gingin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Gingin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Goomalling",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Goomalling, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kellerberrin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kellerberrin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kondinin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kondinin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Koorda",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Koorda, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Kulin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Kulin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Lake Grace",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Lake Grace, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Merredin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Merredin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Moora",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Moora, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mount Marshall",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mount Marshall, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Mukinbudin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Mukinbudin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Narembeen",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Narembeen, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Narrogin Shire",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Narrogin Shire, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Narrogin Town",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Narrogin Town, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Northam",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Northam, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Nungarin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Nungarin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Pingelly",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Pingelly, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Quairading",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Quairading, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Tammin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Tammin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Toodyay",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Toodyay, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Trayning",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Trayning, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Victoria Plains",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Victoria Plains, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wagin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wagin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wandering",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wandering, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"West Arthur",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"West Arthur, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Westonia",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Westonia, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wickepin",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wickepin, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Williams",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Williams, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wongan-Ballidu",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wongan-Ballidu, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Wyalkatchem",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Wyalkatchem, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"Yilgarn",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"Yilgarn, WA"
+   },
+   {
+      "suburb_name":"",
+      "city":"York",
+      "state":"WA",
+      "post_code":null,
+      "latitude":null,
+      "longitude":null,
+      "suburb_search":"York, WA"
+   }
 ]

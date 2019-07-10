@@ -702,19 +702,35 @@
 
         suburb_dict = JSON.parse(suburb_dict)
 
+        if (suburb_dict['suburb_name'] && suburb_dict['post_code']){
+            tagText = suburb_dict['suburb_name'].toString()+ ',' + suburb_dict['post_code'].toString()
+        }
+        else{
+            tagText = suburb_dict['city'].toString()
+        }
 
-        tagText = suburb_dict['suburb_name'].toString()+ ',' + suburb_dict['post_code'].toString()
-        var latitude = suburb_dict['latitude']
-        var longitude = suburb_dict['longitude']
-        var suburb_name = suburb_dict['suburb_name']
+        var latitude = null
+        if (suburb_dict['latitude']){
+            latitude = suburb_dict['latitude']
+        }
 
-        var city = ''
+        var longitude = null
+        if (suburb_dict['longitude']){
+            longitude =  = suburb_dict['longitude']
+        }
+
+        var suburb_name = null
+        if (suburb_dict['suburb_name']){
+            suburb_name = suburb_dict['suburb_name']
+        }
+
+        var city = null
 
         if (suburb_dict['city']){
             city = suburb_dict['city']
         }
 
-        var post_code = ''
+        var post_code = null
          if (suburb_dict['post_code']){
             post_code = suburb_dict['post_code']
          }

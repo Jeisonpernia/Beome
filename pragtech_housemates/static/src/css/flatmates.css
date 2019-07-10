@@ -3100,7 +3100,7 @@ background-color: #f7bb42;
 
 
 
-/*========================= Added by Rohit =======================*/
+/*========================= Added by Rohit For Menu Responsive and Main Menu =======================*/
 
 .navbar-expand-md .navbar-nav {margin-left: 0px!important; width: 40%;}
 
@@ -3108,6 +3108,238 @@ background-color: #f7bb42;
 
 .search {width: calc(100% / 1.5);}
 
+
+
+/*======================= START Messages Page Added by Rohit  ==========================*/
+
+.message-container {height:100%; background-color: #fff;  }
+
+
+.inbox-wrapper {
+    bottom: 0;
+    position: fixed;
+    top: 140px;
+    width: 100%;
+    background: #eaebec;
+}
+
+
+.inbox-wrapper .inbox {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 100%;
+    margin-right: 0;
+    border: 1px solid #e4e5e6;
+    background: #fff;
+    height: 100%;
+}
+
+
+
+
+
+.inbox-conversations {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 40.291369653%;
+    margin-right: 0;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+.inbox-messages-section {
+    border-left: 1px solid #e4e5e6;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.for-height {height:100%; }
+
+
+.message-count {color: #979ba3;
+    font-size: 0.875rem;
+    padding: 1em;
+    text-align: center; width:100%; }
+
+
+.inbox-conversations-list {list-style: none;
+    margin: 0;
+    padding: 0;}
+
+
+.conversation-item {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.conversation-item:hover {background: #f7f8f8;
+    cursor: pointer;}
+
+
+.inbox-conversations-list .conversation-link {
+    color: #979ba3;
+    display: block;
+    overflow: hidden;
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+}
+
+.conversation-link .avatar {float: left;
+    height: 60px;
+    width: 75px; }
+
+.avatar img, .message-header .message-avatar {background: #eee;
+    border-radius: 50%;
+    color: #979ba3;
+    font-size: 1.5rem;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 0.25rem;
+    text-align: center;
+    width: 60px;  object-fit: cover;}
+
+
+.conversation-item .details {overflow: hidden;
+    padding-left: 0.5rem;
+    padding-top: 0.25rem;}
+
+
+.details .member-name {font-weight:600 }
+.details .member-name, .details .last-active {color: #2f3a4a;
+    display: inline-block;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	width: 49%; }
+
+.details .last-active {color: #979ba3;
+    font-size: 0.875rem;
+    opacity: .5;
+    text-align: right;
+}
+
+
+.snippet {font-size: 0.875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;}
+
+
+.unsent-icon {height: 12px;
+    margin-right: 0.5rem;
+    vertical-align: baseline;
+	width: 12px;}
+
+.snippet-icon .fill {fill: #e93e3e;}
+
+.inbox-conversations a {text-decoration: none;}
+
+
+.message-header{
+    border-bottom: 1px solid #e4e5e6;
+    height: 54px;
+    padding: 0.4em 1rem;}
+
+
+.message-header .message-avatar {float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-right: .5em;
+    text-align: center;
+    width: 40px;
+}
+
+
+.member-details {float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 82.9403913294%;
+	color: #979ba3; }
+
+.member-name {color: #2f3a4a;
+    display: inline-block;
+    font-weight: 600;
+    overflow: hidden;
+    padding: .5em 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;}
+
+
+.dots-dropdown-message {float: left;
+    /* display: block; */
+    width: 14.7019566472%;
+    text-align: right;
+    padding: 6px 0;
+}
+
+.dots-dropdown-message .dots {cursor: pointer;} 
+
+.dots-dropdown-message .dots svg{height: 5px;  width: 19px;}
+
+.dots-dropdown-message .dots svg .fill {fill: #2f3a4a;}
+
+.message-subheader {background: #fff;
+    border-bottom: 1px solid #e4e5e6;
+    font-size: .875rem;
+    padding: .875em 1rem;
+    position: relative;
+	z-index: 5; }
+
+
+.verified-mobile {
+    position: relative;
+}
+
+.message-subheader .country-flag {max-height: 15px; max-width: 25px;}
+
+.message-mobilesec a, .inbox-messages-listings-link a {text-decoration:none; color: #2b6ed2;}
+
+.message-mobilesec a:hover, .inbox-messages-listings-link a:hover {color:#2258a8 }
+
+.message-mobilesec .number {margin-left: .25em;}
+
+.message-mobilesec {display: inline-block;
+    overflow-x: hidden;
+    text-align: left;
+    width: 40%;
+}
+
+
+.inbox-messages-listings-link {
+color: #979ba3;
+    display: inline-block;
+    overflow-x: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 59%;
+}
+
+
+.inbox-welcome-message {
+padding: 0 2em;
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    width: 100%; }
+
+.inbox-welcome-message h1 {
+color: #2f3a4a;
+    font-size: 1.75rem; font-weight: normal;
+}
+
+.inbox-welcome-message h2 {
+font-size: 1.5rem;
+    padding-top: 1.5rem; color: #979ba3; font-weight: normal;
+}	
+/*======================= END Messages Page Added by Rohit  ==========================*/
 
 
 

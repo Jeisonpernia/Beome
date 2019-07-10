@@ -15,7 +15,7 @@ class Housemates(models.Model):
     ## Main
     state = fields.Selection([('active', 'Active'), ('deactive', 'Deactive')],default='active')
     listing_type = fields.Selection([('list', 'List'), ('find', 'Find')], string="Listing type", default='find')
-    name = fields.Char(string="ID",index=True,required=True, default=lambda self: _('New'))
+    name = fields.Char(string="ID",index=True,required=True,copy=False,default=lambda self: _('New'))
     property_type = fields.Many2many('property.type', string="Property type")
     user_id = fields.Many2one('res.users', string="User")
     property_address =  fields.Char()
