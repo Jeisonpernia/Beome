@@ -774,3 +774,27 @@ margin: 20px 0;
 
 
 
+
+@media only screen and (max-width: 768px){
+	
+	.inbox-messages-section {width:100%!important; margin-top: 16px; }
+	
+	.inbox-left-conversations {width: 100%; margin-top: 16px;}
+	
+	.inbox-messages-section .message-header .back-button {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 6.1721523119%;
+}
+
+}
+
+
+
+
+
+
+
+
+

@@ -10,6 +10,8 @@ from odoo.exceptions import AccessError, UserError,ValidationError
 from odoo.addons.auth_signup.models.res_users import SignupError
 from odoo.addons.web.controllers.main import ensure_db, Home
 import ast
+import pytz
+from odoo.tools import ustr
 try:
     import httpagentparser
 except ImportError:
@@ -250,7 +252,7 @@ class Website_Inherit(Website):
         print('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY ', request.session)
         list_place = False
         find_place = False
-        short_list=False
+        short_list = False
         if request.session.get('list_place'):
             list_place = request.session.get('list_place')
 
@@ -525,6 +527,7 @@ class FlatMates(http.Controller):
             values.update({'listing_type':'Find'})
         if property.user_id:
             values.update({'user_name': property.user_id.name})
+            values.update({'property_user_id': property.user_id.id})
         if property.user_id:
             values.update({'property_user_id': property.user_id})
         if property.total_bedrooms_id.name:
@@ -2276,8 +2279,120 @@ class FlatMates(http.Controller):
 
     @http.route(['/messages'], type='http', auth="public", website=True, csrf=True)
     def messages(self, **kwargs):
-        return request.render("pragtech_housemates.messages_template")
+        print('\n\n\n +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ \n')
+        msg_hstry_obj = request.env['messages.history']
+        current_user = request.uid
+        value = {}
+        user_records = msg_hstry_obj.sudo().search(['|',('msg_from', '=', current_user),('msg_to','=',current_user)])
 
+        chats_with = []
+        for rec in user_records:
+            if rec.msg_from.id == current_user:
+                if rec.msg_to not in chats_with:
+                    chats_with.append(rec.msg_to)
+            elif rec.msg_to.id == current_user:
+                if rec.msg_from not in chats_with:
+                    chats_with.append(rec.msg_from)
+
+        if chats_with:
+            value = { 'chats_with':chats_with}
+        print('CHats with : ',chats_with,value,'++++++++++++++++++++++++++++++++++++++++++++++\n\n\n\n')
+        return request.render("pragtech_housemates.messages_template",value)
+
+
+
+    @http.route(['/get_msg_history'], type='json', auth="public", website=True)
+    def get_msg_history(self, **kwargs):
+        print('\n\n get_msg_history :',kwargs,'\n\n\n')
+        msg_history_list = []
+        if kwargs:
+            if kwargs.get("selected_user"):
+                selected_user = request.env['res.users'].browse(int(kwargs.get("selected_user")))
+
+                msg_history = request.env['messages.history'].sudo().search([('msg_from','in',[request.uid,int(kwargs.get("selected_user"))]),('msg_to','in',[request.uid,int(kwargs.get("selected_user"))])])
+
+                if msg_history:
+                    for msg in msg_history:
+                        msg_time = msg.msg_time.strftime("%d/%m/%Y, %H:%M:%S")
+                        msg_dict = {
+                            'message':msg.message,
+                            'time':msg_time,
+                            'char_user_name':selected_user.name,
+                            'chat_user_id':selected_user.id,
+                            'image':selected_user.image,
+                            'property_id':msg.property_id.id
+                        }
+                        if msg.msg_from.id == request.uid:
+                            msg_dict.update({'from':True})
+                        else:
+                            msg_dict.update({'from':False})
+                        msg_history_list.append(msg_dict)
+
+        # print('Message History List : ',msg_history_list,'\n\n')
+        if msg_history_list:
+            return msg_history_list
+
+        return False
+
+    @http.route('/save_msg_in_db', auth='public', type='json', website=True)
+    def save_msg_in_db(self, **kwargs):
+        print('\n\n++++++++++++++++++++++++++ : ',kwargs,'\n\n\n')
+        msg_hstry_obj = request.env['messages.history']
+        if kwargs:
+            new_msg_history_id = msg_hstry_obj.sudo().create({
+                'msg_from':request.env.user.id,
+                'msg_to':kwargs.get('property_owner'),
+                'message':kwargs.get('message'),
+                'msg_time':datetime.now(),
+                'property_id':kwargs.get('property_id')
+            })
+
+            if new_msg_history_id:
+                return True
+            else:
+                return  False
+
+        return False
+
+    @http.route('/save_msg_in_database', auth='public', type='json', website=True)
+    def save_msg_in_database(self, **kwargs):
+        print('\n\n+++++++++++++++++ save_msg_in_database +++++++++ : ', kwargs, '\n\n\n')
+        msg_hstry_obj = request.env['messages.history']
+        value = {}
+        if kwargs:
+            new_msg_history_id = msg_hstry_obj.sudo().create({
+                'msg_from': request.env.user.id,
+                'msg_to': int(kwargs.get('chat_user_id')),
+                'message': kwargs.get('message'),
+                'msg_time': datetime.now(),
+            })
+
+            if new_msg_history_id:
+               value =  {
+                   'message': new_msg_history_id.message,
+                   'time':new_msg_history_id.msg_time,
+                   'from':True,
+               }
+
+        return value
+
+    # @http.route('/get_conversations', auth='public', type='json', website=True)
+    # def get_conversations(self, **kwargs):
+    #     print('\n\n Get_conversations : ', kwargs, '\n\n\n')
+    #     msg_hstry_obj = request.env['messages.history']
+    #     current_user = request.uid
+    #
+    #     user_records = msg_hstry_obj.sudo().search([('msg_from','=',current_user)])
+    #
+    #     chats_with = []
+    #     for rec in user_records:
+    #         in rec.msg_
+    #
+    #
+    #
+    #     print('Curret User : ',current_user,'\n\n')
+    #
+    #     return True
 
     @http.route(['/info'], type='http', auth="public", website=True, csrf=True)
     def info(self, **kwargs):

@@ -3,7 +3,7 @@ odoo.define('pragtech_housemates.sms_code', function (require){
     $(document).ready(function(){
 
                 //send sms Message
-                $(".send_messgae_to_owner").on('click',function(){
+//                $(".send_messgae_to_owner").on('click',function(){
 //                    $(".message_required").css('display','none')
 //                    $(".invalid_owner_mobile").css('display','none')
 //                      var property_id = $("#property_id").val();
@@ -30,7 +30,7 @@ odoo.define('pragtech_housemates.sms_code', function (require){
 //                    else{
 //                        $(".message_required").css('display','block')
 //                      }
-                });
+//                });
 
             });
 });

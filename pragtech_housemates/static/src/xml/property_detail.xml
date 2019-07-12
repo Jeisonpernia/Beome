@@ -98,6 +98,9 @@
                             <div class="row">
                                 <div class="col-lg-8 property-detail-left">
                                     <h1>
+                                        <t t-if="property_user_id">
+                                                            <input id="property_owner" type="hidden" t-att-value="property_user_id.id"/>
+                                        </t>
                                         <t t-if="property.place_for == 'me'">
                                             <t t-esc="user_name"/>
                                         </t>
@@ -736,7 +739,16 @@
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                                     </button>
+
                                                 </t>
+                                                <div class="view_conversation_div d-none">
+                                                        <p>You and <t t-esc="user_name"></t>  have messaged recently</p>
+                                                        <a href="#">
+                                                            <button class="btn btn-primary btn-green2 btn-block view-conversation-btn">
+                                                                View conversation
+                                                            </button>
+                                                        </a>
+                                                </div>
 
                                                 <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan_mobile and show_number -->
                                                 <t t-if="mobile_not_verified">
@@ -855,6 +867,9 @@
                             <div class="row">
                                 <div class="col-lg-8 property-detail-left">
                                     <h1>
+                                        <t t-if="property_user_id">
+                                                            <input id="property_owner" type="hidden" t-att-value="property_user_id.id"/>
+                                        </t>
                                         <t t-esc="property_address"/>
                                         <svg width="24" height="24" viewBox="0 0 16 16">
                                             <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
@@ -1594,6 +1609,14 @@
                                                         </t>
                                                     </button>
                                                 </t>
+                                                <div class="view_conversation_div d-none">
+                                                        <p>You and <t t-esc="user_name"></t>  have messaged recently</p>
+                                                        <a href="#">
+                                                            <button class="btn btn-primary btn-green2 btn-block view-conversation-btn">
+                                                                View conversation
+                                                            </button>
+                                                        </a>
+                                                </div>
                                                 <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan_mobile and show_number -->
                                                 <t t-if="mobile_not_verified">
                                                     <button type="button" class="btn btn-outline-primary2 btn-block"

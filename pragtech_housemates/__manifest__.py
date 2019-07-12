@@ -6,7 +6,7 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.23',
+    'version': '12.0.24',
     'description': "",
     'depends': [
                 'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname',
@@ -27,6 +27,7 @@
         'views/email_template.xml',
         'views/res_config_settings_views.xml',
         'views/product_view.xml',
+        'views/messages_history_view.xml',
         'static/src/xml/menu_item.xml',
         'static/src/xml/home_view.xml',
         'static/src/xml/message_template.xml',

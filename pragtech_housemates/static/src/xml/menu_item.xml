@@ -43,7 +43,7 @@
             </t>
 
             <t t-if="request.env.user.partner_id.name != 'Public user'">
-                <li class="nav-item">
+                <li class="nav-item" id="message_li_id">
                     <a class="nav-link" href="/messages">
                         <div class="nav-icon mx-auto">
                             <span class="icon">

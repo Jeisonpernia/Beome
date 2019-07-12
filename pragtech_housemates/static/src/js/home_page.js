@@ -655,7 +655,16 @@ $(document).ready(function() {
 ////            event.preventDefault();
 //
 //    });
+	
+	
+	
 
 });
+	
+	
+$(window).load(function() {
+    $(".loader").fadeOut("slow");
+});	
+
 
 });

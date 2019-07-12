@@ -5,3 +5,4 @@ from . import website_blog
 from . import res_partner
 from . import res_config_settings
 from . import product_template
+from . import messages_history

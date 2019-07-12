@@ -3139,7 +3139,7 @@ background-color: #f7bb42;
 
 
 
-.inbox-conversations {
+.inbox-left-conversations {
     float: left;
     display: block;
     margin-right: 2.3576520234%;
@@ -3163,7 +3163,7 @@ background-color: #f7bb42;
 .for-height {height:100%; }
 
 
-.message-count {color: #979ba3;
+.message-numbers {color: #979ba3;
     font-size: 0.875rem;
     padding: 1em;
     text-align: center; width:100%; }
@@ -3174,23 +3174,27 @@ background-color: #f7bb42;
     padding: 0;}
 
 
-.conversation-item {
+.per-user-items {
     cursor: pointer;
     overflow: hidden;
 }
 
-.conversation-item:hover {background: #f7f8f8;
+.per-user-items a {
+    text-decoration:none;
+}
+
+.per-user-items:hover {background: #f7f8f8;
     cursor: pointer;}
 
 
-.inbox-conversations-list .conversation-link {
+.inbox-conversations-list .per-user-link {
     color: #979ba3;
     display: block;
     overflow: hidden;
     padding: 0.5rem 1.5rem 0.5rem 0.5rem;
 }
 
-.conversation-link .avatar {float: left;
+.per-user-link .avatar {float: left;
     height: 60px;
     width: 75px; }
 
@@ -3206,12 +3210,13 @@ background-color: #f7bb42;
     width: 60px;  object-fit: cover;}
 
 
-.conversation-item .details {overflow: hidden;
+.per-user-items .details {overflow: hidden;
     padding-left: 0.5rem;
     padding-top: 0.25rem;}
 
 
-.details .member-name {font-weight:600 }
+.details .member-name {font-weight:600; padding-top: 0; padding-bottom: 0; }
+
 .details .member-name, .details .last-active {color: #2f3a4a;
     display: inline-block;
     font-size: 1rem;
@@ -3339,7 +3344,216 @@ color: #2f3a4a;
 font-size: 1.5rem;
     padding-top: 1.5rem; color: #979ba3; font-weight: normal;
 }	
+
+.message-body {
+bottom: 126px;
+    left: 0;
+    overflow-y: auto;
+    padding: 0 0 4em;
+    position: absolute;
+    right: 0;
+    top: 100px;
+	padding-top: 15px;
+}	
+
+
+.inbox-messages-subject {
+    font-size: 0.75rem;
+    padding: 2em 1.25em;
+    text-align: center;
+}
+
+.inbox-messages-subject .regarding {
+    margin-right: 0.25rem;
+}
+
+
+.inbox-messages-subject .available {
+    color: #2b6ed2;
+}
+.inbox-messages-subject .detail {
+    display: inline-block;
+    line-height: 1.25rem;
+}
+
+
+.status-message {
+clear: both;
+    color: #e9573e;
+    font-size: 0.875rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.status-message a {text-decoration: underline; color:#e9573e;}
+
+
+.message-body .message-details.own-message {
+    background: #149a7f;
+    color: #fff;
+    float: right;
+	margin-right: 14px;
+}
+
+
+
+.message-body .message-details {
+    border-radius: 10px;
+    max-width: 80%;
+    padding: 0.5rem 1rem;
+}
+
+.message-body .message-details.own-message .time-sent {    color: #fff;
+    text-align: right;}
+
+.message-body .time-sent {float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 100%;
+    color: #979ba3;
+    font-size: 0.75rem;
+    opacity: .7;
+    text-overflow: ellipsis;
+    white-space: nowrap;}
+
+
+.time-sent .message-status {color: #fff;
+    text-align: right;}
+
+.message-text p {
+    font-size: 1rem;
+    word-wrap: break-word;
+}
+
+.message-body .warning-status {border: 1px #e9573e solid;
+    border-radius: 50%;
+    bottom: 0.25rem;
+    /*position: absolute; right: 0.25rem;*/
+	width:25px;
+	height: 25px;
+	float: right;     margin-right: 15px;
+    
+    text-align: center;}
+
+.message-body .warning-status .icon svg {height: 10px;
+    width: 20px;}
+
+.icon .unsent-icon .fill {
+    fill: #e93e3e;
+}
+
+
+.message-body .warning-status {}
+
+
+.message-footer-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.message-toollayout {position: relative;
+    width: calc(100% - 15px);
+    background-color: #fff;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+    overflow-x: scroll;
+}	
+
+
+.message-footer .text-input {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 91.4701956647%;
+    margin-right: 0;
+    border: 0;
+    height: 106px;
+    overflow: auto;
+    padding: 12px;
+    padding-bottom: 0;
+    word-wrap: break-word;
+}
+
+.message-footer .actions {float: left;
+    display: block;
+    width: 6.1721523119%;}
+
+.message-footer .actions .send-button {background: transparent;
+    border: 0;
+    cursor: pointer;
+    height: 50px;
+    padding: 10px 5px 9px; cursor:pointer;}
+
+.message-footer .actions .send-icon{
+    height: 28px;
+    width: 28px;
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.message-footer-wrapper.icon svg .fill {
+    fill: #979ba3;
+}
+
+.dots-dropdown-message .dropdown-menu {padding:0px; transform: translate3d(485px, 42px, 0px)!important; }
+
+.dots-dropdown-message .dropdown-item {border-bottom: 1px solid #e4e5e6;
+    padding-top:10px; padding-bottom:10px;  color: #a5a8ad;
+    font-size: 15px;  }
+
+.dots-dropdown-message .dropdown-item:hover {color:#878c94;}
+
+.dots-dropdown-message .dropdown-item.active, .dropdown-item:active {background-color: #ffffff; color:#878c94;}
+
+.dots-dropdown-message .dropdown-item::after {background: #fff;
+    border-bottom: 1px solid #e4e5e6;
+    border-left: 1px solid #e4e5e6;
+    content: '';
+    display: block;
+    height: 16px;
+    position: absolute;
+    right: 18px;
+    top: -9px;
+    transform: rotate(135deg);
+    width: 16px;
+}
+
+
+.inbox-messages-section .message-header .back-button {
+    display: none;
+    padding-top: 9px;
+    text-align: center;
+}
+
+.message-header .back-to-conversations {height: 21px;
+    width: 13px;}
+
+
+.own-message-section{width:100%; float: right; display: block; margin-bottom:20px;  }
+
+.user-message-section{width:100%; float: left; display: block; margin-bottom:20px; }
+
+.user-message-section .own-message {float: left!important; background-color:#c1c1c1!important; margin-left:20px!important;   }
+
+.nav-item .active {background-color: #979ba3;
+    color: #fff!important;}
+
+
+
 /*======================= END Messages Page Added by Rohit  ==========================*/
 
+.send-button .fill {fill:#979ba3;}
 
 
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('loader.gif') 50% 50% no-repeat;
+}
