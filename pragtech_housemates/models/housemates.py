@@ -200,3 +200,4 @@ class Suburbs(models.Model):
     post_code = fields.Char(string="Post Code")
     latitude = fields.Char(string="Latitude")
     longitude = fields.Char(string="Longitude")
+

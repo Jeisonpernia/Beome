@@ -273,6 +273,8 @@ $(document).ready(function() {
 //            alert("page")
             if (find_place_data){
                 var is_id_exist = false
+                var a;
+                var redirect = false
                 $.ajax({
                         url:'/create/find_place',
                         type:'POST',
@@ -286,13 +288,13 @@ $(document).ready(function() {
                                     is_id_exist = true
                                     var window_pathname = window.location.pathname
                                     var property_id=data['result']['new_flatmate_id']
-                                    var a = "find_place_preview"+property_id
-                                    window.open('/'+a)
+                                    a = "find_place_preview"+property_id
+                                    redirect=  true
                                     //console.log('iiiiiiiffffffffiiiiiffff')
                                 }
 
 //                            var oldArray[0] = {}
-                            localStorage.setItem('find_place_record', JSON.stringify({}))
+//                            localStorage.setItem('find_place_record', JSON.stringify({}))
 
 
 	                    },
@@ -306,13 +308,16 @@ $(document).ready(function() {
 //	                        window.location.replace('/');
 //	                    }
                 });
+                if (redirect)
+	                    {
+	                        window.location.replace('/'+a)
+	                        localStorage.setItem('find_place_record', JSON.stringify({}))
+
+	                    }
 
 		    }
-		                console.log('RRRRRR ::' ,localStorage.getItem('find_place_record'))
-
 
 		    event.preventDefault()
-//event.preventDefault();
 
         });
 
@@ -752,8 +757,8 @@ $(document).ready(function() {
 //            alert('ssssssssssssssssssss----Check---ssssssssssssssssssssssssssss')
 
             if (localStorage.getItem('list_place_array')){
-
-                //console.log('\nListplace data :',list_place_data)
+                var a;
+                var redirect = false
                 $.ajax({
                         url:'/create/list_property',
                         type:'POST',
@@ -764,25 +769,21 @@ $(document).ready(function() {
                         success: function(data){
                             var window_pathname = window.location.pathname
                             var property_id=data['result']['new_list_id']
-                            var a = "list_place_preview"+property_id
-                             window.open('/'+a)
-
-
-
-//                            oldArray[0] = {}
-                            localStorage.setItem('list_place_array', JSON.stringify({}))
-
-//                             window.open('/'+a)
-                            //console.log('returnnnnnnnnnnnnnnnnn',localStorage.getItem('list_place_array'))
+                            a = "list_place_preview"+property_id
+                            redirect=  true
 	                    },
-
 
                 });
 
+                  if (redirect)
+	                    {
+	                        window.location.replace('/'+a)
+	                        localStorage.setItem('list_place_array', JSON.stringify({}))
 
+	                    }
 
 		    }
-//		    alert('ssssssssssssssssssssssssssssssssssssssssssssssss2222222222222')
+		    event.preventDefault();
         });
 
 

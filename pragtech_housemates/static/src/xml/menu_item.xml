@@ -24,7 +24,7 @@
                 </a>
             </li>
 
-            <t t-if="request.env.user.partner_id.name == 'Public user'">
+            <t t-if="request.env.user.partner_id.name == 'Public user' or request.env.user.id == 2">
                 <li class="nav-item">
                     <a class="nav-link" href="/info">
                         <div class="nav-icon mx-auto">

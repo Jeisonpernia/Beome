@@ -2307,7 +2307,7 @@ class FlatMates(http.Controller):
         msg_history_list = []
         if kwargs:
             if kwargs.get("selected_user"):
-                selected_user = request.env['res.users'].browse(int(kwargs.get("selected_user")))
+                selected_user = request.env['res.users'].sudo().browse(int(kwargs.get("selected_user")))
 
                 msg_history = request.env['messages.history'].sudo().search([('msg_from','in',[request.uid,int(kwargs.get("selected_user"))]),('msg_to','in',[request.uid,int(kwargs.get("selected_user"))])])
 
@@ -2326,6 +2326,12 @@ class FlatMates(http.Controller):
                             msg_dict.update({'from':True})
                         else:
                             msg_dict.update({'from':False})
+
+                        if selected_user.id in request.env.user.block_user_ids.ids:
+                            msg_dict.update({'is_blocked': True})
+                        else:
+                            msg_dict.update({'is_blocked': False})
+
                         msg_history_list.append(msg_dict)
 
         # print('Message History List : ',msg_history_list,'\n\n')
@@ -2334,10 +2340,18 @@ class FlatMates(http.Controller):
 
         return False
 
+    #message from preview page
     @http.route('/save_msg_in_db', auth='public', type='json', website=True)
     def save_msg_in_db(self, **kwargs):
         print('\n\n++++++++++++++++++++++++++ : ',kwargs,'\n\n\n')
+        chat_user = request.env["res.users"].sudo().browse(int(kwargs.get('property_owner')))
+
         msg_hstry_obj = request.env['messages.history']
+
+        if chat_user.block_user_ids:
+            if request.uid in chat_user.block_user_ids.ids:
+                return False
+
         if kwargs:
             new_msg_history_id = msg_hstry_obj.sudo().create({
                 'msg_from':request.env.user.id,
@@ -2354,12 +2368,20 @@ class FlatMates(http.Controller):
 
         return False
 
+    #message from Message Page(Chat Box)
     @http.route('/save_msg_in_database', auth='public', type='json', website=True)
     def save_msg_in_database(self, **kwargs):
-        print('\n\n+++++++++++++++++ save_msg_in_database +++++++++ : ', kwargs, '\n\n\n')
+        print('\n\n+++++++++++++++++ save_msg_in_database +++++++++ : ', kwargs,request.env.user, '\n\n\n')
+        chat_user = request.env["res.users"].sudo().browse(int(kwargs.get('chat_user_id')))
+
         msg_hstry_obj = request.env['messages.history']
         value = {}
+        if chat_user.block_user_ids:
+            if request.uid in chat_user.block_user_ids.ids:
+                return value
+
         if kwargs:
+
             new_msg_history_id = msg_hstry_obj.sudo().create({
                 'msg_from': request.env.user.id,
                 'msg_to': int(kwargs.get('chat_user_id')),
@@ -2376,23 +2398,102 @@ class FlatMates(http.Controller):
 
         return value
 
-    # @http.route('/get_conversations', auth='public', type='json', website=True)
-    # def get_conversations(self, **kwargs):
-    #     print('\n\n Get_conversations : ', kwargs, '\n\n\n')
-    #     msg_hstry_obj = request.env['messages.history']
-    #     current_user = request.uid
-    #
-    #     user_records = msg_hstry_obj.sudo().search([('msg_from','=',current_user)])
-    #
-    #     chats_with = []
-    #     for rec in user_records:
-    #         in rec.msg_
-    #
-    #
-    #
-    #     print('Curret User : ',current_user,'\n\n')
-    #
-    #     return True
+
+    @http.route('/delete_conversation', auth='public', type='json', website=True)
+    def delete_conversation(self, **kwargs):
+        print('Delete Conversation >>>>>>> ',kwargs)
+        msg_hstry_obj = request.env['messages.history']
+        current_user = request.uid
+        all_conversations = request.env['messages.history'].sudo().search(
+            [('msg_from', 'in', [current_user, int(kwargs.get("chat_user_id"))]),
+             ('msg_to', 'in', [current_user, int(kwargs.get("chat_user_id"))])])
+
+        print("\n\n\nAll conversatios ::: ",all_conversations,len(all_conversations),'\n\n\n')
+        if all_conversations:
+            for conversation in all_conversations:
+                conversation.sudo().unlink()
+
+            return True
+
+        else:
+            return False
+
+
+
+    @http.route('/block_this_member', auth='public', type='json', website=True)
+    def block_this_member(self, **kwargs):
+        print('\n\n\n BLOCK USER :',kwargs,'\n\n\n')
+        block_user_id = None
+        current_user_id = request.env['res.users'].sudo().browse(request.uid)
+        if kwargs.get("chat_user_id"):
+            block_user_id = int(kwargs.get("chat_user_id"))
+        print('Crret user >>> ',current_user_id)
+        if current_user_id and block_user_id:
+            current_user_id.sudo().write({'block_user_ids':[(4, block_user_id)]})
+
+        return True
+
+    @http.route('/unblock_this_member', auth='public', type='json', website=True)
+    def unblock_this_member(self, **kwargs):
+        block_user_id = None
+        current_user_id = request.env['res.users'].sudo().browse(request.uid)
+        if kwargs.get("chat_user_id"):
+            block_user_id = int(kwargs.get("chat_user_id"))
+        if current_user_id and block_user_id:
+            current_user_id.sudo().write({'block_user_ids': [(3, block_user_id)]})
+
+
+        return True
+
+
+
+    @http.route('/submit_feedback', auth='public', type='json', website=True)
+    def submit_feedback(self, **kwargs):
+        print('\n\n\nsubmit !!!!!!!!!!!!!!!!!!!!!!!!!!!!',kwargs,'\n\n')
+        vals = {}
+
+        vals.update({'report_from':request.uid,
+                     'user_id':2
+                     })
+
+        if kwargs.get("chat_user_id"):
+            vals.update({'about_user':int(kwargs.get("chat_user_id"))})
+
+        if kwargs.get("feedback_category"):
+            if kwargs.get("feedback_category") == "no_longer_available":
+                vals.update({'feedback_category':'no_longer_available'})
+
+            if kwargs.get("feedback_category") == "incorrect_information":
+                vals.update({'feedback_category':'incorrect_information'})
+
+            if kwargs.get("feedback_category") == "suspected_scammer":
+                vals.update({'feedback_category':'suspected_scammer'})
+
+            if kwargs.get("feedback_category") == "offensive_content":
+                vals.update({'feedback_category':'offensive_content'})
+
+            if kwargs.get("feedback_category") == "contact_information":
+                vals.update({'feedback_category':'contact_information'})
+
+            if kwargs.get("feedback_category") == "copyright_material":
+                vals.update({'feedback_category':'copyright_material'})
+
+            if kwargs.get("feedback_category") == "bug":
+                vals.update({'feedback_category':'bug'})
+
+            if kwargs.get("feedback_category") == "spam":
+                vals.update({'feedback_category':'spam'})
+
+        if kwargs.get("feedback_detail"):
+            vals.update({'feedback_detail': kwargs.get("feedback_detail") })
+
+
+        if vals:
+            print('Valss: ',vals)
+            member_report_obj = request.env['member.report'].sudo().create(vals)
+        return  True
+
+
 
     @http.route(['/info'], type='http', auth="public", website=True, csrf=True)
     def info(self, **kwargs):

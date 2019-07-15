@@ -18,7 +18,7 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{"selected_user":chat_user_id}}),
                     success: function(data){
                         if(data['result']){
-//                            console.log('REsult :: ',data['result'])
+                            console.log('REsult :: ',data['result'])
                             $(".inbox-empty").css('display','none')
                             $(".message_container").css('display','block')
 
@@ -40,6 +40,11 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                             $(".inbox-messages-listings-link").append('<a href="/P'+ property_id +'" target="_blank" class="view_user_listing">View '+ user +' listing</a>')
 
                             $(".msg-text").attr('placeholder','Write to '+chat_user_name+'...')
+
+                            if (data['result'][0]['is_blocked'] == true){
+                                $(".block-this-member").addClass("d-none")
+                                $(".unblock-this-member").removeClass("d-none")
+                            }
 
                             msg_data = data['result']
                             $(".message-body").empty()
@@ -150,6 +155,129 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
         }
 
     })
+
+    //delete conversation
+
+    $(".delete-conversation").on('click',function(){
+        var chat_user = $(".chat-user").val()
+        if (chat_user){
+            $.ajax({
+                    url: '/delete_conversation',
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{'chat_user_id':chat_user}}),
+                    success: function(data){
+                        console.log('DATA: ',data)
+                        if(data['result'] == true){
+                            $("#conversation_deleted_popup").modal("toggle")
+                        }
+                    }
+            });
+        }
+
+    })
+
+
+    //refresh page on click of close button on popup
+     $(document).on('click','.close-conversation-delete-popup',function(){
+         location.reload();
+     })
+
+    //refresh page on click outside of popup
+     $("#conversation_deleted_popup").on("hidden.bs.modal", function () {
+          location.reload();
+     });
+
+
+     //block this Member
+     $(".block-this-member").on('click',function(){
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+         var user_id = $(".chat-user").val()
+         console.log('user id :   ::: ',user_id)
+         if (user_id){
+            $.ajax({
+                    url: '/block_this_member',
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{'chat_user_id':user_id}}),
+                    success: function(data){
+                        console.log('DATA: ',data)
+                        if(data['result'] == true){
+                            member_name = $(".chat_user_name").find("p").text()
+                            console.log("Memmeber NAme : ",member_name)
+
+                            $(".block-member-name").text(member_name)
+                            $("#block_user_popup").modal("toggle")
+                        }
+                    }
+            });
+        }
+
+     })
+
+     $(".unlock-member").on('click',function(){
+        console.log('UNblock Membereeeeeeeeeeeeeeeeeeee ')
+        var user_id = $(".chat-user").val()
+        if(user_id){
+            $.ajax({
+                url: '/unblock_this_member',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{'chat_user_id':user_id}}),
+                success: function(data){
+                    console.log('DATA: ',data)
+                    if(data['result'] == true){
+                        member_name = $(".chat_user_name").find("p").text()
+
+                        $("#block_user_popup").modal("hide")
+                        $(".unblock-member-name").text(member_name)
+                        $("#unblock_user_popup").modal("toggle")
+                    }
+                }
+         });
+        }
+
+
+     })
+
+
+     //report this member
+     $(".submit-feedback").on('click',function(){
+        console.log('Submit feedback')
+        var user_id = $(".chat-user").val()
+        var feedback_category = $("#feedback_category_id").val()
+        var feedback_detail = $("#feedback_detail_id").val()
+        var data = {}
+
+        if (user_id){
+            data = {
+            'chat_user_id':user_id,
+            'feedback_category':feedback_category,
+            'feedback_detail':feedback_detail,
+            }
+            $.ajax({
+                url: '/submit_feedback',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":data}),
+                success: function(data){
+                    console.log('DATA: ',data)
+                    if(data['result'] == true){
+                        $("#report_this_member_popup").modal("hide")
+                    }
+                }
+         });
+        }
+
+
+     })
+
+
+
 
 
 

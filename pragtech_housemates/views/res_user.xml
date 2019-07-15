@@ -60,6 +60,21 @@
                              <field name="linkedin_profile_url"/>
                          </group>
                      </page>
+
+                     <page string="Blocked User List">
+                             <field name="block_user_ids"/>
+                     </page>
+
+                     <page string="Member Reports">
+                         <field name="member_report_ids">
+                             <tree>
+                                 <field name="report_from"/>
+                                 <field name="about_user"/>
+                                 <field name="feedback_category"/>
+                                 <field name="feedback_detail"/>
+                             </tree>
+                         </field>
+                     </page>
                  </xpath>
             </field>
         </record>

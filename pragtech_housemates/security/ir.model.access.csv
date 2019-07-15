@@ -27,3 +27,4 @@ access_about_person,access_about_person,model_about_person,base.group_user,1,1,1
 access_find_suburbs,access_find_suburbs,model_find_suburbs,base.group_user,1,1,1,1
 access_plan_feature,access_plan_feature,model_plan_feature,base.group_user,1,1,1,1
 access_messages_history,access_messages_history,model_messages_history,base.group_user,1,1,1,1
+access_member_report,access_member_report,model_member_report,base.group_user,1,1,1,1

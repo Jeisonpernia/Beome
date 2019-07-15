@@ -3,8 +3,8 @@
     <data>
         <template id="messages_template" name="Share Accommodation">
             <t t-call="website.layout">
-				
-				<div class="loader"></div>
+
+                <div class="loader"></div>
 
                 <div class="inbox-wrapper">
                     <div class="container message-container">
@@ -158,9 +158,9 @@
                                         </div>
                                         <div class="member-details">
                                             <div class="user_image">
-                                            <!--<img class="message-avatar"-->
-                                                 <!--src="/pragtech_housemates/static/src/img/rohit-avatar.jpg"-->
-                                                 <!--alt="Avatar of Rohit"/>-->
+                                                <!--<img class="message-avatar"-->
+                                                <!--src="/pragtech_housemates/static/src/img/rohit-avatar.jpg"-->
+                                                <!--alt="Avatar of Rohit"/>-->
                                             </div>
                                             <div class="chat_user_name member-name"></div>
 
@@ -184,9 +184,18 @@
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#">Block this member</a>
-                                                <a class="dropdown-item" href="#">Report this member</a>
-                                                <a class="dropdown-item" href="#">Delete conversation</a>
+                                                <a class="dropdown-item block-this-member" href="#">Block this member
+                                                </a>
+                                                <a class="dropdown-item unblock-this-member unlock-member d-none"
+                                                   href="#">Unblock this member
+                                                </a>
+                                                <a class="dropdown-item" href="#"
+                                                   data-target="#report_this_member_popup" data-toggle="modal">Report
+                                                    this member
+                                                </a>
+                                                <a class="dropdown-item delete-conversation" href="#">Delete
+                                                    conversation
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -211,52 +220,52 @@
 
 
                                     <div class="message-body">
-										
-										
+
+
                                         <!--<div class="inbox-messages-subject">-->
-                                            <!--<span class="regarding">You sent a message re:</span>-->
-                                            <!--<a class="detail available" href="">Rohit's Person Listing</a>-->
+                                        <!--<span class="regarding">You sent a message re:</span>-->
+                                        <!--<a class="detail available" href="">Rohit's Person Listing</a>-->
                                         <!--</div>-->
 
                                         <!--<div class="status-message">Please <a href="#" data-toggle="modal"-->
-                                                                              <!--data-target="#verify_mobile_popup">verify-->
-                                            <!--your mobile number-->
+                                        <!--data-target="#verify_mobile_popup">verify-->
+                                        <!--your mobile number-->
                                         <!--</a> so we can send this message-->
                                         <!--</div>-->
 
                                         <!--<div class="own-message-section">-->
-                                            <!--<div class="warning-status">-->
-                                                <!--<span class="icon">-->
-                                                    <!--<svg class="unsent-icon" viewBox="0 0 50 50">-->
-                                                        <!--<path class="fill"-->
-                                                              <!--d="M23 0c-.552 0-1 .448-1 1v38c0 .553.448 1 1 1h4c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1h-4zm0 44c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h4c.553 0 1-.447 1-1v-4c0-.553-.447-1-1-1h-4z"></path>-->
-                                                    <!--</svg>-->
-                                                <!--</span>-->
-                                            <!--</div>-->
+                                        <!--<div class="warning-status">-->
+                                        <!--<span class="icon">-->
+                                        <!--<svg class="unsent-icon" viewBox="0 0 50 50">-->
+                                        <!--<path class="fill"-->
+                                        <!--d="M23 0c-.552 0-1 .448-1 1v38c0 .553.448 1 1 1h4c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1h-4zm0 44c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h4c.553 0 1-.447 1-1v-4c0-.553-.447-1-1-1h-4z"></path>-->
+                                        <!--</svg>-->
+                                        <!--</span>-->
+                                        <!--</div>-->
 
-                                            <!--<div class="message-details own-message warning-icon">-->
-                                                <!--<div class="message-text sender_msg">-->
-                                                    <!--&lt;!&ndash;<p>Hello Rohit</p>&ndash;&gt;-->
-                                                <!--</div>-->
+                                        <!--<div class="message-details own-message warning-icon">-->
+                                        <!--<div class="message-text sender_msg">-->
+                                        <!--&lt;!&ndash;<p>Hello Rohit</p>&ndash;&gt;-->
+                                        <!--</div>-->
 
-                                                <!--<div class="time-sent">-->
-                                                    <!--<div class="message-status">sent</div>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
+                                        <!--<div class="time-sent">-->
+                                        <!--<div class="message-status">sent</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
                                         <!--</div>-->
 
 
                                         <!--<div class="user-message-section">-->
 
-                                            <!--<div class="message-details own-message warning-icon">-->
-                                                <!--<div class="message-text receiver_msg">-->
-                                                    <!--&lt;!&ndash;<p>Hey hi Administrator</p>&ndash;&gt;-->
-                                                <!--</div>-->
+                                        <!--<div class="message-details own-message warning-icon">-->
+                                        <!--<div class="message-text receiver_msg">-->
+                                        <!--&lt;!&ndash;<p>Hey hi Administrator</p>&ndash;&gt;-->
+                                        <!--</div>-->
 
-                                                <!--<div class="time-sent">-->
-                                                    <!--<div class="message-status">Unsent</div>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
+                                        <!--<div class="time-sent">-->
+                                        <!--<div class="message-status">Unsent</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
                                         <!--</div>-->
 
 
@@ -300,6 +309,170 @@
 
 
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="conversation_deleted_popup" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close close-conversation-delete-popup" data-dismiss="modal"
+                                        aria-label="Close">
+                                    ×
+                                </button>
+                            </div>
+                            <main class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 mx-auto">
+                                            <!--<form action="">-->
+                                            <h4 class="text-center mt-4 mb-4"
+                                                id="">Conversation Deleted
+                                            </h4>
+                                            <div class="form-group mt-4">
+                                                <p style="color:black;text-align:center;font-size: 20px;"
+                                                   id="">You have deleted all messages in this conversation.
+                                                </p>
+                                            </div>
+                                            <!--</form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="block_user_popup" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close close-conversation-delete-popup" data-dismiss="modal"
+                                        aria-label="Close">
+                                    ×
+                                </button>
+                            </div>
+                            <main class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="">
+                                            <!--<form action="">-->
+                                            <h4 class="text-center mt-4 mb-4"
+                                                id="">You have blocked <span class="block-member-name"></span>.
+                                            </h4>
+                                            <div class="form-group mt-4">
+                                                <p style="color:black;font-size: 20px;"
+                                                   id="">This member will no longer be able to message you or access
+                                                    your phone number.
+                                                </p>
+                                                <p style="color:black;font-size: 20px;"
+                                                   id="">You will need to cancel any inspections you have with <span
+                                                        class="block-member-name"></span>.
+                                                </p>
+                                                <p style="color:black;font-size: 20px;"
+                                                   id="">Did you block <span class="block-member-name"></span> accidentally?
+                                                    <a href="#" class="unlock-member">Unblock</a>
+                                                </p>
+                                            </div>
+                                            <!--</form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="unblock_user_popup" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close close-conversation-delete-popup" data-dismiss="modal"
+                                        aria-label="Close">
+                                    ×
+                                </button>
+                            </div>
+                            <main class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="">
+                                            <!--<form action="">-->
+                                            <h4 class="text-center mt-4 mb-4"
+                                                id="">Unblocked.
+                                            </h4>
+                                            <div class="form-group mt-4">
+                                                <p style="color:black;font-size: 20px;"
+                                                   id="">You have unblocked <span class="unblock-member-name"></span>.
+                                                </p>
+                                            </div>
+                                            <!--</form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade report-thisnumber" id="report_this_member_popup" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close close-conversation-delete-popup" data-dismiss="modal"
+                                        aria-label="Close">
+                                    ×
+                                </button>
+                            </div>
+                            <main class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-10 mx-auto">
+
+                                            <h4 class="text-center mt-4 mb-4"
+                                                id="">Report this member
+                                            </h4>
+                                            <!--<form action="">-->
+                                                <div class="form-group">
+                                                    <select class="form-control" id="feedback_category_id" name="feedback_category">
+                                                        <option value="" selected="selected" disabled="disabled" >Please select</option>
+                                                        <option value="no_longer_available">No longer available</option>
+                                                        <option value="incorrect_information">Listing contains incorrect
+                                                            information
+                                                        </option>
+                                                        <option value="suspected_scammer">Suspected scammer</option>
+                                                        <option value="offensive_content">Contains offensive or
+                                                            inappropriate content
+                                                        </option>
+                                                        <option value="contact_information">Listing contains contact
+                                                            information
+                                                        </option>
+                                                        <option value="copyright_material">Listing contains copyright
+                                                            material
+                                                        </option>
+                                                        <option value="bug">Bug/Problem with website</option>
+                                                        <option value="spam">Spam/Commercial unrelated to share
+                                                            accommodation
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <h4>Tell us what you are reporting about</h4>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="feedback_details">
+                                                        <input class="form-control propertyInput" id="feedback_detail_id"
+                                                               name="feedback_details" type="text" value=""/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-block btn-green1 submit-feedback" type="button">Submit</button>
+                                                </div>
+                                            <!--</form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
                         </div>
                     </div>
                 </div>

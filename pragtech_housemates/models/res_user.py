@@ -29,7 +29,9 @@ class ResUser(models.Model):
     twitter_profile_url = fields.Char(string="Twitter Profile URL")
     linkedin_profile_url = fields.Char(string="Linked In Profile URL")
 
+    block_user_ids = fields.Many2many('res.users','user_id','block_user_id')
 
+    member_report_ids = fields.One2many("member.report","user_id",string="Member Reports")
 
     @api.multi
     def send_account_verify_email(self):
@@ -112,3 +114,17 @@ class ResUser(models.Model):
 
         if image_content:
             return image_content
+
+class MemberReports(models.Model):
+    _name='member.report'
+
+    report_from = fields.Many2one('res.users',string="Report From")
+    about_user = fields.Many2one('res.users', string="About")
+    feedback_category = fields.Selection([('no_longer_available','No longer available'),('incorrect_information','Listing contains incorrect information'),
+                                     ('suspected_scammer','Suspected scammer'),('offensive_content','Contains offensive or inappropriate content'),
+                                     ('contact_information','Listing contains contact information'),('copyright_material','Listing contains copyright material'),
+                                     ('bug','Bug/Problem with website'),('spam','Spam/Commercial unrelated to share accommodation')],string="Feedback Category")
+
+    feedback_detail = fields.Text(string="Feedback Details")
+
+    user_id = fields.Many2one('res.users')

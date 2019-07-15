@@ -1078,7 +1078,7 @@ width: 10%;
 	color: #6D7580;
 }
 
-.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select, #list_place_property_preferences_popup select, #list_place_about_property_form_id select{
+.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select, #list_place_property_preferences_popup select, #list_place_about_property_form_id select, #report_this_member_popup select{
 	color: #a5a8ad;
 	background-image: url("/pragtech_housemates/static/src/img/dropdown-gray.svg");
 	background-repeat: no-repeat;
@@ -3557,3 +3557,33 @@ clear: both;
   z-index: 9999;
   background: url('loader.gif') 50% 50% no-repeat;
 }
+
+
+
+
+
+
+
+
+/*===================== Report This number Popup ===========================*/
+
+.report-thisnumber h4 {font-size: 1.25rem;
+    font-weight: normal; }
+
+.report-thisnumber select {    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiI…g9IjMiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgPC9nPjwvc3ZnPg==);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    border: 1px solid #e4e5e6;
+    border-radius: 5px;
+    color: #a5a8ad;
+    font-size: 1rem;
+    font-weight: normal;
+    height: 50px;
+    padding: 10px 14px;
+    padding-left: 10px !important;
+    width: 100%;}
+
