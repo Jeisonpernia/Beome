@@ -663,8 +663,35 @@ $(document).ready(function() {
 	
 	
 $(window).load(function() {
+
     $(".loader").fadeOut("slow");
-});	
+});
+
+
+$(document).ready(function()
+ {
+        $.ajax({
+
+                url : "/get_current_user_id",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                async:false,
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                success : function(result) {
+
+                    if (result['result']['id'] == 2){
+                    $('#top_menu').addClass('foradmin-onlycss')
+                    }
+                    else{
+                    $('#top_menu').removeClass('foradmin-onlycss')
+                    }
+
+                }
+        })
+
+
+ });
 
 
 });

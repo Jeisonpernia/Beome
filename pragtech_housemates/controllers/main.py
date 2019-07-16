@@ -716,28 +716,28 @@ class FlatMates(http.Controller):
         if is_user_public:
             request.session.update({'short_list': True})
             return werkzeug.utils.redirect('/web/login', )
+        if 'data' in shortlist_data:
+            flatmate_obj = request.env['house.mates'].sudo().search([('id', '=', shortlist_data['data'])], limit=1)
+            res_user_id = request.env['res.users'].sudo().search([('id', '=', request.uid)])
+            if res_user_id:
+                if flatmate_obj and 'data' in shortlist_data:
+                    if shortlist_data['active'] == 'True':
+                        if res_user_id:
+                            if res_user_id.house_mates_ids:
+                                res_user_id.sudo().write({
+                                    'house_mates_ids': [(4, flatmate_obj.id)]
+                                })
+                            else:
+                                res_user_id.sudo().write({
+                                    'house_mates_ids': [(6, 0, [flatmate_obj.id])]
+                                })
 
-        flatmate_obj = request.env['house.mates'].sudo().search([('id', '=', shortlist_data['data'])], limit=1)
-        res_user_id = request.env['res.users'].sudo().search([('id', '=', request.uid)])
-        if res_user_id:
-            if flatmate_obj and 'data' in shortlist_data:
-                if shortlist_data['active'] == 'True':
-                    if res_user_id:
-                        if res_user_id.house_mates_ids:
-                            res_user_id.sudo().write({
-                                'house_mates_ids': [(4, flatmate_obj.id)]
-                            })
-                        else:
-                            res_user_id.sudo().write({
-                                'house_mates_ids': [(6, 0, [flatmate_obj.id])]
-                            })
-
-                else:
-                    for id in res_user_id.house_mates_ids:
-                        if flatmate_obj.id == id.id:
-                            res_user_id.sudo().write({
-                                'house_mates_ids': [(3, flatmate_obj.id)]
-                            })
+                    else:
+                        for id in res_user_id.house_mates_ids:
+                            if flatmate_obj.id == id.id:
+                                res_user_id.sudo().write({
+                                    'house_mates_ids': [(3, flatmate_obj.id)]
+                                })
 
         return request.render("pragtech_housemates.shortlist_page", )
 
@@ -1745,9 +1745,10 @@ class FlatMates(http.Controller):
         return result
 
     def create_suburbs_line(self, house_mate_id, suburbs):
-        print ("HHHHHHHHHHHHHHHHHHHHH",house_mate_id)
+
         for rec in suburbs:
             for data in suburb_data:
+                print("HHHHHHHHHHHHHHHHHHHHH", data, suburbs)
                 if data['longitude'] == rec['longitude']:
                     vals = {}
                     vals ={
@@ -5019,6 +5020,13 @@ class WebsiteBlogInherit(WebsiteBlog):
             else:
                 return {'name': property_id.user_id.partner_id.name}
         return False
+
+    @http.route(['/get_current_user_id'], type='json', auth="public", website=True, )
+    def get_current_user_id(self, **kwargs):
+        if request.env.user.id:
+            return {'id':request.env.user.id}
+
+
 
     @http.route(['/edit_deactivate_listing'], type='json', auth="public", website=True, )
     def edit_deactivate_listing(self,**kwargs):

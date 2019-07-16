@@ -305,7 +305,7 @@
                     last_lat = last_span.find("input").attr("data-lat")
                     last_long = last_span.find("input").attr("data-long")
 
-                    console.log('LAST SPAN',last_span,last_span.find("input").attr("data-lat"),last_span.find("input").attr("data-long"))
+                    console.log('LAST SPAN 1',last_span,last_span.find("input").attr("data-lat"),last_span.find("input").attr("data-long"))
                     $('.tag').each(function(i){
                         var span_input = $(this).find("input");
                             each_lat = span_input.attr("data-lat")
@@ -716,7 +716,7 @@
 
         var longitude = null
         if (suburb_dict['longitude']){
-            longitude =  = suburb_dict['longitude']
+            longitude = suburb_dict['longitude']
         }
 
         var suburb_name = null
