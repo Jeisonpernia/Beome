@@ -3,7 +3,8 @@
 
     <data noupdate="1">
 
-        <delete model="website.menu" id="website_sale.menu_shop"></delete>
+        <!--<delete model="website.menu" id="website_sale.menu_shop"></delete>-->
+        <delete model="website.menu" search="[('name','=','Shop'),('url','=','/shop')]" />
 
         <record id="product_product_basic" model="product.product">
             <field name="name">Basic Plan</field>

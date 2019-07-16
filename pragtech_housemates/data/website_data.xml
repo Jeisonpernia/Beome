@@ -2,11 +2,15 @@
 <odoo>
     <data noupdate="1">
         <!--Hide Home Menu-->
-        <delete model="website.menu" id="website.menu_home"></delete>
-        <!--Hide Contact Us Menu-->
-        <delete model="website.menu" id="website.menu_contactus"></delete>
-        <!--Hide Blogs Menu-->
-        <delete model="website.menu" id="website_blog.menu_news"></delete>
+        <!--<delete model="website.menu" id="website.menu_home"></delete>-->
+        <!--&lt;!&ndash;Hide Contact Us Menu&ndash;&gt;-->
+        <!--<delete model="website.menu" id="website.menu_contactus"></delete>-->
+        <!--&lt;!&ndash;Hide Blogs Menu&ndash;&gt;-->
+        <!--<delete model="website.menu" id="website_blog.menu_news"></delete>-->
+        <delete model="website.menu" search="[('name','=','Home'),('url','=','/')]" />
+        <delete model="website.menu" search="[('name','=','Contact us'),('url','=','/contactus')]"/>
+         <delete model="website.menu" search="[('name','=','Blog'),('url','=','/blog')]" />
+
 
         <function name="change_data_endpoint" model="house.mates"/>
 
