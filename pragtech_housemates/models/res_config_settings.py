@@ -7,14 +7,14 @@ class ResConfigSettings(models.TransientModel):
     sms_user_name = fields.Char(string='User Name',)
     sms_user_password = fields.Char(string='Password',)
 
-    facebook_client_id = fields.Char(string='Client ID',)
-    facebook_client_secret = fields.Char(string='Client Secret', )
+    facebook_client_id = fields.Char(string='Facebook Client ID',)
+    facebook_client_secret = fields.Char(string='Facebook Client Secret', )
 
-    linkedin_client_id = fields.Char(string='Client ID', )
-    linkedin_client_secret = fields.Char(string='Client Secret', )
+    linkedin_client_id = fields.Char(string='Linkedin Client ID', )
+    linkedin_client_secret = fields.Char(string='Linkedin Client Secret', )
 
-    insta_client_id = fields.Char(string='Client ID', )
-    insta_client_secret = fields.Char(string='Client Secret', )
+    insta_client_id = fields.Char(string='Insta Client ID', )
+    insta_client_secret = fields.Char(string='Insta Client Secret', )
 
 
     @api.model

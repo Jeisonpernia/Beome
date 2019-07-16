@@ -117,6 +117,7 @@ class ResUser(models.Model):
 
 class MemberReports(models.Model):
     _name='member.report'
+    _description = 'Member Report'
 
     report_from = fields.Many2one('res.users',string="Report From")
     about_user = fields.Many2one('res.users', string="About")

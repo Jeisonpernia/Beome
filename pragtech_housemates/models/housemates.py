@@ -15,7 +15,7 @@ class Housemates(models.Model):
     ## Main
     state = fields.Selection([('active', 'Active'), ('deactive', 'Deactive')],default='active')
     listing_type = fields.Selection([('list', 'List'), ('find', 'Find')], string="Listing type", default='find')
-    name = fields.Char(string="ID",index=True,required=True,copy=False,default=lambda self: _('New'))
+    name = fields.Char(string="Housemate ID",index=True,required=True,copy=False,default=lambda self: _('New'))
     property_type = fields.Many2many('property.type', string="Property type")
     user_id = fields.Many2one('res.users', string="User")
     property_address =  fields.Char()
@@ -23,7 +23,7 @@ class Housemates(models.Model):
     street2 = fields.Char()
     street3 = fields.Char()
     city = fields.Char()
-    state_id = fields.Many2one('res.country.state')
+    state_id = fields.Many2one('res.country.state' , string='States')
     zip = fields.Char()
     country_id = fields.Many2one('res.country')
     latitude = fields.Char()
@@ -69,7 +69,7 @@ class Housemates(models.Model):
     smokers = fields.Boolean('Smokers')
     LGBTI = fields.Boolean('LGBTI+ ?')
     fourty_year_old = fields.Boolean('40+ years olds')
-    children = fields.Boolean('Children')
+    children = fields.Boolean('Childrens')
     pets = fields.Boolean('Pets')
     retirees = fields.Boolean('Retirees')
     on_welfare = fields.Boolean('On welfare')
@@ -84,7 +84,7 @@ class Housemates(models.Model):
 
     fsmoker = fields.Boolean('Smoker')
     flgbti = fields.Boolean('LGBTI+')
-    fpets = fields.Boolean('Pets')
+    fpets = fields.Boolean('Pet')
     fchildren = fields.Boolean('Children')
 
     ## Property Images
