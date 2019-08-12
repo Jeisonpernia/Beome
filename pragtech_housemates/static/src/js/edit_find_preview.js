@@ -504,6 +504,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
         });
 
         $("#general_information_popup_id").on("hidden.bs.modal", function () {
+        console.log("---** in **---")
                       location.reload();
         });
 

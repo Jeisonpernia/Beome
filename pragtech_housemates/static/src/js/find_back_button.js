@@ -98,25 +98,25 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
         if (current_location == '/find-place/describe-your-ideal-place/about-flatmates'){
             var local_storage_data = JSON.parse(localStorage.getItem('find_place_record'))
             console.log("------- current_location ---------",local_storage_data)
-            if(local_storage_data[0]['suburbs']){
-            for (var i=0;i<local_storage_data[0]['suburbs'].length;i++){
-            latitude = local_storage_data[0]['suburbs'][i]['latitude']
-            longitude = local_storage_data[0]['suburbs'][i]['longitude']
-            suburb_name = local_storage_data[0]['suburbs'][i]['suburb_name']
-            city = local_storage_data[0]['suburbs'][i]['city']
-            post_code = local_storage_data[0]['suburbs'][i]['post_code']
-            closeTag = "<span class='close'></span>";
-            inputTag = "<input type='hidden' class='tag_input' data-lat='"+latitude+"' data-long='"+longitude+"' data-suburb_name='"+suburb_name+"' data-city='"+city+"' data-post_code='"+post_code+"'>"
-            tagText = local_storage_data[0]['suburbs'][i]['suburb_name'] +','+ local_storage_data[0]['suburbs'][i]['post_code']
-		    tag = $("<span data-id='"+0+"' class='tag'>"+
-				tagText+inputTag+closeTag+
-				"</span>");
-				$('.tags_container').prepend(tag)
+            if(local_storage_data.length != 0){
+                if(local_storage_data[0]['suburbs']){
+                    for (var i=0;i<local_storage_data[0]['suburbs'].length;i++){
+                        latitude = local_storage_data[0]['suburbs'][i]['latitude']
+                        longitude = local_storage_data[0]['suburbs'][i]['longitude']
+                        suburb_name = local_storage_data[0]['suburbs'][i]['suburb_name']
+                        city = local_storage_data[0]['suburbs'][i]['city']
+                        post_code = local_storage_data[0]['suburbs'][i]['post_code']
+                        closeTag = "<span class='close'></span>";
+                        inputTag = "<input type='hidden' class='tag_input' data-lat='"+latitude+"' data-long='"+longitude+"' data-suburb_name='"+suburb_name+"' data-city='"+city+"' data-post_code='"+post_code+"'>"
+                        tagText = local_storage_data[0]['suburbs'][i]['suburb_name'] +','+ local_storage_data[0]['suburbs'][i]['post_code']
+                        tag = $("<span data-id='"+0+"' class='tag'>"+
+                            tagText+inputTag+closeTag+
+                            "</span>");
+                            $('.tags_container').prepend(tag)
 
-
-
-            }
-            $('.propert_submit_btn').prop('disabled', false);
+                    }
+                    $('.propert_submit_btn').prop('disabled', false);
+                }
             }
 
 
@@ -126,11 +126,13 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
         if (current_location == '/find-place/describe-your-ideal-place/rent-timing'){
             var local_storage_data = JSON.parse(localStorage.getItem('find_place_record'))
             console.log("------- current_location ---------",local_storage_data)
-            if(local_storage_data[0]['find_weekly_budget']){
-            $('#find-budget').val(local_storage_data[0]['find_weekly_budget'])
-            $('#find-txtdate').val(local_storage_data[0]['find_move_date'])
-            $('#find-preferred-stay').val(local_storage_data[0]['find_preferred_length_stay'])
-            $('.submit-rent-timing').prop("disabled", false);
+            if(local_storage_data.length != 0){
+                if(local_storage_data[0]['find_weekly_budget']){
+                    $('#find-budget').val(local_storage_data[0]['find_weekly_budget'])
+                    $('#find-txtdate').val(local_storage_data[0]['find_move_date'])
+                    $('#find-preferred-stay').val(local_storage_data[0]['find_preferred_length_stay'])
+                    $('.submit-rent-timing').prop("disabled", false);
+                }
             }
 
         }
@@ -138,48 +140,51 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
         if (current_location == '/find-place/describe-your-ideal-place/property-preferences'){
             var local_storage_data = JSON.parse(localStorage.getItem('find_place_record'))
             console.log("------- current_location ---------",local_storage_data)
-            if(local_storage_data[0]['find_room_furnishing']){
-            $.each($(document).find('input[name=find-room_furnishing]'), function(){
-            if($(this).val() == local_storage_data[0]['find_room_furnishing'])
-            {
-            $(this.parentNode).addClass('bedroom-btn-active')
-            }
-            })
+            if(local_storage_data.length != 0){
+                if(local_storage_data[0]['find_room_furnishing']){
+                $.each($(document).find('input[name=find-room_furnishing]'), function(){
+                if($(this).val() == local_storage_data[0]['find_room_furnishing'])
+                {
+                $(this.parentNode).addClass('bedroom-btn-active')
+                }
+                })
 
-             $.each($(document).find('input[name=find-internet_type]'), function(){
-            if($(this).val() == local_storage_data[0]['find_internet_type'])
-            {
-            $(this.parentNode).addClass('bedroom-btn-active')
-            }
-            })
+                 $.each($(document).find('input[name=find-internet_type]'), function(){
+                if($(this).val() == local_storage_data[0]['find_internet_type'])
+                {
+                $(this.parentNode).addClass('bedroom-btn-active')
+                }
+                })
 
-             $.each($(document).find('input[name=find-bathroom_type]'), function(){
-            if($(this).val() == local_storage_data[0]['find_bathroom_type'])
-            {
-            $(this.parentNode).addClass('bedroom-btn-active')
-            }
-            })
+                 $.each($(document).find('input[name=find-bathroom_type]'), function(){
+                if($(this).val() == local_storage_data[0]['find_bathroom_type'])
+                {
+                $(this.parentNode).addClass('bedroom-btn-active')
+                }
+                })
 
-             $.each($(document).find('input[name=find-parking_type]'), function(){
-            if($(this).val() == local_storage_data[0]['find_parking_type'])
-            {
-            $(this.parentNode).addClass('bedroom-btn-active')
-            }
-            })
+                 $.each($(document).find('input[name=find-parking_type]'), function(){
+                if($(this).val() == local_storage_data[0]['find_parking_type'])
+                {
+                $(this.parentNode).addClass('bedroom-btn-active')
+                }
+                })
 
-             $.each($(document).find('input[name=find-no-of-flatmates]'), function(){
-            if($(this).val() == local_storage_data[0]['find_no_of_flatmates'])
-            {
-            $(this.parentNode).addClass('bedroom-btn-active')
-            }
-            })
-            $('.submit-property-preferences').prop("disabled", false);
+                 $.each($(document).find('input[name=find-no-of-flatmates]'), function(){
+                if($(this).val() == local_storage_data[0]['find_no_of_flatmates'])
+                {
+                $(this.parentNode).addClass('bedroom-btn-active')
+                }
+                })
+                $('.submit-property-preferences').prop("disabled", false);
+                }
             }
         }
 
         if(current_location == '/find-place/describe-your-ideal-place/introduce-flatmates'){
             var local_storage_data = JSON.parse(localStorage.getItem('find_place_record'))
             console.log("------- current_location ---------",local_storage_data)
+            if(local_storage_data.length != 0){
             if(local_storage_data[0]['about_you']){
             $.each($(document).find('input[name=find-place-for]'), function(){
             if($(this).val() == local_storage_data[0]['about_you']['place_for'])
@@ -225,11 +230,13 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
             })
             }
             }
+            }
         }
 
         if(current_location == '/find-place/describe-your-ideal-place/employment'){
             var local_storage_data = JSON.parse(localStorage.getItem('find_place_record'))
             console.log("------- current_location ---------",local_storage_data)
+            if(local_storage_data.length != 0){
             if(local_storage_data[0]['find_employment_status']){
             for (var i =0 ; i< local_storage_data[0]['find_employment_status'].length;i++){
 
@@ -296,11 +303,13 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
                 }
             }
             }
+            }
         }
 
         if(current_location == '/find-place/describe-your-ideal-place/lifestyle'){
             var local_storage_data = JSON.parse(localStorage.getItem('find_place_record'))
             console.log("------- current_location ---------",local_storage_data)
+            if(local_storage_data.length != 0){
             if(local_storage_data[0]['find_lifestyle']){
             for (var i =0 ; i< local_storage_data[0]['find_lifestyle'].length;i++){
 
@@ -339,6 +348,7 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
                         $('.find_children').prepend('<div src="" class="active_tick_icon"></div>');
 
                 }
+            }
             }
             }
         }

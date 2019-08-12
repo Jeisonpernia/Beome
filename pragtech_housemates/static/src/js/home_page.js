@@ -655,9 +655,32 @@ $(document).ready(function() {
 ////            event.preventDefault();
 //
 //    });
-	
-	
-	
+
+$('.search-dropdown-menu').click(function(event){
+
+var input_box = document.getElementById('tag_input_id')
+var div_id = document.getElementById('tag_complete_id')
+console.log('---- out -----',event.target)
+ if ($( event.target ).is( "li" ) == false &&  event.target != input_box && event.target != div_id){
+console.log('---- in -----',event.target)
+$('#autocomplete-id').hide();
+}
+else
+{
+$('#autocomplete-id').show();
+
+}
+})
+
+
+$(document).click(function(event){
+
+    if ($( event.target ).is( "div" ) == true ){
+      $("#dropdownMenuButton").hide();
+      location.reload()
+    }
+});
+
 
 });
 	

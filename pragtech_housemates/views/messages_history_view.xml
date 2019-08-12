@@ -13,6 +13,7 @@
                             <field name="msg_time"/>
                             <field name="message"/>
                             <field name="property_id"/>
+                            <field name="is_seen"/>
                         </group>
                     </sheet>
                 </form>
@@ -28,6 +29,7 @@
                     <field name="msg_to"/>
                     <field name="msg_time"/>
                     <field name="message"/>
+                    <field name="is_seen"/>
                 </tree>
             </field>
         </record>

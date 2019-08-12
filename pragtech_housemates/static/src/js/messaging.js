@@ -19,8 +19,12 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                     success: function(data){
                         if(data['result']){
                             console.log('REsult :: ',data['result'])
+
                             $(".inbox-empty").css('display','none')
                             $(".message_container").css('display','block')
+
+                            unread_msg_count = data['result'][0]['unread_msg_count']
+
 
                             chat_user_name = data['result'][0]['char_user_name']
                             $(".chat_user_name").empty()
@@ -51,13 +55,17 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                             for(var i=0;i<msg_data.length;i++){
                                 each_msg = msg_data[i]
                                 if (each_msg['from'] == true){
-                                    own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">sent</div></div></div></div>'
-//                                    console.log($(".message-body"))
+                                    if(each_msg['is_seen'] == true){
+                                        own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">seen</div>'+ each_msg['time'] +'</div></div></div>'
+                                    }
+                                    else{
+                                        own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">sent</div>'+ each_msg['time'] +'</div></div></div>'
+                                    }
 
                                     $(".message-body").append(own_msg_section)
                                 }
                                 else if(each_msg['from'] == false){
-                                    user_msg_section = ' <div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent"><div class="message-status">Sent</div></div></div></div>'
+                                    user_msg_section = ' <div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent">'+ each_msg['time'] +'</div></div></div>'
                                     $(".message-body").append(user_msg_section)
                                 }
 
@@ -127,7 +135,7 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 //                        console.log('data : ',data)
                         if(data['result']){
                             if(data['result']['from'] == true){
-                                own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ data['result']['message'] +'</p></div><div class="time-sent"><div class="message-status">sent</div></div></div></div>'
+                                own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ data['result']['message'] +'</p></div><div class="time-sent"><div class="message-status">sent</div>'+ data['result']['time'] +'</div></div></div>'
                                 $(".message-body").append(own_msg_section)
 								
 //								$('.message-body').animate({scrollTop:$(document).height()}, 'slow');

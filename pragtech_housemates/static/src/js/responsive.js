@@ -97,7 +97,7 @@ $(document).ready(function()
                     var text_div = $(document).find(".search-bar-responsive").first().find("div")
                     console.log ("LEngthhhhhhhhhhh",text_div)
                     if (text_div.length == 0)
-                        $(".search-bar-responsive").append('<div class="search-icon search-box-icon"><span class="fa fa-search"></span></div><span class="search-dropdown-txt">Search share accommodation</span>')
+                        $(".search-bar-responsive").append('<div class="search-icon search-box-icon"><span class="fa fa-search" id="search-icon"></span></div><span class="search-dropdown-txt" id="search-text-id">Search share accommodation</span>')
                 }
 
                 if ($(document).find("#wrapwrap").find('nav').hasClass("navbar-expand-xs"))

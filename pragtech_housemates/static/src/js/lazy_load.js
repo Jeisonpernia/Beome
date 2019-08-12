@@ -56,7 +56,7 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
     function load_data(last_record_fetched, filters, button_name)
     {
 //        console.log ('Execution Time',record_id)
-//        console.log (last_record_fetched)
+        console.log ("Buttttttttton", last_record_fetched, filters, button_name)
 
         if (button_name = 'home')
         {
@@ -68,6 +68,11 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
         }
         if (button_name == 'find' || button_name == 'list')
         {
+            var data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'record_id' : last_record_fetched, 'filters' : filters}})
+        }
+        if (last_record_fetched && filters)
+        {
+            console.log ("Insidddddddddddddddddddddddddddddddde")
             var data = JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": { 'record_id' : last_record_fetched, 'filters' : filters}})
         }
 

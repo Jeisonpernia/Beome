@@ -205,11 +205,11 @@
 
 			//main container
 			tagCompleteMain = $("<div id='"+instanceId+"' class='tag_complete_main'>"+
-									"<div class='tag_complete'>"+
+									"<div class='tag_complete' id='tag_complete_id'>"+
 									"<div class='tags_container'></div>"+
-									"<input type='text' class='tag_input' />"+
+									"<input type='text' class='tag_input' id='tag_input_id'/>"+
 									"</div>"+
-									"<ul class='autocomplete hide'></ul>"+
+									"<ul class='autocomplete hide' id='autocomplete-id'></ul>"+
 									"</div>"
 								);
 

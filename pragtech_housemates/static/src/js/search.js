@@ -628,9 +628,11 @@ $(".search-dropdown").click(function(event){
     console.log('Is shownnnnnnnnnnnnnnnn : ',is_shown)
     if (is_shown == false){
 //           console.log('111111111111111111111111111111111')
+$('#search-text-id').text('WHERE ARE YOU LOOKING?');
           $(".search-btn-close").removeClass('d-none')
     }
     else{
+    $('#search-text-id').text('Search share accommodation');
 //            console.log('222222222222222222222222222')
           $(".search-btn-close").addClass('d-none')
     }

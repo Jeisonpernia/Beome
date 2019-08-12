@@ -18,5 +18,5 @@ class MessagesHistory(models.Model):
     message = fields.Text(string="Message")
     msg_time = fields.Datetime("Time")
     property_id = fields.Many2one("house.mates",string="Property")
-
+    is_seen = fields.Boolean("Seen")
 

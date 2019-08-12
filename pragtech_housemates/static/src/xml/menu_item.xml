@@ -77,14 +77,14 @@
                     <div class="new-search closed">
 
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle search-dropdown search-bar-responsive"  type="button"
+                                <button class="btn btn-secondary dropdown-toggle search-dropdown search-bar-responsive"  id="search-dropdown-id" type="button"
                                     data-toggle="modal" data-target="#dropdownMenuButton" aria-haspopup="true"
                                     aria-expanded="false">
                                 <div class="search-icon search-box-icon">
-                                    <span class="fa fa-search"></span>
+                                    <span class="fa fa-search" id="search-icon"></span>
                                 </div>
 
-                                <span class="search-dropdown-txt">Search share accommodation
+                                <span class="search-dropdown-txt" id="search-text-id">Search share accommodation
 								</span>
 								
 								
@@ -121,9 +121,9 @@
                                 <div class="search_tag_input_suburbs">
                                 </div>
 
-                                <label class="p16-gray text-uppercase">Where are you looking?</label>
+                                <!--<label class="p16-gray text-uppercase">Where are you looking?</label>-->
                                 <div class="tag-input-div">
-                                    <input type="text" class="tags_input" placeholder="Start typing a suburb, city, station or uni" value=""/>
+                                    <input type="text" class="tags_input"  placeholder="Start typing a suburb, city, station or uni" value=""/>
                                 </div>
 
                                 <!--placeholder = "Start typing a suburb, city, station or uni"-->

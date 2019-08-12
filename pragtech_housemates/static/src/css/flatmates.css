@@ -2564,7 +2564,7 @@ font-size: 30px;
     position: fixed;
     width: 100%;
     z-index:1042;
-    top:0px;
+    top:46px;
 }
 
 .top_margin {
@@ -3095,7 +3095,7 @@ background-color: #f7bb42;
 }
 
 .abcc{
-    background-color:#37bc9b;
+    background-color:#efefef;
 }
 
 
@@ -3595,3 +3595,10 @@ clear: both;
 .foradmin-onlycss .search {width: calc(100% / 2)!important; }
 
 
+/*========== added by pranali to scroll page when model is open ==============*/
+body.modal-open {
+    overflow: scroll;
+}
+.header-top-margin{
+	top:46px;
+}

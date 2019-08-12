@@ -14,7 +14,7 @@
                                 <!-- Start Inbox Conversation -->
                                 <div class="inbox-left-conversations">
                                     <div class="inbox-conversion-section">
-                                        <div class="message-numbers">0 unread messages</div>
+                                        <div class="message-numbers"> <t t-esc="unread_msg_count"/> unread messages</div>
 
                                         <ul class="inbox-conversations-list">
 
@@ -31,7 +31,13 @@
                                                             <div class="member-name">
                                                                 <t t-esc="chat_user.name"></t>
                                                             </div>
-                                                            <div class="last-active">Online Today</div>
+
+                                                            <t t-foreach="last_login" t-as="login">
+                                                                <t t-if="login['id'] == chat_user.id">
+                                                                    <div class="last-active"><t t-esc="login['login_date']"/></div>
+                                                                    <!--Online Today-->
+                                                                </t>
+                                                            </t>
 
                                                             <div class="snippet">
                                                                 <span class="snippet-icon">
