@@ -155,7 +155,7 @@
                                                         <div class="card-body">
                                                             <h5 class="card-title text-center">
                                                                 <t t-if="user_id.name">
-                                                                    <span t-esc="user_id.name"/>
+                                                                    <a href="#" data-toggle="modal" data-target="#account_settings_popup"><span t-esc="user_id.name"/></a>
                                                                 </t>
                                                                 <!--<t t-if="user_id.lastname">-->
                                                                     <!--<span t-esc="user_id.lastname"/>-->
@@ -166,7 +166,9 @@
 
                                                                 <!--<span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>-->
                                                             </h5>
+                                                            <a href="#" class="btn-block upgrade_plan_class" id="upgrade_plan_id" data-toggle="modal" data-target="#why_upgrade_popup">
                                                             <p class="text-center text-danger">Free Account</p>
+                                                            </a>
                                                             <a href="#" class="btn btn-orange1 btn-block upgrade_plan_class"
                                                                id="upgrade_plan_id"
                                                                data-toggle="modal"
@@ -469,7 +471,7 @@
                                                                 Account settings
                                                             </a>
                                                         </li>
-                                                        <li>
+                                                        <li id="email_alert_popup_id">
                                                             <a href="#" data-toggle="modal"
                                                                data-target="#email_alert_popup">
                                                                 <svg class="icon" width="50" height="50"
@@ -491,7 +493,7 @@
                                                                 Deactivate account
                                                             </a>
                                                         </li>
-                                                        <li>
+                                                        <li id="help_faq_id">
                                                             <a href="/info/frequently-asked-questions">
                                                                 <svg class="icon" viewBox="0 0 26 26 ">
                                                                     <path class="fill"
@@ -500,7 +502,7 @@
                                                                 Help &amp; FAQ
                                                             </a>
                                                         </li>
-                                                        <li>
+                                                        <li id="logout_id">
                                                             <a id="o_logout"
                                                                t-attf-href="/web/session/logout?redirect=/"
                                                                role="menuitem">

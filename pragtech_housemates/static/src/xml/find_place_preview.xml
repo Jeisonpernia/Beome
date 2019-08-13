@@ -2265,7 +2265,8 @@
                                                 <h3>
                                                     <t t-esc="user_name"/>
                                                 </h3>
-                                                <p>Online Today</p>
+                                                <div class="last-active"><t t-esc="last_login"/></div>
+                                                <!--<p>Online Today</p>-->
                                                 <div class="login-form-rounded-btn">Response rate: 100%
                                                     <i data-tip="true" data-for="responseRateTooltip"
                                                        class="fa fa-question-circle" currentitem="false"></i>

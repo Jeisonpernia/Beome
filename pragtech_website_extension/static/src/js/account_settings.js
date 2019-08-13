@@ -31,6 +31,7 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                                 $(".already-verified").css('display','block')
                             }
 
+
                             if(data['result']['is_allowed_to_contact'] == true){
                                 console.log('7777777777777777777777777777777777777777777777')
                                 $(".allowed-to-contact-in-edit-account").find("i").removeClass("fa-times")
@@ -40,6 +41,10 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                             }
 
                         }
+                         else if(data['result']['is_mobile_verified'] == false) {
+                            $(".default_user_mobile").val('');
+                            }
+
 
 
                         if (data['result']['user_image']){

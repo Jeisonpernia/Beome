@@ -652,3 +652,19 @@ fill: #fff;
 .fa-times{
     color:white
 }
+
+.property_listing, .blogs_on_dashboard{
+    cursor: pointer;
+}
+
+#account_verification_popup .linkButton {
+    cursor: pointer;
+}
+#verify_facebook,#verify_linkedin,#verify_instagram,#verify_twitter{
+cursor: pointer;
+}
+
+#verify_mobile, #account_verification, #account_settings_popup_id, #email_alert_popup_id, #deactivate_account_popup_href_id, #help_faq_id, #logout_id{
+    cursor: pointer;
+}
+

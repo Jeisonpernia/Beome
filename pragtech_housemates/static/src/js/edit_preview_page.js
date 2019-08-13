@@ -2,12 +2,62 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
 
 
     $(document).ready(function(){
-
+var window_pathname = window.location.pathname
         $(".edit_about_the_room").on('click',function(){
             console.log(" !!!!!! Edit About the Room call !!!!!!!!")
 
             var current_property_id = $("#current_listing_id").val()
+
             console.log("Current Listing id :",current_property_id)
+            $("#edit_weekly_budget").keypress(function(e){
+             var keyCode = e.which; /* 8 - (backspace) 32 - (space) 48-57 - (0-9)Numbers */
+             if ( (keyCode != 8 || keyCode ==32 ) && (keyCode < 48 || keyCode > 57))
+              {
+                 return false;
+              }
+            });
+
+
+
+
+            var $input2 = $("#edit_weekly_budget");
+            if (window_pathname.includes('list_place_preview') && $input2)
+            {
+                         if ($input2.val().length == 0 )
+                        {
+                            $('.styles__errorMessage_preview').hide();
+                        }
+                //console.log ("In general statement if (window_pathname.includes('about-property'))")
+                if ($input2.val() > 10000){
+                    $('#update_rooms_data').prop("disabled", true)
+                }
+            }
+            $input2.on('keyup', function (){
+
+                if ($input2.val() <= 10000 )
+                    {
+                        $('.styles__errorMessage_preview').hide();
+                        // Code added by dhrup
+                        $('#update_rooms_data').prop("disabled", false)
+                        $('#edit_weekly_budget').removeClass("border-red");
+                    }
+
+                if ($input2.val() > 10000 )
+                    {
+                        $('.styles__errorMessage_preview').show();
+                        // Code added by dhrup
+                        $('#edit_weekly_budget').addClass("border-red");
+                        $('#update_rooms_data').prop("disabled", true)
+
+                    }
+                else
+                    {
+                        $('.styles__errorMessage_preview').hide();
+                        // Code added by dhrup
+                        $('#update_rooms_data').prop("disabled", false)
+                        $('#edit_weekly_budget').removeClass("border-red");
+                    }
+            });
 
             $.ajax({
                     url: '/get_about_room_data_of_current_property',
@@ -140,9 +190,17 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
         });
 
         $('#edit_about_property_btn').on('click',function(){
-            console.log('dddddddddddddddddddddddddddddd')
+
+             $('.not_include_contact_info').hide()
             var current_property_id = $("#current_listing_id").val()
 
+            $("#edit_about_property").mouseenter(function(){
+             console.log('dddddddddddddddddddddddddddddd')
+            $('.not_include_contact_info').show()
+            })
+            $("#edit_about_property").mouseleave(function(){
+            $('.not_include_contact_info').hide()
+            })
             $.ajax({
                     url: '/get_about_property_data',
                     type: "POST",
@@ -457,7 +515,12 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
          location.reload();
          })
 
-          $(document).on('click','.property-description-edit_popup_close',function(){
+         $(document).on('click','.about_the_user_popup_close',function(){
+
+         location.reload();
+         })
+
+         $(document).on('click','.property-description-edit_popup_close',function(){
 
          location.reload();
          })
@@ -472,6 +535,9 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
               location.reload();
         });
         $("#property-description-edit_popup").on("hidden.bs.modal", function () {
+              location.reload();
+        });
+         $("#about_the_flatmates_popup").on("hidden.bs.modal", function () {
               location.reload();
         });
 
@@ -490,25 +556,66 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
             window.open("P"+id)
 
         })
-$(".edit_list_deactivate_listing_button").on("click", function () {
- var path=window.location.pathname
-var property_id=path.split('list_place_preview').pop()
- $.ajax({
-                    url: '/edit_deactivate_listing',
-                    type: "POST",
-                    dataType: 'json',
-                    async : false,
-                    contentType: 'application/json',
-                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
-                    success: function(data){
-                        console.log("\n==========data============== deactive",data)
-                        if (data['result'] == true){
-                        window.location.replace('/')
-                        }
-                    }
-            });
 
-})
+        $(".edit_list_deactivate_listing_button").on("click", function () {
+         var path=window.location.pathname
+        var property_id=path.split('list_place_preview').pop()
+         $.ajax({
+                            url: '/edit_deactivate_listing',
+                            type: "POST",
+                            dataType: 'json',
+                            async : false,
+                            contentType: 'application/json',
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+                            success: function(data){
+                                console.log("\n==========data============== deactive",data)
+                                if (data['result'] == true){
+                                window.location.replace('/')
+                                }
+                            }
+                    });
+
+        })
+
+         $(".edit_list_activate_listing_button").on("click", function () {
+         var path=window.location.pathname
+        var property_id=path.split('list_place_preview').pop()
+         $.ajax({
+                            url: '/edit_activate_listing',
+                            type: "POST",
+                            dataType: 'json',
+                            async : false,
+                            contentType: 'application/json',
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+                            success: function(data){
+                                console.log("\n==========data============== active",data)
+                                if (data['result'] == true){
+                                window.location.replace('/')
+                                }
+                            }
+                    });
+
+        })
+//         $(".edit_list_delete_listing_button").on("click", function () {
+//         var path=window.location.pathname
+//        var property_id=path.split('list_place_preview').pop()
+//         $.ajax({
+//                            url: '/edit_delete_listing',
+//                            type: "POST",
+//                            dataType: 'json',
+//                            async : false,
+//                            contentType: 'application/json',
+//                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+//                            success: function(data){
+//                                if (data['result'] == true){
+//                                console.log("\n==========data============== delete",data['result'])
+//                                window.open('/')
+//                                }
+//                            }
+//                    });
+//
+//        })
+
 
 
     $(".update-accepting").on('click',function(){
@@ -522,6 +629,67 @@ var property_id=path.split('list_place_preview').pop()
             $(this).find(".accept-check").css('background-color','#11836c')
         }
     })
+
+
+    $('#edit_about_flatmates_btn').on('click',function(){
+            console.log('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
+            var current_property_id = $("#current_listing_id").val()
+            $('.not_include_contact_info').hide()
+            var current_property_id = $("#current_listing_id").val()
+
+            $("#edit_about_flatmates").mouseenter(function(){
+             console.log('dddddddddddddddddddddddddddddd')
+            $('.not_include_contact_info').show()
+            })
+            $("#edit_about_flatmates").mouseleave(function(){
+            $('.not_include_contact_info').hide()
+            })
+
+            $.ajax({
+                    url: '/get_about_flatmates_data',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_property_id':current_property_id}}),
+                    success: function(data){
+
+                        if(data['result']['about_user_description']){
+                                $('.edit_about_flatmates_div').html(data['result']['about_user_description'])
+                                $('#edit_about_flatmates').html($('.edit_about_flatmates_div').text())
+
+                        }
+
+                    }
+            });
+    });
+
+    $('#update_about_flatmates_desc').on('click',function(){
+               console.log('12222222222222222222')
+
+               var current_property_id = $("#current_listing_id").val()
+               var update_about_user_desc = $('#edit_about_flatmates').val()
+               var data = {}
+
+               data = {
+               'current_property_id':current_property_id,
+               'update_about_user_desc':update_about_user_desc,
+               }
+
+            $.ajax({
+                    url: '/update_about_user_data',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": data}),
+                    success: function(data){
+                    }
+            });
+            location.reload();
+    })
+
+
 
 
 

@@ -15,7 +15,7 @@
                                 <div class="inbox-left-conversations">
                                     <div class="inbox-conversion-section">
                                         <div class="message-numbers"> <t t-esc="unread_msg_count"/> unread messages</div>
-
+                                        <input id="view_conversation_user_id" type="hidden" value=""/>
                                         <ul class="inbox-conversations-list">
 
                                             <t t-foreach="chats_with" t-as="chat_user">

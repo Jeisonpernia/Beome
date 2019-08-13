@@ -2,7 +2,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 import logging
-
+from _datetime import datetime
 _logger = logging.getLogger(__name__)
 
 class Housemates(models.Model):
@@ -32,7 +32,7 @@ class Housemates(models.Model):
     east=fields.Char()
     south=fields.Char()
     west=fields.Char()
-
+    latest_active_date = fields.Datetime()
     total_bathrooms_id = fields.Many2one('bathrooms', string="Total Bathrooms")
     total_bedrooms_id = fields.Many2one('bedrooms', string="Total Bedrooms")
     total_no_flatmates_id = fields.Many2one('total.flatmates', string="Total number of flatmates")

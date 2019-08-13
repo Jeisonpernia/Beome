@@ -623,20 +623,52 @@ $('.on-active-datepicker').addClass('show')
 
 
 $(".search-dropdown").click(function(event){
+	
+	
 //    console.log('fdhndfhjdnfhkn')
     var is_shown = $(".modal_shown").hasClass("show")
     console.log('Is shownnnnnnnnnnnnnnnn : ',is_shown)
     if (is_shown == false){
-//           console.log('111111111111111111111111111111111')
-$('#search-text-id').text('WHERE ARE YOU LOOKING?');
-          $(".search-btn-close").removeClass('d-none')
+        //           console.log('111111111111111111111111111111111')
+        $('#search-text-id').text('WHERE ARE YOU LOOKING?');
+                  $(".search-btn-close").removeClass('d-none')
+
+        if($(window).width() <= 768){
+
+            console.log('hooooooooooooooo')
+			//$(this).hide();
+            $('.search-bar-responsive').css('display','none')  
+			$('#new-closebutton').removeClass('d-none');
+			$("#dropdownMenuButton").css('margin-top','65px')
+			$(".navbar-brand").css('display','none');
+			$("#top_menu_collapse .navbar-nav").css('width','100%');
+        }
     }
     else{
     $('#search-text-id').text('Search share accommodation');
 //            console.log('222222222222222222222222222')
           $(".search-btn-close").addClass('d-none')
     }
+
 });
+	
+$("#new-closebutton").click(function(event){
+	
+  
+        if($(window).width() <= 768){
+
+            console.log('4181188717777777777777')
+			//$(this).hide();
+			$('#new-closebutton').addClass('d-none');
+            $('.search-bar-responsive').css('display','block')  
+			$("#dropdownMenuButton").modal('hide');
+			$("#top_menu_collapse .navbar-nav").css('width','75%');
+			$(".navbar-brand").css('display','block');
+			
+		}
+
+});
+
 
 $(".search-btn-close").click(function(event){
         $("#dropdownMenuButton").modal('hide');

@@ -25,6 +25,18 @@
                                             </div>
                                         </div>
                                     </t>
+                                    <t t-if="state == 'deactive'">
+                                        <div class="col-lg-8 col-md-3 col-5 float-right">
+                                            <div class="deactivate-tab">
+                                                <span class="black-circle"></span>
+                                                Deactivated
+                                                <span>
+                                                    Your listing is not live or available in search
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </t>
+
                                 </div>
 
                                 <div class="bg-white">
@@ -269,14 +281,34 @@
                                                 </g>
                                             </svg>
                                         </span>
+                                        <t t-if="state == 'deactive'">
+                                            <h3 class="mt-2">Listing Deactivated</h3>
+                                            <button class=" btn btn-block btn-outline-primary edit_list_activate_listing_button">
+                                                Active listing
+                                            </button>
+
+
+
+                                            <a href="" class="edit_list_delete_listing_button">Delete Listing</a>
+                                        </t>
+                                        <t t-if="state == 'active'">
+                                            <h3 class="mt-2">Listing Active</h3>
+                                             <button class=" btn btn-block btn-outline-primary edit_list_deactivate_listing_button">
+                                        Deactivate listing
+                                    </button>
+
+                                        </t>
+                                        <t t-if="user_id.partner_id.mobile_no_is_verified == false">
 
                                         <h3 class="mt-2">Listing pending</h3>
+                                             <button class=" btn btn-block btn-outline-primary edit_list_deactivate_listing_button">
+                                        Deactivate listing
+                                    </button>
+
+                                        </t>
                                     </div>
 
 
-                                    <button class=" btn btn-block btn-outline-primary edit_list_deactivate_listing_button">
-                                        Deactivate listing
-                                    </button>
 
 
                                 </div>
@@ -384,7 +416,21 @@
                                             <t t-if="property.property_image_ids">
                                                 <t t-foreach="property.property_image_ids" t-as="image">
                                                     <span class="slider">
+														
                                                         <a href="#">
+															<span class="set-as-featured">
+														<svg width="20" height="14">
+                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                                                            <g transform="translate(-177.000000, -2502.000000)" stroke="#13D0AB" stroke-width="2">
+                                                                <g transform="translate(0.000000, 668.000000)">
+                                                                    <polyline points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+															Set as featured
+														</span>
+															
                                                             <span class="delete-slider">
                                                                 <i class="fa fa-trash fa-2x delete-list-image"></i>
                                                             </span>
@@ -484,7 +530,9 @@
                                                                                                     per week
                                                                                                 </span>
                                                                                             </div>
+
                                                                                         </div>
+                                                                                        <div class="styles__errorMessage_preview">Must be less than 10000</div>
                                                                                     </div>
 
 
@@ -807,7 +855,9 @@
                                                                                                        id="autocomplete2"
                                                                                                        placeholder="Enter your address"
                                                                                                        type="text"
-                                                                                                       name="property_address"/>
+                                                                                                       name="property_address"
+                                                                                                       title="Start typing your address starting with your street number and select from the drop down list. Do not include your unit number. Your exact address will not be shared with other members."
+                                                                                                />
                                                                                             </div>
 
                                                                                             <table id="address"
@@ -966,6 +1016,7 @@
                                                                                 <div class="row mt-3">
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
+																						<label>Type of property</label>	
                                                                                             <select class="form-control"
                                                                                                     id="edit_property_type"
                                                                                                     name="">
@@ -990,6 +1041,7 @@
                                                                                     </div>
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
+																							<label> Total bedrooms</label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_total_bedroom"
                                                                                                     name="">
@@ -1015,6 +1067,7 @@
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
+																							<label> Total bathrooms</label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_total_bathroom"
                                                                                                     name="">
@@ -1043,6 +1096,7 @@
                                                                                     </div>
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
+																							<label> Total flatmates</label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_total_flatmates"
                                                                                                     name="">
@@ -1067,6 +1121,8 @@
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
+																							<label> Is internet available?</label>
+                                                                                                    
                                                                                             <select class="form-control"
                                                                                                     id="edit_internet"
                                                                                                     name="">
@@ -1091,6 +1147,7 @@
                                                                                     </div>
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
+																							<label> Is parking available?</label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_parking"
                                                                                                     name="">
@@ -1234,8 +1291,18 @@
                                                                               name="" placeholder=""
                                                                               data-toggle="tooltip"
                                                                               data-placement="right"
-                                                                              title="Sample Text"></textarea>
+                                                                              title="Why do you like living there?What is
+                                                                              great about the property or
+                                                                              room? Do you have a view, a pool,
+                                                                              a foxtel,BBQ,gym access,air-
+                                                                              conditioning or any other amenities
+                                                                              or featurrs that will attract room
+                                                                              seekers?Are there any house rules
+                                                                              or special terms that future
+                                                                              flatemates should know about
+                                                                              before they enquire?"></textarea>
                                                                 </div>
+                                                                    <span class="not_include_contact_info"> Do not include your contact information</span>
 
                                                                 <button type="button"
                                                                         id="update_about_property_desc"
@@ -1761,7 +1828,9 @@
                                                                                     week
                                                                                 </span>
                                                                             </div>
+
                                                                         </div>
+
                                                                     </div>
 
 
@@ -2142,7 +2211,65 @@
 
                                 <hr class="mt-5 mb-3"/>
 
-                                <h3>About the flatmates</h3>
+                                <h3>About the flatmates
+                                <button type="button" id="edit_about_flatmates_btn" class="btn btn-transparent-edit btn-lg edit_about_the_flamtates"
+                                            data-toggle="modal"
+                                            data-target="#about_the_flatmates_popup">
+                                        <i class="fa fa-pencil"></i>
+                                        Edit
+                                    </button>
+                                </h3>
+
+                                <div class="modal fade modal_shown about_the_flatmates_pop" id="about_the_flatmates_popup"
+                                     role="dialog" style="display: none;" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close about_the_user_popup_close"
+                                                        data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    ×
+                                                </button>
+                                            </div>
+                                            <main class="modal-body">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-lg-11 mx-auto">
+                                                            <!--<form action="/action_page.php">-->
+                                                                <h3 class="text-center mb-5">Tell us little about you and your flatmates
+                                                                </h3>
+
+                                                                <div class="form-group mt-4 mb-2 edit_about_flatmates_div"
+                                                                     style="display: none;">
+                                                                </div>
+
+                                                                <div class="form-group mt-4 mb-2">
+                                                                    <textarea class="form-control" rows="4"
+                                                                              id="edit_about_flatmates"
+                                                                              name="" placeholder=""
+                                                                              data-toggle="tooltip"
+                                                                              data-placement="right"
+                                                                              title="Tell your future flatmate about who they
+                                                                              will be living with. Who are the flatmates, what do
+                                                                              they do , where are they from and what do they
+                                                                              do for fun , Remember to include what sort of person
+                                                                              you are looking for to join your home."></textarea>
+                                                                </div>
+                                                            <span class="not_include_contact_info"> Do not include your contact information</span>
+
+                                                                <button type="button"
+                                                                        id="update_about_flatmates_desc"
+                                                                        class="btn btn-green1 mt-5 mb-4 btn-block"
+                                                                        data-dismiss="modal">Update
+                                                                </button>
+                                                            <!--</form>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </main>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="mt-3 mb-3" id="description_about_user">
                                     <!--<t t-if="description_about_user">-->
@@ -2169,7 +2296,8 @@
                                                 <h3>
                                                     <t t-esc="user_name"/>
                                                 </h3>
-                                                <p>Online Today</p>
+                                                <div class="last-active"><t t-esc="last_login"/></div>
+                                                <!--<p>Online Today</p>-->
                                                 <div class="login-form-rounded-btn">Response rate: 100%
                                                     <i data-tip="true" data-for="responseRateTooltip"
                                                        class="fa fa-question-circle" currentitem="false"></i>

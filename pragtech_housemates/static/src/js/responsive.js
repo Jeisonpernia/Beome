@@ -77,6 +77,20 @@ $(document).ready(function()
                 }
 
 
+//               $(".search-dropdown").click(function(event){
+//                    var is_shown = $(".modal_shown").hasClass("show")
+//                    console.log('Inresponsive jsssssssssssssssssss : ',is_shown)
+//                    if (is_shown == false){
+//                            console.log('weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+//
+//                    }
+//                    else{
+//                        console.log('Youuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu')
+//                    }
+//
+//               })
+
+
 
            }
 		   

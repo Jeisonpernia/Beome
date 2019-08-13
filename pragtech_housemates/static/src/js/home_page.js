@@ -195,7 +195,7 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                 data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
                 success : function(result) {    // work after controller method return
                     console.log("---------result['result']['city']---------")
-                    if (result)
+                    if (result['result'])
                     {
                         $("#description_about_property").html(result['result']['description_about_property'])
                         $("#description_about_user").html(result['result']['description_about_user'])
@@ -216,9 +216,12 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
                         }
                     }
+                    if (result['result'])
+                    {
                     if (result['result']['latitude'] && result['result']['longitude'])
                     {
                         initMap()
+                    }
                     }
                     var map;
                     var marker;
@@ -674,8 +677,9 @@ $('#autocomplete-id').show();
 
 
 $(document).click(function(event){
-
-    if ($( event.target ).is( "div" ) == true ){
+var is_shown = $(".modal_shown").hasClass("show")
+console.log("\n\n is_show",is_shown,$( event.target ).is( "div" ))
+    if ($( event.target ).is( "div" ) == true && is_shown == true ){
       $("#dropdownMenuButton").hide();
       location.reload()
     }
@@ -715,6 +719,9 @@ $(document).ready(function()
 
 
  });
+	
+	
+	
 
 
 });

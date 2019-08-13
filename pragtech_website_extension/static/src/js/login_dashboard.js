@@ -53,10 +53,10 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                             blog_blog_id = data['result']['blogs'][index]['blog_id'][0]
                             blog_blog_name = data['result']['blogs'][index]['blog_id'][1].toLowerCase().replace(/ +/g, '-')
 
-                            ul.append('<li><a href="/info/'+blog_blog_name+'-'+blog_blog_id+'/post/'+data['result']['blogs'][index]['name'].toLowerCase().replace(/ +/g, '-')+'-'+data['result']['blogs'][index]['id']+'">'+data['result']['blogs'][index]['name']+'</a></li>')
+                            ul.append('<li class="blogs_on_dashboard"><a href="/info/'+blog_blog_name+'-'+blog_blog_id+'/post/'+data['result']['blogs'][index]['name'].toLowerCase().replace(/ +/g, '-')+'-'+data['result']['blogs'][index]['id']+'">'+data['result']['blogs'][index]['name']+'</a></li>')
                         }
                         if (data['result']['blogs'].length != 0)
-                            ul.append('<li><a href="/info/'+blog_blog_name+'-'+blog_blog_id+'">+ View all articles</a></li>')
+                            ul.append('<li class="blogs_on_dashboard"><a href="/info/'+blog_blog_name+'-'+blog_blog_id+'">+ View all articles</a></li>')
 
                         if (data['result']['listings'].length != 0){
                         for (var index=0 ; index < data['result']['listings'].length; index++)
@@ -182,10 +182,10 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
             });
 
          //added by sagar
-         $(document).on('click','#close-deregister-popup',function(){
-            console.log('9999999999999999999')
-             location.reload();
-         })
+//         $(document).on('click','#close-deregister-popup',function(){
+//            console.log('9999999999999999999')
+//             location.reload();
+//         })
 
          $(document).on('click','#close_verify_otp_popup',function(){
              console.log('55555555555555555555')

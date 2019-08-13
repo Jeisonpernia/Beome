@@ -207,6 +207,10 @@ class Website_Inherit(Website):
                         with request.env.cr.savepoint():
                             template.sudo().with_context(lang=user.lang).send_mail(user.id, force_send=True, raise_exception=True)
                         _logger.info("Password reset email sent for user <%s> to <%s>", user.login, user.email)
+            properties=request.env['house.mates'].sudo().search([('user_id','=',user_rec.id)])
+            if properties:
+                for property in properties:
+                    property.sudo().write({'latest_active_date':datetime.now()})
 
 
         # print('\n\n\n ################################################ \n\n')
@@ -578,11 +582,16 @@ class FlatMates(http.Controller):
         if property.min_len_stay_id:
             values.update({'min_len_stay_id': property.min_len_stay_id.id})
             values.update({'min_len_stay_name': property.min_len_stay_id.name})
+
         if property.avil_date:
-            date_string=str(property.avil_date)
-            new_date = datetime.strptime(date_string, '%Y-%m-%d')
-            available_date = datetime.strftime(new_date,'%d %b %G')
-            values.update({'avil_date': available_date})
+            # date_string=str(property.avil_date)
+            # new_date = datetime.strptime(date_string, '%Y-%m-%d')
+            if property.avil_date <= date.today():
+                values.update({'avil_date': "Now"})
+            else:
+                available_date = property.avil_date.strftime('%d %b %G')
+                values.update({'avil_date': available_date})
+
         if property.weekly_budget:
             values.update({'weekly_budget': int(property.weekly_budget)})
         if property.bond_id:
@@ -698,6 +707,15 @@ class FlatMates(http.Controller):
             values['show_number'] = True
         else:
             values['show_number'] = False
+
+        print('iddddddddddddddddd ',id)
+        # user = request.env["res.users"].sudo().browse(int(id))
+        last_login = self.get_last_login_date(property.user_id)
+        print('\n\n======== last login :: ',last_login)
+        if last_login:
+            values.update({'last_login':last_login})
+
+
         return request.render("pragtech_housemates.property_detail11", values)
 
     @http.route(['/shortlists'], type='http', auth="public", website=True, csrf=True)
@@ -1787,6 +1805,7 @@ class FlatMates(http.Controller):
             property = request.env['house.mates'].sudo().browse(int(new_listing_id))
 
         if property:
+            print('\n\nRequest session :\n ', property, '\n\n\n')
             if property.street:
                 property_address = property.street
             else:
@@ -1800,7 +1819,7 @@ class FlatMates(http.Controller):
                 property_address += ', ' + property.city
             print('\n\n $$$ Propert Address : ',property_address,'\n\n')
             values = {'property': property, 'property_address': property_address, 'street': property.street,
-                      'street2': property.street2, 'city': property.city}
+                      'street2': property.street2, 'city': property.city,'state':property.state}
             if property.listing_type == 'list':
                 values.update({'listing_type': 'List'})
             if property.listing_type == 'find':
@@ -1864,7 +1883,7 @@ class FlatMates(http.Controller):
             if property.weekly_budget:
                 values.update({'weekly_budget': int(property.weekly_budget)})
             if property.bond_id:
-                values.update({'bond_id': property.weekly_budget * property.bond_id.number_of_week})
+                values.update({'bond_id': int(property.weekly_budget * property.bond_id.number_of_week)})
             if property.bill_id:
                 values.update({'bill_id': property.bill_id.name})
             print(property.parking_id.name)
@@ -1919,6 +1938,11 @@ class FlatMates(http.Controller):
                 values.update({
                     'matches':matches
                 })
+
+            last_login = self.get_last_login_date(property.user_id)
+            print('\n\n======== last login :: ', last_login)
+            if last_login:
+                values.update({'last_login': last_login})
 
         if property:
             print("\n\n\n===== <<<<< Values >>>====\n", values, '\n\n\n')
@@ -2257,6 +2281,10 @@ class FlatMates(http.Controller):
                         'matches': matches_list
                     })
 
+            last_login = self.get_last_login_date(property.user_id)
+            print('\n\n======== last login :: ', last_login)
+            if last_login:
+                values.update({'last_login': last_login})
 
             # if request.session.get('new_listing_id'):
             #     request.session['new_listing_id'] = ''
@@ -2319,38 +2347,41 @@ class FlatMates(http.Controller):
         return request.render("pragtech_housemates.messages_template",value)
 
     def get_last_login_date(self,user_id):
+        print('User ID: ',user_id)
         login = ''
         if user_id:
-            print('User name: ',user_id,user_id.name)
-            login_detail_id = request.env['login.detail'].search([('user_id','=',int(user_id.id))],order='id desc')
+            # print('User name: ',user_id,user_id.name)
+            login_detail_id = request.env['login.detail'].sudo().search([('user_id','=',int(user_id.id))],order='id desc')
 
-            last_login_date = (login_detail_id[0].date_time).date()
+            if login_detail_id:
 
-            if last_login_date == date.today():
-                login = "Online Today"
-                print('TRueeeeeeeeeeeeeeeeee')
-            else:
-                # diff = date.today()-last_login_date
-                # days = diff.days
-                today_date = datetime.now()
-                last_login_date = login_detail_id[0].date_time
+                last_login_date = (login_detail_id[0].date_time).date()
 
-                difference = relativedelta.relativedelta(today_date,last_login_date)
-                years = difference.years
-                months = difference.months
-                days = difference.days
+                if last_login_date == date.today():
+                    login = "Online Today"
+                    print('TRueeeeeeeeeeeeeeeeee')
+                else:
+                    # diff = date.today()-last_login_date
+                    # days = diff.days
+                    today_date = datetime.now()
+                    last_login_date = login_detail_id[0].date_time
 
-                if years and years != 0:
-                    login = "Online about {} years ago".format(years)
-                elif months and months != 0:
-                    login = "Online {} months ago".format(months)
-                elif days and days != 0:
-                    login = "Online {} days ago".format(days)
+                    difference = relativedelta.relativedelta(today_date,last_login_date)
+                    years = difference.years
+                    months = difference.months
+                    days = difference.days
 
-                print('Falseeeeeeeeeeeeeeeeeeee',login)
+                    if years and years != 0:
+                        login = "Online about {} years ago".format(years)
+                    elif months and months != 0:
+                        login = "Online {} months ago".format(months)
+                    elif days and days != 0:
+                        login = "Online {} days ago".format(days)
+
+                    print('Falseeeeeeeeeeeeeeeeeeee',login)
                 # login ="Online {} days ago".format(days)
-        if login:
-            return login
+
+        return login
 
     def _get_datetime_based_timezone(self,msg_time):
         dt = False
@@ -3348,13 +3379,10 @@ class FlatMates(http.Controller):
                     domain.append(('property_image_ids','!=',False))
                     properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields,
                                                                         limit=12)
-                    # peoperty_list.append(properties)
-                    # domain.append(('property_image_ids', '=', False))
-                    # properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields,
-                    #                                                            limit=12)
-                    # peoperty_list.append(properties)
-                    #
-                    # properties =peoperty_list
+                elif filters[0].get('photo_first') == 'Active+most+recently':
+                    properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields,
+                                                                               order='latest_active_date desc', limit=12)
+
 
 
             else:
@@ -3503,6 +3531,8 @@ class FlatMates(http.Controller):
                     domain.append(('property_image_ids','!=',False))
                     properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields,
                                                                                order='id desc', limit=12)
+                elif filters[0].get('search_sort') == 'recently-active':
+                        properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields,order='latest_active_date desc', limit=12)
             else:
                 properties = request.env['house.mates'].sudo().search_read(domain=domain,fields=fields,order='id desc', limit=12)
 
@@ -4222,6 +4252,40 @@ class FlatMates(http.Controller):
                 if kwargs.get('update_about_property_desc'):
                     property_id.sudo().write({
                         'description_about_property': kwargs.get('update_about_property_desc')
+                    })
+        return True
+
+    @http.route(['/get_about_flatmates_data'], type='json', auth="public", website=True)
+    def get_about_flatmates_data(self, **kwargs):
+        print('--------------------------------------------------------------')
+        print('\nKwargs 7657675 : ', kwargs)
+        data = {}
+        if kwargs.get('current_property_id'):
+            current_property_id = kwargs.get('current_property_id')
+
+            house_mates_id = request.env['house.mates'].sudo().browse(int(current_property_id))
+
+            if house_mates_id:
+                if house_mates_id.description_about_user:
+                    data = {
+                        'about_user_description': house_mates_id.description_about_user
+                    }
+        print('\nData 1234 : ', data)
+
+        return data
+
+    @http.route(['/update_about_user_data'], type='json', auth="public", website=True)
+    def update_about_user_data(self, **kwargs):
+        print('------------------- update_about_user_data -------------------------------------------')
+        print('\nupdate_about_user_data 1234 : ', kwargs, '\n\n\n')
+        if kwargs.get('current_property_id'):
+            property_id = request.env['house.mates'].sudo().browse(int(kwargs.get('current_property_id')))
+
+            if property_id:
+
+                if kwargs.get('update_about_user_desc'):
+                    property_id.sudo().write({
+                        'description_about_user': kwargs.get('update_about_user_desc')
                     })
         return True
 
@@ -5173,6 +5237,24 @@ class WebsiteBlogInherit(WebsiteBlog):
             property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
             property_id.sudo().write({'state':'deactive'})
         return True
+
+    @http.route(['/edit_activate_listing'], type='json', auth="public", website=True, )
+    def edit_activate_listing(self, **kwargs):
+        """Get phone number and name of property owner"""
+        print("\n\n----------edit_activate_listing-------------", kwargs)
+        if kwargs.get('property_id'):
+            property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
+            property_id.sudo().write({'state': 'active'})
+        return True
+
+    # @http.route(['/edit_delete_listing'], type='json', auth="public", website=True, )
+    # def edit_delete_listing(self, **kwargs):
+    #     """Get phone number and name of property owner"""
+    #     print("\n\n----------edit_delete_listing-------------", kwargs)
+    #     if kwargs.get('property_id'):
+    #         property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
+    #         property_id.sudo().unlink()
+    #     return True
 
 
 

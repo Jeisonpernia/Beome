@@ -285,6 +285,28 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
      })
 
 
+//     $(".view-conversation-btn").click(function(){
+//        console.log('yoooooooooooooooooooooooooooy')
+//        var property_owner = $("#property_owner").val();
+//        console.log("property_owner: ",property_owner)
+//        $("#view_conversation_user_id").val(property_owner)
+//
+//        console.log("ffffffffffffffffffffffff ",$("#view_conversation_user_id").val())
+//        if($("#view_conversation_user_id").val()){
+//            window.location.replace("/messages")
+//        }
+//
+//
+//     })
+
+//     if(window.location.pathname == "/messages"){
+//        if ($("#view_conversation_user_id").val()){
+//            console.log('value present in view_conversation_user_id',$("#view_conversation_user_id").val())
+//        }
+//
+//     }
+
+
 
 
 

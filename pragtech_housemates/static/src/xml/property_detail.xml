@@ -52,7 +52,7 @@
                                             <a href="/">Home</a>
                                         </li>
                                         <li class="breadcrumb-item active" aria-current="page">
-                                            <a href="/search/records?listing_type=find">Pepole</a>
+                                            <a href="/search/records?listing_type=find">People</a>
                                         </li>
                                         <li class="breadcrumb-item active" aria-current="page">
                                             <a href="#" class="breadcrumb_suburb_city">
@@ -692,7 +692,8 @@
                                                     <h3>
                                                         <t t-esc="user_name"/>
                                                     </h3>
-                                                    <p>Online Today</p>
+                                                    <div class="last-active"><t t-esc="last_login"/></div>
+                                                    <!--<p>Online Today</p>-->
                                                     <div class="login-form-rounded-btn">Response rate: 100%
                                                         <i data-tip="true" data-for="responseRateTooltip"
                                                            class="fa fa-question-circle" currentitem="false"></i>
@@ -743,11 +744,11 @@
                                                 </t>
                                                 <div class="view_conversation_div d-none">
                                                         <p>You and <t t-esc="user_name"></t>  have messaged recently</p>
-                                                        <a href="#">
+                                                        <!--<a href="#">-->
                                                             <button class="btn btn-primary btn-green2 btn-block view-conversation-btn">
                                                                 View conversation
                                                             </button>
-                                                        </a>
+                                                        <!--</a>-->
                                                 </div>
 
                                                 <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan_mobile and show_number -->
@@ -1551,8 +1552,11 @@
                                         <div class="col-12 login-form">
                                             <div class="row">
                                                 <div class="col-4 col-sm-3 text-center">
-                                                    <img src="/pragtech_housemates/static/src/img/avtar.png"
-                                                         class="img-fluid rounded-circle" alt=""/>
+                                                    <!--<img src="/pragtech_housemates/static/src/img/avtar.png"-->
+                                                         <!--class="img-fluid rounded-circle" alt=""/>-->
+                                                    <span itemprop="image" t-field="property_user_id.image"
+                                                          t-options="{'widget': 'image','class': 'product_detail_img rounded-circle', 'alt-field': 'name', 'zoom': 'image'}"
+                                                    />
                                                 </div>
 
                                                 <div class="col-8 col-sm-9 text-center">
@@ -1561,7 +1565,8 @@
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                                     </h3>
-                                                    <p>Online Today</p>
+                                                    <div class="last-active"><t t-esc="last_login"/></div>
+                                                    <!--<p>Online Today</p>-->
                                                     <div class="login-form-rounded-btn">Response rate: 100%
                                                         <i data-tip="true" data-for="responseRateTooltip"
                                                            class="fa fa-question-circle" currentitem="false"></i>

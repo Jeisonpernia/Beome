@@ -1061,7 +1061,7 @@ width: 10%;
 	padding-left: 5px;
 }
 
-.search-form .rooms-btn select:focus, .search-form .flatmates-btn select:focus, #about_room_popup select:focus, #property-description-edit_popup select:focus, #list_place_property_preferences_popup select:focus, #list_place_about_property_form_id select:focus{
+.search-form .rooms-btn select:focus, .search-form .flatmates-btn select:focus, #about_room_popup select:focus, #property-description-edit_popup select:focus, #list_place_property_preferences_popup select:focus, #list_place_about_property_form_id select:focus, #email_alert_popup select:focus{
 	background: #37bc9b;
 	border:1px solid #37bc9b;
 	outline: 0px;
@@ -1078,7 +1078,7 @@ width: 10%;
 	color: #6D7580;
 }
 
-.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select, #list_place_property_preferences_popup select, #list_place_about_property_form_id select, #report_this_member_popup select{
+.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select, #list_place_property_preferences_popup select, #list_place_about_property_form_id select, #report_this_member_popup select,#email_alert_popup select{
 	color: #a5a8ad;
 	background-image: url("/pragtech_housemates/static/src/img/dropdown-gray.svg");
 	background-repeat: no-repeat;
@@ -2075,14 +2075,15 @@ top: 20px;
 .slider .delete-slider{
 	position: absolute;
 	z-index: 1;
+	left: 170px;
 }
 
 .slider .delete-slider .fa-trash{
 background: rgba(47, 58, 74, 0.85);
 margin: 15px;
-width: 60px;
-height: 60px;
-line-height: 60px;
+width: 45px;
+height: 45px;
+line-height: 45px;
 border-radius: 50%;
 color: #fff;
 }
@@ -2994,6 +2995,13 @@ border-radius: 50%;
 display: inline-block;
 background-color: #f7bb42;
 }
+.black-circle{
+width: 12px;
+height: 12px;
+border-radius: 50%;
+display: inline-block;
+background-color: #797772;
+}
 
 .pending-tab{
 	background: #fff;
@@ -3006,7 +3014,17 @@ background-color: #f7bb42;
 	padding: 0 20px;
 	text-align: center;
 }
-
+.deactivate-tab{
+	background: #fff;
+	font-size: 16px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	padding: 0 20px;
+	text-align: center;
+}
 .create-listing-padding{
 	padding: 0px;
 	margin-bottom: 10px;
@@ -3086,6 +3104,14 @@ background-color: #f7bb42;
     margin-right: .5rem;
 }
 .styles__errorMessage7:before {
+    color: #cb104b;
+    content: "\F071";
+    font-family: FontAwesome;
+    font-size: 1rem;
+    margin-left: .25rem;
+    margin-right: .5rem;
+}
+.styles__errorMessage_preview:before {
     color: #cb104b;
     content: "\F071";
     font-family: FontAwesome;
@@ -3541,6 +3567,17 @@ clear: both;
 .nav-item .active {background-color: #979ba3;
     color: #fff!important;}
 
+
+.set-as-featured{
+background: rgba(47, 58, 74, 0.85);
+margin: 15px;
+width: 160px;
+border-radius: 40px;
+color: #fff;
+padding: 12px;
+position: absolute;
+z-index: 1;
+}
 
 
 /*======================= END Messages Page Added by Rohit  ==========================*/
