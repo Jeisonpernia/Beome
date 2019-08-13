@@ -39,11 +39,13 @@ class LoginUserDetail(models.Model):
                 'user_id':self.id
                 }
         self.env['login.detail'].sudo().create(vals)
+
         return result
 
 
 class LoginUpdate(models.Model):
     _name = 'login.detail'
+    _description = 'Log in details of users'
 
     user_id = fields.Many2one("res.users",string="User id")
     name = fields.Char(string="User Name")
