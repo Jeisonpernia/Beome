@@ -13,7 +13,7 @@ class Housemates(models.Model):
 
 
     ## Main
-    state = fields.Selection([('active', 'Active'), ('deactive', 'Deactive')],default='active')
+    state = fields.Selection([('pending','Pending'),('active', 'Active'), ('deactive', 'Deactive'),('deleted','Deleted')],default='pending')
     listing_type = fields.Selection([('list', 'List'), ('find', 'Find')], string="Listing type", default='find')
     name = fields.Char(string="Housemate ID",index=True,required=True,copy=False,default=lambda self: _('New'))
     property_type = fields.Many2many('property.type', string="Property type")

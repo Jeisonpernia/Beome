@@ -659,6 +659,11 @@ $(document).on('change','#change_photos_find',function()
             })
 
         })
+	
+	// popover tooltip
+$("[data-toggle=popover]")
+.popover({html:true})
+	
 
 
 

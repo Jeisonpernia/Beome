@@ -108,14 +108,14 @@
 }
 
 
-#verify_mobile_popup .close, #account_settings_popup .close, #email_alert_popup .close, #deactivate_account_popup .close, #why_upgrade_popup .close, #payment_history_popup .close, #account_verification_popup .close, #reset_password_popup .close, #verify_otp_popup .close, #report_this_member_popup .close{
+#verify_mobile_popup .close, #account_settings_popup .close, #email_alert_popup .close, #deactivate_account_popup .close, #why_upgrade_popup .close, #payment_history_popup .close, #account_verification_popup .close, #reset_password_popup .close, #verify_otp_popup .close, #report_this_member_popup .close, #about_the_flatmates_popup .close{
 	font-size: 48px;
 	box-shadow: none;
 	opacity: 1;
 	color: #2f3a4a;
 }
 
-#verify_mobile_popup .modal-header, #account_settings_popup .modal-header, #email_alert_popup .modal-header, #deactivate_account_popup .modal-header, #why_upgrade_popup .modal-header, #payment_history_popup .modal-header, #account_verification_popup .modal-header, #reset_password_popup .modal-header, #verify_otp_popup .modal-header, #report_this_member_popup .modal-header{
+#verify_mobile_popup .modal-header, #account_settings_popup .modal-header, #email_alert_popup .modal-header, #deactivate_account_popup .modal-header, #why_upgrade_popup .modal-header, #payment_history_popup .modal-header, #account_verification_popup .modal-header, #reset_password_popup .modal-header, #verify_otp_popup .modal-header, #report_this_member_popup .modal-header, #about_the_flatmates_popup .modal-header{
 	border-bottom: 0px;
 	padding: 0 16px;
 	position: absolute;
@@ -128,7 +128,7 @@
 	font-size: 24px;
 }
 
-#verify_mobile_popup h3, #account_settings_popup h3, #email_alert_popup h3, #deactivate_account_popup h3, #why_upgrade_popup h3, #payment_history_popup h3, #account_verification_popup h3, #reset_password_popup h3, #verify_otp_popup h3, #report_this_member_popup h3{
+#verify_mobile_popup h3, #account_settings_popup h3, #email_alert_popup h3, #deactivate_account_popup h3, #why_upgrade_popup h3, #payment_history_popup h3, #account_verification_popup h3, #reset_password_popup h3, #verify_otp_popup h3, #report_this_member_popup h3, #about_the_flatmates_popup h3{
 	font-weight: normal;
 }
 

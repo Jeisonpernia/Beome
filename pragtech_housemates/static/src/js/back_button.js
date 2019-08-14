@@ -59,6 +59,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
             })
             var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
             console.log('testtttttttttt',localStorage.getItem('list_place_array'))
+            if(local_storage_data != null){
             if (window.location.href.indexOf("/listplace") > -1){
                 var accommodation_type = local_storage_data[0]['accommodation_type']
                 if (accommodation_type == "whole-property"){
@@ -73,6 +74,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                 else if(accommodation_type == "homestay"){
                     accommodation_type = "homestay"
                 }
+            }
             }
 
             if (window.location.pathname=='/listplace/describe-your-place/accommodation' && localStorage.getItem('list_place_array'))

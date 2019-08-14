@@ -71,6 +71,22 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
                             }
                             $('.message-body').animate({ scrollTop: 99999 });
+
+
+                            unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
+
+                            $(".message-numbers").text(unread_msg_count+" unread messages")
+
+                            if(data['result'][data['result'].length-1]['unread_msg_count'] == 0){
+                              $(".unread-msg-cnt").addClass("d-none")
+                            }
+                            else{
+                                $(".unread-msg-cnt").text(data['result'][data['result'].length-1]['unread_msg_count'])
+
+                            }
+
+
+
                         }
                     }
             });
@@ -299,12 +315,38 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 //
 //     })
 
+
 //     if(window.location.pathname == "/messages"){
 //        if ($("#view_conversation_user_id").val()){
 //            console.log('value present in view_conversation_user_id',$("#view_conversation_user_id").val())
 //        }
 //
 //     }
+
+
+     if(window.location.href.indexOf("/") > -1){
+        console.log('**************************************************')
+        $.ajax({
+                url: '/get_unread_msg_count',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
+                success: function(data){
+                    console.log('DATA: ',data)
+                    if(data['result']){
+                            if (data['result']['unread_msg_count'] != 0){
+                                console.log("Unread message Count :: ",data['result']['unread_msg_count'])
+                                $(".unread-msg-cnt").removeClass("d-none")
+                                $(".unread-msg-cnt").text(data['result']['unread_msg_count'])
+                            }
+
+                    }
+                }
+         });
+
+
+     }
 
 
 

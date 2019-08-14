@@ -14,13 +14,29 @@
                                 <!-- Start Inbox Conversation -->
                                 <div class="inbox-left-conversations">
                                     <div class="inbox-conversion-section">
-                                        <div class="message-numbers"> <t t-esc="unread_msg_count"/> unread messages</div>
+                                        <div class="message-numbers">
+                                            <t t-esc="unread_msg_count"/>
+                                            unread messages
+                                        </div>
                                         <input id="view_conversation_user_id" type="hidden" value=""/>
                                         <ul class="inbox-conversations-list">
 
                                             <t t-foreach="chats_with" t-as="chat_user">
                                                 <li class="per-user-items each-user-chat">
                                                     <input id="chat_user_id" type="hidden" t-att-value="chat_user.id"/>
+
+                                                    <t t-foreach="last_login" t-as="login">
+                                                        <t t-if="login['id'] == chat_user.id">
+                                                            <t t-if="login['last_message']">
+                                                                <span class="green-dot"></span>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <span class="white-dot"></span>
+                                                            </t>
+                                                        </t>
+                                                    </t>
+
+                                                    <!--<span class="white-dot"></span>-->
                                                     <a class="per-user-link" href="#">
                                                         <div class="avatar">
                                                             <span t-field="chat_user.image" class="avatar-img"
@@ -34,7 +50,9 @@
 
                                                             <t t-foreach="last_login" t-as="login">
                                                                 <t t-if="login['id'] == chat_user.id">
-                                                                    <div class="last-active"><t t-esc="login['login_date']"/></div>
+                                                                    <div class="last-active">
+                                                                        <t t-esc="login['login_date']"/>
+                                                                    </div>
                                                                     <!--Online Today-->
                                                                 </t>
                                                             </t>
@@ -46,6 +64,17 @@
                                                                               d="M23 0c-.552 0-1 .448-1 1v38c0 .553.448 1 1 1h4c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1h-4zm0 44c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h4c.553 0 1-.447 1-1v-4c0-.553-.447-1-1-1h-4z"></path>
                                                                     </svg>
                                                                 </span>
+                                                                <t t-foreach="last_login" t-as="login">
+                                                                    <t t-if="login['id'] == chat_user.id">
+                                                                        <t t-if="login['last_message']">
+                                                                            <span><t t-esc="login['last_message']"/> </span>
+                                                                        </t>
+                                                                        <t t-else="">
+                                                                            <!--<span class="white-dot"></span>-->
+                                                                        </t>
+                                                                    </t>
+                                                                </t>
+
                                                                 <!--Hello Rohit-->
                                                             </div>
 
@@ -439,41 +468,46 @@
                                                 id="">Report this member
                                             </h4>
                                             <!--<form action="">-->
-                                                <div class="form-group">
-                                                    <select class="form-control" id="feedback_category_id" name="feedback_category">
-                                                        <option value="" selected="selected" disabled="disabled" >Please select</option>
-                                                        <option value="no_longer_available">No longer available</option>
-                                                        <option value="incorrect_information">Listing contains incorrect
-                                                            information
-                                                        </option>
-                                                        <option value="suspected_scammer">Suspected scammer</option>
-                                                        <option value="offensive_content">Contains offensive or
-                                                            inappropriate content
-                                                        </option>
-                                                        <option value="contact_information">Listing contains contact
-                                                            information
-                                                        </option>
-                                                        <option value="copyright_material">Listing contains copyright
-                                                            material
-                                                        </option>
-                                                        <option value="bug">Bug/Problem with website</option>
-                                                        <option value="spam">Spam/Commercial unrelated to share
-                                                            accommodation
-                                                        </option>
-                                                    </select>
+                                            <div class="form-group">
+                                                <select class="form-control" id="feedback_category_id"
+                                                        name="feedback_category">
+                                                    <option value="" selected="selected" disabled="disabled">Please
+                                                        select
+                                                    </option>
+                                                    <option value="no_longer_available">No longer available</option>
+                                                    <option value="incorrect_information">Listing contains incorrect
+                                                        information
+                                                    </option>
+                                                    <option value="suspected_scammer">Suspected scammer</option>
+                                                    <option value="offensive_content">Contains offensive or
+                                                        inappropriate content
+                                                    </option>
+                                                    <option value="contact_information">Listing contains contact
+                                                        information
+                                                    </option>
+                                                    <option value="copyright_material">Listing contains copyright
+                                                        material
+                                                    </option>
+                                                    <option value="bug">Bug/Problem with website</option>
+                                                    <option value="spam">Spam/Commercial unrelated to share
+                                                        accommodation
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <h4>Tell us what you are reporting about</h4>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="feedback_details">
+                                                    <input class="form-control propertyInput" id="feedback_detail_id"
+                                                           name="feedback_details" type="text" value=""/>
                                                 </div>
-                                                <div class="form-group">
-                                                    <h4>Tell us what you are reporting about</h4>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="feedback_details">
-                                                        <input class="form-control propertyInput" id="feedback_detail_id"
-                                                               name="feedback_details" type="text" value=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <button class="btn btn-block btn-green1 submit-feedback" type="button">Submit</button>
-                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-block btn-green1 submit-feedback" type="button">
+                                                    Submit
+                                                </button>
+                                            </div>
                                             <!--</form>-->
                                         </div>
                                     </div>

@@ -596,25 +596,32 @@ var window_pathname = window.location.pathname
                     });
 
         })
-//         $(".edit_list_delete_listing_button").on("click", function () {
-//         var path=window.location.pathname
-//        var property_id=path.split('list_place_preview').pop()
-//         $.ajax({
-//                            url: '/edit_delete_listing',
-//                            type: "POST",
-//                            dataType: 'json',
-//                            async : false,
-//                            contentType: 'application/json',
-//                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
-//                            success: function(data){
-//                                if (data['result'] == true){
-//                                console.log("\n==========data============== delete",data['result'])
-//                                window.open('/')
-//                                }
-//                            }
-//                    });
-//
-//        })
+         $(".edit_list_delete_listing_button").on("click", function () {
+         var path=window.location.pathname
+        var property_id=path.split('list_place_preview').pop()
+         var redirect = false
+         $.ajax({
+                            url: '/edit_delete_listing',
+                            type: "POST",
+                            dataType: 'json',
+                            async : false,
+                            contentType: 'application/json',
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+                            success: function(data){
+                                if (data['result'] == true){
+                                 redirect = true
+
+                                }
+
+                            },
+
+                    });
+                    if(redirect){
+                     window.location.replace('/')
+                    }
+                    event.preventDefault()
+
+        })
 
 
 

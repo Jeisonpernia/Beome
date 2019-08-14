@@ -2323,15 +2323,17 @@ class FlatMates(http.Controller):
                 if rec.msg_to not in chats_with:
                     chats_with.append(rec.msg_to)
                     last_login_date = self.get_last_login_date(rec.msg_to)
+                    last_message = self.get_last_message(rec.msg_to)
                     if last_login_date:
-                        detail_dict = {'id':rec.msg_to.id,'login_date':last_login_date}
+                        detail_dict = {'id':rec.msg_to.id,'login_date':last_login_date,'last_message':last_message if last_message else ""}
                         last_login.append(detail_dict)
             elif rec.msg_to.id == current_user:
                 if rec.msg_from not in chats_with:
                     chats_with.append(rec.msg_from)
                     last_login_date = self.get_last_login_date(rec.msg_from)
+                    last_message = self.get_last_message(rec.msg_from)
                     if last_login_date:
-                        detail_dict = {'id':rec.msg_from.id,'login_date':last_login_date}
+                        detail_dict = {'id':rec.msg_from.id,'login_date':last_login_date,'last_message':last_message if last_message else ""}
                         last_login.append(detail_dict)
 
         unread_msg = msg_hstry_obj.sudo().search([('msg_to','=',current_user),('is_seen','=',False)])
@@ -2345,6 +2347,37 @@ class FlatMates(http.Controller):
         print('last login dict : ',last_login)
 
         return request.render("pragtech_housemates.messages_template",value)
+
+    def get_last_message(self,chat_user):
+        current_user = request.uid
+        new_msg = ''
+        new_msg = request.env['messages.history'].sudo().search([('msg_to','=',current_user),('msg_from','=',chat_user.id),('is_seen','=',False)],)
+
+        if new_msg:
+            return new_msg[0].message
+
+
+
+
+
+    @http.route(['/get_unread_msg_count'], type='json', auth="public", website=True)
+    def get_unread_msg_count(self, **kwargs):
+        print('In methoddddddddddddddddddddddddddddd')
+        unread_msg_count = 0
+        msg_hstry_obj = request.env['messages.history']
+        current_user = request.uid
+        value = {}
+
+        unread_msg = msg_hstry_obj.sudo().search([('msg_to', '=', current_user), ('is_seen', '=', False)])
+
+        if unread_msg:
+            unread_msg_count = len(unread_msg)
+            value.update({'unread_msg_count':unread_msg_count})
+        else:
+            value.update({'unread_msg_count': 0})
+        print("\n\nUnread msg count :",unread_msg_count,'\n\n')
+
+        return value
 
     def get_last_login_date(self,user_id):
         print('User ID: ',user_id)
@@ -2436,13 +2469,14 @@ class FlatMates(http.Controller):
                         else:
                             msg_dict.update({'is_blocked': False})
 
-                        # unread_msg = request.env['messages.history'].sudo().search([('msg_to', '=',request.uid ), ('is_seen', '=', False)])
-                        #
-                        # if unread_msg:
-                        #     unread_msg_count = len(unread_msg)
-                        #     msg_dict.update({'unread_msg_count': unread_msg_count})
-                        # else:
-                        #     msg_dict.update({'unread_msg_count': 0})
+                        unread_msg = request.env['messages.history'].sudo().search([('msg_to', '=',request.uid ), ('is_seen', '=', False)])
+                        print("-------- Unread Msg cont ----------- ",len(unread_msg))
+
+                        if unread_msg:
+                            unread_msg_count = len(unread_msg)
+                            msg_dict.update({'unread_msg_count': unread_msg_count})
+                        else:
+                            msg_dict.update({'unread_msg_count': 0})
 
                         msg_history_list.append(msg_dict)
 
@@ -3638,27 +3672,28 @@ class FlatMates(http.Controller):
         status=''
         if listings:
             for listing in listings:
-                suburb_data = 'Looking for accommodation in'
-                if listing.property_address:
-                    property_address = property_address
+                if  listing.state != 'deleted':
+                    suburb_data = 'Looking for accommodation in'
+                    if listing.property_address:
+                        property_address = property_address
 
 
-                if listing.suburbs_ids:
-                    if len(listing.suburbs_ids) == 1:
-                        suburb_data = suburb_data + ' ' + listing.suburbs_ids.subrub_name
+                    if listing.suburbs_ids:
+                        if len(listing.suburbs_ids) == 1:
+                            suburb_data = suburb_data + ' ' + listing.suburbs_ids.subrub_name
+                        else:
+                            suburb_data = suburb_data +' '+listing.suburbs_ids[0].subrub_name +' and ' +listing.suburbs_ids[1].subrub_name
+
+
+                    if listing.user_id.partner_id.mobile_no_is_verified == True and listing.state == 'active':
+                        status = 'live'
+                    elif listing.state == 'deactive':
+                        status = 'not_live'
                     else:
-                        suburb_data = suburb_data +' '+listing.suburbs_ids[0].subrub_name +' and ' +listing.suburbs_ids[1].subrub_name
+                        status = 'pending'
 
-
-                if listing.user_id.partner_id.mobile_no_is_verified == True and listing.state == 'active':
-                    status = 'live'
-                elif listing.state == 'deactive':
-                    status = 'not_live'
-                else:
-                    status = 'pending'
-
-                dict = {'id': listing.id, 'address': listing.property_address,'type':listing.listing_type,'suburb_data':suburb_data,'status':status}
-                list.append(dict)
+                    dict = {'id': listing.id, 'address': listing.property_address,'type':listing.listing_type,'suburb_data':suburb_data,'status':status}
+                    list.append(dict)
             print("\n\n\n00000000088890", list)
 
         data.update({'listings': list})
@@ -4032,9 +4067,13 @@ class FlatMates(http.Controller):
         if sent_otp == entered_otp:
             print('66666666666666666666666666666666666')
             is_verified = True
+            properties = request.env['house.mates'].sudo().search([('user_id','=',request.env.user.id)])
 
             request.env.user.partner_id.mobile = str(request.session.get('mobile_no'))
             request.env.user.partner_id.mobile_no_is_verified = True
+            if properties:
+                for property in properties:
+                    property.sudo().write({'state':'active'})
 
             if request.session.get('allowed_to_contact'):
                 request.env.user.partner_id.allowed_to_contact = True
@@ -4071,6 +4110,12 @@ class FlatMates(http.Controller):
 
             if partner_id.mobile_no_is_verified:
                 partner_id.sudo().write({"mobile_no_is_verified" : False})
+                properties = request.env['house.mates'].sudo().search([('user_id', '=', request.env.user.id)])
+                if properties:
+                    for property in properties:
+                        property.sudo().write({'state': 'pending'})
+
+
 
             if partner_id.allowed_to_contact:
                 partner_id.sudo().write({"allowed_to_contact" : False})
@@ -5247,14 +5292,14 @@ class WebsiteBlogInherit(WebsiteBlog):
             property_id.sudo().write({'state': 'active'})
         return True
 
-    # @http.route(['/edit_delete_listing'], type='json', auth="public", website=True, )
-    # def edit_delete_listing(self, **kwargs):
-    #     """Get phone number and name of property owner"""
-    #     print("\n\n----------edit_delete_listing-------------", kwargs)
-    #     if kwargs.get('property_id'):
-    #         property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
-    #         property_id.sudo().unlink()
-    #     return True
+    @http.route(['/edit_delete_listing'], type='json', auth="public", website=True, )
+    def edit_delete_listing(self, **kwargs):
+        """Get phone number and name of property owner"""
+        print("\n\n----------edit_delete_listing-------------", kwargs)
+        if kwargs.get('property_id'):
+            property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
+            property_id.sudo().write({'state':'deleted'})
+        return True
 
 
 

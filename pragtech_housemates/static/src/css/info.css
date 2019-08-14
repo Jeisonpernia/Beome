@@ -87,3 +87,31 @@
 
 
 
+/*============================== Tooltip change =====================*/
+
+
+.tooltip-inner {
+    background-color: #159a7f;
+	font-size: 15px;
+	opacity:1.0; text-align: left; padding:10px;  
+}
+.tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: #159a7f !important;
+	top: 0;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+    border-right-color: #159a7f !important;
+	top: 0;
+}
+.tooltip.bs-tooltip-bottom .arrow:before {
+    border-right-color: #159a7f !important;
+	top: 0;
+}
+.tooltip.bs-tooltip-top .arrow:before {
+    border-right-color:#159a7f !important;
+	top: 0;
+}
+
+
+
+

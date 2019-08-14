@@ -988,5 +988,123 @@ $(".find_employment-status").click(function()
     });
 
 
+
+    $(".report-reason").on('change',function(){
+        console.log('changeeeeeeeeeeeeee',$(this).val())
+
+        if($(this).val()){
+            var value = $(this).val()
+            if (value == "no_longer_available"){
+                $(".no-longer-available-label").removeClass("d-none")
+            }
+            else{
+                $(".no-longer-available-label").addClass("d-none")
+            }
+
+            if (value == "incorrect_information"){
+                $(".incorrect-information-label").removeClass("d-none")
+            }
+            else{
+                $(".incorrect-information-label").addClass("d-none")
+            }
+
+            if (value == "suspected_scammer"){
+                $(".suspected-scammer-label").removeClass("d-none")
+            }
+            else{
+                $(".suspected-scammer-label").addClass("d-none")
+            }
+
+            if (value == "offensive_content"){
+                $(".offensive-content-label").removeClass("d-none")
+            }
+            else{
+                $(".offensive-content-label").addClass("d-none")
+            }
+
+            if (value == "contact_information"){
+                $(".contact-information-label").removeClass("d-none")
+            }
+             else{
+                $(".contact-information-label").addClass("d-none")
+            }
+
+            if (value == "copyright_material"){
+                $(".copyright-material-label").removeClass("d-none")
+            }
+             else{
+                $(".copyright-material-label").addClass("d-none")
+            }
+
+            if (value == "bug"){
+                $(".bug-label").removeClass("d-none")
+            }
+            else{
+                $(".bug-label").addClass("d-none")
+            }
+
+            if (value == "spam"){
+                $(".spam-label").removeClass("d-none")
+            }
+             else{
+                $(".spam-label").addClass("d-none")
+            }
+
+           $(".feedback-text").removeClass("d-none")
+
+        }
+        else{
+            $(".feedback-text").addClass("d-none")
+            $(".submit-feedback-btn").prop("disabled", true);
+        }
+
+    })
+
+    $("#feedback_input_id").keyup(function(){
+        console.log('fsefgsdgsdgs',$(this).val())
+        if($(this).val()){
+            $(".submit-feedback-btn").removeAttr("disabled");
+            $(".submit-feedback-btn").css("background-color","#159a7f");
+        }
+        else{
+            $(".submit-feedback-btn").prop("disabled", true);
+            $(".submit-feedback-btn").css("background-color","gray");
+        }
+
+    })
+
+    $(".submit-feedback-btn").on('click',function(){
+        console.log('Submit feedback : ',$("#property_owner").val())
+
+        var property_owner = $("#property_owner").val()
+        var feedback_category = $("#feedback_category_id").val()
+        var feedback_detail = $("#feedback_input_id").val()
+        var data = {}
+
+        if (property_owner){
+            data = {
+            'chat_user_id':property_owner,
+            'feedback_category':feedback_category,
+            'feedback_detail':feedback_detail,
+            }
+            $.ajax({
+                url: '/submit_feedback',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":data}),
+                success: function(data){
+                    console.log('DATA: ',data)
+                    if(data['result'] == true){
+                        $("#report_this_person_popup").modal("hide")
+                    }
+                }
+         });
+        }
+
+
+     })
+
+
 });// End of document
 });// End of Odoo Deine

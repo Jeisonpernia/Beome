@@ -313,7 +313,6 @@ display: -webkit-flex;
 -webkit-flex-flow: row wrap;
 margin: 0px auto;
 max-width: 1200px;
-cursor: pointer;
 }
 
 
@@ -332,7 +331,8 @@ padding:20px;
    border: 1px solid #d5d7db;
    border-radius: 50%;
    margin: 0 auto;
-   padding-bottom: 20
+   padding-bottom: 20;
+   cursor: pointer;
 }
 
 
@@ -345,6 +345,7 @@ padding:20px;
    width: 100px;
    color: #59616e;
    min-height: 65px;
+   cursor: text;
 }
 
 .property-btn-group{
@@ -1432,6 +1433,19 @@ margin-bottom: 12px;
 margin-right: 10px;
 	width: auto;
 	font-size: 16px;
+	
+}
+
+.property-detail-left .property-rounded-btn:hover{
+	background-color: #c9f8ee;
+}
+
+.property-detail-left .property-rounded-btn a{
+	color: #2f3a4a;
+}
+
+.property-detail-left .property-rounded-btn a:hover{
+	text-decoration: none !important;
 }
 
 .property-detail-left .property-preferences{
@@ -3120,6 +3134,7 @@ background-color: #797772;
     margin-right: .5rem;
 }
 
+
 .abcc{
     background-color:#efefef;
 }
@@ -3580,6 +3595,57 @@ z-index: 1;
 }
 
 
+.badge-light{
+	background: #159a7f;
+margin-left: -10px;
+position: absolute;
+z-index: 1;
+margin-top: 10px;
+font-size: 10px;
+color:#fff;
+border-radius: 10px;
+}
+
+.popover{
+	font-size: 14px;
+	text-align: center;
+	width: 180px;
+}
+
+
+.green-dot {
+	height: 7px;
+    width: 7px;
+    background-color: #159a7f;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 35px;
+    float: left;
+	margin-left: 10px;
+}
+
+.white-dot {
+	height: 7px;
+    width: 7px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 35px;
+    float: left;
+	margin-left: 10px;
+}
+
+#view_more_article{
+	background-color: #ebebed;
+    color: #59616e;
+}
+
+#view_more_article:hover{
+	background-color: #37bc9b;
+    color: #fff;
+}
+
+
 /*======================= END Messages Page Added by Rohit  ==========================*/
 
 .send-button .fill {fill:#979ba3;}
@@ -3638,4 +3704,8 @@ body.modal-open {
 }
 .header-top-margin{
 	top:46px;
+}
+
+.report-this-person{
+    cursor:pointer;
 }
