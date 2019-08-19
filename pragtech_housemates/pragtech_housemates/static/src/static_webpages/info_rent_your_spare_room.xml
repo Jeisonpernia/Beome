@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_rent_your_spare_room" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Tips to renting your spare room</h1>
+                                                <h2 class="mt-5">With over 9 million searches per month, listing your place on Flatmates.com.au is the best way to find the right flatmate.##</h2>
+                                                <img src="/pragtech_housemates/static/src/img/renting-room.png" class="img-fluid mt-2" alt=""/>
+
+                                                <p class="mt-4"><i class="fa fa-home"></i> <strong>Show off your place</strong><br/>
+                                                    Having a listing is essential to finding a flatmate. A detailed listing should include clear pictures, up to date information and a brief profile of the other flatmates living in the home. Getting the right person who fits in to your place is important for flatmating success, so make sure you outline the type of person you’re looking for. <a href="https://flatmates.com.au/list-room">Start by creating your listing here</a>.</p>
+
+
+
+                                                <div class="mt-4 gray-bx">
+                                                    <p><i class="fa fa-lightbulb-o"></i> <strong>Tip</strong><br/>
+                                                        My Listing is ‘Pending’: means your listing is being checked by our system, this is to ensure we maintain a safe community for everyone. Please be patient, we promise it will go live shortly.</p>
+                                                </div>
+
+
+                                                <p class="mt-4"><i class="fa fa-check"></i> <strong>Verify your mobile</strong><br/>
+                                                    To list a place on Flatmates.com.au, you will need to have an Australian mobile number. Once you have signed up you will receive a code via text message from us to complete the verification. You can check if your mobile has been verified under My Account, Account Settings. If you haven’t received your code request a new one <a href="https://flatmates.com.au/settings">here</a>.</p>
+
+                                                <div class="mt-4 gray-bx">
+                                                    <p><i class="fa fa-exclamation-triangle"></i>  <strong>Important</strong><br/>
+                                                        Never share your mobile verification code out to anyone, this will jeopardise our community and could result in your account being blocked.</p>
+                                                </div>
+
+
+                                                <p class="mt-4"><i class="fa fa-star"></i> <strong>Upgrade</strong><br/>
+                                                    There is no requirement to upgrade your account in order to list your room and find a great flatmate. However, if you’re looking to speed up your search, an optional upgrade will make your listing Free to Message for all users. You will also have access to contact all listings, access mobile numbers and view verified social media accounts. If you are logged into your account you can view the optional upgrades <a href="https://flatmates.com.au/secure-payment">here</a>.</p>
+
+
+                                                <p class="mt-4"><i class="fa fa-comment"></i> <strong>Introduce yourself</strong><br/>
+                                                    Don’t just sit back and wait for the offers to flood in. We have thousands of potential <a href="https://flatmates.com.au/roommates">flatmate profiles</a> you can search and contact. We don’t set a limit on the number of people you can contact. Remember that many users will organise multiple room viewings before choosing one. So don’t put all your hopes on the one person, have a few lined up for inspections.</p>
+
+                                                <p class="mt-4"><i class="fa fa-users"></i> <strong>Line up the contenders</strong><br/>
+                                                    Make a list of your best candidates and get them around for a room viewing and sit down chat. To avoid awkward viewings, only get one potential flatmate around at a time. Allow around 30 minutes per person to ensure they get a chance to view the property, meet the other flatmates and answer a few questions about their suitability. More tips on <a href="https://info.flatmates.com.au/conducting-a-viewing">conducting a room viewing</a>.</p>
+
+
+                                                <img src="/pragtech_housemates/static/src/img/whats-your-worth.jpg" class="img-fluid mt-2" alt=""/>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

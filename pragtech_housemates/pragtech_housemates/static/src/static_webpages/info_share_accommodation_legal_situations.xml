@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_share_accommodation_legal_situations" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>What is my Share Accommodation situation?</h1>
+                                                <h2 class="mt-5">Knowing how your share accommodation agreement is classified in law will help you understand your rights and obligations. The exact classification will depend on your state or territory.</h2>
+                                                <p class="mt-4"><strong><em>This guide covers landlords (or head-tenants) and tenants (or sub-tenants) in a Residential Tenancy. This applies to the majority of share accommodation and residential property rental situations. To confirm it covers your situation visit <a href="https://info.flatmates.com.au/share-accommodation-legal-situations">What is my share accommodation situation?</a></em></strong></p>
+                                                <h2 class="mt-4">What is my share accommodation situation?</h2>
+                                                <p class="mt-3">There are a number of different arrangements people regularly use for share accommodation. Read through our quick guide below to see where your situation fits.</p>
+                                                <h3 class="mt-4">1. Tenancy: One person renting a whole premises</h3>
+                                                <img src="/pragtech_housemates/static/src/img/tenancy.png" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-3"><strong>Type of agreement you must use:</strong> <a href="https://info.flatmates.com.au/tenancy-agreements">Residential Tenancy Agreement</a></p>
+                                                <p class="mt-4">This is the most common and straight-forward rental arrangement. In this situation, the tenant rents a whole property (i.e. a house or apartment) from the landlord. The residential tenancy agreement for your state or territory should always be used in this situation.<br/>
+                                                    <br/>
+                                                    If people other than the tenant live at the property but they <strong><em>do not pay rent,</em></strong> then they are classified as <strong><em>occupants.</em></strong> Having occupants living at the premises does not change the requirement for a residential tenancy agreement. There may be a limit on the number of occupants in the tenancy agreement. If the amount of occupants exceeds the limit in the agreement, then the landlord may be allowed to terminate the agreement.</p>
+                                                <h3 class="mt-4">2. Co-Tenancy: Multiple people renting a whole premises together under one agreement</h3>
+                                                <img src="/pragtech_housemates/static/src/img/co-tenancy.png" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-4"><strong>Type of agreement you must use:</strong> <a href="https://info.flatmates.com.au/tenancy-agreements">Residential Tenancy Agreement</a></p>
+                                                <p class="mt-4">This is a very common rental and share accommodation arrangement. In this situation, a group of people, known as co-tenants, jointly rent a whole property (i.e. a house or apartment) from the landlord. The residential tenancy agreement for your state or territory should always be used in this situation.<br/>
+                                                    <br/>
+                                                    In a co-tenancy arrangement, each co-tenant jointly holds the rights and obligations that a single tenant would have. For example, all co-tenants are equally responsible for rent regardless of how much they actually contribute towards the rent.</p>
+                                                <h3 class="mt-4">3. Sub-Tenancy or Co-Tenancy: One person moving into a room in a premises already rented from the landlord</h3>
+                                                <img src="/pragtech_housemates/static/src/img/sub-tenancy.png" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-4">This is one of the most common share accommodation arrangements. This situation arises when a new flatmate moves into a premises already being rented by a tenant (or co-tenants) from the landlord. There are 2 options for the agreement between the new flatmate and the existing tenant (or co-tenants):</p>
+                                                <ol class="mt-4">
+                                                    <li><strong>Sub-tenancy</strong> - the new flatmate forms a new agreement with the existing tenant. The existing tenant becomes a head-tenant, and the new flatmate becomes a sub-tenant. The head-tenant takes on the role of a landlord to the sub-tenant. Flatmates.com.au strongly recommends that the head-tenant and sub-tenant use a residential tenancy agreement. The agreement should clearly state the areas of the premises that the sub-tenant has exclusive use of (e.g. bedroom), and shared use of (e.g. bathrooms, kitchen, etc). By not using a residential tenancy agreement, your agreement may be classified as a common law agreement meaning that the standard rights, protections, and obligations of tenancies may not apply.
+                                                        <ul>
+                                                            <li><strong>Types of agreement you can use:</strong>
+                                                                <ul>
+                                                                    <li><a href="https://info.flatmates.com.au/tenancy-agreements">Residential Tenancy Agreement</a> (recommended) OR</li>
+                                                                    <li><a href="https://info.flatmates.com.au/flatmate-agreement">Flatmate Agreement</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mt-3"><strong>Co-tenancy</strong> - alternatively, the new flatmate can be added to the existing tenancy agreement as a co-tenant. In this instance, the new flatmate becomes a co-tenant under the existing residential tenancy agreement. See above for more information on co-tenancies.
+                                                        <ul>
+                                                            <li><strong>Type of agreement you must use:</strong> <a href="https://info.flatmates.com.au/tenancy-agreements">Residential Tenancy Agreement</a> (adding new person as co-tenant to existing agreement)</li>
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                                <h3 class="mt-4">4. Share Accommodation: One person moving into a room in the landlord’s house</h3>
+                                                <img src="/pragtech_housemates/static/src/img/share-accommodation.png" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-3"><strong>Types of agreement you can use:</strong></p>
+                                                <ul class="mt-3">
+                                                    <li><a href="https://info.flatmates.com.au/tenancy-agreements">Residential Tenancy Agreement</a> (recommended) OR</li>
+                                                    <li><a href="https://info.flatmates.com.au/flatmate-agreement">Flatmate Agreement</a></li>
+                                                </ul>
+                                                <p class="mt-4">This is another common share accommodation arrangement. This situation arises when a person rents a room with shared access to facilities directly from the landlord. The landlord may or may not live at the property. Generally, this should not apply if the rented premises is in a commercial-scale share accommodation provider or boarding house.<br/>
+                                                    <br/>
+                                                    Flatmates strongly recommends using a residential tenancy agreement in this situation. The agreement should clearly state the areas of the premises that the tenant has exclusive use of (e.g. bedroom), and shared use of (e.g. bathrooms, kitchen, etc). By not using a residential tenancy agreement, your agreement may be classified as a common law agreement meaning that the standard rights, protections, and obligations of tenancies may not apply.</p>
+                                                <h3 class="mt-4">5. Rooming/Boarding: One person moving into commercial-scale share accommodation or boarding house that offers multiple rooms or beds</h3>
+                                                <img src="/pragtech_housemates/static/src/img/rooming.png" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-4"><strong>Type of agreement you must use:</strong> boarding or rooming agreement for your state or territory
+
+                                                    This is a less common share accommodation arrangement as it usually applies to commercial-scale, registered boarding houses or rooming accommodation with a large amount of rooms or beds. The exact rules for these agreements vary between states and territories—we recommend reading our state-specific guides linked above to see if this applies to you. Briefly, the laws for each state and territory are:</p>
+                                                <ul class="mt-4">
+                                                    <li><strong>NSW</strong> - registered boarding houses with accommodation with 5+ rooms</li>
+                                                    <li><strong>Victoria</strong> - rooming house with accommodation for 3+ people</li>
+                                                    <li><strong>Queensland</strong> - rooming accommodation for 4+ people</li>
+                                                    <li><strong>South Australia</strong> - commercial rooming houses for 3+ people</li>
+                                                    <li><strong>Western Australia</strong> - no specific laws for boarding houses or rooming accommodation</li>
+                                                    <li><strong>Tasmania</strong> - boarding houses for 3+ people (if landlord lives at premises)</li>
+                                                    <li><strong>ACT</strong> - occupancy agreement laws apply whenever a person rents a room but it is not a residential tenancy agreement</li>
+                                                    <li><strong>Northern Territory</strong> - boarding houses for 3+ people (residential tenancy law applies)</li>
+                                                </ul>
+                                                <p class="mt-4">If your agreement falls under this category, it is likely that you will have to use a standard occupancy, boarding or rooming agreement for your state or territory. Each state and territory will have different agreements.</p>
+                                                <h3 class="mt-4">How do the different types of agreement work?</h3>
+                                                <p class="mt-4">To better understand how each different type of share accommodation works, and their advantages and disadvantages, <a href="https://info.flatmates.com.au/about-share-accommodation-agreements">read this</a>.</p>
+                                                <h3 class="mt-4">What are the types of agreement in my state or territory?</h3>
+                                                <p class="mt-4">Each state and territory in Australia has slightly different classifications. Flatmates recommends reading your state-specific guide linked below to understand your exact situation:</p>
+                                                <ul class="mt-4">
+                                                    <li><a href="https://info.flatmates.com.au/nsw-share-accommodation">New South Wales</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/vic-share-accommodation">Victoria</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/qld-share-accommodation">Queensland</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/sa-share-accommodation">South Australia</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/wa-share-accommodation">Western Australia</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/tas-share-accommodation">Tasmania</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/act-share-accommodation">Australian Capital Territory</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/nt-share-accommodation">Northern Territory</a></li>
+                                                </ul>
+                                                <hr class="mt-4 mb-4"/>
+                                                <p class="mt-4"><em>These legal guides provide a brief summary and introduction of the laws and regulations affecting share accommodation. They do not cover all cases in all legal jurisdictions and might not apply in your specific share accommodation situation. It is important that you use this information as a guide only and seek independent Legal Advice or consult the <a href="https://info.flatmates.com.au/tenancy-acts">Relevant Acts</a>. We do not accept any liability that may arise from the use of this information.</em></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

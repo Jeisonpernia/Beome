@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_li_list" name="Info Menu Items">
+            <ul id="head_id">
+
+                <div>
+                    <h3 class="mb-4">How to guides</h3>
+                    <li class="info_item li-border"><a href="/info/flatmate-inspections"> <span>Flatmate Inspections</span></a></li>
+                    <li class="info_item"><a href="/info/home-share-melbourne"> <span>Home Share Melbourne</span></a></li>
+                    <li class="info_item"><a href="/info/message-response-rate"> <span>What is response rate and how do we calculate it?</span></a></li>
+                    <li class="info_item"><a href="/info/verification"> <span>Account Verifications</span></a></li>
+                    <li class="info_item"><a href="/info/frequently-asked-questions"> <span>Frequently Asked Questions</span></a></li>
+                    <li class="info_item"><a href="/info/why-upgrade"> <span>Do I have to upgrade?</span></a></li>
+                    <li class="info_item"><a href="/info/how-does-it-work"> <span>How does it work?</span></a></li>
+                    <li class="info_item"><a href="/info/find-share-accommodation"> <span>Tips for finding accommodation</span></a></li>
+                    <li class="info_item"><a href="/info/rent-your-spare-room"> <span>Tips to renting your spare room</span></a></li>
+                    <li class="info_item"><a href="/info/teamups"> <span>What are Teamups?</span></a></li>
+                    <li class="info_item"><a href="/info/how-to-contact"> <span>How to contact people</span></a></li>
+                    <li class="info_item"><a href="/value-my-room"> <span>Value my room</span></a></li>
+                </div>
+
+                <div>
+                    <h3 class="mt-5 mb-4">Latest articles</h3>
+                    <t t-if="blog_posts1">
+                        <div t-foreach="blog_posts1" t-as="blog_post" name="blog_post">
+                            <li class="info_item">
+                                <a t-attf-href="/info/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }">
+                                    <span t-field="blog_post.name">Untitled Post</span>
+                                </a>
+                            </li>
+                        </div>
+                    </t>
+                    <t t-if="blog_posts1">
+                        <li class="info_item" id="view_more_article"><a t-attf-href="/info/#{ slug(blog_posts1[0].blog_id) }"> <span>+ View more articles</span></a></li>
+                    </t>
+                </div>
+
+                <div>
+                    <h3 class="mt-5 mb-4">Legal guides</h3>
+                    <li class="info_item li-border"><a href="/info/legal-introduction"> <span>Legal Introduction</span></a></li>
+                    <li class="info_item"><a href="/info/holding-deposits"> <span>Holding Deposits</span></a></li>
+                    <li class="info_item"><a href="/info/share-accommodation-legal-situations"> <span>What is my Share Accommodation situation?</span></a></li>
+                    <li class="info_item"><a href="/info/planning-rules"> <span>Planning Laws affecting Rental Accommodation</span></a></li>
+                    <li class="info_item"><a href="/info/pre-agreement-checklist"> <span>Pre-agreement Checklist</span></a></li>
+                    <li class="info_item"><a href="/info/flatmate-agreement"> <span>Flatmate Agreement</span></a></li>
+                    <li class="info_item"><a href="/info/bonds"> <span>Bonds</span></a></li>
+                    <li class="info_item"><a href="/info/condition-reports"> <span>Condition Reports</span></a></li>
+                    <li class="info_item"><a href="/info/tenancy-agreements"> <span>Tenancy Agreements</span></a></li>
+                    <li class="info_item"><a href="/info/rent-payments"> <span>Paying rent</span></a></li>
+                    <li class="info_item"><a href="/info/rights-obligations"> <span>Rights and Obligations during Tenancy</span></a></li>
+                    <li class="info_item"><a href="/info/ending-tenancy"> <span>Ending the Tenancy Agreement</span></a></li>
+                    <li class="info_item"><a href="/info/resolving-disputes"> <span>Resolving disputes</span></a></li>
+                </div>
+
+                <div>
+                    <h3 class="mt-5 mb-4">Social</h3>
+                    <li class="info_item li-border"><a href="https://twitter.com/beomelife" target="_blank"> <span>Tweet us on Twitter</span></a></li>
+                    <li class="info_item"><a href="https://www.facebook.com/beomelife/" target="_blank"> <span>Like us on Facebook</span></a></li>
+                </div>
+
+                <div>
+                    <h3 class="mt-5 mb-4">About Flatmates.com.au</h3>
+
+                    <li class="info_item li-border"><a href="/info/about"> <span>About Us</span></a></li>
+                    <li class="info_item"><a href="/info/terms"> <span>Terms &amp; Conditions</span></a></li>
+                    <li class="info_item"><a href="/live-rent-free"> <span>Live Rent Free Competition</span></a></li>
+                    <li class="info_item"><a href="/info/press"> <span>Press &amp; News</span></a></li>
+                    <li class="info_item"><a href="/info/community-charter"> <span>Community Charter</span></a></li>
+                    <li class="info_item"><a href="/info/privacy"> <span>Privacy</span></a></li>
+                    <li class="info_item"><a href="https://www.trustpilot.com/review/flatmates.com.au" target="_blank"> <span>Flatmates.com.au Reviews</span></a></li>
+                    <li class="info_item"><a href="/contact"> <span>Contact Us</span></a></li>
+                </div>
+
+
+
+                <div>
+                    <h3 class="mt-5 mb-4">Our friends</h3>
+
+                    <li class="info_item li-border"><a href="https://www.realestate.com.au/home-loans/" target="_blank"> <span>Realestate.com.au Home Loans</span></a></li>
+                    <li class="info_item"><a href="https://www.roommates.ca/" target="_blank"> <span>Roommates.ca</span></a></li>
+                    <li class="info_item"><a href="https://www.roommates.com.sg/" target="_blank"> <span>Roommates.com.sg</span></a></li>
+                    <li class="info_item"><a href="http://sharehouses.com.au/" target="_blank"> <span>Sharehouses.com.au</span></a></li>
+                    <li class="info_item"><a href="http://flatshare.com.au/" target="_blank"> <span>Flatshare.com.au</span></a></li>
+                    <li class="info_item"><a href="https://www.realestate.com.au/buy" target="_blank"> <span>Realestate.com.au</span></a></li>
+                    <li class="info_item"><a href="https://www.roomies.com/" target="_blank"> <span>Roomies.com</span></a></li>
+                    <li class="info_item"><a href="https://www.iproperty.com.my/" target="_blank"> <span>iProperty.com.my</span></a></li>
+                    <li class="info_item"><a href="https://www.iproperty.com.sg/" target="_blank"> <span>iProperty.com.sg</span></a></li>
+                </div>
+            </ul>
+
+        </template>
+    </data>
+</odoo>

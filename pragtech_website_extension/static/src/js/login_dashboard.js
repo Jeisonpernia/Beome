@@ -10,6 +10,7 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
                     type: "POST",
                     dataType: 'json',
                     contentType: 'application/json',
+                    async:false,
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
                     success: function(data)
                     {

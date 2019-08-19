@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_how_to_contact" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>How to contact people</h1>
+                                                <h2 class="mt-5">It’s easy and safe to connect with people on Flatmates.com.au.</h2>
+                                                <img src="/pragtech_housemates/static/src/img/contact-people.png" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-5"><i class="fa fa-comments"></i> <strong>Messaging</strong> <br/>
+                                                    Our built-in messaging system allows you to safely message potential flatmates without revealing your personal contact details. Its always free to reply to any messages received via our messaging system, regardless of your membership level.</p>
+                                                <p class="mt-4"><i class="fa fa-eye"></i> <strong>Message Status</strong> <br/>
+                                                    Every message you send on Flatmates.com.au will have status attached to keep you informed.</p>
+                                                <ul class="mt-3">
+                                                    <li><strong>Delivered</strong> - your message has been delivered to the other members inbox.<br/>
+                                                    </li>
+                                                    <li><strong>Seen</strong> - your message has been read by the other member.<br/>
+                                                    </li>
+                                                    <li><strong>Pending</strong> - your message has not been sent, you need to take action such as upgrading or verifying your account in order to send this message.</li>
+                                                </ul>
+                                                <p class="mt-4"><i class="fa fa-mobile"></i> <strong>Mobile Numbers</strong><br/>
+                                                    Upgraded members can access mobile numbers (where available) on property and person listings. Your mobile number will be listed on your advertisement automatically. If you would like to remove it you can do so in <a href="https://flatmates.com.au/settings">Account Settings</a>.</p>
+                                                <p class="mt-4"><i class="fa fa-pencil"></i> <strong>What to say</strong><br/>
+                                                    When messaging other members about their listing, make sure you have read the details first. Your message should be an introduction of yourself, why you’re interested in the room and why you feel you would be a great fit for the home. Remember you’ll need to stand out from the other members enquiring, so try to keep it interesting.</p>
+                                                <p class="mt-4"><i class="fa fa-link"></i> <strong>We keep you connected</strong><br/>
+                                                    Whenever you receive a message on Flatmates.com.au you will also receive an email alert. The email will provide you with a link to respond to messages straight away, ensuring you never miss an opportunity.</p>
+                                                <p class="mt-4"><i class="fa fa-bell-slash"></i> <strong>Not getting any responses?</strong><br/>
+                                                    Sometimes it pays to be patient. Members may not login to the site for up to a day, so a response maybe coming shortly. Remember that certain listings, particularly in popular areas, may receive a large number of messages so a response may take a while. Unfortunately, some members who feel you might not be suitable, will choose not to respond. We encourage all members to, whenever possible, respond to all messages received.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

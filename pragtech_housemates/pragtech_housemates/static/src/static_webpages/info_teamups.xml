@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_teamups" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>What are Teamups?</h1>
+                                                <h2 class="mt-5">Teamups help you find others to start your own share house.</h2>
+                                                <img src="/pragtech_housemates/static/src/img/teamups.jpg" class="img-fluid mt-2" alt=""/>
+                                                <p class="mt-5">Sometimes the right property isn’t available when you’re looking for a new home, or perhaps you’ve seen a great rental but you can’t afford it on your own. That’s where Teamups comes in handy.</p>
+                                                <h2 class="mt-4">How to find great people to Teamup with</h2>
+                                                <p class="mt-4"><i class="fa fa-search"></i> <strong>Search for flatmates</strong>: It’s easy to find other flatmates wanting to teamup through our designated search. Simply click the white search box at the top of the site, and then enter your preferred suburbs or region. Click the yellow Teamup button and the click search.<br/>
+                                                    <br/>
+                                                    The results can be filtered further under the Advance Filters link in the search box.</p>
+                                                <p class="mr-4"><i class="fa fa-envelope"></i> <strong>Make contact</strong>: Send messages to anyone you feel would make a great flatmate, explain you would like to team up and find a property together. Not everyone will respond so to give yourself the best choice make sure you send messages to everyone who looks interesting.</p>
+                                                <p class="mt-4"><i class="fa fa-users"></i> <strong>Catch up</strong>: Catching up with your potential new flatmate is important to ensure you’re all happy to live together. Grab a coffee, ask each other questions and soon enough you’ll know if you’re all going to get along. If everyone isn’t in the same place, use Skype or FaceTime.</p>
+                                                <p class="mt-4"><i class="fa fa-home"></i> <strong>Find a home</strong>: Once everyone is comfortable with each other, it’s time to find a place. Flatmates.com.au regularly have whole properties up for rent, so be sure to check out our listings. You can also check out what’s available on [Realestate.com.au/rent]https://www.realestate.com.au/rent</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

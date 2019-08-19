@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="flatmates_footer_custom" inherit_id="website.layout" name="Remove Footer">
+        <xpath expr="//div[@id='footer']" position="replace">
+        </xpath>
+    </template>
+
+    <template id="flatmates_layout_footer_copyright" inherit_id="website.layout" name="Remove Footer Copyright">
+        <xpath expr="//footer" position="replace">
+        </xpath>
+    </template>
+</odoo>

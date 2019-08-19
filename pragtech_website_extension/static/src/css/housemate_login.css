@@ -132,12 +132,12 @@
 	font-weight: normal;
 }
 
-#verify_mobile_popup h4, #account_settings_popup h4, #email_alert_popup h4, #deactivate_account_popup h4{
+#verify_mobile_popup h4, #account_settings_popup h4, #email_alert_popup h4, #deactivate_account_popup h4, #about_the_flatmates_popup h4{
 	font-weight: normal;
 }
 
 
-#verify_mobile_popup h5, #account_settings_popup h5, #email_alert_popup h5, #deactivate_account_popup h5{
+#verify_mobile_popup h5, #account_settings_popup h5, #email_alert_popup h5, #deactivate_account_popup h5, #about_the_flatmates_popup h5{
 	font-weight: normal;
 }
 

@@ -581,11 +581,9 @@
 
                                                         <div class="form-group mt-2">
                                                             <input type="text" class="form-control verify-mobile-no"
-                                                                   id="verify_mobile" name="mobile"/>
+                                                                   id="verify-mobile-no" name="verify_mobile"/>
 
-                                                            <label class="form-control-placeholder" for="verify_mobile">
-                                                                Mobile number
-                                                            </label>
+                                                            <label class="form-control-placeholder add-focused" for="verify-mobile-no">Mobile number</label>
                                                         </div>
 
 

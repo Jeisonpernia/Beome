@@ -8,6 +8,7 @@ odoo.define('pragtech_website_extension.account_settings', function (require){
                     url: '/get_users_default_data',
                     type: "POST",
                     dataType: 'json',
+                    async:false,
                     contentType: 'application/json',
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
                     success: function(data)

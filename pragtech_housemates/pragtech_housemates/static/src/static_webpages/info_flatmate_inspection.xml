@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_flatmate_inspection" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h1>Flatmate Inspections</h1>
+
+                                                <p class="mt-2">by <span><strong>Flatmates Team</strong></span></p>
+
+
+                                                <h2 class="mt-5">Flatmates.com.au have introduced a new feature to help you set-up, book and manage your inspections.</h2>
+
+                                                <p class="mt-2">Gone of the days of having your inspections scrawled onto a piece of scrap paper or to wait around for someone who didn’t show up. Now you can know who is arriving and when, and be notified if they cancel. </p>
+
+                                                <p class="mt-2">Need help? <a href="https://flatmates.com.au/info/flatmates-inspections-faq">Check the Flatmate Inspection FAQs</a>.</p>
+
+                                                <hr class="mb-4"/>
+
+                                                <h3>Why use Flatmate Inspections?</h3>
+
+
+                                                <p class="mt-2"><strong><i class="fa fa-lock"></i> Flatmate Inspections is safe to use.</strong>&#160;</p>
+
+                                                <p class="mt-2">Only those members who you have provided access to your calendar will be able to book an inspection. You can also control when you want your address shared, or you can share it yourself via messages.</p>
+
+                                                <p class="mt-2"><strong><i class="fa fa-list-alt"></i> Know who is coming and when</strong></p>
+
+                                                <p class="mt-2">With Flatmate inspections you’ll know exactly who is booked to inspect on what day and at what time.<br/>
+
+                                                    We’ve even built in the option to have a break in between inspections so you have time to wrap up the current applicant before the next one arrives.</p>
+
+                                                <p class="mt-2"><strong><i class="fa fa-envelope"></i> Be notified when someone books or cancels</strong></p>
+
+                                                <p class="mt-2">It’s nice to know when someone is coming over to inspect, but it’s even better to know if they’ve cancelled. No more waiting around for someone who doesn’t show. If they cancel (or if you need to), we’ll send an email to both parties and update the status on the inspection dashboard.</p>
+
+                                                <hr class="mb-4"/>
+                                                <div class="row">
+                                                    <div class="col-lg-3 author-image text-center">
+                                                        <img src="/pragtech_housemates/static/src/img/flatmates-author.jpg" class="img-fluid" alt=""/>
+                                                    </div>
+
+                                                    <div class="col-lg-9 author">
+                                                        <h2>Flatmates Team</h2>
+                                                        <p class="text-muted"><a href="mailto:support@flatmates.com.au" target="_blank">support@flatmates.com.au</a></p>
+
+                                                        <p class="social-icons mt-3">
+                                                            <span><a href="https://twitter.com/@flatmates">
+                                                                <i class="fa fa-twitter-square"></i></a></span>
+
+                                                            <span><a href="https://flatmates.com.au">
+                                                                <i class="fa fa-globe"></i></a></span>
+                                                        </p>
+
+
+                                                    </div>
+
+                                                </div>
+
+                                                <hr class="mb-4"/>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
