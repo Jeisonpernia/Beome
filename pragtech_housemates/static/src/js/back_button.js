@@ -58,9 +58,10 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                    }
             })
             var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-            console.log('testtttttttttt',localStorage.getItem('list_place_array'))
             if (window.location.href.indexOf("/listplace") > -1){
-            if(local_storage_data.length != 0){
+            if(local_storage_data && local_storage_data[0]){
+                        console.log('testtttttttttt',localStorage.getItem('list_place_array'),local_storage_data[0])
+
                 var accommodation_type = local_storage_data[0]['accommodation_type']
                 if (accommodation_type == "whole-property"){
                   accommodation_type = "whole-property"
@@ -79,7 +80,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
             if (window.location.pathname=='/listplace/describe-your-place/accommodation' && localStorage.getItem('list_place_array'))
             {
-            if(local_storage_data.length != 0){
+            if(local_storage_data.length != 0 && local_storage_data[0]){
             if(local_storage_data[0]['accommodation_type']){
 
 
@@ -141,7 +142,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
             if (window.location.pathname=='/listplace/'+accommodation_type+'/about' && localStorage.getItem('list_place_array')){
                 var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-                if(local_storage_data.length != 0){
+                if(local_storage_data.length != 0 && local_storage_data[0]){
                 if(local_storage_data[0]['property_address']){
                 $('#autocomplete').val(local_storage_data[0]['property_address'])
                 $('#street_number').val(local_storage_data[0]['street_number'])
@@ -190,7 +191,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
           if (window.location.pathname=='/listplace/'+accommodation_type+'/who-lives-here' && localStorage.getItem('list_place_array')){
                 var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-                if(local_storage_data.length != 0){
+                if(local_storage_data.length != 0 && local_storage_data[0]){
                 if (local_storage_data[0]['total_no_of_flatmates']){
                 $.each($(document).find('input[name=total_no_of_flatmates]'), function(){
                     if($(this).val() == local_storage_data[0]['total_no_of_flatmates'])
@@ -209,7 +210,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
           if (window.location.pathname=='/listplace/'+accommodation_type+'/about-rooms' && localStorage.getItem('list_place_array')){
                 var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-                if(local_storage_data.length != 0){
+               if(local_storage_data.length != 0 && local_storage_data[0]){
                 if(local_storage_data[0]['rooms_data']){
                 $.each($(document).find('input[name=room_type_0]'), function(){
                     if($(this).val() == local_storage_data[0]['rooms_data'][0]['Room_1']['room_type'])
@@ -241,7 +242,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
           }
           if (window.location.pathname=='/listplace/'+accommodation_type+'/rent-bond-bills' && localStorage.getItem('list_place_array')){
                 var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-                if(local_storage_data.length != 0){
+                if(local_storage_data.length != 0 && local_storage_data[0]){
                 if(local_storage_data[0]['weekly_rent']){
                 $('#weekly_rent').val(local_storage_data[0]['weekly_rent'])
                 $("#bond").val(local_storage_data[0]['bond']);
@@ -254,7 +255,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
          if (window.location.pathname=='/listplace/'+accommodation_type+'/room-availability' && localStorage.getItem('list_place_array')){
              var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-             if(local_storage_data.length != 0){
+             if(local_storage_data.length != 0 && local_storage_data[0]){
              if(local_storage_data[0]['avail_date']){
              $('#txtdate').val(local_storage_data[0]['avail_date'])
              $('#min_len_stay').val(local_storage_data[0]['min_length_of_stay'])
@@ -267,28 +268,28 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
          if (window.location.pathname=='/listplace/'+accommodation_type+'/property-images' && localStorage.getItem('list_place_array')){
               var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-              if(local_storage_data.length != 0){
+             if(local_storage_data.length != 0 && local_storage_data[0]){
               $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
               }
          }
 
          if (window.location.pathname=='/listplace/'+accommodation_type+'/describe-your-flatmate' && localStorage.getItem('list_place_array')){
               var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-              if(local_storage_data.length != 0){
+              if(local_storage_data.length != 0 && local_storage_data[0]){
               $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
               }
          }
 
          if (window.location.pathname=='/listplace/'+accommodation_type+'/introduce-yourself' && localStorage.getItem('list_place_array')){
               var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-              if(local_storage_data.length != 0){
+              if(local_storage_data.length != 0 && local_storage_data[0]){
               $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
               }
          }
 
          if (window.location.pathname=='/listplace/'+accommodation_type+'/flatmate-preference' && localStorage.getItem('list_place_array')){
              var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-             if(local_storage_data.length != 0){
+             if(local_storage_data.length != 0 && local_storage_data[0]){
 
              if(local_storage_data[0]['flatmate_preference_type']){
              $.each($(document).find('input[name=flatmate_Preference_type]'), function(){
@@ -306,7 +307,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
          if (window.location.pathname=='/listplace/'+accommodation_type+'/accepting' && localStorage.getItem('list_place_array')){
              var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-             if(local_storage_data.length != 0){
+             if(local_storage_data.length != 0 && local_storage_data[0]){
              if(local_storage_data[0]['accepting']){
              for(var i=0;i<local_storage_data[0]['accepting'].length;i++){
                  if (local_storage_data[0]['accepting'][i] == 'backpackers'){
@@ -397,7 +398,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
          if (window.location.pathname=='/listplace/'+accommodation_type+'/about-others' && localStorage.getItem('list_place_array')){
              var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
-             if(local_storage_data.length != 0){
+             if(local_storage_data.length != 0 && local_storage_data[0]){
              if(local_storage_data[0]['about_you_and_your_flatmates']){
              $('#comment').val(local_storage_data[0]['about_you_and_your_flatmates'])
              $('.about-others-nxt-btn').prop("disabled", false);

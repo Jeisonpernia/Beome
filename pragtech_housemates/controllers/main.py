@@ -1772,7 +1772,7 @@ class FlatMates(http.Controller):
 
         for rec in suburbs:
             for data in suburb_data:
-                print("HHHHHHHHHHHHHHHHHHHHH", data, suburbs)
+                # print("HHHHHHHHHHHHHHHHHHHHH", data, suburbs)
                 if data['longitude'] == rec['longitude']:
                     vals = {}
                     vals ={
@@ -3191,7 +3191,7 @@ class FlatMates(http.Controller):
         if 'suburb_label' in kwargs and kwargs.get('suburb_label'):
             suburb_label = kwargs.get('suburb_label')
             # print ("aaaaaaaaaaa", suburb_to_search)
-            res_dict =  next(item for item in suburb_data if item["suburb_search"] == suburb_label)
+            res_dict =  next((item for item in suburb_data if item["suburb_search"] == suburb_label),None)
 
             print('\n\n\nRES DICT : ',res_dict,'\n\n\n')
 
@@ -3359,8 +3359,11 @@ class FlatMates(http.Controller):
                 if filters[0].get('gender_selection') == 'Males':
                     domain.append(('person_ids.gender','=','male'))
                 if filters[0].get('gender_selection') == 'Females + % 26 + males + % 28no + couple % 29':
-                    domain.append(('person_ids.gender','=','male'))
-                    domain.append(('person_ids.gender', '=', 'female'))
+                    # domain.append(('person_ids.gender','=','male'))
+                    # domain.append(('person_ids.gender', '=', 'female'))
+                    domain.append(('place_for', '!=', 'couple'))
+                if filters[0].get('gender_selection') == 'Couples':
+                    domain.append(('place_for','=','couple'))
             if filters[0].get('find_property_type'):
                 domain.append(('property_type', '=', int(filters[0].get('find_property_type'))))
             if filters[0].get('find_min_rent'):
@@ -3500,14 +3503,14 @@ class FlatMates(http.Controller):
                 domain.append(('total_bedrooms_id', '=', int(filters[0].get('search_bedrooms'))))
             if filters[0].get('search_gender'):
                 if filters[0].get('search_gender') == 'females_only':
-                    domain.append(('person_ids.gender', '=', 'female'))
+                    domain.append(('pref', '=', 'females_only'))
                 if filters[0].get('search_gender') == 'males_only':
-                    domain.append(('person_ids.gender', '=', 'male'))
+                    domain.append(('pref', '=', 'males_only'))
                 if filters[0].get('search_gender') == 'anyone':
-                    domain.append(('person_ids.gender', '=', 'male'))
-                    domain.append(('person_ids.gender', '=', 'female'))
+                    domain.append(('pref', '=', 'anyone'))
+                    # domain.append(('pref', '=', 'female'))
                 if filters[0].get('search_gender') == 'couple':
-                    domain.append(('person_ids.gender', '=', 'couple'))
+                    domain.append(('pref', '=', 'couple'))
             if filters[0].get('search_room_type'):
                 domain.append(('rooms_ids.room_type_id', '=', int(filters[0].get('search_room_type'))))
             if filters[0].get('LGBTI'):
@@ -3585,7 +3588,7 @@ class FlatMates(http.Controller):
             # print("Streettt---------------------------", properties)
             property_image_main = request.env['property.image'].sudo().search_read(
                 domain=[('flat_mates_id','=',rec.get('id')),('id', 'in', rec.get('property_image_ids'))], fields=['image'], order='id', limit=1)
-            print ("-------------ddddddddddddd----------------",rec)
+            # print ("-------------ddddddddddddd----------------",rec)
             property_data = {}
             property_data['id'] = rec.get('id')
 

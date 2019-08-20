@@ -20,11 +20,11 @@
         var c = 2 * Math.atan2( Math.sqrt(Math.abs(a)), Math.sqrt(Math.abs(1-a)) )
         var d = R * c
 
-        console.log ("\n\nlon",dlon)
-        console.log ("lat",dlat)
-        console.log ("a",a)
-        console.log ("c",c, Math.sqrt(a))
-        console.log ("d",d, Math.sqrt(1-a))
+//        console.log ("\n\nlon",dlon)
+//        console.log ("lat",dlat)
+//        console.log ("a",a)
+//        console.log ("c",c, Math.sqrt(a))
+//        console.log ("d",d, Math.sqrt(1-a))
 
         return d
     }
@@ -297,7 +297,7 @@
 				var id = $(this).data('id');
 
 				//add tag
-				if(window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates"){
+				if((window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates") || (window.location.href.indexOf("find_place_preview") > -1)) {
                     console.log("In find placeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
                 $.fn.addTag(id,$(this).text(),inst);
                 if(tagsContainer.childElementCount != 0){
@@ -515,7 +515,7 @@
 					 selected_li = $(document).find(".abcc")
 
                       var id = selected_li.attr("data-id")
-                      if(window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates"){
+                      if((window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates") || (window.location.href.indexOf("find_place_preview") > -1)){
                         console.log("In find placeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
                         $.fn.addTag(id,selected_li.text(),instanceData);
                         if(tagsContainer.childElementCount != 0){
@@ -688,61 +688,73 @@
 	 * addTag
 	 */
 	$.fn.addTag = function(tagId,tagText,instance){
+        console.log('\n\n\n **addtag function calleeeed :',tagText)
+        var tag = '';
+        var suburb_dict ;
 
-        var suburb_dict = ''
 	    $.ajax({
                 url: '/get_details_of_suburb',
                 type: "GET",
                 data : {'suburb_label':tagText},
                 async:false,
                 success: function(result){
-                    suburb_dict = result
+                    console.log("Result ::>> ",result,typeof result)
+                    if(result){
+                        suburb_dict = result
+                        console.log("111suburbdict::: ",suburb_dict,typeof suburb_dict)
+                    }
+
                 }
-            }),
+        });
+        console.log("222suburbdict::: ",suburb_dict,typeof suburb_dict)
+        if (suburb_dict != 'null'){
+                console.log('oooooooooooooooooooooooooooooooooooo',suburb_dict)
+                suburb_dict = JSON.parse(suburb_dict)
 
-        suburb_dict = JSON.parse(suburb_dict)
+            if (suburb_dict['suburb_name'] && suburb_dict['post_code']){
+                tagText = suburb_dict['suburb_name'].toString()+ ',' + suburb_dict['post_code'].toString()
+            }
+            else{
+                tagText = suburb_dict['city'].toString()
+            }
 
-        if (suburb_dict['suburb_name'] && suburb_dict['post_code']){
-            tagText = suburb_dict['suburb_name'].toString()+ ',' + suburb_dict['post_code'].toString()
+            var latitude = null
+            if (suburb_dict['latitude']){
+                latitude = suburb_dict['latitude']
+            }
+
+            var longitude = null
+            if (suburb_dict['longitude']){
+                longitude = suburb_dict['longitude']
+            }
+
+            var suburb_name = null
+            if (suburb_dict['suburb_name']){
+                suburb_name = suburb_dict['suburb_name']
+            }
+
+            var city = null
+
+            if (suburb_dict['city']){
+                city = suburb_dict['city']
+            }
+
+            var post_code = null
+             if (suburb_dict['post_code']){
+                post_code = suburb_dict['post_code']
+             }
+
+            closeTag = "<span class='close'></span>";
+            inputTag = "<input type='hidden' class='tag_input' data-lat='"+latitude+"' data-long='"+longitude+"' data-suburb_name='"+suburb_name+"' data-city='"+city+"' data-post_code='"+post_code+"'>"
+
+            tag = $("<span data-id='"+tagId+"' class='tag'>"+
+                    tagText+inputTag+closeTag+
+                    "</span>");
+
         }
-        else{
-            tagText = suburb_dict['city'].toString()
-        }
 
-        var latitude = null
-        if (suburb_dict['latitude']){
-            latitude = suburb_dict['latitude']
-        }
-
-        var longitude = null
-        if (suburb_dict['longitude']){
-            longitude = suburb_dict['longitude']
-        }
-
-        var suburb_name = null
-        if (suburb_dict['suburb_name']){
-            suburb_name = suburb_dict['suburb_name']
-        }
-
-        var city = null
-
-        if (suburb_dict['city']){
-            city = suburb_dict['city']
-        }
-
-        var post_code = null
-         if (suburb_dict['post_code']){
-            post_code = suburb_dict['post_code']
-         }
-
-		closeTag = "<span class='close'></span>";
-        inputTag = "<input type='hidden' class='tag_input' data-lat='"+latitude+"' data-long='"+longitude+"' data-suburb_name='"+suburb_name+"' data-city='"+city+"' data-post_code='"+post_code+"'>"
-
-		tag = $("<span data-id='"+tagId+"' class='tag'>"+
-				tagText+inputTag+closeTag+
-				"</span>");
-
-		//trigger onAdd (returns true if success, can also be cancelled)
+        if(tag){
+            //trigger onAdd (returns true if success, can also be cancelled)
 		if (instance.options.onAdd.call(null, {
 		    tagId: tagId,
 		    tagText: tagText
@@ -781,6 +793,8 @@
              //result is true, append tag
 //		    instance.tagsContainer.append(tag);
 		};
+        }
+
 
 		tagInput.removeAttr('placeholder')
 

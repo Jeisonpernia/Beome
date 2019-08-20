@@ -671,10 +671,12 @@ console.log('---- out -----',event.target)
  if ($( event.target ).is( "li" ) == false &&  event.target != input_box && event.target != div_id){
 console.log('---- in -----',event.target)
 $('#autocomplete-id').hide();
+$('#tag_complete_id').removeClass('has_autocomplete')
 }
 else
 {
 $('#autocomplete-id').show();
+$('#tag_complete_id').addClass('has_autocomplete')
 
 }
 })
@@ -685,6 +687,7 @@ var is_shown = $(".search-dropdown-responsive").hasClass("show")
 //console.log("\n\n is_show",is_shown,$( event.target ).is( "div" ))
     if ($( event.target ).is( "div" ) == true && is_shown == true ){
       $("#dropdownMenuButton").hide();
+//      $(".search-btn-close").addClass('d-none')
       location.reload()
     }
 });

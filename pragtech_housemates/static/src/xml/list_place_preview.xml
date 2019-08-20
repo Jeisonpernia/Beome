@@ -288,27 +288,24 @@
                                             </button>
 
 
-
                                             <a href="" class="edit_list_delete_listing_button">Delete Listing</a>
                                         </t>
                                         <t t-if="state == 'active'">
                                             <h3 class="mt-2">Listing Active</h3>
-                                             <button class=" btn btn-block btn-outline-primary edit_list_deactivate_listing_button">
-                                        Deactivate listing
+                                            <button class=" btn btn-block btn-outline-primary edit_list_deactivate_listing_button">
+                                                Deactivate listing
                                             </button>
 
                                         </t>
                                         <t t-if="user_id.partner_id.mobile_no_is_verified == false">
 
-                                        <h3 class="mt-2">Listing pending</h3>
-                                             <button class=" btn btn-block btn-outline-primary edit_list_deactivate_listing_button">
-                                        Deactivate listing
-                                    </button>
+                                            <h3 class="mt-2">Listing pending</h3>
+                                            <button class=" btn btn-block btn-outline-primary edit_list_deactivate_listing_button">
+                                                Deactivate listing
+                                            </button>
 
                                         </t>
                                     </div>
-
-
 
 
                                 </div>
@@ -418,23 +415,34 @@
                                                     <span class="slider">
 
                                                         <a href="#">
-															<span class="set-as-featured">
-														<svg width="20" height="14">
-                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-                                                            <g transform="translate(-177.000000, -2502.000000)" stroke="#13D0AB" stroke-width="2">
-                                                                <g transform="translate(0.000000, 668.000000)">
-                                                                    <polyline points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline>
+                                                        <span class="set-as-featured">
+                                                            <svg width="20" height="14">
+                                                                <g stroke="none" stroke-width="1" fill="none"
+                                                                   fill-rule="evenodd" stroke-linecap="round"
+                                                                   stroke-linejoin="round">
+                                                                    <g transform="translate(-177.000000, -2502.000000)"
+                                                                       stroke="#13D0AB" stroke-width="2">
+                                                                        <g transform="translate(0.000000, 668.000000)">
+                                                                            <polyline
+                                                                                    points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline>
+                                                                        </g>
+                                                                    </g>
                                                                 </g>
-                                                            </g>
-                                                        </g>
-                                                    </svg>
-															Set as featured
-														</span>
+                                                            </svg>
+                                                            <t t-if="image.is_featured">
+                                                                <span class="featured">Featured</span>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <span class="set_featured">Set as featured</span>
+                                                            </t>
 
-                                                            <span class="delete-slider">
-                                                                <i class="fa fa-trash fa-2x delete-list-image"></i>
-                                                            </span>
+                                                        </span>
+
+                                                        <span class="delete-slider">
+                                                            <i class="fa fa-trash fa-2x delete-list-image"></i>
+                                                        </span>
                                                         </a>
+
                                                         <img class="slider-img card"
                                                              t-att-src="image_data_uri(image.image)"/>
                                                     </span>
@@ -460,7 +468,7 @@
                                 <h1>
                                     <t t-esc="property_address"/>
                                     <svg width="24" height="24" viewBox="0 0 16 16" data-toggle="tooltip"
-                                             data-placement="right" title="Verified">
+                                         data-placement="right" title="Verified">
                                         <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
                                               fill="#2F3A4A" fill-rule="evenodd"></path>
                                     </svg>
@@ -468,7 +476,12 @@
 
                                 <div class="upgrade mt-3">
                                     <span class="upgradeStatus">Free to message</span>
-                                    <span><t t-esc="room_type_id"/> room with <t t-esc="bath_room_type_id"/> bathroom</span>
+                                    <span>
+                                        <t t-esc="room_type_id"/>
+                                        room with
+                                        <t t-esc="bath_room_type_id"/>
+                                        bathroom
+                                    </span>
                                 </div>
 
                                 <hr class="mt-5 mb-4"/>
@@ -533,14 +546,18 @@
                                                                                             </div>
 
                                                                                         </div>
-                                                                                        <div class="styles__errorMessage_preview">Must be less than 10000</div>
+                                                                                        <div class="styles__errorMessage_preview">
+                                                                                            Must be less than 10000
+                                                                                        </div>
                                                                                     </div>
 
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
                                                                                             <label class="form-control-placeholder1 focused"
-                                                                                                       for="edit_bills_id">Bills</label>
+                                                                                                   for="edit_bills_id">
+                                                                                                Bills
+                                                                                            </label>
 
                                                                                             <select class="form-control"
                                                                                                     id="edit_bills_id"
@@ -574,7 +591,7 @@
                                                                                 <div class="row">
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                             <label>Bond</label>
+                                                                                            <label>Bond</label>
 
                                                                                             <select class="form-control"
                                                                                                     id="edit_bond_id"
@@ -608,12 +625,12 @@
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                             <label>Room Type</label>
+                                                                                            <label>Room Type</label>
 
                                                                                             <select class="form-control"
                                                                                                     id="edit_room_type_id"
                                                                                                     name="edit_room_type_id">
-                                                                                                 <option value=""
+                                                                                                <option value=""
                                                                                                         disabled="disabled"
                                                                                                         selected="selected">
                                                                                                     Type of Rooms
@@ -624,14 +641,17 @@
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                             <label>Room Furnishing Type</label>
+                                                                                            <label>Room Furnishing
+                                                                                                Type
+                                                                                            </label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_room_furnishing_id"
                                                                                                     name="edit_room_furnishing_id">
-                                                                                                  <option value=""
+                                                                                                <option value=""
                                                                                                         disabled="disabled"
                                                                                                         selected="selected">
-                                                                                                    Type of Room Furnishing
+                                                                                                    Type of Room
+                                                                                                    Furnishing
                                                                                                 </option>
                                                                                                 <!--<option value="">-->
                                                                                                 <!--Furnishings-->
@@ -653,12 +673,12 @@
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                             <label>Bathroom Type</label>
+                                                                                            <label>Bathroom Type</label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_bath_room_type_id"
                                                                                                     name="edit_bath_room_type_id">
 
-                                                                                                  <option value=""
+                                                                                                <option value=""
                                                                                                         disabled="disabled"
                                                                                                         selected="selected">
                                                                                                     Type of Bathroom
@@ -704,7 +724,7 @@
                                                                                             <select class="form-control"
                                                                                                     id="edit_min_stay_id"
                                                                                                     name="edit_min_stay_id">
-                                                                                                 <option value=""
+                                                                                                <option value=""
                                                                                                         disabled="disabled"
                                                                                                         selected="selected">
                                                                                                     Minimum Stay
@@ -746,11 +766,11 @@
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                             <label>Maximum Stay</label>
+                                                                                            <label>Maximum Stay</label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_max_stay_id"
                                                                                                     name="edit_max_stay_id">
-                                                                                                 <option value=""
+                                                                                                <option value=""
                                                                                                         disabled="disabled"
                                                                                                         selected="selected">
                                                                                                     Maximum Stay
@@ -905,9 +925,9 @@
                                                                                                        placeholder="Enter your address"
                                                                                                        type="text"
                                                                                                        name="property_address"
-																									   data-toggle="tooltip"
-                                                                              data-placement="right"
-                                                                              title="Start typing your address starting with your street number and
+                                                                                                       data-toggle="tooltip"
+                                                                                                       data-placement="right"
+                                                                                                       title="Start typing your address starting with your street number and
 																					 select from the drop down list. Do not include your unit number. 
 																					 Your exact address will not be shared with other members."
                                                                                                 />
@@ -1069,7 +1089,8 @@
                                                                                 <div class="row mt-3">
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-																						<label>Type of property</label>
+                                                                                            <label>Type of property
+                                                                                            </label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_property_type"
                                                                                                     name="">
@@ -1094,7 +1115,8 @@
                                                                                     </div>
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-																							<label> Total bedrooms</label>
+                                                                                            <label>Total bedrooms
+                                                                                            </label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_total_bedroom"
                                                                                                     name="">
@@ -1120,7 +1142,8 @@
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-																							<label> Total bathrooms</label>
+                                                                                            <label>Total bathrooms
+                                                                                            </label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_total_bathroom"
                                                                                                     name="">
@@ -1149,7 +1172,8 @@
                                                                                     </div>
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-																							<label> Total flatmates</label>
+                                                                                            <label>Total flatmates
+                                                                                            </label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_total_flatmates"
                                                                                                     name="">
@@ -1174,7 +1198,9 @@
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-																							<label> Is internet available?</label>
+                                                                                            <label>Is internet
+                                                                                                available?
+                                                                                            </label>
 
                                                                                             <select class="form-control"
                                                                                                     id="edit_internet"
@@ -1200,7 +1226,9 @@
                                                                                     </div>
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-																							<label> Is parking available?</label>
+                                                                                            <label>Is parking
+                                                                                                available?
+                                                                                            </label>
                                                                                             <select class="form-control"
                                                                                                     id="edit_parking"
                                                                                                     name="">
@@ -1295,10 +1323,13 @@
                                             <div class="room-txt mt-2 text-center">
                                                 Flatmates
                                                 <span style="width:14px;">
-													<span class="popovers" data-toggle="popover" data-placement="top" data-trigger="hover" title="" data-content="Total number of flatmates once all rooms are occupied &#60;a href='#occupantsDescription' &#62;About the Flatmates&#60;/a&#62;" data-original-title="">
-                                                    <i data-tip="true" data-for="featureTooltip"
-                                                       class="fa fa-question-circle" currentitem="false"></i>
-													</span>
+                                                    <span class="popovers" data-toggle="popover" data-placement="top"
+                                                          data-trigger="hover" title=""
+                                                          data-content="Total number of flatmates once all rooms are occupied &#60;a href='#occupantsDescription' &#62;About the Flatmates&#60;/a&#62;"
+                                                          data-original-title="">
+                                                        <i data-tip="true" data-for="featureTooltip"
+                                                           class="fa fa-question-circle" currentitem="false"></i>
+                                                    </span>
                                                 </span>
                                             </div>
                                         </div>
@@ -1357,11 +1388,14 @@
                                                                               flatemates should know about
                                                                               before they enquire?"></textarea>
                                                                 </div>
-                                                                    <span class="not_include_contact_info">
-					                    <svg class="warning-shield" viewBox="0 0 50 50">
-										<path class="fill" d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z">
-						</path>
-																		</svg> Do not include your contact information</span>
+                                                                <span class="not_include_contact_info">
+                                                                    <svg class="warning-shield" viewBox="0 0 50 50">
+                                                                        <path class="fill"
+                                                                              d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    Do not include your contact information
+                                                                </span>
 
                                                                 <button type="button"
                                                                         id="update_about_property_desc"
@@ -1653,7 +1687,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="backpackers"></t> welcome
+                                                    <t t-esc="backpackers"></t>
+                                                    welcome
                                                 </a>
                                             </div>
                                         </t>
@@ -1676,7 +1711,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="smokers"></t> accepted
+                                                    <t t-esc="smokers"></t>
+                                                    accepted
                                                 </a>
                                             </div>
                                         </t>
@@ -1699,7 +1735,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="fourty_year_old"></t> welcome
+                                                    <t t-esc="fourty_year_old"></t>
+                                                    welcome
                                                 </a>
                                             </div>
                                         </t>
@@ -1722,7 +1759,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="pets"></t> considered
+                                                    <t t-esc="pets"></t>
+                                                    considered
                                                 </a>
                                             </div>
                                         </t>
@@ -1745,7 +1783,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="on_welfare"></t> welcome
+                                                    <t t-esc="on_welfare"></t>
+                                                    welcome
                                                 </a>
                                             </div>
                                         </t>
@@ -1768,7 +1807,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="LGBTI"></t> + friendly
+                                                    <t t-esc="LGBTI"></t>
+                                                    + friendly
                                                 </a>
                                             </div>
                                         </t>
@@ -1791,7 +1831,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="children"></t> considered
+                                                    <t t-esc="children"></t>
+                                                    considered
                                                 </a>
                                             </div>
                                         </t>
@@ -1814,7 +1855,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="retirees"></t> welcome
+                                                    <t t-esc="retirees"></t>
+                                                    welcome
                                                 </a>
                                             </div>
                                         </t>
@@ -1836,7 +1878,8 @@
                                                     </svg>
                                                 </span>
                                                 <a class="property-rounded-btn-link" href="">
-                                                    <t t-esc="students"></t> accepted
+                                                    <t t-esc="students"></t>
+                                                    accepted
                                                 </a>
                                             </div>
                                         </t>
@@ -2024,7 +2067,7 @@
 
                                 <div class="room-details">
                                     <div class="property-preferences">
-                                            <div class="row">
+                                        <div class="row">
                                             <t t-if="weekly_budget">
                                                 <div class="col-lg-6 col-md-6 col-12">
                                                     <div class="property-preferences-list mt-2 mb-2">
@@ -2041,12 +2084,13 @@
                                                             <li>
                                                                 <span class="property-preferences-list-subtitle">
 
-                                                                        $<t t-esc="weekly_budget"></t> Weekly Rent
+                                                                    $<t t-esc="weekly_budget"></t> Weekly Rent
 
                                                                 </span>
                                                             </li>
                                                             <li>
-                                                                <span class="property-preferences-list-title">$<t t-esc="bond_id"/>
+                                                                <span class="property-preferences-list-title">$
+                                                                    <t t-esc="bond_id"/>
                                                                     bond
                                                                 </span>
                                                             </li>
@@ -2080,12 +2124,14 @@
                                                         <ul>
                                                             <li>
                                                                 <span class="property-preferences-list-subtitle">
-                                                                    Bills <t t-esc="bill_id"/>
+                                                                    Bills
+                                                                    <t t-esc="bill_id"/>
                                                                 </span>
                                                             </li>
                                                             <li>
                                                                 <span class="property-preferences-list-title">
-                                                                   Internet <t t-esc="internet_id"/>
+                                                                    Internet
+                                                                    <t t-esc="internet_id"/>
                                                                 </span>
                                                             </li>
                                                         </ul>
@@ -2106,7 +2152,9 @@
                                                             </svg>
                                                         </span>
 
-                                                        <span class="property-preferences-list-subtitle"><t t-esc="room_type_id"/> room
+                                                        <span class="property-preferences-list-subtitle">
+                                                            <t t-esc="room_type_id"/>
+                                                            room
                                                         </span>
 
                                                     </div>
@@ -2143,7 +2191,9 @@
                                                         </span>
 
 
-                                                        <span class="property-preferences-list-subtitle"> <t t-esc="bath_room_type_id"/> bathroom
+                                                        <span class="property-preferences-list-subtitle">
+                                                            <t t-esc="bath_room_type_id"/>
+                                                            bathroom
                                                         </span>
 
                                                     </div>
@@ -2169,7 +2219,7 @@
                                                             <li>
                                                                 <span class="property-preferences-list-subtitle">
                                                                     <t t-if="min_len_stay_id == 1">
-                                                                         Flexible length of stay
+                                                                        Flexible length of stay
                                                                     </t>
                                                                     <t t-else="min_len_stay_id != 1">
                                                                         <t t-esc="min_len_stay_name"></t>
@@ -2178,7 +2228,7 @@
                                                             </li>
                                                             <li>
                                                                 <span class="property-preferences-list-title">Available
-                                                                        <t t-esc="avil_date"></t>
+                                                                    <t t-esc="avil_date"></t>
                                                                 </span>
                                                             </li>
                                                         </ul>
@@ -2231,7 +2281,8 @@
                                                         </span>
 
 
-                                                        <span class="property-preferences-list-subtitle"><t t-esc="room_furnishing_id"/>
+                                                        <span class="property-preferences-list-subtitle">
+                                                            <t t-esc="room_furnishing_id"/>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -2258,20 +2309,21 @@
 
 
                                                         <span class="property-preferences-list-subtitle">
-                                                                <t t-esc="parking_id"></t>
+                                                            <t t-esc="parking_id"></t>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </t>
-                                            </div>
-
                                         </div>
+
+                                    </div>
                                 </div>
 
                                 <hr class="mt-5 mb-3"/>
 
                                 <h3 id="occupantsDescription">About the flatmates
-                                <button type="button" id="edit_about_flatmates_btn" class="btn btn-transparent-edit btn-lg edit_about_the_flamtates"
+                                    <button type="button" id="edit_about_flatmates_btn"
+                                            class="btn btn-transparent-edit btn-lg edit_about_the_flamtates"
                                             data-toggle="modal"
                                             data-target="#about_the_flatmates_popup">
                                         <i class="fa fa-pencil"></i>
@@ -2279,7 +2331,8 @@
                                     </button>
                                 </h3>
 
-                                <div class="modal fade modal_shown about_the_flatmates_pop" id="about_the_flatmates_popup"
+                                <div class="modal fade modal_shown about_the_flatmates_pop"
+                                     id="about_the_flatmates_popup"
                                      role="dialog" style="display: none;" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -2295,35 +2348,40 @@
                                                     <div class="row">
                                                         <div class="col-lg-11 mx-auto">
                                                             <!--<form action="/action_page.php">-->
-                                                                <h3 class="text-center mb-5">Tell us little about you and your flatmates
-                                                                </h3>
+                                                            <h3 class="text-center mb-5">Tell us little about you and
+                                                                your flatmates
+                                                            </h3>
 
-                                                                <div class="form-group mt-4 mb-2 edit_about_flatmates_div"
-                                                                     style="display: none;">
-                                                                </div>
+                                                            <div class="form-group mt-4 mb-2 edit_about_flatmates_div"
+                                                                 style="display: none;">
+                                                            </div>
 
-                                                                <div class="form-group mt-4 mb-2">
-                                                                    <textarea class="form-control" rows="4"
-                                                                              id="edit_about_flatmates"
-                                                                              name="" placeholder=""
-                                                                              data-toggle="tooltip"
-                                                                              data-placement="right"
-                                                                              title="Tell your future flatmate about who they
+                                                            <div class="form-group mt-4 mb-2">
+                                                                <textarea class="form-control" rows="4"
+                                                                          id="edit_about_flatmates"
+                                                                          name="" placeholder=""
+                                                                          data-toggle="tooltip"
+                                                                          data-placement="right"
+                                                                          title="Tell your future flatmate about who they
                                                                               will be living with. Who are the flatmates, what do
                                                                               they do , where are they from and what do they
                                                                               do for fun , Remember to include what sort of person
                                                                               you are looking for to join your home."></textarea>
-                                                                </div>
-                                                            <span class="not_include_contact_info"> <svg class="warning-shield" viewBox="0 0 50 50">
-<path class="fill" d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z">
-</path>
-</svg>Do not include your contact information</span>
+                                                            </div>
+                                                            <span class="not_include_contact_info">
+                                                                <svg class="warning-shield" viewBox="0 0 50 50">
+                                                                    <path class="fill"
+                                                                          d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z">
+                                                                    </path>
+                                                                </svg>
+                                                                Do not include your contact information
+                                                            </span>
 
-                                                                <button type="button"
-                                                                        id="update_about_flatmates_desc"
-                                                                        class="btn btn-green1 mt-5 mb-4 btn-block"
-                                                                        data-dismiss="modal">Update
-                                                                </button>
+                                                            <button type="button"
+                                                                    id="update_about_flatmates_desc"
+                                                                    class="btn btn-green1 mt-5 mb-4 btn-block"
+                                                                    data-dismiss="modal">Update
+                                                            </button>
                                                             <!--</form>-->
                                                         </div>
                                                     </div>
@@ -2358,13 +2416,18 @@
                                                 <h3>
                                                     <t t-esc="user_name"/>
                                                 </h3>
-                                                <div class="last-active"><t t-esc="last_login"/></div>
+                                                <div class="last-active">
+                                                    <t t-esc="last_login"/>
+                                                </div>
                                                 <!--<p>Online Today</p>-->
                                                 <div class="login-form-rounded-btn">Response rate: 100%
-                                                    <span class="popovers" data-toggle="popover" data-placement="top" data-trigger="hover" title="" data-content="Percent of conversations this user has responded to. &#60;a href='/info/message-response-rate' &#62;Learn more&#60;/a&#62;" data-original-title="">
-													<i data-tip="true" data-for="responseRateTooltip"
-                                                       class="fa fa-question-circle" currentitem="false"></i>
-														</span>
+                                                    <span class="popovers" data-toggle="popover" data-placement="top"
+                                                          data-trigger="hover" title=""
+                                                          data-content="Percent of conversations this user has responded to. &#60;a href='/info/message-response-rate' &#62;Learn more&#60;/a&#62;"
+                                                          data-original-title="">
+                                                        <i data-tip="true" data-for="responseRateTooltip"
+                                                           class="fa fa-question-circle" currentitem="false"></i>
+                                                    </span>
                                                 </div>
 
 
@@ -2506,106 +2569,121 @@
 
                                     </div>
 
-                                    <div class="col-12 text-muted report-this-person text-center mt-2" data-target="#report_this_person_popup"
-                                           data-toggle="modal">
-                                                <span class="icon">
-                                                    <svg class="warning-shield" width="16" height="16"
-                                                         viewBox="0 0 50 50">
-                                                        <path class="fill"
-                                                              d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z"></path>
-                                                    </svg>
-                                                </span>
+                                    <div class="col-12 text-muted report-this-person text-center mt-2"
+                                         data-target="#report_this_person_popup"
+                                         data-toggle="modal">
+                                        <span class="icon">
+                                            <svg class="warning-shield" width="16" height="16"
+                                                 viewBox="0 0 50 50">
+                                                <path class="fill"
+                                                      d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z"></path>
+                                            </svg>
+                                        </span>
 
-                                                <span>
-                                                    Report this person
-                                                </span>
-                                            </div>
+                                        <span>
+                                            Report this person
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="modal fade report-thisnumber" id="report_this_person_popup" role="dialog">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close close-conversation-delete-popup"
-                                                    data-dismiss="modal"
-                                                    aria-label="Close">
-                                                ×
-                                            </button>
-                                        </div>
-                                        <main class="modal-body">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-lg-10 mx-auto">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close close-conversation-delete-popup"
+                                                data-dismiss="modal"
+                                                aria-label="Close">
+                                            ×
+                                        </button>
+                                    </div>
+                                    <main class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-10 mx-auto">
 
-                                                        <h4 class="text-center mt-4 mb-4"
-                                                            id="">Report this member
-                                                        </h4>
-                                                        <!--<form action="">-->
-                                                        <div class="form-group">
-                                                            <h4>Reason for report</h4>
-                                                            <select class="form-control report-reason" id="feedback_category_id"
-                                                                    name="feedback_category">
-                                                                <option value="">Please select
-                                                                </option>
-                                                                <option value="no_longer_available">No longer
-                                                                    available
-                                                                </option>
-                                                                <option value="incorrect_information">Listing contains
-                                                                    incorrect
-                                                                    information
-                                                                </option>
-                                                                <option value="suspected_scammer">Suspected scammer
-                                                                </option>
-                                                                <option value="offensive_content">Contains offensive or
-                                                                    inappropriate content
-                                                                </option>
-                                                                <option value="contact_information">Listing contains
-                                                                    contact
-                                                                    information
-                                                                </option>
-                                                                <option value="copyright_material">Listing contains
-                                                                    copyright
-                                                                    material
-                                                                </option>
-                                                                <option value="bug">Bug/Problem with website</option>
-                                                                <option value="spam">Spam/Commercial unrelated to share
-                                                                    accommodation
-                                                                </option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <!--<h4 class="">Tell us what you are reporting about</h4>-->
-                                                            <h4 class="no-longer-available-label d-none">How do you know the listing is no longer available?</h4>
-                                                            <h4 class="incorrect-information-label d-none">Which information is incorrect?</h4>
-                                                            <h4 class="suspected-scammer-label d-none">Why do you think this person could be a scammer?</h4>
-                                                            <h4 class="offensive-content-label d-none">Please let us know the issue</h4>
-                                                            <h4 class="contact-information-label d-none">Please let us know which part of the listing has contact information</h4>
-                                                            <h4 class="copyright-material-label d-none">Which part of the listing contains copyright material?</h4>
-                                                            <h4 class="bug-label d-none">What issue did you face?</h4>
-                                                            <h4 class="spam-label d-none">Please let us know the issue</h4>
-                                                        </div>
-                                                        <div class="form-group d-none feedback-text">
-                                                            <div class="feedback_details">
-                                                                <input class="form-control feedback-text-field"
-                                                                       id="feedback_input_id"
-                                                                       name="feedback_details" type="text" value=""/>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <button class="btn btn-block btn-green1 submit-feedback-btn"
-                                                                    type="button" disabled="disabled" style="background-color:gray;">Submit
-                                                            </button>
-                                                        </div>
-                                                        <!--</form>-->
+                                                    <h4 class="text-center mt-4 mb-4"
+                                                        id="">Report this member
+                                                    </h4>
+                                                    <!--<form action="">-->
+                                                    <div class="form-group">
+                                                        <h4>Reason for report</h4>
+                                                        <select class="form-control report-reason"
+                                                                id="feedback_category_id"
+                                                                name="feedback_category">
+                                                            <option value="">Please select
+                                                            </option>
+                                                            <option value="no_longer_available">No longer
+                                                                available
+                                                            </option>
+                                                            <option value="incorrect_information">Listing contains
+                                                                incorrect
+                                                                information
+                                                            </option>
+                                                            <option value="suspected_scammer">Suspected scammer
+                                                            </option>
+                                                            <option value="offensive_content">Contains offensive or
+                                                                inappropriate content
+                                                            </option>
+                                                            <option value="contact_information">Listing contains
+                                                                contact
+                                                                information
+                                                            </option>
+                                                            <option value="copyright_material">Listing contains
+                                                                copyright
+                                                                material
+                                                            </option>
+                                                            <option value="bug">Bug/Problem with website</option>
+                                                            <option value="spam">Spam/Commercial unrelated to share
+                                                                accommodation
+                                                            </option>
+                                                        </select>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <!--<h4 class="">Tell us what you are reporting about</h4>-->
+                                                        <h4 class="no-longer-available-label d-none">How do you know the
+                                                            listing is no longer available?
+                                                        </h4>
+                                                        <h4 class="incorrect-information-label d-none">Which information
+                                                            is incorrect?
+                                                        </h4>
+                                                        <h4 class="suspected-scammer-label d-none">Why do you think this
+                                                            person could be a scammer?
+                                                        </h4>
+                                                        <h4 class="offensive-content-label d-none">Please let us know
+                                                            the issue
+                                                        </h4>
+                                                        <h4 class="contact-information-label d-none">Please let us know
+                                                            which part of the listing has contact information
+                                                        </h4>
+                                                        <h4 class="copyright-material-label d-none">Which part of the
+                                                            listing contains copyright material?
+                                                        </h4>
+                                                        <h4 class="bug-label d-none">What issue did you face?</h4>
+                                                        <h4 class="spam-label d-none">Please let us know the issue</h4>
+                                                    </div>
+                                                    <div class="form-group d-none feedback-text">
+                                                        <div class="feedback_details">
+                                                            <input class="form-control feedback-text-field"
+                                                                   id="feedback_input_id"
+                                                                   name="feedback_details" type="text" value=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-block btn-green1 submit-feedback-btn"
+                                                                type="button" disabled="disabled"
+                                                                style="background-color:gray;">Submit
+                                                        </button>
+                                                    </div>
+                                                    <!--</form>-->
                                                 </div>
                                             </div>
-                                        </main>
-                                    </div>
+                                        </div>
+                                    </main>
                                 </div>
                             </div>
+                        </div>
 
 
                         <!--<div class="row mt-3">-->

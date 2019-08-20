@@ -385,6 +385,8 @@ $(document).on('change','#change_photos',function()
 //                    console.log ("Result 2",array_of_image.length)
 
                     $(document).find('.add-photos-list_preview').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-list-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
+//                    $(document).find('.add-photos-list_preview').append('<span class="slider"><span class="set-as-featured"><svg width="20" height="14"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(-177.000000, -2502.000000) "stroke="#13D0AB" stroke-width="2"><g transform="translate(0.000000, 668.000000)"><polyline points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline></g></g></g></svg>Set as featured</span><span class="delete-slider"><i class="fa fa-trash fa-2x delete-list-image"></i></span><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
+
 //                    if (array_of_image.length == files_rec.files.length)
                     if (files_rec.files.length == array_of_image.length)
                     {

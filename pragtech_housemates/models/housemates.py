@@ -170,7 +170,7 @@ class PropertyImage(models.Model):
     name = fields.Char('Name')
     image = fields.Binary('Image', attachment=True)
     flat_mates_id = fields.Many2one('house.mates', 'Related Property', copy=True)
-
+    is_featured = fields.Boolean("Featured")
 
 class AboutRooms(models.Model):
     _name = 'about.rooms'

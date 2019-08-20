@@ -24,7 +24,7 @@ $(document).ready(function() {
         //form data of What type of accommodation are you offering? Page
         $( "#find_about_flatmates" ).submit(function( event ) {
         var record_array = JSON.parse(localStorage.getItem('find_place_record'))
-        if (record_array[0])
+        if (record_array && record_array[0])
         {
             var find_property_looking_for = []
             var find_teamups_status = $("input[name=temaups]").is(":checked")
@@ -111,7 +111,7 @@ $(document).ready(function() {
 
             console.log('SUBURBSSSSSS ::' , record_array[0]['suburbs'])
 //            event.preventDefault();
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -352,7 +352,7 @@ $(document).ready(function() {
         //form data of What type of accommodation are you offering? Page
         $( "#list_place_accommodation_form_id" ).submit(function( event ) {
          var oldArray = JSON.parse(localStorage.getItem('list_place_array'));
-            if (oldArray[0]){
+            if (oldArray && oldArray[0]){
 
 //                localStorage.setItem('list_place_array',localStorage.getItem('list_place_array'))
                   console.log("  iffffffffffffffffffffffffff",oldArray)

@@ -3,8 +3,8 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
         var current_location = window.location.pathname
         if(current_location == '/find-place/describe-your-ideal-place/accommodation'){
              var local_storage_data = JSON.parse(localStorage.getItem('find_place_record'))
-             console.log("------ find place ----",local_storage_data.length)
-             if(local_storage_data.length != 0){
+//             console.log("------ find place ----",local_storage_data.length)
+             if(local_storage_data && local_storage_data[0]){
              if(local_storage_data[0]['find_property_looking_for']){
              for (var i =0 ; i< local_storage_data[0]['find_property_looking_for'].length;i++){
 
