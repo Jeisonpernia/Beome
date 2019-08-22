@@ -684,8 +684,10 @@ $('#tag_complete_id').addClass('has_autocomplete')
 
 $(document).click(function(event){
 var is_shown = $(".search-dropdown-responsive").hasClass("show")
-//console.log("\n\n is_show",is_shown,$( event.target ).is( "div" ))
-    if ($( event.target ).is( "div" ) == true && is_shown == true ){
+var search_button = $('.search-btn-close').hasClass('d-done')
+console.log("\n\n is_show",is_shown,$( event.target ).is( "div" ),search_button)
+
+    if ($( event.target ).is( "div" ) == true && is_shown == true && search_button == false && $(window).width() > 768){
       $("#dropdownMenuButton").hide();
 //      $(".search-btn-close").addClass('d-none')
       location.reload()

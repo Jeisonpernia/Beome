@@ -596,8 +596,10 @@
                                                                             <!--</select>-->
                                                                         </div>
                                                                     </div>
-                                                                </div>
 
+                                                                </div>
+                                                                <a href="#" class="for-couple-gender" id="add_other_person">+Add another person</a>
+                                                                <input type="number" value="3" id="dynamic_id_generator" style="display:none;"/>
                                                                 <button type="button"
                                                                         id="update_applicant_info"
                                                                         class="btn btn-green1 mt-3 mb-4 btn-block"
@@ -1062,6 +1064,14 @@
 
                                                                     ></textarea>
                                                                 </div>
+                                                                <span class="not_include_contact_info">
+                                                                    <svg class="warning-shield" viewBox="0 0 50 50">
+                                                                        <path class="fill"
+                                                                              d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    Do not include your contact information
+                                                                </span>
 
                                                                 <button type="button"
                                                                         id="update_about_me"

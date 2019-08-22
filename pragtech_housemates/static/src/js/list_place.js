@@ -94,9 +94,11 @@ $(document).ready(function()
 
 // Room availability
 // Code added  by dhrup
+
         $('#txtdate').on('keyup change',function()
         		{
         		    $('#txtdate').prop("readonly",true)
+
 
         		});
 

@@ -5,15 +5,20 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
             $("#dashboard_user").on('click',function()
             {
 //                console.log ("In jsssssssssss")
+
                 $.ajax({
                     url: '/blogs_for_login',
                     type: "POST",
                     dataType: 'json',
                     contentType: 'application/json',
-                    async:false,
+//                    async:false,
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                     beforeSend: function() {
+                     $('.user_loader').show();
+                     },
                     success: function(data)
                     {
+                    $('.user_loader').hide();
                         var ul = $(".dashboard_blogs")
                         var blog_blog_id
                         var blog_blog_name
@@ -179,6 +184,10 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
 
 
                     },
+//                    complete:function(){
+//                    $('.user_loader').hide()
+//                    }
+
                 });
             });
 

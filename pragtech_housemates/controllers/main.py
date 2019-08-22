@@ -5013,9 +5013,13 @@ class FlatMates(http.Controller):
                             'couple': person_list
                         })
                 if house_mates_id.place_for == "group":
-                    pass
+                    person_list = []
+                    for person in house_mates_id.person_ids:
+                        person_list.append([person.name, person.gender, person.age])
 
-        print('\n\ndata dict : ',data_dict,'\n\n')
+                    data_dict.update({
+                        'group': person_list
+                    })
 
         return data_dict
 
@@ -5072,6 +5076,13 @@ class FlatMates(http.Controller):
                         new_line_id = request.env['about.person'].sudo().create(line_dict2)
 
                     if kwargs.get('place_for') == 'group':
+                        for person in house_mates_id.person_ids:
+                            person.sudo().unlink()
+                        for key in kwargs:
+                            if isinstance(kwargs[key], dict):
+                                line_dict_custom = kwargs[key]
+                                line_dict_custom['housemate_id'] = house_mates_id.id
+                                request.env['about.person'].sudo().create(line_dict_custom)
                         pass
         return True
 

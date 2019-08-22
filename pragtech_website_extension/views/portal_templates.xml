@@ -86,22 +86,30 @@
                                     </li>
                                 </ul>
                             </div>
+
                         </div>
+
                         <div role="dialog" id="signup_popup_id" class="modal p-0" tabindex="-1" t-ignore="true">
+
                             <div class="modal-dialog top-menu-dropdown">
                                 <form role="form">
                                     <div class="modal-content">
+
+
                                         <header class="modal-header">
                                             <button type="button" class="close close_signup_popup_id" data-dismiss="modal" aria-label="Close">
                                                 ×
                                             </button>
                                         </header>
-                                        <main class="modal-body">
+                                        <main class="modal-body" style="overflow: hidden;">
                                             <div class="row">
+                                                <div class="user_loader" style="display:none;"></div>
                                                 <div class="col-lg-3 col-md-3 mt-5 mb-5">
+
                                                     <div class="card">
 
                                                         <div class="row">
+
                                                             <!--<<<<<<< HEAD-->
                                                             <!--<div class="col-lg-4 mx-auto dash-profile-pic">-->
                                                             <!--<div class="image-upload">-->
@@ -527,6 +535,7 @@
                                 </form>
                             </div>
                         </div>
+
                         <!--Mobile number display dialog-->
                         <div class="modal fade" id="show_mobile_number" role="dialog">
                             <div class="modal-dialog">

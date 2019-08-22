@@ -68,6 +68,16 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
             console.log('7&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7')
             console.log("Current Finding id :",current_finding_id)
 
+            $('.not_include_contact_info').hide()
+
+            $("#about_me_text_id").click(function(){
+             console.log('dddddddddddddddddddddddddddddd')
+            $('.not_include_contact_info').show()
+            })
+            $("#about_me_text_id").blur(function(){
+            $('.not_include_contact_info').hide()
+            })
+
             $.ajax({
                     url: '/get_about_me_data',
                     type: "POST",
@@ -84,6 +94,8 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
             })
 
          })
+
+
 
          $("#update_about_me").on('click',function(){
 
@@ -395,15 +407,44 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                                 $("#person_accommodation_for_1").click()
 
                             }
+                            if(data['result']['group']){
+                                var persons = data['result']['group']
+                                $("#edit_first_name_1").val(persons[0][0])
+                                $("#edit_gender_1").val(persons[0][1])
+                                $("#edit_age_1").val(persons[0][2].toString())
+
+                                $("#edit_first_name_2").val(persons[1][0])
+                                $("#edit_gender_2").val(persons[1][1])
+                                $("#edit_age_2").val(persons[1][2].toString())
+
+
+                                if (persons.length > 2)
+                                {
+                                    for (var i = 2; i <= persons.length - 1; i++){
+                                        $("#add_other_person").click()
+                                        var dynamic_id = document.getElementById("dynamic_id_generator").value;
+                                        dynamic_id = dynamic_id -1
+                                         $("#edit_first_name_" + dynamic_id.toString()).val(persons[i][0])
+                                        $("#edit_gender_" + dynamic_id.toString()).val(persons[i][1])
+                                        $("#edit_age_" + dynamic_id.toString()).val(persons[i][2].toString())
+
+                                    }
+                                }
+                                $("#person_accommodation_for_2").click()
+
+
+                            }
+
                         }
                     }
             });
         })
-
         $("#person_accommodation_for_0").on('click',function(){
                 $(".for-couple-first_name").css('display','none')
                 $(".for-couple-gender").css('display','none')
                 $(".for-couple-age").css('display','none')
+                $(".added_by_code").css('display','none')
+
         })
 
         $("#person_accommodation_for_1").on('click',function(){
@@ -411,6 +452,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                 $(".for-couple-first_name").css('display','block')
                 $(".for-couple-gender").css('display','block')
                 $(".for-couple-age").css('display','block')
+                $(".added_by_code").css('display','none')
 
         })
 
@@ -418,8 +460,86 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                 $(".for-couple-first_name").css('display','block')
                 $(".for-couple-gender").css('display','block')
                 $(".for-couple-age").css('display','block')
+                $(".added_by_code").css('display','block')
 
         //            $(".add_more_applicant").append("<div class='col-lg-4'><div class='form-group'><label class='p14'>First name</label><input type='text' class='form-control' id='' name=''/></div></div><div class='col-lg-4'><div class='form-group'><label class='p14'>Gender</label><select class='form-control' id='' name=''><option>Please select</option><option>Female</option><option>Male</option></select></div></div><div class='col-lg-4'><div class='form-group'><label class='p14'>Age</label><select class='custom-select' id='' name=''><option>25</option></select></div></div>")
+
+        })
+        $("#add_other_person").on('click',function(){
+            var add_more_applicant = document.getElementsByClassName("add_more_applicant");
+            var dynamic_id = document.getElementById("dynamic_id_generator").value;
+            //First Name
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code";
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'First name'
+            div.append(label);
+            var input = document.createElement("input");
+            input.type = 'text'
+            input.className = 'form-control'
+            input.id = 'edit_first_name_' + dynamic_id.toString()
+            div.append(input)
+
+            //Gender
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code";
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'Gender'
+            div.append(label);
+            var select = document.createElement("select");
+            select.className = 'form-control manual_added_gender'
+            select.id = 'edit_gender_' + dynamic_id.toString()
+            var option1 = document.createElement("option");
+            option1.selected = 'selected'
+            option1.innerHTML = 'Please select'
+            $(option1)[0].disabled = true
+
+
+            var option2 = document.createElement("option");
+            option2.value = 'female'
+            option2.innerHTML = 'Female'
+
+            var option3 = document.createElement("option");
+            option3.value = 'male'
+            option3.innerHTML = 'male'
+
+            select.append(option1)
+            select.append(option2)
+            select.append(option3)
+            div.append(select)
+
+            //age
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code";
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'Age'
+            div.append(label);
+            var input = document.createElement("input");
+            input.type = 'number'
+            input.className = 'form-control weekly-rent-input'
+            input.id = 'edit_age_' + dynamic_id.toLocaleString()
+            div.append(input)
+
+            document.getElementById("dynamic_id_generator").value = parseInt(dynamic_id) + 1
+
+
+
+
 
         })
 
@@ -464,8 +584,28 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
             if($('#person_accommodation_for_2').is(':checked')){
                 console.log('Groupppppppppppppppppp')
+                data ['place_for'] = "group"
+                 var person1_name = $("#edit_first_name_1").val()
+                 var person1_gender = $("#edit_gender_1").val()
+                 var person1_age = $("#edit_age_1").val()
+                 data[1] = {'name': person1_name, 'gender': person1_gender, 'age': person1_age}
+                 var person2_name = $("#edit_first_name_2").val()
+                 var person2_gender = $("#edit_gender_2").val()
+                 var person2_age = $("#edit_age_2").val()
+                data[2] = {'name': person2_name, 'gender': person2_gender, 'age': person2_age}
+                var count = $("#dynamic_id_generator").val()
+                for (var i = 3; i < count; i++){
+                    var person_name = $("#edit_first_name_" + i.toString()).val()
+                     var person_gender = $("#edit_gender_" +  i.toString()).val()
+                     var person_age = $("#edit_age_" + i.toString()).val()
+                    data[i] = {'name': person_name, 'gender': person_gender, 'age': person_age}
+
+                }
+
+
             }
             console.log('data >> ',data)
+
             $.ajax({
                     url: '/update_applicant_info',
                     type: "POST",

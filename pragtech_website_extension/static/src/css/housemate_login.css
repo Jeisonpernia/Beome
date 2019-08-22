@@ -167,6 +167,22 @@
 	color: #495057;
 }
 
+#report_this_person_popup input, #report_this_person_popup select{
+	height: 50px;
+}
+
+#report_this_person_popup select:focus, #report_this_person_popup select:focus{
+	background: #37bc9b;
+	border:1px solid #37bc9b;
+	outline: 0px;
+	color: #fff;
+}
+
+#report_this_person_popup select > option, #report_this_person_popup select > option{
+	background: #fff;
+	color: #495057;
+}
+
 #deactivate_account_popup p{
 	font-size: 16px;
 }

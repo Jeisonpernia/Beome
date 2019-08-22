@@ -285,6 +285,7 @@ $('input').focus(function(){
   if (!$(this).siblings().hasClass('currency')){
   $(this).siblings().addClass('focused')
   }
+
 });
 
 $('input').blur(function(){
