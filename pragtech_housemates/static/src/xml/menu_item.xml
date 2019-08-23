@@ -960,4 +960,12 @@
 
 
     </template>
+    <template id="inherited_my_portal" inherit_id="portal.portal_layout" name="Inherit My Portal">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div class="my_portal_loader" style="display:none;"></div>
+
+        </xpath>
+    </template>
+
+
 </odoo>

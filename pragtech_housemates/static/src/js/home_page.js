@@ -18,7 +18,23 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
     });
 
     if(window.location.pathname == '/my'){
-    window.location.replace('/')
+    $.ajax({
+                url : "/replace_page",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                 beforeSend: function() {
+                     $('.my_portal_loader').show();
+                     },
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'path':window.location.pathname}}),
+                success : function(result) {
+                $('.my_portal_loader').hide();
+                window.location.replace('/')
+                }
+
+
+                  })// work after controller method return
+
     }
 
     $(document).on('click','.property-rounded-btn-location-link',function(){
@@ -676,7 +692,7 @@ $('#tag_complete_id').removeClass('has_autocomplete')
 else
 {
 $('#autocomplete-id').show();
-$('#tag_complete_id').addClass('has_autocomplete')
+//$('#tag_complete_id').addClass('has_autocomplete')
 
 }
 })

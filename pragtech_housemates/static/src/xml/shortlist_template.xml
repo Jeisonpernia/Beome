@@ -6,6 +6,7 @@
 
 
                 <section>
+                    <div class="shortlist_loader" style="display:none;"></div>
                     <div class="container empty-shortlist">
                         <div class="col-md-12 mt16 mb16 text-center">
                             <div class="no-shortlist-results">

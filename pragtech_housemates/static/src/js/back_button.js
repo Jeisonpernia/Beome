@@ -210,12 +210,15 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
 
           if (window.location.pathname=='/listplace/'+accommodation_type+'/about-rooms' && localStorage.getItem('list_place_array')){
                 var local_storage_data = JSON.parse(localStorage.getItem('list_place_array'))
+                console.log("======= back button click======",local_storage_data)
                if(local_storage_data.length != 0 && local_storage_data[0]){
-                if(local_storage_data[0]['rooms_data']){
+                if(local_storage_data[0]['rooms_data'] && local_storage_data[0]['rooms_data'][0]){
                 $.each($(document).find('input[name=room_type_0]'), function(){
                     if($(this).val() == local_storage_data[0]['rooms_data'][0]['Room_1']['room_type'])
                     {
+                        console.log("\n\n------ in test-------",local_storage_data,$(this))
                         $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=room_type_0]').attr('checked','checked')
                     }
                 })
 
@@ -224,6 +227,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                     if($(this).val() == local_storage_data[0]['rooms_data'][0]['Room_1']['room_furnishing_types'])
                     {
                         $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=room_furnishing_types_0]').attr('checked','checked')
                     }
                 })
 
@@ -231,6 +235,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                     if($(this).val() == local_storage_data[0]['rooms_data'][0]['Room_1']['room_furnishing_types'])
                     {
                         $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=bathroom_types_0]').attr('checked','checked')
                     }
                 })
 
@@ -317,6 +322,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-backpackers').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=backpackers]").attr('checked','checked')
                  }
 
                  else if(local_storage_data[0]['accepting'][i] == 'students'){
@@ -326,6 +332,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-students').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=students]").attr('checked','checked')
                  }
 
                  else if(local_storage_data[0]['accepting'][i] == 'smokers'){
@@ -335,6 +342,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-smokers').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=smokers]").attr('checked','checked')
                  }
 
                  else if(local_storage_data[0]['accepting'][i] == 'LGBTI'){
@@ -344,6 +352,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-lgbt-friendly').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=LGBTI]").attr('checked','checked')
                  }
                  else if(local_storage_data[0]['accepting'][i] == '40_year_old'){
                      $('#set-over-40').removeClass('items-cirle-hover')
@@ -352,6 +361,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-over-40').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=40_year_old]").attr('checked','checked')
                  }
 
                  else if(local_storage_data[0]['accepting'][i] == 'children'){
@@ -361,6 +371,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-children').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=children]").attr('checked','checked')
                  }
 
                  else if(local_storage_data[0]['accepting'][i] == 'pets'){
@@ -370,6 +381,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-pets').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=pets]").attr('checked','checked')
                  }
 
                  else if(local_storage_data[0]['accepting'][i] == 'retirees'){
@@ -379,6 +391,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-retirees').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=retirees]").attr('checked','checked')
                  }
 
                  else if(local_storage_data[0]['accepting'][i] == 'on_welfare'){
@@ -388,6 +401,7 @@ odoo.define('pragtech_flatmates.back_button', function (require) {
                      $('#set-benefits').prepend('<div src="" class="active_tick_icon"></div>');
                      $('.accepting-nxt-btn').prop("disabled", false);
                      $('#type_of_accomodation').val(local_storage_data[0]['accommodation_type'])
+                     $("input[id=on_welfare]").attr('checked','checked')
                  }
 
              }

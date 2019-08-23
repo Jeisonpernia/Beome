@@ -82,8 +82,12 @@ odoo.define('pragtech_flatmates.lazy_load', function (require)
                     dataType: 'json',
                     contentType: 'application/json',
                     data: data,
+                    beforeSend: function() {
+                     $('.shortlist_loader').show();
+                     },
+
                     success: function(data)
-                    {
+                    {$('.shortlist_loader').hide();
                         console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",last_record_fetched)
                         console.log ("Dataaaaaaaaaaaaaaaaaaaaaaaa",lazy_load_repeat)
 

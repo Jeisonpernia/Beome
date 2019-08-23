@@ -5364,6 +5364,12 @@ class WebsiteBlogInherit(WebsiteBlog):
             property_id.sudo().write({'state':'deleted'})
         return True
 
+    @http.route(['/replace_page'], type='json', auth="public", website=True, )
+    def replace_page(self, **kwargs):
+        print("\n\n----------edit_delete_listing-------------", kwargs)
+        if kwargs.get('path') and kwargs.get('path') == '/my':
+            return True
+
 
 
 

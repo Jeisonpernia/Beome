@@ -707,7 +707,7 @@
 
                                                     <t t-foreach="room_types" t-as="room_type">
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" name="room_type_0"
+                                                            <input type="radio" name="room_type_0" id="room_type_0"
                                                                    t-attf-value="#{room_type.id}"/>
                                                             <span t-esc="room_type.name"/>
                                                         </label>
@@ -730,7 +730,7 @@
 
                                                     <t t-foreach="room_furnishings" t-as="room_furnishing">
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" name="room_furnishing_types_0"
+                                                            <input type="radio" name="room_furnishing_types_0" id="room_furnishing_types_0"
                                                                    t-attf-value="#{room_furnishing.id}"/>
                                                             <span t-esc="room_furnishing.name"/>
                                                         </label>
@@ -756,7 +756,7 @@
 
                                                     <t t-foreach="bathroom_types" t-as="bathroom_type">
                                                         <label class="radio-inline btn bedroom-btn">
-                                                            <input type="radio" name="bathroom_types_0"
+                                                            <input type="radio" name="bathroom_types_0" id="bathroom_types_0"
                                                                    t-attf-value="#{bathroom_type.id}"/>
                                                             <span t-esc="bathroom_type.name"/>
                                                         </label>
@@ -1381,7 +1381,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-backpackers">
                                                     <input type="checkbox" name="list_accept" value="backpackers"
-                                                           class="d-none"/>
+                                                           class="d-none" id="backpackers"/>
                                                     <span class="icon">
                                                         <svg width="42" height="42">
                                                             <path d="M6.217 32.304H2.74c-.96 0-1.739-.779-1.739-1.739V18.391c0-.96.78-1.739 1.74-1.739h3.477v15.652zm29.566 0h3.478c.96 0 1.739-.779 1.739-1.739V18.391c0-.96-.78-1.739-1.74-1.739h-3.477v15.652zM32.304 41H9.696a3.478 3.478 0 0 1-3.479-3.478V7.957A6.958 6.958 0 0 1 13.174 1h15.652a6.958 6.958 0 0 1 6.957 6.957v29.565A3.478 3.478 0 0 1 32.304 41zM6.217 9.887c9.148 2.07 20.418 2.07 29.566 0m-22.61 8.504h3.48v-3.478h-3.48v3.478zm1.74-3.478V9.696m.217 13.913V18.39m10.218 0h3.478v-3.478h-3.478v3.478zm1.739-3.478V9.696m0 13.913V18.39M30.565 41h-19.13v-5.217a3.478 3.478 0 0 1 3.478-3.479h12.174a3.478 3.478 0 0 1 3.478 3.479V41zM1 20.13h5.217M1 28.826h5.217m29.566-8.696H41m-5.217 8.696H41"
@@ -1398,7 +1398,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-students">
                                                     <input type="checkbox" name="list_accept" value="students"
-                                                           class="d-none"/>
+                                                           class="d-none" id="students"/>
                                                     <span class="icon">
                                                         <svg width="42" height="29">
                                                             <path d="M21 17L1 9l20-8 20 8-20 8zm14.286-5.714v12.57c-5.477 4.573-24.238 4.573-29.715 0v-12.57m34.286-1.143V21.57"
@@ -1415,7 +1415,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-smokers">
                                                     <input type="checkbox" name="list_accept" value="smokers"
-                                                           class="d-none"/>
+                                                           class="d-none" id="smokers"/>
                                                     <span class="icon">
                                                         <svg width="40" height="22">
                                                             <path d="M1 21h33.333v-6.667H1V21zm37.778-6.667V21m-26.23-6.667V21m26.23-11.111c-.865-2.456-4.591-2.74-7.07-3.469-2.992-.882-5.406-2.92-6.264-5.42"
@@ -1432,7 +1432,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-lgbt-friendly">
                                                     <input type="checkbox" name="list_accept" value="LGBTI"
-                                                           class="d-none"/>
+                                                           class="d-none" id="LGBTI"/>
                                                     <span class="icon">
                                                         <svg width="42" height="22">
                                                             <path d="M1 21C1 9.972 9.972 1 21 1s20 8.972 20 20M6.217 21C6.217 12.849 12.85 6.217 21 6.217S35.783 12.85 35.783 21m-24.348 0c0-5.273 4.292-9.565 9.565-9.565s9.565 4.292 9.565 9.565m-13.913 0a4.347 4.347 0 1 1 8.696 0"
@@ -1449,7 +1449,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-over-40">
                                                     <input type="checkbox" name="list_accept" value="40_year_old"
-                                                           class="d-none"/>
+                                                           class="d-none" id="40_year_old"/>
                                                     <span class="icon">
                                                         <svg width="42" height="19">
                                                             <path d="M15.4 13.033H1L11.42 1v16.8M30.6 9.4c0 4.64-3.045 8.4-6.8 8.4S17 14.04 17 9.4C17 4.76 20.045 1 23.8 1s6.8 3.76 6.8 8.4zM33 9h8m-4-4v8"
@@ -1466,7 +1466,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-children">
                                                     <input type="checkbox" name="list_accept" value="children"
-                                                           class="d-none"/>
+                                                           class="d-none" id="children"/>
                                                     <span class="icon">
                                                         <svg width="42" height="28">
                                                             <path d="M25.889 5.666c0 2.577-2.188 4.667-4.889 4.667-2.699 0-4.889-2.09-4.889-4.667S18.301 1 21 1c2.7 0 4.889 2.089 4.889 4.666zM39.222 11c0 2.577-2.188 4.666-4.889 4.666-2.698 0-4.889-2.09-4.889-4.666 0-2.577 2.19-4.668 4.89-4.668 2.7 0 4.888 2.09 4.888 4.668zm-26.666 0c0 2.577-2.189 4.666-4.89 4.666-2.698 0-4.888-2.09-4.888-4.666 0-2.577 2.19-4.668 4.889-4.668 2.7 0 4.889 2.09 4.889 4.668zM1 21.622v5.6h13.333v-5.6c0-2.06-1.704-3.733-3.81-3.733H4.81C2.707 17.889 1 19.56 1 21.622zm26.667 0v5.6H41v-5.6c0-2.06-1.705-3.733-3.81-3.733h-5.714c-2.103 0-3.81 1.672-3.81 3.733zM14.333 15.97v11.253h13.334V15.97c0-2.132-1.705-3.858-3.81-3.858h-5.714c-2.103 0-3.81 1.726-3.81 3.858z"
@@ -1483,7 +1483,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-pets">
                                                     <input type="checkbox" name="list_accept" value="pets"
-                                                           class="d-none"/>
+                                                           class="d-none" id="pets"/>
                                                     <span class="icon">
                                                         <svg width="42" height="41">
                                                             <path d="M36.896 16.535c1.495 2.43 2.365 5.25 2.365 8.243 0 9.248-8.174 14.972-18.261 14.972S2.74 34.026 2.74 24.778c0-2.994.869-5.812 2.364-8.243a13.924 13.924 0 0 1-.626-4.086c0-4.685 2.383-8.842 6.087-11.449 2.661 1.885 4.644 4.562 5.548 7.662A19.26 19.26 0 0 1 21 8.045c1.704 0 3.34.212 4.887.617.904-3.1 2.887-5.777 5.548-7.662 3.704 2.607 6.087 6.764 6.087 11.449 0 1.409-.226 2.783-.626 4.086zm-8.07-6.104c.46-1.51 1.286-2.928 2.404-4.147 1.812 1.97 2.813 4.431 2.813 7.046m-26.086 0c0-2.614 1-5.076 2.813-7.046 1.118 1.221 1.945 2.636 2.404 4.148m1.739 22.273c1.922 2.348 5.035 2.348 6.957 0 1.922 2.348 5.034 2.348 6.956 0m-17.391-12.33c0-1.947 1.167-3.523 2.608-3.523 1.44 0 2.61 1.576 2.61 3.523m8.695 0c0-1.947 1.167-3.523 2.609-3.523 1.44 0 2.608 1.576 2.608 3.523M21 30.943l-2.49-3.563c-.37-.79.168-1.72.995-1.72h2.991c.825 0 1.364.93.993 1.72L21 30.943zm-9.565-5.284L1 22.136m6.957 5.284L1 29.182m29.565-3.523L41 22.136m-6.957 5.284L41 29.182"
@@ -1500,7 +1500,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-retirees">
                                                     <input type="checkbox" name="list_accept" value="retirees"
-                                                           class="d-none"/>
+                                                           class="d-none" id="retirees"/>
                                                     <span class="icon">
                                                         <svg width="42" height="35">
                                                             <path d="M17 26.143a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm24 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM10.143 6.202v-.867C10.143 2.941 8.096 1 5.57 1 3.047 1 1 2.94 1 5.335v20.808M31.857 6.202v-.867C31.857 2.941 33.904 1 36.43 1 38.953 1 41 2.94 41 5.335v20.808m-16 1.143h-8"
@@ -1517,7 +1517,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 acceptlist"
                                                      id="set-benefits">
                                                     <input type="checkbox" name="list_accept" value="on_welfare"
-                                                           class="d-none"/>
+                                                           class="d-none" id="on_welfare"/>
                                                     <span class="icon">
                                                         <svg width="42" height="40">
                                                             <path d="M37.522 38.949v-20.7H41l-6.957-6V6.174h-5.217V7.75L21 1 1 18.25h3.478v20.699h33.044zM21 23.564c0-2.834 2.179-5.128 4.872-5.128s4.872 2.294 4.872 5.128c0 5.668-4.872 4.36-9.744 10.257-4.872-5.898-9.744-4.589-9.744-10.257 0-2.834 2.18-5.128 4.872-5.128 2.693 0 4.872 2.294 4.872 5.128z"

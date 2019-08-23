@@ -615,16 +615,50 @@ $(document).ready(function() {
     //        console.log('total_no_of_flatmates ',total_no_of_flatmates );
     //        alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
             var oldArray = JSON.parse(localStorage.getItem('list_place_array'));
+            console.log("\n\n old array",oldArray[0]['rooms_data'])
             var radio_btn_checked_length = $("input:checked").length
             var num_of_rooms = radio_btn_checked_length / 3
             var count = -1;
             var room = 1
             var one_room_data = {}
             var final_data = []
+
+            if(oldArray[0]['rooms_data'] && oldArray[0]['rooms_data'][0]){
+
+                $.each($(document).find('input[name=room_type_0]'), function(){
+                    if($(this).val() == oldArray[0]['rooms_data'][0]['Room_1']['room_type'])
+                    {
+                        console.log("\n\n------ in test-------",oldArray,$(this))
+                        $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=room_type_0]').attr('checked','checked')
+                    }
+                })
+
+
+                $.each($(document).find('input[name=room_furnishing_types_0]'), function(){
+                    if($(this).val() == oldArray[0]['rooms_data'][0]['Room_1']['room_furnishing_types'])
+                    {
+                        $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=room_furnishing_types_0]').attr('checked','checked')
+                    }
+                })
+
+                $.each($(document).find('input[name=bathroom_types_0]'), function(){
+                    if($(this).val() == oldArray[0]['rooms_data'][0]['Room_1']['room_furnishing_types'])
+                    {
+                        $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=bathroom_types_0]').attr('checked','checked')
+                    }
+                })
+            }
+
+            else{
+
+
             $( $("input:checked") ).each(function( index )
             {
                 var attribute = $(this).attr('name').substring(0, $(this).attr('name').length-2)
-                console.log(attribute)
+                console.log("----- atttibute-----",attribute,$(this).attr('name'))
                 if (count % 3 == 0 && count! == 0)
                 {
                 console.log ("fffffffffffffffffffff count 111",count, $("input:checked"))
@@ -660,12 +694,14 @@ $(document).ready(function() {
             if (final_data){
                    oldArray[0]['rooms_data'] = final_data
             }
+            }
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
-            //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
+            console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 //            alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
+
+
 //            event.preventDefault()
 
         });
