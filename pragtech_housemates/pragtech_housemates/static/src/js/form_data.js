@@ -24,10 +24,11 @@ $(document).ready(function() {
         //form data of What type of accommodation are you offering? Page
         $( "#find_about_flatmates" ).submit(function( event ) {
         var record_array = JSON.parse(localStorage.getItem('find_place_record'))
-        if (record_array[0])
+        if (record_array && record_array[0])
         {
             var find_property_looking_for = []
             var find_teamups_status = $("input[name=temaups]").is(":checked")
+//            record_array[0]['find_property_looking_for']
              $("input[name=find_place_looking]:checked").each(function()
             {
             find_property_looking_for.push($(this).val())
@@ -78,14 +79,14 @@ $(document).ready(function() {
 
         $( "#rent_timing" ).submit(function( event ) {
             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
-//            console.log(record_array)
 
-//            var suburbs = $("input[id=suburbs]").map(function(){return $(this).val();}).get();
-//            record_array[0]['suburbs'] = suburbs
             var tagContainer = $('.tags_container')
             var tags = tagContainer.find('.tag')
             var suburb_array=[]
+            console.log("==== in side tag lenght suburb===",tags.length)
+//            alert('tags length :: '+tags.length)
             if(tags.length != 0){
+
                 $.each(tags,function(event){
 
                 suburb_name = $(this).find("input").data("suburb_name");
@@ -93,6 +94,7 @@ $(document).ready(function() {
                 longitude = $(this).find("input").data("long");
                 city = $(this).find("input").data("city");
                 post_code = $(this).find("input").data("post_code");
+                console.log("==== in side each of suburb===",suburb_name)
 
                 var temp_dict = {
                     'suburb_name':suburb_name,
@@ -101,17 +103,19 @@ $(document).ready(function() {
                     'city':city,
                     'post_code':post_code
                 }
+
                 suburb_array.push(temp_dict)
 
                 record_array[0]['suburbs']=suburb_array
 
                 });
             }
+//            }
             localStorage.setItem('find_place_record', JSON.stringify(record_array));
 
             console.log('SUBURBSSSSSS ::' , record_array[0]['suburbs'])
 //            event.preventDefault();
-            alert("Page")
+//            alert("Page")
 
         });
 
@@ -135,6 +139,18 @@ $(document).ready(function() {
         });
 
         $( "#find_introduce_yourself" ).submit(function( event ) {
+             var record_array = JSON.parse(localStorage.getItem('find_place_record'));
+             if ( record_array[0]['find_room_furnishing']){
+
+            record_array[0]['find_room_furnishing'] = record_array[0]['find_room_furnishing']
+            record_array[0]['find_internet_type'] = record_array[0]['find_internet_type']
+            record_array[0]['find_bathroom_type'] = record_array[0]['find_bathroom_type']
+            record_array[0]['find_parking_type'] = record_array[0]['find_parking_type']
+            record_array[0]['find_no_of_flatmates'] = record_array[0]['find_no_of_flatmates']
+
+ $('.submit-property-preferences').prop("disabled", false);
+             }
+             else{
 
             var find_room_furnishing = $("input[name=find-room_furnishing]:checked").val()
             var find_internet_type = $("input[name=find-internet_type]:checked").val()
@@ -142,13 +158,14 @@ $(document).ready(function() {
             var find_parking_type = $("input[name=find-parking_type]:checked").val()
             var find_no_of_flatmates = $("input[name=find-no-of-flatmates]:checked").val()
 
-            var record_array = JSON.parse(localStorage.getItem('find_place_record'));
+
 
             record_array[0]['find_room_furnishing'] = find_room_furnishing
             record_array[0]['find_internet_type'] = find_internet_type
             record_array[0]['find_bathroom_type'] = find_bathroom_type
             record_array[0]['find_parking_type'] = find_parking_type
             record_array[0]['find_no_of_flatmates'] = find_no_of_flatmates
+            }
 
             //console.log(find_room_furnishing)
             //console.log(find_internet_type)
@@ -352,7 +369,7 @@ $(document).ready(function() {
         //form data of What type of accommodation are you offering? Page
         $( "#list_place_accommodation_form_id" ).submit(function( event ) {
          var oldArray = JSON.parse(localStorage.getItem('list_place_array'));
-            if (oldArray[0]){
+            if (oldArray && oldArray[0]){
 
 //                localStorage.setItem('list_place_array',localStorage.getItem('list_place_array'))
                   console.log("  iffffffffffffffffffffffffff",oldArray)
@@ -598,16 +615,50 @@ $(document).ready(function() {
     //        console.log('total_no_of_flatmates ',total_no_of_flatmates );
     //        alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
             var oldArray = JSON.parse(localStorage.getItem('list_place_array'));
+            console.log("\n\n old array",oldArray[0]['rooms_data'])
             var radio_btn_checked_length = $("input:checked").length
             var num_of_rooms = radio_btn_checked_length / 3
             var count = -1;
             var room = 1
             var one_room_data = {}
             var final_data = []
+
+            if(oldArray[0]['rooms_data'] && oldArray[0]['rooms_data'][0]){
+
+                $.each($(document).find('input[name=room_type_0]'), function(){
+                    if($(this).val() == oldArray[0]['rooms_data'][0]['Room_1']['room_type'])
+                    {
+                        console.log("\n\n------ in test-------",oldArray,$(this))
+                        $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=room_type_0]').attr('checked','checked')
+                    }
+                })
+
+
+                $.each($(document).find('input[name=room_furnishing_types_0]'), function(){
+                    if($(this).val() == oldArray[0]['rooms_data'][0]['Room_1']['room_furnishing_types'])
+                    {
+                        $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=room_furnishing_types_0]').attr('checked','checked')
+                    }
+                })
+
+                $.each($(document).find('input[name=bathroom_types_0]'), function(){
+                    if($(this).val() == oldArray[0]['rooms_data'][0]['Room_1']['room_furnishing_types'])
+                    {
+                        $(this.parentNode).addClass('bedroom-btn-active')
+                        $('input[id=bathroom_types_0]').attr('checked','checked')
+                    }
+                })
+            }
+
+            else{
+
+
             $( $("input:checked") ).each(function( index )
             {
                 var attribute = $(this).attr('name').substring(0, $(this).attr('name').length-2)
-                console.log(attribute)
+                console.log("----- atttibute-----",attribute,$(this).attr('name'))
                 if (count % 3 == 0 && count! == 0)
                 {
                 console.log ("fffffffffffffffffffff count 111",count, $("input:checked"))
@@ -643,12 +694,14 @@ $(document).ready(function() {
             if (final_data){
                    oldArray[0]['rooms_data'] = final_data
             }
+            }
 
             localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-            console.log(";;;;;;;;;;;;;;;;;;;;;;;",final_data)
-            //console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
+            console.log('LOCAL STORAGE : ',localStorage.getItem('list_place_array'))
 //            alert('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
+
+
 //            event.preventDefault()
 
         });

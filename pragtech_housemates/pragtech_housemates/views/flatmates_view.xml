@@ -451,6 +451,10 @@
                                 </h2>
                                 <field name="flat_mates_id" invisible="1"/>
                             </div>
+                            <div>
+                                <label for="is_featured" string="Featured"/>
+                                <field name="is_featured"/>
+                            </div>
                         </div>
                         <div class="col-md-6 col-xl-7 text-center o_website_sale_image_modal_container">
                             <field name="image" widget="image"/>

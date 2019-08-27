@@ -6,10 +6,10 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.30',
+    'version': '12.0.34',
     'description': "",
     'depends': [
-                'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname','login_user_detail'
+                'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname','login_user_detail','portal'
                 ],
     'installable': True,
     'data': [

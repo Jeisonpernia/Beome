@@ -1772,7 +1772,7 @@ class FlatMates(http.Controller):
 
         for rec in suburbs:
             for data in suburb_data:
-                print("HHHHHHHHHHHHHHHHHHHHH", data, suburbs)
+                # print("HHHHHHHHHHHHHHHHHHHHH", data, suburbs)
                 if data['longitude'] == rec['longitude']:
                     vals = {}
                     vals ={
@@ -2425,7 +2425,7 @@ class FlatMates(http.Controller):
         dt = False
         if msg_time:
             timezone = pytz.timezone(request.env['res.users'].
-                                     sudo().browse([int(request.env.user)]).tz or 'UTC')
+                                     sudo().browse([int(2)]).tz or 'UTC')
             print('TIMEZONE  ',timezone)
             dt = pytz.UTC.localize(msg_time)
             dt = dt.astimezone(timezone)
@@ -2448,15 +2448,19 @@ class FlatMates(http.Controller):
                     for msg in msg_history:
                         print("MSG TIME IN DB :",msg.msg_time)
                         formated_time = self._get_datetime_based_timezone(msg.msg_time)
-                        print("Formated Time :",formated_time)
+                        mobile_number = selected_user.partner_id.mobile
+                        mobile=mobile_number[:7]+"***"
+                        print("Formated Time :",formated_time,mobile)
                         formated_time = fields.Datetime.from_string(formated_time)
                         msg_time = formated_time.strftime("%d %B %H:%M %p")
+
 
                         msg_dict = {
                             'message':msg.message,
                             'time':msg_time,
                             'char_user_name':selected_user.name,
                             'chat_user_id':selected_user.id,
+                            'mobile_number':mobile,
                             'image':selected_user.image,
                             'property_id':msg.property_id.id
                         }
@@ -3191,7 +3195,7 @@ class FlatMates(http.Controller):
         if 'suburb_label' in kwargs and kwargs.get('suburb_label'):
             suburb_label = kwargs.get('suburb_label')
             # print ("aaaaaaaaaaa", suburb_to_search)
-            res_dict =  next(item for item in suburb_data if item["suburb_search"] == suburb_label)
+            res_dict =  next((item for item in suburb_data if item["suburb_search"] == suburb_label),None)
 
             print('\n\n\nRES DICT : ',res_dict,'\n\n\n')
 
@@ -3359,8 +3363,11 @@ class FlatMates(http.Controller):
                 if filters[0].get('gender_selection') == 'Males':
                     domain.append(('person_ids.gender','=','male'))
                 if filters[0].get('gender_selection') == 'Females + % 26 + males + % 28no + couple % 29':
-                    domain.append(('person_ids.gender','=','male'))
-                    domain.append(('person_ids.gender', '=', 'female'))
+                    # domain.append(('person_ids.gender','=','male'))
+                    # domain.append(('person_ids.gender', '=', 'female'))
+                    domain.append(('place_for', '!=', 'couple'))
+                if filters[0].get('gender_selection') == 'Couples':
+                    domain.append(('place_for','=','couple'))
             if filters[0].get('find_property_type'):
                 domain.append(('property_type', '=', int(filters[0].get('find_property_type'))))
             if filters[0].get('find_min_rent'):
@@ -3500,14 +3507,14 @@ class FlatMates(http.Controller):
                 domain.append(('total_bedrooms_id', '=', int(filters[0].get('search_bedrooms'))))
             if filters[0].get('search_gender'):
                 if filters[0].get('search_gender') == 'females_only':
-                    domain.append(('person_ids.gender', '=', 'female'))
+                    domain.append(('pref', '=', 'females_only'))
                 if filters[0].get('search_gender') == 'males_only':
-                    domain.append(('person_ids.gender', '=', 'male'))
+                    domain.append(('pref', '=', 'males_only'))
                 if filters[0].get('search_gender') == 'anyone':
-                    domain.append(('person_ids.gender', '=', 'male'))
-                    domain.append(('person_ids.gender', '=', 'female'))
+                    domain.append(('pref', '=', 'anyone'))
+                    # domain.append(('pref', '=', 'female'))
                 if filters[0].get('search_gender') == 'couple':
-                    domain.append(('person_ids.gender', '=', 'couple'))
+                    domain.append(('pref', '=', 'couple'))
             if filters[0].get('search_room_type'):
                 domain.append(('rooms_ids.room_type_id', '=', int(filters[0].get('search_room_type'))))
             if filters[0].get('LGBTI'):
@@ -3585,7 +3592,7 @@ class FlatMates(http.Controller):
             # print("Streettt---------------------------", properties)
             property_image_main = request.env['property.image'].sudo().search_read(
                 domain=[('flat_mates_id','=',rec.get('id')),('id', 'in', rec.get('property_image_ids'))], fields=['image'], order='id', limit=1)
-            print ("-------------ddddddddddddd----------------",rec)
+            # print ("-------------ddddddddddddd----------------",rec)
             property_data = {}
             property_data['id'] = rec.get('id')
 
@@ -4687,6 +4694,30 @@ class FlatMates(http.Controller):
 
         return True
 
+    @http.route(['/get_preferred_locations'], type='json', auth="public", website=True)
+    def get_preferred_locations(self, **kwargs):
+        """Get all suburbs from house mates"""
+        suburbs = []
+        if kwargs.get('current_finding_id'):
+            current_finding_id = kwargs.get('current_finding_id')
+
+            house_mates_id = request.env['house.mates'].sudo().browse(int(current_finding_id))
+
+            if house_mates_id:
+                for s in house_mates_id.suburbs_ids:
+                    data = {
+                        'city':s.city,
+                        'post_code': s.post_code,
+                        'longitude': s.longitude,
+                        'latitude': s.latitude,
+                        'subrub_name': s.subrub_name,
+                        'state': s.state,
+                        'id': s.id
+
+                    }
+                    suburbs.append(data)
+        return suburbs
+
     @http.route(['/get_about_me_data'], type='json', auth="public", website=True)
     def get_about_me_data(self, **kwargs):
         print('\n\n-----------------------------------------------------\n\n', kwargs, '\n\n')
@@ -5010,9 +5041,13 @@ class FlatMates(http.Controller):
                             'couple': person_list
                         })
                 if house_mates_id.place_for == "group":
-                    pass
+                    person_list = []
+                    for person in house_mates_id.person_ids:
+                        person_list.append([person.name, person.gender, person.age])
 
-        print('\n\ndata dict : ',data_dict,'\n\n')
+                    data_dict.update({
+                        'group': person_list
+                    })
 
         return data_dict
 
@@ -5069,6 +5104,13 @@ class FlatMates(http.Controller):
                         new_line_id = request.env['about.person'].sudo().create(line_dict2)
 
                     if kwargs.get('place_for') == 'group':
+                        for person in house_mates_id.person_ids:
+                            person.sudo().unlink()
+                        for key in kwargs:
+                            if isinstance(kwargs[key], dict):
+                                line_dict_custom = kwargs[key]
+                                line_dict_custom['housemate_id'] = house_mates_id.id
+                                request.env['about.person'].sudo().create(line_dict_custom)
                         pass
         return True
 
@@ -5349,6 +5391,12 @@ class WebsiteBlogInherit(WebsiteBlog):
             property_id = request.env['house.mates'].sudo().browse(int(kwargs['property_id']))
             property_id.sudo().write({'state':'deleted'})
         return True
+
+    @http.route(['/replace_page'], type='json', auth="public", website=True, )
+    def replace_page(self, **kwargs):
+        print("\n\n----------edit_delete_listing-------------", kwargs)
+        if kwargs.get('path') and kwargs.get('path') == '/my':
+            return True
 
 
 

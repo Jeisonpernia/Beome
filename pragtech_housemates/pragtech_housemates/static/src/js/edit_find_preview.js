@@ -6,6 +6,10 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
         $(document).on('click','#edit_general_info_id',function(){
             console.log(" !!!!!! General infooooo  !!!!!!!!")
 
+            $("#edit_find_date").datepicker({
+                minDate: 0
+            });
+
             var current_finding_id = $("#current_listing_id").val()
             console.log("Current Finding id :",current_finding_id)
 
@@ -63,10 +67,64 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
         })
 
+        $("#edit_preferred_locations").on('click',function(){
+            //get all suburbs and create its element to be added in div bu code
+            var current_finding_id = $("#current_listing_id").val()
+
+            $.ajax({
+                    url: '/get_preferred_locations',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_finding_id':current_finding_id}}),
+                    success: function(data){
+                        if(data['result']){
+                            var tags_container = $('#preferred_location').siblings().children().find('div')
+                            for (var i=0; i<data['result'].length; i++){
+                                var span = document.createElement("span");
+                                span.className = "tag";
+                                span.setAttribute('data-id',i);
+
+                                span.innerHTML = data['result'][i]['subrub_name'] + ', ' + data['result'][i]['post_code']
+                                tags_container.append(span);
+
+                                var input = document.createElement("input");
+                                input.className = "tag_input";
+                                input.type = 'hidden'
+                                input.setAttribute('data-lat',data['result'][i]['latitude'])
+                                input.setAttribute('data-long',data['result'][i]['longitude']);
+                                input.setAttribute('data-suburb_name',data['result'][i]['subrub_name']);
+                                input.setAttribute('data-city',data['result'][i]['city']);
+                                input.setAttribute('data-post_code',data['result'][i]['post_code']);
+
+                                span.append(input);
+
+                                var close_span = document.createElement("span");
+                                close_span.className = "close";
+                                span.append(close_span);
+
+                            }
+                        }
+                    }
+            })
+
+         })
+
          $("#edit_find_about_me").on('click',function(){
             var current_finding_id = $("#current_listing_id").val()
             console.log('7&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7')
             console.log("Current Finding id :",current_finding_id)
+
+            $('.not_include_contact_info').hide()
+
+            $("#about_me_text_id").click(function(){
+             console.log('dddddddddddddddddddddddddddddd')
+            $('.not_include_contact_info').show()
+            })
+            $("#about_me_text_id").blur(function(){
+            $('.not_include_contact_info').hide()
+            })
 
             $.ajax({
                     url: '/get_about_me_data',
@@ -84,6 +142,8 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
             })
 
          })
+
+
 
          $("#update_about_me").on('click',function(){
 
@@ -395,15 +455,44 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                                 $("#person_accommodation_for_1").click()
 
                             }
+                            if(data['result']['group']){
+                                var persons = data['result']['group']
+                                $("#edit_first_name_1").val(persons[0][0])
+                                $("#edit_gender_1").val(persons[0][1])
+                                $("#edit_age_1").val(persons[0][2].toString())
+
+                                $("#edit_first_name_2").val(persons[1][0])
+                                $("#edit_gender_2").val(persons[1][1])
+                                $("#edit_age_2").val(persons[1][2].toString())
+
+
+                                if (persons.length > 2)
+                                {
+                                    for (var i = 2; i <= persons.length - 1; i++){
+                                        $("#add_other_person").click()
+                                        var dynamic_id = document.getElementById("dynamic_id_generator").value;
+                                        dynamic_id = dynamic_id -1
+                                         $("#edit_first_name_" + dynamic_id.toString()).val(persons[i][0])
+                                        $("#edit_gender_" + dynamic_id.toString()).val(persons[i][1])
+                                        $("#edit_age_" + dynamic_id.toString()).val(persons[i][2].toString())
+
+                                    }
+                                }
+                                $("#person_accommodation_for_2").click()
+
+
+                            }
+
                         }
                     }
             });
         })
-
         $("#person_accommodation_for_0").on('click',function(){
                 $(".for-couple-first_name").css('display','none')
                 $(".for-couple-gender").css('display','none')
                 $(".for-couple-age").css('display','none')
+                $(".added_by_code").css('display','none')
+
         })
 
         $("#person_accommodation_for_1").on('click',function(){
@@ -411,6 +500,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                 $(".for-couple-first_name").css('display','block')
                 $(".for-couple-gender").css('display','block')
                 $(".for-couple-age").css('display','block')
+                $(".added_by_code").css('display','none')
 
         })
 
@@ -418,8 +508,86 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                 $(".for-couple-first_name").css('display','block')
                 $(".for-couple-gender").css('display','block')
                 $(".for-couple-age").css('display','block')
+                $(".added_by_code").css('display','block')
 
         //            $(".add_more_applicant").append("<div class='col-lg-4'><div class='form-group'><label class='p14'>First name</label><input type='text' class='form-control' id='' name=''/></div></div><div class='col-lg-4'><div class='form-group'><label class='p14'>Gender</label><select class='form-control' id='' name=''><option>Please select</option><option>Female</option><option>Male</option></select></div></div><div class='col-lg-4'><div class='form-group'><label class='p14'>Age</label><select class='custom-select' id='' name=''><option>25</option></select></div></div>")
+
+        })
+        $("#add_other_person").on('click',function(){
+            var add_more_applicant = document.getElementsByClassName("add_more_applicant");
+            var dynamic_id = document.getElementById("dynamic_id_generator").value;
+            //First Name
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code";
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'First name'
+            div.append(label);
+            var input = document.createElement("input");
+            input.type = 'text'
+            input.className = 'form-control'
+            input.id = 'edit_first_name_' + dynamic_id.toString()
+            div.append(input)
+
+            //Gender
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code";
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'Gender'
+            div.append(label);
+            var select = document.createElement("select");
+            select.className = 'form-control manual_added_gender'
+            select.id = 'edit_gender_' + dynamic_id.toString()
+            var option1 = document.createElement("option");
+            option1.selected = 'selected'
+            option1.innerHTML = 'Please select'
+            $(option1)[0].disabled = true
+
+
+            var option2 = document.createElement("option");
+            option2.value = 'female'
+            option2.innerHTML = 'Female'
+
+            var option3 = document.createElement("option");
+            option3.value = 'male'
+            option3.innerHTML = 'male'
+
+            select.append(option1)
+            select.append(option2)
+            select.append(option3)
+            div.append(select)
+
+            //age
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code";
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'Age'
+            div.append(label);
+            var input = document.createElement("input");
+            input.type = 'number'
+            input.className = 'form-control weekly-rent-input'
+            input.id = 'edit_age_' + dynamic_id.toLocaleString()
+            div.append(input)
+
+            document.getElementById("dynamic_id_generator").value = parseInt(dynamic_id) + 1
+
+
+
+
 
         })
 
@@ -464,8 +632,28 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
             if($('#person_accommodation_for_2').is(':checked')){
                 console.log('Groupppppppppppppppppp')
+                data ['place_for'] = "group"
+                 var person1_name = $("#edit_first_name_1").val()
+                 var person1_gender = $("#edit_gender_1").val()
+                 var person1_age = $("#edit_age_1").val()
+                 data[1] = {'name': person1_name, 'gender': person1_gender, 'age': person1_age}
+                 var person2_name = $("#edit_first_name_2").val()
+                 var person2_gender = $("#edit_gender_2").val()
+                 var person2_age = $("#edit_age_2").val()
+                data[2] = {'name': person2_name, 'gender': person2_gender, 'age': person2_age}
+                var count = $("#dynamic_id_generator").val()
+                for (var i = 3; i < count; i++){
+                    var person_name = $("#edit_first_name_" + i.toString()).val()
+                     var person_gender = $("#edit_gender_" +  i.toString()).val()
+                     var person_age = $("#edit_age_" + i.toString()).val()
+                    data[i] = {'name': person_name, 'gender': person_gender, 'age': person_age}
+
+                }
+
+
             }
             console.log('data >> ',data)
+
             $.ajax({
                     url: '/update_applicant_info',
                     type: "POST",
@@ -697,8 +885,44 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
 
 
+    //Diable previous dates in Move Date
+    $("#edit_find_date").datepicker({
+                minDate: 0
+    });
+
+    //Show warning when max budget is > 10000
+    var $max_budget = $("#edit_max_budget");
+     $max_budget.on('keyup', function () {
 
 
+         if ($max_budget.val() > 10000) {
+             $('.styles__errorMessage3').show();
+         } else {
+             $('.styles__errorMessage3').hide();
+         }
+     });
+
+    //Show warning when about me text is not as expected
+     $("#about_me_text_id").on('keyup', function () {
+
+        if ( $("#about_me_text_id").val().length == 0 )
+            {
+                $('.styles__errorMessage_find_comment').hide();
+                $('#update_about_me').prop("disabled", true);
+            }
+
+        else if ( $("#about_me_text_id").val().length <= 9 )
+            {
+                $('.styles__errorMessage_find_comment').show();
+                $('#update_about_me').prop("disabled", true);
+
+            }
+        else
+           {
+                $('.styles__errorMessage_find_comment').hide();
+                $('#update_about_me').prop("disabled", false)
+           }
+     });
 
 
 

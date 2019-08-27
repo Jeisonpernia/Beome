@@ -1062,7 +1062,7 @@ width: 10%;
 	padding-left: 5px;
 }
 
-.search-form .rooms-btn select:focus, .search-form .flatmates-btn select:focus, #about_room_popup select:focus, #property-description-edit_popup select:focus, #list_place_property_preferences_popup select:focus, #list_place_about_property_form_id select:focus, #email_alert_popup select:focus{
+.search-form .rooms-btn select:focus, .search-form .flatmates-btn select:focus, #about_room_popup select:focus, #property-description-edit_popup select:focus, #list_place_property_preferences_popup select:focus, #list_place_about_property_form_id select:focus, #email_alert_popup select:focus #report_this_person_popup select:focus{
 	background: #37bc9b;
 	border:1px solid #37bc9b;
 	outline: 0px;
@@ -1079,7 +1079,9 @@ width: 10%;
 	color: #6D7580;
 }
 
-.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select, #list_place_property_preferences_popup select, #list_place_about_property_form_id select, #report_this_member_popup select,#email_alert_popup select{
+.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select,
+#list_place_property_preferences_popup select, #list_place_about_property_form_id select, #report_this_member_popup select,#email_alert_popup select,#report_this_person_popup select,
+#edit_gender_2, #edit_gender_1, .manual_added_gender, #edit_max_stay_id, #edit_room_furnishing_type_in_find, #edit_internet_in_find, #edit_bathroom_type_in_find, #edit_parking_in_find, #edit_total_flatmates_in_find{
 	color: #a5a8ad;
 	background-image: url("/pragtech_housemates/static/src/img/dropdown-gray.svg");
 	background-repeat: no-repeat;
@@ -2628,7 +2630,7 @@ font-size: 30px;
 
 .datepicker-position{
 	position: relative;
-	right: 30px;
+	right: 40px;
 	color: #82888a;
 }
 
@@ -2725,7 +2727,7 @@ input{
 }
 
 #ui-datepicker-div{
-	z-index: 1042 !important;
+	z-index: 1050 !important;
 	padding: 15px;
 	width: 300px;
 	margin-top: 5px;
@@ -2895,13 +2897,13 @@ display: inline;
 /*Suburb Design end*/
 
 .focused{
-  transform: translate3d(0, -60%, 0);
+  /*transform: translate3d(0, -60%, 0);*/
   font-size: 75%;
   opacity: 1;
   background: #fff;
   padding-left: 0;
-  margin-left: 6px;
-  padding: 0px 6px;
+  /*margin-left: 6px;*/
+  /*padding: 0px 6px;*/
   color: #2f3a4a;
 }
 
@@ -3000,6 +3002,9 @@ display: inline;
 
 #dropdownMenuButton .modal-body{
 	padding: 0px;
+}
+.linkButton:hover{
+    text-decoration:underline;
 }
 
 #dropdownMenuButton .modal-dialog{
@@ -3167,9 +3172,9 @@ background-color: #797772;
 }
 
 
-.abcc{
+/*.abcc{
     background-color:#efefef;
-}
+}*/
 
 
 
@@ -3814,7 +3819,37 @@ padding-left: 5px;
 }
 
 
+.user_loader {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('loader.gif') 50% 50% no-repeat;
+  background-color: #00C89F;
+}
 
+.shortlist_loader {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('loader.gif') 50% 50% no-repeat;
+  background-color: #FFFFFF;
+}
+.my_portal_loader {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('loader.gif') 50% 50% no-repeat;
+  background-color: #FFFFFF;
+}
 
 
 

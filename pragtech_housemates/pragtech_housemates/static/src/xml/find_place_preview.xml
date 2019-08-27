@@ -596,8 +596,10 @@
                                                                             <!--</select>-->
                                                                         </div>
                                                                     </div>
-                                                                </div>
 
+                                                                </div>
+                                                                <a href="#" class="for-couple-gender" id="add_other_person">+Add another person</a>
+                                                                <input type="number" value="3" id="dynamic_id_generator" style="display:none;"/>
                                                                 <button type="button"
                                                                         id="update_applicant_info"
                                                                         class="btn btn-green1 mt-3 mb-4 btn-block"
@@ -695,6 +697,7 @@
                                                                                                 </span>
                                                                                             </div>
                                                                                         </div>
+                                                                                         <div style="display:none;" class="styles__errorMessage3">Must be less than 10000</div>
                                                                                     </div>
 
                                                                                     <div class="col-lg-6">
@@ -705,7 +708,7 @@
                                                                                         <!--placeholder="Move date"-->
                                                                                         <!--id="usr" name=""/>-->
                                                                                         <input id="edit_find_date"
-                                                                                               type="date"
+                                                                                               type="text"
                                                                                                name="edit_find_date"
                                                                                                class="form-control datepicker mt-2"
                                                                                                placeholder="Move date"
@@ -1061,7 +1064,17 @@
                                                                               title="Tell your future flatemates a little about yourself and why you are great to live with. Tell them what you do, where you are from and what you do for fun."
 
                                                                     ></textarea>
+                                                                    <div style="display:none;" class="styles__errorMessage_find_comment">Tell us a little more</div>
+
                                                                 </div>
+                                                                <span class="not_include_contact_info">
+                                                                    <svg class="warning-shield" viewBox="0 0 50 50">
+                                                                        <path class="fill"
+                                                                              d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    Do not include your contact information
+                                                                </span>
 
                                                                 <button type="button"
                                                                         id="update_about_me"
@@ -2170,7 +2183,7 @@
 
 
                                 <h3 class="mt-4 mb-3">Preferred locations
-                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal"
+                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal" id="edit_preferred_locations"
                                             data-target="#preferred_locations_popup">
                                         <i class="fa fa-pencil"></i>
                                         Edit
@@ -2208,7 +2221,7 @@
                                                                             <!--</div>-->
                                                                             <!--</div>-->
                                                                             <div class="tag-input-div">
-                                                                                <input type="text" class="tags_input"
+                                                                                <input type="text" class="tags_input" id="preferred_location"
                                                                                        placeholder="Start typing a suburb, city, station or uni"
                                                                                        value=""/>
                                                                             </div>

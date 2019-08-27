@@ -285,6 +285,7 @@ $('input').focus(function(){
   if (!$(this).siblings().hasClass('currency')){
   $(this).siblings().addClass('focused')
   }
+
 });
 
 $('input').blur(function(){
@@ -671,6 +672,7 @@ $("#new-closebutton").click(function(event){
 
 
 $(".search-btn-close").click(function(event){
+$('#search-text-id').text('Search share accommodation');
         $("#dropdownMenuButton").modal('hide');
         $(this).addClass('d-none')
 })

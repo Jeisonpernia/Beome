@@ -30,6 +30,10 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                             $(".chat_user_name").empty()
                             $(".chat_user_name").append('<p>' + chat_user_name + '</p>')
 
+                            mobile_number = data['result'][0]['mobile_number']
+                            $(".number").empty()
+                            $(".number").text(mobile_number)
+
                             chat_user_id = data['result'][0]['chat_user_id']
                             $(".member-details").find("input").remove()
                             $(".member-details").append('<input type="hidden" class="chat-user" value="'+ chat_user_id +'">')
