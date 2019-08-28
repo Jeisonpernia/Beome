@@ -314,7 +314,7 @@
 			<field name="property_type">Whole property for rent</field>
 			<field name="listing_category" eval="[(6, 0, [ref('pro_list_cat1'),ref('pro_list_cat2')])]"/>
 		</record>
-		
+
 		<!-- Room furnishing Categories Demonstration Data -->
 		<record model="room.furnishing.categories" id="flex">
 			<field name="room_furnishing_categories">Flexible</field>

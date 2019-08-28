@@ -17,6 +17,7 @@
 
         'data/website_data.xml',
         'data/configuration_data.xml',
+        'data/property_type_data.xml',
 
         'views/assets.xml',
         'views/remove_footer.xml',

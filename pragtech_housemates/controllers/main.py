@@ -4943,6 +4943,10 @@ class FlatMates(http.Controller):
                         data_dict.update({
                             'whole_property_for_rent': True
                         })
+                    if property_type_id.property_type == 'Teamups':
+                        data_dict.update({
+                            'teamups': True
+                        })
 
         if data_dict:
             return data_dict
@@ -5013,6 +5017,12 @@ class FlatMates(http.Controller):
                         accomodation_id = request.env['property.type'].sudo().search([('property_type', '=', accomodation_type)])
                         if accomodation_id.id:
                             accomodation_id_list.append(accomodation_id.id)
+
+                    if kwargs.get("teamup"):
+                        accomodation_id = request.env['property.type'].sudo().search(
+                            [('property_type', '=', 'Teamups')])
+                        if accomodation_id:
+                            accomodation_id_list.append(accomodation_id.id)
                     if accomodation_id_list:
                         house_mates_id.sudo().write({
                             'property_type': [(6, 0, accomodation_id_list)]
@@ -5082,6 +5092,7 @@ class FlatMates(http.Controller):
                         }
 
                         new_line_id = request.env['about.person'].sudo().create(line_dict1)
+                        house_mates_id.sudo().write({'place_for': 'me'})
 
                     if kwargs.get('place_for') == 'couple':
                         print('3333333333')
@@ -5106,6 +5117,7 @@ class FlatMates(http.Controller):
 
                         new_line_id = request.env['about.person'].sudo().create(line_dict1)
                         new_line_id = request.env['about.person'].sudo().create(line_dict2)
+                        house_mates_id.sudo().write({'place_for': 'couple'})
 
                     if kwargs.get('place_for') == 'group':
                         for person in house_mates_id.person_ids:
@@ -5115,6 +5127,7 @@ class FlatMates(http.Controller):
                                 line_dict_custom = kwargs[key]
                                 line_dict_custom['housemate_id'] = house_mates_id.id
                                 request.env['about.person'].sudo().create(line_dict_custom)
+                        house_mates_id.sudo().write({'place_for': 'group'})
                         pass
         return True
 
