@@ -1079,7 +1079,9 @@ width: 10%;
 	color: #6D7580;
 }
 
-.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select, #list_place_property_preferences_popup select, #list_place_about_property_form_id select, #report_this_member_popup select,#email_alert_popup select,#report_this_person_popup select, #edit_gender_2, #edit_gender_1, .manual_added_gender{
+.search-form .rooms-btn select, .search-form .flatmates-btn select, #about_room_popup select, #property-description-edit_popup select,
+#list_place_property_preferences_popup select, #list_place_about_property_form_id select, #report_this_member_popup select,#email_alert_popup select,#report_this_person_popup select,
+#edit_gender_2, #edit_gender_1, .manual_added_gender, #edit_max_stay_id, #edit_room_furnishing_type_in_find, #edit_internet_in_find, #edit_bathroom_type_in_find, #edit_parking_in_find, #edit_total_flatmates_in_find{
 	color: #a5a8ad;
 	background-image: url("/pragtech_housemates/static/src/img/dropdown-gray.svg");
 	background-repeat: no-repeat;
@@ -2611,7 +2613,7 @@ font-size: 30px;
     position: fixed;
     width: 100%;
     z-index:1042;
-    top:46px;
+    top:0px;
 }
 
 .top_margin {
@@ -2725,7 +2727,7 @@ input{
 }
 
 #ui-datepicker-div{
-	z-index: 1042 !important;
+	z-index: 1050 !important;
 	padding: 15px;
 	width: 300px;
 	margin-top: 5px;
@@ -2738,6 +2740,10 @@ input{
 
 .ui-datepicker td span, .ui-datepicker td a{
 	padding: .5em;
+}
+.ui-datepicker-trigger{
+    width: 19px;
+    margin-left: -27px
 }
 
 
@@ -2895,13 +2901,13 @@ display: inline;
 /*Suburb Design end*/
 
 .focused{
-  transform: translate3d(0, -60%, 0);
+  /*transform: translate3d(0, -60%, 0);*/
   font-size: 75%;
   opacity: 1;
   background: #fff;
   padding-left: 0;
-  margin-left: 6px;
-  padding: 0px 6px;
+  /*margin-left: 6px;*/
+  /*padding: 0px 6px;*/
   color: #2f3a4a;
 }
 
@@ -3194,7 +3200,6 @@ background-color: #797772;
 .inbox-wrapper {
     bottom: 0;
     position: fixed;
-    top: 140px;
     width: 100%;
     background: #eaebec;
 }

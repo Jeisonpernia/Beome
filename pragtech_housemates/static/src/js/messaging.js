@@ -3,6 +3,8 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
     $(document).ready(function() {
 
 
+
+
     $(".each-user-chat").on('click',function(e){
 //        console.log("click on User !!!")
         var chat_user_id = $(this).find("input").val()
@@ -29,6 +31,10 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                             chat_user_name = data['result'][0]['char_user_name']
                             $(".chat_user_name").empty()
                             $(".chat_user_name").append('<p>' + chat_user_name + '</p>')
+
+                            mobile_number = data['result'][0]['mobile_number']
+                            $(".number").empty()
+                            $(".number").text(mobile_number)
 
                             chat_user_id = data['result'][0]['chat_user_id']
                             $(".member-details").find("input").remove()
@@ -315,12 +321,27 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 //     })
 
 
-//     if(window.location.pathname == "/messages"){
-//        if ($("#view_conversation_user_id").val()){
-//            console.log('value present in view_conversation_user_id',$("#view_conversation_user_id").val())
-//        }
-//
-//     }
+     if(window.location.pathname == "/messages"){
+      console.log('value present in view_conversation_user_id',$("#view_conversation_user_id").val())
+
+       $.ajax({
+                url: '/get_current_user_id',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
+                success: function(data){
+                    console.log('DATA: ',data)
+                    if(data['result']['id'] == 2){
+                        $('.inbox-wrapper').css('top','140px')
+                    }
+                    else{
+                        $('.inbox-wrapper').css('top','96px')
+                    }
+                }
+             })
+
+     }
 
 
      if(window.location.href.indexOf("/") > -1){

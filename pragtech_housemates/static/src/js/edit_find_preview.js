@@ -6,6 +6,10 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
         $(document).on('click','#edit_general_info_id',function(){
             console.log(" !!!!!! General infooooo  !!!!!!!!")
 
+            $("#edit_find_date").datepicker({
+                minDate: 0
+            });
+
             var current_finding_id = $("#current_listing_id").val()
             console.log("Current Finding id :",current_finding_id)
 
@@ -62,6 +66,50 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
             location.reload();
 
         })
+
+        $("#edit_preferred_locations").on('click',function(){
+            //get all suburbs and create its element to be added in div bu code
+            var current_finding_id = $("#current_listing_id").val()
+
+            $.ajax({
+                    url: '/get_preferred_locations',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_finding_id':current_finding_id}}),
+                    success: function(data){
+                        if(data['result']){
+                            var tags_container = $('#preferred_location').siblings().children().find('div')
+                            for (var i=0; i<data['result'].length; i++){
+                                var span = document.createElement("span");
+                                span.className = "tag";
+                                span.setAttribute('data-id',i);
+
+                                span.innerHTML = data['result'][i]['subrub_name'] + ', ' + data['result'][i]['post_code']
+                                tags_container.append(span);
+
+                                var input = document.createElement("input");
+                                input.className = "tag_input";
+                                input.type = 'hidden'
+                                input.setAttribute('data-lat',data['result'][i]['latitude'])
+                                input.setAttribute('data-long',data['result'][i]['longitude']);
+                                input.setAttribute('data-suburb_name',data['result'][i]['subrub_name']);
+                                input.setAttribute('data-city',data['result'][i]['city']);
+                                input.setAttribute('data-post_code',data['result'][i]['post_code']);
+
+                                span.append(input);
+
+                                var close_span = document.createElement("span");
+                                close_span.className = "close";
+                                span.append(close_span);
+
+                            }
+                        }
+                    }
+            })
+
+         })
 
          $("#edit_find_about_me").on('click',function(){
             var current_finding_id = $("#current_listing_id").val()
@@ -837,8 +885,44 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
 
 
+    //Diable previous dates in Move Date
+    $("#edit_find_date").datepicker({
+                minDate: 0
+    });
+
+    //Show warning when max budget is > 10000
+    var $max_budget = $("#edit_max_budget");
+     $max_budget.on('keyup', function () {
 
 
+         if ($max_budget.val() > 10000) {
+             $('.styles__errorMessage3').show();
+         } else {
+             $('.styles__errorMessage3').hide();
+         }
+     });
+
+    //Show warning when about me text is not as expected
+     $("#about_me_text_id").on('keyup', function () {
+
+        if ( $("#about_me_text_id").val().length == 0 )
+            {
+                $('.styles__errorMessage_find_comment').hide();
+                $('#update_about_me').prop("disabled", true);
+            }
+
+        else if ( $("#about_me_text_id").val().length <= 9 )
+            {
+                $('.styles__errorMessage_find_comment').show();
+                $('#update_about_me').prop("disabled", true);
+
+            }
+        else
+           {
+                $('.styles__errorMessage_find_comment').hide();
+                $('#update_about_me').prop("disabled", false)
+           }
+     });
 
 
 

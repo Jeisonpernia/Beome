@@ -98,9 +98,14 @@ $(document).ready(function()
         $('#txtdate').on('keyup change',function()
         		{
         		    $('#txtdate').prop("readonly",true)
-
-
         		});
+
+     $('.ui-datepicker-trigger').on('click',function()
+        		{
+        		    $('#txtdate').prop("readonly",true)
+        		});
+
+
 
 //  =======================================================================================
 //  = --------------  Validations for /listplace/share-house/about-others  -------------- =

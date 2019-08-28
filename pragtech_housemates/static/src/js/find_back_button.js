@@ -150,6 +150,7 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
                         }
 
                     }
+
                     $('.propert_submit_btn_in_find').prop('disabled', false);
                 }
             }

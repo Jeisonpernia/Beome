@@ -1682,6 +1682,10 @@ class FlatMates(http.Controller):
             vals.update({'listing_type':'find',
                          'user_id':request.env.user.id
                          })
+            if request.env.user.partner_id.mobile:
+                vals.update({'state': 'active'})
+            else:
+                vals.update({'state': 'pending'})
 
 
         if vals:
@@ -2425,7 +2429,7 @@ class FlatMates(http.Controller):
         dt = False
         if msg_time:
             timezone = pytz.timezone(request.env['res.users'].
-                                     sudo().browse([int(request.env.user)]).tz or 'UTC')
+                                     sudo().browse([int(2)]).tz or 'UTC')
             print('TIMEZONE  ',timezone)
             dt = pytz.UTC.localize(msg_time)
             dt = dt.astimezone(timezone)
@@ -2448,15 +2452,19 @@ class FlatMates(http.Controller):
                     for msg in msg_history:
                         print("MSG TIME IN DB :",msg.msg_time)
                         formated_time = self._get_datetime_based_timezone(msg.msg_time)
-                        print("Formated Time :",formated_time)
+                        mobile_number = selected_user.partner_id.mobile
+                        mobile=mobile_number[:7]+"***"
+                        print("Formated Time :",formated_time,mobile)
                         formated_time = fields.Datetime.from_string(formated_time)
                         msg_time = formated_time.strftime("%d %B %H:%M %p")
+
 
                         msg_dict = {
                             'message':msg.message,
                             'time':msg_time,
                             'char_user_name':selected_user.name,
                             'chat_user_id':selected_user.id,
+                            'mobile_number':mobile,
                             'image':selected_user.image,
                             'property_id':msg.property_id.id
                         }
@@ -4689,6 +4697,30 @@ class FlatMates(http.Controller):
                    house_mates_id.sudo().write(update_dict)
 
         return True
+
+    @http.route(['/get_preferred_locations'], type='json', auth="public", website=True)
+    def get_preferred_locations(self, **kwargs):
+        """Get all suburbs from house mates"""
+        suburbs = []
+        if kwargs.get('current_finding_id'):
+            current_finding_id = kwargs.get('current_finding_id')
+
+            house_mates_id = request.env['house.mates'].sudo().browse(int(current_finding_id))
+
+            if house_mates_id:
+                for s in house_mates_id.suburbs_ids:
+                    data = {
+                        'city':s.city,
+                        'post_code': s.post_code,
+                        'longitude': s.longitude,
+                        'latitude': s.latitude,
+                        'subrub_name': s.subrub_name,
+                        'state': s.state,
+                        'id': s.id
+
+                    }
+                    suburbs.append(data)
+        return suburbs
 
     @http.route(['/get_about_me_data'], type='json', auth="public", website=True)
     def get_about_me_data(self, **kwargs):

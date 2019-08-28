@@ -697,6 +697,7 @@
                                                                                                 </span>
                                                                                             </div>
                                                                                         </div>
+                                                                                         <div style="display:none;" class="styles__errorMessage3">Must be less than 10000</div>
                                                                                     </div>
 
                                                                                     <div class="col-lg-6">
@@ -707,7 +708,7 @@
                                                                                         <!--placeholder="Move date"-->
                                                                                         <!--id="usr" name=""/>-->
                                                                                         <input id="edit_find_date"
-                                                                                               type="date"
+                                                                                               type="text"
                                                                                                name="edit_find_date"
                                                                                                class="form-control datepicker mt-2"
                                                                                                placeholder="Move date"
@@ -1063,6 +1064,8 @@
                                                                               title="Tell your future flatemates a little about yourself and why you are great to live with. Tell them what you do, where you are from and what you do for fun."
 
                                                                     ></textarea>
+                                                                    <div style="display:none;" class="styles__errorMessage_find_comment">Tell us a little more</div>
+
                                                                 </div>
                                                                 <span class="not_include_contact_info">
                                                                     <svg class="warning-shield" viewBox="0 0 50 50">
@@ -2180,7 +2183,7 @@
 
 
                                 <h3 class="mt-4 mb-3">Preferred locations
-                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal"
+                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal" id="edit_preferred_locations"
                                             data-target="#preferred_locations_popup">
                                         <i class="fa fa-pencil"></i>
                                         Edit
@@ -2218,7 +2221,7 @@
                                                                             <!--</div>-->
                                                                             <!--</div>-->
                                                                             <div class="tag-input-div">
-                                                                                <input type="text" class="tags_input"
+                                                                                <input type="text" class="tags_input" id="preferred_location"
                                                                                        placeholder="Start typing a suburb, city, station or uni"
                                                                                        value=""/>
                                                                             </div>
