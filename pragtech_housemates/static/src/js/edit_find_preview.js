@@ -111,6 +111,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
          })
 
+
          $("#edit_find_about_me").on('click',function(){
             var current_finding_id = $("#current_listing_id").val()
             console.log('7&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7')

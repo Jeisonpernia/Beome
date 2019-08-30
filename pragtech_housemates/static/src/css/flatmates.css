@@ -2729,7 +2729,7 @@ input{
 #ui-datepicker-div{
 	z-index: 1050 !important;
 	padding: 15px;
-	width: 300px;
+	width: 238px;
 	margin-top: 5px;
 }
 
@@ -3819,6 +3819,8 @@ padding-left: 5px;
   height: 100%;
   z-index: 9999;
   background: url('loader.gif') 50% 50% no-repeat;
+  background-color: #FFFFFF;
+
 }
 
 

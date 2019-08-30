@@ -337,11 +337,33 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                     }
                     else{
                         $('.inbox-wrapper').css('top','96px')
+
                     }
                 }
              })
 
      }
+//     if(window.location.href.indexOf("/listplace") > -1 || window.location.href.indexOf("/find-place/") > -1){
+//      $.ajax({
+//                url: '/get_current_user_id',
+//                type: "POST",
+//                dataType: 'json',
+//                contentType: 'application/json',
+//                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
+//                success: function(data){
+//                    console.log('DATA: ',data)
+//                    if(data['result']['id'] == 2){
+//                        $('.custom_header').css('top','46px')
+//                    }
+//                    else{
+//                        $('.custom_header').css('top','0px')
+//
+//                    }
+//                }
+//             })
+//
+//
+//     }
 
 
      if(window.location.href.indexOf("/") > -1){

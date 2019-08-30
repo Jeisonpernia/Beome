@@ -159,7 +159,9 @@ $("#txtdate").datepicker({
                 buttonImage: "/pragtech_housemates/static/src/img/calendar-icon.png",
                 buttonImageOnly: true,
             });
-
+$('#txtdate').click(function(){
+    $('#txtdate').datepicker('show');
+});
 /////////////////////////////////////////////////////////////////////
 
 

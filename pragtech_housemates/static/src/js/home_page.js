@@ -705,11 +705,10 @@ console.log("\n\n is_show",is_shown,$( event.target ).is( "div" ),search_button)
 
     if ($( event.target ).is( "div" ) == true && is_shown == true && search_button == false && $(window).width() > 768){
       $("#dropdownMenuButton").hide();
-//      $(".search-btn-close").addClass('d-none')
-      location.reload()
+//      location.reload()
+      $('.search-btn-close').click()
     }
-});
-
+})
 
 });
 	

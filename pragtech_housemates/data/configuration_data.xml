@@ -310,7 +310,7 @@
 			<field name="property_type">Studio</field>
 			<field name="listing_category" eval="[(6, 0, [ref('pro_list_cat1'),ref('pro_list_cat2')])]"/>
 		</record>
-		<record model="property.type" id="prop_type8">
+		<record model="property.type" id="prop_type9">
 			<field name="property_type">Whole property for rent</field>
 			<field name="listing_category" eval="[(6, 0, [ref('pro_list_cat1'),ref('pro_list_cat2')])]"/>
 		</record>

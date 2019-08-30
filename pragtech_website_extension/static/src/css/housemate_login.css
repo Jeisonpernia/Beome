@@ -676,6 +676,9 @@ fill: #fff;
 #account_verification_popup .linkButton {
     cursor: pointer;
 }
+.ui-datepicker-trigger{
+    cursor: pointer;
+}
 #verify_facebook,#verify_linkedin,#verify_instagram,#verify_twitter{
 cursor: pointer;
 }

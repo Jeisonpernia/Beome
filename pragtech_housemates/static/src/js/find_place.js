@@ -193,6 +193,9 @@ $("#find-txtdate").datepicker({
                 buttonImage: "/pragtech_housemates/static/src/img/calendar-icon.png",
                 buttonImageOnly: true,
             });
+ $('#find-txtdate').click(function(){
+    $('#find-txtdate').datepicker('show');
+});
 
 $('#find-budget, #find-txtdate').on('keyup change',function()
 {

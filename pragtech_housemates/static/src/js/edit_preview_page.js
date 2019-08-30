@@ -220,6 +220,25 @@ var window_pathname = window.location.pathname
             });
         });
 
+        $('.set-as-featured').on('click',function(event){
+               var current_property_id = $("#current_listing_id").val()
+               var image_name=event.currentTarget.attributes[1].value
+               $.ajax({
+                        url: '/set_as_featured',
+                        type: "POST",
+                        dataType: 'json',
+                        async : false,
+                        contentType: 'application/json',
+                        data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_property_id':current_property_id,'image_name':image_name}}),
+                        success: function(data){
+                            if(data['result'] && data['result'] == true){
+                                location.reload()
+                            }
+
+                        }
+               });
+        })
+
         $('#update_about_property_desc').on('click',function(){
                console.log('12222222222222222222')
 

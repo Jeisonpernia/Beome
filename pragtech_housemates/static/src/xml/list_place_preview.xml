@@ -415,7 +415,7 @@
                                                     <span class="slider">
 
                                                         <a href="#">
-                                                        <span class="set-as-featured">
+                                                        <span class="set-as-featured" t-att-value="image.name">
                                                             <svg width="20" height="14">
                                                                 <g stroke="none" stroke-width="1" fill="none"
                                                                    fill-rule="evenodd" stroke-linecap="round"
