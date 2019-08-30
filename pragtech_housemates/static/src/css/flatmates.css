@@ -3341,6 +3341,14 @@ background-color: #797772;
     text-align: center;
     width: 40px;
 }
+.message-avatar {float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-right: .5em;
+    text-align: center;
+    width: 40px;
+    border-radius: 50%;
+}
 
 
 .member-details {float: left;

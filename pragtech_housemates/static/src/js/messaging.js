@@ -70,12 +70,15 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
                                     $(".message-body").append(own_msg_section)
                                 }
+
                                 else if(each_msg['from'] == false){
-                                    user_msg_section = ' <div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent">'+ each_msg['time'] +'</div></div></div>'
+                                    user_msg_section = '<div class="user_message_image"></div><div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent">'+ each_msg['time'] +'</div></div></div>'
+
                                     $(".message-body").append(user_msg_section)
                                 }
 
                             }
+                            $(".user_message_image").append('<img class="message-avatar" src="data:image/png;base64,'+ user_image +'" alt="Avatar"/>')
                             $('.message-body').animate({ scrollTop: 99999 });
 
 

@@ -950,8 +950,8 @@
                                         <div class="form-group">
                                             <span>Date available</span>
                                             <br/>
-                                            <input id="txtdate" type="text" name="date" placeholder="Select a date"
-                                                   class="span2 datepicker room-availability-datepicker mt-2">
+                                            <input id="txtdate" type="text" name="date" placeholder="Select a date" autocomplete="off"
+                                                   class="span2 datepicker room-availability-datepicker mt-2" >
 											
 											<!--<span class="datepicker-position"><i class="fa fa-calendar" aria-hidden="false"></i></span>-->
                                             </input>

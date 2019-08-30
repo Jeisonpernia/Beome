@@ -2498,7 +2498,16 @@ class FlatMates(http.Controller):
             dt = pytz.UTC.localize(msg_time)
             dt = dt.astimezone(timezone)
             dt = ustr(dt).split('+')[0]
-            print('\n\ndt ::: ',dt,'\n\n')
+            print('\n\ndt ::: ',dt.split('.')[0],'\n\n')
+            # dt=dt.split('.')[0]
+            # user_tz = request.env.user.tz or pytz.utc
+            #
+            # local = pytz.timezone(user_tz)
+            #
+            # display_date_result = datetime.strftime(pytz.utc.localize(
+            #     datetime.strptime(str(dt), "%Y-%m-%d %H:%M:%S")).astimezone(local),
+            #                                         "%d/%m/%Y %I:%M:%S")
+            # print("\n\n-------------display_date_result-------",display_date_result)
 
         return dt
 
@@ -2520,7 +2529,7 @@ class FlatMates(http.Controller):
                         mobile=mobile_number[:7]+"***"
                         print("Formated Time :",formated_time,mobile)
                         formated_time = fields.Datetime.from_string(formated_time)
-                        msg_time = formated_time.strftime("%d %B %H:%M %p")
+                        msg_time = formated_time.strftime("%d %B %I:%M %p")
 
 
                         msg_dict = {
@@ -2615,14 +2624,14 @@ class FlatMates(http.Controller):
             if new_msg_history_id:
                 formated_time = self._get_datetime_based_timezone(new_msg_history_id.msg_time)
                 formated_time = fields.Datetime.from_string(formated_time)
-                time = formated_time.strftime("%d %B %H:%M %p")
+                time = formated_time.strftime("%d %B %I:%M %p")
 
                 value =  {
                    'message': new_msg_history_id.message,
                    'time':time,
                    'from':True,
                 }
-        print("msg time : ",new_msg_history_id.msg_time.strftime("%d %B %H:%M %p"))
+        print("msg time : ",new_msg_history_id.msg_time.strftime("%d %B %I:%M %p"))
 
         print('values : ',value)
 
@@ -3730,10 +3739,9 @@ class FlatMates(http.Controller):
             if property_image_main:
                 property_data['image'] = property_image_main[0].get('image')
             else:
-                for rec in properties:
-                    # print("Streettt---------------------------", properties)
-                    property_image_main = request.env['property.image'].sudo().search_read(
-                        domain=[('flat_mates_id', '=', rec.get('id')), ('id', 'in', rec.get('property_image_ids'))], fields=['image'], order='id', limit=1)
+                print("Streettt---------------------------",rec.get('id'),rec.get('property_image_ids'))
+                property_image_main = request.env['property.image'].sudo().search_read(
+                    domain=[('flat_mates_id', '=', rec.get('id')), ('id', 'in', rec.get('property_image_ids'))], fields=['image'], order='id', limit=1)
                 if property_image_main:
                     property_data['image'] = property_image_main[0].get('image')
 
