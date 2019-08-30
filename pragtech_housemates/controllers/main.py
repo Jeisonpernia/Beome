@@ -2499,15 +2499,6 @@ class FlatMates(http.Controller):
             dt = dt.astimezone(timezone)
             dt = ustr(dt).split('+')[0]
             print('\n\ndt ::: ',dt.split('.')[0],'\n\n')
-            # dt=dt.split('.')[0]
-            # user_tz = request.env.user.tz or pytz.utc
-            #
-            # local = pytz.timezone(user_tz)
-            #
-            # display_date_result = datetime.strftime(pytz.utc.localize(
-            #     datetime.strptime(str(dt), "%Y-%m-%d %H:%M:%S")).astimezone(local),
-            #                                         "%d/%m/%Y %I:%M:%S")
-            # print("\n\n-------------display_date_result-------",display_date_result)
 
         return dt
 
@@ -2539,6 +2530,7 @@ class FlatMates(http.Controller):
                             'chat_user_id':selected_user.id,
                             'mobile_number':mobile,
                             'image':selected_user.image,
+                            'country_image':selected_user.partner_id.country_id.image,
                             'property_id':msg.property_id.id
                         }
                         if msg.msg_from.id == request.uid:
@@ -3989,9 +3981,11 @@ class FlatMates(http.Controller):
         mobile_no = None
         send = False
         if 'country_id' in kwargs and kwargs.get('country_id'):
+            res_user_id = request.env['res.users'].sudo().search([('id', '=', request.uid)])
             country_id = request.env['res.country'].browse(int(kwargs.get('country_id')))
             if country_id:
                 phone_code = country_id.phone_code
+                res_user_id.partner_id.sudo().write({'country_id':country_id.id})
 
         if 'mobile_no' in kwargs and kwargs.get('mobile_no'):
             mobile_no = kwargs.get('mobile_no')

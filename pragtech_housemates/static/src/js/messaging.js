@@ -32,9 +32,16 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                             $(".chat_user_name").empty()
                             $(".chat_user_name").append('<p>' + chat_user_name + '</p>')
 
+                            country_flag = data['result'][0]['country_image']
+                            $(".country-flag").empty()
+                            $(".country-flag").append('<img class="country-flag" src="data:image/png;base64,'+ country_flag +'" alt="Avatar"/>')
+
+
                             mobile_number = data['result'][0]['mobile_number']
                             $(".number").empty()
                             $(".number").text(mobile_number)
+
+
 
                             chat_user_id = data['result'][0]['chat_user_id']
                             $(".member-details").find("input").remove()

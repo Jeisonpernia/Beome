@@ -240,9 +240,8 @@
                                         <div class="message-mobilesec">
                                             <a href="#" data-toggle="modal" data-target="#verify_mobile_popup">
                                                 <span class="verified-mobile">
-                                                    <img class="country-flag"
-                                                         src="/pragtech_housemates/static/src/img/australia-icon.jpg"
-                                                         alt="Avatar of Rohit"/>
+                                                    <div class="country-flag"/>
+
                                                     <span class="number"></span>
                                                 </span>
                                             </a>
