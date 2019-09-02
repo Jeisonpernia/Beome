@@ -153,9 +153,15 @@ $(document).ready(function() {
 // Date Picker code added on Room availability Page in List My Place
 
 $("#txtdate").datepicker({
-                minDate: 0
+                minDate: 0,
+                dateFormat: 'dd MM yy',
+                showOn: "button",
+                buttonImage: "/pragtech_housemates/static/src/img/calendar-icon.png",
+                buttonImageOnly: true,
             });
-
+$('#txtdate').click(function(){
+    $('#txtdate').datepicker('show');
+});
 /////////////////////////////////////////////////////////////////////
 
 

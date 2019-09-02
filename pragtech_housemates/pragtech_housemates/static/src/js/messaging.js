@@ -3,10 +3,13 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
     $(document).ready(function() {
 
 
+
+
     $(".each-user-chat").on('click',function(e){
 //        console.log("click on User !!!")
         var chat_user_id = $(this).find("input").val()
 //        console.log('Chat User id : ',chat_user_id)
+        $(".send-path").attr('fill','#979ba3')
 
         if (chat_user_id){
             $.ajax({
@@ -30,9 +33,16 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                             $(".chat_user_name").empty()
                             $(".chat_user_name").append('<p>' + chat_user_name + '</p>')
 
+                            country_flag = data['result'][0]['country_image']
+                            $(".country-flag").empty()
+                            $(".country-flag").append('<img class="country-flag" src="data:image/png;base64,'+ country_flag +'" alt="Avatar"/>')
+
+
                             mobile_number = data['result'][0]['mobile_number']
                             $(".number").empty()
                             $(".number").text(mobile_number)
+
+
 
                             chat_user_id = data['result'][0]['chat_user_id']
                             $(".member-details").find("input").remove()
@@ -68,12 +78,15 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
                                     $(".message-body").append(own_msg_section)
                                 }
+
                                 else if(each_msg['from'] == false){
-                                    user_msg_section = ' <div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent">'+ each_msg['time'] +'</div></div></div>'
+                                    user_msg_section = '<div class="user_message_image"></div><div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent">'+ each_msg['time'] +'</div></div></div>'
+
                                     $(".message-body").append(user_msg_section)
                                 }
 
                             }
+                            $(".user_message_image").append('<img class="message-avatar" src="data:image/png;base64,'+ user_image +'" alt="Avatar"/>')
                             $('.message-body').animate({ scrollTop: 99999 });
 
 
@@ -171,15 +184,15 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
 
     })
-
+console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
     $(".msg-text").on('keyup',function(){
-//        console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
+        console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
         if($(this).val()){
-            $(".send-icon").attr('fill','#24be9c')
-//            console.log('sssssssssssssssssssssssssssssssssssssssssss')
+            $(".send-path").attr('fill','#24be9c')
+            console.log('sssssssssssssssssssssssssssssssssssssssssss')
         }
         else{
-            $(".send-icon").attr('fill','#979ba3')
+            $(".send-path").attr('fill','#979ba3')
         }
 
     })
@@ -319,10 +332,47 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 //     })
 
 
-//     if(window.location.pathname == "/messages"){
-//        if ($("#view_conversation_user_id").val()){
-//            console.log('value present in view_conversation_user_id',$("#view_conversation_user_id").val())
-//        }
+     if(window.location.pathname == "/messages"){
+      console.log('value present in view_conversation_user_id',$("#view_conversation_user_id").val())
+
+       $.ajax({
+                url: '/get_current_user_id',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
+                success: function(data){
+                    console.log('DATA: ',data)
+                    if(data['result']['id'] == 2){
+                        $('.inbox-wrapper').css('top','140px')
+                    }
+                    else{
+                        $('.inbox-wrapper').css('top','96px')
+
+                    }
+                }
+             })
+
+     }
+//     if(window.location.href.indexOf("/listplace") > -1 || window.location.href.indexOf("/find-place/") > -1){
+//      $.ajax({
+//                url: '/get_current_user_id',
+//                type: "POST",
+//                dataType: 'json',
+//                contentType: 'application/json',
+//                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
+//                success: function(data){
+//                    console.log('DATA: ',data)
+//                    if(data['result']['id'] == 2){
+//                        $('.custom_header').css('top','46px')
+//                    }
+//                    else{
+//                        $('.custom_header').css('top','0px')
+//
+//                    }
+//                }
+//             })
+//
 //
 //     }
 

@@ -103,8 +103,19 @@ $(document).ready(function() {
                     'city':city,
                     'post_code':post_code
                 }
+                var flag = false
+                for (var i = 0; i<= suburb_array.length; i++){
+                    if (suburb_array[i]){
+                        if (suburb_array[i].suburb_name == temp_dict['suburb_name']){
+                        flag = true
+                    }
+                    }
+                }
+                if (!flag){
+                    suburb_array.push(temp_dict)
+                }
 
-                suburb_array.push(temp_dict)
+
 
                 record_array[0]['suburbs']=suburb_array
 

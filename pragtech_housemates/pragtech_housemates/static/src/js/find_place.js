@@ -187,8 +187,15 @@ $('.find-suburbs').on('keypress',function(e) {
 
 
 $("#find-txtdate").datepicker({
-                minDate: 0
+                minDate: 0,
+                dateFormat: 'dd MM yy',
+                showOn: "button",
+                buttonImage: "/pragtech_housemates/static/src/img/calendar-icon.png",
+                buttonImageOnly: true,
             });
+ $('#find-txtdate').click(function(){
+    $('#find-txtdate').datepicker('show');
+});
 
 $('#find-budget, #find-txtdate').on('keyup change',function()
 {

@@ -111,6 +111,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
          })
 
+
          $("#edit_find_about_me").on('click',function(){
             var current_finding_id = $("#current_listing_id").val()
             console.log('7&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7')
@@ -313,7 +314,12 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 						    	$(".icon-"+key).addClass("fa-check")
 						    	$(".input-"+key).attr('checked','checked')
 						    }
+
+						    if (key == 'teamups' && data['result'][key]) {
+						        $('#teamup').attr('checked','checked')
+                            }
 						}
+
                         children = document.querySelectorAll('.add-pref-checked .fa-check');
                         for(var i = 0; i < children.length; i++){
                             children[i].parentElement.style.backgroundColor ='#11836c';
@@ -400,6 +406,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
             data = {
                 'current_finding_id':current_finding_id,
                 'pref_accommodation_type':pref_accommodation_type,
+                'teamup': $('#teamup')[0].checked
             }
 
 

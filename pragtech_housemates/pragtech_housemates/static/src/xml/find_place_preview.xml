@@ -678,6 +678,7 @@
 
                                                                                 <div class="row">
                                                                                     <div class="col-lg-6">
+                                                                                        <div class="form-group">
                                                                                         <label class="p14">Max budget
                                                                                         </label>
                                                                                         <div class="input-group mb-3">
@@ -698,6 +699,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                          <div style="display:none;" class="styles__errorMessage3">Must be less than 10000</div>
+                                                                                        </div>
                                                                                     </div>
 
                                                                                     <div class="col-lg-6">
@@ -876,6 +878,7 @@
 
                                                                                 <div class="row">
                                                                                     <div class="col-lg-6">
+                                                                                        <div class="form-group">
                                                                                         <label class="p14">Max budget
                                                                                         </label>
                                                                                         <div class="input-group mb-3">
@@ -897,6 +900,7 @@
                                                                                                     per week
                                                                                                 </span>
                                                                                             </div>
+                                                                                        </div>
                                                                                         </div>
                                                                                     </div>
 
@@ -2092,8 +2096,8 @@
                                                                 <div class="custom-control custom-checkbox mb-3 mt-4">
                                                                     <input type="checkbox" class="custom-control-input"
                                                                            id="teamup" name="teamup"/>
-                                                                    <label class="custom-control-label"
-                                                                           for="customCheck">I'm interested in teamups
+                                                                    <label class="custom-control-label currency"
+                                                                           for="teamup">I'm interested in teamups
                                                                     </label>
                                                                 </div>
 
