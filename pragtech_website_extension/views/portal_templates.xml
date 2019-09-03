@@ -1605,8 +1605,8 @@
                                                         </button>
 
 
-                                                        <a href="#" data-toggle="modal" class="change-passwrd-btn"
-                                                           data-target="#reset_password_popup">Change Password
+                                                        <a href="/web/reset_password" class="change-passwrd-btn">Change Password
+
                                                         </a>
 
 
