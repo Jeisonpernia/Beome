@@ -885,7 +885,7 @@
 
 		//lets loop the data
 		$.each(data,function(id,text){
-			
+
 			//build list
 			if(id == 0){
 			    listData += "<li data-id='"+id+"' class='abcc'>"+text+"</li>";

@@ -314,7 +314,7 @@
                                                 <button class="send-button" type="submit">
                                                     <span class="icon">
                                                         <svg class="send-icon" viewBox="0 0 50 50">
-                                                            <path class="fill"
+                                                            <path class="fill send-path"
                                                                   d="M44.438 4.156L4.593 21.28c-.357.154-.583.517-.594.907-.01.39.215.733.563.907L18.5 30.062 44.438 4.157zm1.406 1.407L19.937 31.5l6.97 13.938c.17.34.527.562.905.562h.032c.39-.012.72-.237.875-.594L45.843 5.563z"></path>
                                                         </svg>
                                                     </span>

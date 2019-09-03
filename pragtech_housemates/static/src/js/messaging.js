@@ -9,6 +9,7 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 //        console.log("click on User !!!")
         var chat_user_id = $(this).find("input").val()
 //        console.log('Chat User id : ',chat_user_id)
+        $(".send-path").attr('fill','#979ba3')
 
         if (chat_user_id){
             $.ajax({
@@ -183,15 +184,15 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
 
     })
-
+console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
     $(".msg-text").on('keyup',function(){
-//        console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
+        console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
         if($(this).val()){
-            $(".send-icon").attr('fill','#24be9c')
-//            console.log('sssssssssssssssssssssssssssssssssssssssssss')
+            $(".send-path").attr('fill','#24be9c')
+            console.log('sssssssssssssssssssssssssssssssssssssssssss')
         }
         else{
-            $(".send-icon").attr('fill','#979ba3')
+            $(".send-path").attr('fill','#979ba3')
         }
 
     })

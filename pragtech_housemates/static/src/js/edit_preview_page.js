@@ -220,9 +220,12 @@ var window_pathname = window.location.pathname
             });
         });
 
-        $('.set-as-featured').on('click',function(event){
+        $(document).on('click','.set-as-featured',function(event){
+
                var current_property_id = $("#current_listing_id").val()
                var image_name=event.currentTarget.attributes[1].value
+                       console.log('12222222  click  222222222222',event.currentTarget)
+
                $.ajax({
                         url: '/set_as_featured',
                         type: "POST",
@@ -232,7 +235,10 @@ var window_pathname = window.location.pathname
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_property_id':current_property_id,'image_name':image_name}}),
                         success: function(data){
                             if(data['result'] && data['result'] == true){
-                                location.reload()
+//                                location.reload()
+//console.log('12222222  load  222222222222',)
+                                $(".add-photos-list_preview").load(location.href + " .add-photos-list_preview");
+
                             }
 
                         }

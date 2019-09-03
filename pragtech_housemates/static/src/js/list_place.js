@@ -191,13 +191,13 @@ $(document).ready(function()
 
     });
 
-    $('.scroll-forward').on('click',function()
-    {
+    $(document).on('click','.scroll-forward',function()
+    {console.log('------ scroll-forward ----')
         $('.scrolling-wrapper').animate( { scrollLeft: '+=360' }, 400 , 'easeOutSine');
     });
 
-    $('.scroll-backward').on('click',function()
-    {
+    $(document).on('click','.scroll-backward',function()
+    { console.log('------ scroll-backward ----')
         $('.scrolling-wrapper').animate( { scrollLeft: '-=360' }, 400, 'easeOutSine');
     });
 

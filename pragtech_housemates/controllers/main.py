@@ -3360,7 +3360,7 @@ class FlatMates(http.Controller):
                 # properties = request.env['house.mates'].sudo().search_read(domain=[('id', '>', record_id), ('state', '=', 'active'),('listing_type','=','find'),('suburbs_ids.subrub_name','=',suburb_list[0]),('suburbs_ids.city','=',str(suburb_list[1]).strip()),('suburbs_ids.state','=',str(suburb_list[2]).strip()),('suburbs_ids.post_code','=',str(suburb_list[3]).strip())])
                 properties = request.env['house.mates'].sudo().search_read(
                     domain=[('id', '<', record_id),('state', '=', 'active'),'|',('city','=',city.strip()),('suburbs_ids.city', '=', city.strip()),
-                            ])
+                            ],fields=fields, order='id desc', limit=12)
                 print("\n\nProprties if Search :",len(properties), properties,'\n\n')
 
                 # properties = request.env['house.mates'].sudo().search_read(
@@ -3371,16 +3371,22 @@ class FlatMates(http.Controller):
                 search_suburbs_list = search_suburbs.split(',')
                 print('\n\n\nSEARCH SUBURBS : ',search_suburbs,search_suburbs_list)
 
+                # domain = [('id', '<', record_id), ('state', '=', 'active'), '|', ('city', '=', city.strip()),
+                #           ('suburbs_ids.city', '=', city.strip()),
+                #           ], fields = fields, order = 'id desc', limit = 12)
+
+
                 properties = request.env['house.mates'].sudo().search_read(
-                    domain=[('state', '=', 'active'), '|','|','|','|', ('city', 'in',search_suburbs_list),('street3', 'in',search_suburbs_list),
+
+                    domain=[('id', '<', record_id),('state', '=', 'active'), '|','|','|','|', ('city', 'in',search_suburbs_list),('street3', 'in',search_suburbs_list),
                             ('street2', 'in',search_suburbs_list),('suburbs_ids.subrub_name', 'in', search_suburbs_list),('suburbs_ids.city', 'in', search_suburbs_list)
-                            ])
+                            ], fields = fields, order = 'id desc', limit = 12)
 
                 print("\n\nProprties else if Search :",len(properties), properties,'\n\n')
 
 
             else:
-                print('goooooooooooooessssssssssssssss')
+                print('\n\n\n\n\n\n\n --------------------- \ngoooooooooooooessssssssssssssss')
                 properties = request.env['house.mates'].sudo().search_read(domain=[('id', '<', record_id),('state','=','active')], fields=fields, order='id desc', limit=12)
 
 
@@ -5493,10 +5499,11 @@ class WebsiteBlogInherit(WebsiteBlog):
         image_id = request.env['property.image'].sudo().search([('flat_mates_id.id','=',int(kwargs['current_property_id'])),('name','=',kwargs['image_name'])])
         all_image_id = request.env['property.image'].sudo().search([('flat_mates_id.id', '=', int(kwargs['current_property_id']))])
         image_id.sudo().write({'is_featured':True})
+        print("\n\n----------set_as_featured-------------", kwargs, image_id, image_id.name, all_image_id)
+
         for id in all_image_id:
             if image_id.id != id.id:
                 id.sudo().write({'is_featured':False})
-                print("\n\n----------set_as_featured-------------", kwargs,image_id,image_id.name,all_image_id)
         return True
 
 
