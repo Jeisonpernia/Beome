@@ -354,27 +354,14 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
              })
 
      }
-//     if(window.location.href.indexOf("/listplace") > -1 || window.location.href.indexOf("/find-place/") > -1){
-//      $.ajax({
-//                url: '/get_current_user_id',
-//                type: "POST",
-//                dataType: 'json',
-//                contentType: 'application/json',
-//                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
-//                success: function(data){
-//                    console.log('DATA: ',data)
-//                    if(data['result']['id'] == 2){
-//                        $('.custom_header').css('top','46px')
-//                    }
-//                    else{
-//                        $('.custom_header').css('top','0px')
-//
-//                    }
-//                }
-//             })
-//
-//
-//     }
+
+		
+		
+		  
+
+     
+		
+	
 
 
      if(window.location.href.indexOf("/") > -1){
@@ -415,4 +402,36 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
 
 
     })//ready
+	
+	$(window).load(function() {
+
+	     if(window.location.href.indexOf("/listplace") > -1 || window.location.href.indexOf("/find-place") > -1){
+      $.ajax({
+                url: '/get_current_user_id',
+                type: "POST",
+                dataType: 'json',
+		  		async:false,
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
+                success: function(data){
+                    console.log('DATA: ',data)
+                    if(data['result']['id'] == 2){
+						$('.o_affix_enabled, .fixed-top-with-edit').css('display','none')
+						$(".custom_header").addClass("top_margin")
+						//$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
+                    }
+                    else{
+						
+						$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
+						$(".custom_header").removeClass("top_margin")
+						$(".custom_header").addClass("top_margin1")
+
+                    }
+                }
+             })
+
+
+     }
+	})
+	
 });//main

@@ -664,6 +664,7 @@ $("#new-closebutton").click(function(event){
             $('.search-bar-responsive').css('display','block')  
 			$("#dropdownMenuButton").modal('hide');
 			$("#top_menu_collapse .navbar-nav").css('width','75%');
+			/*$("#top_menu_collapse .navbar-nav").css('width','auto');*/
 			$(".navbar-brand").css('display','block');
 			
 		}
@@ -961,11 +962,10 @@ $(document).on('click','.input-group', function(){
                     .prev().addClass('abcc');
                 break;
         }
+		
+		
     });
-
-
-
-
+	
 
 //$(".search-room-btn").on("click", function(){
 //

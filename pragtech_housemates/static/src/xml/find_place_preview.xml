@@ -679,42 +679,44 @@
                                                                                 <div class="row">
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                        <label class="p14">Max budget
-                                                                                        </label>
+                                                                                        <label>Max budget</label>
                                                                                         <div class="input-group mb-3">
                                                                                             <div class="input-group-prepend">
                                                                                                 <span class="input-group-text">
                                                                                                     $
                                                                                                 </span>
                                                                                             </div>
-                                                                                            <input type="number"
-                                                                                                   class="form-control weekly-rent-input"
-                                                                                                   placeholder=""
-                                                                                                   id="edit_max_budget"
-                                                                                                   name="edit_max_budget"/>
+																							<div class="w-100">
+																									<input type="text"
+																									class="form-control weekly-rent-input"
+																									placeholder=""
+																									id="edit_max_budget"
+																									name="edit_max_budget"/>
+																									<!--<label class="form-control-placeholder1 focused" for="edit_max_budget">Max budget</label>-->
+																							</div>
                                                                                             <div class="input-group-append">
                                                                                                 <span class="input-group-text">
                                                                                                     per week
                                                                                                 </span>
                                                                                             </div>
                                                                                         </div>
-                                                                                         <div style="display:none;" class="styles__errorMessage3">Must be less than 10000</div>
+                                                                                         <div style="display:none;" class="styles__errorMessage3 text-left mb-2">Must be less than 10000</div>
                                                                                         </div>
                                                                                     </div>
 
                                                                                     <div class="col-lg-6">
-                                                                                        <label class="p14">&amp;nbsp;
-                                                                                        </label>
-                                                                                        <!--<input type="text"-->
-                                                                                        <!--class="form-control"-->
-                                                                                        <!--placeholder="Move date"-->
-                                                                                        <!--id="usr" name=""/>-->
-                                                                                        <input id="edit_find_date"
-                                                                                               type="text"
-                                                                                               name="edit_find_date"
-                                                                                               class="form-control datepicker mt-2"
-                                                                                               placeholder="Move date"
-                                                                                        />
+																					<div class="form-group">
+																					<label>&amp;nbsp;</label>
+																					<!--<input type="text"-->
+																					<!--class="form-control"-->
+																					<!--placeholder="Move date"-->
+																					<!--id="usr" name=""/>-->
+																					<input id="edit_find_date"
+																						   type="text"
+																						   name="edit_find_date"
+																						   class="form-control datepicker"
+																						   placeholder="Move date"/>
+																					</div>
                                                                                     </div>
 
 
@@ -723,7 +725,7 @@
                                                                                 <div class="row mt-3">
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                            <label class="p14">Preferred
+                                                                                            <label>Preferred
                                                                                                 length of stay
                                                                                             </label>
                                                                                             <select class="form-control"

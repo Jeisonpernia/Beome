@@ -1608,8 +1608,17 @@ class FlatMates(http.Controller):
         # print (images_data,"Imagedsssssssssssssssss Data")
 
         property_image_obj = request.env['property.image']
+        property_id = request.env['house.mates'].sudo().search([('id', '=', flatmate_id.id)])
+        list_of_images =[]
+        for image_id in property_id.property_image_ids:
+            list_of_images.append(image_id.id)
+        image_ids = request.env['property.image'].sudo().search([('id','in',list_of_images)], order='id desc', limit=1)
+        print('------ property ----- image -------',image_ids)
 
-        cnt=1
+        if image_ids:
+            cnt=int(image_ids.name)+1
+        else:
+            cnt=1
 
         images_list = []
         for image in images_data:
@@ -1870,10 +1879,19 @@ class FlatMates(http.Controller):
         #     property = request.env['house.mates'].browse(int(kwargs.get('id')))
 
         if id:
+            if '.add-photos-list_preview' in id :
+                id=id.strip('.add-photos-list_preview')
+                print("\n\n .add-photos-list_preview", id)
+            elif '.slider-img' in id :
+                id=id.strip('.slider-img')
             property = request.env['house.mates'].sudo().browse(int(id))
 
         elif request.session.get('new_listing_id'):
             new_listing_id = request.session.get('new_listing_id')
+            if '.add-photos-list_preview' in new_listing_id:
+                new_listing_id=new_listing_id.strip('.add-photos-list_preview')
+            elif '.slider-img' in new_listing_id:
+                new_listing_id = new_listing_id.strip('.slider-img')
 
             property = request.env['house.mates'].sudo().browse(int(new_listing_id))
 
@@ -5499,7 +5517,7 @@ class WebsiteBlogInherit(WebsiteBlog):
         image_id = request.env['property.image'].sudo().search([('flat_mates_id.id','=',int(kwargs['current_property_id'])),('name','=',kwargs['image_name'])])
         all_image_id = request.env['property.image'].sudo().search([('flat_mates_id.id', '=', int(kwargs['current_property_id']))])
         image_id.sudo().write({'is_featured':True})
-        print("\n\n----------set_as_featured-------------", kwargs, image_id, image_id.name, all_image_id)
+        # print("\n\n----------set_as_featured-------------", kwargs, image_id, image_id.name, all_image_id)
 
         for id in all_image_id:
             if image_id.id != id.id:

@@ -536,6 +536,8 @@
 
                                                                                 <div class="row">
                                                                                     <div class="col-lg-6">
+																						<div class="form-group">
+																						<label>Weekly rent</label>
 
                                                                                         <div class="input-group mb-3">
                                                                                             <div class="input-group-prepend">
@@ -543,16 +545,11 @@
                                                                                                     $
                                                                                                 </span>
                                                                                             </div>
-                                                                                            <div>
-                                                                                                <label class="form-control-placeholder1 focused"
-                                                                                                       for="edit_weekly_budget">
-                                                                                                    Weekly rent
-                                                                                                </label>
-                                                                                                <input type="number"
-                                                                                                       class="form-control weekly-rent-input"
-                                                                                                       placeholder=""
-                                                                                                       id="edit_weekly_budget"
-                                                                                                       name="edit_weekly_budget"/>
+                                                                                            <div class="w-100">
+<input type="text" class="form-control weekly-rent-input" placeholder="" id="edit_weekly_budget" name="edit_weekly_budget"/>
+																								
+<!--<label class="form-control-placeholder1 focused" for="edit_weekly_budget">Weekly rent</label>-->
+                                                                                                
 
                                                                                             </div>
                                                                                             <div class="input-group-append">
@@ -562,16 +559,16 @@
                                                                                             </div>
 
                                                                                         </div>
-                                                                                        <div class="styles__errorMessage_preview">
+                                                                                        <div class="styles__errorMessage_preview text-left mb-2">
                                                                                             Must be less than 10000
                                                                                         </div>
+																					</div>
                                                                                     </div>
 
 
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                            <label class="form-control-placeholder1 focused"
-                                                                                                   for="edit_bills_id">
+                                                                                            <label>
                                                                                                 Bills
                                                                                             </label>
 
@@ -724,7 +721,7 @@
                                                                                                     Males
                                                                                                 </option>
                                                                                                 <option value="no_couple">
-                                                                                                    Females &amp; males
+                                                                                                    Females &amp; Males
                                                                                                     (no couples)
                                                                                                 </option>
                                                                                                 <option value="couple">

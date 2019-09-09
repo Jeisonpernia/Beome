@@ -391,8 +391,8 @@ $(document).on('change','#change_photos',function()
                     array_of_image.push(file_path)
 //                    console.log ("Result 2",array_of_image.length)
 
-                    $(document).find('.add-photos-list_preview').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-list-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
-//                    $(document).find('.add-photos-list_preview').append('<span class="slider"><span class="set-as-featured"><svg width="20" height="14"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(-177.000000, -2502.000000) "stroke="#13D0AB" stroke-width="2"><g transform="translate(0.000000, 668.000000)"><polyline points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline></g></g></g></svg>Set as featured</span><span class="delete-slider"><i class="fa fa-trash fa-2x delete-list-image"></i></span><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
+//                    $(document).find('.add-photos-list_preview').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-list-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
+                    $(document).find('.add-photos-list_preview').append('<span class="slider"><span class="set-as-featured" t-att-value="image.name"><svg width="20" height="14"><g stroke="none" stroke-width="1" fill="none"fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(-177.000000, -2502.000000)" stroke="#979ba3" stroke-width="2"><g transform="translate(0.000000, 668.000000)"><polyline points="178 1840.98813 183.414472 1846.181 195.074 1835"></polyline></g></g></g></svg><span class="set_featured">Set as featured</span></span><span class="delete-slider"><i class="fa fa-trash fa-2x delete-list-image"></i></span><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
 
 //                    if (array_of_image.length == files_rec.files.length)
                     if (files_rec.files.length == array_of_image.length)
@@ -405,7 +405,11 @@ $(document).on('change','#change_photos',function()
                             data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'array_of_image': array_of_image, 'property_id' : property_id, 'filters' : 'list_place' }}),
                             success: function(data)
                             {
+                            if(data['result'] && data['result'] == true){
                                 console.log ("Controlllerrrrrrrrrrrrr")
+                                $(".add-photos-list_preview").load(location.href + ".add-photos-list_preview");
+
+                            }
                             }
                             })
                     }
