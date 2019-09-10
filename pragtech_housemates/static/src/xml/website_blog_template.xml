@@ -64,7 +64,11 @@
                                 </div>
 
                                 <div t-foreach="blog_posts" t-as="blog_post" class="mb8 latest-articles" name="blog_post">
-                                    <a t-attf-href="/info/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }">
+                                    <a t-attf-href="/info/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }" class="blog-link">
+                                        <t t-call="website_blog.blog_cover">
+                                            <t t-set="cover_properties" t-value="blog_posts_cover_properties[blog_post_index]"/>
+                                            <t t-set="additionnal_classes" t-value="'o_list_cover mt16 mb32'"/>
+                                        </t>
                                         <h2 t-field="blog_post.name" class="mb4 o_blog_post_title">Untitled Post</h2>
 
                                         <div class="text-muted">
@@ -130,6 +134,13 @@
 
             <div class="oe_structure" id="oe_structure_website_blog_post_short_2"/>
         </t>
+    </template>
+
+
+
+    <template id="website_blog.opt_blog_post_cover_image" name="Cover image"
+        customize_show="True" active="True" inherit_id="website_blog.blog_post_short">
+
     </template>
 
 

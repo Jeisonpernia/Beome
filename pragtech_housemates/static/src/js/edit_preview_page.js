@@ -4,7 +4,7 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
     $(document).ready(function(){
 var window_pathname = window.location.pathname
         $(".edit_about_the_room").on('click',function(){
-            console.log(" !!!!!! Edit About the Room call !!!!!!!!")
+            console.log(" !!!!!! Edit About the Room call !!!!!!!!")	
 
             var current_property_id = $("#current_listing_id").val()
 
@@ -194,13 +194,7 @@ var window_pathname = window.location.pathname
              $('.not_include_contact_info').hide()
             var current_property_id = $("#current_listing_id").val()
 
-            $("#edit_about_property").click(function(){
-             console.log('dddddddddddddddddddddddddddddd')
-            $('.not_include_contact_info').show()
-            })
-            $("#edit_about_property").blur(function(){
-            $('.not_include_contact_info').hide()
-            })
+			
             $.ajax({
                     url: '/get_about_property_data',
                     type: "POST",
@@ -223,8 +217,8 @@ var window_pathname = window.location.pathname
         $(document).on('click','.set-as-featured',function(event){
 
                var current_property_id = $("#current_listing_id").val()
-               var image_name=$(this)[0].attributes[5].value
-                       console.log('12222222  click  222222222222',$(this)[0].attributes[5].value)
+               var image_name=$(this)[0].attributes[1].value
+                       console.log('12222222  click  222222222222',$(this)[0].attributes[1].value)
 
                $.ajax({
                         url: '/set_as_featured',
@@ -246,9 +240,11 @@ var window_pathname = window.location.pathname
                });
         })
 
-        $('#update_about_property_desc').on('click',function(){
-               console.log('12222222222222222222')
-
+		$('#update_about_property_desc').on('mousedown', function(event) {
+    		event.preventDefault();
+		}).on('click',function(){
+               console.log('12222222222222222222',$('.not_include_contact_info'))
+			   $('.not_include_contact_info').hide()
                var current_property_id = $("#current_listing_id").val()
                var update_about_property_desc = $('#edit_about_property').val()
                var data = {}
@@ -270,6 +266,19 @@ var window_pathname = window.location.pathname
             });
             location.reload();
         })
+
+		$(document).on('focus','#edit_about_property',function()
+		{
+		 console.log('dddddddddddddddddddddddddddddd')
+		$('.not_include_contact_info').show()
+		})
+
+		
+		$(document).on('blur','#edit_about_property', function()
+	 	{
+			console.log('dddddddddddddddddddddddddddddd Insode')
+			$('.not_include_contact_info').hide()
+		})		
 
         $('#edit_property_descrp').on('click',function(){
             console.log('5555555555555555555555555555555555555')
@@ -693,13 +702,13 @@ var window_pathname = window.location.pathname
             $('.not_include_contact_info').hide()
             var current_property_id = $("#current_listing_id").val()
 
-            $("#edit_about_flatmates").focus(function(){
-             console.log('dddddddddddddddddddddddddddddd')
-            $('.not_include_contact_info').show()
-            })
-            $("#edit_about_flatmates").blur(function(){
-            $('.not_include_contact_info').hide()
-            })
+//            $("#edit_about_flatmates").focus(function(){
+//             console.log('dddddddddddddddddddddddddddddd')
+//            $('.not_include_contact_info').show()
+//            })
+//            $("#edit_about_flatmates").blur(function(){
+//            $('.not_include_contact_info').hide()
+//            })
 
             $.ajax({
                     url: '/get_about_flatmates_data',
@@ -720,8 +729,12 @@ var window_pathname = window.location.pathname
             });
     });
 
-    $('#update_about_flatmates_desc').on('click',function(){
-               console.log('12222222222222222222')
+    $('#update_about_flatmates_desc').on('mousedown', function(event) {
+    		event.preventDefault();
+		}).on('click',function(){
+
+//    $('#update_about_flatmates_desc').on('click',function(){
+//               console.log('12222222222222222222')
 
                var current_property_id = $("#current_listing_id").val()
                var update_about_user_desc = $('#edit_about_flatmates').val()
@@ -744,6 +757,19 @@ var window_pathname = window.location.pathname
             });
             location.reload();
     })
+
+    $(document).on('focus','#edit_about_flatmates',function()
+		{
+		 console.log('dddddddddddddddddddddddddddddd')
+		$('.not_include_contact_info').show()
+		})
+
+
+		$(document).on('blur','#edit_about_flatmates', function()
+	 	{
+			console.log('dddddddddddddddddddddddddddddd Insode')
+			$('.not_include_contact_info').hide()
+		})
 
 
 

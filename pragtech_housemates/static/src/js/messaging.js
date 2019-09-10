@@ -7,109 +7,233 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
     $(".each-user-chat").on('click',function(e){
 //        console.log("click on User !!!")
+
         var chat_user_id = $(this).find("input").val()
-//        console.log('Chat User id : ',chat_user_id)
+        if(e.currentTarget.attributes[1].value == chat_user_id){
+            if($(this).find(".green-dot").length != 0){
+                if($(this).find(".green-dot").hasClass('d-none') == false){
+                    $(this).find(".green-dot").addClass('d-none')
+                    $(this).find(".new_message").removeClass('message_bold')
+                    $(this).find(".selected_user").append('<span class="white-dot"></span>')
+                }
+            }
+
+        }
         $(".send-path").attr('fill','#979ba3')
 
         if (chat_user_id){
-            $.ajax({
-                    url: '/get_msg_history',
-                    type: "POST",
-                    dataType: 'json',
-                    async:false,
-                    contentType: 'application/json',
-                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{"selected_user":chat_user_id}}),
-                    success: function(data){
-                        if(data['result']){
-                            console.log('REsult :: ',data['result'])
+            if ($(window).width() > 769)
+            {
+                $.ajax({
+                        url: '/get_msg_history',
+                        type: "POST",
+                        dataType: 'json',
+                        async:false,
+                        contentType: 'application/json',
+                        data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{"selected_user":chat_user_id}}),
+                        success: function(data){
+                            if(data['result']){
+                                console.log('REsult :: ',data['result'])
 
-                            $(".inbox-empty").css('display','none')
-                            $(".message_container").css('display','block')
+                                $(".inbox-empty").css('display','none')
+                                $(".message_container").css('display','block')
 
-                            unread_msg_count = data['result'][0]['unread_msg_count']
-
-
-                            chat_user_name = data['result'][0]['char_user_name']
-                            $(".chat_user_name").empty()
-                            $(".chat_user_name").append('<p>' + chat_user_name + '</p>')
-
-                            country_flag = data['result'][0]['country_image']
-                            $(".country-flag").empty()
-                            $(".country-flag").append('<img class="country-flag" src="data:image/png;base64,'+ country_flag +'" alt="Avatar"/>')
+                                unread_msg_count = data['result'][0]['unread_msg_count']
 
 
-                            mobile_number = data['result'][0]['mobile_number']
-                            $(".number").empty()
-                            $(".number").text(mobile_number)
+                                chat_user_name = data['result'][0]['char_user_name']
+                                $(".chat_user_name").empty()
+                                $(".chat_user_name").append('<p>' + chat_user_name + '</p>')
+
+                                country_flag = data['result'][0]['country_image']
+                                $(".country-flag").empty()
+                                $(".country-flag").append('<img class="country-flag" src="data:image/png;base64,'+ country_flag +'" alt="Avatar"/>')
+
+
+                                mobile_number = data['result'][0]['mobile_number']
+                                $(".number").empty()
+                                $(".number").text(mobile_number)
 
 
 
-                            chat_user_id = data['result'][0]['chat_user_id']
-                            $(".member-details").find("input").remove()
-                            $(".member-details").append('<input type="hidden" class="chat-user" value="'+ chat_user_id +'">')
+                                chat_user_id = data['result'][0]['chat_user_id']
+                                $(".member-details").find("input").remove()
+                                $(".member-details").append('<input type="hidden" class="chat-user" value="'+ chat_user_id +'">')
 
-                            user_image = data['result'][0]['image']
-                            $(".user_image").empty()
-                            $(".user_image").append('<img class="message-avatar" src="data:image/png;base64,'+ user_image +'" alt="Avatar"/>')
+                                user_image = data['result'][0]['image']
+                                $(".user_image").empty()
+                                $(".user_image").append('<img class="message-avatar" src="data:image/png;base64,'+ user_image +'" alt="Avatar"/>')
 
-                            property_id = data['result'][0]['property_id']
-                            user = chat_user_name + "'s"
-                            $(".inbox-messages-listings-link").empty()
-                            $(".inbox-messages-listings-link").append('<a href="/P'+ property_id +'" target="_blank" class="view_user_listing">View '+ user +' listing</a>')
+                                property_id = data['result'][0]['property_id']
+                                user = chat_user_name + "'s"
+                                $(".inbox-messages-listings-link").empty()
+                                $(".inbox-messages-listings-link").append('<a href="/P'+ property_id +'" target="_blank" class="view_user_listing">View '+ user +' listing</a>')
 
-                            $(".msg-text").attr('placeholder','Write to '+chat_user_name+'...')
+                                $(".msg-text").attr('placeholder','Write to '+chat_user_name+'...')
 
-                            if (data['result'][0]['is_blocked'] == true){
-                                $(".block-this-member").addClass("d-none")
-                                $(".unblock-this-member").removeClass("d-none")
+                                if (data['result'][0]['is_blocked'] == true){
+                                    $(".block-this-member").addClass("d-none")
+                                    $(".unblock-this-member").removeClass("d-none")
+                                }
+
+                                msg_data = data['result']
+                                $(".message-body").empty()
+                                for(var i=0;i<msg_data.length;i++){
+                                    each_msg = msg_data[i]
+                                    if (each_msg['from'] == true){
+                                        if(each_msg['is_seen'] == true){
+                                            own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">seen</div>'+ each_msg['time'] +'</div></div></div>'
+                                        }
+                                        else{
+                                            own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">sent</div>'+ each_msg['time'] +'</div></div></div>'
+                                        }
+
+                                        $(".message-body").append(own_msg_section)
+                                    }
+
+                                    else if(each_msg['from'] == false){
+                                        user_msg_section = '<div class="user_message_image"></div><div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent">'+ each_msg['time'] +'</div></div></div>'
+
+                                        $(".message-body").append(user_msg_section)
+                                    }
+
+                                }
+                                $(".user_message_image").append('<img class="message-avatar" src="data:image/png;base64,'+ user_image +'" alt="Avatar"/>')
+                                $('.message-body').animate({ scrollTop: 99999 });
+
+
+                                unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
+                                if (unread_msg_count > 0){
+                                $(".message-numbers").addClass('unread_green_color')
+                                }
+                                else{
+                                $(".message-numbers").removeClass('unread_green_color')
+                                }
+
+                                $(".message-numbers").text(unread_msg_count+" unread messages")
+
+                                if(data['result'][data['result'].length-1]['unread_msg_count'] == 0){
+                                  $(".unread-msg-cnt").addClass("d-none")
+                                }
+                                else{
+                                    $(".unread-msg-cnt").text(data['result'][data['result'].length-1]['unread_msg_count'])
+
+                                }
+
+
+
                             }
+                        }
+                });
 
-                            msg_data = data['result']
-                            $(".message-body").empty()
-                            for(var i=0;i<msg_data.length;i++){
-                                each_msg = msg_data[i]
-                                if (each_msg['from'] == true){
-                                    if(each_msg['is_seen'] == true){
-                                        own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">seen</div>'+ each_msg['time'] +'</div></div></div>'
+            }
+            else{
+                $.ajax({
+                            url: '/get_msg_history_mobile_view',
+                            type: "POST",
+                            dataType: 'json',
+                            async:false,
+                            contentType: 'application/json',
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{"selected_user":chat_user_id}}),
+                            success: function(data){
+                                if(data['result']){
+                                    console.log('REsult :: ',data['result'])
+
+                                    $(".inbox-empty").css('display','none')
+                                    $(".inbox-left-conversations").css('display','none')
+                                    $(".message_container").css('display','block')
+
+                                    unread_msg_count = data['result'][0]['unread_msg_count']
+
+
+                                    chat_user_name = data['result'][0]['char_user_name']
+                                    $(".chat_user_name").empty()
+                                    $(".chat_user_name").append('<p>' + chat_user_name + '</p>')
+
+                                    country_flag = data['result'][0]['country_image']
+                                    $(".country-flag").empty()
+                                    $(".country-flag").append('<img class="country-flag" src="data:image/png;base64,'+ country_flag +'" alt="Avatar"/>')
+
+
+                                    mobile_number = data['result'][0]['mobile_number']
+                                    $(".number").empty()
+                                    $(".number").text(mobile_number)
+
+
+
+                                    chat_user_id = data['result'][0]['chat_user_id']
+                                    $(".member-details").find("input").remove()
+                                    $(".member-details").append('<input type="hidden" class="chat-user" value="'+ chat_user_id +'">')
+
+                                    user_image = data['result'][0]['image']
+                                    $(".user_image").empty()
+                                    $(".user_image").append('<img class="message-avatar" src="data:image/png;base64,'+ user_image +'" alt="Avatar"/>')
+
+                                    property_id = data['result'][0]['property_id']
+                                    user = chat_user_name + "'s"
+                                    $(".inbox-messages-listings-link").empty()
+                                    $(".inbox-messages-listings-link").append('<a href="/P'+ property_id +'" target="_blank" class="view_user_listing">View '+ user +' listing</a>')
+
+                                    $(".msg-text").attr('placeholder','Write to '+chat_user_name+'...')
+
+                                    if (data['result'][0]['is_blocked'] == true){
+                                        $(".block-this-member").addClass("d-none")
+                                        $(".unblock-this-member").removeClass("d-none")
+                                    }
+
+                                    msg_data = data['result']
+                                    $(".message-body").empty()
+                                    for(var i=0;i<msg_data.length;i++){
+                                        each_msg = msg_data[i]
+                                        if (each_msg['from'] == true){
+                                            if(each_msg['is_seen'] == true){
+                                                own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">seen</div>'+ each_msg['time'] +'</div></div></div>'
+                                            }
+                                            else{
+                                                own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">sent</div>'+ each_msg['time'] +'</div></div></div>'
+                                            }
+
+                                            $(".message-body").append(own_msg_section)
+                                        }
+
+                                        else if(each_msg['from'] == false){
+                                            user_msg_section = '<div class="user_message_image"></div><div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent">'+ each_msg['time'] +'</div></div></div>'
+
+                                            $(".message-body").append(user_msg_section)
+                                        }
+
+                                    }
+                                    $(".user_message_image").append('<img class="message-avatar" src="data:image/png;base64,'+ user_image +'" alt="Avatar"/>')
+                                    $('.message-body').animate({ scrollTop: 99999 });
+
+
+                                    unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
+                                    if (unread_msg_count > 0){
+                                    $(".message-numbers").addClass('unread_green_color')
                                     }
                                     else{
-                                        own_msg_section = '<div class="own-message-section"><div class="message-details own-message warning-icon"><div class="message-text sender_msg"><p>'+ each_msg['message'] +'</p></div><div class="time-sent"><div class="message-status">sent</div>'+ each_msg['time'] +'</div></div></div>'
+                                    $(".message-numbers").removeClass('unread_green_color')
                                     }
 
-                                    $(".message-body").append(own_msg_section)
+                                    $(".message-numbers").text(unread_msg_count+" unread messages")
+
+                                    if(data['result'][data['result'].length-1]['unread_msg_count'] == 0){
+                                      $(".unread-msg-cnt").addClass("d-none")
+                                    }
+                                    else{
+                                        $(".unread-msg-cnt").text(data['result'][data['result'].length-1]['unread_msg_count'])
+
+                                    }
+
+
+
                                 }
-
-                                else if(each_msg['from'] == false){
-                                    user_msg_section = '<div class="user_message_image"></div><div class="user-message-section"><div class="message-details own-message warning-icon"><div class="message-text receiver_msg"><p>' + each_msg['message'] + '</p></div><div class="time-sent">'+ each_msg['time'] +'</div></div></div>'
-
-                                    $(".message-body").append(user_msg_section)
-                                }
-
                             }
-                            $(".user_message_image").append('<img class="message-avatar" src="data:image/png;base64,'+ user_image +'" alt="Avatar"/>')
-                            $('.message-body').animate({ scrollTop: 99999 });
+                    });
 
-
-                            unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
-
-                            $(".message-numbers").text(unread_msg_count+" unread messages")
-
-                            if(data['result'][data['result'].length-1]['unread_msg_count'] == 0){
-                              $(".unread-msg-cnt").addClass("d-none")
-                            }
-                            else{
-                                $(".unread-msg-cnt").text(data['result'][data['result'].length-1]['unread_msg_count'])
-
-                            }
-
-
-
-                        }
-                    }
-            });
+            }
 
         }
-
     })
 
 
@@ -416,7 +540,7 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
                 success: function(data){
                     console.log('DATA: ',data)
                     if(data['result']['id'] == 2){
-						$('.o_affix_enabled, .fixed-top-with-edit').css('display','none')
+						$('.o_affix_enabled, .fixed-top-with-edit').css('display','none !important')
 						$(".custom_header").addClass("top_margin")
 						//$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
                     }

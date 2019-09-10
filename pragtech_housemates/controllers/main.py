@@ -39,6 +39,7 @@ import clicksend_client
 from clicksend_client import SmsMessage
 from clicksend_client.rest import ApiException
 from datetime import date
+import collections
 
 _logger = logging.getLogger(__name__)
 
@@ -2405,27 +2406,42 @@ class FlatMates(http.Controller):
         current_user = request.uid
         value = {}
         unread_msg_count = 0
-        user_records = msg_hstry_obj.sudo().search(['|',('msg_from', '=', current_user),('msg_to','=',current_user)])
+        user_records = msg_hstry_obj.sudo().search(['|',('msg_from', '=', current_user),('msg_to','=',current_user)],order = "msg_time desc")
 
         last_login = []
         chats_with = []
+
         for rec in user_records:
+            # print("\n\n----- user records-----", rec.msg_to)
             if rec.msg_from.id == current_user:
                 if rec.msg_to not in chats_with:
                     chats_with.append(rec.msg_to)
                     last_login_date = self.get_last_login_date(rec.msg_to)
                     last_message = self.get_last_message(rec.msg_to)
+                    print("\n\n----- rec.msg_to --- ",last_message)
                     if last_login_date:
-                        detail_dict = {'id':rec.msg_to.id,'login_date':last_login_date,'last_message':last_message if last_message else ""}
+                        detail_dict = {'id':rec.msg_to.id,'login_date':last_login_date}
+                        if last_message:
+                            detail_dict.update({'last_message':last_message['message'] if last_message['message'] else "",'is_seen':last_message['is_seen'],'msg_time':last_message['message_time']})
+                        else:
+                            detail_dict.update(
+                                {'last_message': '',
+                                 'is_seen': '','msg_time':''})
+                        print('last login dict :1111 ', detail_dict,last_login)
                         last_login.append(detail_dict)
+                        print('last login dict : 2222',last_login)
+                        last_login = sorted(last_login, key=lambda k: k['msg_time'],reverse = True)
+                        print('last login dict : 33333', last_login)
             elif rec.msg_to.id == current_user:
                 if rec.msg_from not in chats_with:
                     chats_with.append(rec.msg_from)
                     last_login_date = self.get_last_login_date(rec.msg_from)
                     last_message = self.get_last_message(rec.msg_from)
                     if last_login_date:
-                        detail_dict = {'id':rec.msg_from.id,'login_date':last_login_date,'last_message':last_message if last_message else ""}
+                        detail_dict = {'id':rec.msg_from.id,'login_date':last_login_date,'last_message':last_message['message'] if last_message['message'] else "",'is_seen':last_message['is_seen'],'msg_time':last_message['message_time']}
                         last_login.append(detail_dict)
+                        last_login = sorted(last_login, key=lambda k: k['msg_time'],reverse = True)
+
 
         unread_msg = msg_hstry_obj.sudo().search([('msg_to','=',current_user),('is_seen','=',False)])
 
@@ -2442,10 +2458,12 @@ class FlatMates(http.Controller):
     def get_last_message(self,chat_user):
         current_user = request.uid
         new_msg = ''
-        new_msg = request.env['messages.history'].sudo().search([('msg_to','=',current_user),('msg_from','=',chat_user.id),('is_seen','=',False)],)
+        new_msg = request.env['messages.history'].sudo().search([('msg_to','=',current_user),('msg_from','=',chat_user.id)],order = "id desc")
+        print("\n\n--- is_seen ----", new_msg,chat_user)
 
         if new_msg:
-            return new_msg[0].message
+            print("\n\n--- is_seen ----",new_msg[0].is_seen)
+            return {'message':new_msg[0].message,'is_seen':new_msg[0].is_seen,'message_time':new_msg[0].msg_time}
 
 
 
@@ -2474,7 +2492,7 @@ class FlatMates(http.Controller):
         print('User ID: ',user_id)
         login = ''
         if user_id:
-            # print('User name: ',user_id,user_id.name)
+            print('User name: get_last_login_date',user_id,user_id.name)
             login_detail_id = request.env['login.detail'].sudo().search([('user_id','=',int(user_id.id))],order='id desc')
 
             if login_detail_id:
@@ -2494,6 +2512,9 @@ class FlatMates(http.Controller):
                     years = difference.years
                     months = difference.months
                     days = difference.days
+                    hours = difference.hours
+                    minutes = difference.minutes
+                    print("\n\n login -----------",years,months,days,hours)
 
                     if years and years != 0:
                         login = "Online about {} years ago".format(years)
@@ -2501,8 +2522,10 @@ class FlatMates(http.Controller):
                         login = "Online {} months ago".format(months)
                     elif days and days != 0:
                         login = "Online {} days ago".format(days)
+                    elif hours and hours != 0 or minutes and minutes != 0:
+                        login = "Online Yesterday"
 
-                    print('Falseeeeeeeeeeeeeeeeeeee',login)
+                    print('Falseeeeeeeeeeeeeeeeeeee',login,last_login_date)
                 # login ="Online {} days ago".format(days)
 
         return login
@@ -2567,6 +2590,70 @@ class FlatMates(http.Controller):
 
                         unread_msg = request.env['messages.history'].sudo().search([('msg_to', '=',request.uid ), ('is_seen', '=', False)])
                         print("-------- Unread Msg cont ----------- ",len(unread_msg))
+
+                        if unread_msg:
+                            unread_msg_count = len(unread_msg)
+                            msg_dict.update({'unread_msg_count': unread_msg_count})
+                        else:
+                            msg_dict.update({'unread_msg_count': 0})
+
+                        msg_history_list.append(msg_dict)
+
+        # print('Message History List : ',msg_history_list,'\n\n')
+        if msg_history_list:
+            return msg_history_list
+
+        return False
+
+    @http.route(['/get_msg_history_mobile_view'], type='json', auth="public", website=True)
+    def get_msg_history_mobile_view(self, **kwargs):
+        print('\n\n get_msg_history_mobile_view :', kwargs, '\n\n\n')
+        msg_history_list = []
+        if kwargs:
+            if kwargs.get("selected_user"):
+                selected_user = request.env['res.users'].sudo().browse(int(kwargs.get("selected_user")))
+
+                msg_history = request.env['messages.history'].sudo().search(
+                    [('msg_from', 'in', [request.uid, int(kwargs.get("selected_user"))]),
+                     ('msg_to', 'in', [request.uid, int(kwargs.get("selected_user"))])])
+
+                if msg_history:
+                    for msg in msg_history:
+                        print("MSG TIME IN DB :", msg.msg_time)
+                        formated_time = self._get_datetime_based_timezone(msg.msg_time)
+                        mobile_number = selected_user.partner_id.mobile
+                        mobile = mobile_number[:7] + "***"
+                        print("Formated Time :", formated_time, mobile)
+                        formated_time = fields.Datetime.from_string(formated_time)
+                        msg_time = formated_time.strftime("%d %B %I:%M %p")
+
+                        msg_dict = {
+                            'message': msg.message,
+                            'time': msg_time,
+                            'char_user_name': selected_user.name,
+                            'chat_user_id': selected_user.id,
+                            'mobile_number': mobile,
+                            'image': selected_user.image,
+                            'country_image': selected_user.partner_id.country_id.image,
+                            'property_id': msg.property_id.id
+                        }
+                        if msg.msg_from.id == request.uid:
+                            msg_dict.update({'from': True,
+                                             'is_seen': True if msg.is_seen else False,
+                                             })
+
+                        else:
+                            msg_dict.update({'from': False})
+                            msg.sudo().write({'is_seen': True})
+
+                        if selected_user.id in request.env.user.block_user_ids.ids:
+                            msg_dict.update({'is_blocked': True})
+                        else:
+                            msg_dict.update({'is_blocked': False})
+
+                        unread_msg = request.env['messages.history'].sudo().search(
+                            [('msg_to', '=', request.uid), ('is_seen', '=', False)])
+                        print("-------- Unread Msg cont ----------- ", len(unread_msg))
 
                         if unread_msg:
                             unread_msg_count = len(unread_msg)

@@ -732,8 +732,13 @@
                                                     </div>
                                                     <!--<p>Online Today</p>-->
                                                     <div class="login-form-rounded-btn">Response rate: 100%
+														<span class="popovers" data-toggle="popover" data-placement="top"
+                                                          data-trigger="hover" title=""
+                                                          data-content="Percent of conversations this user has responded to. &#60;a href='/info/message-response-rate' &#62;Learn more&#60;/a&#62;"
+                                                          data-original-title="">
                                                         <i data-tip="true" data-for="responseRateTooltip"
                                                            class="fa fa-question-circle" currentitem="false"></i>
+														</span>
                                                     </div>
 
                                                 </div>

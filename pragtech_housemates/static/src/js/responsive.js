@@ -95,11 +95,10 @@ $(document).ready(function()
            }
 		   
 		   
-		   
 		     if ($(window).width() > 769 ){
 			   	$('#new-closebutton').addClass('d-none');
-            	$('.search-bar-responsive').css('display','block')  
-			   	$("#dropdownMenuButton").modal('hide');
+            	$('.search-bar-responsive').css('display','block');
+			   	$("#dropdownMenuButton").modal('hide').css('margin-top','auto');
 				$("#top_menu_collapse .navbar-nav").css('width','75%');
 				$(".navbar-brand").css('display','block');
 		  }

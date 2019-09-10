@@ -14,25 +14,37 @@
                                 <!-- Start Inbox Conversation -->
                                 <div class="inbox-left-conversations">
                                     <div class="inbox-conversion-section">
-                                        <div class="message-numbers">
+                                        <t t-if="unread_msg_count > 0">
+                                        <div class="message-numbers unread_green_color">
                                             <t t-esc="unread_msg_count"/>
                                             unread messages
                                         </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="message-numbers">
+                                            <t t-esc="unread_msg_count"/>
+                                            unread messages
+                                        </div>
+                                        </t>
                                         <input id="view_conversation_user_id" type="hidden" value=""/>
                                         <ul class="inbox-conversations-list">
 
                                             <t t-foreach="chats_with" t-as="chat_user">
-                                                <li class="per-user-items each-user-chat">
+                                                <li class="per-user-items each-user-chat" t-att-login_id="chat_user.id">
                                                     <input id="chat_user_id" type="hidden" t-att-value="chat_user.id"/>
 
                                                     <t t-foreach="last_login" t-as="login">
                                                         <t t-if="login['id'] == chat_user.id">
-                                                            <t t-if="login['last_message']">
-                                                                <span class="green-dot"></span>
-                                                            </t>
-                                                            <t t-else="">
-                                                                <span class="white-dot"></span>
-                                                            </t>
+                                                            <div class="selected_user">
+                                                                <t t-if="login['last_message']">
+                                                                    <t t-if="login['is_seen'] == false">
+                                                                    <span class="green-dot"></span>
+                                                                    </t>
+                                                                    <t t-else="">
+                                                                        <span class="white-dot"></span>
+                                                                    </t>
+                                                                 </t>
+                                                            </div>
                                                         </t>
                                                     </t>
 
@@ -67,11 +79,15 @@
                                                                 <t t-foreach="last_login" t-as="login">
                                                                     <t t-if="login['id'] == chat_user.id">
                                                                         <t t-if="login['last_message']">
-                                                                            <span><t t-esc="login['last_message']"/> </span>
+                                                                            <div></div>
+                                                                            <t t-if="login['is_seen'] == false">
+                                                                                <span class='new_message message_bold' t-esc="login['last_message']"> </span>
+                                                                            </t>
+                                                                            <t t-else="">
+                                                                                <span class='new_message' t-esc="login['last_message']"/>
+                                                                            </t>
                                                                         </t>
-                                                                        <t t-else="">
-                                                                            <!--<span class="white-dot"></span>-->
-                                                                        </t>
+`
                                                                     </t>
                                                                 </t>
 
@@ -517,5 +533,6 @@
 
             </t>
         </template>
+        <!--<template id="message_mobile_view"-->
     </data>
 </odoo>

@@ -2,6 +2,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
 
     $(document).ready(function(){
+var window_pathname = window.location.pathname
 
         $(document).on('click','#edit_general_info_id',function(){
             console.log(" !!!!!! General infooooo  !!!!!!!!")
@@ -12,6 +13,58 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
             var current_finding_id = $("#current_listing_id").val()
             console.log("Current Finding id :",current_finding_id)
+
+            $("#edit_max_budget").keypress(function(e){
+             var keyCode = e.which; /* 8 - (backspace) 32 - (space) 48-57 - (0-9)Numbers */
+             if ( (keyCode != 8 || keyCode ==32 ) && (keyCode < 48 || keyCode > 57))
+              {
+                 return false;
+              }
+            });
+
+
+
+
+            var $input2 = $("#edit_max_budget");
+            if (window_pathname.includes('find_place_preview') && $input2)
+            {
+                         if ($input2.val().length == 0 )
+                        {
+                            $('.styles__errorMessage3').hide();
+                        }
+                //console.log ("In general statement if (window_pathname.includes('about-property'))")
+                if ($input2.val() > 10000){
+                console.log("\n****************")
+                    $('#update_general_info').prop("disabled", true)
+                }
+            }
+            $input2.on('keyup', function (){
+
+                if ($input2.val() <= 10000 )
+                    {
+                        $('.styles__errorMessage3').hide();
+                        // Code added by dhrup
+                        $('#update_general_info').prop("disabled", false)
+                        $('#edit_max_budget').removeClass("border-red");
+                    }
+
+                if ($input2.val() > 10000 )
+                    {                        console.log("\n****************")
+
+                        $('.styles__errorMessage3').show();
+                        // Code added by dhrup
+                        $('#edit_max_budget').addClass("border-red");
+                        $('#update_general_info').prop("disabled", true)
+
+                    }
+                else
+                    {
+                        $('.styles__errorMessage3').hide();
+                        // Code added by dhrup
+                        $('#update_general_info').prop("disabled", false)
+                        $('#edit_max_budget').removeClass("border-red");
+                    }
+            });
 
             $.ajax({
                     url: '/get_general_information_of_current_property',
@@ -119,13 +172,14 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
             $('.not_include_contact_info').hide()
 
-            $("#about_me_text_id").click(function(){
-             console.log('dddddddddddddddddddddddddddddd')
-            $('.not_include_contact_info').show()
-            })
-            $("#about_me_text_id").blur(function(){
-            $('.not_include_contact_info').hide()
-            })
+//            $("#about_me_text_id").click(function(){
+//            $('.not_include_contact_info').show()
+//            })
+//            $("#about_me_text_id").blur(function(){
+//                         console.log('dddddddddddddddddddddddddddddd')
+//
+//            $('.not_include_contact_info').hide()
+//            })
 
             $.ajax({
                     url: '/get_about_me_data',
@@ -144,10 +198,9 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
          })
 
-
-
-         $("#update_about_me").on('click',function(){
-
+        $('#update_about_me').on('mousedown', function(event) {
+    		event.preventDefault();
+		    }).on('click',function(){
              var data = {}
              var current_finding_id = $("#current_listing_id").val()
              var update_about_me_data = $.trim($("#about_me_text_id").val())
@@ -171,6 +224,19 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
              location.reload();
 
          });
+
+        $(document).on('focus','#about_me_text_id',function()
+		{
+		 console.log('dddddddddddddddddddddddddddddd')
+		$('.not_include_contact_info').show()
+		})
+
+
+		$(document).on('blur','#about_me_text_id', function()
+	 	{
+			console.log('dddddddddddddddddddddddddddddd Insode')
+			$('.not_include_contact_info').hide()
+		})
 
          $("#edit_property_pref_in_find").on('click',function(){
             var current_finding_id = $("#current_listing_id").val()

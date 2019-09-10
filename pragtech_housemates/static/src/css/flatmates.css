@@ -9,6 +9,7 @@
 }
 
 
+
 select {
 	background: #F0F3FB;
 	border: 1px solid #F0F3FB;
@@ -58,6 +59,9 @@ section{
    padding: 48px;
 }
 
+#add_html_content section{
+	padding: 0px;
+}
 
 h1, h2, h3, h4, h5, h6{
    font-family: 'open_sansregular';
@@ -898,7 +902,8 @@ border-radius: 50%;
     float: left;
     display: block;
     margin-right: 2.3576520234%;
-    width: 62%;
+    /*width: 62%;*/
+	width: 100%;
     margin-top: 1.3em;
     position: relative;
     text-align: left;
@@ -2124,6 +2129,7 @@ top: 20px;
 	position: absolute;
 	z-index: 1;
 	left: 170px;
+	top: 135px;
 }
 
 .slider .delete-slider .fa-trash{
@@ -2143,7 +2149,7 @@ color: #fff;
 
 .website_blog .o_blog_cover_container > .blog_title{
 	text-align: left;
-	padding: 48px;
+	/*padding: 48px;*/
 }
 
 .website_blog .o_blog_post_complete.o_sharing_links > a{
@@ -3204,7 +3210,7 @@ background-color: #797772;
 
 .navbar .nav-item {padding: 14px 0px;  width: calc(100% / 3); text-align: center;}
 
-.search {width: calc(100% / 1.5);}
+/*.search {width: calc(100% / 1.5);}*/
 
 
 
@@ -3660,6 +3666,8 @@ color: #fff;
 padding: 12px;
 position: absolute;
 z-index: 1;
+top: 135px;
+text-align: left !important;
 }
 
 
@@ -3928,4 +3936,11 @@ body.modal-open {
 
 .report-this-person{
     cursor:pointer;
+}
+.message_bold{
+ font-weight: bold;
+ color:black;
+}
+.unread_green_color{
+color:#159a7f;
 }
