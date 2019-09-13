@@ -24,7 +24,7 @@ $(document).ready(function()
        {
            if ($(window).width() <= 768 )
            {
-                $(".search-dropdown-responsive").css("width", $(window).width() + 17)
+             $(".search-dropdown-responsive").css("width", $(window).width() + 17)
                 $("#top_menu_collapse").addClass("show")
                 $(document).find(".search-box-icon").remove()
                 $(document).find(".search-dropdown-txt").remove()
@@ -95,17 +95,22 @@ $(document).ready(function()
            }
 		   
 		   
-		     if ($(window).width() > 769 ){
+		     if ($(window).width() + 17 >= 769 ){
+				 console.log("Suhas >= 769");
+				 
 			   	$('#new-closebutton').addClass('d-none');
             	$('.search-bar-responsive').css('display','block');
-			   	$("#dropdownMenuButton").modal('hide').css('margin-top','auto');
+			   	$("#dropdownMenuButton").css('margin-top','auto');
 				$("#top_menu_collapse .navbar-nav").css('width','75%');
 				$(".navbar-brand").css('display','block');
+				$("#dropdownMenuButton").css('width','100%');
+
 		  }
 
 
            if ($(window).width() > 768 )
            {
+			   console.log("Suhas > 768");
                 $(".search-dropdown-responsive").css("width", "100%");
 
                 if ($(".search-bar-responsive").length == 2)

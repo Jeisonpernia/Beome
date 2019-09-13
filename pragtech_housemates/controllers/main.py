@@ -2310,7 +2310,7 @@ class FlatMates(http.Controller):
                 if property.person_ids[0].age:
                     values.update({'age': property.person_ids[0].age})
                 if property.person_ids[0].gender:
-                    values.update({'gender': property.person_ids[0].gender})
+                    values.update({'gender': property.person_ids[0].gender.capitalize()})
             if property.max_len_stay_id:
                 values.update({'stay_lenget': property.max_len_stay_id.name})
 
@@ -2545,7 +2545,6 @@ class FlatMates(http.Controller):
 
     @http.route(['/get_msg_history'], type='json', auth="public", website=True)
     def get_msg_history(self, **kwargs):
-        print('\n\n get_msg_history :',kwargs,'\n\n\n')
         msg_history_list = []
         if kwargs:
             if kwargs.get("selected_user"):
@@ -2589,7 +2588,6 @@ class FlatMates(http.Controller):
                             msg_dict.update({'is_blocked': False})
 
                         unread_msg = request.env['messages.history'].sudo().search([('msg_to', '=',request.uid ), ('is_seen', '=', False)])
-                        print("-------- Unread Msg cont ----------- ",len(unread_msg))
 
                         if unread_msg:
                             unread_msg_count = len(unread_msg)
@@ -5130,6 +5128,10 @@ class FlatMates(http.Controller):
                     if property_type_id.property_type == 'Teamups':
                         data_dict.update({
                             'teamups': True
+                        })
+                    if property_type_id.property_type == 'Studio':
+                        data_dict.update({
+                            'studio_flats': True
                         })
 
         if data_dict:

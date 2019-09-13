@@ -134,6 +134,7 @@ var window_pathname = window.location.pathname
                     success: function(data){
                         if(data['result']){
                             var tags_container = $('#preferred_location').siblings().children().find('div')
+                            tags_container.empty()
                             for (var i=0; i<data['result'].length; i++){
                                 var span = document.createElement("span");
                                 span.className = "tag";
@@ -559,7 +560,47 @@ var window_pathname = window.location.pathname
                         }
                     }
             });
+
+//        if (window_pathname.includes('find_place_preview'))
+//        {console.log("\n\n----- edit_age---",$(".edit_age"),$input3)
+//            if ($input3.val().length == 0 )
+//            {
+//                $('.styles__errorMessage4').hide();
+//            }
+//
+//        //console.log ("In general statement if (window_pathname.includes('about-property'))")
+//            if ($input3.val() < 16)
+//            $('#update_applicant_info').prop("disabled", true)
+//        }
+
+
         })
+//        var window_pathname = window.location.pathname
+//        var $input3 = $(".edit_age");
+//        $(document).on('keyup',$input3, function (){
+//console.log("\n\n----- edit_age-- key up-",$input3)
+//            if ($input3.val() >= 16 )
+//                {
+//                    $('.styles__errorMessage4').hide();
+//                    // Code added by dhrup
+//                    $('.edit_age').removeClass("border-red");
+//                }
+//
+//            if ($input3.val() < 16 )
+//                {
+//                    $('.styles__errorMessage4').removeClass('d-none')
+//                    $('.styles__errorMessage4').show()
+//                    // Code added by dhrup
+//                    $('.edit_age').addClass("border-red");
+//                    $('#update_applicant_info').prop("disabled", true)
+//                }
+//            else
+//                {
+//                    $('.styles__errorMessage4').hide();
+//                    // Code added by dhrup
+//                    $('.edit_age').removeClass("border-red");
+//                }
+//        });
         $("#person_accommodation_for_0").on('click',function(){
                 $(".for-couple-first_name").css('display','none')
                 $(".for-couple-gender").css('display','none')
@@ -590,8 +631,9 @@ var window_pathname = window.location.pathname
             var add_more_applicant = document.getElementsByClassName("add_more_applicant");
             var dynamic_id = document.getElementById("dynamic_id_generator").value;
             //First Name
+            if(dynamic_id <= 7){
             var main_div = document.createElement("div");
-            main_div.className = "col-lg-4 added_by_code";
+            main_div.className = "col-lg-4 added_by_code unique_id_"+ dynamic_id.toString();
             add_more_applicant[0].append(main_div)
             var div = document.createElement("div");
             div.className = "form-group";
@@ -604,11 +646,12 @@ var window_pathname = window.location.pathname
             input.type = 'text'
             input.className = 'form-control'
             input.id = 'edit_first_name_' + dynamic_id.toString()
+
             div.append(input)
 
             //Gender
             var main_div = document.createElement("div");
-            main_div.className = "col-lg-4 added_by_code";
+            main_div.className = "col-lg-4 added_by_code unique_id_"+ dynamic_id.toString();;
             add_more_applicant[0].append(main_div)
             var div = document.createElement("div");
             div.className = "form-group";
@@ -632,7 +675,7 @@ var window_pathname = window.location.pathname
 
             var option3 = document.createElement("option");
             option3.value = 'male'
-            option3.innerHTML = 'male'
+            option3.innerHTML = 'Male'
 
             select.append(option1)
             select.append(option2)
@@ -641,7 +684,7 @@ var window_pathname = window.location.pathname
 
             //age
             var main_div = document.createElement("div");
-            main_div.className = "col-lg-4 added_by_code";
+            main_div.className = "col-lg-4 added_by_code unique_id_"+ dynamic_id.toString();
             add_more_applicant[0].append(main_div)
             var div = document.createElement("div");
             div.className = "form-group";
@@ -652,12 +695,45 @@ var window_pathname = window.location.pathname
             div.append(label);
             var input = document.createElement("input");
             input.type = 'number'
-            input.className = 'form-control weekly-rent-input'
+            input.className = 'form-control weekly-rent-input edit_age'
             input.id = 'edit_age_' + dynamic_id.toLocaleString()
+            var error_div=document.createElement("div");
+            error_div.className ='styles__errorMessage4 d-none'
+            error_div.innerHTML = "Must be at least 16"
             div.append(input)
+            div.append(error_div)
+
+            var remove_div = document.createElement("div")
+            remove_div.className = "col-lg-4 remove_div"
+            main_div.append(remove_div)
+            var remove_link = document.createElement('a')
+            remove_link.className = "remove_link unique_id_"+ dynamic_id.toString();
+            remove_link.innerHTML="Remove"
+            remove_link.href = '#';
+            remove_div.append(remove_link)
 
             document.getElementById("dynamic_id_generator").value = parseInt(dynamic_id) + 1
 
+            }
+            else{
+             $('#add_other_person').css('display','none')
+            }
+
+
+
+        })
+
+        $(document).on('click','.remove_link',function(e){
+
+        var dynamic_id = document.getElementById("dynamic_id_generator").value;
+        console.log("\=-=-=09-\=--0900\==-=09098-0",this.className)
+        var class_name = this.className
+        $(document).find("."+class_name.split(" ")[1]).remove()
+        document.getElementById("dynamic_id_generator").value = parseInt(dynamic_id) -1
+        console.log("===== clas ===",class_name.split(" ")[1])
+        if($(document).find(".added_by_code").length == 0){
+         $('#add_other_person').css('display','block')
+        }
 
 
 

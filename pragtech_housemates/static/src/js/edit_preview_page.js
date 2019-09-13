@@ -217,8 +217,8 @@ var window_pathname = window.location.pathname
         $(document).on('click','.set-as-featured',function(event){
 
                var current_property_id = $("#current_listing_id").val()
-               var image_name=$(this)[0].attributes[1].value
-                       console.log('12222222  click  222222222222',$(this)[0].attributes[1].value)
+               var image_name=$(this)[0].attributes[5].value
+                       console.log('12222222  click  222222222222',$(this)[0].attributes[5].value)
 
                $.ajax({
                         url: '/set_as_featured',

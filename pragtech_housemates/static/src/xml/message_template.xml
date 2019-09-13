@@ -15,16 +15,21 @@
                                 <div class="inbox-left-conversations">
                                     <div class="inbox-conversion-section">
                                         <t t-if="unread_msg_count > 0">
-                                        <div class="message-numbers unread_green_color">
-                                            <t t-esc="unread_msg_count"/>
-                                            unread messages
-                                        </div>
+                                             <div class="message-numbers">
+                                                <a href="#" class="message_numbers_link unread_green_color" t-att-value="unread_msg_count">
+                                                    <t t-esc="unread_msg_count"/>
+                                                    unread messages
+                                                </a>
+                                                 <a href="/messages" class="show_all_message unread_green_color d-none">-Show All</a>
+                                             </div>
                                         </t>
                                         <t t-else="">
                                             <div class="message-numbers">
-                                            <t t-esc="unread_msg_count"/>
-                                            unread messages
-                                        </div>
+
+                                                    <t t-esc="unread_msg_count"/>
+                                                    unread messages
+                                            </div>
+                                            <a href="/messages" class="show_all_message unread_green_color d-none">Show All</a>
                                         </t>
                                         <input id="view_conversation_user_id" type="hidden" value=""/>
                                         <ul class="inbox-conversations-list">
@@ -191,7 +196,7 @@
                                             <a href="/messages">
                                                 <span class="icon">
                                                     <svg class="back-to-conversations" viewBox="0 0 13 21">
-                                                        <g stroke="none" stroke-width="1" fill="none"
+                                                        <g stroke="none" stroke-width="1" fill="#2b6ed2"
                                                            fill-rule="evenodd">
                                                             <g class="fill"
                                                                transform="translate(-9.000000, -77.000000)">
@@ -207,15 +212,18 @@
                                                 </span>
                                             </a>
                                         </div>
+										
                                         <div class="member-details">
-                                            <div class="user_image">
+											<div class="member-details-section">
+                                            <span class="user_image">
                                                 <!--<img class="message-avatar"-->
                                                 <!--src="/pragtech_housemates/static/src/img/rohit-avatar.jpg"-->
                                                 <!--alt="Avatar of Rohit"/>-->
-                                            </div>
-                                            <div class="chat_user_name member-name"></div>
-
+                                            </span>
+                                            <span class="chat_user_name member-name"></span>
+											</div>
                                         </div>
+
                                         <div class="dots-dropdown-message">
                                             <a href="#" class="dots" data-toggle="dropdown">
                                                 <span class="icon">

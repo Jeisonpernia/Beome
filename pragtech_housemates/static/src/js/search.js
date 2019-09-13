@@ -950,6 +950,27 @@ $(document).on('click','.input-group', function(){
     })
 
 
+//    $(".tag_input").keydown(function(e) {
+//        switch (e.which) {
+//            case 40:
+//            if()
+//            $('.abcc').css("background-color","#44a793;")
+//                $('li:not(:last-child).abcc').removeClass('abcc').css("background-color","#FFFF;")
+//                    .next().addClass('abcc');
+//                $('.abcc').css("background-color","#44a793;")
+//
+//                break;
+//
+//            case 38:
+//                $('li:not(:first-child).abcc').removeClass('abcc')
+//                    .prev().addClass('abcc');
+//                    $('.abcc').css("background-color","#FFFF;")
+//                break;
+//        }
+//
+//
+//    });
+
     $(".tag_input").keydown(function(e) {
         switch (e.which) {
             case 40:
@@ -962,10 +983,9 @@ $(document).on('click','.input-group', function(){
                     .prev().addClass('abcc');
                 break;
         }
-		
-		
+
+
     });
-	
 
 //$(".search-room-btn").on("click", function(){
 //

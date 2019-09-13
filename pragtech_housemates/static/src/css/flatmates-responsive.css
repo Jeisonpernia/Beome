@@ -492,7 +492,35 @@ header .navbar-brand.logo {width:100%;}
 	.navbar .nav-item .nav-link .nav-icon .shortlist{
 		width: 26px;
 	}
-
+	
+	.member-details{
+		width: 74.4105869942%;
+	}
+	
+	.member-details-section{
+		display: table;
+		margin: 0 auto;
+	}
+	
+	.message-footer-wrapper{
+		position: fixed;
+	}
+	
+	.message-body{
+		position: fixed;
+	}
+	
+	.message-header{
+		height: 52px;
+	}
+	
+	.message-mobilesec{
+		width: 49%;
+	}
+	
+	.inbox-messages-listings-link{
+		width: 49%;
+	}
 }
 
 

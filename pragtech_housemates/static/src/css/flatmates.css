@@ -1359,11 +1359,11 @@ width: 10%;
 	border-radius: 3px;
 }
 
-.property-detail-left .upgrade span:last-child{
+/*.property-detail-left .upgrade span:last-child{
 	font-weight: 600;
 	padding-left: 10px;
 	color: #2e3a4b;
-}
+}*/
 
 
 .property-detail-left .room-rent{
@@ -3201,7 +3201,9 @@ background-color: #797772;
 .abcc{
     background-color:#44a793;
 }
-
+.remove_link{
+    margin-left: -411px;
+    }
 
 
 /*========================= Added by Rohit For Menu Responsive and Main Menu =======================*/
@@ -3270,6 +3272,10 @@ background-color: #797772;
     font-size: 0.875rem;
     padding: 1em;
     text-align: center; width:100%; }
+
+.message_numbers_link{
+color: #979ba3;
+}
 
 
 .inbox-conversations-list {list-style: none;
@@ -3372,6 +3378,7 @@ background-color: #797772;
     border-radius: 50%;
     margin-bottom: -39px;
     margin-left: 17px;
+	object-fit: cover;
 }
 
 
@@ -3393,7 +3400,7 @@ background-color: #797772;
 
 .dots-dropdown-message {float: left;
     /* display: block; */
-    width: 14.7019566472%;
+    width: 12%;
     text-align: right;
     padding: 6px 0;
 }
@@ -3613,7 +3620,7 @@ clear: both;
     fill: #979ba3;
 }
 
-.dots-dropdown-message .dropdown-menu {padding:0px; transform: translate3d(485px, 42px, 0px)!important; }
+.dots-dropdown-message .dropdown-menu {padding:0px; transform: translate3d(auto, 42px, 0px)!important; }
 
 .dots-dropdown-message .dropdown-item {border-bottom: 1px solid #e4e5e6;
     padding-top:10px; padding-bottom:10px;  color: #a5a8ad;

@@ -23,7 +23,8 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
         if (chat_user_id){
             if ($(window).width() > 769)
-            {
+            {            console.log("\n in message if")
+
                 $.ajax({
                         url: '/get_msg_history',
                         type: "POST",
@@ -33,7 +34,7 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                         data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{"selected_user":chat_user_id}}),
                         success: function(data){
                             if(data['result']){
-                                console.log('REsult :: ',data['result'])
+//                                console.log('REsult :: ',data['result'])
 
                                 $(".inbox-empty").css('display','none')
                                 $(".message_container").css('display','block')
@@ -103,15 +104,17 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
 
                                 unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
+
+                                $(".message-numbers").empty()
+                                $(".message-numbers").append("<a href='#' class='message_numbers_link'>"+unread_msg_count+" unread messages"+"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
                                 if (unread_msg_count > 0){
-                                $(".message-numbers").addClass('unread_green_color')
+                                    $(".message_numbers_link").addClass('unread_green_color')
                                 }
                                 else{
-                                $(".message-numbers").removeClass('unread_green_color')
+                                    $(".message-numbers").empty()
+                                    $(".message-numbers").text(unread_msg_count+" unread messages");
+                                    /*$(".show_all_message").removeClass('d-none')*/
                                 }
-
-                                $(".message-numbers").text(unread_msg_count+" unread messages")
-
                                 if(data['result'][data['result'].length-1]['unread_msg_count'] == 0){
                                   $(".unread-msg-cnt").addClass("d-none")
                                 }
@@ -128,6 +131,7 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
             }
             else{
+            console.log("\n in message else")
                 $.ajax({
                             url: '/get_msg_history_mobile_view',
                             type: "POST",
@@ -137,11 +141,14 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                             data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params":{"selected_user":chat_user_id}}),
                             success: function(data){
                                 if(data['result']){
-                                    console.log('REsult :: ',data['result'])
+//                                    console.log('REsult :: ',data['result'])
 
                                     $(".inbox-empty").css('display','none')
                                     $(".inbox-left-conversations").css('display','none')
                                     $(".message_container").css('display','block')
+									$("header").css('display','none')
+									$(".inbox-wrapper").css('top','0')
+									$(".inbox-messages-section").css('margin-top','46px')
 
                                     unread_msg_count = data['result'][0]['unread_msg_count']
 
@@ -208,14 +215,16 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
 
                                     unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
+                                    $(".message-numbers").empty()
+                                    $(".message-numbers").append("<a href='#' class='message_numbers_link'>"+unread_msg_count+" unread messages"+"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
                                     if (unread_msg_count > 0){
-                                    $(".message-numbers").addClass('unread_green_color')
+                                        $(".message_numbers_link").addClass('unread_green_color')
                                     }
                                     else{
-                                    $(".message-numbers").removeClass('unread_green_color')
+                                        $(".message-numbers").empty()
+                                        $(".message-numbers").text(unread_msg_count+" unread messages");
+                                        /*$(".show_all_message").removeClass('d-none')*/
                                     }
-
-                                    $(".message-numbers").text(unread_msg_count+" unread messages")
 
                                     if(data['result'][data['result'].length-1]['unread_msg_count'] == 0){
                                       $(".unread-msg-cnt").addClass("d-none")
@@ -234,6 +243,21 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
             }
 
         }
+    })
+$(document).on('click','.message_numbers_link',function(e){
+//    $(".message_numbers_link").on('click',function(e){
+    console.log("\n\n----in click of unread message ",$(".each-user-chat").find(".white-dot"))
+         if($(".each-user-chat").find(".white-dot").length != 0){
+         console.log("\n\n----in click of unread message ")
+                if($(".each-user-chat").find(".white-dot").hasClass('d-none') == false){
+                    $(".each-user-chat").find(".white-dot").parent().parent().addClass('d-none')
+                }
+         }
+         $(".show_all_message").removeClass('d-none')
+
+
+
+
     })
 
 
@@ -467,13 +491,24 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
                 data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
                 success: function(data){
                     console.log('DATA: ',data)
-                    if(data['result']['id'] == 2){
-                        $('.inbox-wrapper').css('top','140px')
-                    }
-                    else{
-                        $('.inbox-wrapper').css('top','96px')
+					if ($(window).width() > 769){
+						if(data['result']['id'] == 2){
+							$('.inbox-wrapper').css('top','140px')
+						}
+						else{
+							$('.inbox-wrapper').css('top','96px')
 
-                    }
+						}
+					}
+					else{
+						if(data['result']['id'] == 2){
+							$('.inbox-wrapper').css('top','155px')
+						}
+						else{
+							$('.inbox-wrapper').css('top','96px')
+
+						}
+					}
                 }
              })
 

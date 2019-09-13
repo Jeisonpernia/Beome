@@ -617,8 +617,8 @@
                                 </div>
                                 <t t-if="property.place_for == 'me'">
                                     <div class="upgrade mt-3">
-                                        <span class="upgradeStatus">
-                                            <t t-esc="user_name"/>
+                                        <span class="upgradeStatus">Free to message
+                                            <!--<t t-esc="user_name"/>-->
                                         </span>
                                         <span>
                                             <t t-esc="age"/>
@@ -629,12 +629,12 @@
                                 </t>
                                 <t t-else="">
                                     <div class="upgrade mt-3">
-                                        <span class="upgradeStatus">
-                                            <t t-esc="user_name"/>
+                                        <span class="upgradeStatus">Free to message
+                                            <!--<t t-esc="user_name"/>-->
                                         </span>
                                         <t t-foreach="property.person_ids" t-as="person">
                                             <span>
-                                                <t t-esc="person.gender"/>(<t t-esc="person.age"/>),
+                                                <t t-esc="person.gender.capitalize()"/>(<t t-esc="person.age"/>),
                                             </span>
                                         </t>
                                     </div>
