@@ -72,6 +72,7 @@ class Housemates(models.Model):
     pets = fields.Boolean('Pets')
     retirees = fields.Boolean('Retirees')
     on_welfare = fields.Boolean('On welfare')
+    all_female_flatmates=fields.Boolean('All Female Flatmates')
 
     f_full_time = fields.Boolean('Working Full time')
     f_part_time = fields.Boolean('Working Part Time')

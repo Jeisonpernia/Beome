@@ -411,7 +411,9 @@ $(document).on('change','#change_photos',function()
 
                             }
                             }
+
                             })
+
                     }
                 };
             })(files_rec.files[rec]);
@@ -420,7 +422,6 @@ $(document).on('change','#change_photos',function()
             reader.readAsDataURL(files_rec.files[rec])
             console.log("-----------Length array",array_of_image.length)
         }
-
     });
 
 $(document).on('click','.delete-list-image',function()

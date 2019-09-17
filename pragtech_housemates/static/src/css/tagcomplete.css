@@ -89,7 +89,9 @@
 .tag_complete_main .autocomplete li:hover{
 	background: #F0F1F2;
 }
-
+.suburb_in_find_place .tag_complete_main .autocomplete li:hover{
+	background: #ddfbed;
+}
 .autocomplete{
 	position: relative;
 }

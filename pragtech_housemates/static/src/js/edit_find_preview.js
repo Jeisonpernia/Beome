@@ -460,7 +460,7 @@ var window_pathname = window.location.pathname
             }
          });
 
-         $('#update_pref_accommodation_type').on('click',function(){
+         $(document).on('click','#update_pref_accommodation_type',function(){
             console.log('llllllllllllllllllllll')
             var pref_accommodation_type = []
             var data = {}
@@ -488,8 +488,7 @@ var window_pathname = window.location.pathname
         }
             });
 
-            location.reload();
-
+location.reload()
          })
 
 
@@ -575,32 +574,7 @@ var window_pathname = window.location.pathname
 
 
         })
-//        var window_pathname = window.location.pathname
-//        var $input3 = $(".edit_age");
-//        $(document).on('keyup',$input3, function (){
-//console.log("\n\n----- edit_age-- key up-",$input3)
-//            if ($input3.val() >= 16 )
-//                {
-//                    $('.styles__errorMessage4').hide();
-//                    // Code added by dhrup
-//                    $('.edit_age').removeClass("border-red");
-//                }
-//
-//            if ($input3.val() < 16 )
-//                {
-//                    $('.styles__errorMessage4').removeClass('d-none')
-//                    $('.styles__errorMessage4').show()
-//                    // Code added by dhrup
-//                    $('.edit_age').addClass("border-red");
-//                    $('#update_applicant_info').prop("disabled", true)
-//                }
-//            else
-//                {
-//                    $('.styles__errorMessage4').hide();
-//                    // Code added by dhrup
-//                    $('.edit_age').removeClass("border-red");
-//                }
-//        });
+
         $("#person_accommodation_for_0").on('click',function(){
                 $(".for-couple-first_name").css('display','none')
                 $(".for-couple-gender").css('display','none')
@@ -644,10 +618,14 @@ var window_pathname = window.location.pathname
             div.append(label);
             var input = document.createElement("input");
             input.type = 'text'
-            input.className = 'form-control'
+            input.className = 'form-control edit_name'
             input.id = 'edit_first_name_' + dynamic_id.toString()
-
+            var name_error_div=document.createElement("div");
+            name_error_div.className ='styles__errorMessage4 d-none'
+            name_error_div.id='name__errorMessage_'+dynamic_id.toLocaleString()
+            name_error_div.innerHTML = "Name"
             div.append(input)
+            div.append(name_error_div)
 
             //Gender
             var main_div = document.createElement("div");
@@ -699,9 +677,15 @@ var window_pathname = window.location.pathname
             input.id = 'edit_age_' + dynamic_id.toLocaleString()
             var error_div=document.createElement("div");
             error_div.className ='styles__errorMessage4 d-none'
+            error_div.id='styles__errorMessage_'+dynamic_id.toLocaleString()
             error_div.innerHTML = "Must be at least 16"
+            var mx_error_div=document.createElement("div");
+            mx_error_div.className ='styles__errorMessage4 d-none'
+            mx_error_div.id='max__errorMessage_'+dynamic_id.toLocaleString()
+            mx_error_div.innerHTML = "Your age is too old"
             div.append(input)
             div.append(error_div)
+            div.append(mx_error_div)
 
             var remove_div = document.createElement("div")
             remove_div.className = "col-lg-4 remove_div"
@@ -719,9 +703,104 @@ var window_pathname = window.location.pathname
              $('#add_other_person').css('display','none')
             }
 
+        });
 
+        var $input3 = $(".edit_age");
 
+        $(document).on('keyup',$input3, function (event){
+        if(event.target.attributes.id){
+            var id_error_msg = event.target.attributes.id.value.split("_")
+
+              if ($('#'+event.target.attributes.id.value).val() >= 16 && $('#'+event.target.attributes.id.value).val() < 99){
+                $('#styles__errorMessage_'+id_error_msg[2]).hide();
+                $('#max__errorMessage_'+id_error_msg[2]).hide();
+                $('#'+event.target.attributes.id.value).css("border",'');
+                $('#update_applicant_info').prop("disabled", false)
+              }
+              else if($('#'+event.target.attributes.id.value).val() < 16){
+              console.log("\n\n----- edit_age-- key up-",$('#'+event.target.attributes.id.value).val())
+                $('#styles__errorMessage_'+id_error_msg[2]).removeClass('d-none')
+                        $('#styles__errorMessage_'+id_error_msg[2]).show()
+                        $('#max__errorMessage_'+id_error_msg[2]).hide();
+                        $('#'+event.target.attributes.id.value).css("border",'red 1px solid');
+                        $('#update_applicant_info').prop("disabled", true)
+              }
+              else{
+                $('#styles__errorMessage_'+id_error_msg[2]).hide();
+                        $('#max__errorMessage_'+id_error_msg[2]).removeClass('d-none')
+                        $('#max__errorMessage_'+id_error_msg[2]).show();
+                        $('#'+event.target.attributes.id.value).css("border",'red 1px solid');
+              }
+
+        }
         })
+
+
+//            if ($('#'+event.target.attributes.id.value).val() >= 16 )
+//                {
+//                    if($('#'+event.target.attributes.id.value).val() >= 99)
+//                    {
+//                    $('#styles__errorMessage_'+id_error_msg[2]).hide();
+//                    $('#max__errorMessage_'+id_error_msg[2]).removeClass('d-none')
+//                    $('#max__errorMessage_'+id_error_msg[2]).show();
+//                    $('#'+event.target.attributes.id.value).addClass("border-red");
+//                    }
+//                    else{
+//                    $('#styles__errorMessage_'+id_error_msg[2]).hide();
+//                    $('#max__errorMessage_'+id_error_msg[2]).hide();
+//                    // Code added by dhrup
+//                    $('#'+event.target.attributes.id.value).removeClass("border-red");
+//                    }
+//
+//                }
+//
+//            if ($('#'+event.target.attributes.id.value).val() < 16 )
+//                {
+//                    $('#styles__errorMessage_'+id_error_msg[2]).removeClass('d-none')
+//                    $('#styles__errorMessage_'+id_error_msg[2]).show()
+//                    $('#max__errorMessage_'+id_error_msg[2]).hide();
+//                    // Code added by dhrup
+//                    $('#'+event.target.attributes.id.value).addClass("border-red");
+//                    $('#update_applicant_info').prop("disabled", true)
+//                }
+//            else
+//                {
+//                $('#styles__errorMessage_'+id_error_msg[2]).hide();
+//                // Code added by dhrup
+//                $('#'+event.target.attributes.id.value).removeClass("border-red");
+//            }
+//            if ($('#'+event.target.attributes.id.value).val() >= 16 && $('#'+event.target.attributes.id.value).val() < 99){
+//                $('#update_applicant_info').prop("disabled", false)
+//            }
+//
+//        }
+//        })
+
+         var $input3 = $(".edit_name");
+
+        $(document).on('keyup',$input3, function (event){
+        if(event.target.attributes.id){
+            var id_error_msg = event.target.attributes.id.value.split("_")
+            if ($('#'+event.target.attributes.id.value).val() == '' )
+                {        console.log("\n\n----- edit_age-- key up-",id_error_msg)
+
+                    $('#name__errorMessage_'+id_error_msg[3]).removeClass('d-none')
+                    $('#name__errorMessage_'+id_error_msg[3]).show()
+                    $('#'+event.target.attributes.id.value).css("border",'red 1px solid');
+                    $('#update_applicant_info').prop("disabled", true)
+                }
+
+            else
+                {
+                $('#name__errorMessage_'+id_error_msg[3]).hide();
+                // Code added by dhrup
+                $('#'+event.target.attributes.id.value).css("border",'');
+                $('#update_applicant_info').prop("disabled", false)
+                }
+
+        }
+        })
+
 
         $(document).on('click','.remove_link',function(e){
 

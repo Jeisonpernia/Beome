@@ -643,6 +643,7 @@ $(".search-dropdown").click(function(event){
 			$("#dropdownMenuButton").css('margin-top','65px')
 			$(".navbar-brand").css('display','none');
 			$("#top_menu_collapse .navbar-nav").css('width','100%');
+
         }
     }
     else{
@@ -943,6 +944,7 @@ $(document).on('click','.input-group', function(){
 //                        console.log('label :',data[i]['label'])
                         res.push(data[i]['label'])
                     }
+                    localStorage.setItem("find", value);
 //                    console.log('data :/: ',res)
                  return res;
             },
@@ -971,21 +973,78 @@ $(document).on('click','.input-group', function(){
 //
 //    });
 
-    $(".tag_input").keydown(function(e) {
-        switch (e.which) {
-            case 40:
-                $('li:not(:last-child).abcc').removeClass('abcc')
-                    .next().addClass('abcc');
-                break;
+//    $(".tag_input").keydown(function(e) {
+//        switch (e.which) {
+//            case 40:
+//                $('li:not(:last-child).abcc').removeClass('abcc')
+//                    .next().addClass('abcc');
+//                break;
+//
+//            case 38:
+//                $('li:not(:first-child).abcc').removeClass('abcc')
+//                    .prev().addClass('abcc');
+//                break;
+//        }
+//
+//
+//    });
+if((window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates")){
+        $('.tag_input').keyup(function(e) {
+            if(e.which == 40){
+                if($(".autocomplete li.active").length!=0) {
+                    var storeTarget	= $('.autocomplete').find("li.active").next();
+                    $(".autocomplete li.active").removeClass("active").css("background-color","");
+                    storeTarget.focus().addClass("active").css("background-color","#ddfbed");
+                }
+                else {
+                    $('.autocomplete').find("li:first").focus().addClass("active").css("background-color","#ddfbed");
+                }
+                return ;
+            }
 
-            case 38:
-                $('li:not(:first-child).abcc').removeClass('abcc')
-                    .prev().addClass('abcc');
-                break;
-        }
+            if(e.which == 38){
+                if($(".autocomplete li.active").length!=0) {
+                    var storeTarget	= $('.autocomplete').find("li.active").prev();
+                    $(".autocomplete li.active").removeClass("active").css("background-color","");
+                    storeTarget.focus().addClass("active").css("background-color","#ddfbed");
+                }
+                else {
+                    $('.autocomplete').find("li:first").focus().addClass("active").css("background-color","#ddfbed");
+                }
+                return ;
+            }
 
+	    });
+    }
+    else{
+        $('.tag_input').keyup(function(e) {
+            if(e.which == 40){
+                if($("#autocomplete-id li.active").length!=0) {
+                    var storeTarget	= $('#autocomplete-id').find("li.active").next();
+                    $("#autocomplete-id li.active").removeClass("active");
+                    storeTarget.focus().addClass("active");
+                }
+                else {
+                    $('#autocomplete-id').find("li:first").focus().addClass("active");
+                }
+                return ;
+            }
 
-    });
+            if(e.which == 38){
+                if($("#autocomplete-id li.active").length!=0) {
+                    var storeTarget	= $('#autocomplete-id').find("li.active").prev();
+                    $("#autocomplete-id li.active").removeClass("active");
+                    storeTarget.focus().addClass("active");
+                }
+                else {
+                    $('#autocomplete-id').find("li:first").focus().addClass("active");
+                }
+                return ;
+            }
+
+	    });
+
+    }
 
 //$(".search-room-btn").on("click", function(){
 //

@@ -7,7 +7,6 @@
     padding: 0px;
     margin: 0rem -2.5rem -1rem auto;
 }
-
 	
 }
 
@@ -508,6 +507,7 @@ header .navbar-brand.logo {width:100%;}
 	
 	.message-body{
 		position: fixed;
+		top: 155px !important;
 	}
 	
 	.message-header{
@@ -520,6 +520,18 @@ header .navbar-brand.logo {width:100%;}
 	
 	.inbox-messages-listings-link{
 		width: 49%;
+	}
+	
+	
+}
+
+
+@media only screen and (device-width: 768px) {
+.foradmin-onlycss .nav-item {width: calc(100% / 5); } 
+	
+	#dropdownMenuButton .modal-dialog .modal-content{
+		width: 775px;
+		padding-left: 5px;
 	}
 }
 
@@ -680,7 +692,6 @@ margin: 20px 0;
 	#top_menu_collapse .search-dropdown{
 		font-size: 13px;
 	}
-	
 		
 }
 
@@ -707,6 +718,10 @@ margin: 20px 0;
 }
 	
 	.search .dropdown-menu{left:38px; }	
+	
+	.inbox-welcome-message{
+		top:10%;
+	}
 	
 }
 
@@ -859,7 +874,7 @@ margin: 20px 0;
 
 @media only screen and (max-width: 768px){
 	
-	.inbox-messages-section {width:100%!important; margin-top: 16px; }
+	.inbox-messages-section {width:100%!important; margin-top: 22px; }
 	
 	.inbox-left-conversations {width: 100%; margin-top: 16px;}
 	

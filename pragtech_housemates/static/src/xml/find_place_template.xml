@@ -290,7 +290,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place">
 
-                                        <div class="form-group">
+                                        <div class="form-group suburb_in_find_place">
                                             <span>Suburb</span>
                                             <p class="text-muted">We recommend choosing at least 4 suburbs</p>
 

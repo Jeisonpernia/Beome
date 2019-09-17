@@ -437,9 +437,9 @@
                                 </t>
                                 <t t-else="">
                                     <h1>
-                                        <t t-foreach="property.person_ids" t-as="person">
-                                            <t t-esc="person.name"/>,
-                                        </t>
+                                        <!--<t t-foreach="property.person_ids" t-as="person">-->
+                                            <t t-esc="person_name"/>
+                                        <!--</t>-->
                                         <svg width="24" height="24" viewBox="0 0 16 16">
                                             <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
                                                   fill="#2F3A4A" fill-rule="evenodd"></path>
@@ -532,9 +532,10 @@
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                             <label class="p14">First name</label>
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="text" class="form-control edit_name"
                                                                                    id="edit_first_name_1" name=""/>
                                                                         </div>
+                                                                        <div class="styles__errorMessage4 d-none"  id="name__errorMessage_1">Name</div>
                                                                         <!--<div class="help-block form-error"><div >Name please</div></div>-->
                                                                     </div>
 
@@ -558,17 +559,20 @@
                                                                             <!--<select class="custom-select" id="" name="">-->
                                                                             <!--<option>25</option>-->
                                                                             <!--</select>-->
-                                                                            <input class="form-control weekly-rent-input"
+                                                                            <input class="form-control weekly-rent-input edit_age"
                                                                                    id="edit_age_1" value=""
                                                                                    type="number"/>
                                                                         </div>
+                                                                        <div class="styles__errorMessage4 d-none" id="styles__errorMessage_1">Must be at least 16</div>
+                                                                        <div class="styles__errorMessage4 d-none" id="max__errorMessage_1">Your age is too old</div>
                                                                     </div>
 
                                                                     <div class="col-lg-4 for-couple-first_name">
                                                                         <div class="form-group">
                                                                             <label class="p14">First name</label>
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="text" class="form-control edit_name"
                                                                                    id="edit_first_name_2" name=""/>
+                                                                            <div class="styles__errorMessage4 d-none"  id="name__errorMessage_2">Name</div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-4 for-couple-gender">
@@ -588,13 +592,16 @@
                                                                     <div class="col-lg-4 for-couple-age">
                                                                         <div class="form-group">
                                                                             <label class="p14">Age</label>
-                                                                            <input class="form-control weekly-rent-input"
+                                                                            <input class="form-control weekly-rent-input edit_age"
                                                                                    id="edit_age_2" value=""
                                                                                    type="number"/>
                                                                             <!--<select class="custom-select" id="" name="">-->
                                                                             <!--<option>25</option>-->
                                                                             <!--</select>-->
                                                                         </div>
+                                                                        <div class="styles__errorMessage4 d-none"  id="styles__errorMessage_2">Must be at least 16</div>
+                                                                        <div class="styles__errorMessage4 d-none" id="max__errorMessage_2">Your age is too old</div>
+
                                                                     </div>
 
                                                                 </div>
@@ -632,11 +639,11 @@
                                         <span class="upgradeStatus">Free to message
                                             <!--<t t-esc="user_name"/>-->
                                         </span>
-                                        <t t-foreach="property.person_ids" t-as="person">
+                                        <!--<t t-foreach="property.person_ids" t-as="person">-->
                                             <span>
-                                                <t t-esc="person.gender.capitalize()"/>(<t t-esc="person.age"/>),
+                                                <t t-esc="age_gender"/>
                                             </span>
-                                        </t>
+                                        <!--</t>-->
                                     </div>
 
 
@@ -1067,6 +1074,7 @@
                                                                               placeholder="I am flexible with any type of property in that locations."
                                                                               data-toggle="tooltip"
                                                                               data-placement="right"
+                                                                              autocomplete="off"
                                                                               title="Tell your future flatemates a little about yourself and why you are great to live with. Tell them what you do, where you are from and what you do for fun."
 
                                                                     ></textarea>
@@ -1390,6 +1398,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="working_full_time"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-working_full_time"/>
                                                                             <span class="search-accepting">Working
                                                                                 full-time
@@ -1411,6 +1420,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="working_part_time"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-working_part_time"/>
                                                                             <span class="search-accepting">Working
                                                                                 part-time
@@ -1432,6 +1442,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="working_holiday"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-working_holiday"/>
                                                                             <span class="search-accepting">Working
                                                                                 holiday
@@ -1453,6 +1464,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="student"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-student"/>
                                                                             <span class="search-accepting">Student
                                                                             </span>
@@ -1473,6 +1485,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="backpacker"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-backpacker"/>
                                                                             <span class="search-accepting">Backpacker
                                                                             </span>
@@ -1493,6 +1506,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="retired"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-retired"/>
                                                                             <span class="search-accepting">Retired
                                                                             </span>
@@ -1513,6 +1527,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="unemployed"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-unemployed"/>
                                                                             <span class="search-accepting">Unemployed
                                                                             </span>
@@ -1532,7 +1547,7 @@
                                                                             <!--name="LGBTI" readonly="true"/>-->
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
-                                                                                   value="LGBT" class="form-control input-LGBT"/>
+                                                                                   value="LGBT" autocomplete="off" class="form-control input-LGBT"/>
                                                                             <span class="search-accepting">LGBT+</span>
                                                                         </div>
                                                                     </div>
@@ -1551,6 +1566,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="smokers"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-smokers"/>
                                                                             <span class="search-accepting">Smoker</span>
                                                                         </div>
@@ -1570,6 +1586,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="children"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-children"/>
                                                                             <span class="search-accepting">Have
                                                                                 Children
@@ -1590,7 +1607,7 @@
                                                                             <!--name="LGBTI" readonly="true"/>-->
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
-                                                                                   value="pets" class="form-control input-pets"/>
+                                                                                   value="pets" autocomplete="off" class="form-control input-pets"/>
                                                                             <span class="search-accepting">Have Pets
                                                                             </span>
                                                                         </div>
@@ -1939,6 +1956,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Rooms in an existing share house"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-rooms_in_existing_share"/>
                                                                             <span class="search-accepting">Room(s) in
                                                                                 existing share house
@@ -1960,6 +1978,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Whole property for rent"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-whole_property_for_rent"/>
                                                                             <span class="search-accepting">Whole
                                                                                 properties
@@ -1981,6 +2000,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Studio"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-studio_flats"/>
                                                                             <span class="search-accepting">Studio
                                                                                 flats
@@ -2002,6 +2022,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Granny Flats"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-granny_flats"/>
                                                                             <span class="search-accepting">Granny
                                                                                 flats
@@ -2023,6 +2044,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="One Bed Flat"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-one_bed_flat"/>
                                                                             <span class="search-accepting">One bed
                                                                                 flats
@@ -2044,6 +2066,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Homestay"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-homestay"/>
                                                                             <span class="search-accepting">Homestays
                                                                             </span>
@@ -2064,6 +2087,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Shared Room"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-shared_room"/>
                                                                             <span class="search-accepting">Shared
                                                                                 rooms
@@ -2085,6 +2109,7 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Student accommodation"
+                                                                                   autocomplete="off"
                                                                                    class="form-control input-student_accommodation"/>
                                                                             <span class="search-accepting">Student
                                                                                 accommodation
@@ -2096,7 +2121,7 @@
 
 
                                                                 <div class="custom-control custom-checkbox mb-3 mt-4">
-                                                                    <input type="checkbox" class="custom-control-input"
+                                                                    <input type="checkbox" class="custom-control-input" autocomplete="off"
                                                                            id="teamup" name="teamup"/>
                                                                     <label class="custom-control-label currency"
                                                                            for="teamup">I'm interested in teamups

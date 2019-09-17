@@ -11,9 +11,9 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
             var property_id=id
             var a = "P"+property_id
             if (window_pathname.includes('/search'))
-                window.location.replace('/'+a)
+               window.location.href='/'+a
             else
-                window.location.replace(a)
+                window.location.href=a
 
     });
 

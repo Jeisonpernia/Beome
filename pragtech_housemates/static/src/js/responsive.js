@@ -89,6 +89,19 @@ $(document).ready(function()
 //                    }
 //
 //               })
+         console.log("in if-----",$('.message_container:visible').length)
+            if($('.message_container:visible').length == 0)
+            {
+            console.log("in if-----")
+             $(".inbox-left-conversations").css('display','block')
+              $(".message_container").css('display','none')
+            }
+           else {
+
+           $(".inbox-left-conversations").css('display','none')
+              $(".message_container").css('display','block')
+           }
+
 
 
 
@@ -105,6 +118,18 @@ $(document).ready(function()
 				$(".navbar-brand").css('display','block');
 				$("#dropdownMenuButton").css('width','100%');
 
+
+		  }
+		  else{
+		  var is_shown = $(".modal_shown").hasClass("show")
+		  if (is_shown){
+console.log("---------in my else--------------");
+			   $('.search-bar-responsive').css('display','none')
+			$('#new-closebutton').removeClass('d-none');
+			$("#dropdownMenuButton").css('margin-top','65px')
+			$(".navbar-brand").css('display','none');
+			$("#top_menu_collapse .navbar-nav").css('width','100%');
+		  }
 		  }
 
 
@@ -138,8 +163,21 @@ $(document).ready(function()
                 id = setTimeout(doneResizing, 2000);
 			   
 
-			   
-			   
+			    $(".inbox-left-conversations").css('display','block')
+				  if($('.message_container:visible').length > 0)
+                    {
+                  $(".message_container").css('display','block')
+                  }
+                  else{
+                  $(".inbox-empty").css('display','block')
+                  }
+
+//                  var is_shown = $(".modal_shown").hasClass("show")
+//			   if(is_shown == false){
+//			   $(".search-btn-close").addClass('d-none')
+////			   $(".search-dropdown").removeClass('d-none')
+//			   }
+
 /*			    if (window_pathname == '/info')
                 {
 
@@ -191,6 +229,32 @@ $(document).ready(function()
 		   
        }
     });
+
+//    if ($(window).width() > 769)
+//
+//      {
+//       if (window_pathname.includes('/messages')){
+//      console.log('----- my test ------ if  ------',$('.inbox-empty:visible').length,$('.inbox-left-conversations:visible').length)
+//
+//          $(".inbox-left-conversations").css('display','block')
+//          $(".inbox-empty").css('display','block')
+//      }
+//      }
+//      else{
+//      if (window_pathname.includes('/messages')){
+//      console.log('value present in view_conversation_user_id',$('.inbox-empty:visible').length,$('.inbox-left-conversations:visible').length)
+//      if($('.inbox-empty:visible').length == 0)
+//        {
+//         $(".inbox-left-conversations").css('display','block')
+//          $(".inbox-empty").css('display','none')
+//        }
+//       else if($('.inbox-left-conversations:visible').length == 0){
+//
+//       $(".inbox-left-conversations").css('display','none')
+//          $(".inbox-empty").css('display','block')
+//       }
+//      }
+//      }
 
     function doneResizing()
     {}

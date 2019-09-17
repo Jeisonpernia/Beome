@@ -2630,7 +2630,7 @@ font-size: 30px;
     position: fixed;
     width: 100%;
     z-index:1042;
-	top: 46px;
+	top: 0px;
 }
 
 
@@ -3197,6 +3197,9 @@ background-color: #797772;
     margin-right: .5rem;
 }
 
+#autocomplete-id li.active {
+    background-color:#44a793;
+}
 
 .abcc{
     background-color:#44a793;
@@ -3271,7 +3274,8 @@ background-color: #797772;
 .message-numbers {color: #979ba3;
     font-size: 0.875rem;
     padding: 1em;
-    text-align: center; width:100%; }
+    text-align: center; width:100%; 
+	background: #fff;}
 
 .message_numbers_link{
 color: #979ba3;
@@ -3359,7 +3363,11 @@ color: #979ba3;
 .message-header{
     border-bottom: 1px solid #e4e5e6;
     height: 54px;
-    padding: 0.4em 1rem;}
+    padding: 0.4em 1rem;
+	background: #fff;
+	position: relative;
+	z-index: 4;
+}
 
 
 .message-header .message-avatar {float: left;
@@ -3416,7 +3424,7 @@ color: #979ba3;
     font-size: .875rem;
     padding: .875em 1rem;
     position: relative;
-	z-index: 5; }
+	z-index: 4; }
 
 
 .verified-mobile {
@@ -3474,7 +3482,7 @@ bottom: 126px;
     padding: 0 0 4em;
     position: absolute;
     right: 0;
-    top: 100px;
+    top: 110px;
 	padding-top: 15px;
 }	
 

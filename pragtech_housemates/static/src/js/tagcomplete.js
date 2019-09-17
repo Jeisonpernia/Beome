@@ -512,7 +512,8 @@
 						return self;
 					}
 
-					 selected_li = $(document).find(".abcc")
+//					 selected_li = $(document).find(".abcc")
+					 selected_li = $(document).find(".active")
 
                       var id = selected_li.attr("data-id")
                       if((window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates") || (window.location.href.indexOf("find_place_preview") > -1)){
@@ -875,6 +876,11 @@
 		return tagInfo;
 	}//end getTag
 
+    function makeBold(input, wordsToBold) {
+
+        console.log("BOLD STRING :: ",input.replace(new RegExp(wordsToBold,'ig'), '<b>'+wordsToBold+'</b>'))
+        return input.replace(new RegExp(wordsToBold,'ig'), '<b>'+wordsToBold+'</b>');
+    }
 
 	//update AutoComplete
 	$.fn.updateAutoComplete = function(
@@ -888,13 +894,22 @@
 
 			//build list
 			if(id == 0){
-			    listData += "<li data-id='"+id+"' class='abcc'>"+text+"</li>";
+			    listData += "<li data-id='"+id+"' class=''>"+text+"</li>";
+
+//			    find_str = localStorage.getItem('find')
+//			    listData += "<li data-id='"+id+"' class=''>"+makeBold(text, find_str)+"</li>";
 			}
 			else{
 			    listData += "<li data-id='"+id+"'>"+text+"</li>";
+
+//			    find_str = localStorage.getItem('find')
+//			    listData += "<li data-id='"+id+"'>"+makeBold(text, find_str)+"</li>";
 			}
 
+
 		});//end loop
+		localStorage.removeItem("find");
+
 
 		//add autocomplete item
 		autoCompleteDom.empty().html(listData).removeClass('hide');

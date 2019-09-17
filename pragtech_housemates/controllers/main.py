@@ -1952,6 +1952,9 @@ class FlatMates(http.Controller):
             if property.on_welfare == True:
                 values.update({'property_new': 'property preferences'})
                 values.update({'on_welfare': 'On welfare'})
+            if property.all_female_flatmates == True:
+                values.update({'property_new': 'property preferences'})
+                values.update({'all_females': 'All Female Flatmates'})
             if property.students == True:
                 values.update({'property_new': 'property preferences'})
                 values.update(({'students': 'Students'}))
@@ -2294,7 +2297,7 @@ class FlatMates(http.Controller):
                 available_date = datetime.strftime(new_date, '%d %b %G')
                 values.update({'avil_date': available_date})
             if property.weekly_budget:
-                values.update({'weekly_budget': property.weekly_budget})
+                values.update({'weekly_budget': int(property.weekly_budget)})
             if property.bond_id:
                 values.update({'bond_id': property.weekly_budget * property.bond_id.number_of_week})
             if property.bill_id:
@@ -2336,7 +2339,30 @@ class FlatMates(http.Controller):
                 values.update({'fpets': 'Pets'})
             if property.fchildren == True:
                 values.update({'fchildren': 'Children'})
+            age=[]
+            gender=[]
+            name = []
+            age_gender=""
+            person_name=""
+            if property.person_ids:
+                for id in property.person_ids:
+                    age.append(id.age)
+                    gender.append(id.gender.capitalize())
+                    name.append(id.name)
+                for item in range(len(age)):
+                    if item < len(age)-2:
+                        age_gender=age_gender+gender[item]+"("+str(age[item])+")"+","
+                        person_name=person_name+name[item]+","
 
+                age_gender=age_gender+gender[-2]+"("+str(age[-2])+")"+' and '+gender[-1]+"("+str(age[-1])+")"
+                person_name=person_name+name[-2]+' and '+name[-1]
+            if age_gender:
+                values.update({'age_gender':age_gender})
+
+                print("\n\n===== loop ====",age_gender)
+                print("\n\n===== age and gender ====", age,gender)
+            if person_name:
+                values.update({'person_name':person_name})
             if property.rooms_ids:
                 if property.rooms_ids[0].room_furnishing_id:
                     values.update({'room_furnishing_id': property.rooms_ids[0].room_furnishing_id.name})
@@ -4756,6 +4782,10 @@ class FlatMates(http.Controller):
                     accepting_dict.update({
                         'on_welfare': True
                     })
+                if house_mates_id.all_female_flatmates:
+                    accepting_dict.update({
+                        'all_flatmates': True
+                    })
 
                 print('\n\nACCEPTING DICT TO RETURN :\n',accepting_dict)
         return accepting_dict
@@ -4781,6 +4811,7 @@ class FlatMates(http.Controller):
                     house_mates_id.backpackers = False
                     house_mates_id.retirees = False
                     house_mates_id.on_welfare = False
+                    house_mates_id.all_female_flatmates=False
 
                     for accept in kwargs.get('update_accepting'):
                         if accept == 'pets':
@@ -4799,7 +4830,7 @@ class FlatMates(http.Controller):
                             house_mates_id.smokers = True
 
                         if accept == 'all_females':
-                            pass
+                            house_mates_id.all_female_flatmates = True
 
                         if accept == 'fourty_year_old':
                             house_mates_id.fourty_year_old = True

@@ -288,6 +288,7 @@
                                     <field name="pets"/>
                                     <field name="retirees"/>
                                     <field name="on_welfare"/>
+                                    <field name="all_female_flatmates"/>
                                 </group>
 
                                 <h3 attrs="{'invisible': [('listing_type', '=', 'list')]}">Employment Status</h3>

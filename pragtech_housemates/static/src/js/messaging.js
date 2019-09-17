@@ -107,14 +107,14 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
                                 $(".message-numbers").empty()
                                 $(".message-numbers").append("<a href='#' class='message_numbers_link'>"+unread_msg_count+" unread messages"+"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
-                                if (unread_msg_count > 0){
+//                                if (unread_msg_count > 0){
                                     $(".message_numbers_link").addClass('unread_green_color')
-                                }
-                                else{
-                                    $(".message-numbers").empty()
-                                    $(".message-numbers").text(unread_msg_count+" unread messages");
-                                    /*$(".show_all_message").removeClass('d-none')*/
-                                }
+//                                }
+//                                else{
+//                                    $(".message-numbers").empty()
+//                                    $(".message-numbers").append("<a href='#' class='message_numbers_link'>"+unread_msg_count+" unread messages"+"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
+//                                    $(".show_all_message").removeClass('d-none')
+//                                }
                                 if(data['result'][data['result'].length-1]['unread_msg_count'] == 0){
                                   $(".unread-msg-cnt").addClass("d-none")
                                 }
@@ -217,14 +217,14 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                                     unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
                                     $(".message-numbers").empty()
                                     $(".message-numbers").append("<a href='#' class='message_numbers_link'>"+unread_msg_count+" unread messages"+"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
-                                    if (unread_msg_count > 0){
+//                                    if (unread_msg_count > 0){
                                         $(".message_numbers_link").addClass('unread_green_color')
-                                    }
-                                    else{
-                                        $(".message-numbers").empty()
-                                        $(".message-numbers").text(unread_msg_count+" unread messages");
-                                        /*$(".show_all_message").removeClass('d-none')*/
-                                    }
+//                                    }
+//                                    else{
+//                                        $(".message-numbers").empty()
+//                                        $(".message-numbers").append("<a href='#' class='message_numbers_link'>"+unread_msg_count+" unread messages"+"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
+//                                        $(".show_all_message").removeClass('d-none')
+//                                    }
 
                                     if(data['result'][data['result'].length-1]['unread_msg_count'] == 0){
                                       $(".unread-msg-cnt").addClass("d-none")
@@ -481,7 +481,8 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
 
 
      if(window.location.pathname == "/messages"){
-      console.log('value present in view_conversation_user_id',$("#view_conversation_user_id").val())
+
+
 
        $.ajax({
                 url: '/get_current_user_id',
@@ -580,9 +581,9 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
 						//$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
                     }
                     else{
-						
+
 						$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
-						$(".custom_header").removeClass("top_margin")
+						//$(".custom_header").removeClass("top_margin")
 						$(".custom_header").addClass("top_margin1")
 
                     }

@@ -5,7 +5,7 @@ odoo.define('pragtech_flatmates.edit_preview_page', function (require){
 var window_pathname = window.location.pathname
         $(".edit_about_the_room").on('click',function(){
             console.log(" !!!!!! Edit About the Room call !!!!!!!!")	
-
+            $('.styles__errorMessage_preview').hide();
             var current_property_id = $("#current_listing_id").val()
 
             console.log("Current Listing id :",current_property_id)
@@ -203,9 +203,9 @@ var window_pathname = window.location.pathname
                     contentType: 'application/json',
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_property_id':current_property_id}}),
                     success: function(data){
-
                         if(data['result']['about_property_description']){
                                 $('.edit_about_property_div').html(data['result']['about_property_description'])
+                                console.log("\n\n----",$('.edit_about_property_div').text(),data['result']['about_property_description'])
                                 $('#edit_about_property').html($('.edit_about_property_div').text())
 
                         }
@@ -217,8 +217,15 @@ var window_pathname = window.location.pathname
         $(document).on('click','.set-as-featured',function(event){
 
                var current_property_id = $("#current_listing_id").val()
-               var image_name=$(this)[0].attributes[5].value
-                       console.log('12222222  click  222222222222',$(this)[0].attributes[5].value)
+               console.log('12222222  click  222222222222',$(this))
+                console.log('12222222  click  222222222222',$(this)[0].attributes[5])
+                if ($(this)[0].attributes[5]){
+                 var image_name=$(this)[0].attributes[5].value
+                }
+                else if($(this)[0].attributes[1]){
+               var image_name=$(this)[0].attributes[1].value
+               }
+
 
                $.ajax({
                         url: '/set_as_featured',
