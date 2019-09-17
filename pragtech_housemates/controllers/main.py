@@ -2344,7 +2344,7 @@ class FlatMates(http.Controller):
             name = []
             age_gender=""
             person_name=""
-            if property.person_ids:
+            if property.person_ids and property.place_for == 'group' or property.place_for == 'couple':
                 for id in property.person_ids:
                     age.append(id.age)
                     gender.append(id.gender.capitalize())
