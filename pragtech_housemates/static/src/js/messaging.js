@@ -149,6 +149,7 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 									$("header").css('display','none')
 									$(".inbox-wrapper").css('top','0')
 									$(".inbox-messages-section").css('margin-top','46px')
+									
 
                                     unread_msg_count = data['result'][0]['unread_msg_count']
 
@@ -480,40 +481,13 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
 //     })
 
 
-     if(window.location.pathname == "/messages"){
+//     if(window.location.pathname == "/messages"){
 
 
 
-       $.ajax({
-                url: '/get_current_user_id',
-                type: "POST",
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
-                success: function(data){
-                    console.log('DATA: ',data)
-					if ($(window).width() > 769){
-						if(data['result']['id'] == 2){
-							$('.inbox-wrapper').css('top','140px')
-						}
-						else{
-							$('.inbox-wrapper').css('top','96px')
 
-						}
-					}
-					else{
-						if(data['result']['id'] == 2){
-							$('.inbox-wrapper').css('top','155px')
-						}
-						else{
-							$('.inbox-wrapper').css('top','96px')
 
-						}
-					}
-                }
-             })
-
-     }
+//     }
 
 		
 		
@@ -593,5 +567,48 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
 
      }
 	})
+	window.onresize = function() {
+	 $.ajax({
+                url: '/get_current_user_id',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
+                success: function(data){
+                    console.log('DATA: ',data)
+					if ($(window).width() > 768 && $(window).width() < 992)
+						{
+						console.log("==in first==")
+						if(data['result']['id'] == 2){
+							$('.inbox-wrapper').css('top','125px')
+						}
+						else{
+							$('.inbox-wrapper').css('top','80px !important')
+
+						}
+					}
+					else if ($(window).width() >= 992){
+					console.log("==in second==")
+						if(data['result']['id'] == 2){
+							$('.inbox-wrapper').css('top','140px')
+						}
+						else{
+							$('.inbox-wrapper').css('top','96px')
+
+						}
+					}
+					/*else if($(window).width() < 769){
+					console.log("==in third==")
+						if(data['result']['id'] == 2){
+							$('.inbox-wrapper').css('top','155px')
+						}
+						else{
+							$('.inbox-wrapper').css('top','96px')
+
+						}
+					}*/
+                }
+             })
+             }
 	
 });//main

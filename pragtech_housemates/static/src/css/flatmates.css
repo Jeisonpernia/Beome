@@ -3584,7 +3584,7 @@ clear: both;
 
 
 .message-toollayout {position: relative;
-    width: calc(100% - 15px);
+    /*width: calc(100% - 15px);*/
     background-color: #fff;
     margin: 0;
     padding: 1rem 1.5rem;

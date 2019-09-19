@@ -185,6 +185,9 @@ var window_pathname = window.location.pathname
                     success: function(data){
                     }
             });
+// $(".room-rent").load(location.href + " .room-rent");
+//             $(".room-months").load(location.href + " .room-months");
+//             $(".room-date").load(location.href + " .room-date");
             location.reload();
 
         });
@@ -238,7 +241,7 @@ var window_pathname = window.location.pathname
                             if(data['result'] && data['result'] == true){
 //                                location.reload()
 //console.log('12222222  load  222222222222',)
-                                $(".add-photos-list_preview").load(location.href + " .add-photos-list_preview");
+                                $(".slider").load(location.href + " .slider");
 
 
                             }

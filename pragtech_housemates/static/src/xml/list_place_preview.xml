@@ -1287,7 +1287,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="room-date">
+                                        <div class="room-date total_bathrooms">
                                             <span class="icon">
                                                 <svg width="32" height="32">
                                                     <g stroke="#2E3A4A" fill="none" fill-rule="evenodd"
@@ -1323,7 +1323,7 @@
                                     </div>
 
                                     <div class="col-lg-3 col-sm col mb-4 text-center">
-                                        <div class="room-date">
+                                        <div class="room-date total_flatmates">
                                             <span class="icon">
                                                 <svg width="34" height="34">
                                                     <path d="M12.546 23.532l.39-4.748c-1.261-1.33-2.102-3.192-2.239-5.053h-.021c-1.33 0-1.716-1.949-.504-2.526a8.197 8.197 0 0 1-.387-2.492C9.785 4.453 13.015 1 17 1s7.215 3.453 7.215 7.713c0 .873-.137 1.71-.387 2.492 1.211.578.826 2.527-.504 2.527h-.021c-.138 1.863-.981 3.727-2.245 5.058l.346 4.732c.322.034 8.487 3.05 11.392 5.893.13.127.204.302.204.486v2.422a.676.676 0 0 1-.672.677H1.672A.676.676 0 0 1 1 32.323V29.9c0-.183.073-.358.204-.486 2.883-2.821 10.593-5.685 11.342-5.883z"
@@ -1428,7 +1428,7 @@
                                     </div>
                                 </div>
 
-                                <p class="mt-3 mb-3" id="description_about_property">
+                                <p class="mt-3 mb-3 edit_description_about_property" id="description_about_property">
                                     <!--<t t-if="description_about_property">-->
                                     <!--<t t-esc="description_about_property"></t>-->
                                     <!--</t>-->

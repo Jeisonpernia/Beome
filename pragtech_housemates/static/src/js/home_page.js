@@ -478,6 +478,45 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
 	});
 
+	$(document).on('click','.banner-shortlist',function()
+	{
+	  var $child1 = ''
+	  if ($(this).hasClass('banner-shortlist'))
+		  {
+//
+//		  $('.shortlist-span').removeClass('d-md-inline-block');
+//		  $('.shortlisted-span').removeClass('d-none');
+		  var path=window.location.pathname
+          if (path.indexOf('P') !== -1){
+            var property_id=path.split('P').pop()
+          }
+          console.log('shortlistshortlist',property_id)
+
+		  $.ajax({
+	  		url : "/shortlist",   // calls to controller method
+	  		type : "post",
+	  		dataType : 'http',
+	 		data : {
+	  			'data':property_id
+	  			,
+	  			'active' : 'True'
+	  			   // send to controller method arguments
+	  		},
+	  		success : function(result) {    // work after controller method return
+	  		$(".add-photos-slide").load(location.href + " .add-photos-slide");
+	  		},
+	         });
+
+
+
+		  }
+
+
+
+	});
+
+
+
 
 
 
@@ -492,6 +531,7 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
 					  $child1 = this.parentNode.parentNode
 					  $child1 = $child1.childNodes[0].getAttribute('data-button-id')
+
 					  $.ajax({
 				  		url : "/shortlist",   // calls to controller method
 				  		type : "post",
