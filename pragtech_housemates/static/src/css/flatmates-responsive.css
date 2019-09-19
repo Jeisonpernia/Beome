@@ -413,6 +413,11 @@ margin: 20px 0;
 	.slider .delete-slider{
 		top: 60px;
 	}
+	
+	
+	.inbox-messages-section	{
+		margin-top: 6px;
+	}
 
 	
 }
@@ -526,12 +531,30 @@ header .navbar-brand.logo {width:100%;}
 }
 
 
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+	
+		.message-body{
+		position: absolute;
+		top: 110px !important;
+		overflow-y: auto;
+	}
+	
+	.message-footer-wrapper{
+	position: absolute;
+		
+	}
+}
+
 @media only screen and (device-width: 768px) {
 .foradmin-onlycss .nav-item {width: calc(100% / 5); } 
 	
 	#dropdownMenuButton .modal-dialog .modal-content{
 		width: 775px;
 		padding-left: 5px;
+	}
+	
+	.inbox-messages-section{
+		margin-top: 16px;
 	}
 }
 
@@ -722,7 +745,7 @@ margin: 20px 0;
 	.inbox-welcome-message{
 		top:10%;
 	}
-	
+
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1023px) {
@@ -874,7 +897,7 @@ margin: 20px 0;
 
 @media only screen and (max-width: 768px){
 	
-	.inbox-messages-section {width:100%!important; margin-top: 22px; }
+	.inbox-messages-section {width:100%!important;}
 	
 	.inbox-left-conversations {width: 100%; margin-top: 16px;}
 	

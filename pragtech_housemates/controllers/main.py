@@ -608,6 +608,22 @@ class FlatMates(http.Controller):
         if property.min_len_stay_id:
             values.update({'min_len_stay_id': property.min_len_stay_id.id})
             values.update({'min_len_stay_name': property.min_len_stay_id.name})
+        if property.property_image_ids:
+            total_images=len(property.property_image_ids)
+            if total_images:
+                values.update({'total_count_images':total_images})
+        res_user=request.env['res.users'].sudo().search([('id','=',request.uid)])
+        if res_user.house_mates_ids:
+            ids_list=[]
+            for id in res_user.house_mates_ids:
+                ids_list.append(id.id)
+            if ids_list and property.id in ids_list:
+                print("\n\n----- is shortlisted------", ids_list,property.id)
+                values.update({'is_short_list':True})
+            else:
+                values.update({'is_short_list':False})
+
+
 
         if property.avil_date:
             # date_string=str(property.avil_date)
@@ -3788,10 +3804,10 @@ class FlatMates(http.Controller):
 
         print ("\n\n\nSearch Records :     ",len(properties),properties,'\n\n\n')
         if filters[0].get('listing_type') =='shortlist':
-            # print ("Homeeeeeeeeeeeeeeee")
+            print ("Homeeeeeeeeeeeeeeee shortlist")
             print ("0----------------------------------0",request.env.user.house_mates_ids.ids)
             properties = request.env['house.mates'].sudo().search_read(domain=[('id', 'in', request.env.user.house_mates_ids.ids),('id', '<', record_id),('state','=','active')], fields=fields, order='id desc', limit=12)
-            # print("Streettt---------------------------", properties)
+            print("Streettt---------------------------", properties)
         for rec in properties:
             # print("Streettt---------------------------", properties)
             property_image_main = request.env['property.image'].sudo().search_read(
@@ -3874,7 +3890,7 @@ class FlatMates(http.Controller):
 
             property_list.append(property_data.copy())
 
-        # print ("----------------end--------------------",property_list)
+        print ("----------------end--------------------",property_list)
         return property_list
 
         # properties1 = request.env['product.product'].sudo().search_read(domain=[('id','>',record_id)],fields=['id','name','default_code','image_medium','description'], order='id', limit=16)

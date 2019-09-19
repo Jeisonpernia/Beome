@@ -878,8 +878,11 @@
 
     function makeBold(input, wordsToBold) {
 
-        console.log("BOLD STRING :: ",input.replace(new RegExp(wordsToBold,'ig'), '<b>'+wordsToBold+'</b>'))
-        return input.replace(new RegExp(wordsToBold,'ig'), '<b>'+wordsToBold+'</b>');
+
+        wordsToBold = wordsToBold.toLowerCase().replace(/\b[a-z]/g, function(wordsToBold) {
+            return wordsToBold.toUpperCase();
+        });
+        return input.replace(new RegExp(wordsToBold,'i'), '<b>'+wordsToBold+'</b>');
     }
 
 	//update AutoComplete
@@ -894,16 +897,16 @@
 
 			//build list
 			if(id == 0){
-			    listData += "<li data-id='"+id+"' class=''>"+text+"</li>";
+//			    listData += "<li data-id='"+id+"' class=''>"+text+"</li>";
 
-//			    find_str = localStorage.getItem('find')
-//			    listData += "<li data-id='"+id+"' class=''>"+makeBold(text, find_str)+"</li>";
+			    find_str = localStorage.getItem('find')
+			    listData += "<li data-id='"+id+"' class=''>"+makeBold(text, find_str)+"</li>";
 			}
 			else{
-			    listData += "<li data-id='"+id+"'>"+text+"</li>";
+//			    listData += "<li data-id='"+id+"'>"+text+"</li>";
 
-//			    find_str = localStorage.getItem('find')
-//			    listData += "<li data-id='"+id+"'>"+makeBold(text, find_str)+"</li>";
+			    find_str = localStorage.getItem('find')
+			    listData += "<li data-id='"+id+"'>"+makeBold(text, find_str)+"</li>";
 			}
 
 

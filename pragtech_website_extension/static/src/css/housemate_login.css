@@ -683,7 +683,7 @@ fill: #fff;
 cursor: pointer;
 }
 
-#verify_mobile, #account_verification, #account_settings_popup_id, #email_alert_popup_id, #deactivate_account_popup_href_id, #help_faq_id, #logout_id{
+#verify_mobile, #account_verification, #account_settings_popup_id, #email_alert_popup_id, #deactivate_account_popup_href_id, #help_faq_id, #logout_id,.banner-shortlist{
     cursor: pointer;
 }
 
