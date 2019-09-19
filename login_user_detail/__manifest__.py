@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': "User Log Details",
-    'version': '12.0.1.0.1',
+     'version': '12.0.44',
     'summary': """Login User Details & IP Address""",
     'description': """This module records login information of user""",
     'author': "Cybrosys Techno Solutions ",

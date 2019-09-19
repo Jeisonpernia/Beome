@@ -2,7 +2,7 @@
 
 {
     'name': 'Pragtech Home Page validation',
-    'version': '12.0.7',
+    'version': '12.0.44',
     'author': "Pragmatic Techsoft Pvt. Ltd. ",
     'summary': 'Login page',
     'description': """
