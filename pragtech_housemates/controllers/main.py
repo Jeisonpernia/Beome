@@ -3890,7 +3890,7 @@ class FlatMates(http.Controller):
 
             property_list.append(property_data.copy())
 
-        print ("----------------end--------------------",property_list)
+        # print ("----------------end--------------------",property_list)
         return property_list
 
         # properties1 = request.env['product.product'].sudo().search_read(domain=[('id','>',record_id)],fields=['id','name','default_code','image_medium','description'], order='id', limit=16)
