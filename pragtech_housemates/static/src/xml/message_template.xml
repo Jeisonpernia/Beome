@@ -14,7 +14,7 @@
                                 <!-- Start Inbox Conversation -->
                                 <div class="inbox-left-conversations">
                                     <div class="inbox-conversion-section">
-                                        <t t-if="unread_msg_count > 0">
+                                        <t t-if="unread_msg_count and unread_msg_count &gt; 0">
                                              <div class="message-numbers">
                                                 <a href="#" class="message_numbers_link unread_green_color" t-att-value="unread_msg_count">
                                                     <t t-esc="unread_msg_count"/>
