@@ -9,6 +9,7 @@ odoo.define('pragtech_website_extension.sms_code', function (require){
                       var mobile_no_to_verify = $(".verify-mobile-no").val();
                       console.log('Coutry Id :',country_id)
                       console.log('Mobile No: ',mobile_no_to_verify)
+                      $('.otp-code').val('')
 
                       var data = {
                             'country_id':country_id,

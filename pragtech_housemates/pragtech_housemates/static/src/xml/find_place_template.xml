@@ -1,0 +1,1230 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Template Name : Start(Find) -->
+        <!-- URL: find-place/describe-your-ideal-place/start -->
+        <template id="find_place" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+                            <form action="/find-place/describe-your-ideal-place/accommodation" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
+                                        <t t-if="request.env.user.partner_id.name != 'Public user'">
+                                            <h4>Thanks <t t-if="user_id.name">
+                                                                    <span t-esc="user_id.name"/>
+                                                                </t>
+                                                                <!--<t t-elif="user_id.lastname">-->
+                                                                    <!--<span t-esc="user_id.lastname"/>-->
+                                                                <!--</t>-->
+                                                                <!--<t t-else="user_id.name">-->
+                                                                    <!--<span t-esc="user_id.name"/>-->
+                                                                <!--</t>-->
+                                                                , let’s find you
+                                                a place
+                                            </h4>
+                                        </t>
+                                        <div class="mt-5 col-md-2 col-sm-6 col-6 mx-auto">
+                                            <img src="/pragtech_housemates/static/src/img/illustration-house.png"
+                                                 class="img-fluid"></img>
+                                        </div>
+                                        <div class="mt-4 text-center">
+                                            <h5>Describe your ideal place</h5>
+                                            <p>Beds, bathrooms, amenities, rent etc</p>
+                                        </div>
+                                        <div class="mt-4 text-center">
+                                            <button type="button" class="btn btn-gray rounded-circle">1 of 2</button>
+                                        </div>
+                                        <div class="mt-4 text-center">
+                                            <button type="submit" class="btn btn-primary btn-green">Start</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Start (Find) -->
+        <!-- ######################### -->
+
+        <!-- Template Name : Find Accommodation -->
+        <!-- URL: find-place/describe-your-ideal-place/accommodation -->
+        <template id="find_place_accommodation" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+
+                            <form action="about-flatmates" id="find_about_flatmates" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                                        <p class="text-uppercase">Your Ideal Place</p>
+                                    </div>
+                                    <div class="col-lg-12 col-sm-12 col-xs-12 list-place">
+                                        <h3>What type of place are you looking for</h3>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-7 mx-auto">
+                                        <div class="item mt-5">
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 share-house find-sharehouse find-active-property"
+                                                     id="find-share-house">
+                                                    <input type="checkbox" name="find_place_looking" id="rooms_in_existing_share_house"
+                                                           t-att-value="rooms_in_existing_share_house" class="d-none"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="34" viewBox="0 0 42 34">
+                                                            <path d="M39.049 11.732v21.463H2.95V11.732M41 12.707L21 1 1 12.707h40zM7.83 26.366h8.78v-4.878H7.83v4.878zm15.609 6.83V21.487h8.78v11.707"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Room(s) in an existing sharehouse</p>
+                                                <!--<span><t t-esc="rooms_in_existing_share_house"/></span>-->
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find-wholeproperty find-active-property"
+                                                     id="find-whole-property">
+                                                    <input type="checkbox" name="find_place_looking" id="whole_property"
+                                                           t-att-value="whole_property" class="d-none"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="31" viewBox="0 0 42 31">
+                                                            <path d="M30.5 9.78h5.283L41 29.293H1L6.217 9.78h4.86M21 1L8.317 12.708h2.206v11.707h7.72v-7.026h5.514v7.026h7.72V12.708h2.206L21 1z"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Whole property for rent</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find-studio find-active-property"
+                                                     id="find-studio">
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="studio" id="studio"
+                                                           class="d-none"/>
+                                                    <span class="icon">
+                                                        <svg width="34" height="34" viewBox="0 0 34 34">
+                                                            <path d="M19.91 15.288V1m8.724 14.288H33m-13.09 0h2.905m4.366 16.285H33V1H1v20.004m0 5.717v4.852h9.279M1 21.004c.295.002.59.025.88.07m1.884.569c1.134.326 1.928 1.023 2.268 2.046m.69 2.167c.046.286.07.575.07.865m16.023-11.45c0-.29.024-.58.07-.866m.412-2.066c.272-1.195 1.063-1.938 2.125-2.275m2.331-.424c.291-.045.586-.068.88-.07m0 5.718V9.57M1 26.72h5.819m3.46 3.425H27.18V33H10.279v-2.854zM6.085 3.854h8.564a1 1 0 0 1 1 1v9.434a1 1 0 0 1-1 1H6.085a1 1 0 0 1-1-1V4.854a1 1 0 0 1 1-1zm-.833 3.252H15.49M10.367 4.13v2.975"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Studio</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find-grannyflats find-active-property"
+                                                     id="find-granny-flats">
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="granny_flat" id="granny_flat"
+                                                           class="d-none"/>
+                                                    <span class="icon">
+                                                        <svg width="26" height="35" viewBox="0 0 26 35">
+                                                            <g fill="none" fill-rule="evenodd">
+                                                                <path d="M19.14 4.438A5.486 5.486 0 0 0 14.03 1a5.487 5.487 0 0 0-5.1 3.41m11.33 14.257a2.7 2.7 0 0 1 2.684 2.697 2.7 2.7 0 0 1-2.685 2.698v1.354c0 4.741-3.85 8.584-8.6 8.584s-8.6-3.843-8.6-8.584v-3.552m4.113-4.361s-1.827-.132-3.428 1.372m8.914-1.372s1.827-.132 3.429 1.372m-8.063 7.17c1.173 2.045 3.79 2.065 4.937 0M6.2 4.437h12.04s6.76.12 6.76 9.045c0 6.199-1.469 8.238-2.103 8.83.103-.288.161-.597.161-.922 0-1.476-1.17-2.674-2.618-2.683l-1.966-1.129v-1.373c-10.804 0-11.787-6.09-11.787-6.09s-.254 3.876-3.784 3.876v4.716S1 17.763 1 13.98V9.652c0-2.868 2.382-5.214 5.2-5.214zm5.497 15.649c-.06-.048-1.49-1.152-2.88-.005m3.475-.932c-.328 0-.595.282-.595.628v1.494c0 .347.267.628.595.628h4.982c.327 0 .595-.281.595-.628v-1.494c0-.346-.268-.628-.595-.628h-4.982zm-9.052 0c-.327 0-.594.282-.594.628v1.494c0 .347.267.628.594.628h4.983c.328 0 .594-.281.594-.628v-1.494c0-.346-.266-.628-.594-.628H3.24zm14.903.298l2.057-.573m-13.714 5.5s-1.372 1.833-1.372 2.75m9.6-2.75s1.372 1.833 1.372 2.75"
+                                                                      stroke="#2F3A4A" stroke-width="1.5"
+                                                                      stroke-linecap="round"
+                                                                      stroke-linejoin="round"></path>
+                                                                <path d="M6.2 20.5c0 .276-.268.5-.6.5-.332 0-.6-.224-.6-.5s.268-.5.6-.5c.332 0 .6.224.6.5m8.2.5c-.332 0-.6-.224-.6-.5s.268-.5.6-.5c.331 0 .6.224.6.5s-.269.5-.6.5z"
+                                                                      fill="#2F3A4A"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Granny flats</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find-onebedflat find-active-property"
+                                                     id="find-one-bad-flat">
+                                                    <input type="checkbox" name="find_place_looking" id="one_bed_flat"
+                                                           t-att-value="one_bed_flat" class="d-none"/>
+                                                    <span class="icon">
+                                                        <svg width="38" height="32" viewBox="0 0 38 32">
+                                                            <path d="M37.208 27.917v3.024M.792 27.917v3.024M.792 20h36.416v7.917H.792V20zm33.25-5.02V1H3.958v13.997m17.417-1.33v-4.75a1.314 1.314 0 0 1 1.583-1.41 8.518 8.518 0 0 0 4.497 0 1.425 1.425 0 0 1 1.773 1.41v4.75m-20.52 0v-4.75a1.314 1.314 0 0 1 1.584-1.41 8.518 8.518 0 0 0 4.496 0 1.425 1.425 0 0 1 1.774 1.41v4.75M37.208 20H.808v-.222c0-3.166 3.673-6.111 8.185-6.111h20.045c4.513 0 8.17 2.865 8.17 6.111V20z"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>One bed flat</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find-homestay find-active-property"
+                                                     id="find-home-stay">
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="homestay" id="homestay"
+                                                           class="d-none"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="43" viewBox="0 0 42 43">
+                                                            <path d="M4 22.434V42h34V22.434l-5.368-2.34L21 15 9.368 20.094 4 22.434zM6.5 9.113L20.832 1l14.452 8.113M9 20.298V8m24 11.5V8m4 14l4 1.74m-40 0L5 22m11.5 20V31h9v11M29 30h5v-5h-5v5zM8 30h5v-5H8v5zm10.5-19h5V6h-5v5z"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Homestay</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find-shared-room find-active-property"
+                                                     id="find-shared-room">
+                                                    <!--<input type="checkbox" name="find_place_looking"-->
+                                                           <!--value="student_accommodation" class="d-none"/>-->
+                                                    <input type="checkbox" name="find_place_looking" id="shared_room"
+                                                               t-att-value="shared_room" class="d-none"/>
+                                                    <span class="icon">
+                                                        <svg width="46" height="24" viewBox="0 0 46 24">
+                                                            <path d="M20.736 20.199v2.157M1.536 20.2v2.157m0-7.802h19.2V20.2h-19.2v-5.645zm16.924-4.529V1H3.78v9.036m3.906 0V6.688a1.073 1.073 0 0 1 1.427-.998 9.025 9.025 0 0 0 3.896 0 1.202 1.202 0 0 1 1.534 1.009v3.337m6.203 4.518H1.547v-.14c0-2.317 1.492-4.356 4.712-4.356h9.765c3.22 0 4.712 2.039 4.712 4.357l.01.14zM44.463 20.2v2.157M25.253 20.2v2.157m.011-7.802h19.2V20.2h-19.2v-5.645zm16.914-4.529V1H27.497v9.036m3.917 0V6.688a1.073 1.073 0 0 1 1.427-.998 9.015 9.015 0 0 0 3.896 0 1.202 1.202 0 0 1 1.534 1.009v3.337m6.192 4.518H25.275v-.14c0-2.317 1.481-4.356 4.711-4.356h9.766c3.22 0 4.711 2.039 4.711 4.357v.14z"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Shared Room</p>
+
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find-studentaccommodation find-active-property"
+                                                     id="find-student-accommodation">
+                                                    <input type="checkbox" name="find_place_looking" id="student_accommodation"
+                                                           t-att-value="student_accommodation" class="d-none"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="43" viewBox="0 0 42 43">
+                                                            <path d="M1 34.043v-19.13h40v19.13m0-5.217H25.348V14.913m0 6.957H41m-8.696 3.478h1.74m-1.74-6.957h1.74M4.477 11.435H20.13V1H4.478v10.435zm13.732 3.297l-3.298-3.297H9.695l-3.188 3.19"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Student Accommodation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row find-place-accommodation">
+                                    <div class="col-lg-6 teamups mx-auto">
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" name="temaups" value="teamups" checked="True"/>
+                                                Teamups
+                                            </label>
+                                            <span class="icon float-right">
+                                                <svg width="24" height="23">
+                                                    <title>4AC5D9F5-3E60-40CC-AAB8-6263F076C56E</title>
+                                                    <path d="M18.254 17.165c.645.222 1.175.98 1.175 1.683v3.194H4.572v-3.194c0-.704.529-1.46 1.174-1.683l3.49-1.2c.733.739 1.718 1.211 2.764 1.211 1.047 0 2.031-.472 2.764-1.211l3.49 1.2zM12 6.708c2.005 0 3.376 1.67 3.046 3.712l-.5 3.091C14.35 14.737 13.204 15.74 12 15.74c-1.204 0-2.348-1.002-2.546-2.228l-.5-3.091C8.622 8.378 9.993 6.708 12 6.708zm11.143 1.198v1.917h-1.857v1.917h-1.858V9.823h-1.857V7.906h1.857V5.99h1.858v1.916h1.857zM8.538 6.87c-.672.819-1.023 1.872-1.019 2.978-.89-.313-1.626-1.126-1.78-2.085l-.5-3.092C4.908 2.628 6.278.958 8.285.958c2.005 0 3.375 1.67 3.046 3.712l-.108.672a4.385 4.385 0 0 0-2.686 1.527zm-3.234 8.932a2.894 2.894 0 0 0-.87.49H.858v-3.193c0-.704.53-1.46 1.176-1.683l3.488-1.2a4.042 4.042 0 0 0 2.172 1.145l.386 2.387c.056.35.173.678.315.993l-3.09 1.061z"
+                                                          fill="#2F3A4A" fill-rule="evenodd"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <p>Teamups are when you get together with others who are looking for
+                                            accommodation and start a new share house together.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <button type="submit"
+                                                class="btn btn-primary btn-green find-accommodation-next-btn">Next
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/start">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Find Accommodation -->
+        <!-- ######################### -->
+
+
+        <!-- Template Name : Where would you like to live -->
+        <!-- URL: find-place/describe-your-ideal-place/about-flatmates -->
+        <template id="find_about_template" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="text-uppercase">Your Ideal Place</p>
+                                    <h3>Where would you like to live?</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <form action="rent-timing" id="rent_timing" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-6 mx-auto decribe-place">
+
+                                        <div class="form-group">
+                                            <span>Suburb</span>
+                                            <p class="text-muted">We recommend choosing at least 4 suburbs</p>
+
+
+                                            <!--<div class="locations-autocomplete">-->
+                                                <!--<div class="auto-input"><span class="token">Brisbane City, 4000<span class="remove"><span class="icon">-->
+                                                    <!--<svg viewBox="0 0 16 16">-->
+                                                        <!--<path class="fill" fill-rule="evenodd" d="M10.942 8l4.456-4.457c.803-.802.803-2.14 0-2.94-.802-.804-2.14-.804-2.94 0L8 5.057 3.543.602C2.74-.2 1.403-.2.603.602c-.804.802-.804 2.14 0 2.94L5.057 8 .602 12.457c-.803.802-.803 2.14 0 2.94.802.804 2.14.804 2.94 0L8 10.943l4.457 4.456c.802.803 2.14.803 2.94 0 .804-.802.804-2.14 0-2.94L10.943 8z"></path>-->
+                                                    <!--</svg>-->
+                                                <!--</span></span></span>-->
+                                                    <!--<input class="hidden-input token-input" placeholder="" type="text" value=""/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--Comment by sagar-->
+                                            <!--<div class="locations-autocomplete">-->
+                                                <!--<div class="auto-input find-place-add-suburbs">-->
+                                                    <!--<input class="hidden-input token-input" placeholder="" type="text" autocomplete="off" id="find_suburb" name="suburbs" value=""/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<p class="show-distance-msg d-none">The suburb selected is greater than 25km from your original suburb</p>-->
+                                            <!--  -->
+
+                                            <div class="tag-input-div">
+                                                <input type="text" class="tags_input" placeholder="Start typing a suburb, city, station or uni" value=""/>
+                                            </div>
+                                            <p class="show-distance-msg d-none" style="color:red;">The suburb selected is greater than 25km from your original suburb</p>
+
+                                            <!--<div class="form-control form-control-lg mt-2 p-0 find-place-add-suburbs">-->
+                                                <!--<input type="text" autocomplete="off" id="find_suburb" name="suburbs"/>-->
+                                            <!--</div>-->
+                                            <!--<p class="show-distance-msg d-none">The suburb selected is greater than 25km from your original suburb</p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <button type="submit" id=""
+                                                class="btn btn-primary btn-green propert_submit_btn_in_find" disabled="disabled">Next
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/accommodation">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Where would you like to live -->
+        <!-- ######################### -->
+
+        <!-- Template Name : Rent, Timing -->
+        <!-- URL: find-place/describe-your-ideal-place/about-flatmates -->
+        <template id="find_rent_timimg" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="text-uppercase">Your Ideal Place</p>
+                                    <h3>Rent and timing</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <form action="property-preferences" id="find_property_preferences" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-6 mx-auto decribe-place">
+                                        <div class="form-group">
+                                            <span>Weekly budget</span>
+                                            <div>
+                                                <span class="currency">$</span>
+                                                <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                       id="find-budget" name="budget" value="" maxlength="5"/>
+                                            </div>
+                                            <div class="styles__errorMessage3">Must be less than 10000</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <span>Preferred move date</span>
+                                            <br/>
+                                            <input id="find-txtdate" type="text" name="find_date"
+                                                   placeholder="Select a date" autocomplete="off"
+                                                   class="span2 find-datepicker room-availability-datepicker mt-2" value=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <span>Preferred length of stay</span>
+                                            <select class="form-control mt-2" id="find-preferred-stay"
+                                                    name="preferred-stay">
+                                                <t t-foreach="max_len_stay_ids" t-as="max_len_stay_id">
+                                                    <option t-attf-value="#{max_len_stay_id.id}">
+                                                        <t t-esc="max_len_stay_id.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <button type="submit" class="btn btn-primary btn-green submit-rent-timing"
+                                                disabled="disabled">Next
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/about-flatmates">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Rent, Timing -->
+        <!-- ######################### -->
+
+        <!-- Template Name : Property Preferences -->
+        <!-- URL: find-place/describe-your-ideal-place/property-preferences -->
+        <template id="find_property_preferences" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="text-uppercase">Your Ideal Place</p>
+                                    <h3>Property preferences</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="container">
+                            <form action="introduce-yourself" id="find_introduce_yourself" method="POST">
+                                <div id="">
+                                    <div class="row">
+                                        <div class="col-lg-6 mx-auto decribe-place">
+                                            <div class="form-group">
+                                                <span class="mb-1">Room furnishings</span>
+                                                <div class="total-bedrooms mt-2">
+
+                                                    <t t-foreach="room_furnishings" t-as="room_furnishing">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-room_furnishing"
+                                                                   t-attf-value="#{room_furnishing.id}"/>
+                                                            <span t-esc="room_furnishing.name"/>
+                                                        </label>
+                                                    </t>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <span class="mb-1">Internet</span>
+                                                <div class="total-bedrooms mt-2">
+                                                    <t t-foreach="internet" t-as="internet_type">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-internet_type"
+                                                                   t-attf-value="#{internet_type.id}"/>
+                                                            <span t-esc="internet_type.name"/>
+                                                        </label>
+                                                    </t>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <span class="mb-1">Bathroom type</span>
+                                                <div class="total-bedrooms mt-2">
+                                                    <t t-foreach="bathroom_types" t-as="bathroom_type">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-bathroom_type"
+                                                                   t-attf-value="#{bathroom_type.id}"/>
+                                                            <span t-esc="bathroom_type.name"/>
+                                                        </label>
+                                                    </t>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <span class="mb-1">Parking</span>
+                                                <div class="total-bedrooms mt-2">
+                                                    <t t-foreach="parking" t-as="parking_type">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-parking_type"
+                                                                   t-attf-value="#{parking_type.id}"/>
+                                                            <span t-esc="parking_type.name"/>
+                                                        </label>
+                                                    </t>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <span class="mb-1">Max number of flatmates</span>
+                                                <div class="total-bedrooms mt-2">
+                                                    <t t-foreach="no_of_flatmates" t-as="total_flatmates">
+                                                        <label class="radio-inline btn bedroom-btn property_preferences">
+                                                            <input type="radio" name="find-no-of-flatmates"
+                                                                   t-attf-value="#{total_flatmates.id}"/>
+                                                            <span t-esc="total_flatmates.name"/>
+                                                        </label>
+                                                    </t>
+                                                    <!--<label class="radio-inline btn bedroom-btn property_preferences">-->
+
+                                                               <!--value="flexible"/>-->
+                                                        <!--Flexible-->
+                                                    <!--</label>-->
+                                                    <!--<label class="radio-inline btn bedroom-btn property_preferences">-->
+                                                        <!--<input type="radio" name="find-no-of-flatmates"-->
+                                                               <!--value="1_other"/>-->
+                                                        <!--1 other-->
+                                                    <!--</label>-->
+                                                    <!--<label class="radio-inline btn bedroom-btn property_preferences">-->
+                                                        <!--<input type="radio" name="find-no-of-flatmates"-->
+                                                               <!--value="2_others"/>-->
+                                                        <!--2 others-->
+                                                    <!--</label>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <button type="submit"
+                                                class="btn btn-primary btn-green submit-property-preferences"
+                                                disabled="disabled">
+                                            Next
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/rent-timing">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Property Preferences -->
+        <!-- ######################### -->
+
+        <!-- Template Name : Introduce Yourself -->
+        <!-- URL: find-place/describe-your-ideal-place/introduce-yourself -->
+        <template id="find_introduce_yourself" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+                            <form action="introduce-flatmates" id="introduce_flatmates" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-xs-12 list-place text-center">
+                                        <t t-if="request.env.user.partner_id.name != 'Public user'">
+                                            <h4>Introduce yourself</h4>
+                                        </t>
+                                        <div class="mt-5 col-md-2 col-sm-6 col-6 mx-auto">
+                                            <img src="/pragtech_housemates/static/src/img/illustration-generic-person-PNG.png"
+                                                 class="img-fluid"></img>
+                                        </div>
+                                        <div class="mt-4 text-center">
+                                            <h5>Introduce yourself</h5>
+                                            <p>Help your future flatmate learn about you</p>
+                                        </div>
+                                        <div class="mt-4 text-center">
+                                            <button type="button" class="btn btn-gray rounded-circle">2 of 2</button>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="mt-4 mx-auto">
+                                                <button type="submit"
+                                                        class="btn btn-primary btn-green about_rooms_bttn">
+                                                    Next
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mt-4 mx-auto">
+                                                <div class="d-none d-md-block d-lg-block d-xl-block">
+                                                    <a href="/find-place/describe-your-ideal-place/property-preferences">
+                                                        <button type="button" class="btn btn-primary btn-transparent">Back
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Introduce Yourself -->
+        <!-- ######################### -->
+
+        <!-- Template Name : Introduce flatmates -->
+        <!-- URL: find-place/describe-your-ideal-place/introduce-flatmates -->
+        <template id="find_introduce_flatmates" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="text-uppercase">Introduce Yourself</p>
+                                    <h3>About you</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="container">
+                            <form action="employment" id="find_employment" method="POST">
+                                <div id="add_another_person_div">
+                                    <div class="row">
+                                        <div class="col-lg-6 mx-auto decribe-place">
+
+                                            <div class="form-group">
+                                                <span class="mb-1">This place is for</span>
+                                                <div class="total-bedrooms mt-2 find_place_for_option ">
+                                                    <label class="radio-inline btn bedroom-btn">
+                                                        <input type="radio" name="find-place-for" value="me"/>
+                                                        Me
+                                                    </label>
+                                                    <label class="radio-inline btn bedroom-btn">
+                                                        <input type="radio" name="find-place-for" value="couple"/>
+                                                        Couple
+                                                    </label>
+                                                    <label class="radio-inline btn bedroom-btn">
+                                                        <input type="radio" name="find-place-for" value="group"/>
+                                                        Group
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-none me_couple_group">
+                                                <div class="form-group">
+                                                    <span class="mb-1">Your first name</span>
+                                                    <input type="text" class="form-control mt-2" id="find-first-name"
+                                                           name="find_first_name_0" placeholder=""/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span>Your age</span>
+                                                    <div>
+                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                               id="find-your-age" name="your_age_0" value="" maxlength="2"/>
+                                                    </div>
+                                                    <div class="styles__errorMessage4">Must be at least 16</div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span class="mb-1">The gender you identify with</span>
+                                                    <div class="total-bedrooms mt-2">
+                                                        <label class="radio-inline btn bedroom-btn">
+                                                            <input type="radio" id="find-place-for-gender_0"
+                                                                   name="find-place-for-gender_0" value="female"/>
+                                                            Female
+                                                        </label>
+                                                        <label class="radio-inline btn bedroom-btn">
+                                                            <input type="radio" id="find-place-for-gender_0"
+                                                                   name="find-place-for-gender_0" value="male"/>
+                                                            Male
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-none me_couple">
+                                                <hr/>
+                                                <div class="form-group">
+                                                    <span class="mb-1">Your partner's first name</span>
+                                                    <input type="text" class="form-control mt-2" id="find-first-name"
+                                                           name="find_first_name_1" placeholder=""/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span>Your partner's age</span>
+                                                    <div>
+                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                               id="find-your-partner-age" name="your_age_1" value="" maxlength="2"/>
+                                                    </div>
+                                                    <div class="styles__errorMessage6">Must be at least 16</div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span class="mb-1">The gender your partner identifies with</span>
+                                                    <div class="total-bedrooms mt-2">
+                                                        <label class="radio-inline btn bedroom-btn">
+                                                            <input type="radio" id="find-place-for-gender_1"
+                                                                   name="find-place-for-gender_1" value="female"/>
+                                                            Female
+                                                        </label>
+                                                        <label class="radio-inline btn bedroom-btn">
+                                                            <input type="radio" id="find-place-for-gender_1"
+                                                                   name="find-place-for-gender_1" value="male"/>
+                                                            Male
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="me_group d-none">
+                                                <hr/>
+                                                <div class="form-group">
+                                                    <span class="mb-1">Your friend's first name</span>
+                                                    <input type="text" class="form-control mt-2" id="find-first-name"
+                                                           name="find_first_name_2" placeholder=""/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span>Your friend's age</span>
+                                                    <div>
+                                                        <input type="text" class="form-control mt-2 weekly-rent-input"
+                                                               id="find-your-friend-age" name="your_age_2" value="" maxlength="2"/>
+                                                    </div>
+                                                    <div class="styles__errorMessage7">Must be at least 16</div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <span class="mb-1">The gender your friend identifies with</span>
+                                                    <div class="total-bedrooms mt-2">
+
+
+                                                        <label class="radio-inline btn bedroom-btn">
+                                                            <input type="radio" id="find-place-for-gender_2"
+                                                                   name="find-place-for-gender_2" value="female"/>
+                                                            Female
+                                                        </label>
+                                                        <label class="radio-inline btn bedroom-btn">
+                                                            <input type="radio" id="find-place-for-gender_2"
+                                                                   name="find-place-for-gender_2" value="female"/>
+                                                            Male
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row d-none button_for_add_another_person">
+                                                <div class="mt-4 mx-auto">
+                                                    <button type="button"
+                                                            class="btn btn-primary btn-transparent p16-blue add_another_person">
+                                                        + Add another person
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+              <div class="form-group">
+              <!--<span class="mb-1">Profile picture</span>-->
+				  
+				  
+				 <span class="mt-2 mb-4">Profile picture</span>
+				  </div>
+				  
+				<div class="row">
+					
+					<div class="col-lg-2 col-2 text-center">
+
+                        <div class="profile-pic1">
+                            <span class="icon">
+                                <div class="image-upload">
+                                    <div class="image-upload">
+                                        <label for="file-input-profile" class="add_profile_icon" >
+                                            <svg class="replace_image" xmlns="http://www.w3.org/2000/svg" height="64" width="64" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <defs>
+                                                    <circle cx="32" id="prefix__a" cy="32" r="32"></circle>
+                                                </defs>
+                                                <g fill="none" fill-rule="evenodd"><g>
+                                                    <mask id="prefix__b" fill="#fff">
+                                                        <use xlink:href="#prefix__a"></use>
+                                                    </mask>
+                                                    <circle cx="32" fill-rule="nonzero" stroke="#11836C" cy="32" mask="url(#prefix__b)" r="31.25" stroke-width="1.5"></circle>
+                                                    <path stroke-linecap="round" stroke="#11836C" d="M41.788 49.47c2.458-3.615 3.76-6.362 3.904-7.084.145-.723 4.337-5.06 4.337-8.964 0-3.904-1.59-3.904-1.59-3.904 0-7.807.03-19.518-14.804-19.518S18.831 21.71 18.831 29.518c0 0-1.59 0-1.59 3.904 0 3.903 4.192 8.24 4.337 8.964.144.722 1.446 3.47 3.903 7.084-2.747 2.458-12.144 5.494-17.349 8.385-5.205 2.892-9.398 10.7-9.398 17.35 0 6.372 24.868 6.795 34.901 6.795 10.033 0 34.9-.423 34.9-6.795 0-6.65-4.192-14.458-9.397-17.35-5.205-2.891-14.603-5.927-17.35-8.385z" mask="url(#prefix__b)" stroke-linejoin="round" stroke-width="1.5"></path></g>
+                                                    <g transform="translate(40 40)">
+                                                        <circle cx="12" cy="12" fill="#11836C" r="12"></circle>
+                                                        <path d="M19.112 8.688v7.874c0 .365-.128.675-.383.93a1.266 1.266 0 0 1-.93.383H6.425c-.365 0-.675-.128-.93-.383a1.266 1.266 0 0 1-.383-.93V8.688c0-.364.128-.674.383-.93.255-.254.565-.382.93-.382H8.83l.328-.902c.11-.256.273-.46.492-.616.219-.155.465-.232.738-.232h3.446c.273 0 .52.077.738.232.219.155.383.36.492.616l.328.902H17.8c.365 0 .675.128.93.383s.383.565.383.93zm-3.719 3.937a3.23 3.23 0 0 0-.437-1.654 3.237 3.237 0 0 0-1.19-1.19 3.23 3.23 0 0 0-1.654-.437 3.23 3.23 0 0 0-1.654.437 3.237 3.237 0 0 0-1.19 1.19 3.23 3.23 0 0 0-.437 1.654c0 .602.146 1.153.437 1.654.292.502.688.898 1.19 1.19a3.23 3.23 0 0 0 1.654.437 3.23 3.23 0 0 0 1.654-.437 3.237 3.237 0 0 0 1.19-1.19 3.23 3.23 0 0 0 .437-1.654zm-.875 0c0 .656-.237 1.221-.71 1.695-.475.474-1.04.711-1.696.711a2.314 2.314 0 0 1-1.695-.71 2.314 2.314 0 0 1-.711-1.696c0-.656.237-1.221.71-1.695a2.314 2.314 0 0 1 1.696-.711c.656 0 1.221.237 1.695.71.474.475.711 1.04.711 1.696z" fill="#FFF"></path></g></g>
+                                            </svg>
+                                        </label>
+
+                                        <input id="file-input-profile" type="file" class="userimage" accept="image/*"/>
+                                    </div>
+                                    <!--<input id="user_image" type="file"/>-->
+                                    <!--<input type="file" name="uploads" accept="image/*" id="user_image"/>-->
+                                </div>
+
+                            </span>
+
+								</div>
+				            		<!--&lt;!&ndash;<div t-field="user_id.partner_id.image" t-options="{'widget': 'image', 'class': 'img-circle',  'style':'background-color:#4b3551;padding: 2px;width:160px;height:160px;margin: auto;'}" />&ndash;&gt;-->
+									<!--<img id="temp_user_img" class="img img-responsive img-circle"  src="#" style="display:none; width:160px;height:160px; background-color:#fff; margin-top: -160px;" />-->
+		  							<!--<div class="profile-pic-overlay">-->
+			  							<!--<a href="#" class="icon" title="User Profile">-->
+			    							<!--<div class="box">-->
+												<!--<input type="file" name="user_image" id="user_image" class="inputfile inputfile-5" data-multiple-caption="{count} files selected"  accept="image/png, image/jpeg"/>-->
+												<!--<label for="user_image">-->
+													<!--<figure>-->
+					                                    <!--<img style="width: 25px;" src="/pragtech_housemates/static/src/img/up-arrow.png" title="Upload Image"></img>-->
+													<!--</figure>-->
+													<!--<span></span>-->
+												<!--</label>-->
+											<!--</div>-->
+									  	<!--</a>-->
+									  <!--</div>-->
+
+
+                    </div>
+					<div class="col-lg-10 col-10 about-profilepic-txt"><p>You can add or change your profile picture later</p></div>
+				  </div>
+											
+
+                </div>
+				</div>
+                </div>
+
+                                <div class="row mt-4">
+                                    <div class="mt-4 mx-auto">
+                                        <button type="submit" class="btn btn-primary btn-green about_rooms_bttn"
+                                                disabled="disabled">
+                                            Next
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/introduce-yourself">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Introduce flatmates -->
+        <!-- ######################### -->
+
+        <!-- Template Name : Find Employment -->
+        <!-- URL: find-place/describe-your-ideal-place/employment -->
+        <template id="find_employment" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+
+                            <form action="lifestyle" id="find_lifestyle" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                                        <p class="text-uppercase">Introduce Yourself</p>
+                                    </div>
+                                    <div class="col-lg-12 col-sm-12 col-xs-12 list-place">
+                                        <h3>Employment status</h3>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-7 employment-status mx-auto">
+                                        <div class="item mt-5">
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_full_time"
+                                                     id="">
+                                                    <input type="checkbox" name="employment_status"
+                                                           value="working_full_time" class="d-none" id="working_full_time"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="34">
+                                                            <path d="M15.054 6.405V2.802c0-.995.761-1.802 1.699-1.802h8.494c.938 0 1.699.807 1.699 1.802v3.603m12.973 12.973v11.27c0 .937-.788 1.703-1.75 1.703H4.912c-.962 0-1.75-.766-1.75-1.702v-11.27M23.61 21.54c6.348-.237 12.521-1.333 17.391-3.324V8.093c0-.932-.78-1.688-1.74-1.688H2.74c-.96 0-1.74.756-1.74 1.688v10.124c4.87 1.99 11.043 3.087 17.391 3.324m-.094 2.162h5.406v-3.244h-5.406v3.244z"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Working full-time</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_part_time"
+                                                     id="">
+                                                    <input type="checkbox" name="employment_status"
+                                                           value="working_part_time" class="d-none" id="working_part_time"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="36">
+                                                            <path d="M1 31h38.889m-3.333 0l-3.392 3.333H7.725L4.333 31m16.755 0h-3.51c-5.447 0-10.194-3.643-11.516-8.837L3.222 11h32.222l-2.839 11.163C31.284 27.357 26.535 31 21.088 31zm13.86-16.667H41l-.552 3.194c-.68 3.927-4.206 6.806-8.337 6.806M13.222 1c0 1.667 2.222 1.667 2.222 3.334C15.444 6 13.222 6 13.222 7.667m10-6.667c0 1.667 2.222 1.667 2.222 3.334C25.444 6 23.222 6 23.222 7.667M18.778 1C18.778 2.667 21 2.667 21 4.334 21 6 18.778 6 18.778 7.667"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Working part-time</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_holiday"
+                                                     id="">
+                                                    <input type="checkbox" name="employment_status"
+                                                           value="working_holiday" class="d-none" id="working_holiday"/>
+                                                    <span class="icon">
+                                                        <svg width="26" height="42">
+                                                            <path d="M3.286 1h20.571m-.571 36.571H2.714C1.767 37.571 1 36.79 1 35.824V9.605c0-.966.767-1.748 1.714-1.748h20.572c.946 0 1.714.782 1.714 1.748v26.219c0 .966-.768 1.747-1.714 1.747zM7.857 39.286V37.57H4.43v1.715a1.713 1.713 0 1 0 3.428 0zm13.714 0V37.57h-3.428v1.715a1.713 1.713 0 1 0 3.428 0zM18.5 13.5V33m-5-19.5V33M8 13.5V33M6.714 1v6.857M20.43 1v6.857"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Working holiday</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_retired"
+                                                     id="">
+                                                    <input type="checkbox" name="employment_status" value="retired"
+                                                           class="d-none" id="retired"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="35">
+                                                            <path d="M17 26.143a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm24 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM10.143 6.202v-.867C10.143 2.941 8.096 1 5.57 1 3.047 1 1 2.94 1 5.335v20.808M31.857 6.202v-.867C31.857 2.941 33.904 1 36.43 1 38.953 1 41 2.94 41 5.335v20.808m-16 1.143h-8"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Retired</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_unemployed"
+                                                     id="">
+                                                    <input type="checkbox" name="employment_status" value="unemployed"
+                                                           class="d-none" id="unemployed"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="38">
+                                                            <path d="M6.714 33H3.971c-1.006 0-1.828-.81-1.828-1.801V19.286M41 3.286L7.857 36.429m14.857-14.434v.72c5.536-.222 10.932-1.158 15.429-2.828v-.009.01c.586-.219 1.16-.445 1.714-.688V8.498c0-.985-.624-1.784-1.57-1.784m-4.144 0H2.706C1.764 6.714 1 7.517 1 8.507v10.756c.55.244 1.122.472 1.706.69 4.054 1.52 8.844 2.437 13.806 2.761h1.543m8.088-19.81C26.143 1.855 25.41 1 24.51 1h-8.163c-.901 0-1.633.853-1.633 1.905v3.81h11.429v-3.81zM11.286 33h24.629c.91 0 1.656-.81 1.656-1.801V19.286c-4.344 1.685-9.559 2.63-14.907 2.854v1.855m.05-.138H20.43m-2.286-1.143V20.43h2.286"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Unemployed</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_backpacker"
+                                                     id="">
+                                                    <input type="checkbox" name="employment_status" value="backpacker"
+                                                           class="d-none" id="backpacker"/>
+                                                    <span class="icon">
+                                                        <svg width="42" height="42">
+                                                            <path d="M6.217 32.304H2.74c-.96 0-1.739-.779-1.739-1.739V18.391c0-.96.78-1.739 1.74-1.739h3.477v15.652zm29.566 0h3.478c.96 0 1.739-.779 1.739-1.739V18.391c0-.96-.78-1.739-1.74-1.739h-3.477v15.652zM32.304 41H9.696a3.478 3.478 0 0 1-3.479-3.478V7.957A6.958 6.958 0 0 1 13.174 1h15.652a6.958 6.958 0 0 1 6.957 6.957v29.565A3.478 3.478 0 0 1 32.304 41zM6.217 9.887c9.148 2.07 20.418 2.07 29.566 0m-22.61 8.504h3.48v-3.478h-3.48v3.478zm1.74-3.478V9.696m.217 13.913V18.39m10.218 0h3.478v-3.478h-3.478v3.478zm1.739-3.478V9.696m0 13.913V18.39M30.565 41h-19.13v-5.217a3.478 3.478 0 0 1 3.478-3.479h12.174a3.478 3.478 0 0 1 3.478 3.479V41zM1 20.13h5.217M1 28.826h5.217m29.566-8.696H41m-5.217 8.696H41"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Backpacker</p>
+                                            </div>
+
+                                            <div class="items">
+                                                <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_student"
+                                                     id="">
+                                                    <input type="checkbox" name="employment_status" value="student"
+                                                           class="d-none" id="student"/>
+                                                    <span class="icon">
+                                                        <svg width="36" height="30" viewBox="0 0 36 30">
+                                                            <path d="M1 29.087v-16.26h34v16.26m0-4.435H21.696V12.826m0 5.913H35m-7.391 2.957h1.478m-1.478-5.913h1.478M3.957 9.87H17.26V1H3.957v8.87zm11.671 2.802L12.825 9.87H8.391l-2.71 2.71"
+                                                                  stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                                  fill-rule="evenodd" stroke-linecap="round"
+                                                                  stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <p>Student</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <button type="submit"
+                                                class="btn btn-primary btn-green find-accommodation-next-btn">Next
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/introduce-flatmates">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Find Employment -->
+        <!-- ######################### -->
+
+        <!-- Template Name : Find Lifestyle -->
+        <!-- URL: find-place/describe-your-ideal-place/lifestyle -->
+        <template id="find_lifestyle" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+
+                            <form action="about-yourself" id="find_about_yourself" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                                        <p class="text-uppercase">Introduce Yourself</p>
+                                    </div>
+                                    <div class="col-lg-12 col-sm-12 col-xs-12 list-place">
+                                        <h3>Lifestyle</h3>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item mt-5">
+                                        <div class="items">
+                                            <div class="items-cirle items-cirle-hover mb-2 life-style find_smoker" id="">
+                                                <input type="checkbox" name="lifestyle" value="smoker" class="d-none" id="smoker"/>
+                                                <span class="icon">
+                                                    <svg width="40" height="22">
+                                                        <path d="M1 21h33.333v-6.667H1V21zm37.778-6.667V21m-26.23-6.667V21m26.23-11.111c-.865-2.456-4.591-2.74-7.07-3.469-2.992-.882-5.406-2.92-6.264-5.42"
+                                                              stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                              fill-rule="evenodd" stroke-linecap="round"
+                                                              stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <p>Smoker</p>
+                                        </div>
+
+                                        <div class="items">
+                                            <div class="items-cirle items-cirle-hover mb-2 life-style find_lgbti" id="">
+                                                <input type="checkbox" name="lifestyle" value="lgbti" class="d-none" id="lgbti"/>
+                                                <span class="icon">
+                                                    <svg width="42" height="22">
+                                                        <path d="M1 21C1 9.972 9.972 1 21 1s20 8.972 20 20M6.217 21C6.217 12.849 12.85 6.217 21 6.217S35.783 12.85 35.783 21m-24.348 0c0-5.273 4.292-9.565 9.565-9.565s9.565 4.292 9.565 9.565m-13.913 0a4.347 4.347 0 1 1 8.696 0"
+                                                              stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                              fill-rule="evenodd" stroke-linecap="round"
+                                                              stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <p>LGBTI+</p>
+                                        </div>
+
+                                        <div class="items">
+                                            <div class="items-cirle items-cirle-hover mb-2 life-style find_pets" id="">
+                                                <input type="checkbox" name="lifestyle" value="pets" class="d-none" id="pets"/>
+                                                <span class="icon">
+                                                    <svg width="42" height="41">
+                                                        <path d="M36.896 16.535c1.495 2.43 2.365 5.25 2.365 8.243 0 9.248-8.174 14.972-18.261 14.972S2.74 34.026 2.74 24.778c0-2.994.869-5.812 2.364-8.243a13.924 13.924 0 0 1-.626-4.086c0-4.685 2.383-8.842 6.087-11.449 2.661 1.885 4.644 4.562 5.548 7.662A19.26 19.26 0 0 1 21 8.045c1.704 0 3.34.212 4.887.617.904-3.1 2.887-5.777 5.548-7.662 3.704 2.607 6.087 6.764 6.087 11.449 0 1.409-.226 2.783-.626 4.086zm-8.07-6.104c.46-1.51 1.286-2.928 2.404-4.147 1.812 1.97 2.813 4.431 2.813 7.046m-26.086 0c0-2.614 1-5.076 2.813-7.046 1.118 1.221 1.945 2.636 2.404 4.148m1.739 22.273c1.922 2.348 5.035 2.348 6.957 0 1.922 2.348 5.034 2.348 6.956 0m-17.391-12.33c0-1.947 1.167-3.523 2.608-3.523 1.44 0 2.61 1.576 2.61 3.523m8.695 0c0-1.947 1.167-3.523 2.609-3.523 1.44 0 2.608 1.576 2.608 3.523M21 30.943l-2.49-3.563c-.37-.79.168-1.72.995-1.72h2.991c.825 0 1.364.93.993 1.72L21 30.943zm-9.565-5.284L1 22.136m6.957 5.284L1 29.182m29.565-3.523L41 22.136m-6.957 5.284L41 29.182"
+                                                              stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                              fill-rule="evenodd" stroke-linecap="round"
+                                                              stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <p>Pets</p>
+                                        </div>
+
+                                        <div class="items">
+                                            <div class="items-cirle items-cirle-hover mb-2 life-style find_children" id="">
+                                                <input type="checkbox" name="lifestyle" value="children" id="children"
+                                                       class="d-none"/>
+                                                <span class="icon">
+                                                    <svg width="42" height="28">
+                                                        <path d="M25.889 5.666c0 2.577-2.188 4.667-4.889 4.667-2.699 0-4.889-2.09-4.889-4.667S18.301 1 21 1c2.7 0 4.889 2.089 4.889 4.666zM39.222 11c0 2.577-2.188 4.666-4.889 4.666-2.698 0-4.889-2.09-4.889-4.666 0-2.577 2.19-4.668 4.89-4.668 2.7 0 4.888 2.09 4.888 4.668zm-26.666 0c0 2.577-2.189 4.666-4.89 4.666-2.698 0-4.888-2.09-4.888-4.666 0-2.577 2.19-4.668 4.889-4.668 2.7 0 4.889 2.09 4.889 4.668zM1 21.622v5.6h13.333v-5.6c0-2.06-1.704-3.733-3.81-3.733H4.81C2.707 17.889 1 19.56 1 21.622zm26.667 0v5.6H41v-5.6c0-2.06-1.705-3.733-3.81-3.733h-5.714c-2.103 0-3.81 1.672-3.81 3.733zM14.333 15.97v11.253h13.334V15.97c0-2.132-1.705-3.858-3.81-3.858h-5.714c-2.103 0-3.81 1.726-3.81 3.858z"
+                                                              stroke="#2F3A4A" stroke-width="1.5" fill="none"
+                                                              fill-rule="evenodd" stroke-linecap="round"
+                                                              stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <p>Children</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <button type="submit"
+                                                class="btn btn-primary btn-green find-accommodation-next-btn">Next
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/employment">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Find Lifestyle -->
+        <!-- ######################### -->
+
+        <!-- Template Name : Find Lifestyle -->
+        <!-- URL: find-place/describe-your-ideal-place/lifestyle -->
+        <template id="find_about_yourself" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+
+                            <form action="" id="find_pubish" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                                        <p class="text-uppercase">Introduce Yourself</p>
+                                    </div>
+                                    <div class="col-lg-12 col-sm-12 col-xs-12 list-place">
+                                        <h3>What makes you great to live with?</h3>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6 mx-auto mt-5 decribe-place">
+
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="4" id="find_comment"
+                                                      name="find_comment"
+                                                      placeholder="Say something about yourself..."></textarea>
+                                            <div class="styles__errorMessage_find_comment">Tell us a little more</div>
+                                            <p class="mt-3">Tell your potential flatmates a little about yourself. What
+                                                do you do for work, what do you like to do for fun and where you are
+                                                from. Also remember to let them know what you're looking for.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <button type="submit" class="btn btn-primary btn-green find-publish"
+                                                disabled="disabled">Publish
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mt-4 mx-auto">
+                                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                                            <a href="/find-place/describe-your-ideal-place/lifestyle">
+                                                <button type="button" class="btn btn-primary btn-transparent">Back</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <template id="find_a_property" name="Share Accommodation">
+            <t t-call="website.layout">
+                <t t-call="pragtech_housemates.custom_header_template_id"/>
+                <div class="oe_structure oe_empty no_responsive">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-xs-12 list-place">
+                                    <h3>Finding Property Created !!!</h3>
+                                    <h3>Preview Page under development</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <!-- End of Find Lifestyle -->
+        <!-- ######################### -->
+
+    </data>
+</odoo>

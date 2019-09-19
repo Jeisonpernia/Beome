@@ -52,7 +52,7 @@
                                             <a href="/">Home</a>
                                         </li>
                                         <li class="breadcrumb-item active" aria-current="page">
-                                            <a href="/search/records?listing_type=find">Pepole</a>
+                                            <a href="/search/records?listing_type=find">People</a>
                                         </li>
                                         <li class="breadcrumb-item active" aria-current="page">
                                             <a href="#" class="breadcrumb_suburb_city">
@@ -77,18 +77,51 @@
                         <!--<div class="property-slider">-->
                         <div class="col-lg-12 mx-auto text-center property-slider">
                             <div class="scrolling-wrapper add-photos-slide">
-                                <button type="button" class="scroll-backward arrow-left">
-                                    <i class="fa fa-chevron-left"></i>
+                                <button type="button" class="scroll-backward arrow-left d-none">
+                                    <!--<i class="fa fa-chevron-left"></i>-->
+									<span class="icon"><svg viewBox="0 0 50 50"><path class="fill" d="M35 2.75L12.75 25 35 47.25l2.094-2.094L16.937 25 37.094 4.844 35 2.75z"></path></svg></span>
                                 </button>
-                                <button type="button" class="scroll-forward arrow-right">
-                                    <i class="fa fa-chevron-right"></i>
-                                </button>
-
+                                <t t-if="len(property.property_image_ids) > 1">
+                                    <button type="button" class="scroll-forward arrow-right">
+										<!--<i class="fa fa-chevron-right"></i>-->
+										<span class="icon"><svg viewBox="0 0 50 50"><path class="fill" d="M35 2.75L12.75 25 35 47.25l2.094-2.094L16.937 25 37.094 4.844 35 2.75z"></path></svg></span>
+                                    </button>
+                                </t>
                                 <t t-foreach="property.property_image_ids" t-as="image">
                                     <img class="card" t-att-src="image_data_uri(image.image)" width="" height=""/>
                                 </t>
+								
+							<div class="banner-social-section">
+								<div class="banner-social-share">Share 
+								<span class="icon">
+								<svg class="facebook" viewBox="0 0 16 16"><path d="M11.027 15.967v-6.17h2.07l.31-2.405h-2.38V5.856c0-.696.193-1.17 1.192-1.17h1.272V2.533c-.22-.03-.976-.094-1.855-.094-1.836 0-3.093 1.12-3.093 3.178v1.774H6.467v2.405h2.077v6.17h2.483"></path></svg></span>
+									
+								<span class="icon"><svg class="twitter" viewBox="0 0 16 13"><path d="M15.964 1.536c-.587.26-1.218.436-1.88.516.675-.406 1.195-1.048 1.44-1.813-.633.375-1.334.647-2.08.794C12.845.398 11.993 0 11.053 0c-1.81 0-3.277 1.466-3.277 3.275 0 .257.03.507.085.747C5.14 3.885 2.727 2.582 1.112.6.828 1.082.667 1.645.667 2.245c0 1.136.578 2.14 1.457 2.726-.537-.017-1.042-.164-1.484-.41v.042c0 1.587 1.13 2.91 2.628 3.21-.274.076-.564.116-.862.116-.21 0-.417-.02-.617-.06.416 1.303 1.626 2.25 3.06 2.276-1.122.88-2.534 1.402-4.07 1.402-.263 0-.524-.015-.78-.046 1.45.93 3.17 1.472 5.02 1.472 6.025 0 9.32-4.99 9.32-9.32 0-.14-.004-.282-.01-.423.64-.46 1.195-1.037 1.634-1.694"></path></svg></span>
+									
+								<span class="icon">
+								<svg class="message-icon" viewBox="0 0 50 50"><g><path fill="none" d="M0 0h50v50H0z"></path><path class="fill" d="M50 12.436L34.885 25.59 50 37.487v-25.05zM21.666 28.642C23.072 29.867 24.466 30 25 30s1.928-.133 3.334-1.358C29.752 27.406 48.046 11.487 50 9.786V7H0v2.78c3.012 2.623 20.3 17.67 21.666 18.862z"></path><path class="fill" d="M33.35 26.928l-3.702 3.222C27.73 31.82 25.758 32 25 32s-2.73-.18-4.648-1.85c-.35-.307-1.76-1.534-3.7-3.224L0 40.076V43h50v-2.97L33.35 26.93zM15.115 25.59L0 12.43v25.095L15.115 25.59z"></path></g></svg>
+								</span>
+								
+								</div>
 
+								<div class="banner-shortlist">
+								<span class="icon">
+									<svg class="star" viewBox="0 0 64 61"><path class="fill" d="M63.922 23.13c-.195-.602-.726-1.03-1.354-1.095l-20.652-2.18L33.458.864c-.512-1.154-2.407-1.154-2.92 0l-8.454 18.99-20.652 2.18C.804 22.1.275 22.53.078 23.13c-.194.6-.02 1.26.45 1.684l15.43 13.918-4.31 20.336c-.13.62.112 1.256.624 1.627.28.203.608.305.938.305.276 0 .552-.07.8-.215L32 50.398l17.992 10.387c.544.315 1.226.278 1.738-.092.51-.37.756-1.008.625-1.625l-4.31-20.338 15.43-13.918c.466-.422.64-1.08.447-1.68z"></path></svg></span>
+									<span class="d-none d-sm-none d-md-inline-block">Shortlist</span>
+								</div>
+								</div>	
+								
+								<div class="banner-image-count-section">
+									<div class="banner-image-count">
+										<i class="fa fa-camera"></i>
+										<span class="banner-image-count-txt">9</span>
+									</div>
+									
+								</div>
+								
+							
                             </div>
+							
                         </div>
                     </div>
                 </div>
@@ -98,6 +131,9 @@
                             <div class="row">
                                 <div class="col-lg-8 property-detail-left">
                                     <h1>
+                                        <t t-if="property_user_id">
+                                            <input id="property_owner" type="hidden" t-att-value="property_user_id.id"/>
+                                        </t>
                                         <t t-if="property.place_for == 'me'">
                                             <t t-esc="user_name"/>
                                         </t>
@@ -107,7 +143,8 @@
                                             </t>
 
                                         </t>
-                                        <svg width="24" height="24" viewBox="0 0 16 16">
+                                        <svg width="24" height="24" viewBox="0 0 16 16" data-toggle="tooltip"
+                                             data-placement="right" title="Verified">
                                             <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
                                                   fill="#2F3A4A" fill-rule="evenodd"></path>
                                         </svg>
@@ -115,8 +152,8 @@
 
                                     <t t-if="property.place_for == 'me'">
                                         <div class="upgrade mt-3">
-                                            <span class="upgradeStatus">
-                                                <t t-esc="user_name"/>
+                                            <span class="upgradeStatus">Free to message
+                                                <!--<t t-esc="user_name"/>-->
                                             </span>
                                             <span>
                                                 <t t-esc="age"/>
@@ -127,8 +164,8 @@
                                     </t>
                                     <t t-else="">
                                         <div class="upgrade mt-3">
-                                            <span class="upgradeStatus">
-                                                <t t-esc="user_name"/>
+                                            <span class="upgradeStatus">Free to message
+                                                <!--<t t-esc="user_name"/>-->
                                             </span>
                                             <t t-foreach="property.person_ids" t-as="person">
                                                 <span>
@@ -627,7 +664,8 @@
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <a class="property-rounded-btn-location-link" href=""><t t-esc="suburb.subrub_name"></t>,
+                                                    <a class="property-rounded-btn-location-link" href=""><t
+                                                            t-esc="suburb.subrub_name"></t>,
                                                         <t t-esc="suburb.post_code"></t>
                                                     </a>
                                                 </div>
@@ -687,12 +725,20 @@
 
                                                 <div class="col-8 col-sm-9 text-center">
                                                     <h3>
-                                                        <t t-esc="user_name"/>
+                                                       Contact <t t-esc="user_name"/>
                                                     </h3>
-                                                    <p>Online Today</p>
+                                                    <div class="last-active">
+                                                        <t t-esc="last_login"/>
+                                                    </div>
+                                                    <!--<p>Online Today</p>-->
                                                     <div class="login-form-rounded-btn">Response rate: 100%
+														<span class="popovers" data-toggle="popover" data-placement="top"
+                                                          data-trigger="hover" title=""
+                                                          data-content="Percent of conversations this user has responded to. &#60;a href='/info/message-response-rate' &#62;Learn more&#60;/a&#62;"
+                                                          data-original-title="">
                                                         <i data-tip="true" data-for="responseRateTooltip"
                                                            class="fa fa-question-circle" currentitem="false"></i>
+														</span>
                                                     </div>
 
                                                 </div>
@@ -704,7 +750,7 @@
                                                 <div class="form-group mt-3">
                                                     <textarea class="form-control" rows="4" id="message_owner"
                                                               required="required"
-                                                              placeholder="Message…"></textarea>
+                                                              placeholder="Type your Message…"></textarea>
                                                 </div>
                                                 <div class="styles__errorMessage1 invalid_owner_mobile"
                                                      style="display:none;">Owner's Mobile Not Verified or Invalid.
@@ -715,7 +761,7 @@
                                                 <t t-if="mobile_not_verified">
                                                     <button class="btn btn-primary btn-green2 btn-block"
                                                             data-toggle="modal" data-target="#verify_mobile_popup">
-                                                        Message
+                                                        Send Message to
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
@@ -723,7 +769,7 @@
                                                 </t>
                                                 <t t-elif="show_upgrade_plan_send">
                                                     <button class="btn btn-primary btn-green2 btn-block upgrade_plan_class"
-                                                            data-toggle="modal" data-target="#why_upgrade_popup">Message
+                                                            data-toggle="modal" data-target="#why_upgrade_popup">Send Message to
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
@@ -731,12 +777,22 @@
                                                 </t>
                                                 <t t-else="">
                                                     <button class="btn btn-primary btn-green2 btn-block send_messgae_to_owner">
-                                                        Message
+                                                        Send Message to
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                                     </button>
+
                                                 </t>
+                                                <div class="view_conversation_div d-none">
+                                                    <p>You and <t t-esc="user_name"></t>  have messaged recently
+                                                    </p>
+                                                    <a href="/messages">
+                                                    <button class="btn btn-primary btn-green2 btn-block view-conversation-btn">
+                                                        View conversation
+                                                    </button>
+                                                    </a>
+                                                </div>
 
                                                 <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan_mobile and show_number -->
                                                 <t t-if="mobile_not_verified">
@@ -744,7 +800,7 @@
                                                             data-toggle="modal" data-target="#verify_mobile_popup">Show
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
-                                                        </t>
+                                                        </t>'s
                                                         number
                                                     </button>
                                                 </t>
@@ -754,7 +810,7 @@
                                                             data-toggle="modal" data-target="#why_upgrade_popup">Show
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
-                                                        </t>
+                                                        </t>'s
                                                         number
                                                     </button>
                                                 </t>
@@ -814,25 +870,115 @@
 
                                         </div>
 
-                                        <div class="col-12 text-muted report-person text-center mt-2">
-                                            <span class="icon">
-                                                <svg class="warning-shield" width="16" height="16" viewBox="0 0 50 50">
-                                                    <path class="fill"
-                                                          d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z"></path>
-                                                </svg>
-                                            </span>
+                                        <!--<a class="report-this-person" href="#" data-target="#report_this_person_popup"-->
+                                           <!--data-toggle="modal">-->
+                                            <div class="col-12 text-muted report-this-person text-center mt-2" data-target="#report_this_person_popup"
+                                           data-toggle="modal">
+                                                <span class="icon">
+                                                    <svg class="warning-shield" width="16" height="16"
+                                                         viewBox="0 0 50 50">
+                                                        <path class="fill"
+                                                              d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z"></path>
+                                                    </svg>
+                                                </span>
 
-                                            <span>
-                                                Report this person
-                                            </span>
+                                                <span>
+                                                    Report this person
+                                                </span>
+                                            </div>
+                                        <!--</a>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade report-thisnumber" id="report_this_person_popup" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close close-conversation-delete-popup"
+                                                    data-dismiss="modal"
+                                                    aria-label="Close">
+                                                ×
+                                            </button>
                                         </div>
+                                        <main class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-10 mx-auto">
+
+                                                        <h4 class="text-center mt-4 mb-4"
+                                                            id="">Report this member
+                                                        </h4>
+                                                        <!--<form action="">-->
+                                                        <div class="form-group">
+                                                            <h4>Reason for report</h4>
+                                                            <select class="form-control report-reason" id="feedback_category_id"
+                                                                    name="feedback_category">
+                                                                <option value="">Please select
+                                                                </option>
+                                                                <option value="no_longer_available">No longer
+                                                                    available
+                                                                </option>
+                                                                <option value="incorrect_information">Listing contains
+                                                                    incorrect
+                                                                    information
+                                                                </option>
+                                                                <option value="suspected_scammer">Suspected scammer
+                                                                </option>
+                                                                <option value="offensive_content">Contains offensive or
+                                                                    inappropriate content
+                                                                </option>
+                                                                <option value="contact_information">Listing contains
+                                                                    contact
+                                                                    information
+                                                                </option>
+                                                                <option value="copyright_material">Listing contains
+                                                                    copyright
+                                                                    material
+                                                                </option>
+                                                                <option value="bug">Bug/Problem with website</option>
+                                                                <option value="spam">Spam/Commercial unrelated to share
+                                                                    accommodation
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <!--<h4 class="">Tell us what you are reporting about</h4>-->
+                                                            <h4 class="no-longer-available-label d-none">How do you know the listing is no longer available?</h4>
+                                                            <h4 class="incorrect-information-label d-none">Which information is incorrect?</h4>
+                                                            <h4 class="suspected-scammer-label d-none">Why do you think this person could be a scammer?</h4>
+                                                            <h4 class="offensive-content-label d-none">Please let us know the issue</h4>
+                                                            <h4 class="contact-information-label d-none">Please let us know which part of the listing has contact information</h4>
+                                                            <h4 class="copyright-material-label d-none">Which part of the listing contains copyright material?</h4>
+                                                            <h4 class="bug-label d-none">What issue did you face?</h4>
+                                                            <h4 class="spam-label d-none">Please let us know the issue</h4>
+                                                        </div>
+                                                        <div class="form-group d-none feedback-text">
+                                                            <div class="feedback_details">
+                                                                <input class="form-control feedback-text-field"
+                                                                       id="feedback_input_id"
+                                                                       name="feedback_details" type="text" value=""/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button class="btn btn-block btn-green1 submit-feedback-btn"
+                                                                    type="button" disabled="disabled" style="background-color:gray;">Submit
+                                                            </button>
+                                                        </div>
+                                                        <!--</form>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </main>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-12 mt-5">
-                                    <p class="p16-gray text-center">All <a href="/search/records?listing_type=find">people</a> looking in
+                                    <p class="p16-gray text-center">All <a href="/search/records?listing_type=find">
+                                        people
+                                    </a> looking in
                                         <a href="#" class="breadcrumb_suburb_city">
                                             <t t-esc="property.suburbs_ids[0].city"/>
                                         </a>
@@ -841,6 +987,7 @@
                                             <a href="#" class="subrub_name">
                                                 <t t-esc="suburbs.subrub_name"/>
                                             </a>
+                                            ,
                                         </t>
                                     </p>
                                 </div>
@@ -855,8 +1002,12 @@
                             <div class="row">
                                 <div class="col-lg-8 property-detail-left">
                                     <h1>
+                                        <t t-if="property_user_id">
+                                            <input id="property_owner" type="hidden" t-att-value="property_user_id.id"/>
+                                        </t>
                                         <t t-esc="property_address"/>
-                                        <svg width="24" height="24" viewBox="0 0 16 16">
+                                        <svg width="24" height="24" viewBox="0 0 16 16" data-toggle="tooltip"
+                                             data-placement="right" title="Verified">
                                             <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
                                                   fill="#2F3A4A" fill-rule="evenodd"></path>
                                         </svg>
@@ -972,8 +1123,11 @@
                                                 <div class="room-txt mt-2 text-center">
                                                     Flatmates
                                                     <span style="width:14px;">
+														<span class="popovers" data-toggle="popover" data-placement="top" data-trigger="hover" title="" data-content="Total number of flatmates once all rooms are occupied &#60;a href='#occupantsDescription' &#62;About the Flatmates&#60;/a&#62;" data-original-title="">
+															
                                                         <i data-tip="true" data-for="featureTooltip"
-                                                           class="fas fa-question-circle" currentitem="false"></i>
+                                                           class="fa fa-question-circle" currentitem="false"></i>
+														</span>
                                                     </span>
                                                 </div>
 
@@ -1238,7 +1392,7 @@
 
                                             <div class="col-lg-4">
                                                 <t t-if="login_user_id">
-                                                    <button class="btn btn-primary btn-green2 btn-block">Message
+                                                    <button class="btn btn-primary btn-green2 btn-block">Send Message to
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
@@ -1536,20 +1690,28 @@
                                         <div class="col-12 login-form">
                                             <div class="row">
                                                 <div class="col-4 col-sm-3 text-center">
-                                                    <img src="/pragtech_housemates/static/src/img/avtar.png"
-                                                         class="img-fluid rounded-circle" alt=""/>
+                                                    <!--<img src="/pragtech_housemates/static/src/img/avtar.png"-->
+                                                    <!--class="img-fluid rounded-circle" alt=""/>-->
+                                                    <span itemprop="image" t-field="property_user_id.image"
+                                                          t-options="{'widget': 'image','class': 'product_detail_img rounded-circle', 'alt-field': 'name', 'zoom': 'image'}"
+                                                    />
                                                 </div>
 
                                                 <div class="col-8 col-sm-9 text-center">
                                                     <h3>
                                                         <t t-if="user_name">
-                                                            <t t-esc="user_name"></t>
+                                                            Contact <t t-esc="user_name"></t>
                                                         </t>
                                                     </h3>
-                                                    <p>Online Today</p>
+                                                    <div class="last-active">
+                                                        <t t-esc="last_login"/>
+                                                    </div>
+                                                    <!--<p>Online Today</p>-->
                                                     <div class="login-form-rounded-btn">Response rate: 100%
+														<span class="popovers" data-toggle="popover" data-placement="top" data-trigger="hover" title="" data-content="Percent of conversations this user has responded to. &#60;a href='/info/message-response-rate' &#62;Learn more&#60;/a&#62;" data-original-title="">
                                                         <i data-tip="true" data-for="responseRateTooltip"
                                                            class="fa fa-question-circle" currentitem="false"></i>
+														</span>
                                                     </div>
 
                                                 </div>
@@ -1561,7 +1723,7 @@
                                                 <div class="form-group mt-3">
                                                     <textarea class="form-control" rows="4" id="message_owner"
                                                               required="required"
-                                                              placeholder="Message…"></textarea>
+                                                              placeholder="Type your message…"></textarea>
                                                 </div>
                                                 <div class="styles__errorMessage1 invalid_owner_mobile"
                                                      style="display:none;">Owner's Mobile Not Verified or Invalid.
@@ -1572,7 +1734,7 @@
                                                 <t t-if="mobile_not_verified">
                                                     <button class="btn btn-primary btn-green2 btn-block"
                                                             data-toggle="modal" data-target="#verify_mobile_popup">
-                                                        Message
+                                                        Send Message to
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
@@ -1580,7 +1742,7 @@
                                                 </t>
                                                 <t t-elif="show_upgrade_plan_send">
                                                     <button class="btn btn-primary btn-green2 btn-block upgrade_plan_class"
-                                                            data-toggle="modal" data-target="#why_upgrade_popup">Message
+                                                            data-toggle="modal" data-target="#why_upgrade_popup"> Send Message to
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
@@ -1588,19 +1750,28 @@
                                                 </t>
                                                 <t t-else="">
                                                     <button class="btn btn-primary btn-green2 btn-block send_messgae_to_owner">
-                                                        Message
+                                                         Send Message to
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
                                                         </t>
                                                     </button>
                                                 </t>
+                                                <div class="view_conversation_div d-none">
+                                                    <p>You and <t t-esc="user_name"></t>  have messaged recently
+                                                    </p>
+                                                    <a href="/messages">
+                                                        <button class="btn btn-primary btn-green2 btn-block view-conversation-btn">
+                                                            View conversation
+                                                        </button>
+                                                    </a>
+                                                </div>
                                                 <!--Show one of 3 buttons based on boolean mobile_not_verified,show_upgrade_plan_mobile and show_number -->
                                                 <t t-if="mobile_not_verified">
                                                     <button type="button" class="btn btn-outline-primary2 btn-block"
                                                             data-toggle="modal" data-target="#verify_mobile_popup">Show
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
-                                                        </t>
+                                                        </t>'s
                                                         number
                                                     </button>
                                                 </t>
@@ -1610,7 +1781,7 @@
                                                             data-toggle="modal" data-target="#why_upgrade_popup">Show
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
-                                                        </t>
+                                                        </t>'s
                                                         number
                                                     </button>
                                                 </t>
@@ -1622,7 +1793,7 @@
                                                                t-att-value="property.id"></input>
                                                         <t t-if="user_name">
                                                             <t t-esc="user_name"></t>
-                                                        </t>
+                                                        </t>'s
                                                         number
                                                     </button>
                                                 </t>
@@ -1671,22 +1842,107 @@
 
                                         </div>
 
-                                        <div class="col-12 text-muted text-center report-person mt-2">
-                                            <span class="icon">
-                                                <svg class="warning-shield" width="16" height="16" viewBox="0 0 50 50">
-                                                    <path class="fill"
-                                                          d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z"></path>
-                                                </svg>
-                                            </span>
+                                        <div class="col-12 text-muted report-this-person text-center mt-2" data-target="#report_this_person_popup"
+                                           data-toggle="modal">
+                                                <span class="icon">
+                                                    <svg class="warning-shield" width="16" height="16"
+                                                         viewBox="0 0 50 50">
+                                                        <path class="fill"
+                                                              d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z"></path>
+                                                    </svg>
+                                                </span>
 
-                                            <span>
-                                                Report this person
-                                            </span>
-                                        </div>
+                                                <span>
+                                                    Report this person
+                                                </span>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="modal fade report-thisnumber" id="report_this_person_popup" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close close-conversation-delete-popup"
+                                                    data-dismiss="modal"
+                                                    aria-label="Close">
+                                                ×
+                                            </button>
+                                        </div>
+                                        <main class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-10 mx-auto">
+
+                                                        <h4 class="text-center mt-4 mb-4"
+                                                            id="">Report this member
+                                                        </h4>
+                                                        <!--<form action="">-->
+                                                        <div class="form-group">
+                                                            <h4>Reason for report</h4>
+                                                            <select class="form-control report-reason" id="feedback_category_id"
+                                                                    name="feedback_category">
+                                                                <option value="">Please select
+                                                                </option>
+                                                                <option value="no_longer_available">No longer
+                                                                    available
+                                                                </option>
+                                                                <option value="incorrect_information">Listing contains
+                                                                    incorrect
+                                                                    information
+                                                                </option>
+                                                                <option value="suspected_scammer">Suspected scammer
+                                                                </option>
+                                                                <option value="offensive_content">Contains offensive or
+                                                                    inappropriate content
+                                                                </option>
+                                                                <option value="contact_information">Listing contains
+                                                                    contact
+                                                                    information
+                                                                </option>
+                                                                <option value="copyright_material">Listing contains
+                                                                    copyright
+                                                                    material
+                                                                </option>
+                                                                <option value="bug">Bug/Problem with website</option>
+                                                                <option value="spam">Spam/Commercial unrelated to share
+                                                                    accommodation
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <!--<h4 class="">Tell us what you are reporting about</h4>-->
+                                                            <h4 class="no-longer-available-label d-none">How do you know the listing is no longer available?</h4>
+                                                            <h4 class="incorrect-information-label d-none">Which information is incorrect?</h4>
+                                                            <h4 class="suspected-scammer-label d-none">Why do you think this person could be a scammer?</h4>
+                                                            <h4 class="offensive-content-label d-none">Please let us know the issue</h4>
+                                                            <h4 class="contact-information-label d-none">Please let us know which part of the listing has contact information</h4>
+                                                            <h4 class="copyright-material-label d-none">Which part of the listing contains copyright material?</h4>
+                                                            <h4 class="bug-label d-none">What issue did you face?</h4>
+                                                            <h4 class="spam-label d-none">Please let us know the issue</h4>
+                                                        </div>
+                                                        <div class="form-group d-none feedback-text">
+                                                            <div class="feedback_details">
+                                                                <input class="form-control feedback-text-field"
+                                                                       id="feedback_input_id"
+                                                                       name="feedback_details" type="text" value=""/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button class="btn btn-block btn-green1 submit-feedback-btn"
+                                                                    type="button" disabled="disabled" style="background-color:gray;">Submit
+                                                            </button>
+                                                        </div>
+                                                        <!--</form>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </main>
+                                    </div>
+                                </div>
+                            </div>
 
 
                     </section>

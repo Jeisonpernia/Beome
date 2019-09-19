@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="messages_history_form" model="ir.ui.view">
+            <field name="name">messages.history.form</field>
+            <field name="model">messages.history</field>
+            <field name="arch" type="xml">
+                <form string="Messages History" name="Messsages">
+                    <sheet>
+                        <group col="4">
+                            <field name="msg_from"/>
+                            <field name="msg_to"/>
+                            <field name="msg_time"/>
+                            <field name="message"/>
+                            <field name="property_id"/>
+                            <field name="is_seen"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="messages_history_tree" model="ir.ui.view">
+            <field name="name">messages.history.tree</field>
+            <field name="model">messages.history</field>
+            <field name="arch" type="xml">
+                <tree string="Messages History" name="Messsages">
+                    <field name="msg_from"/>
+                    <field name="msg_to"/>
+                    <field name="msg_time"/>
+                    <field name="message"/>
+                    <field name="is_seen"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_messages_history" model="ir.actions.act_window">
+            <field name="name">Messages History</field>
+            <field name="res_model">messages.history</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_messages_history" name="Messages History" action="action_messages_history"
+                  parent="pragtech_housemates.submenu_main_housemates" sequence="2"/>
+    </data>
+</odoo>

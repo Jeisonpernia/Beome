@@ -2,12 +2,69 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
 
     $(document).ready(function(){
+var window_pathname = window.location.pathname
 
         $(document).on('click','#edit_general_info_id',function(){
             console.log(" !!!!!! General infooooo  !!!!!!!!")
 
+            $("#edit_find_date").datepicker({
+                minDate: 0
+            });
+
             var current_finding_id = $("#current_listing_id").val()
             console.log("Current Finding id :",current_finding_id)
+
+            $("#edit_max_budget").keypress(function(e){
+             var keyCode = e.which; /* 8 - (backspace) 32 - (space) 48-57 - (0-9)Numbers */
+             if ( (keyCode != 8 || keyCode ==32 ) && (keyCode < 48 || keyCode > 57))
+              {
+                 return false;
+              }
+            });
+
+
+
+
+            var $input2 = $("#edit_max_budget");
+            if (window_pathname.includes('find_place_preview') && $input2)
+            {
+                         if ($input2.val().length == 0 )
+                        {
+                            $('.styles__errorMessage3').hide();
+                        }
+                //console.log ("In general statement if (window_pathname.includes('about-property'))")
+                if ($input2.val() > 10000){
+                console.log("\n****************")
+                    $('#update_general_info').prop("disabled", true)
+                }
+            }
+            $input2.on('keyup', function (){
+
+                if ($input2.val() <= 10000 )
+                    {
+                        $('.styles__errorMessage3').hide();
+                        // Code added by dhrup
+                        $('#update_general_info').prop("disabled", false)
+                        $('#edit_max_budget').removeClass("border-red");
+                    }
+
+                if ($input2.val() > 10000 )
+                    {                        console.log("\n****************")
+
+                        $('.styles__errorMessage3').show();
+                        // Code added by dhrup
+                        $('#edit_max_budget').addClass("border-red");
+                        $('#update_general_info').prop("disabled", true)
+
+                    }
+                else
+                    {
+                        $('.styles__errorMessage3').hide();
+                        // Code added by dhrup
+                        $('#update_general_info').prop("disabled", false)
+                        $('#edit_max_budget').removeClass("border-red");
+                    }
+            });
 
             $.ajax({
                     url: '/get_general_information_of_current_property',
@@ -63,10 +120,67 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
         })
 
+        $("#edit_preferred_locations").on('click',function(){
+            //get all suburbs and create its element to be added in div bu code
+            var current_finding_id = $("#current_listing_id").val()
+
+            $.ajax({
+                    url: '/get_preferred_locations',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_finding_id':current_finding_id}}),
+                    success: function(data){
+                        if(data['result']){
+                            var tags_container = $('#preferred_location').siblings().children().find('div')
+                            tags_container.empty()
+                            for (var i=0; i<data['result'].length; i++){
+                                var span = document.createElement("span");
+                                span.className = "tag";
+                                span.setAttribute('data-id',i);
+
+                                span.innerHTML = data['result'][i]['subrub_name'] + ', ' + data['result'][i]['post_code']
+                                tags_container.append(span);
+
+                                var input = document.createElement("input");
+                                input.className = "tag_input";
+                                input.type = 'hidden'
+                                input.setAttribute('data-lat',data['result'][i]['latitude'])
+                                input.setAttribute('data-long',data['result'][i]['longitude']);
+                                input.setAttribute('data-suburb_name',data['result'][i]['subrub_name']);
+                                input.setAttribute('data-city',data['result'][i]['city']);
+                                input.setAttribute('data-post_code',data['result'][i]['post_code']);
+
+                                span.append(input);
+
+                                var close_span = document.createElement("span");
+                                close_span.className = "close";
+                                span.append(close_span);
+
+                            }
+                        }
+                    }
+            })
+
+         })
+
+
          $("#edit_find_about_me").on('click',function(){
             var current_finding_id = $("#current_listing_id").val()
             console.log('7&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7')
             console.log("Current Finding id :",current_finding_id)
+
+            $('.not_include_contact_info').hide()
+
+//            $("#about_me_text_id").click(function(){
+//            $('.not_include_contact_info').show()
+//            })
+//            $("#about_me_text_id").blur(function(){
+//                         console.log('dddddddddddddddddddddddddddddd')
+//
+//            $('.not_include_contact_info').hide()
+//            })
 
             $.ajax({
                     url: '/get_about_me_data',
@@ -85,8 +199,9 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
          })
 
-         $("#update_about_me").on('click',function(){
-
+        $('#update_about_me').on('mousedown', function(event) {
+    		event.preventDefault();
+		    }).on('click',function(){
              var data = {}
              var current_finding_id = $("#current_listing_id").val()
              var update_about_me_data = $.trim($("#about_me_text_id").val())
@@ -110,6 +225,19 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
              location.reload();
 
          });
+
+        $(document).on('focus','#about_me_text_id',function()
+		{
+		 console.log('dddddddddddddddddddddddddddddd')
+		$('.not_include_contact_info').show()
+		})
+
+
+		$(document).on('blur','#about_me_text_id', function()
+	 	{
+			console.log('dddddddddddddddddddddddddddddd Insode')
+			$('.not_include_contact_info').hide()
+		})
 
          $("#edit_property_pref_in_find").on('click',function(){
             var current_finding_id = $("#current_listing_id").val()
@@ -204,10 +332,9 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
          });
 
 
-         $("#edit_life_style_id").on('click',function(){
-            console.log('88888888888888')
-            var current_finding_id = $("#current_listing_id").val()
 
+         $("#edit_life_style_id").on('click',function(){
+            var current_finding_id = $("#current_listing_id").val()
             $.ajax({
                     url: '/get_life_stlye_data',
                     type: "POST",
@@ -216,19 +343,61 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                     contentType: 'application/json',
                     data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_finding_id':current_finding_id}}),
                     success: function(data){
+                        for (var key in data['result']) {
+                        	class_as=false
+						    if (data['result'].hasOwnProperty(key)) {
+						    	$(".icon-"+key).removeClass("fa-times")
+						    	$(".icon-"+key).addClass("fa-check")
+						    	$(".input-"+key).attr('checked','checked')
 
-//                        console.log(data['result'])
-//                        if(data['result']){
-//                            if(data['result']['student']=true){
-//                                if ($(".edit_employment_status_in_find").find("input[name='edit_employment_status']").val() == "student"){
-//                                    console.log('yesssss')
-//                                }
-//                            }
-
+						    }
+						}
+                        children = document.querySelectorAll('.add-status-checked .fa-check');
+                        for(var i = 0; i < children.length; i++){
+                            children[i].parentElement.style.backgroundColor ='#11836c';
+                        }
 
                         }
 
             });
+         })
+
+         $('#edit_preferred_accommodation').on('click',function(){
+         var current_finding_id = $("#current_listing_id").val()
+         console.log("\n\n-- current finding id",current_finding_id)
+            $.ajax({
+                    url: '/get_preferred_accommodation_data',
+                    type: "POST",
+                    dataType: 'json',
+                    async : false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'current_finding_id':current_finding_id}}),
+                    success: function(data){
+                    console.log("\n\n data-----",data['result'])
+                        for (var key in data['result']) {
+                        	class_as=false
+						    if (data['result'].hasOwnProperty(key)) {
+						    	$(".icon-"+key).removeClass("fa-times")
+						    	$(".icon-"+key).addClass("fa-check")
+						    	$(".input-"+key).attr('checked','checked')
+						    }
+
+						    if (key == 'teamups' && data['result'][key]) {
+						        $('#teamup').attr('checked','checked')
+                            }
+						}
+
+                        children = document.querySelectorAll('.add-pref-checked .fa-check');
+                        for(var i = 0; i < children.length; i++){
+                            children[i].parentElement.style.backgroundColor ='#11836c';
+                        }
+
+                        }
+
+            });
+
+
+
          })
 
 
@@ -256,6 +425,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                 life_style_data.push($(this).val());
             });
             console.log('@ Data : ',life_style_data)
+            event.preventDefault()
             data = {
                 'current_finding_id':current_finding_id,
                 'life_style_data':life_style_data,
@@ -290,7 +460,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
             }
          });
 
-         $('#update_pref_accommodation_type').on('click',function(){
+         $(document).on('click','#update_pref_accommodation_type',function(){
             console.log('llllllllllllllllllllll')
             var pref_accommodation_type = []
             var data = {}
@@ -299,9 +469,11 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                 pref_accommodation_type.push($(this).val());
             });
             console.log('@ pref_accommodation_type : ',pref_accommodation_type)
+            event.preventDefault()
             data = {
                 'current_finding_id':current_finding_id,
                 'pref_accommodation_type':pref_accommodation_type,
+                'teamup': $('#teamup')[0].checked
             }
 
 
@@ -316,8 +488,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
         }
             });
 
-            location.reload();
-
+location.reload()
          })
 
 
@@ -357,15 +528,59 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                                 $("#person_accommodation_for_1").click()
 
                             }
+                            if(data['result']['group']){
+                                var persons = data['result']['group']
+                                $("#edit_first_name_1").val(persons[0][0])
+                                $("#edit_gender_1").val(persons[0][1])
+                                $("#edit_age_1").val(persons[0][2].toString())
+
+                                $("#edit_first_name_2").val(persons[1][0])
+                                $("#edit_gender_2").val(persons[1][1])
+                                $("#edit_age_2").val(persons[1][2].toString())
+
+
+                                if (persons.length > 2)
+                                {
+                                    for (var i = 2; i <= persons.length - 1; i++){
+                                        $("#add_other_person").click()
+                                        var dynamic_id = document.getElementById("dynamic_id_generator").value;
+                                        dynamic_id = dynamic_id -1
+                                         $("#edit_first_name_" + dynamic_id.toString()).val(persons[i][0])
+                                        $("#edit_gender_" + dynamic_id.toString()).val(persons[i][1])
+                                        $("#edit_age_" + dynamic_id.toString()).val(persons[i][2].toString())
+
+                                    }
+                                }
+                                $("#person_accommodation_for_2").click()
+
+
+                            }
+
                         }
                     }
             });
+
+//        if (window_pathname.includes('find_place_preview'))
+//        {console.log("\n\n----- edit_age---",$(".edit_age"),$input3)
+//            if ($input3.val().length == 0 )
+//            {
+//                $('.styles__errorMessage4').hide();
+//            }
+//
+//        //console.log ("In general statement if (window_pathname.includes('about-property'))")
+//            if ($input3.val() < 16)
+//            $('#update_applicant_info').prop("disabled", true)
+//        }
+
+
         })
 
         $("#person_accommodation_for_0").on('click',function(){
                 $(".for-couple-first_name").css('display','none')
                 $(".for-couple-gender").css('display','none')
                 $(".for-couple-age").css('display','none')
+                $(".added_by_code").css('display','none')
+
         })
 
         $("#person_accommodation_for_1").on('click',function(){
@@ -373,6 +588,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                 $(".for-couple-first_name").css('display','block')
                 $(".for-couple-gender").css('display','block')
                 $(".for-couple-age").css('display','block')
+                $(".added_by_code").css('display','none')
 
         })
 
@@ -380,8 +596,226 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
                 $(".for-couple-first_name").css('display','block')
                 $(".for-couple-gender").css('display','block')
                 $(".for-couple-age").css('display','block')
+                $(".added_by_code").css('display','block')
 
         //            $(".add_more_applicant").append("<div class='col-lg-4'><div class='form-group'><label class='p14'>First name</label><input type='text' class='form-control' id='' name=''/></div></div><div class='col-lg-4'><div class='form-group'><label class='p14'>Gender</label><select class='form-control' id='' name=''><option>Please select</option><option>Female</option><option>Male</option></select></div></div><div class='col-lg-4'><div class='form-group'><label class='p14'>Age</label><select class='custom-select' id='' name=''><option>25</option></select></div></div>")
+
+        })
+        $("#add_other_person").on('click',function(){
+            var add_more_applicant = document.getElementsByClassName("add_more_applicant");
+            var dynamic_id = document.getElementById("dynamic_id_generator").value;
+            //First Name
+            if(dynamic_id <= 7){
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code unique_id_"+ dynamic_id.toString();
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'First name'
+            div.append(label);
+            var input = document.createElement("input");
+            input.type = 'text'
+            input.className = 'form-control edit_name'
+            input.id = 'edit_first_name_' + dynamic_id.toString()
+            var name_error_div=document.createElement("div");
+            name_error_div.className ='styles__errorMessage4 d-none'
+            name_error_div.id='name__errorMessage_'+dynamic_id.toLocaleString()
+            name_error_div.innerHTML = "Name"
+            div.append(input)
+            div.append(name_error_div)
+
+            //Gender
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code unique_id_"+ dynamic_id.toString();;
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'Gender'
+            div.append(label);
+            var select = document.createElement("select");
+            select.className = 'form-control manual_added_gender'
+            select.id = 'edit_gender_' + dynamic_id.toString()
+            var option1 = document.createElement("option");
+            option1.selected = 'selected'
+            option1.innerHTML = 'Please select'
+            $(option1)[0].disabled = true
+
+
+            var option2 = document.createElement("option");
+            option2.value = 'female'
+            option2.innerHTML = 'Female'
+
+            var option3 = document.createElement("option");
+            option3.value = 'male'
+            option3.innerHTML = 'Male'
+
+            select.append(option1)
+            select.append(option2)
+            select.append(option3)
+            div.append(select)
+
+            //age
+            var main_div = document.createElement("div");
+            main_div.className = "col-lg-4 added_by_code unique_id_"+ dynamic_id.toString();
+            add_more_applicant[0].append(main_div)
+            var div = document.createElement("div");
+            div.className = "form-group";
+            main_div.append(div);
+            var label = document.createElement("label");
+            label.className = "p14"
+            label.innerHTML = 'Age'
+            div.append(label);
+            var input = document.createElement("input");
+            input.type = 'number'
+            input.className = 'form-control weekly-rent-input edit_age'
+            input.id = 'edit_age_' + dynamic_id.toLocaleString()
+            var error_div=document.createElement("div");
+            error_div.className ='styles__errorMessage4 d-none'
+            error_div.id='styles__errorMessage_'+dynamic_id.toLocaleString()
+            error_div.innerHTML = "Must be at least 16"
+            var mx_error_div=document.createElement("div");
+            mx_error_div.className ='styles__errorMessage4 d-none'
+            mx_error_div.id='max__errorMessage_'+dynamic_id.toLocaleString()
+            mx_error_div.innerHTML = "Your age is too old"
+            div.append(input)
+            div.append(error_div)
+            div.append(mx_error_div)
+
+            var remove_div = document.createElement("div")
+            remove_div.className = "col-lg-4 remove_div"
+            main_div.append(remove_div)
+            var remove_link = document.createElement('a')
+            remove_link.className = "remove_link unique_id_"+ dynamic_id.toString();
+            remove_link.innerHTML="Remove"
+            remove_link.href = '#';
+            remove_div.append(remove_link)
+
+            document.getElementById("dynamic_id_generator").value = parseInt(dynamic_id) + 1
+
+            }
+            else{
+             $('#add_other_person').css('display','none')
+            }
+
+        });
+
+        var $input3 = $(".edit_age");
+
+        $(document).on('keyup',$input3, function (event){
+        if(event.target.attributes.id){
+            var id_error_msg = event.target.attributes.id.value.split("_")
+
+              if ($('#'+event.target.attributes.id.value).val() >= 16 && $('#'+event.target.attributes.id.value).val() < 99){
+                $('#styles__errorMessage_'+id_error_msg[2]).hide();
+                $('#max__errorMessage_'+id_error_msg[2]).hide();
+                $('#'+event.target.attributes.id.value).css("border",'');
+                $('#update_applicant_info').prop("disabled", false)
+              }
+              else if($('#'+event.target.attributes.id.value).val() < 16){
+              console.log("\n\n----- edit_age-- key up-",$('#'+event.target.attributes.id.value).val())
+                $('#styles__errorMessage_'+id_error_msg[2]).removeClass('d-none')
+                        $('#styles__errorMessage_'+id_error_msg[2]).show()
+                        $('#max__errorMessage_'+id_error_msg[2]).hide();
+                        $('#'+event.target.attributes.id.value).css("border",'red 1px solid');
+                        $('#update_applicant_info').prop("disabled", true)
+              }
+              else{
+                $('#styles__errorMessage_'+id_error_msg[2]).hide();
+                        $('#max__errorMessage_'+id_error_msg[2]).removeClass('d-none')
+                        $('#max__errorMessage_'+id_error_msg[2]).show();
+                        $('#'+event.target.attributes.id.value).css("border",'red 1px solid');
+              }
+
+        }
+        })
+
+
+//            if ($('#'+event.target.attributes.id.value).val() >= 16 )
+//                {
+//                    if($('#'+event.target.attributes.id.value).val() >= 99)
+//                    {
+//                    $('#styles__errorMessage_'+id_error_msg[2]).hide();
+//                    $('#max__errorMessage_'+id_error_msg[2]).removeClass('d-none')
+//                    $('#max__errorMessage_'+id_error_msg[2]).show();
+//                    $('#'+event.target.attributes.id.value).addClass("border-red");
+//                    }
+//                    else{
+//                    $('#styles__errorMessage_'+id_error_msg[2]).hide();
+//                    $('#max__errorMessage_'+id_error_msg[2]).hide();
+//                    // Code added by dhrup
+//                    $('#'+event.target.attributes.id.value).removeClass("border-red");
+//                    }
+//
+//                }
+//
+//            if ($('#'+event.target.attributes.id.value).val() < 16 )
+//                {
+//                    $('#styles__errorMessage_'+id_error_msg[2]).removeClass('d-none')
+//                    $('#styles__errorMessage_'+id_error_msg[2]).show()
+//                    $('#max__errorMessage_'+id_error_msg[2]).hide();
+//                    // Code added by dhrup
+//                    $('#'+event.target.attributes.id.value).addClass("border-red");
+//                    $('#update_applicant_info').prop("disabled", true)
+//                }
+//            else
+//                {
+//                $('#styles__errorMessage_'+id_error_msg[2]).hide();
+//                // Code added by dhrup
+//                $('#'+event.target.attributes.id.value).removeClass("border-red");
+//            }
+//            if ($('#'+event.target.attributes.id.value).val() >= 16 && $('#'+event.target.attributes.id.value).val() < 99){
+//                $('#update_applicant_info').prop("disabled", false)
+//            }
+//
+//        }
+//        })
+
+         var $input3 = $(".edit_name");
+
+        $(document).on('keyup',$input3, function (event){
+        if(event.target.attributes.id){
+            var id_error_msg = event.target.attributes.id.value.split("_")
+            if ($('#'+event.target.attributes.id.value).val() == '' )
+                {        console.log("\n\n----- edit_age-- key up-",id_error_msg)
+
+                    $('#name__errorMessage_'+id_error_msg[3]).removeClass('d-none')
+                    $('#name__errorMessage_'+id_error_msg[3]).show()
+                    $('#'+event.target.attributes.id.value).css("border",'red 1px solid');
+                    $('#update_applicant_info').prop("disabled", true)
+                }
+
+            else
+                {
+                $('#name__errorMessage_'+id_error_msg[3]).hide();
+                // Code added by dhrup
+                $('#'+event.target.attributes.id.value).css("border",'');
+                $('#update_applicant_info').prop("disabled", false)
+                }
+
+        }
+        })
+
+
+        $(document).on('click','.remove_link',function(e){
+
+        var dynamic_id = document.getElementById("dynamic_id_generator").value;
+        console.log("\=-=-=09-\=--0900\==-=09098-0",this.className)
+        var class_name = this.className
+        $(document).find("."+class_name.split(" ")[1]).remove()
+        document.getElementById("dynamic_id_generator").value = parseInt(dynamic_id) -1
+        console.log("===== clas ===",class_name.split(" ")[1])
+        if($(document).find(".added_by_code").length == 0){
+         $('#add_other_person').css('display','block')
+        }
+
+
+
 
         })
 
@@ -426,8 +860,28 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
             if($('#person_accommodation_for_2').is(':checked')){
                 console.log('Groupppppppppppppppppp')
+                data ['place_for'] = "group"
+                 var person1_name = $("#edit_first_name_1").val()
+                 var person1_gender = $("#edit_gender_1").val()
+                 var person1_age = $("#edit_age_1").val()
+                 data[1] = {'name': person1_name, 'gender': person1_gender, 'age': person1_age}
+                 var person2_name = $("#edit_first_name_2").val()
+                 var person2_gender = $("#edit_gender_2").val()
+                 var person2_age = $("#edit_age_2").val()
+                data[2] = {'name': person2_name, 'gender': person2_gender, 'age': person2_age}
+                var count = $("#dynamic_id_generator").val()
+                for (var i = 3; i < count; i++){
+                    var person_name = $("#edit_first_name_" + i.toString()).val()
+                     var person_gender = $("#edit_gender_" +  i.toString()).val()
+                     var person_age = $("#edit_age_" + i.toString()).val()
+                    data[i] = {'name': person_name, 'gender': person_gender, 'age': person_age}
+
+                }
+
+
             }
             console.log('data >> ',data)
+
             $.ajax({
                     url: '/update_applicant_info',
                     type: "POST",
@@ -448,13 +902,39 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
 
         $("#update_suburb_id").on('click',function(){
             console.log('okkkkkkkkkkkkkkkkkkkkkkkkkkkk')
-            var update_suburbs = $("input[id=suburbs]").map(function(){return $(this).val();}).get();
-            console.log('Suburbs : ',suburbs)
+//            var update_suburbs = $("input[id=suburbs]").map(function(){return $(this).val();}).get();
+//            console.log('Suburbs : ',suburbs)
+            var tagContainer = $('.tags_container')
+            var tags = tagContainer.find('.tag')
+            var suburb_array=[]
+            if(tags.length != 0){
+                $.each(tags,function(event){
+
+                suburb_name = $(this).find("input").data("suburb_name");
+                latitude = $(this).find("input").data("lat");
+                longitude = $(this).find("input").data("long");
+                city = $(this).find("input").data("city");
+                post_code = $(this).find("input").data("post_code");
+
+                var temp_dict = {
+                    'suburb_name':suburb_name,
+                    'latitude':latitude,
+                    'longitude':longitude,
+                    'city':city,
+                    'post_code':post_code
+                }
+                suburb_array.push(temp_dict)
+
+                });
+            }
+
+            console.log("Suburb data::: ",suburb_array)
+
             var current_finding_id = $("#current_listing_id").val()
 
             data = {
                 'current_finding_id':current_finding_id,
-                'update_suburbs':update_suburbs
+                'update_suburbs':suburb_array
             }
 
             $.ajax({
@@ -504,6 +984,7 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
         });
 
         $("#general_information_popup_id").on("hidden.bs.modal", function () {
+        console.log("---** in **---")
                       location.reload();
         });
 
@@ -524,39 +1005,87 @@ odoo.define('pragtech_flatmates.edit_find_preview_page', function (require){
         });
 
 
-$(".find_preview_listings").on("click", function () {
- var path=window.location.pathname
-var property_id=path.split('find_place_preview').pop()
-var a = "P"+property_id
- window.open('/'+a)
-});
+    $(".find_preview_listings").on("click", function () {
+         var path=window.location.pathname
+         var property_id=path.split('find_place_preview').pop()
+         var a = "P"+property_id
+         window.open('/'+a)
+    });
 
-        $(".open-detail-of-match-for-find").on('click',function(e){
-            console.log('333333333333333333333',$(this).find(".match_id").val())
+    $(".open-detail-of-match-for-find").on('click',function(e){
+        console.log('333333333333333333333',$(this).find(".match_id").val())
 //            var id = e.target.attributes.value2.value
-            var id = $(this).find(".match_id").val()
-            window.open("P"+id)
+        var id = $(this).find(".match_id").val()
+        window.open("P"+id)
+
+    })
+
+
+    $(".edit_find_deactivate_listing_button").on("click", function () {
+         var path=window.location.pathname
+         var property_id=path.split('find_place_preview').pop()
+         $.ajax({
+                            url: '/edit_deactivate_listing',
+                            type: "POST",
+                            dataType: 'json',
+                            async : false,
+                            contentType: 'application/json',
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+                            success: function(data){
+                                console.log("\n==========data============== deactive",data)
+                                if (data['result'] == true){
+                                window.location.replace('/')
+                                }
+                            }
+                    });
 
         })
- $(".edit_find_deactivate_listing_button").on("click", function () {
- var path=window.location.pathname
-var property_id=path.split('find_place_preview').pop()
- $.ajax({
-                    url: '/edit_deactivate_listing',
-                    type: "POST",
-                    dataType: 'json',
-                    async : false,
-                    contentType: 'application/json',
-                    data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
-                    success: function(data){
-                        console.log("\n==========data============== deactive",data)
-                        if (data['result'] == true){
-                        window.location.replace('/')
-                        }
-                    }
-            });
 
-})
+    $(".edit_find_activate_listing_button").on("click", function () {
+         var path=window.location.pathname
+         var property_id=path.split('find_place_preview').pop()
+         $.ajax({
+                            url: '/edit_activate_listing',
+                            type: "POST",
+                            dataType: 'json',
+                            async : false,
+                            contentType: 'application/json',
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+                            success: function(data){
+                                console.log("\n==========data============== active",data)
+                                if (data['result'] == true){
+                                window.location.replace('/')
+                                }
+                            }
+                    });
+
+        })
+    $(".edit_find_delete_listing_button").on("click", function () {
+         var path=window.location.pathname
+         var property_id=path.split('find_place_preview').pop()
+         var redirect = false
+         $.ajax({
+                            url: '/edit_delete_listing',
+                            type: "POST",
+                            dataType: 'json',
+                            async : false,
+                            contentType: 'application/json',
+                            data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'property_id':property_id}}),
+                            success: function(data){
+                                if (data['result'] == true){
+                                 redirect = true
+
+                                }
+
+                            },
+
+                    });
+                    if(redirect){
+                     window.location.replace('/')
+                    }
+                    event.preventDefault()
+
+        })
 
     $(".edit_employment_status_in_find").on('click',function(){
         console.log('wwwwwwwwwwwwwwwwwwwwwwwww',$(this))
@@ -584,8 +1113,44 @@ var property_id=path.split('find_place_preview').pop()
 
 
 
+    //Diable previous dates in Move Date
+    $("#edit_find_date").datepicker({
+                minDate: 0
+    });
+
+    //Show warning when max budget is > 10000
+    var $max_budget = $("#edit_max_budget");
+     $max_budget.on('keyup', function () {
 
 
+         if ($max_budget.val() > 10000) {
+             $('.styles__errorMessage3').show();
+         } else {
+             $('.styles__errorMessage3').hide();
+         }
+     });
+
+    //Show warning when about me text is not as expected
+     $("#about_me_text_id").on('keyup', function () {
+
+        if ( $("#about_me_text_id").val().length == 0 )
+            {
+                $('.styles__errorMessage_find_comment').hide();
+                $('#update_about_me').prop("disabled", true);
+            }
+
+        else if ( $("#about_me_text_id").val().length <= 9 )
+            {
+                $('.styles__errorMessage_find_comment').show();
+                $('#update_about_me').prop("disabled", true);
+
+            }
+        else
+           {
+                $('.styles__errorMessage_find_comment').hide();
+                $('#update_about_me').prop("disabled", false)
+           }
+     });
 
 
 

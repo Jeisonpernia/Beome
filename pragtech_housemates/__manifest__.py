@@ -6,10 +6,10 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.21',
+    'version': '12.0.43',
     'description': "",
     'depends': [
-                'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname',
+                'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname','login_user_detail','portal'
                 ],
     'installable': True,
     'data': [
@@ -17,6 +17,7 @@
 
         'data/website_data.xml',
         'data/configuration_data.xml',
+        'data/property_type_data.xml',
 
         'views/assets.xml',
         'views/remove_footer.xml',
@@ -27,8 +28,10 @@
         'views/email_template.xml',
         'views/res_config_settings_views.xml',
         'views/product_view.xml',
+        'views/messages_history_view.xml',
         'static/src/xml/menu_item.xml',
         'static/src/xml/home_view.xml',
+        'static/src/xml/message_template.xml',
         'static/src/xml/shortlist_template.xml',
         'static/src/xml/list_place_template.xml',
         'static/src/xml/custom_header_template.xml',

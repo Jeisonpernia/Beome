@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="messages_template" name="Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="loader"></div>
+
+                <div class="inbox-wrapper">
+                    <div class="container message-container">
+                        <div class="row for-height">
+                            <div class="inbox">
+
+                                <!-- Start Inbox Conversation -->
+                                <div class="inbox-left-conversations">
+                                    <div class="inbox-conversion-section">
+                                        <div class="message-numbers">
+                                            <t t-esc="unread_msg_count"/>
+                                            unread messages
+                                        </div>
+                                        <input id="view_conversation_user_id" type="hidden" value=""/>
+                                        <ul class="inbox-conversations-list">
+
+                                            <t t-foreach="chats_with" t-as="chat_user">
+                                                <li class="per-user-items each-user-chat">
+                                                    <input id="chat_user_id" type="hidden" t-att-value="chat_user.id"/>
+
+                                                    <t t-foreach="last_login" t-as="login">
+                                                        <t t-if="login['id'] == chat_user.id">
+                                                            <t t-if="login['last_message']">
+                                                                <span class="green-dot"></span>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <span class="white-dot"></span>
+                                                            </t>
+                                                        </t>
+                                                    </t>
+
+                                                    <!--<span class="white-dot"></span>-->
+                                                    <a class="per-user-link" href="#">
+                                                        <div class="avatar">
+                                                            <img class="avatar-img" t-att-src="image_data_uri(chat_user.image)"/>
+                                                                  <!--t-options='{"widget": "image", "alt-field": "name"}'/>-->
+                                                        </div>
+
+                                                        <div class="details">
+                                                            <div class="member-name">
+                                                                <t t-esc="chat_user.name"></t>
+                                                            </div>
+
+                                                            <t t-foreach="last_login" t-as="login">
+                                                                <t t-if="login['id'] == chat_user.id">
+                                                                    <div class="last-active">
+                                                                        <t t-esc="login['login_date']"/>
+                                                                    </div>
+                                                                    <!--Online Today-->
+                                                                </t>
+                                                            </t>
+
+                                                            <div class="snippet">
+                                                                <!--<span class="snippet-icon">-->
+                                                                    <!--<svg class="unsent-icon" viewBox="0 0 50 50">-->
+                                                                        <!--<path class="fill"-->
+                                                                              <!--d="M23 0c-.552 0-1 .448-1 1v38c0 .553.448 1 1 1h4c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1h-4zm0 44c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h4c.553 0 1-.447 1-1v-4c0-.553-.447-1-1-1h-4z"></path>-->
+                                                                    <!--</svg>-->
+                                                                <!--</span>-->
+                                                                <t t-foreach="last_login" t-as="login">
+                                                                    <t t-if="login['id'] == chat_user.id">
+                                                                        <t t-if="login['last_message']">
+                                                                            <span><t t-esc="login['last_message']"/> </span>
+                                                                        </t>
+                                                                        <t t-else="">
+                                                                            <!--<span class="white-dot"></span>-->
+                                                                        </t>
+                                                                    </t>
+                                                                </t>
+
+                                                                <!--Hello Rohit-->
+                                                            </div>
+
+                                                        </div>
+
+                                                    </a>
+                                                </li>
+                                            </t>
+
+
+                                            <!--<li class="per-user-items">-->
+                                            <!--<a class="per-user-link" href="#">-->
+                                            <!--<div class="avatar">-->
+                                            <!--<img class="avatar-img" src="/pragtech_housemates/static/src/img/stephanie-avatar.jpg" alt="Avatar of Stephanie"/>-->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--<div class="details">-->
+                                            <!--<div class="member-name">Stephanie</div>-->
+                                            <!--<div class="last-active">Online Today</div>-->
+                                            <!---->
+                                            <!--<div class="snippet">-->
+                                            <!--<span class="snippet-icon">-->
+                                            <!--<svg class="unsent-icon" viewBox="0 0 50 50">-->
+                                            <!--<path class="fill" d="M23 0c-.552 0-1 .448-1 1v38c0 .553.448 1 1 1h4c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1h-4zm0 44c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h4c.553 0 1-.447 1-1v-4c0-.553-.447-1-1-1h-4z"></path>-->
+                                            <!--</svg>-->
+                                            <!--</span>-->
+                                            <!--Hello Rohit-->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--</a>-->
+                                            <!--</li>-->
+
+
+                                            <!--<li class="per-user-items">-->
+                                            <!--<a class="per-user-link" href="#">-->
+                                            <!--<div class="avatar">-->
+                                            <!--<img class="avatar-img" src="/pragtech_housemates/static/src/img/amy-gannen-avatar.jpg" alt="Avatar of Rohit"/>-->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--<div class="details">-->
+                                            <!--<div class="member-name">Amy-gannen</div>-->
+                                            <!--<div class="last-active">Online Today</div>-->
+                                            <!---->
+                                            <!--<div class="snippet">-->
+                                            <!--<span class="snippet-icon">-->
+                                            <!--<svg class="unsent-icon" viewBox="0 0 50 50">-->
+                                            <!--<path class="fill" d="M23 0c-.552 0-1 .448-1 1v38c0 .553.448 1 1 1h4c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1h-4zm0 44c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h4c.553 0 1-.447 1-1v-4c0-.553-.447-1-1-1h-4z"></path>-->
+                                            <!--</svg>-->
+                                            <!--</span>-->
+                                            <!--Test User interface-->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--</a>-->
+                                            <!--</li>-->
+
+
+                                            <!--<li class="per-user-items">-->
+                                            <!--<a class="per-user-link" href="#">-->
+                                            <!--<div class="avatar">-->
+                                            <!--<img class="avatar-img" src="/pragtech_housemates/static/src/img/heather-wenthler-avatar.jpg" alt="Avatar of Rohit"/>-->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--<div class="details">-->
+                                            <!--<div class="member-name">Heather-wenthler</div>-->
+                                            <!--<div class="last-active">Online Today</div>-->
+                                            <!---->
+                                            <!--<div class="snippet">-->
+                                            <!--<span class="snippet-icon">-->
+                                            <!--<svg class="unsent-icon" viewBox="0 0 50 50">-->
+                                            <!--<path class="fill" d="M23 0c-.552 0-1 .448-1 1v38c0 .553.448 1 1 1h4c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1h-4zm0 44c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h4c.553 0 1-.447 1-1v-4c0-.553-.447-1-1-1h-4z"></path>-->
+                                            <!--</svg>-->
+                                            <!--</span>-->
+                                            <!--Hi-->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--</div>-->
+                                            <!---->
+                                            <!--</a>-->
+                                            <!--</li>-->
+
+
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+                                <!-- Start Inbox Conversation -->
+
+
+                                <!-- Start Message Section -->
+                                <div class="inbox-messages-section message_container" style="display:none;">
+                                    <div class="message-header">
+                                        <div class="back-button">
+                                            <a href="/messages">
+                                                <span class="icon">
+                                                    <svg class="back-to-conversations" viewBox="0 0 13 21">
+                                                        <g stroke="none" stroke-width="1" fill="none"
+                                                           fill-rule="evenodd">
+                                                            <g class="fill"
+                                                               transform="translate(-9.000000, -77.000000)">
+                                                                <g transform="translate(0.000000, 65.000000)">
+                                                                    <g transform="translate(9.000000, 12.000000)">
+                                                                        <polygon id="Back-Chevron"
+                                                                                 points="0 10.5 10.92 0 13 2 4.16 10.5 13 19 10.92 21"></polygon>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="member-details">
+                                            <div class="user_image">
+                                                <!--<img class="message-avatar"-->
+                                                <!--src="/pragtech_housemates/static/src/img/rohit-avatar.jpg"-->
+                                                <!--alt="Avatar of Rohit"/>-->
+                                            </div>
+                                            <div class="chat_user_name member-name"></div>
+
+                                        </div>
+                                        <div class="dots-dropdown-message">
+                                            <a href="#" class="dots" data-toggle="dropdown">
+                                                <span class="icon">
+                                                    <svg viewBox="0 0 19 5">
+                                                        <g stroke="none" stroke-width="1" fill="none"
+                                                           fill-rule="evenodd">
+                                                            <g class="fill"
+                                                               transform="translate(-339.000000, -85.000000)">
+                                                                <g transform="translate(0.000000, 65.000000)">
+                                                                    <path d="M341.5,25 C340.119288,25 339,23.8807119 339,22.5 C339,21.1192881 340.119288,20 341.5,20 C342.880712,20 344,21.1192881 344,22.5 C344,23.8807119 342.880712,25 341.5,25 Z M348.5,25 C347.119288,25 346,23.8807119 346,22.5 C346,21.1192881 347.119288,20 348.5,20 C349.880712,20 351,21.1192881 351,22.5 C351,23.8807119 349.880712,25 348.5,25 Z M355.5,25 C354.119288,25 353,23.8807119 353,22.5 C353,21.1192881 354.119288,20 355.5,20 C356.880712,20 358,21.1192881 358,22.5 C358,23.8807119 356.880712,25 355.5,25 Z"
+                                                                          id="More"></path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item block-this-member" href="#">Block this member
+                                                </a>
+                                                <a class="dropdown-item unblock-this-member unlock-member d-none"
+                                                   href="#">Unblock this member
+                                                </a>
+                                                <a class="dropdown-item" href="#"
+                                                   data-target="#report_this_member_popup" data-toggle="modal">Report
+                                                    this member
+                                                </a>
+                                                <a class="dropdown-item delete-conversation" href="#">Delete
+                                                    conversation
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="message-subheader">
+                                        <div class="message-mobilesec">
+                                            <a href="#" data-toggle="modal" data-target="#verify_mobile_popup">
+                                                <span class="verified-mobile">
+                                                    <div class="country-flag"/>
+
+                                                    <span class="number"></span>
+                                                </span>
+                                            </a>
+                                        </div>
+
+                                        <div class="inbox-messages-listings-link">
+                                            <!--<a href="/P4" target="_blank" class="view_user_listing">View Rohit's listing</a>-->
+                                        </div>
+                                    </div>
+
+
+                                    <div class="message-body">
+
+                                        <!--<div class="inbox-messages-subject">-->
+                                        <!--<span class="regarding">You sent a message re:</span>-->
+                                        <!--<a class="detail available" href="">Rohit's Person Listing</a>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="status-message">Please <a href="#" data-toggle="modal"-->
+                                        <!--data-target="#verify_mobile_popup">verify-->
+                                        <!--your mobile number-->
+                                        <!--</a> so we can send this message-->
+                                        <!--</div>-->
+
+                                        <!--<div class="own-message-section">-->
+                                        <!--<div class="warning-status">-->
+                                        <!--<span class="icon">-->
+                                        <!--<svg class="unsent-icon" viewBox="0 0 50 50">-->
+                                        <!--<path class="fill"-->
+                                        <!--d="M23 0c-.552 0-1 .448-1 1v38c0 .553.448 1 1 1h4c.553 0 1-.447 1-1V1c0-.552-.447-1-1-1h-4zm0 44c-.552 0-1 .447-1 1v4c0 .553.448 1 1 1h4c.553 0 1-.447 1-1v-4c0-.553-.447-1-1-1h-4z"></path>-->
+                                        <!--</svg>-->
+                                        <!--</span>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="message-details own-message warning-icon">-->
+                                        <!--<div class="message-text sender_msg">-->
+                                        <!--&lt;!&ndash;<p>Hello Rohit</p>&ndash;&gt;-->
+                                        <!--</div>-->
+
+                                        <!--<div class="time-sent">-->
+                                        <!--<div class="message-status">sent</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+
+                                        <!--<div class="user-message-section">-->
+
+                                        <!--<div class="message-details own-message warning-icon">-->
+                                        <!--<div class="message-text receiver_msg">-->
+                                        <!--&lt;!&ndash;<p>Hey hi Administrator</p>&ndash;&gt;-->
+                                        <!--</div>-->
+
+                                        <!--<div class="time-sent">-->
+                                        <!--<div class="message-status">Unsent</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+
+                                    </div>
+
+
+                                    <div class="message-footer-wrapper">
+                                        <div class="message-toollayout"></div>
+                                        <div class="message-footer">
+                                            <textarea class="text-input msg-text" placeholder="Write to Rohit…"
+                                                      name="test"></textarea>
+                                            <div class="actions send-msg">
+                                                <button class="send-button" type="submit">
+                                                    <span class="icon">
+                                                        <svg class="send-icon" viewBox="0 0 50 50">
+                                                            <path class="fill send-path"
+                                                                  d="M44.438 4.156L4.593 21.28c-.357.154-.583.517-.594.907-.01.39.215.733.563.907L18.5 30.062 44.438 4.157zm1.406 1.407L19.937 31.5l6.97 13.938c.17.34.527.562.905.562h.032c.39-.012.72-.237.875-.594L45.843 5.563z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                                <!-- END Message Section -->
+
+
+                                <!-- Start Welcome Message -->
+                                <div class="inbox-messages-section inbox-empty">
+                                    <div class="inbox-welcome-message">
+                                        <h1>Welcome to your inbox</h1>
+                                        <h2>To get started click a conversation on the left.</h2>
+                                    </div>
+
+                                </div>
+                                <!-- END Welcome Message -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="conversation_deleted_popup" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close close-conversation-delete-popup" data-dismiss="modal"
+                                        aria-label="Close">
+                                    ×
+                                </button>
+                            </div>
+                            <main class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 mx-auto">
+                                            <!--<form action="">-->
+                                            <h4 class="text-center mt-4 mb-4"
+                                                id="">Conversation Deleted
+                                            </h4>
+                                            <div class="form-group mt-4">
+                                                <p style="color:black;text-align:center;font-size: 20px;"
+                                                   id="">You have deleted all messages in this conversation.
+                                                </p>
+                                            </div>
+                                            <!--</form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="block_user_popup" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close close-conversation-delete-popup" data-dismiss="modal"
+                                        aria-label="Close">
+                                    ×
+                                </button>
+                            </div>
+                            <main class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="">
+                                            <!--<form action="">-->
+                                            <h4 class="text-center mt-4 mb-4"
+                                                id="">You have blocked <span class="block-member-name"></span>.
+                                            </h4>
+                                            <div class="form-group mt-4">
+                                                <p style="color:black;font-size: 20px;"
+                                                   id="">This member will no longer be able to message you or access
+                                                    your phone number.
+                                                </p>
+                                                <p style="color:black;font-size: 20px;"
+                                                   id="">You will need to cancel any inspections you have with <span
+                                                        class="block-member-name"></span>.
+                                                </p>
+                                                <p style="color:black;font-size: 20px;"
+                                                   id="">Did you block <span class="block-member-name"></span> accidentally?
+                                                    <a href="#" class="unlock-member">Unblock</a>
+                                                </p>
+                                            </div>
+                                            <!--</form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="unblock_user_popup" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close close-conversation-delete-popup" data-dismiss="modal"
+                                        aria-label="Close">
+                                    ×
+                                </button>
+                            </div>
+                            <main class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="">
+                                            <!--<form action="">-->
+                                            <h4 class="text-center mt-4 mb-4"
+                                                id="">Unblocked.
+                                            </h4>
+                                            <div class="form-group mt-4">
+                                                <p style="color:black;font-size: 20px;"
+                                                   id="">You have unblocked <span class="unblock-member-name"></span>.
+                                                </p>
+                                            </div>
+                                            <!--</form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade report-thisnumber" id="report_this_member_popup" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close close-conversation-delete-popup" data-dismiss="modal"
+                                        aria-label="Close">
+                                    ×
+                                </button>
+                            </div>
+                            <main class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-10 mx-auto">
+
+                                            <h4 class="text-center mt-4 mb-4"
+                                                id="">Report this member
+                                            </h4>
+                                            <!--<form action="">-->
+                                            <div class="form-group">
+                                                <select class="form-control" id="feedback_category_id"
+                                                        name="feedback_category">
+                                                    <option value="" selected="selected" disabled="disabled">Please
+                                                        select
+                                                    </option>
+                                                    <option value="no_longer_available">No longer available</option>
+                                                    <option value="incorrect_information">Listing contains incorrect
+                                                        information
+                                                    </option>
+                                                    <option value="suspected_scammer">Suspected scammer</option>
+                                                    <option value="offensive_content">Contains offensive or
+                                                        inappropriate content
+                                                    </option>
+                                                    <option value="contact_information">Listing contains contact
+                                                        information
+                                                    </option>
+                                                    <option value="copyright_material">Listing contains copyright
+                                                        material
+                                                    </option>
+                                                    <option value="bug">Bug/Problem with website</option>
+                                                    <option value="spam">Spam/Commercial unrelated to share
+                                                        accommodation
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <h4>Tell us what you are reporting about</h4>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="feedback_details">
+                                                    <input class="form-control propertyInput" id="feedback_detail_id"
+                                                           name="feedback_details" type="text" value=""/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-block btn-green1 submit-feedback" type="button">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                            <!--</form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
+            </t>
+        </template>
+    </data>
+</odoo>

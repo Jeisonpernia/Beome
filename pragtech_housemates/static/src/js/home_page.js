@@ -11,11 +11,31 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
             var property_id=id
             var a = "P"+property_id
             if (window_pathname.includes('/search'))
-                window.open('/'+a)
+               window.location.href='/'+a
             else
-                window.open(a)
+                window.location.href=a
 
     });
+
+    if(window.location.pathname == '/my'){
+    $.ajax({
+                url : "/replace_page",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                 beforeSend: function() {
+                     $('.my_portal_loader').show();
+                     },
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'path':window.location.pathname}}),
+                success : function(result) {
+                $('.my_portal_loader').hide();
+                window.location.replace('/')
+                }
+
+
+                  })// work after controller method return
+
+    }
 
     $(document).on('click','.property-rounded-btn-location-link',function(){
 
@@ -195,7 +215,7 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
                 data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {'id':property_id}}),
                 success : function(result) {    // work after controller method return
                     console.log("---------result['result']['city']---------")
-                    if (result)
+                    if (result['result'])
                     {
                         $("#description_about_property").html(result['result']['description_about_property'])
                         $("#description_about_user").html(result['result']['description_about_user'])
@@ -216,9 +236,12 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 
                         }
                     }
+                    if (result['result'])
+                    {
                     if (result['result']['latitude'] && result['result']['longitude'])
                     {
                         initMap()
+                    }
                     }
                     var map;
                     var marker;
@@ -443,6 +466,7 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 	  		},
 	  		success : function(result) {    // work after controller method return
 	  			if (result) {
+	  			console.log(' in short list ',result)
 
 	  			}
 	  		},
@@ -479,6 +503,7 @@ odoo.define('pragtech_flatmates.home_page', function (require) {
 				  		},
 				  		success : function(result) {    // work after controller method return
 				  			if (result) {
+				  			console.log(' in short list ',result)
 
 				  			}
 				  		},
@@ -654,6 +679,75 @@ $(document).ready(function() {
 //
 //    });
 
+$('.search-dropdown-menu').click(function(event){
+
+var input_box = document.getElementById('tag_input_id')
+var div_id = document.getElementById('tag_complete_id')
+console.log('---- out -----',event.target)
+ if ($( event.target ).is( "li" ) == false &&  event.target != input_box && event.target != div_id){
+console.log('---- in -----',event.target)
+$('#autocomplete-id').hide();
+$('#tag_complete_id').removeClass('has_autocomplete')
+}
+else
+{
+$('#autocomplete-id').show();
+//$('#tag_complete_id').addClass('has_autocomplete')
+
+}
+})
+
+
+$(document).click(function(event){
+var is_shown = $(".search-dropdown-responsive").hasClass("show")
+var search_button = $('.search-btn-close').hasClass('d-done')
+console.log("\n\n is_show",is_shown,$( event.target ).is( "div" ),search_button)
+
+    if ($( event.target ).is( "div" ) == true && is_shown == true && search_button == false && $(window).width() > 768){
+      $("#dropdownMenuButton").hide();
+//      location.reload()
+      $('.search-btn-close').click()
+    }
+})
+
 });
+	
+	
+$(window).load(function() {
+
+    $(".loader").fadeOut("slow");
+});
+
+
+$(document).ready(function()
+ {
+        $.ajax({
+
+                url : "/get_current_user_id",   // calls to controller method
+                type:'POST',
+                dataType: 'json',
+                async:false,
+                contentType: 'application/json',
+                data: JSON.stringify({'jsonrpc': "2.0", 'method': "call", "params": {}}),
+                success : function(result) {
+
+                    if (result['result']['id'] == 2){
+                    $('#top_menu').addClass('foradmin-onlycss')
+                    }
+                    else{
+                    $('#top_menu').removeClass('foradmin-onlycss')
+                    }
+
+                }
+        })
+
+	
+	$('textarea').tooltip({trigger: "focus"}); 
+
+ });
+	
+	
+	
+
 
 });

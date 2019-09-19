@@ -13,17 +13,32 @@
                                         <h2 class="mb-3 pl-3">Dashboard</h2>
                                     </div>
 
-                                     <t t-if="user_id.partner_id.mobile_no_is_verified == false">
-                                    <div class="col-lg-8 col-md-3 col-5 float-right">
-                                        <div class="pending-tab">
-                                            <span class="yellow-circle"></span>
-                                            Pending
-                                            <span class="hide-verify-number">
-                                                <a  data-toggle="modal" data-target="#verify_mobile_popup" href="#" class="select_country">Verify mobile number</a>
-                                                to activate this listing
-                                            </span>
+                                    <t t-if="user_id.partner_id.mobile_no_is_verified == false">
+                                        <div class="col-lg-8 col-md-3 col-5 float-right">
+                                            <div class="pending-tab">
+                                                <span class="yellow-circle"></span>
+                                                Pending
+                                                <span class="hide-verify-number">
+                                                    <a data-toggle="modal" data-target="#verify_mobile_popup" href="#"
+                                                       class="select_country">Verify mobile number
+                                                    </a>
+                                                    to activate this listing
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </t>
+
+
+                                    <t t-if="state == 'deactive'">
+                                        <div class="col-lg-8 col-md-3 col-5 float-right">
+                                            <div class="deactivate-tab">
+                                                <span class="black-circle"></span>
+                                                Deactivated
+                                                <span>
+                                                    Your listing is not live or available in search
+                                                </span>
+                                            </div>
+                                        </div>
                                     </t>
                                 </div>
 
@@ -257,11 +272,39 @@
                                             </svg>
                                         </span>
 
+                                         <t t-if="state == 'deactive'">
+                                            <h3 class="mt-2">Listing Deactivated</h3>
+                                            <button class=" btn btn-block btn-outline-primary edit_find_activate_listing_button">
+                                                Active listing
+                                            </button>
+
+
+
+                                            <a href="" class="edit_find_delete_listing_button">Delete Listing</a>
+                                        </t>
+                                        <t t-if="state == 'active'">
+                                            <h3 class="mt-2">Listing Active</h3>
+                                             <button class=" btn btn-block btn-outline-primary edit_find_deactivate_listing_button">
+                                        Deactivate listing
+                                            </button>
+
+                                        </t>
+                                        <t t-if="user_id.partner_id.mobile_no_is_verified == false">
+
                                         <h3 class="mt-2">Listing pending</h3>
+                                             <button class=" btn btn-block btn-outline-primary edit_find_deactivate_listing_button">
+                                        Deactivate listing
+                                    </button>
+
+                                        </t>
                                     </div>
 
 
-                                    <button class=" btn btn-block btn-outline-primary edit_find_deactivate_listing_button">Deactivate listing</button>
+                                    <!--<button class=" btn btn-block btn-outline-primary edit_find_deactivate_listing_button">-->
+                                        <!--Deactivate listing-->
+                                    <!--</button>-->
+
+
 
 
                                 </div>
@@ -372,42 +415,45 @@
                         <div class="row">
                             <div class="col-lg-8 property-detail-left">
                                 <t t-if="property.place_for == 'me'">
-                                <h1>
-                                    <t t-esc="user_name"/>
-                                    <svg width="24" height="24" viewBox="0 0 16 16">
-                                        <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
-                                              fill="#2F3A4A" fill-rule="evenodd"></path>
-                                    </svg>
+                                    <h1>
+                                        <t t-esc="user_name"/>
 
-                                    <button type="button"
-                                            id="edit_applicant_info"
-                                            class="btn btn-transparent-edit btn-lg" data-toggle="modal"
-                                            data-target="#applicant_information_popup">
-                                        <i class="fa fa-pencil"></i>
-                                        Edit
-                                    </button>
+                                        <svg width="24" height="24" viewBox="0 0 16 16" data-toggle="tooltip"
+                                             data-placement="right" title="Verified">
+                                            <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
+                                                  fill="#2F3A4A" fill-rule="evenodd"></path>
+                                        </svg>
 
-                                </h1>
+
+                                        <button type="button"
+                                                id="edit_applicant_info"
+                                                class="btn btn-transparent-edit btn-lg" data-toggle="modal"
+                                                data-target="#applicant_information_popup">
+                                            <i class="fa fa-pencil"></i>
+                                            Edit
+                                        </button>
+
+                                    </h1>
                                 </t>
                                 <t t-else="">
                                     <h1>
-                                         <t t-foreach="property.person_ids" t-as="person">
-                                    <t t-esc="person.name"/>,
-                                         </t>
-                                    <svg width="24" height="24" viewBox="0 0 16 16">
-                                        <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
-                                              fill="#2F3A4A" fill-rule="evenodd"></path>
-                                    </svg>
+                                        <!--<t t-foreach="property.person_ids" t-as="person">-->
+                                            <t t-esc="person_name"/>
+                                        <!--</t>-->
+                                        <svg width="24" height="24" viewBox="0 0 16 16">
+                                            <path d="M6.942 11L3.999 8.058l.943-.943 2 2L11.057 5l.942.943L6.942 11zm8.67-3.943L14.52 5.966c-.259-.259-.471-.77-.471-1.138V3.285c0-.734-.6-1.333-1.334-1.334h-1.544c-.366 0-.879-.212-1.138-.471L8.942.389a1.338 1.338 0 0 0-1.885 0L5.965 1.48c-.258.258-.772.47-1.138.47H3.285c-.734 0-1.334.6-1.334 1.334v1.543c0 .366-.212.88-.471 1.138L.389 7.057a1.339 1.339 0 0 0 0 1.886l1.09 1.092c.26.258.472.772.472 1.138v1.542c0 .734.6 1.334 1.334 1.334h1.542c.368 0 .88.212 1.138.471l1.092 1.091a1.338 1.338 0 0 0 1.885 0l1.091-1.09c.259-.26.772-.472 1.138-.472h1.544c.734 0 1.334-.6 1.334-1.334v-1.542c0-.368.212-.88.471-1.138l1.091-1.092a1.339 1.339 0 0 0 0-1.886z"
+                                                  fill="#2F3A4A" fill-rule="evenodd"></path>
+                                        </svg>
 
-                                    <button type="button"
-                                            id="edit_applicant_info"
-                                            class="btn btn-transparent-edit btn-lg" data-toggle="modal"
-                                            data-target="#applicant_information_popup">
-                                        <i class="fa fa-pencil"></i>
-                                        Edit
-                                    </button>
+                                        <button type="button"
+                                                id="edit_applicant_info"
+                                                class="btn btn-transparent-edit btn-lg" data-toggle="modal"
+                                                data-target="#applicant_information_popup">
+                                            <i class="fa fa-pencil"></i>
+                                            Edit
+                                        </button>
 
-                                </h1>
+                                    </h1>
 
                                 </t>
 
@@ -486,9 +532,10 @@
                                                                     <div class="col-lg-4">
                                                                         <div class="form-group">
                                                                             <label class="p14">First name</label>
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="text" class="form-control edit_name"
                                                                                    id="edit_first_name_1" name=""/>
                                                                         </div>
+                                                                        <div class="styles__errorMessage4 d-none"  id="name__errorMessage_1">Name</div>
                                                                         <!--<div class="help-block form-error"><div >Name please</div></div>-->
                                                                     </div>
 
@@ -512,17 +559,20 @@
                                                                             <!--<select class="custom-select" id="" name="">-->
                                                                             <!--<option>25</option>-->
                                                                             <!--</select>-->
-                                                                            <input class="form-control weekly-rent-input"
+                                                                            <input class="form-control weekly-rent-input edit_age"
                                                                                    id="edit_age_1" value=""
                                                                                    type="number"/>
                                                                         </div>
+                                                                        <div class="styles__errorMessage4 d-none" id="styles__errorMessage_1">Must be at least 16</div>
+                                                                        <div class="styles__errorMessage4 d-none" id="max__errorMessage_1">Your age is too old</div>
                                                                     </div>
 
                                                                     <div class="col-lg-4 for-couple-first_name">
                                                                         <div class="form-group">
                                                                             <label class="p14">First name</label>
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="text" class="form-control edit_name"
                                                                                    id="edit_first_name_2" name=""/>
+                                                                            <div class="styles__errorMessage4 d-none"  id="name__errorMessage_2">Name</div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-4 for-couple-gender">
@@ -542,16 +592,21 @@
                                                                     <div class="col-lg-4 for-couple-age">
                                                                         <div class="form-group">
                                                                             <label class="p14">Age</label>
-                                                                            <input class="form-control weekly-rent-input"
+                                                                            <input class="form-control weekly-rent-input edit_age"
                                                                                    id="edit_age_2" value=""
                                                                                    type="number"/>
                                                                             <!--<select class="custom-select" id="" name="">-->
                                                                             <!--<option>25</option>-->
                                                                             <!--</select>-->
                                                                         </div>
-                                                                    </div>
-                                                                </div>
+                                                                        <div class="styles__errorMessage4 d-none"  id="styles__errorMessage_2">Must be at least 16</div>
+                                                                        <div class="styles__errorMessage4 d-none" id="max__errorMessage_2">Your age is too old</div>
 
+                                                                    </div>
+
+                                                                </div>
+                                                                <a href="#" class="for-couple-gender" id="add_other_person">+Add another person</a>
+                                                                <input type="number" value="3" id="dynamic_id_generator" style="display:none;"/>
                                                                 <button type="button"
                                                                         id="update_applicant_info"
                                                                         class="btn btn-green1 mt-3 mb-4 btn-block"
@@ -568,28 +623,28 @@
                                     </div>
                                 </div>
                                 <t t-if="property.place_for == 'me'">
-                                <div class="upgrade mt-3">
-                                    <span class="upgradeStatus">
-                                        <t t-esc="user_name"/>
-                                    </span>
-                                    <span>
-                                        <t t-esc="age"/>
-                                        year old,
-                                        <t t-esc="gender"/>
-                                    </span>
-                                </div>
+                                    <div class="upgrade mt-3">
+                                        <span class="upgradeStatus">Free to message
+                                            <!--<t t-esc="user_name"/>-->
+                                        </span>
+                                        <span>
+                                            <t t-esc="age"/>
+                                            year old,
+                                            <t t-esc="gender"/>
+                                        </span>
+                                    </div>
                                 </t>
                                 <t t-else="">
-                                     <div class="upgrade mt-3">
-                                    <span class="upgradeStatus">
-                                        <t t-esc="user_name"/>
-                                    </span>
-                                         <t t-foreach="property.person_ids" t-as="person">
+                                    <div class="upgrade mt-3">
+                                        <span class="upgradeStatus">Free to message
+                                            <!--<t t-esc="user_name"/>-->
+                                        </span>
+                                        <!--<t t-foreach="property.person_ids" t-as="person">-->
                                             <span>
-                                                <t t-esc="person.gender"/>(<t t-esc="person.age"/>),
+                                                <t t-esc="age_gender"/>
                                             </span>
-                                          </t>
-                                </div>
+                                        <!--</t>-->
+                                    </div>
 
 
                                 </t>
@@ -630,40 +685,45 @@
 
                                                                                 <div class="row">
                                                                                     <div class="col-lg-6">
-                                                                                        <label class="p14">Max budget
-                                                                                        </label>
+                                                                                        <div class="form-group">
+                                                                                        <label>Max budget</label>
                                                                                         <div class="input-group mb-3">
                                                                                             <div class="input-group-prepend">
                                                                                                 <span class="input-group-text">
                                                                                                     $
                                                                                                 </span>
                                                                                             </div>
-                                                                                            <input type="number"
-                                                                                                   class="form-control weekly-rent-input"
-                                                                                                   placeholder=""
-                                                                                                   id="edit_max_budget"
-                                                                                                   name="edit_max_budget"/>
+																							<div class="w-100">
+																									<input type="text"
+																									class="form-control weekly-rent-input"
+																									placeholder=""
+																									id="edit_max_budget"
+																									name="edit_max_budget"/>
+																									<!--<label class="form-control-placeholder1 focused" for="edit_max_budget">Max budget</label>-->
+																							</div>
                                                                                             <div class="input-group-append">
                                                                                                 <span class="input-group-text">
                                                                                                     per week
                                                                                                 </span>
                                                                                             </div>
                                                                                         </div>
+                                                                                         <div style="display:none;" class="styles__errorMessage3 text-left mb-2">Must be less than 10000</div>
+                                                                                        </div>
                                                                                     </div>
 
                                                                                     <div class="col-lg-6">
-                                                                                        <label class="p14">&amp;nbsp;
-                                                                                        </label>
-                                                                                        <!--<input type="text"-->
-                                                                                        <!--class="form-control"-->
-                                                                                        <!--placeholder="Move date"-->
-                                                                                        <!--id="usr" name=""/>-->
-                                                                                        <input id="edit_find_date"
-                                                                                               type="date"
-                                                                                               name="edit_find_date"
-                                                                                               class="form-control datepicker mt-2"
-                                                                                               placeholder="Move date"
-                                                                                        />
+																					<div class="form-group">
+																					<label>&amp;nbsp;</label>
+																					<!--<input type="text"-->
+																					<!--class="form-control"-->
+																					<!--placeholder="Move date"-->
+																					<!--id="usr" name=""/>-->
+																					<input id="edit_find_date"
+																						   type="text"
+																						   name="edit_find_date"
+																						   class="form-control datepicker"
+																						   placeholder="Move date"/>
+																					</div>
                                                                                     </div>
 
 
@@ -672,7 +732,7 @@
                                                                                 <div class="row mt-3">
                                                                                     <div class="col-lg-6">
                                                                                         <div class="form-group">
-                                                                                            <label class="p14">Preferred
+                                                                                            <label>Preferred
                                                                                                 length of stay
                                                                                             </label>
                                                                                             <select class="form-control"
@@ -827,6 +887,7 @@
 
                                                                                 <div class="row">
                                                                                     <div class="col-lg-6">
+                                                                                        <div class="form-group">
                                                                                         <label class="p14">Max budget
                                                                                         </label>
                                                                                         <div class="input-group mb-3">
@@ -848,6 +909,7 @@
                                                                                                     per week
                                                                                                 </span>
                                                                                             </div>
+                                                                                        </div>
                                                                                         </div>
                                                                                     </div>
 
@@ -957,26 +1019,28 @@
                                 </div>
                                 <hr class="mt-4 mb-5"/>
                                 <t t-if="property.place_for == 'me'">
-                                <h3>About Me
-                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal"
-                                            id="edit_find_about_me"
-                                            data-target="#aboutme_popup">
-                                        <i class="fa fa-pencil"></i>
-                                        Edit
-                                    </button>
+                                    <h3>About Me
+                                        <button type="button" class="btn btn-transparent-edit btn-lg"
+                                                data-toggle="modal"
+                                                id="edit_find_about_me"
+                                                data-target="#aboutme_popup">
+                                            <i class="fa fa-pencil"></i>
+                                            Edit
+                                        </button>
 
-                                </h3>
+                                    </h3>
                                 </t>
                                 <t t-else="">
                                     <h3>About Us
-                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal"
-                                            id="edit_find_about_me"
-                                            data-target="#aboutme_popup">
-                                        <i class="fa fa-pencil"></i>
-                                        Edit
-                                    </button>
+                                        <button type="button" class="btn btn-transparent-edit btn-lg"
+                                                data-toggle="modal"
+                                                id="edit_find_about_me"
+                                                data-target="#aboutme_popup">
+                                            <i class="fa fa-pencil"></i>
+                                            Edit
+                                        </button>
 
-                                </h3>
+                                    </h3>
 
                                 </t>
 
@@ -1007,8 +1071,24 @@
                                                                     <textarea class="form-control" rows="4"
                                                                               id="about_me_text_id"
                                                                               name="occupants_description"
-                                                                              placeholder="I am flexible with any type of property in that locations."></textarea>
+                                                                              placeholder="I am flexible with any type of property in that locations."
+                                                                              data-toggle="tooltip"
+                                                                              data-placement="right"
+                                                                              autocomplete="off"
+                                                                              title="Tell your future flatemates a little about yourself and why you are great to live with. Tell them what you do, where you are from and what you do for fun."
+
+                                                                    ></textarea>
+                                                                    <div style="display:none;" class="styles__errorMessage_find_comment">Tell us a little more</div>
+
                                                                 </div>
+                                                                <span class="not_include_contact_info">
+                                                                    <svg class="warning-shield" viewBox="0 0 50 50">
+                                                                        <path class="fill"
+                                                                              d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    Do not include your contact information
+                                                                </span>
 
                                                                 <button type="button"
                                                                         id="update_about_me"
@@ -1308,7 +1388,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-working_full_time"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1318,7 +1398,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="working_full_time"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-working_full_time"/>
                                                                             <span class="search-accepting">Working
                                                                                 full-time
                                                                             </span>
@@ -1329,7 +1410,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-working_part_time"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1339,7 +1420,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="working_part_time"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-working_part_time"/>
                                                                             <span class="search-accepting">Working
                                                                                 part-time
                                                                             </span>
@@ -1350,7 +1432,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-working_holiday"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1360,7 +1442,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="working_holiday"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-working_holiday"/>
                                                                             <span class="search-accepting">Working
                                                                                 holiday
                                                                             </span>
@@ -1371,7 +1454,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-student"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1381,7 +1464,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="student"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-student"/>
                                                                             <span class="search-accepting">Student
                                                                             </span>
                                                                         </div>
@@ -1391,7 +1475,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-backpacker"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1401,7 +1485,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="backpacker"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-backpacker"/>
                                                                             <span class="search-accepting">Backpacker
                                                                             </span>
                                                                         </div>
@@ -1411,7 +1496,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-retired"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1421,7 +1506,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="retired"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-retired"/>
                                                                             <span class="search-accepting">Retired
                                                                             </span>
                                                                         </div>
@@ -1431,7 +1517,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-unemployed"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1441,7 +1527,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="unemployed"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-unemployed"/>
                                                                             <span class="search-accepting">Unemployed
                                                                             </span>
                                                                         </div>
@@ -1451,7 +1538,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-LGBT"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1460,7 +1547,7 @@
                                                                             <!--name="LGBTI" readonly="true"/>-->
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
-                                                                                   value="LGBT" class="form-control"/>
+                                                                                   value="LGBT" autocomplete="off" class="form-control input-LGBT"/>
                                                                             <span class="search-accepting">LGBT+</span>
                                                                         </div>
                                                                     </div>
@@ -1469,7 +1556,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-smokers"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1479,7 +1566,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="smokers"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-smokers"/>
                                                                             <span class="search-accepting">Smoker</span>
                                                                         </div>
                                                                     </div>
@@ -1488,7 +1576,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-children"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1498,7 +1586,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
                                                                                    value="children"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-children"/>
                                                                             <span class="search-accepting">Have
                                                                                 Children
                                                                             </span>
@@ -1509,7 +1598,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-status-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-pets"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1518,7 +1607,7 @@
                                                                             <!--name="LGBTI" readonly="true"/>-->
                                                                             <input type="checkbox"
                                                                                    name="edit_employment_status"
-                                                                                   value="pets" class="form-control"/>
+                                                                                   value="pets" autocomplete="off" class="form-control input-pets"/>
                                                                             <span class="search-accepting">Have Pets
                                                                             </span>
                                                                         </div>
@@ -1824,7 +1913,7 @@
 
                                 <h3 class="mb-3">Preferred accommodation types
 
-                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal"
+                                    <button type="button" class="btn btn-transparent-edit btn-lg" id="edit_preferred_accommodation" data-toggle="modal"
                                             data-target="#preferred_accommodation_popup">
                                         <i class="fa fa-pencil"></i>
                                         Edit
@@ -1857,7 +1946,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-pref-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-rooms_in_existing_share"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1867,7 +1956,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Rooms in an existing share house"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-rooms_in_existing_share"/>
                                                                             <span class="search-accepting">Room(s) in
                                                                                 existing share house
                                                                             </span>
@@ -1878,7 +1968,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-pref-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-whole_property_for_rent"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1888,7 +1978,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Whole property for rent"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-whole_property_for_rent"/>
                                                                             <span class="search-accepting">Whole
                                                                                 properties
                                                                             </span>
@@ -1899,7 +1990,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-pref-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-studio_flats"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1909,7 +2000,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Studio"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-studio_flats"/>
                                                                             <span class="search-accepting">Studio
                                                                                 flats
                                                                             </span>
@@ -1920,7 +2012,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-pref-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-granny_flats"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1930,7 +2022,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Granny Flats"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-granny_flats"/>
                                                                             <span class="search-accepting">Granny
                                                                                 flats
                                                                             </span>
@@ -1941,7 +2034,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-pref-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-one_bed_flat"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1951,7 +2044,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="One Bed Flat"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-one_bed_flat"/>
                                                                             <span class="search-accepting">One bed
                                                                                 flats
                                                                             </span>
@@ -1962,7 +2056,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-pref-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-homestay"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1972,7 +2066,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Homestay"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-homestay"/>
                                                                             <span class="search-accepting">Homestays
                                                                             </span>
                                                                         </div>
@@ -1982,7 +2077,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-pref-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-shared_room"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -1992,7 +2087,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Shared Room"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-shared_room"/>
                                                                             <span class="search-accepting">Shared
                                                                                 rooms
                                                                             </span>
@@ -2003,7 +2099,7 @@
                                                                         <div class="input-group">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text add-pref-checked">
-                                                                                    <i class="fa fa-times"
+                                                                                    <i class="fa fa-times icon-student_accommodation"
                                                                                        aria-hidden="false"></i>
                                                                                 </span>
                                                                             </div>
@@ -2013,7 +2109,8 @@
                                                                             <input type="checkbox"
                                                                                    name="edit_pref_accommodation_type"
                                                                                    value="Student accommodation"
-                                                                                   class="form-control"/>
+                                                                                   autocomplete="off"
+                                                                                   class="form-control input-student_accommodation"/>
                                                                             <span class="search-accepting">Student
                                                                                 accommodation
                                                                             </span>
@@ -2024,10 +2121,10 @@
 
 
                                                                 <div class="custom-control custom-checkbox mb-3 mt-4">
-                                                                    <input type="checkbox" class="custom-control-input"
+                                                                    <input type="checkbox" class="custom-control-input" autocomplete="off"
                                                                            id="teamup" name="teamup"/>
-                                                                    <label class="custom-control-label"
-                                                                           for="customCheck">I'm interested in teamups
+                                                                    <label class="custom-control-label currency"
+                                                                           for="teamup">I'm interested in teamups
                                                                     </label>
                                                                 </div>
 
@@ -2117,7 +2214,7 @@
 
 
                                 <h3 class="mt-4 mb-3">Preferred locations
-                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal"
+                                    <button type="button" class="btn btn-transparent-edit btn-lg" data-toggle="modal" id="edit_preferred_locations"
                                             data-target="#preferred_locations_popup">
                                         <i class="fa fa-pencil"></i>
                                         Edit
@@ -2139,23 +2236,25 @@
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="col-lg-11 mx-auto">
-                                                            <form action="/action_page.php">
+                                                            <form action="">
                                                                 <h3 class="text-center mb-5">My preferred locations</h3>
 
                                                                 <div class="row mt-3">
                                                                     <div class="col-12">
                                                                         <div class="form-group">
                                                                             <!--<div class="locations-autocomplete">-->
-                                                                                <!--<div class="auto-input find-place-add-suburbs">-->
-                                                                                    <!--<input class="hidden-input token-input"-->
-                                                                                           <!--placeholder="" type="text"-->
-                                                                                           <!--autocomplete="off"-->
-                                                                                           <!--id="find_suburb"-->
-                                                                                           <!--name="suburbs" value=""/>-->
-                                                                                <!--</div>-->
+                                                                            <!--<div class="auto-input find-place-add-suburbs">-->
+                                                                            <!--<input class="hidden-input token-input"-->
+                                                                            <!--placeholder="" type="text"-->
+                                                                            <!--autocomplete="off"-->
+                                                                            <!--id="find_suburb"-->
+                                                                            <!--name="suburbs" value=""/>-->
+                                                                            <!--</div>-->
                                                                             <!--</div>-->
                                                                             <div class="tag-input-div">
-                                                                                <input type="text" class="tags_input" placeholder="Start typing a suburb, city, station or uni" value=""/>
+                                                                                <input type="text" class="tags_input" id="preferred_location"
+                                                                                       placeholder="Start typing a suburb, city, station or uni"
+                                                                                       value=""/>
                                                                             </div>
 
                                                                             <p class="show-distance-msg d-none">The
@@ -2265,10 +2364,18 @@
                                                 <h3>
                                                     <t t-esc="user_name"/>
                                                 </h3>
-                                                <p>Online Today</p>
+                                                <div class="last-active">
+                                                    <t t-esc="last_login"/>
+                                                </div>
+                                                <!--<p>Online Today</p>-->
                                                 <div class="login-form-rounded-btn">Response rate: 100%
-                                                    <i data-tip="true" data-for="responseRateTooltip"
+                                                      
+													<span class="popovers" data-toggle="popover" data-placement="top" data-trigger="hover" title="" data-content="Percent of conversations this user has responded to. &#60;a href='/info/message-response-rate' &#62;Learn more&#60;/a&#62;" data-original-title="">
+														
+													<i data-tip="true" data-for="responseRateTooltip"
                                                        class="fa fa-question-circle" currentitem="false"></i>
+														</span>
+													
                                                 </div>
 
 
@@ -2392,7 +2499,7 @@
                                         <t t-if="user_id.partner_id.mobile_no_is_verified == false">
                                             <button class="btn btn-primary btn-outline-primary btn-block mt-3 select_country"
                                                     data-toggle="modal" data-target="#verify_mobile_popup">Edit
-                                            verifications
+                                                verifications
                                             </button>
 
                                         </t>
@@ -2400,7 +2507,7 @@
                                         <t t-else="">
                                             <button class="btn btn-primary btn-outline-primary btn-block mt-3 edit_account_verification"
                                                     data-toggle="modal" data-target="#account_verification_popup">Edit
-                                            verifications
+                                                verifications
                                             </button>
 
                                         </t>
@@ -2408,34 +2515,121 @@
 
                                     </div>
 
-                                    <div class="col-12 text-muted text-center mt-2">
+                                    <div class="col-12 text-muted report-this-person text-center mt-2"
+                                         data-target="#report_this_person_popup"
+                                         data-toggle="modal">
                                         <span class="icon">
-                                            <svg class="warning-shield" width="16" height="16" viewBox="0 0 50 50">
+                                            <svg class="warning-shield" width="16" height="16"
+                                                 viewBox="0 0 50 50">
                                                 <path class="fill"
                                                       d="M46.215 7.847C38.813 6.22 34.44 3.922 31.25 2.244 28.77.94 26.98 0 25 0s-3.77.94-6.25 2.244C15.56 3.922 11.19 6.22 3.787 7.847L3 8.02v.803C3 39.287 24.365 49.503 24.58 49.6l.44.204.433-.22C25.67 49.474 47 38.272 47 8.824v-.805l-.785-.173zm-19.418 29.09c0 .214-.145.357-.357.357h-2.727c-.217 0-.36-.144-.36-.358v-3.084c0-.216.144-.36.36-.36h2.727c.215 0 .357.145.357.36v3.084zm0-7.296c0 .216-.145.36-.357.36h-2.727c-.217 0-.36-.145-.36-.36V12.558c0-.215.144-.36.36-.36h2.727c.215 0 .357.145.357.36V29.64z"></path>
                                             </svg>
                                         </span>
 
                                         <span>
-                                            <strong>Report this person</strong>
+                                            Report this person
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="modal fade report-thisnumber" id="report_this_person_popup" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close close-conversation-delete-popup"
+                                                    data-dismiss="modal"
+                                                    aria-label="Close">
+                                                ×
+                                            </button>
+                                        </div>
+                                        <main class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-10 mx-auto">
+
+                                                        <h4 class="text-center mt-4 mb-4"
+                                                            id="">Report this member
+                                                        </h4>
+                                                        <!--<form action="">-->
+                                                        <div class="form-group">
+                                                            <h4>Reason for report</h4>
+                                                            <select class="form-control report-reason" id="feedback_category_id"
+                                                                    name="feedback_category">
+                                                                <option value="">Please select
+                                                                </option>
+                                                                <option value="no_longer_available">No longer
+                                                                    available
+                                                                </option>
+                                                                <option value="incorrect_information">Listing contains
+                                                                    incorrect
+                                                                    information
+                                                                </option>
+                                                                <option value="suspected_scammer">Suspected scammer
+                                                                </option>
+                                                                <option value="offensive_content">Contains offensive or
+                                                                    inappropriate content
+                                                                </option>
+                                                                <option value="contact_information">Listing contains
+                                                                    contact
+                                                                    information
+                                                                </option>
+                                                                <option value="copyright_material">Listing contains
+                                                                    copyright
+                                                                    material
+                                                                </option>
+                                                                <option value="bug">Bug/Problem with website</option>
+                                                                <option value="spam">Spam/Commercial unrelated to share
+                                                                    accommodation
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <!--<h4 class="">Tell us what you are reporting about</h4>-->
+                                                            <h4 class="no-longer-available-label d-none">How do you know the listing is no longer available?</h4>
+                                                            <h4 class="incorrect-information-label d-none">Which information is incorrect?</h4>
+                                                            <h4 class="suspected-scammer-label d-none">Why do you think this person could be a scammer?</h4>
+                                                            <h4 class="offensive-content-label d-none">Please let us know the issue</h4>
+                                                            <h4 class="contact-information-label d-none">Please let us know which part of the listing has contact information</h4>
+                                                            <h4 class="copyright-material-label d-none">Which part of the listing contains copyright material?</h4>
+                                                            <h4 class="bug-label d-none">What issue did you face?</h4>
+                                                            <h4 class="spam-label d-none">Please let us know the issue</h4>
+                                                        </div>
+                                                        <div class="form-group d-none feedback-text">
+                                                            <div class="feedback_details">
+                                                                <input class="form-control feedback-text-field"
+                                                                       id="feedback_input_id"
+                                                                       name="feedback_details" type="text" value=""/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button class="btn btn-block btn-green1 submit-feedback-btn"
+                                                                    type="button" disabled="disabled" style="background-color:gray;">Submit
+                                                            </button>
+                                                        </div>
+                                                        <!--</form>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </main>
+                                    </div>
+                                </div>
+                            </div>
+
                         <div class="row">
                             <div class="col-12 mt-5">
-                                <p class="p16-gray text-center">All <a href="/search/records?listing_type=find">people</a> looking in
-                                        <a href="#" class="breadcrumb_suburb_city">
-                                            <t t-esc="property.suburbs_ids[0].city"/>
+                                <p class="p16-gray text-center">All <a href="/search/records?listing_type=find">people
+                                </a> looking in
+                                    <a href="#" class="breadcrumb_suburb_city">
+                                        <t t-esc="property.suburbs_ids[0].city"/>
+                                    </a>
+                                    or more in
+                                    <t t-foreach="property.suburbs_ids" t-as="suburbs">
+                                        <a href="#" class="subrub_name">
+                                            <t t-esc="suburbs.subrub_name"/>
                                         </a>
-                                        or more in
-                                        <t t-foreach="property.suburbs_ids" t-as="suburbs">
-                                            <a href="#" class="subrub_name">
-                                                <t t-esc="suburbs.subrub_name"/>
-                                            </a>
-                                        </t>
+                                    </t>
                                 </p>
                             </div>
                         </div>

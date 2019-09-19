@@ -76,7 +76,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 share-house find-sharehouse find-active-property"
                                                      id="find-share-house">
-                                                    <input type="checkbox" name="find_place_looking"
+                                                    <input type="checkbox" name="find_place_looking" id="rooms_in_existing_share_house"
                                                            t-att-value="rooms_in_existing_share_house" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="34" viewBox="0 0 42 34">
@@ -94,7 +94,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-wholeproperty find-active-property"
                                                      id="find-whole-property">
-                                                    <input type="checkbox" name="find_place_looking"
+                                                    <input type="checkbox" name="find_place_looking" id="whole_property"
                                                            t-att-value="whole_property" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="31" viewBox="0 0 42 31">
@@ -111,7 +111,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-studio find-active-property"
                                                      id="find-studio">
-                                                    <input type="checkbox" name="find_place_looking" t-att-value="studio"
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="studio" id="studio"
                                                            class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="34" height="34" viewBox="0 0 34 34">
@@ -128,7 +128,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-grannyflats find-active-property"
                                                      id="find-granny-flats">
-                                                    <input type="checkbox" name="find_place_looking" t-att-value="granny_flat"
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="granny_flat" id="granny_flat"
                                                            class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="26" height="35" viewBox="0 0 26 35">
@@ -149,7 +149,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-onebedflat find-active-property"
                                                      id="find-one-bad-flat">
-                                                    <input type="checkbox" name="find_place_looking"
+                                                    <input type="checkbox" name="find_place_looking" id="one_bed_flat"
                                                            t-att-value="one_bed_flat" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="38" height="32" viewBox="0 0 38 32">
@@ -166,7 +166,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-homestay find-active-property"
                                                      id="find-home-stay">
-                                                    <input type="checkbox" name="find_place_looking" t-att-value="homestay"
+                                                    <input type="checkbox" name="find_place_looking" t-att-value="homestay" id="homestay"
                                                            class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="43" viewBox="0 0 42 43">
@@ -185,7 +185,7 @@
                                                      id="find-shared-room">
                                                     <!--<input type="checkbox" name="find_place_looking"-->
                                                            <!--value="student_accommodation" class="d-none"/>-->
-                                                    <input type="checkbox" name="find_place_looking"
+                                                    <input type="checkbox" name="find_place_looking" id="shared_room"
                                                                t-att-value="shared_room" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="46" height="24" viewBox="0 0 46 24">
@@ -203,7 +203,7 @@
                                             <div class="items">
                                                 <div class="items-cirle items-cirle-hover mb-2 find-studentaccommodation find-active-property"
                                                      id="find-student-accommodation">
-                                                    <input type="checkbox" name="find_place_looking"
+                                                    <input type="checkbox" name="find_place_looking" id="student_accommodation"
                                                            t-att-value="student_accommodation" class="d-none"/>
                                                     <span class="icon">
                                                         <svg width="42" height="43" viewBox="0 0 42 43">
@@ -290,7 +290,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 mx-auto decribe-place">
 
-                                        <div class="form-group">
+                                        <div class="form-group suburb_in_find_place">
                                             <span>Suburb</span>
                                             <p class="text-muted">We recommend choosing at least 4 suburbs</p>
 
@@ -317,6 +317,7 @@
                                             <div class="tag-input-div">
                                                 <input type="text" class="tags_input" placeholder="Start typing a suburb, city, station or uni" value=""/>
                                             </div>
+                                            <p class="show-distance-msg d-none" style="color:red;">The suburb selected is greater than 25km from your original suburb</p>
 
                                             <!--<div class="form-control form-control-lg mt-2 p-0 find-place-add-suburbs">-->
                                                 <!--<input type="text" autocomplete="off" id="find_suburb" name="suburbs"/>-->
@@ -328,7 +329,7 @@
                                 <div class="row">
                                     <div class="mt-4 mx-auto">
                                         <button type="submit" id=""
-                                                class="btn btn-primary btn-green propert_submit_btn">Next
+                                                class="btn btn-primary btn-green propert_submit_btn_in_find" disabled="disabled">Next
                                         </button>
                                     </div>
                                 </div>
@@ -384,7 +385,7 @@
                                             <span>Preferred move date</span>
                                             <br/>
                                             <input id="find-txtdate" type="text" name="find_date"
-                                                   placeholder="Select a date"
+                                                   placeholder="Select a date" autocomplete="off"
                                                    class="span2 find-datepicker room-availability-datepicker mt-2" value=""/>
                                         </div>
                                         <div class="form-group">
@@ -892,7 +893,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_full_time"
                                                      id="">
                                                     <input type="checkbox" name="employment_status"
-                                                           value="working_full_time" class="d-none"/>
+                                                           value="working_full_time" class="d-none" id="working_full_time"/>
                                                     <span class="icon">
                                                         <svg width="42" height="34">
                                                             <path d="M15.054 6.405V2.802c0-.995.761-1.802 1.699-1.802h8.494c.938 0 1.699.807 1.699 1.802v3.603m12.973 12.973v11.27c0 .937-.788 1.703-1.75 1.703H4.912c-.962 0-1.75-.766-1.75-1.702v-11.27M23.61 21.54c6.348-.237 12.521-1.333 17.391-3.324V8.093c0-.932-.78-1.688-1.74-1.688H2.74c-.96 0-1.74.756-1.74 1.688v10.124c4.87 1.99 11.043 3.087 17.391 3.324m-.094 2.162h5.406v-3.244h-5.406v3.244z"
@@ -909,7 +910,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_part_time"
                                                      id="">
                                                     <input type="checkbox" name="employment_status"
-                                                           value="working_part_time" class="d-none"/>
+                                                           value="working_part_time" class="d-none" id="working_part_time"/>
                                                     <span class="icon">
                                                         <svg width="42" height="36">
                                                             <path d="M1 31h38.889m-3.333 0l-3.392 3.333H7.725L4.333 31m16.755 0h-3.51c-5.447 0-10.194-3.643-11.516-8.837L3.222 11h32.222l-2.839 11.163C31.284 27.357 26.535 31 21.088 31zm13.86-16.667H41l-.552 3.194c-.68 3.927-4.206 6.806-8.337 6.806M13.222 1c0 1.667 2.222 1.667 2.222 3.334C15.444 6 13.222 6 13.222 7.667m10-6.667c0 1.667 2.222 1.667 2.222 3.334C25.444 6 23.222 6 23.222 7.667M18.778 1C18.778 2.667 21 2.667 21 4.334 21 6 18.778 6 18.778 7.667"
@@ -926,7 +927,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_working_holiday"
                                                      id="">
                                                     <input type="checkbox" name="employment_status"
-                                                           value="working_holiday" class="d-none"/>
+                                                           value="working_holiday" class="d-none" id="working_holiday"/>
                                                     <span class="icon">
                                                         <svg width="26" height="42">
                                                             <path d="M3.286 1h20.571m-.571 36.571H2.714C1.767 37.571 1 36.79 1 35.824V9.605c0-.966.767-1.748 1.714-1.748h20.572c.946 0 1.714.782 1.714 1.748v26.219c0 .966-.768 1.747-1.714 1.747zM7.857 39.286V37.57H4.43v1.715a1.713 1.713 0 1 0 3.428 0zm13.714 0V37.57h-3.428v1.715a1.713 1.713 0 1 0 3.428 0zM18.5 13.5V33m-5-19.5V33M8 13.5V33M6.714 1v6.857M20.43 1v6.857"
@@ -943,7 +944,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_retired"
                                                      id="">
                                                     <input type="checkbox" name="employment_status" value="retired"
-                                                           class="d-none"/>
+                                                           class="d-none" id="retired"/>
                                                     <span class="icon">
                                                         <svg width="42" height="35">
                                                             <path d="M17 26.143a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm24 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM10.143 6.202v-.867C10.143 2.941 8.096 1 5.57 1 3.047 1 1 2.94 1 5.335v20.808M31.857 6.202v-.867C31.857 2.941 33.904 1 36.43 1 38.953 1 41 2.94 41 5.335v20.808m-16 1.143h-8"
@@ -960,7 +961,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_unemployed"
                                                      id="">
                                                     <input type="checkbox" name="employment_status" value="unemployed"
-                                                           class="d-none"/>
+                                                           class="d-none" id="unemployed"/>
                                                     <span class="icon">
                                                         <svg width="42" height="38">
                                                             <path d="M6.714 33H3.971c-1.006 0-1.828-.81-1.828-1.801V19.286M41 3.286L7.857 36.429m14.857-14.434v.72c5.536-.222 10.932-1.158 15.429-2.828v-.009.01c.586-.219 1.16-.445 1.714-.688V8.498c0-.985-.624-1.784-1.57-1.784m-4.144 0H2.706C1.764 6.714 1 7.517 1 8.507v10.756c.55.244 1.122.472 1.706.69 4.054 1.52 8.844 2.437 13.806 2.761h1.543m8.088-19.81C26.143 1.855 25.41 1 24.51 1h-8.163c-.901 0-1.633.853-1.633 1.905v3.81h11.429v-3.81zM11.286 33h24.629c.91 0 1.656-.81 1.656-1.801V19.286c-4.344 1.685-9.559 2.63-14.907 2.854v1.855m.05-.138H20.43m-2.286-1.143V20.43h2.286"
@@ -977,7 +978,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_backpacker"
                                                      id="">
                                                     <input type="checkbox" name="employment_status" value="backpacker"
-                                                           class="d-none"/>
+                                                           class="d-none" id="backpacker"/>
                                                     <span class="icon">
                                                         <svg width="42" height="42">
                                                             <path d="M6.217 32.304H2.74c-.96 0-1.739-.779-1.739-1.739V18.391c0-.96.78-1.739 1.74-1.739h3.477v15.652zm29.566 0h3.478c.96 0 1.739-.779 1.739-1.739V18.391c0-.96-.78-1.739-1.74-1.739h-3.477v15.652zM32.304 41H9.696a3.478 3.478 0 0 1-3.479-3.478V7.957A6.958 6.958 0 0 1 13.174 1h15.652a6.958 6.958 0 0 1 6.957 6.957v29.565A3.478 3.478 0 0 1 32.304 41zM6.217 9.887c9.148 2.07 20.418 2.07 29.566 0m-22.61 8.504h3.48v-3.478h-3.48v3.478zm1.74-3.478V9.696m.217 13.913V18.39m10.218 0h3.478v-3.478h-3.478v3.478zm1.739-3.478V9.696m0 13.913V18.39M30.565 41h-19.13v-5.217a3.478 3.478 0 0 1 3.478-3.479h12.174a3.478 3.478 0 0 1 3.478 3.479V41zM1 20.13h5.217M1 28.826h5.217m29.566-8.696H41m-5.217 8.696H41"
@@ -994,7 +995,7 @@
                                                 <div class="items-cirle items-cirle-hover mb-2 find_employment-status find_student"
                                                      id="">
                                                     <input type="checkbox" name="employment_status" value="student"
-                                                           class="d-none"/>
+                                                           class="d-none" id="student"/>
                                                     <span class="icon">
                                                         <svg width="36" height="30" viewBox="0 0 36 30">
                                                             <path d="M1 29.087v-16.26h34v16.26m0-4.435H21.696V12.826m0 5.913H35m-7.391 2.957h1.478m-1.478-5.913h1.478M3.957 9.87H17.26V1H3.957v8.87zm11.671 2.802L12.825 9.87H8.391l-2.71 2.71"
@@ -1059,7 +1060,7 @@
                                     <div class="item mt-5">
                                         <div class="items">
                                             <div class="items-cirle items-cirle-hover mb-2 life-style find_smoker" id="">
-                                                <input type="checkbox" name="lifestyle" value="smoker" class="d-none"/>
+                                                <input type="checkbox" name="lifestyle" value="smoker" class="d-none" id="smoker"/>
                                                 <span class="icon">
                                                     <svg width="40" height="22">
                                                         <path d="M1 21h33.333v-6.667H1V21zm37.778-6.667V21m-26.23-6.667V21m26.23-11.111c-.865-2.456-4.591-2.74-7.07-3.469-2.992-.882-5.406-2.92-6.264-5.42"
@@ -1074,7 +1075,7 @@
 
                                         <div class="items">
                                             <div class="items-cirle items-cirle-hover mb-2 life-style find_lgbti" id="">
-                                                <input type="checkbox" name="lifestyle" value="lgbti" class="d-none"/>
+                                                <input type="checkbox" name="lifestyle" value="lgbti" class="d-none" id="lgbti"/>
                                                 <span class="icon">
                                                     <svg width="42" height="22">
                                                         <path d="M1 21C1 9.972 9.972 1 21 1s20 8.972 20 20M6.217 21C6.217 12.849 12.85 6.217 21 6.217S35.783 12.85 35.783 21m-24.348 0c0-5.273 4.292-9.565 9.565-9.565s9.565 4.292 9.565 9.565m-13.913 0a4.347 4.347 0 1 1 8.696 0"
@@ -1089,7 +1090,7 @@
 
                                         <div class="items">
                                             <div class="items-cirle items-cirle-hover mb-2 life-style find_pets" id="">
-                                                <input type="checkbox" name="lifestyle" value="pets" class="d-none"/>
+                                                <input type="checkbox" name="lifestyle" value="pets" class="d-none" id="pets"/>
                                                 <span class="icon">
                                                     <svg width="42" height="41">
                                                         <path d="M36.896 16.535c1.495 2.43 2.365 5.25 2.365 8.243 0 9.248-8.174 14.972-18.261 14.972S2.74 34.026 2.74 24.778c0-2.994.869-5.812 2.364-8.243a13.924 13.924 0 0 1-.626-4.086c0-4.685 2.383-8.842 6.087-11.449 2.661 1.885 4.644 4.562 5.548 7.662A19.26 19.26 0 0 1 21 8.045c1.704 0 3.34.212 4.887.617.904-3.1 2.887-5.777 5.548-7.662 3.704 2.607 6.087 6.764 6.087 11.449 0 1.409-.226 2.783-.626 4.086zm-8.07-6.104c.46-1.51 1.286-2.928 2.404-4.147 1.812 1.97 2.813 4.431 2.813 7.046m-26.086 0c0-2.614 1-5.076 2.813-7.046 1.118 1.221 1.945 2.636 2.404 4.148m1.739 22.273c1.922 2.348 5.035 2.348 6.957 0 1.922 2.348 5.034 2.348 6.956 0m-17.391-12.33c0-1.947 1.167-3.523 2.608-3.523 1.44 0 2.61 1.576 2.61 3.523m8.695 0c0-1.947 1.167-3.523 2.609-3.523 1.44 0 2.608 1.576 2.608 3.523M21 30.943l-2.49-3.563c-.37-.79.168-1.72.995-1.72h2.991c.825 0 1.364.93.993 1.72L21 30.943zm-9.565-5.284L1 22.136m6.957 5.284L1 29.182m29.565-3.523L41 22.136m-6.957 5.284L41 29.182"
@@ -1104,7 +1105,7 @@
 
                                         <div class="items">
                                             <div class="items-cirle items-cirle-hover mb-2 life-style find_children" id="">
-                                                <input type="checkbox" name="lifestyle" value="children"
+                                                <input type="checkbox" name="lifestyle" value="children" id="children"
                                                        class="d-none"/>
                                                 <span class="icon">
                                                     <svg width="42" height="28">

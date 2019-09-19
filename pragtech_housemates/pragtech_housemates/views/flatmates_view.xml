@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--<record id="flatmates_form_view" model="ir.ui.view">-->
+        <!--<field name="name">flat.mates.form</field>-->
+        <!--<field name="model">flat.mates</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<form string="FlatMates" name="flatmates">-->
+        <!--<sheet>-->
+
+        <!--<group>-->
+        <!--<group>-->
+        <!--<field name="is_listing"/>-->
+        <!--<field name="is_finding"/>-->
+        <!--&lt;!&ndash;<field name="is_teamups"/>&ndash;&gt;-->
+        <!--<field name="accommodation_type" required="1"/>-->
+        <!--<field name="type" attrs="{'invisible': [('accommodation_type','!=','rooms_in_an_existing_sharehouse')],'required':[('accommodation_type','=', 'rooms_in_an_existing_sharehouse')]}" />-->
+        <!--&lt;!&ndash;<field name="accommodation_type_id" required="1"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="property_type_id"/>&ndash;&gt;-->
+        <!--<field name="name" required="0" invisible="1"/>-->
+        <!--&lt;!&ndash;<field name="partner_id"/>&ndash;&gt;-->
+        <!--<field name="user_id"/>-->
+        <!--<label for="street" string="Address"/>-->
+        <!--<div class="o_address_format">-->
+        <!--<field name="street" placeholder="Street..." class="o_address_street"/>-->
+        <!--<field name="street2" placeholder="Street 2..." class="o_address_street"/>-->
+        <!--<field name="city" placeholder="City" class="o_address_city"/>-->
+        <!--<field name="state_id" class="o_address_state" placeholder="State" options='{"no_create": True}'/>-->
+        <!--<field name="zip" placeholder="ZIP" class="o_address_zip"/>-->
+        <!--<field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>-->
+        <!--<field name="latitude" placeholder="Latitude" class=""/>-->
+        <!--<field name="longitude" placeholder="Longitude" class=""/>-->
+        <!--</div>-->
+        <!--</group>-->
+        <!--<group>-->
+        <!--<field name="parking_id" required="1"/>-->
+        <!--<field name="internet_id" required="1"/>-->
+        <!--<field name="total_no_flatmates_id" required="1"/>-->
+        <!--<field name="pref"/>-->
+        <!--&lt;!&ndash;<field name="flatmate_preference_id"/>&ndash;&gt;-->
+        <!--<field name="total_bedrooms_id" required="1"/>-->
+        <!--<field name="total_bathrooms_id" required="1"/>-->
+        <!--</group>-->
+        <!--&lt;!&ndash;<field name="type" attrs="{'invisible': [('accommodation_type','!=','rooms_in_an_existing_sharehouse')],'required':[('accommodation_type','=', 'rooms_in_an_existing_sharehouse')]}" />&ndash;&gt;-->
+        <!--</group>-->
+        <!--<group>-->
+        <!--<group>-->
+
+        <!--</group>-->
+        <!--</group>-->
+
+        <!--<notebook>-->
+        <!--<page name='about rooms' string="About the room(s)">-->
+        <!--<field name="rooms_ids">-->
+        <!--<tree editable="bottom">-->
+        <!--<field name="room_type_id"/>-->
+        <!--<field name="room_furnishing_id"/>-->
+        <!--<field name="bath_room_type_id"/>-->
+        <!--</tree>-->
+        <!--</field>-->
+        <!--</page>-->
+        <!--<page name='bills and bond' string="Rent, Bond and Bills">-->
+        <!--<group>-->
+        <!--<field name="weekly_rent"/>-->
+        <!--<field name="bond_id"/>-->
+        <!--<field name="bill_id"/>-->
+        <!--<field name="weekly_budget"/>-->
+        <!--<field name="prefered_move_date"/>-->
+        <!--</group>-->
+        <!--</page>-->
+        <!--<page name='room aviability' string="Room Avaibility">-->
+        <!--<group>-->
+        <!--<field name="avil_date"/>-->
+        <!--<field name="min_len_stay_id"/>-->
+        <!--<field name="max_len_stay_id"/>-->
+        <!--</group>-->
+        <!--</page>-->
+        <!--&lt;!&ndash;<page name="images" string="Property Images">&ndash;&gt;-->
+        <!--&lt;!&ndash;<group name="property_extra_images" string="Extra Images">&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="property_image_ids" class="o_website_sale_image_list"&ndash;&gt;-->
+        <!--&lt;!&ndash;context="{'default_name': name, 'default_flat_mates_id': active_id}"&ndash;&gt;-->
+        <!--&lt;!&ndash;nolabel="1">&ndash;&gt;-->
+        <!--&lt;!&ndash;<kanban string="Property Images" class="o_attachments_previews">&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="id"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="name"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="image"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<templates>&ndash;&gt;-->
+        <!--&lt;!&ndash;<t t-name="kanban-box">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="o_attachment oe_kanban_global_click o_website_sale_image_card">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="o_attachment_wrap">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="o_image_box">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="o_attachment_image"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-attf-style="background-image:url({{kanban_image('property.image', 'image', record.id.raw_value)}});"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div t-attf-class="o_image_overlay"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-att-title="record.name.value"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="o_website_sale_image_card_title"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-att-title="record.name.value">&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="name"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<t t-set="size" t-value="[record.image.value][0]"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<t t-set="size_status" t-value="'normal'"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-if="size.indexOf('Bytes') !== -1 or ( size.indexOf('Kb') !== -1 and size[2]=='.')"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<t t-set="size_status" t-value="'warning'"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-elif="( size.indexOf('Kb') !== -1 and size[3]=='.')"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<t t-set="size_status" t-value="'danger'" t-else=""/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<t t-set="message" t-value="'Acceptable file size'"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-if="size_status == 'normal'"></t>&ndash;&gt;-->
+        <!--&lt;!&ndash;<t t-set="message"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-value="'Huge file size. The image should be optimized/reduced.'"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-elif="size_status == 'warning'"></t>&ndash;&gt;-->
+        <!--&lt;!&ndash;<t t-set="message"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-value="'Optimization required! Reduce the image size or increase your compression settings.'"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-else=""></t>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<span t-attf-class="o_website_sale_image_card_size badge badge-#{size_status}"&ndash;&gt;-->
+        <!--&lt;!&ndash;t-att-title="message">&ndash;&gt;-->
+        <!--&lt;!&ndash;<t t-esc="record.image.value"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;</span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</t>&ndash;&gt;-->
+        <!--&lt;!&ndash;</templates>&ndash;&gt;-->
+        <!--&lt;!&ndash;</kanban>&ndash;&gt;-->
+        <!--&lt;!&ndash;</field>&ndash;&gt;-->
+        <!--&lt;!&ndash;</group>&ndash;&gt;-->
+        <!--&lt;!&ndash;</page>&ndash;&gt;-->
+        <!--<page name='property_accepting' string="Accepting">-->
+        <!--<h3>Accepting</h3>-->
+        <!--<group col="4">-->
+        <!--<field name="backpackers"/>-->
+        <!--<field name="students"/>-->
+        <!--<field name="smokers"/>-->
+        <!--<field name="LGBTI"/>-->
+        <!--<field name="fourty_year_old"/>-->
+        <!--<field name="children"/>-->
+        <!--<field name="pets"/>-->
+        <!--<field name="retirees"/>-->
+        <!--<field name="on_welfare"/>-->
+        <!--&lt;!&ndash;<field name="accepting_ids" widget="many2many_tags"/>&ndash;&gt;-->
+        <!--</group>-->
+        <!--</page>-->
+        <!--<page name='property_description' string="Property Description">-->
+        <!--<group col="4">-->
+        <!--<div>-->
+        <!--<label for="description_about_property" string="About Property"/>-->
+        <!--<field name="description_about_property"/>-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--<label for="description_about_user" string="About Flatmates"/>-->
+        <!--<field name="description_about_user"/>-->
+        <!--</div>-->
+        <!--</group>-->
+        <!--</page>-->
+        <!--</notebook>-->
+        <!--</sheet>-->
+
+        <!--</form>-->
+        <!--</field>-->
+        <!--</record>-->
+
+        <!--<record id="flatmates_tree_view" model="ir.ui.view">-->
+        <!--<field name="name">flat.mates.tree</field>-->
+        <!--<field name="model">flat.mates</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<tree string="FlatMates" name="flatmates">-->
+        <!--&lt;!&ndash;<field name="accommodation_type_id"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="property_type_id"/>&ndash;&gt;-->
+        <!--<field name="accommodation_type"/>-->
+        <!--<field name="type"/>-->
+        <!--<field name="name"/>-->
+        <!--<field name="total_bedrooms_id"/>-->
+        <!--<field name="total_bathrooms_id"/>-->
+        <!--<field name="parking_id"/>-->
+        <!--<field name="internet_id"/>-->
+        <!--</tree>-->
+        <!--</field>-->
+        <!--</record>-->
+
+        <record id="housemates_form_view" model="ir.ui.view">
+            <field name="name">house.mates.form</field>
+            <field name="model">house.mates</field>
+            <field name="arch" type="xml">
+                <form string="Housemates" name="housemates">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="active,deactive"/>
+
+                    </header>
+                    <sheet>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <!--<field name="name" readonly="1"/>-->
+                                <field name="listing_type" widget="radio" options="{'horizontal': true}"/>
+                                <field name="property_type" String="Property type" widget="many2many_tags"
+                                       options="{'no_create_edit':True}"/>
+                                <field name="user_id" String="User" options="{'no_create_edit':True}"/>
+                                <label for="street" string="Address"
+                                       attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <div class="o_address_format" attrs="{'invisible': [('listing_type', '=', 'find')]}">
+                                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="street3" placeholder="Street 3..." class="o_address_street"/>
+                                    <field name="city" placeholder="City" class="o_address_city"/>
+                                    <field name="state_id" class="o_address_state" placeholder="State"
+                                           options='{"no_create": True}'/>
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <field name="country_id" placeholder="Country" class="o_address_country"
+                                           options='{"no_open": True, "no_create": True}'/>
+                                    <field name="latitude" placeholder="Latitude" readonly="1"/>
+                                    <field name="longitude" placeholder="Longitude" readonly="1"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="total_bathrooms_id"
+                                       attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <field name="total_bedrooms_id" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <field name="total_no_flatmates_id"/>
+                                <field name="type" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <field name="pref" attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                <field name="place_for" attrs="{'invisible': [('listing_type', '=', 'list')]}"/>
+                                <field name="is_short_list"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name='about rooms' string="About the room(s)">
+                                <field name="rooms_ids">
+                                    <tree editable="bottom">
+                                        <field name="room_type_id"/>
+                                        <field name="room_furnishing_id"/>
+                                        <field name="bath_room_type_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page name='about person' string="About person"
+                                  attrs="{'invisible': [('listing_type', '=', 'list')]}">
+                                <field name="person_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="age"/>
+                                        <field name="gender"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page name='necessity' string="Necessity">
+                                <h3>Necessity</h3>
+                                <group col="4">
+                                    <field name="internet_id"/>
+                                    <field name="parking_id"/>
+                                </group>
+                            </page>
+                            <page name='rent agreement details' string="Rent, Agreement &amp; Details">
+                                <h3>Budget &amp; Date Available</h3>
+                                <group col="4">
+                                    <field name="weekly_budget"/>
+                                    <field name="avil_date"/>
+                                </group>
+                                <h3>Bond &amp; Details</h3>
+                                <group col="4">
+                                    <field name="bond_id" options="{'no_create_edit':'True'}"
+                                           attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                    <field name="bill_id" options="{'no_create_edit':'True'}"
+                                           attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                    <field name="min_len_stay_id" options="{'no_create_edit':'True'}"
+                                           attrs="{'invisible': [('listing_type', '=', 'find')]}"/>
+                                    <field name="max_len_stay_id" options="{'no_create_edit':'True'}"/>
+                                </group>
+                            </page>
+                            <page name='accepting employment_status lifestyle'
+                                  string="Accepting, Employment Status &amp; Lifestyle ">
+                                <h3 attrs="{'invisible': [('listing_type', '=', 'find')]}">Accepting</h3>
+                                <group col="4" attrs="{'invisible': [('listing_type', '=', 'find')]}">
+                                    <field name="backpackers"/>
+                                    <field name="students"/>
+                                    <field name="smokers"/>
+                                    <field name="LGBTI"/>
+                                    <field name="fourty_year_old"/>
+                                    <field name="children"/>
+                                    <field name="pets"/>
+                                    <field name="retirees"/>
+                                    <field name="on_welfare"/>
+                                </group>
+
+                                <h3 attrs="{'invisible': [('listing_type', '=', 'list')]}">Employment Status</h3>
+                                <group col="4" attrs="{'invisible': [('listing_type', '=', 'list')]}">
+                                    <field name="f_full_time"/>
+                                    <field name="f_part_time"/>
+                                    <field name="f_working_holiday"/>
+                                    <field name="f_retired"/>
+                                    <field name="f_unemployed"/>
+                                    <field name="f_backpacker"/>
+                                    <field name="f_student"/>
+                                </group>
+
+                                <h3 attrs="{'invisible': [('listing_type', '=', 'list')]}">Lifestyle</h3>
+                                <group col="4" attrs="{'invisible': [('listing_type', '=', 'list')]}">
+                                    <field name="fsmoker"/>
+                                    <field name="flgbti"/>
+                                    <field name="fpets"/>
+                                    <field name="fchildren"/>
+                                </group>
+                            </page>
+
+                            <page name="images" string="Property Images">
+                                <group name="property_extra_images" string="Extra Images">
+                                    <field name="property_image_ids" class="o_website_sale_image_list"
+                                           context="{'default_name': name, 'default_flat_mates_id': active_id}"
+                                           nolabel="1">
+                                        <kanban string="Property Images" class="o_attachments_previews">
+                                            <field name="id"/>
+                                            <field name="name"/>
+                                            <field name="image"/>
+                                            <templates>
+                                                <t t-name="kanban-box">
+                                                    <div class="o_attachment oe_kanban_global_click o_website_sale_image_card">
+                                                        <div class="o_attachment_wrap">
+                                                            <div class="o_image_box">
+                                                                <div class="o_attachment_image"
+                                                                     t-attf-style="background-image:url({{kanban_image('property.image', 'image', record.id.raw_value)}});"/>
+                                                                <div t-attf-class="o_image_overlay"
+                                                                     t-att-title="record.name.value"/>
+                                                                <div class="o_website_sale_image_card_title"
+                                                                     t-att-title="record.name.value">
+                                                                    <field name="name"/>
+                                                                </div>
+                                                            </div>
+
+                                                            <t t-set="size" t-value="[record.image.value][0]"/>
+                                                            <t t-set="size_status" t-value="'normal'"
+                                                               t-if="size.indexOf('Bytes') !== -1 or ( size.indexOf('Kb') !== -1 and size[2]=='.')"/>
+                                                            <t t-set="size_status" t-value="'warning'"
+                                                               t-elif="( size.indexOf('Kb') !== -1 and size[3]=='.')"/>
+                                                            <t t-set="size_status" t-value="'danger'" t-else=""/>
+                                                            <t t-set="message" t-value="'Acceptable file size'"
+                                                               t-if="size_status == 'normal'"></t>
+                                                            <t t-set="message"
+                                                               t-value="'Huge file size. The image should be optimized/reduced.'"
+                                                               t-elif="size_status == 'warning'"></t>
+                                                            <t t-set="message"
+                                                               t-value="'Optimization required! Reduce the image size or increase your compression settings.'"
+                                                               t-else=""></t>
+
+                                                            <span t-attf-class="o_website_sale_image_card_size badge badge-#{size_status}"
+                                                                  t-att-title="message">
+                                                                <t t-esc="record.image.value"/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </templates>
+                                        </kanban>
+                                    </field>
+                                </group>
+                            </page>
+
+                            <page name='description' string="Description">
+                                <group>
+                                    <div>
+                                        <label for="description_about_property" string="About Yourself/About Property"/>
+                                        <field name="description_about_property"/>
+                                    </div>
+                                    <div>
+                                        <label for="description_about_user" string="About Flatmates"/>
+                                        <field name="description_about_user"/>
+                                    </div>
+                                </group>
+                            </page>
+
+                            <page name='Suburbs Details' string="Suburbs Details"
+                                  attrs="{'invisible': [('listing_type', '=', 'list')]}">
+                                <field name="suburbs_ids">
+                                    <tree editable="bottom">
+                                        <field name="subrub_name"/>
+                                        <field name="city"/>
+                                        <field name="state"/>
+                                        <field name="post_code"/>
+                                        <field name="latitude"/>
+                                        <field name="longitude"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="housemates_tree_view" model="ir.ui.view">
+            <field name="name">house.mates.tree</field>
+            <field name="model">house.mates</field>
+            <field name="arch" type="xml">
+                <tree string="Housemates" name="housemates">
+                    <field name="name"/>
+                    <field name="listing_type" string="Type"/>
+                    <field name="street" string="Street"/>
+                    <field name="zip" string="Postal Code"/>
+                    <field name="city" string="Area"/>
+                    <field name="state_id" string="State"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_housemates" model="ir.actions.act_window">
+            <field name="name">HouseMates</field>
+            <field name="res_model">house.mates</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<record id="action_flatmates" model="ir.actions.act_window">-->
+        <!--<field name="name">HouseMates</field>-->
+        <!--<field name="res_model">flat.mates</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">tree,form</field>-->
+        <!--</record>-->
+
+        <menuitem id="menu_main_root_flatmates" name="Housemates"
+                  web_icon="pragtech_housemates,static/description/flatmats_icon.png" sequence="3"/>
+
+        <!--<menuitem id="submenu_main_flatmates" name="About Property"-->
+        <!--parent="pragtech_housemates.menu_main_root_flatmates" sequence="1"/>-->
+        <!--<menuitem id="child_menu_flatmates" name="Property" action="action_flatmates"-->
+        <!--parent="pragtech_housemates.submenu_main_flatmates" sequence="1"/>-->
+
+        <menuitem id="submenu_main_housemates" name="About Housemates"
+                  parent="pragtech_housemates.menu_main_root_flatmates" sequence="1"/>
+        <menuitem id="child_menu_housemates" name="Housemates Records" action="action_housemates"
+                  parent="pragtech_housemates.submenu_main_housemates" sequence="1"/>
+
+        <record model="ir.ui.view" id="view_property_image_form">
+            <field name="name">property.image.form</field>
+            <field name="model">property.image</field>
+            <field name="arch" type="xml">
+                <form string="Property Images">
+                    <div class="row o_website_sale_image_modal">
+                        <div class="col-md-6 col-xl-5">
+                            <div class="oe_title">
+                                <label class="small text-muted" for="name" string="Image Name"/>
+                                <h2>
+                                    <field name="name" placeholder="Image Name" required="True"/>
+                                </h2>
+                                <field name="flat_mates_id" invisible="1"/>
+                            </div>
+                            <div>
+                                <label for="is_featured" string="Featured"/>
+                                <field name="is_featured"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-7 text-center o_website_sale_image_modal_container">
+                            <field name="image" widget="image"/>
+                        </div>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

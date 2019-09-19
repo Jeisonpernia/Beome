@@ -108,14 +108,14 @@
 }
 
 
-#verify_mobile_popup .close, #account_settings_popup .close, #email_alert_popup .close, #deactivate_account_popup .close, #why_upgrade_popup .close, #payment_history_popup .close, #account_verification_popup .close, #reset_password_popup .close, #verify_otp_popup .close{
+#verify_mobile_popup .close, #account_settings_popup .close, #email_alert_popup .close, #deactivate_account_popup .close, #why_upgrade_popup .close, #payment_history_popup .close, #account_verification_popup .close, #reset_password_popup .close, #verify_otp_popup .close, #report_this_member_popup .close, #about_the_flatmates_popup .close{
 	font-size: 48px;
 	box-shadow: none;
 	opacity: 1;
 	color: #2f3a4a;
 }
 
-#verify_mobile_popup .modal-header, #account_settings_popup .modal-header, #email_alert_popup .modal-header, #deactivate_account_popup .modal-header, #why_upgrade_popup .modal-header, #payment_history_popup .modal-header, #account_verification_popup .modal-header, #reset_password_popup .modal-header, #verify_otp_popup .modal-header{
+#verify_mobile_popup .modal-header, #account_settings_popup .modal-header, #email_alert_popup .modal-header, #deactivate_account_popup .modal-header, #why_upgrade_popup .modal-header, #payment_history_popup .modal-header, #account_verification_popup .modal-header, #reset_password_popup .modal-header, #verify_otp_popup .modal-header, #report_this_member_popup .modal-header, #about_the_flatmates_popup .modal-header{
 	border-bottom: 0px;
 	padding: 0 16px;
 	position: absolute;
@@ -128,20 +128,20 @@
 	font-size: 24px;
 }
 
-#verify_mobile_popup h3, #account_settings_popup h3, #email_alert_popup h3, #deactivate_account_popup h3, #why_upgrade_popup h3, #payment_history_popup h3, #account_verification_popup h3, #reset_password_popup h3, #verify_otp_popup h3{
+#verify_mobile_popup h3, #account_settings_popup h3, #email_alert_popup h3, #deactivate_account_popup h3, #why_upgrade_popup h3, #payment_history_popup h3, #account_verification_popup h3, #reset_password_popup h3, #verify_otp_popup h3, #report_this_member_popup h3, #about_the_flatmates_popup h3{
 	font-weight: normal;
 }
 
-#verify_mobile_popup h4, #account_settings_popup h4, #email_alert_popup h4, #deactivate_account_popup h4{
+#verify_mobile_popup h4, #account_settings_popup h4, #email_alert_popup h4, #deactivate_account_popup h4, #about_the_flatmates_popup h4{
 	font-weight: normal;
 }
 
 
-#verify_mobile_popup h5, #account_settings_popup h5, #email_alert_popup h5, #deactivate_account_popup h5{
+#verify_mobile_popup h5, #account_settings_popup h5, #email_alert_popup h5, #deactivate_account_popup h5, #about_the_flatmates_popup h5{
 	font-weight: normal;
 }
 
-#verify_mobile_popup input, #account_settings_popup input, #email_alert_popup input, #deactivate_account_popup input, #reset_password_popup input, #verify_otp_popup input{
+#verify_mobile_popup input, #account_settings_popup input, #email_alert_popup input, #deactivate_account_popup input, #reset_password_popup input, #verify_otp_popup input, #report_this_member_popup input{
 	height: 50px;
 }
 
@@ -163,6 +163,22 @@
 }
 
 #email_alert_popup select > option, #email_alert_popup select > option{
+	background: #fff;
+	color: #495057;
+}
+
+#report_this_person_popup input, #report_this_person_popup select{
+	height: 50px;
+}
+
+#report_this_person_popup select:focus, #report_this_person_popup select:focus{
+	background: #37bc9b;
+	border:1px solid #37bc9b;
+	outline: 0px;
+	color: #fff;
+}
+
+#report_this_person_popup select > option, #report_this_person_popup select > option{
 	background: #fff;
 	color: #495057;
 }
@@ -652,3 +668,22 @@ fill: #fff;
 .fa-times{
     color:white
 }
+
+.property_listing, .blogs_on_dashboard{
+    cursor: pointer;
+}
+
+#account_verification_popup .linkButton {
+    cursor: pointer;
+}
+.ui-datepicker-trigger{
+    cursor: pointer;
+}
+#verify_facebook,#verify_linkedin,#verify_instagram,#verify_twitter{
+cursor: pointer;
+}
+
+#verify_mobile, #account_verification, #account_settings_popup_id, #email_alert_popup_id, #deactivate_account_popup_href_id, #help_faq_id, #logout_id{
+    cursor: pointer;
+}
+

@@ -288,6 +288,7 @@
                                     <field name="pets"/>
                                     <field name="retirees"/>
                                     <field name="on_welfare"/>
+                                    <field name="all_female_flatmates"/>
                                 </group>
 
                                 <h3 attrs="{'invisible': [('listing_type', '=', 'list')]}">Employment Status</h3>
@@ -450,6 +451,10 @@
                                     <field name="name" placeholder="Image Name" required="True"/>
                                 </h2>
                                 <field name="flat_mates_id" invisible="1"/>
+                            </div>
+                            <div>
+                                <label for="is_featured" string="Featured"/>
+                                <field name="is_featured"/>
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-7 text-center o_website_sale_image_modal_container">

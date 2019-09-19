@@ -7,15 +7,19 @@
     padding: 0px;
     margin: 0rem -2.5rem -1rem auto;
 }
-
 	
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-		.modal-header .close {
+	
+.search {width: calc(100% / 1.5);}	
+	
+	.modal-header .close {
     padding: 0px;
     margin: 0rem 0rem -1rem auto;
 }
+	
+
 	
 section{
 	padding: 20px 0px;
@@ -238,7 +242,8 @@ margin: 20px 0;
 	
 	#top_menu_collapse .navbar-nav{
 		flex-direction:row;
-		width: 75%;
+		/*width: 75%;*/
+		width: auto !important;
 		padding-right: 10px;
 	}
 	
@@ -393,6 +398,21 @@ margin: 20px 0;
 		margin-top: 20px;
 	}
 	
+	
+	.search-dropdown {line-height:unset; font-size:13px; }
+	
+	.nav-icon .fa-search {
+	font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 0px;}
+	
+	.set-as-featured{
+		top:60px;
+	}	
+	
+	.slider .delete-slider{
+		top: 60px;
+	}
 
 	
 }
@@ -400,7 +420,7 @@ margin: 20px 0;
 @media only screen and (max-width: 768px) {
 	
 
-	
+	.search-btn-close {display: none;}
 	
 	#top_menu_collapse .search{
 		width: 25%;
@@ -408,7 +428,8 @@ margin: 20px 0;
 	
 	#top_menu_collapse .navbar-nav{
 		flex-direction:row;
-		width: 75%;
+		/*width: 75%;*/
+		width: auto !important;
 	}
 	
 	.navbar .nav-item{
@@ -452,8 +473,66 @@ header .navbar-brand.logo {width:100%;}
 	.navbar .nav-item:hover{
 		background: none;
 	}	
+	
+	#top_menu li > .nav-link{
+	padding: 0.7rem 0rem;
+}
 		
+	#top_menu #new-closebutton{
+		background: #828992;
+	}
+	
+	.navbar .nav-item .nav-link .nav-icon svg{
+		width: 20px;
+		height: 20px;
+		color: #fff;
+	}
+	
+	.navbar .nav-item .nav-link .nav-icon .shortlist{
+		width: 26px;
+	}
+	
+	.member-details{
+		width: 74.4105869942%;
+	}
+	
+	.member-details-section{
+		display: table;
+		margin: 0 auto;
+	}
+	
+	.message-footer-wrapper{
+		position: fixed;
+	}
+	
+	.message-body{
+		position: fixed;
+		top: 155px !important;
+	}
+	
+	.message-header{
+		height: 52px;
+	}
+	
+	.message-mobilesec{
+		width: 49%;
+	}
+	
+	.inbox-messages-listings-link{
+		width: 49%;
+	}
+	
+	
+}
 
+
+@media only screen and (device-width: 768px) {
+.foradmin-onlycss .nav-item {width: calc(100% / 5); } 
+	
+	#dropdownMenuButton .modal-dialog .modal-content{
+		width: 775px;
+		padding-left: 5px;
+	}
 }
 
 
@@ -591,15 +670,36 @@ margin: 20px 0;
     margin: 0rem -2.5rem -1rem auto;
 }
 	
+	.search-dropdown{
+		line-height: normal;
+	}
 	
+	.nav-icon .fa-search {
+	font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+	}
+	
+	.navbar{
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	
+	.search-bar-responsive .nav-icon{
+		margin-top: 4px;
+	}
+	
+	#top_menu_collapse .search-dropdown{
+		font-size: 13px;
+	}
 		
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
 	
-	.navbar-collapse.collapse {
+	/*.navbar-collapse.collapse {
   display: block!important;
-}
+}*/
 
 .navbar-nav>li, .navbar-nav {
   float: left !important;
@@ -616,14 +716,21 @@ margin: 20px 0;
 .dropdown-toggle{
 		display: flex;
 }
+	
+	.search .dropdown-menu{left:38px; }	
+	
+	.inbox-welcome-message{
+		top:10%;
+	}
+	
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1023px) {
 	
-.navbar-collapse.collapse {
+/*.navbar-collapse.collapse {
   display: block!important;
 }
-
+*/
 .navbar-nav>li, .navbar-nav {
   float: left !important;
 }
@@ -724,3 +831,67 @@ margin: 20px 0;
 	}
 	
 }
+
+
+
+
+
+@media only screen and (min-width:769px) and (max-width: 785px) {
+	
+	.search {width: calc(100% / 1.8)!important;}
+	.navbar-nav > li, .navbar-nav {text-align: center!important;
+    float: none!important;
+    display: flex;
+    flex-direction: row; width: 42%;}
+	
+	.navbar-light .navbar-toggler {display: none!important;}
+	
+	.navbar-collapse {flex-grow: 1; flex-basis: auto;
+    align-items: center;
+    display: flex;}
+	
+	.navbar .nav-item {display: block;}
+	
+	.new-search .nav-icon {margin-left: 15px!important; margin-right: 9px!important;}
+	
+	.search-form .search-mode button {
+    padding: 5px;
+    font-size: 12px;}
+}
+
+
+
+@media only screen and (min-width:992px) and (max-width: 1023px) {
+
+	.search {width: calc(100% / 1.5)!important;}
+	.navbar-collapse.collapse {display: flex;}
+}
+ 
+
+
+
+
+
+@media only screen and (max-width: 768px){
+	
+	.inbox-messages-section {width:100%!important; margin-top: 22px; }
+	
+	.inbox-left-conversations {width: 100%; margin-top: 16px;}
+	
+	.inbox-messages-section .message-header .back-button {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 6.1721523119%;
+}
+
+}
+
+
+
+
+
+
+
+
+

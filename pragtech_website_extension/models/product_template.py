@@ -19,6 +19,7 @@ class Product_product(models.Model):
     
 class sale_order_history(models.Model):
     _name='transaction.history'
+    _description = 'Transaction History'
     
     partner_id = fields.Many2one('res.partner','Partner Id')
     plan = fields.Many2one('product.product',string="Plan")

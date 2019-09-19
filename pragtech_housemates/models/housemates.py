@@ -2,7 +2,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 import logging
-
+from _datetime import datetime
 _logger = logging.getLogger(__name__)
 
 class Housemates(models.Model):
@@ -11,11 +11,10 @@ class Housemates(models.Model):
     _rec_name = 'name'
 
 
-
     ## Main
-    state = fields.Selection([('active', 'Active'), ('deactive', 'Deactive')],default='active')
+    state = fields.Selection([('pending','Pending'),('active', 'Active'), ('deactive', 'Deactive'),('deleted','Deleted')])
     listing_type = fields.Selection([('list', 'List'), ('find', 'Find')], string="Listing type", default='find')
-    name = fields.Char(string="ID",index=True,required=True, default=lambda self: _('New'))
+    name = fields.Char(string="Housemate ID",index=True,required=True,copy=False,default=lambda self: _('New'))
     property_type = fields.Many2many('property.type', string="Property type")
     user_id = fields.Many2one('res.users', string="User")
     property_address =  fields.Char()
@@ -23,7 +22,7 @@ class Housemates(models.Model):
     street2 = fields.Char()
     street3 = fields.Char()
     city = fields.Char()
-    state_id = fields.Many2one('res.country.state')
+    state_id = fields.Many2one('res.country.state' , string='States')
     zip = fields.Char()
     country_id = fields.Many2one('res.country')
     latitude = fields.Char()
@@ -32,7 +31,7 @@ class Housemates(models.Model):
     east=fields.Char()
     south=fields.Char()
     west=fields.Char()
-
+    latest_active_date = fields.Datetime()
     total_bathrooms_id = fields.Many2one('bathrooms', string="Total Bathrooms")
     total_bedrooms_id = fields.Many2one('bedrooms', string="Total Bedrooms")
     total_no_flatmates_id = fields.Many2one('total.flatmates', string="Total number of flatmates")
@@ -69,10 +68,11 @@ class Housemates(models.Model):
     smokers = fields.Boolean('Smokers')
     LGBTI = fields.Boolean('LGBTI+ ?')
     fourty_year_old = fields.Boolean('40+ years olds')
-    children = fields.Boolean('Children')
+    children = fields.Boolean('Childrens')
     pets = fields.Boolean('Pets')
     retirees = fields.Boolean('Retirees')
     on_welfare = fields.Boolean('On welfare')
+    all_female_flatmates=fields.Boolean('All Female Flatmates')
 
     f_full_time = fields.Boolean('Working Full time')
     f_part_time = fields.Boolean('Working Part Time')
@@ -84,7 +84,7 @@ class Housemates(models.Model):
 
     fsmoker = fields.Boolean('Smoker')
     flgbti = fields.Boolean('LGBTI+')
-    fpets = fields.Boolean('Pets')
+    fpets = fields.Boolean('Pet')
     fchildren = fields.Boolean('Children')
 
     ## Property Images
@@ -99,6 +99,7 @@ class Housemates(models.Model):
 
     @api.model
     def create(self,values):
+
         if values.get('name', _('New')) == _('New'):
             if values.get('listing_type') == 'list':
                 values['name'] = self.env['ir.sequence'].next_by_code('seq_house_mates_list') or _('New')
@@ -109,6 +110,7 @@ class Housemates(models.Model):
         if mail_server_obj:
             listing.send_listing_alert_email()
         return listing
+
 
 
     @api.onchange('listing_type')
@@ -169,7 +171,7 @@ class PropertyImage(models.Model):
     name = fields.Char('Name')
     image = fields.Binary('Image', attachment=True)
     flat_mates_id = fields.Many2one('house.mates', 'Related Property', copy=True)
-
+    is_featured = fields.Boolean("Featured")
 
 class AboutRooms(models.Model):
     _name = 'about.rooms'
@@ -200,3 +202,4 @@ class Suburbs(models.Model):
     post_code = fields.Char(string="Post Code")
     latitude = fields.Char(string="Latitude")
     longitude = fields.Char(string="Longitude")
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+        <record model="property.type" id="prop_type9">
+			<field name="property_type">Teamups</field>
+			<field name="listing_category" eval="[(6, 0, [ref('pro_list_cat1'),ref('pro_list_cat2')])]"/>
+		</record>
+
+    </data>
+</odoo>

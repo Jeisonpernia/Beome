@@ -285,6 +285,7 @@ $('input').focus(function(){
   if (!$(this).siblings().hasClass('currency')){
   $(this).siblings().addClass('focused')
   }
+
 });
 
 $('input').blur(function(){
@@ -509,9 +510,15 @@ $(document).on('click',"#search_submit_start",function()
 	 	//if no tag, return false
 	 	if(tags.length != 0){
             $.each(tags,function(event){
+                if($(this).find("input").data("suburb_name")){
+                    suburb_data = $(this).find("input").data("suburb_name");
+                    suburb_array.push(suburb_data)
+                }
+                else if($(this).find("input").data("city")){
+                    suburb_data = $(this).find("input").data("city")
+                    suburb_array.push(suburb_data)
+                }
 
-                suburb_data = $(this).find("input").data("suburb_name");
-                suburb_array.push(suburb_data)
             });
 	 	}
 
@@ -538,8 +545,16 @@ $(document).on('click',"#search_submit_start",function()
 	 	if(tags.length != 0){
             $.each(tags,function(event){
 
-                suburb_data = $(this).find("input").data("suburb_name");
-                suburb_array.push(suburb_data)
+                if($(this).find("input").data("suburb_name")){
+                    suburb_data = $(this).find("input").data("suburb_name");
+                    suburb_array.push(suburb_data)
+                }
+                else if($(this).find("input").data("city")){
+                    suburb_data = $(this).find("input").data("city")
+                    suburb_array.push(suburb_data)
+                }
+
+
             });
 	 	}
 
@@ -565,8 +580,15 @@ $(document).on('click',"#search_submit_start",function()
 	 	if(tags.length != 0){
             $.each(tags,function(event){
 
-                suburb_data = $(this).find("input").data("suburb_name");
-                suburb_array.push(suburb_data)
+                if($(this).find("input").data("suburb_name")){
+                    suburb_data = $(this).find("input").data("suburb_name");
+                    suburb_array.push(suburb_data)
+                }
+                else if($(this).find("input").data("city")){
+                    suburb_data = $(this).find("input").data("city")
+                    suburb_array.push(suburb_data)
+                }
+
             });
 	 	}
 
@@ -602,20 +624,57 @@ $('.on-active-datepicker').addClass('show')
 
 
 $(".search-dropdown").click(function(event){
+	
+	
 //    console.log('fdhndfhjdnfhkn')
     var is_shown = $(".modal_shown").hasClass("show")
     console.log('Is shownnnnnnnnnnnnnnnn : ',is_shown)
     if (is_shown == false){
-//           console.log('111111111111111111111111111111111')
-          $(".search-btn-close").removeClass('d-none')
+        //           console.log('111111111111111111111111111111111')
+        $('#search-text-id').text('WHERE ARE YOU LOOKING?');
+                  $(".search-btn-close").removeClass('d-none')
+
+        if($(window).width() <= 768){
+
+            console.log('hooooooooooooooo')
+			//$(this).hide();
+            $('.search-bar-responsive').css('display','none')  
+			$('#new-closebutton').removeClass('d-none');
+			$("#dropdownMenuButton").css('margin-top','65px')
+			$(".navbar-brand").css('display','none');
+			$("#top_menu_collapse .navbar-nav").css('width','100%');
+
+        }
     }
     else{
+    $('#search-text-id').text('Search share accommodation');
 //            console.log('222222222222222222222222222')
           $(".search-btn-close").addClass('d-none')
     }
+
+});
+	
+$("#new-closebutton").click(function(event){
+	
+  
+        if($(window).width() <= 768){
+
+            console.log('4181188717777777777777')
+			//$(this).hide();
+			$('#new-closebutton').addClass('d-none');
+            $('.search-bar-responsive').css('display','block')  
+			$("#dropdownMenuButton").modal('hide');
+			$("#top_menu_collapse .navbar-nav").css('width','75%');
+			/*$("#top_menu_collapse .navbar-nav").css('width','auto');*/
+			$(".navbar-brand").css('display','block');
+			
+		}
+
 });
 
+
 $(".search-btn-close").click(function(event){
+$('#search-text-id').text('Search share accommodation');
         $("#dropdownMenuButton").modal('hide');
         $(this).addClass('d-none')
 })
@@ -870,7 +929,7 @@ $(document).on('click','.input-group', function(){
 //          data: data,
             freeEdit:false,
             params : function(value){
-                return {q:value};
+                return {q:value,current_url:window.location.pathname};
             },
             ajaxOpts: {
                 url: '/get_suburbss',
@@ -885,6 +944,7 @@ $(document).on('click','.input-group', function(){
 //                        console.log('label :',data[i]['label'])
                         res.push(data[i]['label'])
                     }
+                    localStorage.setItem("find", value);
 //                    console.log('data :/: ',res)
                  return res;
             },
@@ -895,24 +955,96 @@ $(document).on('click','.input-group', function(){
 //    $(".tag_input").keydown(function(e) {
 //        switch (e.which) {
 //            case 40:
-//                console.log('11111111111111111111111111111111111111111111',e.which)
-////                e.preventDefault(); // prevent moving the cursor
+//            if()
+//            $('.abcc').css("background-color","#44a793;")
+//                $('li:not(:last-child).abcc').removeClass('abcc').css("background-color","#FFFF;")
+//                    .next().addClass('abcc');
+//                $('.abcc').css("background-color","#44a793;")
+//
+//                break;
+//
+//            case 38:
+//                $('li:not(:first-child).abcc').removeClass('abcc')
+//                    .prev().addClass('abcc');
+//                    $('.abcc').css("background-color","#FFFF;")
+//                break;
+//        }
+//
+//
+//    });
+
+//    $(".tag_input").keydown(function(e) {
+//        switch (e.which) {
+//            case 40:
 //                $('li:not(:last-child).abcc').removeClass('abcc')
 //                    .next().addClass('abcc');
 //                break;
 //
 //            case 38:
-//                console.log('222222222222222222222222222222222222222222222',e.which)
-////                e.preventDefault(); // prevent moving the cursor
 //                $('li:not(:first-child).abcc').removeClass('abcc')
 //                    .prev().addClass('abcc');
 //                break;
 //        }
+//
+//
 //    });
+if((window.location.pathname == "/find-place/describe-your-ideal-place/about-flatmates")){
+        $('.tag_input').keyup(function(e) {
+            if(e.which == 40){
+                if($(".autocomplete li.active").length!=0) {
+                    var storeTarget	= $('.autocomplete').find("li.active").next();
+                    $(".autocomplete li.active").removeClass("active").css("background-color","");
+                    storeTarget.focus().addClass("active").css("background-color","#ddfbed");
+                }
+                else {
+                    $('.autocomplete').find("li:first").focus().addClass("active").css("background-color","#ddfbed");
+                }
+                return ;
+            }
 
+            if(e.which == 38){
+                if($(".autocomplete li.active").length!=0) {
+                    var storeTarget	= $('.autocomplete').find("li.active").prev();
+                    $(".autocomplete li.active").removeClass("active").css("background-color","");
+                    storeTarget.focus().addClass("active").css("background-color","#ddfbed");
+                }
+                else {
+                    $('.autocomplete').find("li:first").focus().addClass("active").css("background-color","#ddfbed");
+                }
+                return ;
+            }
 
+	    });
+    }
+    else{
+        $('.tag_input').keyup(function(e) {
+            if(e.which == 40){
+                if($("#autocomplete-id li.active").length!=0) {
+                    var storeTarget	= $('#autocomplete-id').find("li.active").next();
+                    $("#autocomplete-id li.active").removeClass("active");
+                    storeTarget.focus().addClass("active");
+                }
+                else {
+                    $('#autocomplete-id').find("li:first").focus().addClass("active");
+                }
+                return ;
+            }
 
+            if(e.which == 38){
+                if($("#autocomplete-id li.active").length!=0) {
+                    var storeTarget	= $('#autocomplete-id').find("li.active").prev();
+                    $("#autocomplete-id li.active").removeClass("active");
+                    storeTarget.focus().addClass("active");
+                }
+                else {
+                    $('#autocomplete-id').find("li:first").focus().addClass("active");
+                }
+                return ;
+            }
 
+	    });
+
+    }
 
 //$(".search-room-btn").on("click", function(){
 //

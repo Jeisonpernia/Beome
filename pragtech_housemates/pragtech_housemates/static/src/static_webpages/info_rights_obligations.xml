@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_rights_obligations" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Rights and Obligations during the Tenancy</h1>
+                                                <h2 class="mt-5">During the tenancy, the landlord and tenant have a number of rights and obligations. This guide covers topics including utility charges, the landlord’s entry rights, repairs and maintenance and security.</h2>
+                                                <p class="mt-4">The exact rights and obligations of landlords and tenants vary between states and territories. For the most specific information for your tenancy, you should read the applicable guide linked below:</p>
+                                                <ul class="mt-4">
+                                                    <li><a href="https://info.flatmates.com.au/nsw-rights-obligations">New South Wales</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/vic-rights-obligations">Victoria</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/qld-rights-obligations">Queensland</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/sa-rights-obligations">South Australia</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/wa-rights-obligations">Western Australia</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/tas-rights-obligations">Tasmania</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/act-rights-obligations">Australian Capital Territory</a></li>
+                                                    <li><a href="https://info.flatmates.com.au/nt-rights-obligations">Northern Territory</a></li>
+                                                </ul>
+                                                <h2 class="mt-4">What topics do the state-specific guides cover?</h2>
+                                                <p class="mt-4">The guides cover a number of topics, including:</p>
+                                                <ul class="mt-4">
+                                                    <li>
+                                                        <p><strong>Utility Fees and Other Charges</strong> - when the landlord or tenant is responsible for paying bills like water, gas, and electricity. The general rule is that tenants are only liable for services that are separately metered for their use. Also covers land taxes charged by government authorities and how reimbursements can be made.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>Tenant’s Rights and Obligations</strong> - tenant’s have a number of rights during the tenancy, like the right to quiet enjoyment of the premises. They also have obligations like keeping the premises clean and notifying the landlord of any damage.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>Landlord’s Entry Rights</strong> - landlords can only enter the rented premises under certain circumstances like an emergency, or with the consent of the tenant. Landlords can also enter for other purposes, such as to conduct a regular inspection, if they notify the tenant beforehand in the correct way.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>Repairs and Maintenance</strong> - landlords are generally responsible for organising and/or paying for repairs and maintenance. If however the tenant has damaged the premises, then they will likely be liable for those repairs. Special provisions also apply for urgent or emergency repairs.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>Alterations and Additions</strong> - tenants should generally not alter the structure of the premises or install any fixtures unless the landlord has given consent. A fixture is an item that becomes attached to or part of the premises, such as a door, window, or toilet.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><strong>Security and Locks</strong> - landlords are generally responsible for providing the premises in a secure condition with locks on all doors and windows. All tenants on the agreement should be given a copy of the keys at the beginning of the tenancy. Usually, the locks can only be changed by the tenant or landlord if the other party consents. Alternatively, depending on your state or territory, the law may require that once the locks have been changed that a copy of the new key is given to the other party.</p>
+                                                    </li>
+                                                </ul>
+                                                <hr class="mt-4 mb-4"/>
+                                                <p class="mt-4"><em>These legal guides provide a brief summary and introduction of the laws and regulations affecting share accommodation. They do not cover all cases in all legal jurisdictions and might not apply in your specific share accommodation situation. It is important that you use this information as a guide only and seek independent Legal Advice or consult the <a href="https://info.flatmates.com.au/tenancy-acts">Relevant Acts</a>. We do not accept any liability that may arise from the use of this information.</em></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

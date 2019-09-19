@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="info_why_upgrade" name="Info Share Accommodation">
+            <t t-call="website.layout">
+
+                <div class="oe_structure oe_empty info-page">
+                    <t t-call="pragtech_housemates.info_breadcrumb"/>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 col-12 how-to-guides">
+
+                                    <t t-call="pragtech_housemates.info_li_list"/>
+
+                                </div>
+
+                                <div class="col-lg-8 col-12" id="add_html_content">
+
+                                    <div class="container info-page">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <h1>Do I have to upgrade?</h1>
+                                                <h2 class="mt-5">Flatmates.com.au can be used for free and there is no requirement to upgrade to successfully find flatmates. If you’re looking to increase your options or speed up your search then upgrading could help you.</h2>
+
+
+                                                <video class="mt-4" width="100%">
+                                                    <source src="http://flatmates-res.cloudinary.com/video/upload/c_fill/v1490592474/Flatmates_Upgrade_Explainer_el6gxe.mp4" type="video/mp4"/>
+                                                </video>
+
+
+                                                <p class="mt-5"><i class="fa fa-twitter"></i> <strong>Early Bird Access:</strong> Early Bird listings are listings which have been created in the last 14 days. These listings require an upgrade to contact. Because these are some of the newest listings, upgrading means you’re ahead of the crowd and don’t have to wait until they become free to message.</p>
+
+
+                                                <p class="mt-3"><i class="fa fa-mobile"></i> <strong>Mobile Numbers:</strong> Contacting members via their mobile can quickly speed up your search. Having an upgraded account will give you access to any mobile number listed.</p>
+
+                                                <p class="mt-3"><i class="fa fa-envelope"></i> <strong>Free to Message:</strong> Upgrading your account will automatically remove the Early Bird status from your listing or profile. This means anyone on the site can message you.</p>
+
+                                                <p class="mt-3"><i class="fa fa-envelope"></i> <strong>Free to Message:</strong> Upgrading your account will automatically remove the Early Bird status from your listing or profile. This means anyone on the site can message you.</p>
+
+                                                <p class="mt-3">Upgraded plans start at $25 and if you are logged into your account you can view the <a href="https://flatmates.com.au/secure-payment">upgrade plans here</a>.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
