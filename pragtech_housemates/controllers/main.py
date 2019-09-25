@@ -2367,8 +2367,8 @@ class FlatMates(http.Controller):
                     name.append(id.name)
                 for item in range(len(age)):
                     if item < len(age)-2:
-                        age_gender=age_gender+gender[item]+"("+str(age[item])+")"+","
-                        person_name=person_name+name[item]+","
+                        age_gender=age_gender+gender[item]+"("+str(age[item])+")"+", "
+                        person_name=person_name+name[item]+", "
 
                 age_gender=age_gender+gender[-2]+"("+str(age[-2])+")"+' and '+gender[-1]+"("+str(age[-1])+")"
                 person_name=person_name+name[-2]+' and '+name[-1]

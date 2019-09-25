@@ -18,7 +18,7 @@
     padding: 0px;
     margin: 0rem 0rem -1rem auto;
 }
-	
+
 
 	
 section{
@@ -472,7 +472,7 @@ header .navbar-brand.logo {width:100%;}
 	}
 	
 	#wrapwrap > main{
-		margin-top: 138px;
+		margin-top: 125px;
 	}
 	
 	.navbar .nav-item:hover{
@@ -719,6 +719,10 @@ margin: 20px 0;
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
+	
+	#wrapwrap > main{
+		margin-top: 80px;
+	}
 	
 	/*.navbar-collapse.collapse {
   display: block!important;

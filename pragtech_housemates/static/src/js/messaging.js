@@ -536,30 +536,35 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
 
 
     })//ready
-	
+//
 	$(window).load(function() {
 
-	     if(window.location.href.indexOf("/listplace") > -1 || window.location.href.indexOf("/find-place") > -1){
-      $.ajax({
+	     if(window.location.href.indexOf("/listplace") > -1 || window.location.href.indexOf("/find-place") > -1 || window.location.pathname== "/" ){
+                $.ajax({
                 url: '/get_current_user_id',
                 type: "POST",
                 dataType: 'json',
-		  		async:false,
+		  		cache: false,
+                timeout: 1500,
                 contentType: 'application/json',
                 data: JSON.stringify({'jsonrpc': "2.0", 'method': "call",}),
                 success: function(data){
-                    console.log('DATA: ',data)
                     if(data['result']['id'] == 2){
-						$('.o_affix_enabled, .fixed-top-with-edit').css('display','none !important')
-						$(".custom_header").addClass("top_margin")
-						//$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
+                                        console.log('admin=========: ',data)
+
+//						$('header').css('display','none !important')
+//						$(".custom_header").addClass("top_margin")
+                            $('.custom_header').css('top','46px')
+//						$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
                     }
                     else{
+                     console.log('user=========: ',data)
 
-						$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
-						//$(".custom_header").removeClass("top_margin")
-						$(".custom_header").addClass("top_margin1")
-
+//						$('.o_affix_enabled, .fixed-top-without-edit').css('display','none')
+//						$(".custom_header").removeClass("top_margin")
+//						$(".custom_header").addClass("top_margin1")
+//                        $('header').css('display','none !important')
+                        $('.custom_header').css('top','0px')
                     }
                 }
              })
@@ -567,6 +572,7 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
 
      }
 	})
+	$(window).load(function() {
 	if(window.location.pathname=='/messages'){
 	$.ajax({
                 url: '/get_current_user_id',
@@ -647,6 +653,7 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
              })
 
 	}
+	})
 	window.onresize = function() {
 //	console.log("===========",window.getComputedStyle('header').display)
 	 $.ajax({
@@ -719,7 +726,7 @@ console.log('ksdg;sdkfgdkg;dfkgd;fkg;fgk :',$(".msg-text").val())
 							$('.inbox-wrapper').css('top','155px')
 						}
 						else{
-							$('.inbox-wrapper').css('top','96px')
+							$('.inbox-wrapper').css('top','80px')
 
 						}
 					}
