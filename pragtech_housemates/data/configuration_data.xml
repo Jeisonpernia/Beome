@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<data noupdate="1">
+	<data noupdate="0">
 
 		<!-- Sequences for hous.mates -->
         <record id="seq_house_mates_list" model="ir.sequence">
@@ -307,11 +307,15 @@
 			<field name="listing_category" eval="[(6, 0, [ref('pro_list_cat1'),ref('pro_list_cat2')])]"/>
 		</record>
 		<record model="property.type" id="prop_type8">
-			<field name="property_type">Studio</field>
+			<field name="property_type">Whole property for rent</field>
 			<field name="listing_category" eval="[(6, 0, [ref('pro_list_cat1'),ref('pro_list_cat2')])]"/>
 		</record>
 		<record model="property.type" id="prop_type9">
-			<field name="property_type">Whole property for rent</field>
+			<field name="property_type">Studio</field>
+			<field name="listing_category" eval="[(6, 0, [ref('pro_list_cat1'),ref('pro_list_cat2')])]"/>
+		</record>
+		 <record model="property.type" id="prop_type10">
+			<field name="property_type">Teamups</field>
 			<field name="listing_category" eval="[(6, 0, [ref('pro_list_cat1'),ref('pro_list_cat2')])]"/>
 		</record>
 

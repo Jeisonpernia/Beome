@@ -207,9 +207,9 @@ console.log("---------in my else--------------");
 	   }
 		   
 
-/*	   if ($(window).width() > 975)
-	   {	
-		   
+   if ($(window).width() >= 976)
+	   {
+
 		   if (window_pathname == '/info')
 			{
 
@@ -219,8 +219,8 @@ console.log("---------in my else--------------");
 				$("#head_id").css('display','block')
 				$(".info-page").find("#add_html_content").show()
 			}
-	   	
-	   }*/
+
+	   }
 		   
 		   	   if ($(window).width() > 976 && $(window).width() < 991)
 	   {	

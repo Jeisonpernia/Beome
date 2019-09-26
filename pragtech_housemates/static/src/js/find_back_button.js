@@ -119,7 +119,7 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
                                 suburb_name = local_storage_data[0]['suburbs'][i]['suburb_name']
                                 city = local_storage_data[0]['suburbs'][i]['city']
                                 post_code = local_storage_data[0]['suburbs'][i]['post_code']
-                                closeTag = "<span class='close'></span>";
+                                closeTag = "<span class='close' id='close_suburb'></span>";
                                 inputTag = "<input type='hidden' class='tag_input' data-lat='"+latitude+"' data-long='"+longitude+"' data-suburb_name='"+suburb_name+"' data-city='"+city+"' data-post_code='"+post_code+"'>"
                                 tagText = local_storage_data[0]['suburbs'][i]['suburb_name'] +','+ local_storage_data[0]['suburbs'][i]['post_code']
                                 tag = $("<span data-id='"+0+"' class='tag'>"+
@@ -137,7 +137,7 @@ odoo.define('pragtech_flatmates.find_back_button', function (require) {
                                 suburb_name = local_storage_data[0]['suburbs'][i]['suburb_name']
                                 city = local_storage_data[0]['suburbs'][i]['city']
                                 post_code = local_storage_data[0]['suburbs'][i]['post_code']
-                                closeTag = "<span class='close'></span>";
+                                closeTag = "<span class='close' id='close_suburb'></span>";
                                 inputTag = "<input type='hidden' class='tag_input' data-lat='"+latitude+"' data-long='"+longitude+"' data-suburb_name='"+suburb_name+"' data-city='"+city+"' data-post_code='"+post_code+"'>"
                                 tagText = local_storage_data[0]['suburbs'][i]['suburb_name'] +','+ local_storage_data[0]['suburbs'][i]['post_code']
                                 tag = $("<span data-id='"+0+"' class='tag'>"+

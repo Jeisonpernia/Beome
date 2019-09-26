@@ -6,7 +6,7 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.46',
+    'version': '12.0.47',
     'description': "",
     'depends': [
                 'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname','portal'
@@ -17,7 +17,7 @@
 
         'data/website_data.xml',
         'data/configuration_data.xml',
-        'data/property_type_data.xml',
+        # 'data/property_type_data.xml',
 
         'views/assets.xml',
         'views/remove_footer.xml',

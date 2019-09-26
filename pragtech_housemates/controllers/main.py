@@ -3858,10 +3858,28 @@ class FlatMates(http.Controller):
                     property_data['name'] = about_person.name
                     property_data['age'] = about_person.age
                     property_data['gender'] = about_person.gender
-                    print("\n------------ propety_type------", rec.get('suburbs_ids'))
+                    print("\n------------ propety_type------ooo", rec.get('suburbs_ids'))
                     suburbs_ids = request.env['find.suburbs'].sudo().search([('id', 'in', rec.get('suburbs_ids'))])
-                    for id in suburbs_ids:
-                        property_data['display_string'] = "Looking in : "+id.subrub_name+","
+                    display_string="Looking in : "
+                    list_suburb_name=[]
+                    if suburbs_ids:
+                        for id in suburbs_ids:
+                            list_suburb_name.append(id.subrub_name)
+
+                        if len(list_suburb_name) > 2:
+                            for item in range(len(list_suburb_name)):
+                                if item < len(list_suburb_name) - 2:
+                                    display_string = display_string + list_suburb_name[item] + ", "
+
+                            display_string = display_string + list_suburb_name[-2] + ' and ' + list_suburb_name[-1]
+                        elif len(list_suburb_name) == 2:
+                            display_string = display_string + list_suburb_name[0] + " and " + list_suburb_name[1]
+                        elif len(list_suburb_name) == 1:
+                            display_string = display_string + list_suburb_name[0]
+                        else:
+                            display_string = display_string
+
+                    property_data['display_string'] = display_string
 
 
 

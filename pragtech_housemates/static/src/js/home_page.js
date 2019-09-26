@@ -723,9 +723,9 @@ $('.search-dropdown-menu').click(function(event){
 
 var input_box = document.getElementById('tag_input_id')
 var div_id = document.getElementById('tag_complete_id')
-console.log('---- out -----',event.target)
+console.log('---- out -----',event.target,close_span[0])
  if ($( event.target ).is( "li" ) == false &&  event.target != input_box && event.target != div_id){
-console.log('---- in -----',event.target)
+console.log('---- in -----ppp',event.target)
 $('#autocomplete-id').hide();
 $('#tag_complete_id').removeClass('has_autocomplete')
 }
