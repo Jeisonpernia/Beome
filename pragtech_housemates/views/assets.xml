@@ -15,7 +15,6 @@
 
             <!--Commented by sagar because issue while deleting content of blogs on website -->
             <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/accommodation_page.js"></script>
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/lazy_load.js"></script>
             <script type="text/javascript" src="/pragtech_housemates/static/src/js/home_page.js"></script>

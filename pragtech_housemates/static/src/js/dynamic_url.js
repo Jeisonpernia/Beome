@@ -175,6 +175,7 @@ $(document).ready(function() {
                 action = "/listplace/homestay/describe-your-flatmate"
              $('#property_images_form_id').attr('action', action);
             }
+
         });
 
 

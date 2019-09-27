@@ -331,7 +331,12 @@ $(document).ready(function()
 //                    console.log ("Result 1",file_path)
                     file_path = file_path.slice(file_path.indexOf(',')+1)
 //                    console.log ("Result 2",file_path)
-                    array_of_image.push(file_path)
+
+
+                      array_of_image.push(file_path)
+                        // returns an array of compressed images
+
+
 //<span class="slider">
 //<a href="#">
 //<span class="delete-slider">

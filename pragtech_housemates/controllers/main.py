@@ -3643,7 +3643,7 @@ class FlatMates(http.Controller):
                     peoperty_dict=[]
                     print("\n\n in photo first")
                     domain.append(('property_image_ids','!=',False))
-                    properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields,
+                    properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields, order='id desc',
                                                                         limit=12)
                 elif filters[0].get('photo_first') == 'Active+most+recently':
                     properties = request.env['house.mates'].sudo().search_read(domain=domain, fields=fields,
