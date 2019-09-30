@@ -186,7 +186,7 @@ $(document).ready(function()
             oldArray[0]['property_images'] = array_of_image
         localStorage.setItem('list_place_array', JSON.stringify(oldArray));
 
-        //console.log('hereeeeeeeeeeeeeeeeeeeeeeeeee',array_of_image);
+        console.log('hereeeeeeeeeeeeeeeeeeeeeeeeee',array_of_image);
         //console.log('LOCAL STORAGE 33 : ',localStorage.getItem('list_place_array'))
 
     });
@@ -304,11 +304,13 @@ $(document).ready(function()
     find_current_image.remove()
 
     })
-    $(document).on('change','#upload,#upload1',function()
+
+    $(document).on('change','#upload,#upload1',function(e)
     {
 
         var files_rec = document.getElementById($(this).attr("id"));
-        //console.log("-----------------",files_rec)
+
+
 
         if (files_rec.files.length != 0)
         {
@@ -317,49 +319,123 @@ $(document).ready(function()
             $(".mid-add-photos").removeClass("d-none")
         }
 
+        var filterType = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+
+
         for (var rec = 0; rec < files_rec.files.length; rec++)
         {
             var reader = new FileReader();
+            var fileReader = new FileReader();
+            if(files_rec.files[rec].size >= 1000000){
+            fileReader.onload = function (event) {
+              var image = new Image();
 
-
-//            console.log("-----------------",files_rec.files[rec])
-            reader.onload = (function(theFile)
-            {
-                return function(e)
-                {
-                    var file_path = e.target.result
-//                    console.log ("Result 1",file_path)
-                    file_path = file_path.slice(file_path.indexOf(',')+1)
-//                    console.log ("Result 2",file_path)
-
-
-                      array_of_image.push(file_path)
-                        // returns an array of compressed images
-
-
-//<span class="slider">
-//<a href="#">
-//<span class="delete-slider">
-//<i class="fa fa-trash fa-2x">
-//</i>
-//</span>
-//</a>
-//<img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/>
-
-
-
-                    $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
+              image.onload=function(){
+                  files_rec.src=image.src;
+                  var canvas=document.createElement("canvas");
+                  var context=canvas.getContext("2d");
+                  canvas.width=image.width/12;
+                  canvas.height=image.height/12;
+                  context.drawImage(image,
+                      0,
+                      0,
+                      image.width,
+                      image.height,
+                      0,
+                      0,
+                      canvas.width,
+                      canvas.height
+                  );
+                  var file_path=canvas.toDataURL().split(",")
+                  files_rec.src = file_path[1];
+                   console.log ("Result 2",file_path[1])
+                    array_of_image.push(file_path[1])
+                  $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path[1]+'"/></span>')
 //                    if (array_of_image.length == files_rec.files.length)
 
                     //console.log (array_of_image.length)
                     if ($('.scroll-forward').hasClass("d-none"))
                         $('.scroll-forward').removeClass("d-none")
-                };
-            })(files_rec.files[rec]);
+              }
+              image.src=event.target.result;
+            };
+            }
+            else{
+
+            fileReader.onload = function (event) {
+              var image = new Image();
+
+              image.onload=function(){
+                  files_rec.src=image.src;
+                  var canvas=document.createElement("canvas");
+                  var context=canvas.getContext("2d");
+                  canvas.width=image.width;
+                  canvas.height=image.height;
+                  context.drawImage(image,
+                      0,
+                      0,
+                      image.width,
+                      image.height,
+                      0,
+                      0,
+                      canvas.width,
+                      canvas.height
+                  );
+                  var file_path=canvas.toDataURL().split(",")
+                  files_rec.src = file_path[1];
+                   console.log ("Result 2",file_path[1])
+                    array_of_image.push(file_path[1])
+                  $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path[1]+'"/></span>')
+//                    if (array_of_image.length == files_rec.files.length)
+
+                    //console.log (array_of_image.length)
+                    if ($('.scroll-forward').hasClass("d-none"))
+                        $('.scroll-forward').removeClass("d-none")
+              }
+              image.src=event.target.result;
+            };
+
+            }
+
+//            console.log("-----------------",files_rec.files[rec])
+//            reader.onload = (function(theFile)
+//            {
+//                return function(e)
+//                {
+//                    var file_path = e.target.result
+////                    console.log ("Result 1",file_path)
+//                    file_path = file_path.slice(file_path.indexOf(',')+1)
+//                    console.log ("Result 2",file_path)
+//                    array_of_image.push(file_path)
+//
+//
+//
+//
+////<span class="slider">
+////<a href="#">
+////<span class="delete-slider">
+////<i class="fa fa-trash fa-2x">
+////</i>
+////</span>
+////</a>
+////<img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/>
+//
+//
+//
+//                    $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path+'"/></span>')
+////                    if (array_of_image.length == files_rec.files.length)
+//
+//                    //console.log (array_of_image.length)
+//                    if ($('.scroll-forward').hasClass("d-none"))
+//                        $('.scroll-forward').removeClass("d-none")
+//                };
+//            })(files_rec.files[rec]);
 //            reader.readAsBinaryString(files_rec.files[rec])
 
-            reader.readAsDataURL(files_rec.files[rec])
+            fileReader.readAsDataURL(files_rec.files[rec])
         }
+
+
 
     });
 
@@ -412,7 +488,7 @@ $(document).on('change','#change_photos',function()
                             {
                             if(data['result'] && data['result'] == true){
                                 console.log ("Controlllerrrrrrrrrrrrr")
-                                $(".add-photos-list_preview").load(location.href + ".add-photos-list_preview");
+                                $(".property-slider").load(location.href + ".property-slider");
 
                             }
                             }

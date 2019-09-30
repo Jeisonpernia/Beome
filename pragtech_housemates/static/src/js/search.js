@@ -284,6 +284,7 @@ $('input').focus(function(){
   console.log ("In jsssssssssssssssssssss", $(this).siblings())
   if (!$(this).siblings().hasClass('currency')){
   $(this).siblings().addClass('focused')
+  $('.ui-datepicker-trigger').removeClass('focused')
   }
 
 });

@@ -189,10 +189,10 @@ console.log("---------in my else--------------");
                 }*/
         }
 		   
-		   
-		   if (($(window).width() > 768) && ($(window).width() <= 975))
-	   {	
-		   
+//
+		   if (($(window).width() >= 768) && ($(window).width() <= 975))
+	   {
+
 		   if (window_pathname == '/info')
 			{
 
@@ -203,11 +203,11 @@ console.log("---------in my else--------------");
 				$(".info-page").find("#add_html_content").show()
 			}
 
-	   	
-	   }
-		   
 
-   if ($(window).width() >= 976)
+	   }
+
+
+   if ($(window).width() > 976)
 	   {
 
 		   if (window_pathname == '/info')
@@ -221,10 +221,10 @@ console.log("---------in my else--------------");
 			}
 
 	   }
-		   
-		   	   if ($(window).width() > 976 && $(window).width() < 991)
-	   {	
-		   
+
+       if ($(window).width() >= 976 && $(window).width() <= 991)
+	   {
+
 		   if (window_pathname == '/info')
 			{
 
@@ -234,9 +234,20 @@ console.log("---------in my else--------------");
 				$("#head_id").css('display','none')
 				$(".info-page").find("#add_html_content").show()
 			}
-	   	
+
 	   }
-		   
+//	   if ($(window).width() > 992)
+//	   {
+//			if (window_pathname.includes('/info'))
+//			{
+//			    console.log("\n\n----***----- in my condition ----***-----")
+//				$("#head_id").show()
+//				$(".info-page").find("#add_html_content").show()
+////				$("#head_id").css('display','block !important')
+////				$(".info-page").find("#add_html_content").show()
+//			}
+//
+//	   }
 		   
 
 		   
