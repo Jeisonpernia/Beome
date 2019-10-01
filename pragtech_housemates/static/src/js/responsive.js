@@ -106,7 +106,7 @@ $(document).ready(function()
 
 
            }
-		   
+
 		   
 		     if ($(window).width() + 17 >= 769 ){
 				 console.log("Suhas >= 769");
@@ -190,14 +190,17 @@ console.log("---------in my else--------------");
         }
 		   
 //
-		   if (($(window).width() >= 768) && ($(window).width() <= 975))
+       if (($(window).width() >= 768) && ($(window)[0].innerWidth < 992))
 	   {
-
+                console.log("\n\n----***----hhhhhhhhhhhhh- in my condition ----***-----",$(window))
+                console.log("\n\n----***----- in my condition ----***-----",$(window)[0].innerWidth)
+                console.log("\n\n----***----- in my condition ----***-----",$(window).outerWidth())
+                console.log("\n\n----***----- in my condition ----***-----",$(window).innerWidth())
 		   if (window_pathname == '/info')
 			{
 
 			}
-			if (window_pathname.includes('/info/'))
+			if (window_pathname.includes('/info'))
 			{
 				$("#head_id").css('display','none')
 				$(".info-page").find("#add_html_content").show()
@@ -207,47 +210,48 @@ console.log("---------in my else--------------");
 	   }
 
 
-   if ($(window).width() > 976)
-	   {
-
-		   if (window_pathname == '/info')
-			{
-
-			}
-			if (window_pathname.includes('/info/'))
-			{
-				$("#head_id").css('display','block')
-				$(".info-page").find("#add_html_content").show()
-			}
-
-	   }
-
-       if ($(window).width() >= 976 && $(window).width() <= 991)
-	   {
-
-		   if (window_pathname == '/info')
-			{
-
-			}
-			if (window_pathname.includes('/info/'))
-			{
-				$("#head_id").css('display','none')
-				$(".info-page").find("#add_html_content").show()
-			}
-
-	   }
-//	   if ($(window).width() > 992)
+//       if ($(window).width() >= 976)
 //	   {
-//			if (window_pathname.includes('/info'))
+//		   if (window_pathname == '/info')
 //			{
-//			    console.log("\n\n----***----- in my condition ----***-----")
+//
+//			}
+//			if (window_pathname.includes('/info/'))
+//			{
 //				$("#head_id").show()
 //				$(".info-page").find("#add_html_content").show()
-////				$("#head_id").css('display','block !important')
-////				$(".info-page").find("#add_html_content").show()
 //			}
 //
 //	   }
+//
+//       if ($(window).width() >= 976 && $(window).width() <= 991)
+//	   {
+//
+//		   if (window_pathname == '/info')
+//			{
+//
+//			}
+//			if (window_pathname.includes('/info/'))
+//			{
+//				$("#head_id").show()
+//				$(".info-page").find("#add_html_content").show()
+//			}
+//
+//	   }
+
+	   if ($(window)[0].innerWidth >= 992)
+	   {
+            if (window_pathname.includes('/info'))
+            {
+                console.log("\n\n----***----- in my condition ----***-----",$(window))
+                console.log("\n\n----***----- in my condition ----***-----",$(window)[0].innerWidth)
+                console.log("\n\n----***----- in my condition ----***-----",$(window).outerWidth())
+                console.log("\n\n----***----- in my condition ----***-----",$(window).innerWidth())
+
+                $("#head_id").show()
+                $(".info-page").find("#add_html_content").show()
+            }
+	   }
 		   
 
 		   

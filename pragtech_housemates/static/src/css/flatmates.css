@@ -3960,3 +3960,7 @@ body.modal-open {
 .unread_green_color{
 color:#159a7f;
 }
+.cover_narrow_size {
+            height: 100px;
+            height: 40vh;
+        }
