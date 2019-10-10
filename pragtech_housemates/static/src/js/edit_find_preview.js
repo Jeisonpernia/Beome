@@ -79,6 +79,7 @@ var window_pathname = window.location.pathname
                             $("#edit_find_date").val(data['result']['exiting_move_date'])
 
                             max_stay_ids = data['result']['max_stay_ids']
+                            $('#edit_max_stay_id').empty()
                             for(var i=0;i<max_stay_ids.length;i++){
                                 var max_stay_id = max_stay_ids[i]
                                 $('#edit_max_stay_id').append('<option value='+max_stay_id[0]+'>'+max_stay_id[1]+'</option>')
@@ -255,30 +256,35 @@ var window_pathname = window.location.pathname
                         if(data['result']){
 
                             internets = data['result']['internet']
+                            $('#edit_internet_in_find').empty()
                             for(var i=0;i<internets.length;i++){
                                 var internet = internets[i]
                                 $('#edit_internet_in_find').append('<option value='+internet[0]+'>'+internet[1]+'</option>')
                             }
 
                             parkings = data['result']['parking']
+                            $('#edit_parking_in_find').empty()
                             for(var i=0;i<parkings.length;i++){
                                 var parking = parkings[i]
                                 $('#edit_parking_in_find').append('<option value='+parking[0]+'>'+parking[1]+'</option>')
                             }
 
                             bathroom_typs = data['result']['bathroom_typs']
+                             $('#edit_bathroom_type_in_find').empty()
                             for(var i=0;i<bathroom_typs.length;i++){
                                 var bathroom_type = bathroom_typs[i]
                                 $('#edit_bathroom_type_in_find').append('<option value='+bathroom_type[0]+'>'+bathroom_type[1]+'</option>')
                             }
 
                             room_furnishing_types = data['result']['room_furnishing_types']
+                            $('#edit_room_furnishing_type_in_find').empty()
                             for(var i=0;i<room_furnishing_types.length;i++){
                                 var room_furnishing_type = room_furnishing_types[i]
                                 $('#edit_room_furnishing_type_in_find').append('<option value='+room_furnishing_type[0]+'>'+room_furnishing_type[1]+'</option>')
                             }
 
                             total_flatmates = data['result']['total_flatmates']
+                            $('#edit_total_flatmates_in_find').empty()
                             for(var i=0;i<total_flatmates.length;i++){
                                 var total_flatmate = total_flatmates[i]
                                 $('#edit_total_flatmates_in_find').append('<option value='+total_flatmate[0]+'>'+total_flatmate[1]+'</option>')
@@ -545,6 +551,7 @@ location.reload()
                                         $("#add_other_person").click()
                                         var dynamic_id = document.getElementById("dynamic_id_generator").value;
                                         dynamic_id = dynamic_id -1
+                                        console.log("\n\n testing for remove people in edit ",dynamic_id)
                                          $("#edit_first_name_" + dynamic_id.toString()).val(persons[i][0])
                                         $("#edit_gender_" + dynamic_id.toString()).val(persons[i][1])
                                         $("#edit_age_" + dynamic_id.toString()).val(persons[i][2].toString())
@@ -620,6 +627,7 @@ location.reload()
             input.type = 'text'
             input.className = 'form-control edit_name'
             input.id = 'edit_first_name_' + dynamic_id.toString()
+            input.autocomplete ="off"
             var name_error_div=document.createElement("div");
             name_error_div.className ='styles__errorMessage4 d-none'
             name_error_div.id='name__errorMessage_'+dynamic_id.toLocaleString()
@@ -675,6 +683,7 @@ location.reload()
             input.type = 'number'
             input.className = 'form-control weekly-rent-input edit_age'
             input.id = 'edit_age_' + dynamic_id.toLocaleString()
+             input.autocomplete ="off"
             var error_div=document.createElement("div");
             error_div.className ='styles__errorMessage4 d-none'
             error_div.id='styles__errorMessage_'+dynamic_id.toLocaleString()
@@ -957,25 +966,25 @@ location.reload()
 
         })
         $(".close_general_information_popup_id").on('click',function(){
-         location.reload();
+//         location.reload();
 
         })
         $(".close_aboutme_popup").on('click',function(){
-         location.reload();
+//         location.reload();
 
         })
 
         $(".close_aboutme_features_popup").on('click',function(){
-         location.reload();
+//         location.reload();
 
         })
 
         $(".close_property_preferences_popup").on('click',function(){
-         location.reload();
+//         location.reload();
 
         })
         $(".close_preferred_accommodation_popup").on('click',function(){
-         location.reload();
+//         location.reload();
 
         })
 
@@ -985,23 +994,23 @@ location.reload()
 
         $("#general_information_popup_id").on("hidden.bs.modal", function () {
         console.log("---** in **---")
-                      location.reload();
+//                      location.reload();
         });
 
         $("#aboutme_popup").on("hidden.bs.modal", function () {
-                      location.reload();
+//                      location.reload();
         });
 
         $("#aboutme_features_popup").on("hidden.bs.modal", function () {
-                      location.reload();
+//                      location.reload();
         });
 
         $("#property_preferences_popup").on("hidden.bs.modal", function () {
-                      location.reload();
+//                      location.reload();
         });
 
         $("#preferred_accommodation_popup").on("hidden.bs.modal", function () {
-                      location.reload();
+//                      location.reload();
         });
 
 

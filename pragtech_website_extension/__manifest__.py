@@ -5,10 +5,10 @@
     'name': 'Website Extensin',
     'summary': 'Customer Portal',
     'sequence': '9001',
-    'version': '12.0.44',
+    'version': '12.0.45',
     'category': 'Hidden',
     'description': """ Portal Extension """,
-    'depends': ['portal','auth_oauth','website_sale','l10n_au','sale_management'],
+    'depends': ['portal','auth_signup','auth_oauth','website_sale','l10n_au','sale_management'],
     'data': [
         'data/website_data.xml',
         'security/ir.model.access.csv',

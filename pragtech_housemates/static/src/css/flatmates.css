@@ -3277,9 +3277,15 @@ background-color: #797772;
     padding: 1em;
     text-align: center; width:100%; 
 	background: #fff;}
+.message-numbers a{
+
+text-decoration: none;
+
+}
 
 .message_numbers_link{
 color: #979ba3;
+
 }
 
 

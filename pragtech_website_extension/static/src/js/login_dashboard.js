@@ -321,6 +321,39 @@ odoo.define('pragtech_website_extension.login_dashboard', function (require)
 
          });
 
+        $('#password').on('keyup change',function()
+		{
+            var re = /[\d-!$%^&*()_+|~=`{}\[\]:;<>?,.\/#@]+/;
+            var regex_without_symbol = new RegExp(re)
+            var is_valid_without_symbol =regex_without_symbol.test($(this).context.value)
+
+            if(($(this).context.value).length < 8){
+                $('.field-confirm_password').css('margin-top','51px')
+                $('.password-tooltips-close-length').attr('aria-hidden', 'false');
+                $('.password-tooltips-tick-length').attr('aria-hidden', 'true');
+                $('.span-password-tooltips').removeClass('d-none')
+            }
+            else
+            {
+                $('.password-tooltips-close-length').attr('aria-hidden', 'true');
+                $('.password-tooltips-tick-length').attr('aria-hidden', 'false');
+            }
+            if(is_valid_without_symbol){
+                $('.password-tooltips-close-symbol').attr('aria-hidden', 'true');
+                $('.password-tooltips-tick-symbol').attr('aria-hidden', 'flase');
+                $('.span-password-tooltips').removeClass('d-none')
+            }
+            else{
+                $('.password-tooltips-close-symbol').attr('aria-hidden', 'false');
+                $('.password-tooltips-tick-symbol').attr('aria-hidden', 'true');
+            }
+        })
+
+        $('.field-confirm_password').on('keyup change',function()
+		{
+            $('.span-password-tooltips').addClass('d-none')
+            $('.field-confirm_password').css('margin-top','0px')
+        })
 
     });
 });

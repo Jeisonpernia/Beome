@@ -74,6 +74,7 @@ var window_pathname = window.location.pathname
                         $("#edit_date").val(data['result']['avil_date'])
 
                         bill_ids = data['result']['bill_ids']
+                        $('#edit_bills_id').empty()
                         for(var i=0;i<bill_ids.length;i++){
                             var bill_id = bill_ids[i]
                             console.log('Bill id :',bill_id)
@@ -81,6 +82,7 @@ var window_pathname = window.location.pathname
                         }
 
                         bond_ids = data['result']['bond_ids']
+                        $('#edit_bond_id').empty()
                         for(var i=0;i<bond_ids.length;i++){
                             var bond_id = bond_ids[i]
                             console.log('bond_id :',bond_id)
@@ -88,6 +90,7 @@ var window_pathname = window.location.pathname
                         }
 
                         room_furnishing_ids = data['result']['room_furnishing_ids']
+                        $('#edit_room_furnishing_id').empty()
                         for(var i=0;i<room_furnishing_ids.length;i++){
                             var room_furnishing_id = room_furnishing_ids[i]
                             console.log('room_furnishing_id :',room_furnishing_id)
@@ -95,6 +98,7 @@ var window_pathname = window.location.pathname
                         }
 
                         room_types = data['result']['room_types']
+                        $('#edit_room_type_id').empty()
                         for(var i=0;i<room_types.length;i++){
                             var room_type = room_types[i]
                             console.log('room_type :',room_type)
@@ -102,6 +106,7 @@ var window_pathname = window.location.pathname
                         }
 
                         bath_room_types = data['result']['bath_room_types']
+                        $('#edit_bath_room_type_id').empty()
                         for(var i=0;i<bath_room_types.length;i++){
                             var bath_room_type = bath_room_types[i]
                             console.log('bath_room_type :',bath_room_type)
@@ -109,6 +114,7 @@ var window_pathname = window.location.pathname
                         }
 
                         min_stay_ids = data['result']['min_stay_ids']
+                         $('#edit_min_stay_id').empty()
                         for(var i=0;i<min_stay_ids.length;i++){
                             var min_stay_id = min_stay_ids[i]
                             console.log('min_stay_id :',min_stay_id)
@@ -116,6 +122,7 @@ var window_pathname = window.location.pathname
                         }
 
                         max_stay_ids = data['result']['max_stay_ids']
+                        $('#edit_max_stay_id').empty()
                         for(var i=0;i<max_stay_ids.length;i++){
                             var max_stay_id = max_stay_ids[i]
                             console.log('max_stay_id :',max_stay_id)
@@ -307,6 +314,7 @@ var window_pathname = window.location.pathname
                     console.log(' !! data : ',data['result'])
 
                         total_bedrooms = data['result']['total_bedrooms']
+                        $('#edit_total_bedroom').empty()
                         for(var i=0;i<total_bedrooms.length;i++){
                             var total_bedroom = total_bedrooms[i]
                             console.log('total_bedrooms id :',total_bedroom)
@@ -314,6 +322,7 @@ var window_pathname = window.location.pathname
                         }
 
                         total_bathrooms = data['result']['total_bathrooms']
+                        $('#edit_total_bathroom').empty()
                         for(var i=0;i<total_bathrooms.length;i++){
                             var total_bathroom = total_bathrooms[i]
                             console.log('total_bathrooms id :',total_bathroom)
@@ -321,6 +330,7 @@ var window_pathname = window.location.pathname
                         }
 
                         total_flatmates = data['result']['total_flatmates']
+                        $('#edit_total_flatmates').empty()
                         for(var i=0;i<total_flatmates.length;i++){
                             var total_flatmate = total_flatmates[i]
                             console.log('total_flatmates id :',total_flatmate)
@@ -328,12 +338,14 @@ var window_pathname = window.location.pathname
                         }
 
                         internets = data['result']['internet']
+                        $('#edit_internet').empty()
                         for(var i=0;i<internets.length;i++){
                             var internet = internets[i]
                             console.log('internet id :',internet)
                             $('#edit_internet').append('<option value='+internet[0]+'>'+internet[1]+'</option>')
                         }
                         parkings = data['result']['parking']
+                        $('#edit_parking').empty()
                         for(var i=0;i<parkings.length;i++){
                             var parking = parkings[i]
                             console.log('parking id :',parking)
@@ -570,43 +582,43 @@ var window_pathname = window.location.pathname
 
          $(document).on('click','.about_room_popup_close',function(){
 
-         location.reload();
+//         location.reload();
          })
 
          $(document).on('click','.list_place_property_preferences_popup_close',function(){
 
-         location.reload();
+//         location.reload();
          })
 
          $(document).on('click','.about_property_popup_close',function(){
 
-         location.reload();
+//         location.reload();
          })
 
          $(document).on('click','.about_the_user_popup_close',function(){
 
-         location.reload();
+//         location.reload();
          })
 
          $(document).on('click','.property-description-edit_popup_close',function(){
 
-         location.reload();
+//         location.reload();
          })
 
          $("#about_room_popup").on("hidden.bs.modal", function () {
-              location.reload();
+//              location.reload();
         });
         $("#list_place_property_preferences_popup").on("hidden.bs.modal", function () {
-              location.reload();
+//              location.reload();
         });
         $("#about_property_popup").on("hidden.bs.modal", function () {
-              location.reload();
+//              location.reload();
         });
         $("#property-description-edit_popup").on("hidden.bs.modal", function () {
-              location.reload();
+//              location.reload();
         });
          $("#about_the_flatmates_popup").on("hidden.bs.modal", function () {
-              location.reload();
+//              location.reload();
         });
 
 

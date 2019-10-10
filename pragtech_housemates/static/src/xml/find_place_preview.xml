@@ -606,7 +606,7 @@
 
                                                                 </div>
                                                                 <a href="#" class="for-couple-gender" id="add_other_person">+Add another person</a>
-                                                                <input type="number" value="3" id="dynamic_id_generator" style="display:none;"/>
+                                                                <input type="number" value="3" id="dynamic_id_generator" style="display:none;" autocomplete="off"/>
                                                                 <button type="button"
                                                                         id="update_applicant_info"
                                                                         class="btn btn-green1 mt-3 mb-4 btn-block"
