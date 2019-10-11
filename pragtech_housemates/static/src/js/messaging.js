@@ -106,7 +106,8 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
                                 unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
 
                                 $(".message-numbers").empty()
-                                $(".message-numbers").append("<a href='#' class='message_numbers_link'>"+unread_msg_count+" unread messages"+"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
+                                $(".message-numbers").append("<a href='/messages' class='message_numbers_link'>"+unread_msg_count+" unread messages-Show All")
+//                                +"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
 //                                if (unread_msg_count > 0){
                                     $(".message_numbers_link").addClass('unread_green_color')
 //                                }
@@ -217,7 +218,8 @@ odoo.define('pragtech_flatmates.messaging', function (require) {
 
                                     unread_msg_count = data['result'][data['result'].length-1]['unread_msg_count']
                                     $(".message-numbers").empty()
-                                    $(".message-numbers").append("<a href='#' class='message_numbers_link'>"+unread_msg_count+" unread messages"+"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
+                                    $(".message-numbers").append("<a href='/messages' class='message_numbers_link'>"+unread_msg_count+" unread messages-Show All")
+//                                    +"</a><a href='/messages' class='show_all_message unread_green_color'>-Show All</a>")
 //                                    if (unread_msg_count > 0){
                                         $(".message_numbers_link").addClass('unread_green_color')
 //                                    }
@@ -255,6 +257,7 @@ $(document).on('click','.message_numbers_link',function(e){
                 }
          }
          $(".show_all_message").removeClass('d-none')
+         $(".message_numbers_link").addClass('d-none')
 
 
 

@@ -20,7 +20,11 @@
                                                     <t t-esc="unread_msg_count"/>
                                                     unread messages
                                                 </a>
-                                                 <a href="/messages" class="show_all_message unread_green_color d-none">-Show All</a>
+                                            <a href="/messages" class="show_all_message unread_green_color d-none" t-att-value="unread_msg_count">
+                                                    <t t-esc="unread_msg_count"/>
+                                                    unread messages-Show All
+                                                </a>
+                                                 <!--<a href="/messages" class="show_all_message unread_green_color d-none">-Show All</a>-->
                                              </div>
                                         </t>
                                         <t t-else="">
@@ -29,7 +33,11 @@
                                                     <t t-esc="unread_msg_count"/>
                                                     unread messages
                                             </div>
-                                            <a href="/messages" class="show_all_message unread_green_color d-none">-Show All</a>
+                                            <a href="/messages" class="show_all_message unread_green_color d-none" t-att-value="unread_msg_count">
+                                                    <t t-esc="unread_msg_count"/>
+                                                    unread messages-Show All
+                                                </a>
+                                            <!--<a href="/messages" class="show_all_message unread_green_color d-none">-Show All</a>-->
                                         </t>
                                         <input id="view_conversation_user_id" type="hidden" value=""/>
                                         <ul class="inbox-conversations-list">

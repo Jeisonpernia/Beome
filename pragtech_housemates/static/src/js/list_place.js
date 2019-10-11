@@ -181,6 +181,8 @@ $(document).ready(function()
     //form data of Property and room images Page
     $('#property_images_form_id').submit(function( event )
     {
+//event.preventDefault();
+//alert("hii")
         var oldArray = JSON.parse(localStorage.getItem('list_place_array'));
         if (array_of_image)
             oldArray[0]['property_images'] = array_of_image
@@ -326,7 +328,9 @@ $(document).ready(function()
         {
             var reader = new FileReader();
             var fileReader = new FileReader();
-            if(files_rec.files[rec].size >= 1000000){
+            console.log("\n\n file size -----",files_rec.files[rec].size)
+            if(files_rec.files[rec].size > 2000000){
+            console.log("\n\n in file size if ----",files_rec.files[rec].size)
             fileReader.onload = function (event) {
               var image = new Image();
 
@@ -347,6 +351,7 @@ $(document).ready(function()
                       canvas.height
                   );
                   var file_path=canvas.toDataURL().split(",")
+                  console.log("\n\n---- file path",canvas.toDataURL())
                   files_rec.src = file_path[1];
                    console.log ("Result 2",file_path[1])
                     array_of_image.push(file_path[1])
@@ -360,13 +365,89 @@ $(document).ready(function()
               image.src=event.target.result;
             };
             }
-            else{
-
+             else if (files_rec.files[rec].size >= 1000000 && files_rec.files[rec].size <= 2000000){
+             console.log("\n\n in file size else if1 ----",files_rec.files[rec].size)
             fileReader.onload = function (event) {
               var image = new Image();
 
               image.onload=function(){
                   files_rec.src=image.src;
+                  var canvas=document.createElement("canvas");
+                  var context=canvas.getContext("2d");
+                  canvas.width=image.width/4;
+                  canvas.height=image.height/4;
+                  context.drawImage(image,
+                      0,
+                      0,
+                      image.width,
+                      image.height,
+                      0,
+                      0,
+                      canvas.width,
+                      canvas.height
+                  );
+                  var file_path=canvas.toDataURL().split(",")
+                  console.log("\n\n---- file path",canvas.toDataURL())
+                  files_rec.src = file_path[1];
+                   console.log ("Result 2",file_path[1])
+                    array_of_image.push(file_path[1])
+                  $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path[1]+'"/></span>')
+//                    if (array_of_image.length == files_rec.files.length)
+
+                    //console.log (array_of_image.length)
+                    if ($('.scroll-forward').hasClass("d-none"))
+                        $('.scroll-forward').removeClass("d-none")
+              }
+              image.src=event.target.result;
+            };
+
+
+             }
+            else if (files_rec.files[rec].size >= 500000 && files_rec.files[rec].size < 1000000){
+
+
+            fileReader.onload = function (event) {
+              var image = new Image();
+              image.onload=function(){
+                  files_rec.src=image.src;
+                  console.log("\n\n in file size else if ----",image.width,image.height)
+                  var canvas=document.createElement("canvas");
+                  var context=canvas.getContext("2d");
+                  canvas.width=image.width/2;
+                  canvas.height=image.height/2;
+                  context.drawImage(image,
+                      0,
+                      0,
+                      image.width,
+                      image.height,
+                      0,
+                      0,
+                      canvas.width,
+                      canvas.height
+                  );
+                  var file_path=canvas.toDataURL().split(",")
+                  files_rec.src = file_path[1];
+                   console.log("\n\n---- file path  in else if",canvas.toDataURL())
+                   console.log ("Result 25",file_path[1])
+                    array_of_image.push(file_path[1])
+                  $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path[1]+'"/></span>')
+//                    if (array_of_image.length == files_rec.files.length)
+
+                    //console.log (array_of_image.length)
+                    if ($('.scroll-forward').hasClass("d-none"))
+                        $('.scroll-forward').removeClass("d-none")
+              }
+              image.src=event.target.result;
+            };
+
+            }
+            else{
+
+            fileReader.onload = function (event) {
+              var image = new Image();
+              image.onload=function(){
+                  files_rec.src=image.src;
+                  console.log("\n\n in file size else ----",image.width,image.height)
                   var canvas=document.createElement("canvas");
                   var context=canvas.getContext("2d");
                   canvas.width=image.width;
@@ -381,9 +462,10 @@ $(document).ready(function()
                       canvas.width,
                       canvas.height
                   );
-                  var file_path=canvas.toDataURL().split(",")
+                  var file_path=canvas.toDataURL('image/jpeg',0.5).split(",")
                   files_rec.src = file_path[1];
-                   console.log ("Result 2",file_path[1])
+                   console.log("\n\n---- file path  in else",canvas.toDataURL())
+                   console.log ("Result 25",file_path[1])
                     array_of_image.push(file_path[1])
                   $(document).find('.scrolling-wrapper').append('<span class="slider"><a href="#"><span class="delete-slider"><i class="fa fa-trash fa-2x delete-image"></i></span></a><img class="slider-img card" src="data:image/jpeg;base64,'+file_path[1]+'"/></span>')
 //                    if (array_of_image.length == files_rec.files.length)

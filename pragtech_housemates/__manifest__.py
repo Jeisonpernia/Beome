@@ -6,7 +6,7 @@
     'category': 'Website',
     'summary': '',
     'website': '',
-    'version': '12.0.50',
+    'version': '12.0.51',
     'description': "",
     'depends': [
                 'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname','portal'
