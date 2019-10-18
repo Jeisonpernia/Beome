@@ -5,8 +5,9 @@
     'name': 'Housemates',
     'category': 'Website',
     'summary': '',
-    'website': '',
-    'version': '12.0.51',
+    'website': 'https://www.pragtech.co.in',
+    'author': "Pragmatic Techsoft Pvt. Ltd. ",
+    'version': '12.0.52',
     'description': "",
     'depends': [
                 'website','website_blog','base','auth_oauth','auth_signup', 'pragtech_website_extension','partner_firstname','portal'

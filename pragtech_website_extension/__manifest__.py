@@ -5,8 +5,10 @@
     'name': 'Website Extensin',
     'summary': 'Customer Portal',
     'sequence': '9001',
-    'version': '12.0.45',
+    'author': "Pragmatic Techsoft Pvt. Ltd. ",
+    'version': '12.0.46',
     'category': 'Hidden',
+    'website':'https://www.pragtech.co.in',
     'description': """ Portal Extension """,
     'depends': ['portal','auth_signup','auth_oauth','website_sale','l10n_au','sale_management'],
     'data': [
